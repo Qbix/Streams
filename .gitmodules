@@ -1,0 +1,3 @@
+[submodule "web/js/face-api"]
+	path = web/js/face-api
+	url = https://github.com/Qbix/Streams-face-api
