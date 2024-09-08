@@ -42,7 +42,7 @@ Q.exports(function(priv, Streams, Stream){
 				if (!fields) return;
 				this.fields = this.fields || {};
 				for (var k in fields) {
-					if ((k in this.fields) || (Stream.properties.indexOf(k) < 1)) {
+					if ((k in this.fields) || (Stream.properties[k])) {
 						continue;
 					}
 					this.fields[k] = Q.copy(fields[k]);
