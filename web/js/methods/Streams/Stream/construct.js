@@ -40,8 +40,9 @@ Q.exports(function(priv, Streams, Stream){
 				streamFunc.constructors.apply(this, arguments);
 				// Default constructor. Copy any additional fields.
 				if (!fields) return;
+				this.fields = this.fields || {};
 				for (var k in fields) {
-					if ((k in this.fields) || (k in Stream.properties)) {
+					if ((k in this.fields) || (Stream.properties.indexOf(k) < 1)) {
 						continue;
 					}
 					this.fields[k] = Q.copy(fields[k]);
