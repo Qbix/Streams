@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "התוכן הזה מוסתר ממך.",
+        "InplaceTypeMustBe": "inplaceType חייב להיות &#39;textarea&#39; או &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "פריט חדש"
+    },
+    "avatar": {
+        "firstName": "שם פרטי",
+        "lastName": "שם משפחה",
+        "username": "שם משתמש"
+    },
+    "labels": {
+        "Streams\/invited": "אנשים שהזמנתי",
+        "Streams\/invitedMe": "מי הזמין אותי",
+        "DoYouAgree": "אתה מסכים?",
+        "Yes": "כן",
+        "No": "לא",
+        "JoinItNow": "להצטרף אליו עכשיו?"
+    },
+    "login": {
+        "prompt": "תן לחברים לזהות אותך:",
+        "newUser": "או צור חשבון חדש למטה",
+        "picTooltip": "אתה יכול לשנות תמונה זו מאוחר יותר",
+        "placeholders": {
+            "fullName": "הכנס את שמך המלא"
+        }
+    },
+    "interests": {
+        "Filter": "תחומי עניין בחיפוש",
+        "CanGrant": "אם אתה עדיין לא מוצא את מה שאתה מחפש, אתה יכול להוסיף עניין חדש למטה:",
+        "TrySynonyms": "לא רואה את זה? נסה כמה מילים נרדפות.",
+        "AddUnderCategory": "הוסף תחת קטגוריה...",
+        "Other": "אַחֵר",
+        "Unlisted": "לא רשום"
+    },
+    "chat": {
+        "flaggedForAdminReview": "ההודעה סומנה לבדיקת מנהל. הקש שוב כדי לבטל את הסימון.",
+        "noOneSaid": "אף אחד לא אמר כלום",
+        "closeChatButton": "סגור צ&#39;אט",
+        "closeChatConfirmTitle": "לסגור את הצ&#39;אט הזה?",
+        "closeChatConfirm": "האם אתה בטוח שברצונך לסגור את הצ&#39;אט הזה?",
+        "Subscribed": "התראות מופעלות",
+        "Unsubscribed": "הודעות מושתקות",
+        "closeChatConfirmYes": "כן",
+        "closeChatConfirmNo": "לא",
+        "earlierComments": "הערות קודמות",
+        "startedConversation": "התחילה שיחה",
+        "RealTimeCall": "שיחה בזמן אמת",
+        "JoinWebRTC": "ועידה טלפונית",
+        "SearchByName": "חפש לפי שם",
+        "Notifications": {
+            "Visit": "{{displayName}} מבקר בצ&#39;אט",
+            "Join": "{{displayName}} הצטרפו לצ&#39;אט",
+            "Leave": "{{displayName}} עזבו את הצ&#39;אט",
+            "RelatedTo": "{{displayName}} התחיל {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "הוסף תגובה",
+            "Private": "כתוב הודעה פרטית"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "לנהל את מנויי האימייל שלך",
+        "IfUnsubscribe": "אם אתה רוצה לבטל את המנוי",
+        "*": "הודעה {{{ message.fields.type}} עד {{& stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} הצטרפו",
+        "Streams\/left": "נותרו {{{call 'avatar.displayName'}}}",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} אמרו: {{& message.content}}}",
+        "Streams\/changed": "שינויים ב {{stream.fields.title}}",
+        "Streams\/invite": "הוזמנת ל {{{ stream.fields.title}}}",
+        "Streams\/announcement": "הודעה ב {{{ stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}} שינה גישה ב {{& stream.fields.title}}}",
+        "Streams\/chat\/edit": "הודעת צ&#39;אט נערך ב {{{ stream.fields.title}}}",
+        "Streams\/chat\/remove": "הודעת צ&#39;אט הוסרה ב {{{ stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} נסגר",
+        "Streams\/task\/progress": "התקדמות שנעשתה ב {{stream.fields.title}}",
+        "Streams\/task\/complete": "משימה שהושלמו: {{stream.fields.title}}",
+        "Streams\/task\/error": "שגיאה במהלך: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : הודעה נכנסת",
+        "Streams\/relatedTo\/Streams\/call": "שיחה חדשה החלה ב {{toTitle}}",
+        "Streams\/relatedTo\/*": "חדש {{relationDisplayType}} ב {{toTitle}}",
+        "Streams\/relatedFrom\/*": "נוסף ל {{toTitle}} כ {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} הזכיר אותך בתגובה",
+        "Streams\/call": "{{displayName}} התחיל שיחה בזמן אמת",
+        "changed": {
+            "ChangesIn": "שינויים ב {{title}}",
+            "Changed": "השתנה",
+            "HereIsWhatChanged": "הנה מה שהשתנה:"
+        },
+        "joined": {
+            "Joined": "{{subject}} הצטרפו <em>{{title}}<\/em>"
+        }
+    },
+    "invite": {
+        "command": "להזמין",
+        "Invite": "להזמין",
+        "Share": "לַחֲלוֹק",
+        "messageContent": "{{displayName}} הזמין אותך ל {{inviteUrl}}",
+        "youCanNowPaste": "כעת תוכל להדביק את הקישור הזה במקום כלשהו כדי להזמין אנשים",
+        "roles": {
+            "title": "להעניק תפקידים למשתמשים מוזמנים?",
+            "NotAuthorizedToGrantRole": {
+                "title": "מצטער",
+                "alert": "אינך מורשה להעניק תפקיד זה"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "מצטער",
+                "alert": "אינך מורשה להסיר את התפקיד הזה"
+            }
+        },
+        "labels": {
+            "title": "מה הקשר שלך?"
+        },
+        "dialog": {
+            "chooseFromContacts": "בחר מתוך אנשי הקשר שלך",
+            "chooseAgainFromContacts": "בחר שוב מתוך אנשי קשר",
+            "inviteSelectedContacts": "הזמן אנשי קשר נבחרים",
+            "selectFromContacts": "בחר מתוך אנשי קשר",
+            "userChooserPlaceholder": "חפש לפי שם",
+            "photo": "צלם תמונה",
+            "photoOf": "צלם תמונה של {{name}}",
+            "photoInstruction": "אם האדם שסרק את קוד ה-QR שלך נמצא מולך, צלם אותו",
+            "to": "אל: {{Stream Title}}",
+            "go": "ללכת",
+            "title": "להזמין",
+            "placeholder": "מספר נייד או כתובת מייל",
+            "orInvite": "או הזמן אנשים באמצעות:",
+            "copyLink": "{{ClickOrTap}} להעתקת קישור להזמנה",
+            "shareOrCopyLink": "{{ClickOrTap}} כדי לשתף או להעתיק קישור להזמנה",
+            "QR": "{{ClickOrTap}} ליצירת קוד QR",
+            "QRtitle": "סרוק את קוד ה-QR הזה",
+            "QRscanned": "הם סרקו את זה!",
+            "scannedQR": "{{ClickOrTap}} אם הקוד נסרק",
+            "byEmail": "אימייל",
+            "byText": "טֶקסט",
+            "byFacebook": "פייסבוק",
+            "byTwitter": "טוויטר",
+            "title2": "להזמין אנשים",
+            "chooseMethod": "בחר שיטה:",
+            "selectContacts": "בחר אנשי קשר",
+            "scanQRCode": "סרוק קוד QR",
+            "shareLink": "שתף קישור",
+            "chooseFromRegistered": "בחר מבין משתמשים רשומים",
+            "inviteViaEmailOrSms": "הזמינו במייל או ב-SMS",
+            "TakeGroupPhoto": "צלם תמונה קבוצתית",
+            "Skip": "לדלג",
+            "byTelegram": "מִברָק",
+            "byWhatsapp": "וואטסאפ",
+            "addRoles": "הוסף תפקידים",
+            "addPersonalRoles": "הוסף קשרים אישיים"
+        },
+        "complete": {
+            "WelcomeToCommunity": "ברוכים הבאים ל {{communityName}}",
+            "HasInvitedYou": "הזמין אותך ל:",
+            "HasInvitedYouToTheirProfile": "הזמין אותך להתחבר.",
+            "prompt": "תן לחברים לזהות אותך:",
+            "accept": "קבל הזמנה"
+        },
+        "email": {
+            "subject": "היי, תבדוק את זה",
+            "PleaseVisitLink": "אנא בקר בקישור הבא:",
+            "InvitingYou": "אני מזמין אותך ל {{title}}",
+            "HasInvitedYou": "{{displayName}} הזמין אותך ל {{title}}",
+            "HasMentionedYou": "{{displayName}} הזכיר אותך ב&quot; {{title}} &quot;",
+            "YOUAREINVITED": "אתם מוזמנים!",
+            "AcceptInvite": "קבל הזמנה"
+        },
+        "mobile": {
+            "content": "הוזמנת ל {{title}} . אנא הקש על {{url}}"
+        },
+        "notice": {
+            "text": "הוזמנת. {{ClickOrTap}} כאן כדי לקבל ולהצטרף."
+        },
+        "chat": {
+            "prompt": "אתה תזמין אנשים לשיחה שבה תוכל לשמור על קשר, לשתף תמונות ביחד ועוד. תן לזה שם:"
+        },
+        "Participants": "להזמין אנשים"
+    },
+    "messages": {
+        "html": {
+            "posted": "פרסם הודעה <em>{{message.fields.type}}<\/em> ל {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "הגיב על",
+            "startedCallIn": "התחילה שיחה פנימה",
+            "in": "ב",
+            "body": "ב {{{ url}} : {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "פורסם אל",
+                "byAvatar": "עד {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "יש {{instructions.fromDisplayType}} חדש",
+                "byAvatar": "נוסף על ידי {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "ההזמנות נשלחות מהמספר שלנו, שחבריך עדיין לא מזהים. המשך עם טקסט מהיר כדי ליידע אותם שההזמנה הגיעה ממך, וביקש מהם ללחוץ על הקישור.",
+            "confirm": "ההזמנות נשלחות מהמספר שלנו, שחבריך עדיין לא מזהים. האם תרצה להמשיך עם טקסט מהיר כדי ליידע אותם שההזמנה הגיעה ממך, ולבקש מהם ללחוץ על הקישור.",
+            "check": "היי, זה עתה שלחתי לך הזמנה לאפליקציית {{app}} . אנא בדוק את ה-SMS שלך ולחץ על הקישור!",
+            "CheckYourMobile": "אנא בדוק SMS ופעל לפי ההוראות!"
+        },
+        "email": {
+            "alert": "הזמנות נשלחות מהדומיין שלנו, שהחברים שלך עדיין לא מזהים. המשך עם טקסט מהיר כדי ליידע אותם שההזמנה הגיעה ממך, וביקש מהם ללחוץ על הקישור.",
+            "confirm": "הזמנות נשלחות מהדומיין שלנו, שהחברים שלך עדיין לא מזהים. האם תרצה להמשיך עם טקסט מהיר כדי ליידע אותם שההזמנה הגיעה ממך, ולבקש מהם ללחוץ על הקישור.",
+            "subject": "קיבלת הזמנה?",
+            "body": "היי, זה עתה שלחתי לך הזמנה לאפליקציית {{app}} . אנא בדוק את האימייל שלך ולחץ על הקישור שם!",
+            "CheckYourEmail": "אנא בדוק את האימייל שלך ופעל לפי ההוראות!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "הגדרות פרטיות"
+    },
+    "participating": {
+        "Title": "כותרת",
+        "Subscribed": "נרשם",
+        "Participants": "משתתפים",
+        "AreYouSureRemoveIdentifier": "האם אתה בטוח להסיר מזהה זה?",
+        "AreYouSureUnsubscribeIdentifier": "האם אתה בטוח לבטל את הרישום של מזהה זה? זה יכבה את ההתראות למזהה הזה.",
+        "AreYouSureUnsubscribeDevice": "האם אתה בטוח לבטל את הרישום של המכשיר הזה? זה יכבה את ההתראות למכשיר הזה.",
+        "AreYouSureRemoveParticipant": "האם אתה בטוח שברצונך להסיר את המשתתף הזה?",
+        "RemoveParticipant": "הסר את המשתתף",
+        "Identifiers": "מזהים",
+        "Devices": "מכשירים",
+        "Streams": "זרמים"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "מוזמן",
+            "description": "תיבת דואר נכנס להזמנות"
+        },
+        "Streams\/resource": {
+            "displayType": "מַשׁאָב",
+            "description": "זרם לניהול גישה למשאב ופרסום הודעות על עדכונים"
+        },
+        "Streams\/task": {
+            "description": "לקבלת עדכונים על התקדמות במשימה מסוימת",
+            "displayType": "מְשִׁימָה"
+        },
+        "Streams\/tasks": {
+            "description": "קטגוריה למשימות",
+            "displayType": "משימות"
+        },
+        "Streams\/experience": {
+            "description": "חוויה משותפת לחברי קהילה",
+            "displayType": "ניסיון משותף לחברי קהילה"
+        },
+        "Streams\/greeting": {
+            "description": "ברכה שאיתה משתמש יכול להציג את עצמו",
+            "displayType": "בְּרָכָה"
+        },
+        "Streams\/number": {
+            "displayType": "מספר",
+            "description": "מספר מתמטי"
+        },
+        "Streams\/date": {
+            "displayType": "תַאֲרִיך",
+            "description": "תַאֲרִיך"
+        },
+        "Streams\/text": {
+            "displayType": "טֶקסט",
+            "description": "גוף הטקסט"
+        },
+        "Streams\/text\/small": {
+            "displayType": "טֶקסט",
+            "description": "גוף טקסט קטן"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "טֶקסט",
+            "description": "גוף טקסט בינוני"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "כתובת דוא&quot;ל",
+            "description": "כתובת דוא&quot;ל"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "מספר טלפון",
+            "description": "מספר טלפון"
+        },
+        "Streams\/text\/url": {
+            "displayType": "כתובת אתר",
+            "description": "קישור באינטרנט"
+        },
+        "Streams\/image": {
+            "displayType": "תמונה",
+            "description": "תמונה ויזואלית",
+            "newItem": "להוסיף תמונה"
+        },
+        "Streams\/images": {
+            "displayType": "גלריית תמונות",
+            "description": "גלריית תמונות"
+        },
+        "Streams\/album": {
+            "displayType": "אַלבּוֹם",
+            "description": "אלבום אליו קשורים מדיות שונות"
+        },
+        "Streams\/file": {
+            "displayType": "קוֹבֶץ",
+            "description": "קובץ שהועלה",
+            "newItem": "הוסף קובץ"
+        },
+        "Streams\/audio": {
+            "displayType": "קליפ אודיו",
+            "description": "קליפ אודיו",
+            "newItem": "הוסף אודיו"
+        },
+        "Streams\/video": {
+            "displayType": "סרטון וידאו",
+            "description": "סרטון וידאו",
+            "newItem": "הוסף וידאו"
+        },
+        "Streams\/pdf": {
+            "displayType": "מסמך PDF",
+            "description": "מסמך PDF",
+            "newItem": "הוסף PDF"
+        },
+        "Streams\/live": {
+            "displayType": "שידור חי",
+            "description": "אודיו או וידאו חי"
+        },
+        "Streams\/category": {
+            "displayType": "קטגוריה",
+            "description": "קטגוריה שאליה ניתן לקשר זרמים אחרים",
+            "newItem": "הוסף קטגוריה"
+        },
+        "Streams\/participating": {
+            "displayType": "אינדקס משתתף",
+            "description": "זרמים קשורים\/לא קשורים לזה כאשר משתמש מצטרף\/עוזב"
+        },
+        "Streams\/interest": {
+            "displayType": "ריבית",
+            "description": "מייצג עניין של משתמש בנושא מסוים"
+        },
+        "Streams\/incoming": {
+            "displayType": "נִכנָס",
+            "description": "יעד להודעות שנשלחו על ידי משתמשים אחרים"
+        },
+        "Streams\/chat": {
+            "displayType": "שִׂיחָה",
+            "description": "שיחה בין משתמשים, עם היסטוריה"
+        },
+        "Streams\/question": {
+            "displayType": "שְׁאֵלָה",
+            "description": "זרם שאלות",
+            "newItem": "הוסף שאלה"
+        },
+        "Streams\/answer": {
+            "displayType": "תשובה",
+            "description": "זרם תשובות"
+        }
+    },
+    "menu": {
+        "placeholder": "הקלד את כותרת העמוד",
+        "ModTab": "שנה פריט",
+        "Save": "להציל",
+        "Delete": "לִמְחוֹק",
+        "Submenu": "תפריט משנה"
+    },
+    "audio": {
+        "record": "תקליט",
+        "reset": "אִתחוּל",
+        "edit": "לַעֲרוֹך",
+        "title": "כותרת",
+        "description": "תיאור",
+        "upload": "העלה",
+        "link": "קישור",
+        "setUrl": "הגדר כתובת URL",
+        "save": "להציל",
+        "setClip": "חתוך קליפ",
+        "invalidURL": "כתובת אתר לא חוקית",
+        "invalidFile": "קובץ לא תקין",
+        "errorNoSource": "אין מקור שמע",
+        "uploadLimit": "גודל קובץ מקסימלי: {{size}}",
+        "errorFileSize": "סליחה, אבל הקובץ גדול מדי.<br> גודל הקובץ המרבי הוא {{size}}"
+    },
+    "video": {
+        "reset": "אִתחוּל",
+        "edit": "לַעֲרוֹך",
+        "title": "כותרת",
+        "description": "תיאור",
+        "upload": "העלה",
+        "link": "קישור",
+        "setUrl": "הגדר כתובת URL",
+        "save": "להציל",
+        "setClip": "חתוך קליפ",
+        "invalidURL": "כתובת אתר לא חוקית",
+        "invalidFile": "קובץ לא תקין",
+        "errorNoSource": "אין מקור וידאו",
+        "uploadLimit": "גודל קובץ מקסימלי: {{size}}",
+        "errorFileSize": "סליחה, אבל הקובץ גדול מדי.<br> גודל הקובץ המרבי הוא {{size}}",
+        "createAnimatedThumbnail": "צור תמונה ממוזערת מונפשת",
+        "errorNotAvailable": "מצטערים, אבל הסרטון עדיין לא זמין. בבקשה נסה שוב מאוחר יותר."
+    },
+    "pdf": {
+        "reset": "אִתחוּל",
+        "edit": "לַעֲרוֹך",
+        "title": "כותרת",
+        "description": "תיאור",
+        "upload": "העלה",
+        "link": "קישור",
+        "setUrl": "הגדר כתובת URL",
+        "save": "להציל",
+        "setClip": "חתוך קליפ",
+        "invalidURL": "כתובת אתר לא חוקית",
+        "invalidFile": "קובץ לא תקין",
+        "errorNoSource": "אין מקור pdf",
+        "uploadLimit": "גודל קובץ מקסימלי: {{size}}",
+        "errorFileSize": "סליחה, אבל הקובץ גדול מדי.<br> גודל הקובץ המרבי הוא {{size}}"
+    },
+    "image": {
+        "reset": "אִתחוּל",
+        "edit": "לַעֲרוֹך",
+        "title": "כותרת",
+        "description": "תיאור",
+        "upload": "העלה",
+        "link": "קישור",
+        "setUrl": "הגדר כתובת URL",
+        "save": "להציל",
+        "uploadedImage": "תמונה שהועלתה",
+        "imageTitle": "כותרת התמונה",
+        "setClip": "חתוך קליפ",
+        "invalidURL": "כתובת אתר לא חוקית",
+        "invalidFile": "קובץ לא תקין",
+        "errorNoSource": "אין מקור תמונה",
+        "uploadLimit": "גודל קובץ מקסימלי: {{size}}",
+        "errorFileSize": "סליחה, אבל הקובץ גדול מדי.<br> גודל הקובץ המרבי הוא {{size}}"
+    },
+    "questions": {
+        "Questions": "שאלות",
+        "Answers": "תשובות",
+        "AnswerQuestion": "ענה לשאלה",
+        "SetYourAnswer": "בבקשה ענה על השאלה",
+        "NewQuestion": "שאלה חדשה",
+        "EditQuestion": "ערוך שאלה",
+        "NewAnswer": "תשובה חדשה",
+        "NewPossibleAnswer": "תשובה אפשרית חדשה",
+        "AnswerDetails": "פרטי תשובה",
+        "answerOption": "אוֹפְּצִיָה",
+        "answerOptionExclusive": "בִּלעָדִי",
+        "answerTextarea": "Textarea",
+        "answerText": "טֶקסט",
+        "HideUntilAnswered": "הסתר עד שתענה",
+        "CantChangeAnswers": "לא יכול לשנות תשובות",
+        "FreeAnswer": "כתבו כאן את תשובתכם",
+        "SaveQuestion": "שמור שאלה",
+        "SaveAnswer": "שמור תשובה",
+        "Save": "להציל",
+        "Send": "לִשְׁלוֹחַ",
+        "TitleRequired": "חובה כותרת!",
+        "AlreadyAnswered": "כבר נענה",
+        "TitlePlaceholder": "הקלד את השאלה שלך",
+        "ContentPlaceholder": "שים כאן כל מידע נוסף כדי לעזור לאנשים לענות",
+        "ErrorTitle": "נדרשת שאלה",
+        "Placeholder": "כתוב הוראות",
+        "AreYouSure": "האם אתה בטוח?",
+        "ShortAnswer": "כתבו תשובה קצרה"
+    },
+    "experience": {
+        "NewExperience": "חוויה חדשה",
+        "DefineTitle": "נא להגדיר כותרת",
+        "Create": "לִיצוֹר"
+    },
+    "calls": {
+        "SettingsTitle": "שיחות",
+        "MaxCalls": "מקסימום שיחות",
+        "Update": "עדכון",
+        "NoCallsYet": "עדיין אין שיחות",
+        "CallReasonTitle": "על מה השיחה הזו?",
+        "WaitingRoom": "חדר המתנה",
+        "LiveRoom": "חדר חי",
+        "interviewedByAnotherHost": "כרגע מתראיין על ידי מארח אחר",
+        "bringToLive": "תביא למופע חי",
+        "putOnHold": "לשים בהמתנה",
+        "endCall": "סיום שיחה",
+        "interview": "רֵאָיוֹן",
+        "markApproved": "סמן אושר"
+    },
+    "relate": {
+        "Add": "הוסף {{streamDisplayType}}"
+    },
+    "userChooser": {
+        "Placeholder": "שם של משתמש..."
+    },
+    "task": {
+        "errorsTitle": "אירעו שגיאות"
+    },
+    "topic": {
+        "NewTopic": "נושא חדש",
+        "UpdateTopic": "עדכון נושא",
+        "CreateTopic": "צור נושא",
+        "AreYouSureDeleteTopic": "האם אתה בטוח שברצונך למחוק את הנושא הזה",
+        "TitlePlaceholder": "כותרת הנושא...",
+        "DescribeTopic": "תאר נושא...",
+        "TopicIcon": "תמונת נושא",
+        "UploadIcon": "סמל העלאה",
+        "Conversation": "שִׂיחָה",
+        "Metrics": "מדדים"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "צור תמונה ממוזערת מונפשת",
+        "Width": "רוֹחַב",
+        "Height": "גוֹבַה",
+        "Start": "הַתחָלָה",
+        "End": "סוֹף",
+        "Delay": "לְעַכֵּב",
+        "Quality": "איכות",
+        "Size": "גודל",
+        "OfFrames": "של מסגרות",
+        "Frame": "מִסגֶרֶת",
+        "UseThis": "השתמש בזה",
+        "ResultGIF": "תוצאה GIF",
+        "VideoElementNotFound": "רכיב וידאו לא נמצא"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} על הפנים שלך",
+        "AcceptIcon": "קבל את האזור הנבחר"
+    }
+}

@@ -1,0 +1,89 @@
+.Streams_participants_invite img {
+	width: 40px;
+	height: 40px;
+	margin: auto;
+}
+
+.Streams_participants_tool {
+	flex-shrink: 0;
+}
+
+.Streams_participants_tool .Streams_invite_label {
+	font-weight: bold;
+}
+
+.Streams_participants_tool .Users_avatar_icon {
+	box-shadow: #222 0 0 1px;
+	width: 40px;
+	height: 40px;
+}
+
+.Streams_participants_tool .Users_avatar_icon_blank {
+	box-shadow: none;
+	border-radius: 50%;
+	background: url(../../../Q/img/add.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 70%;
+    border: 1px dashed rgba(100, 100, 100, 0.2);
+	opacity: 50%;
+}
+
+.Streams_participants_tool .Streams_participants_summary {
+	position: relative;
+	color: white;
+	float: right;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 0 5px;
+	min-width: 40px;
+	max-width: 100px;
+	height: 25px;
+	line-height: 25px;
+    border-radius: 5px;
+	font-size: 14px;
+	background: rgba(50, 50, 50, 0.4);
+	font-weight: 700;
+	margin-top: 10px;
+	text-align: center;
+	overflow: hidden;
+	margin-right: 2%;
+	box-shadow: 0 0 5px rgba(100, 100, 100, 0.5);
+	outline: 1px dotted rgba(100, 100, 100, 0.5);
+}
+
+.Streams_participants_tool .Streams_participants_controls {
+	float: right; width: 40px; display: none; visibility: hidden; pointer-events: none;
+}
+
+.Streams_participants_tool.Q_overflowed .Streams_participants_controls {
+	display: block; visibility: visible; pointer-events: auto;
+}
+
+.Streams_participants_tool .Streams_participants_expand img {
+	width: 40px; height: 40px;
+}
+
+.Streams_participants_tool .Streams_participants_container {
+	overflow: hidden;
+	position: relative;
+}
+
+.Streams_participants_tool.Streams_participants_loading.Streams_hideIfNoParticipants,
+.Streams_participants_tool.Streams_noParticipants .Streams_participants_container > * {
+	display: none;
+}
+
+.Streams_participants_tool > .Streams_participants_container > .Streams_participants_invite_button {
+	display: none !important;
+	opacity: 0 !important;
+}
+
+.Streams_participants_tool.Streams_noParticipants .Streams_participants_container > .Streams_participants_invite_button {
+	display: block !important;
+	opacity: 1 !important;
+	transition: opacity 0.3s 1s !important;
+	margin: 2% auto;
+	max-width: 300px;
+	opacity: 0.97;
+	width: 94%;
+	border: 1px outset rgba(0, 0, 0, 0.5);
+}

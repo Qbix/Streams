@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "此内容对您隐藏。",
+        "InplaceTypeMustBe": "inplaceType 必须是 &#39;textarea&#39; 或 &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "新物品"
+    },
+    "avatar": {
+        "firstName": "名",
+        "lastName": "姓",
+        "username": "用户名"
+    },
+    "labels": {
+        "Streams\/invited": "我邀请的人",
+        "Streams\/invitedMe": "谁邀请我",
+        "DoYouAgree": "你同意？",
+        "Yes": "是的",
+        "No": "不",
+        "JoinItNow": "现在加入吗？"
+    },
+    "login": {
+        "prompt": "让朋友认出你：",
+        "newUser": "或在下面创建一个新帐户",
+        "picTooltip": "您可以稍后更改此图片",
+        "placeholders": {
+            "fullName": "输入您的全名"
+        }
+    },
+    "interests": {
+        "Filter": "搜索兴趣",
+        "CanGrant": "如果你仍然找不到你要找的东西，你可以在下面添加一个新的兴趣：",
+        "TrySynonyms": "没看到吗？尝试一些同义词。",
+        "AddUnderCategory": "在类别下添加...",
+        "Other": "其他",
+        "Unlisted": "未上市"
+    },
+    "chat": {
+        "flaggedForAdminReview": "邮件已被标记以供管理员审核。再次点击取消标记。",
+        "noOneSaid": "没有人说什么",
+        "closeChatButton": "关闭聊天",
+        "closeChatConfirmTitle": "关闭此聊天？",
+        "closeChatConfirm": "您确定要关闭此聊天吗？",
+        "Subscribed": "已启用通知",
+        "Unsubscribed": "通知静音",
+        "closeChatConfirmYes": "是的",
+        "closeChatConfirmNo": "不",
+        "earlierComments": "较早的评论",
+        "startedConversation": "开始对话",
+        "RealTimeCall": "实时通话",
+        "JoinWebRTC": "电话会议",
+        "SearchByName": "按名称搜索",
+        "Notifications": {
+            "Visit": "{{displayName}}正在访问聊天",
+            "Join": "{{displayName}}加入聊天",
+            "Leave": "{{displayName}}离开了聊天室",
+            "RelatedTo": "{{displayName}}开始{{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "添加评论",
+            "Private": "写私信"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "管理您的电子邮件订阅",
+        "IfUnsubscribe": "如果你想退订",
+        "*": "留言{{{ message.fields.type}}至{{& stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}}加入",
+        "Streams\/left": "还剩{{{call 'avatar.displayName'}}}",
+        "Streams\/chat\/message": "{{{call 'avatar.displayName'}}说： {{& message.content}}}",
+        "Streams\/changed": "{{stream.fields.title}}的变化",
+        "Streams\/invite": "你被邀请到{{{ stream.fields.title}}}",
+        "Streams\/announcement": "{{{ stream.fields.title}}}公告",
+        "Streams\/access": "{{{call 'avatar.displayName'}}在{{& stream.fields.title}}}中更改了访问权限",
+        "Streams\/chat\/edit": "{{{ stream.fields.title}}}编辑的聊天信息",
+        "Streams\/chat\/remove": "聊天消息在{{{ stream.fields.title}}}中删除",
+        "Streams\/closed": "{{stream.fields.title}}已关闭",
+        "Streams\/task\/progress": "{{stream.fields.title}}取得进展",
+        "Streams\/task\/complete": "任务完成： {{stream.fields.title}}",
+        "Streams\/task\/error": "期间出错： {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} ：传入消息",
+        "Streams\/relatedTo\/Streams\/call": "{{toTitle}}开始的新呼叫",
+        "Streams\/relatedTo\/*": "新品{{toTitle}}中的{{relationDisplayType}}",
+        "Streams\/relatedFrom\/*": "添加到{{toTitle}}为{{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}}在评论中提到了你",
+        "Streams\/call": "{{displayName}}开始实时通话",
+        "changed": {
+            "ChangesIn": "{{title}}的变化",
+            "Changed": "已更改",
+            "HereIsWhatChanged": "变化如下："
+        },
+        "joined": {
+            "Joined": "{{subject}}已加入<em>{{title}}<\/em>"
+        }
+    },
+    "invite": {
+        "command": "邀请",
+        "Invite": "邀请",
+        "Share": "分享",
+        "messageContent": "{{displayName}}邀请你到{{inviteUrl}}",
+        "youCanNowPaste": "您现在可以将此链接粘贴到某处以邀请其他人",
+        "roles": {
+            "title": "向受邀用户授予角色？",
+            "NotAuthorizedToGrantRole": {
+                "title": "对不起",
+                "alert": "您无权授予此角色"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "对不起",
+                "alert": "您无权删除此角色"
+            }
+        },
+        "labels": {
+            "title": "你是什么关系？"
+        },
+        "dialog": {
+            "chooseFromContacts": "从您的联系人中选择",
+            "chooseAgainFromContacts": "从联系人中重新选择",
+            "inviteSelectedContacts": "邀请选定的联系人",
+            "selectFromContacts": "从联系人中选择",
+            "userChooserPlaceholder": "按名称搜索",
+            "photo": "拍个照",
+            "photoOf": "拍照{{name}}",
+            "photoInstruction": "如果扫描您二维码的人在您面前，请拍下他们的照片",
+            "to": "至： {{Stream Title}}",
+            "go": "去",
+            "title": "邀请",
+            "placeholder": "手机号码或电子邮件地址",
+            "orInvite": "或使用以下方式邀请他人：",
+            "copyLink": "{{ClickOrTap}}复制邀请链接",
+            "shareOrCopyLink": "{{ClickOrTap}}分享或复制邀请链接",
+            "QR": "{{ClickOrTap}}生成二维码",
+            "QRtitle": "扫描此二维码",
+            "QRscanned": "他们扫描了它！",
+            "scannedQR": "{{ClickOrTap}}如果代码被扫描",
+            "byEmail": "电子邮件",
+            "byText": "文本",
+            "byFacebook": "Facebook",
+            "byTwitter": "推特",
+            "title2": "邀请人",
+            "chooseMethod": "选择一种方法：",
+            "selectContacts": "选择联系人",
+            "scanQRCode": "扫描二维码",
+            "shareLink": "分享链接",
+            "chooseFromRegistered": "从注册用户中选择",
+            "inviteViaEmailOrSms": "通过电子邮件或短信邀请",
+            "TakeGroupPhoto": "拍摄合影",
+            "Skip": "跳过",
+            "byTelegram": "电报",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "添加角色",
+            "addPersonalRoles": "添加个人关系"
+        },
+        "complete": {
+            "WelcomeToCommunity": "欢迎来到{{communityName}}",
+            "HasInvitedYou": "已邀请您：",
+            "HasInvitedYouToTheirProfile": "已邀请您连接。",
+            "prompt": "让朋友认出你：",
+            "accept": "接受邀请"
+        },
+        "email": {
+            "subject": "嘿，看看这个",
+            "PleaseVisitLink": "请访问以下链接：",
+            "InvitingYou": "我邀请你{{title}}",
+            "HasInvitedYou": "{{displayName}}邀请你到{{title}}",
+            "HasMentionedYou": "“ {{title}} ”里有{{displayName}}提到过你",
+            "YOUAREINVITED": "你被邀请了！",
+            "AcceptInvite": "接受邀请"
+        },
+        "mobile": {
+            "content": "您已被邀请加入{{title}} 。请点击{{url}}"
+        },
+        "notice": {
+            "text": "你被邀请了。 {{ClickOrTap}}在这里接受并加入。"
+        },
+        "chat": {
+            "prompt": "您将邀请人们加入对话，在对话中您可以保持联系、一起分享照片等等。为其命名："
+        },
+        "Participants": "邀请人"
+    },
+    "messages": {
+        "html": {
+            "posted": "向{{stream.fields.title}}发送了<em>{{message.fields.type}}<\/em>消息"
+        },
+        "text": {
+            "commentedOn": "评论了",
+            "startedCallIn": "开始通话",
+            "in": "在",
+            "body": "在{{{ url}} : {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "已发布到",
+                "byAvatar": "通过{{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "有了新的{{instructions.fromDisplayType}}",
+                "byAvatar": "添加了{{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "邀请是从我们的号码发送的，您的朋友还不知道。跟进快速文本，让他们知道邀请来自您，要求他们单击链接。",
+            "confirm": "邀请是从我们的号码发送的，您的朋友还不知道。你想跟进一个快速的文本，让他们知道邀请来自你，要求他们点击链接。",
+            "check": "嘿，我刚刚向你发送了{{app}}应用程序的邀请。请检查您的短信并点击链接！",
+            "CheckYourMobile": "请查看短信并按照说明操作！"
+        },
+        "email": {
+            "alert": "邀请是从我们的域发送的，您的朋友还不认识它。跟进快速文本，让他们知道邀请来自您，要求他们单击链接。",
+            "confirm": "邀请是从我们的域发送的，您的朋友还不认识它。你想跟进一个快速的文本，让他们知道邀请来自你，要求他们点击链接。",
+            "subject": "你收到邀请了吗？",
+            "body": "嘿，我刚刚向你发送了{{app}}应用程序的邀请。请检查您的电子邮件并单击其中的链接！",
+            "CheckYourEmail": "请检查您的电子邮件并按照说明进行操作！"
+        }
+    },
+    "identifier": {
+        "privacySettings": "隐私设置"
+    },
+    "participating": {
+        "Title": "标题",
+        "Subscribed": "已订阅",
+        "Participants": "参加者",
+        "AreYouSureRemoveIdentifier": "您确定要删除此标识符吗？",
+        "AreYouSureUnsubscribeIdentifier": "您确定取消订阅此标识符吗？它将关闭对此标识符的通知。",
+        "AreYouSureUnsubscribeDevice": "您确定取消订阅此设备吗？它将关闭对此设备的通知。",
+        "AreYouSureRemoveParticipant": "您确定要删除此参与者吗？",
+        "RemoveParticipant": "删除参与者",
+        "Identifiers": "身份标识",
+        "Devices": "设备",
+        "Streams": "溪流"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "受邀",
+            "description": "邀请收件箱"
+        },
+        "Streams\/resource": {
+            "displayType": "资源",
+            "description": "用于管理对资源的访问和发布有关更新的消息的流"
+        },
+        "Streams\/task": {
+            "description": "用于接收有关特定任务进度的更新",
+            "displayType": "任务"
+        },
+        "Streams\/tasks": {
+            "description": "任务类别",
+            "displayType": "任务"
+        },
+        "Streams\/experience": {
+            "description": "社区成员的共同经历",
+            "displayType": "社区成员的共同经历"
+        },
+        "Streams\/greeting": {
+            "description": "用户可以用来自我介绍的问候语",
+            "displayType": "问候语"
+        },
+        "Streams\/number": {
+            "displayType": "数字",
+            "description": "数学数字"
+        },
+        "Streams\/date": {
+            "displayType": "日期",
+            "description": "日期"
+        },
+        "Streams\/text": {
+            "displayType": "文本",
+            "description": "正文"
+        },
+        "Streams\/text\/small": {
+            "displayType": "文本",
+            "description": "小文本"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "文本",
+            "description": "中等正文"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "电子邮件地址",
+            "description": "电子邮件地址"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "电话号码",
+            "description": "电话号码"
+        },
+        "Streams\/text\/url": {
+            "displayType": "网址",
+            "description": "网络上的链接"
+        },
+        "Streams\/image": {
+            "displayType": "图像",
+            "description": "视觉形象",
+            "newItem": "添加图片"
+        },
+        "Streams\/images": {
+            "displayType": "图片库",
+            "description": "图片库"
+        },
+        "Streams\/album": {
+            "displayType": "相册",
+            "description": "各种媒体相关的专辑"
+        },
+        "Streams\/file": {
+            "displayType": "文件",
+            "description": "上传文件",
+            "newItem": "添加文件"
+        },
+        "Streams\/audio": {
+            "displayType": "音频剪辑",
+            "description": "音频剪辑",
+            "newItem": "添加音频"
+        },
+        "Streams\/video": {
+            "displayType": "录像片段",
+            "description": "录像片段",
+            "newItem": "添加视频"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF文件",
+            "description": "PDF文档",
+            "newItem": "添加PDF"
+        },
+        "Streams\/live": {
+            "displayType": "现场直播",
+            "description": "现场音频或视频"
+        },
+        "Streams\/category": {
+            "displayType": "类别",
+            "description": "与其他流相关的类别",
+            "newItem": "添加类别"
+        },
+        "Streams\/participating": {
+            "displayType": "参与指数",
+            "description": "当用户加入\/离开时，流与此相关\/无关"
+        },
+        "Streams\/interest": {
+            "displayType": "兴趣",
+            "description": "代表用户对某个话题的兴趣"
+        },
+        "Streams\/incoming": {
+            "displayType": "传入",
+            "description": "其他用户发送的消息的目的地"
+        },
+        "Streams\/chat": {
+            "displayType": "对话",
+            "description": "用户之间的对话，具有历史记录"
+        },
+        "Streams\/question": {
+            "displayType": "问题",
+            "description": "问题流",
+            "newItem": "添加问题"
+        },
+        "Streams\/answer": {
+            "displayType": "回答",
+            "description": "答案流"
+        }
+    },
+    "menu": {
+        "placeholder": "输入页面标题",
+        "ModTab": "修改项目",
+        "Save": "节省",
+        "Delete": "删除",
+        "Submenu": "子菜单"
+    },
+    "audio": {
+        "record": "记录",
+        "reset": "重置",
+        "edit": "编辑",
+        "title": "标题",
+        "description": "描述",
+        "upload": "上传",
+        "link": "关联",
+        "setUrl": "设置网址",
+        "save": "节省",
+        "setClip": "切出剪辑",
+        "invalidURL": "无效的网址",
+        "invalidFile": "无效文件",
+        "errorNoSource": "无音源",
+        "uploadLimit": "最大文件大小： {{size}}",
+        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}"
+    },
+    "video": {
+        "reset": "重置",
+        "edit": "编辑",
+        "title": "标题",
+        "description": "描述",
+        "upload": "上传",
+        "link": "关联",
+        "setUrl": "设置网址",
+        "save": "节省",
+        "setClip": "切出剪辑",
+        "invalidURL": "无效的网址",
+        "invalidFile": "无效文件",
+        "errorNoSource": "没有视频源",
+        "uploadLimit": "最大文件大小： {{size}}",
+        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
+        "createAnimatedThumbnail": "创建动画缩略图",
+        "errorNotAvailable": "抱歉，视频暂时不可用。请稍后重试。"
+    },
+    "pdf": {
+        "reset": "重置",
+        "edit": "编辑",
+        "title": "标题",
+        "description": "描述",
+        "upload": "上传",
+        "link": "关联",
+        "setUrl": "设置网址",
+        "save": "节省",
+        "setClip": "切出剪辑",
+        "invalidURL": "无效的网址",
+        "invalidFile": "无效文件",
+        "errorNoSource": "没有pdf源",
+        "uploadLimit": "最大文件大小： {{size}}",
+        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}"
+    },
+    "image": {
+        "reset": "重置",
+        "edit": "编辑",
+        "title": "标题",
+        "description": "描述",
+        "upload": "上传",
+        "link": "关联",
+        "setUrl": "设置网址",
+        "save": "节省",
+        "uploadedImage": "上传的图片",
+        "imageTitle": "图片标题",
+        "setClip": "切出剪辑",
+        "invalidURL": "无效的网址",
+        "invalidFile": "无效文件",
+        "errorNoSource": "没有图片来源",
+        "uploadLimit": "最大文件大小： {{size}}",
+        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}"
+    },
+    "questions": {
+        "Questions": "问题",
+        "Answers": "答案",
+        "AnswerQuestion": "回答问题",
+        "SetYourAnswer": "请回答问题",
+        "NewQuestion": "新问题",
+        "EditQuestion": "编辑问题",
+        "NewAnswer": "新答案",
+        "NewPossibleAnswer": "新的可能答案",
+        "AnswerDetails": "答案详情",
+        "answerOption": "选项",
+        "answerOptionExclusive": "独家的",
+        "answerTextarea": "文本区域",
+        "answerText": "文本",
+        "HideUntilAnswered": "隐藏直到回答",
+        "CantChangeAnswers": "无法更改答案",
+        "FreeAnswer": "在这里写下你的答案",
+        "SaveQuestion": "保存问题",
+        "SaveAnswer": "保存答案",
+        "Save": "节省",
+        "Send": "发送",
+        "TitleRequired": "标题必填！",
+        "AlreadyAnswered": "已经回答",
+        "TitlePlaceholder": "输入您的问题",
+        "ContentPlaceholder": "将任何其他信息放在这里以帮助人们回答",
+        "ErrorTitle": "需要提问",
+        "Placeholder": "写指令",
+        "AreYouSure": "你确定吗？",
+        "ShortAnswer": "写一个简短的答案"
+    },
+    "experience": {
+        "NewExperience": "新体验",
+        "DefineTitle": "请定义标题",
+        "Create": "创造"
+    },
+    "calls": {
+        "SettingsTitle": "来电",
+        "MaxCalls": "最大调用",
+        "Update": "更新",
+        "NoCallsYet": "还没有来电",
+        "CallReasonTitle": "这个电话是关于什么的？",
+        "WaitingRoom": "等候室",
+        "LiveRoom": "直播间",
+        "interviewedByAnotherHost": "目前正在接受另一位主持人的采访",
+        "bringToLive": "带来现场表演",
+        "putOnHold": "搁置",
+        "endCall": "结束通话",
+        "interview": "面试",
+        "markApproved": "标记已批准"
+    },
+    "relate": {
+        "Add": "加{{streamDisplayType}}"
+    },
+    "userChooser": {
+        "Placeholder": "用户名..."
+    },
+    "task": {
+        "errorsTitle": "发生错误"
+    },
+    "topic": {
+        "NewTopic": "新话题",
+        "UpdateTopic": "更新主题",
+        "CreateTopic": "创建主题",
+        "AreYouSureDeleteTopic": "您确定要删除此主题吗",
+        "TitlePlaceholder": "主题标题...",
+        "DescribeTopic": "描述主题...",
+        "TopicIcon": "主题图片",
+        "UploadIcon": "上传图标",
+        "Conversation": "对话",
+        "Metrics": "指标"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "创建动画缩略图",
+        "Width": "宽度",
+        "Height": "高度",
+        "Start": "开始",
+        "End": "结尾",
+        "Delay": "延迟",
+        "Quality": "质量",
+        "Size": "尺寸",
+        "OfFrames": "帧数",
+        "Frame": "框架",
+        "UseThis": "用这个",
+        "ResultGIF": "结果 GIF",
+        "VideoElementNotFound": "未找到视频元素"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}}在你的脸上",
+        "AcceptIcon": "接受选定区域"
+    }
+}

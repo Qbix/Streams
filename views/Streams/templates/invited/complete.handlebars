@@ -1,0 +1,24 @@
+<div id="Streams_complete_overlay" class="Users_login_dialog">
+	<div class="Q_title_slot">
+		<h2 class="Users_dialog_title Q_dialog_title">{{interpolate invite.complete.Welcome communityName=communityName}}</h2>
+	</div>
+	<div class="Q_dialog_slot Q_dialog_content Q_big_prompt">
+		<div class="Streams_login_explanation">
+			{{explanation}}
+		</div>
+		<form method="post" action="{{action}}" data-form-type="complete">
+			{{#if nameIsMissing}}
+				{{#if prompt}}
+					<label for="Streams_login_fullname">{{prompt}}</label>
+					<br>
+				{{/if}}
+				<input id="Streams_login_fullname" name="fullName" type="text" class="text" />
+			{{/if}}
+			<input type="hidden" name="token" value="{{token}}"/>
+			<input type="hidden" name="Q.method" value="get"/>
+			<div class="Streams_login_get_started">
+				<button type="submit" class="Q_button Q_main_button Streams_login_start">{{button}}</button>
+			</div>
+		</form>
+	</div>
+</div>

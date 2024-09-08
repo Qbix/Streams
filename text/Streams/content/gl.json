@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "Este contido está oculto para ti.",
+        "InplaceTypeMustBe": "inplaceType debe ser &#39;textarea&#39; ou &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Elemento novo"
+    },
+    "avatar": {
+        "firstName": "nome",
+        "lastName": "Apelido",
+        "username": "nome de usuario"
+    },
+    "labels": {
+        "Streams\/invited": "Persoas que convidei",
+        "Streams\/invitedMe": "Quen me invitou",
+        "DoYouAgree": "Estás de acordo?",
+        "Yes": "Si",
+        "No": "Non",
+        "JoinItNow": "Únete agora?"
+    },
+    "login": {
+        "prompt": "Deixa que os amigos te recoñezan:",
+        "newUser": "ou crea unha nova conta a continuación",
+        "picTooltip": "Podes cambiar esta imaxe máis tarde",
+        "placeholders": {
+            "fullName": "Introduce o teu nome completo"
+        }
+    },
+    "interests": {
+        "Filter": "Busca intereses",
+        "CanGrant": "Se aínda non atopas o que buscas, podes engadir un novo interese a continuación:",
+        "TrySynonyms": "Non o ves? Proba algúns sinónimos.",
+        "AddUnderCategory": "Engadir na categoría...",
+        "Other": "Outra",
+        "Unlisted": "Non listado"
+    },
+    "chat": {
+        "flaggedForAdminReview": "A mensaxe marcouse para a revisión do administrador. Toca de novo para desmarcar.",
+        "noOneSaid": "Ninguén dixo nada",
+        "closeChatButton": "Pecha o chat",
+        "closeChatConfirmTitle": "Queres pechar este chat?",
+        "closeChatConfirm": "Estás seguro de que queres pechar este chat?",
+        "Subscribed": "Notificacións activadas",
+        "Unsubscribed": "Notificacións silenciadas",
+        "closeChatConfirmYes": "Si",
+        "closeChatConfirmNo": "Non",
+        "earlierComments": "comentarios anteriores",
+        "startedConversation": "comezou unha conversa",
+        "RealTimeCall": "Chamada en tempo real",
+        "JoinWebRTC": "Teleconferencia",
+        "SearchByName": "Busca polo nome",
+        "Notifications": {
+            "Visit": "{{displayName}} está visitando o chat",
+            "Join": "{{displayName}} uniuse ao chat",
+            "Leave": "{{displayName}} deixou o chat",
+            "RelatedTo": "{{displayName}} comezou un {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Engade un comentario",
+            "Private": "Escribe unha mensaxe privada"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "xestiona as túas subscricións de correo electrónico",
+        "IfUnsubscribe": "Se queres darte de baixa",
+        "*": "Mensaxe {{{ message.fields.type}} ao {{& stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} uníronse",
+        "Streams\/left": "Quedan {{{call 'avatar.displayName'}}}",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} dixo: {{& message.content}}}",
+        "Streams\/changed": "Cambios en {{stream.fields.title}}",
+        "Streams\/invite": "Convidáronte ao {{{ stream.fields.title}}}",
+        "Streams\/announcement": "Anuncio en {{{ stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}} cambiou o acceso en {{& stream.fields.title}}}",
+        "Streams\/chat\/edit": "Mensaxe de chat editada en {{{ stream.fields.title}}}",
+        "Streams\/chat\/remove": "Mensaxe de chat eliminada en {{{ stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} foi pechado",
+        "Streams\/task\/progress": "Progreso realizado no {{stream.fields.title}}",
+        "Streams\/task\/complete": "Tarefa completada: {{stream.fields.title}}",
+        "Streams\/task\/error": "Erro durante: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Mensaxe entrante",
+        "Streams\/relatedTo\/Streams\/call": "Nova convocatoria comezou en {{toTitle}}",
+        "Streams\/relatedTo\/*": "Novo {{relationDisplayType}} en {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Engadido a {{toTitle}} como {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} mencionoute nun comentario",
+        "Streams\/call": "{{displayName}} iniciou unha chamada en tempo real",
+        "changed": {
+            "ChangesIn": "Cambios en {{title}}",
+            "Changed": "cambiado",
+            "HereIsWhatChanged": "Aquí está o que cambiou:"
+        },
+        "joined": {
+            "Joined": "{{subject}} unidos <em>{{title}}<\/em>"
+        }
+    },
+    "invite": {
+        "command": "Invitar",
+        "Invite": "Invitar",
+        "Share": "Compartir",
+        "messageContent": "{{displayName}} invitoute a {{inviteUrl}}",
+        "youCanNowPaste": "Agora podes pegar esta ligazón nalgún lugar para invitar persoas",
+        "roles": {
+            "title": "Conceder roles aos usuarios invitados?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Sentímolo",
+                "alert": "Non tes autorización para conceder esta función"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Sentímolo",
+                "alert": "Non tes autorización para eliminar esta función"
+            }
+        },
+        "labels": {
+            "title": "Cal é a túa relación?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Escolle entre os teus contactos",
+            "chooseAgainFromContacts": "Escolle de novo entre Contactos",
+            "inviteSelectedContacts": "Invitar os contactos seleccionados",
+            "selectFromContacts": "Seleccione Desde Contactos",
+            "userChooserPlaceholder": "Busca polo nome",
+            "photo": "Sacar unha foto",
+            "photoOf": "Fai unha foto de {{name}}",
+            "photoInstruction": "Se a persoa que escaneou o teu código QR está diante de ti, fai unha foto dela",
+            "to": "Ata: {{Stream Title}}",
+            "go": "Vaia",
+            "title": "Invitar",
+            "placeholder": "Número de móbil ou enderezo de correo electrónico",
+            "orInvite": "Ou invitar persoas usando:",
+            "copyLink": "{{ClickOrTap}} para copiar a ligazón de invitación",
+            "shareOrCopyLink": "{{ClickOrTap}} para compartir ou copiar a ligazón de invitación",
+            "QR": "{{ClickOrTap}} para xerar código QR",
+            "QRtitle": "Escanee este código QR",
+            "QRscanned": "Escaneárono!",
+            "scannedQR": "{{ClickOrTap}} se o código foi dixitalizado",
+            "byEmail": "Correo electrónico",
+            "byText": "Texto",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "title2": "Invitar persoas",
+            "chooseMethod": "Escolle un método:",
+            "selectContacts": "Seleccione Contactos",
+            "scanQRCode": "Escanear código QR",
+            "shareLink": "Comparte unha ligazón",
+            "chooseFromRegistered": "Escolla entre os usuarios rexistrados",
+            "inviteViaEmailOrSms": "Invitar por correo electrónico ou SMS",
+            "TakeGroupPhoto": "Fai unha foto de grupo",
+            "Skip": "Saltar",
+            "byTelegram": "Telegrama",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "Engadir roles",
+            "addPersonalRoles": "Engadir relacións persoais"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Benvido ao {{communityName}}",
+            "HasInvitedYou": "invitoute a:",
+            "HasInvitedYouToTheirProfile": "invitoute a conectarse.",
+            "prompt": "Deixa que os amigos te recoñezan:",
+            "accept": "Aceptar a invitación"
+        },
+        "email": {
+            "subject": "Ei, mira isto",
+            "PleaseVisitLink": "Visite a seguinte ligazón:",
+            "InvitingYou": "Convídote ao {{title}}",
+            "HasInvitedYou": "{{displayName}} invitoute a {{title}}",
+            "HasMentionedYou": "{{displayName}} mencionoute en &quot; {{title}} &quot;",
+            "YOUAREINVITED": "VOSTEDE É INVITADO!",
+            "AcceptInvite": "Aceptar a invitación"
+        },
+        "mobile": {
+            "content": "Convidáronte a {{title}} . Toca {{url}}"
+        },
+        "notice": {
+            "text": "Estás convidado. {{ClickOrTap}} aquí para aceptar e unirse."
+        },
+        "chat": {
+            "prompt": "Convidarás persoas a unha conversa na que podes estar en contacto, compartir fotos xuntos e moito máis. Ponlle un nome:"
+        },
+        "Participants": "Invitar persoas"
+    },
+    "messages": {
+        "html": {
+            "posted": "publicou unha mensaxe <em>{{message.fields.type}}<\/em> a {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "comentou",
+            "startedCallIn": "comezou unha chamada",
+            "in": "en",
+            "body": "en {{{ url}} : {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "foi publicado en",
+                "byAvatar": "polo {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "ten un novo {{instructions.fromDisplayType}}",
+                "byAvatar": "engadido por {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "As invitacións envíanse dende o noso número, que os teus amigos aínda non recoñecen. Siga cun texto rápido para que saiban que a invitación foi de ti, pedíndolles que fagan clic na ligazón.",
+            "confirm": "As invitacións envíanse dende o noso número, que os teus amigos aínda non recoñecen. Gustaríache seguir cun texto rápido para informarlles que a invitación foi de ti, pedíndolles que fagan clic na ligazón.",
+            "check": "Ola, acabo de enviarche unha invitación á aplicación {{app}} . Comproba o teu sms e fai clic na ligazón!",
+            "CheckYourMobile": "Comprobe o SMS e siga as instrucións!"
+        },
+        "email": {
+            "alert": "As invitacións envíanse dende o noso dominio, que os teus amigos aínda non recoñecen. Siga cun texto rápido para que saiban que a invitación foi de ti, pedíndolles que fagan clic na ligazón.",
+            "confirm": "As invitacións envíanse dende o noso dominio, que os teus amigos aínda non recoñecen. Gustaríache seguir cun texto rápido para informarlles que a invitación foi de ti, pedíndolles que fagan clic na ligazón.",
+            "subject": "Recibiches unha invitación?",
+            "body": "Ola, acabo de enviarche unha invitación á aplicación {{app}} . Consulta o teu correo electrónico e fai clic na ligazón que hai alí!",
+            "CheckYourEmail": "Consulte o seu correo electrónico e siga as instrucións!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "Configuración de privacidade"
+    },
+    "participating": {
+        "Title": "Título",
+        "Subscribed": "Subscrito",
+        "Participants": "Participantes",
+        "AreYouSureRemoveIdentifier": "Estás seguro de eliminar este identificador?",
+        "AreYouSureUnsubscribeIdentifier": "Estás seguro de cancelar a subscrición a este identificador? Desactivará as notificacións a este identificador.",
+        "AreYouSureUnsubscribeDevice": "Estás seguro de cancelar a subscrición a este dispositivo? Desactivará as notificacións a este dispositivo.",
+        "AreYouSureRemoveParticipant": "Estás seguro de que queres eliminar este participante?",
+        "RemoveParticipant": "Eliminar participante",
+        "Identifiers": "Identificadores",
+        "Devices": "Dispositivos",
+        "Streams": "Fluxos"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Invitado",
+            "description": "Inbox para invitacións"
+        },
+        "Streams\/resource": {
+            "displayType": "Recurso",
+            "description": "fluxo para xestionar o acceso a un recurso e publicar mensaxes sobre actualizacións"
+        },
+        "Streams\/task": {
+            "description": "para recibir actualizacións sobre o progreso dunha determinada tarefa",
+            "displayType": "Tarefa"
+        },
+        "Streams\/tasks": {
+            "description": "categoría para tarefas",
+            "displayType": "Tarefas"
+        },
+        "Streams\/experience": {
+            "description": "unha experiencia común para os membros dunha comunidade",
+            "displayType": "Experiencia común para os membros dunha comunidade"
+        },
+        "Streams\/greeting": {
+            "description": "saúdo co que un usuario pode presentarse",
+            "displayType": "Saúdo"
+        },
+        "Streams\/number": {
+            "displayType": "Número",
+            "description": "número matemático"
+        },
+        "Streams\/date": {
+            "displayType": "Data",
+            "description": "data"
+        },
+        "Streams\/text": {
+            "displayType": "Texto",
+            "description": "corpo do texto"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Texto",
+            "description": "pequeno corpo de texto"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Texto",
+            "description": "corpo medio do texto"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Enderezo electrónico",
+            "description": "Enderezo electrónico"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Número de teléfono",
+            "description": "número de teléfono"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "ligazón na web"
+        },
+        "Streams\/image": {
+            "displayType": "Imaxe",
+            "description": "imaxe visual",
+            "newItem": "Engadir imaxe"
+        },
+        "Streams\/images": {
+            "displayType": "Galería de imaxes",
+            "description": "galería de imaxes"
+        },
+        "Streams\/album": {
+            "displayType": "Álbum",
+            "description": "un álbum co que se relacionan diversos medios"
+        },
+        "Streams\/file": {
+            "displayType": "Arquivo",
+            "description": "ficheiro cargado",
+            "newItem": "Engadir ficheiro"
+        },
+        "Streams\/audio": {
+            "displayType": "Clip de audio",
+            "description": "clip de audio",
+            "newItem": "Engadir audio"
+        },
+        "Streams\/video": {
+            "displayType": "Video Clip",
+            "description": "videoclip",
+            "newItem": "Engadir vídeo"
+        },
+        "Streams\/pdf": {
+            "displayType": "Documento PDF",
+            "description": "Documento PDF",
+            "newItem": "Engadir PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Transmisión en directo",
+            "description": "audio ou vídeo en directo"
+        },
+        "Streams\/category": {
+            "displayType": "Categoría",
+            "description": "unha categoría coa que se poden relacionar outros fluxos",
+            "newItem": "Engadir categoría"
+        },
+        "Streams\/participating": {
+            "displayType": "Índice de participación",
+            "description": "os fluxos están relacionados\/non relacionados con isto cando un usuario se une\/sae"
+        },
+        "Streams\/interest": {
+            "displayType": "Interese",
+            "description": "representa o interese dun usuario nun determinado tema"
+        },
+        "Streams\/incoming": {
+            "displayType": "Entrante",
+            "description": "destino para as mensaxes enviadas por outros usuarios"
+        },
+        "Streams\/chat": {
+            "displayType": "Conversa",
+            "description": "unha conversa entre usuarios, con historia"
+        },
+        "Streams\/question": {
+            "displayType": "Pregunta",
+            "description": "fluxo de preguntas",
+            "newItem": "Engadir pregunta"
+        },
+        "Streams\/answer": {
+            "displayType": "Resposta",
+            "description": "fluxo de respostas"
+        }
+    },
+    "menu": {
+        "placeholder": "escriba o título da páxina",
+        "ModTab": "Modificar elemento",
+        "Save": "Gardar",
+        "Delete": "Eliminar",
+        "Submenu": "Submenú"
+    },
+    "audio": {
+        "record": "Gravar",
+        "reset": "Restablecer",
+        "edit": "Editar",
+        "title": "título",
+        "description": "descrición",
+        "upload": "Cargar",
+        "link": "Ligazón",
+        "setUrl": "Establecer URL",
+        "save": "Gardar",
+        "setClip": "Recortar Clip",
+        "invalidURL": "URL non válido",
+        "invalidFile": "Ficheiro non válido",
+        "errorNoSource": "Sen fonte de audio",
+        "uploadLimit": "Tamaño máximo do ficheiro: {{size}}",
+        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}"
+    },
+    "video": {
+        "reset": "Restablecer",
+        "edit": "Editar",
+        "title": "título",
+        "description": "descrición",
+        "upload": "Cargar",
+        "link": "Ligazón",
+        "setUrl": "Establecer URL",
+        "save": "Gardar",
+        "setClip": "Recortar Clip",
+        "invalidURL": "URL non válido",
+        "invalidFile": "Ficheiro non válido",
+        "errorNoSource": "Sen fonte de vídeo",
+        "uploadLimit": "Tamaño máximo do ficheiro: {{size}}",
+        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}",
+        "createAnimatedThumbnail": "Crear miniatura animada",
+        "errorNotAvailable": "O vídeo aínda non está dispoñible. Por favor inténtao de novo máis tarde."
+    },
+    "pdf": {
+        "reset": "Restablecer",
+        "edit": "Editar",
+        "title": "título",
+        "description": "descrición",
+        "upload": "Cargar",
+        "link": "Ligazón",
+        "setUrl": "Establecer URL",
+        "save": "Gardar",
+        "setClip": "Recortar Clip",
+        "invalidURL": "URL non válido",
+        "invalidFile": "Ficheiro non válido",
+        "errorNoSource": "Sen fonte pdf",
+        "uploadLimit": "Tamaño máximo do ficheiro: {{size}}",
+        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}"
+    },
+    "image": {
+        "reset": "Restablecer",
+        "edit": "Editar",
+        "title": "título",
+        "description": "descrición",
+        "upload": "Cargar",
+        "link": "Ligazón",
+        "setUrl": "Establecer URL",
+        "save": "Gardar",
+        "uploadedImage": "Imaxe cargada",
+        "imageTitle": "Título da imaxe",
+        "setClip": "Recortar Clip",
+        "invalidURL": "URL non válido",
+        "invalidFile": "Ficheiro non válido",
+        "errorNoSource": "Sen fonte de imaxe",
+        "uploadLimit": "Tamaño máximo do ficheiro: {{size}}",
+        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}"
+    },
+    "questions": {
+        "Questions": "Preguntas",
+        "Answers": "Respostas",
+        "AnswerQuestion": "Responde a pregunta",
+        "SetYourAnswer": "Por favor, responda a pregunta",
+        "NewQuestion": "Nova Pregunta",
+        "EditQuestion": "Editar pregunta",
+        "NewAnswer": "Nova Resposta",
+        "NewPossibleAnswer": "Nova posible resposta",
+        "AnswerDetails": "Detalles da resposta",
+        "answerOption": "Opción",
+        "answerOptionExclusive": "Exclusivo",
+        "answerTextarea": "Área de texto",
+        "answerText": "Texto",
+        "HideUntilAnswered": "Agochar ata que responda",
+        "CantChangeAnswers": "Non se poden cambiar as respostas",
+        "FreeAnswer": "Escribe aquí a túa resposta",
+        "SaveQuestion": "Gardar pregunta",
+        "SaveAnswer": "Gardar resposta",
+        "Save": "Gardar",
+        "Send": "Enviar",
+        "TitleRequired": "Título obrigatorio!",
+        "AlreadyAnswered": "Xa respondeu",
+        "TitlePlaceholder": "Escribe a túa pregunta",
+        "ContentPlaceholder": "Pon aquí calquera información adicional para axudar á xente a responder",
+        "ErrorTitle": "Pregunta necesaria",
+        "Placeholder": "Escribe instrucións",
+        "AreYouSure": "Estás seguro?",
+        "ShortAnswer": "Escribe unha resposta curta"
+    },
+    "experience": {
+        "NewExperience": "Nova experiencia",
+        "DefineTitle": "Define un título",
+        "Create": "Crear"
+    },
+    "calls": {
+        "SettingsTitle": "Chamadas",
+        "MaxCalls": "Máximo de chamadas",
+        "Update": "Actualizar",
+        "NoCallsYet": "Aínda non hai chamadas",
+        "CallReasonTitle": "De que trata esta chamada?",
+        "WaitingRoom": "Sala de espera",
+        "LiveRoom": "Sala de Vivo",
+        "interviewedByAnotherHost": "Actualmente é entrevistado por outro anfitrión",
+        "bringToLive": "Show Bring To Live",
+        "putOnHold": "Poñer en espera",
+        "endCall": "Finalizar chamada",
+        "interview": "Entrevista",
+        "markApproved": "Marcar Aprobado"
+    },
+    "relate": {
+        "Add": "Engadir {{streamDisplayType}}"
+    },
+    "userChooser": {
+        "Placeholder": "Nome dun usuario..."
+    },
+    "task": {
+        "errorsTitle": "Producíronse erros"
+    },
+    "topic": {
+        "NewTopic": "Novo Tema",
+        "UpdateTopic": "Actualizar tema",
+        "CreateTopic": "Crear tema",
+        "AreYouSureDeleteTopic": "Seguro que queres eliminar este tema",
+        "TitlePlaceholder": "título do tema...",
+        "DescribeTopic": "describir o tema...",
+        "TopicIcon": "Imaxe do tema",
+        "UploadIcon": "Icona de carga",
+        "Conversation": "Conversa",
+        "Metrics": "Métricas"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Crear miniatura animada",
+        "Width": "Anchura",
+        "Height": "Altura",
+        "Start": "Comeza",
+        "End": "Fin",
+        "Delay": "Atraso",
+        "Quality": "Calidade",
+        "Size": "Tamaño",
+        "OfFrames": "de Cadros",
+        "Frame": "Marco",
+        "UseThis": "Use isto",
+        "ResultGIF": "GIF de resultado",
+        "VideoElementNotFound": "Non se atopou o elemento de vídeo"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Na túa cara",
+        "AcceptIcon": "Aceptar a área seleccionada"
+    }
+}

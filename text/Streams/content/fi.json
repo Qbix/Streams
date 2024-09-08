@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "Tämä sisältö on piilotettu sinulta.",
+        "InplaceTypeMustBe": "inplaceType-arvon on oltava tekstialue tai teksti"
+    },
+    "preview": {
+        "NewItemTitle": "Uusi kohde"
+    },
+    "avatar": {
+        "firstName": "etunimi",
+        "lastName": "sukunimi",
+        "username": "käyttäjätunnus"
+    },
+    "labels": {
+        "Streams\/invited": "Kutsumani ihmiset",
+        "Streams\/invitedMe": "Kuka kutsui minut",
+        "DoYouAgree": "Oletko samaa mieltä?",
+        "Yes": "Joo",
+        "No": "Ei",
+        "JoinItNow": "Liitytkö nyt?"
+    },
+    "login": {
+        "prompt": "Anna ystävien tunnistaa sinut:",
+        "newUser": "tai luo uusi tili alla",
+        "picTooltip": "Voit muuttaa tätä kuvaa myöhemmin",
+        "placeholders": {
+            "fullName": "Kirjoita koko nimesi"
+        }
+    },
+    "interests": {
+        "Filter": "Hae kiinnostuksen kohteita",
+        "CanGrant": "Jos et vieläkään löydä etsimääsi, voit lisätä uuden kiinnostuksen kohteen alle:",
+        "TrySynonyms": "Etkö näe sitä? Kokeile joitain synonyymejä.",
+        "AddUnderCategory": "Lisää kategoriaan...",
+        "Other": "muu",
+        "Unlisted": "Piilotettu"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Viesti on merkitty järjestelmänvalvojan tarkistettavaksi. Napauta uudelleen poistaaksesi lipun.",
+        "noOneSaid": "Kukaan ei ole sanonut mitään",
+        "closeChatButton": "Sulje chat",
+        "closeChatConfirmTitle": "Suljetaanko tämä keskustelu?",
+        "closeChatConfirm": "Haluatko varmasti sulkea tämän keskustelun?",
+        "Subscribed": "Ilmoitukset käytössä",
+        "Unsubscribed": "Ilmoitukset mykistetty",
+        "closeChatConfirmYes": "Joo",
+        "closeChatConfirmNo": "Ei",
+        "earlierComments": "aikaisemmat kommentit",
+        "startedConversation": "aloitti keskustelun",
+        "RealTimeCall": "Reaaliaikainen puhelu",
+        "JoinWebRTC": "Puhelinkonferenssi",
+        "SearchByName": "Hae nimellä",
+        "Notifications": {
+            "Visit": "{{displayName}} vierailee chatissa",
+            "Join": "{{displayName}} liittyi chatiin",
+            "Leave": "{{displayName}} poistui chatista",
+            "RelatedTo": "{{displayName}} aloitti {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Lisää kommentti",
+            "Private": "Kirjoita yksityisviesti"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "hallita sähköpostitilauksiasi",
+        "IfUnsubscribe": "Jos haluat peruuttaa tilauksen",
+        "*": "{{{ stream.fields.title}} {{& message.fields.type}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} liittyi",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} jäljellä",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} sanoi: {{& message.content}}}",
+        "Streams\/changed": "Muutoksia {{stream.fields.title}}",
+        "Streams\/invite": "Sinut kutsuttiin numeroon {{{ stream.fields.title}}}",
+        "Streams\/announcement": "Ilmoitus vuonna {{{ stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}} muutti pääsyä vuonna {{& stream.fields.title}}}",
+        "Streams\/chat\/edit": "Chat-viestiä muokattu vuonna {{{ stream.fields.title}}}",
+        "Streams\/chat\/remove": "Chat-viesti poistettiin vuonna {{{ stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} on suljettu",
+        "Streams\/task\/progress": "Edistystä {{stream.fields.title}} ssä",
+        "Streams\/task\/complete": "Tehtävä suoritettu: {{stream.fields.title}}",
+        "Streams\/task\/error": "Virhe aikana: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Saapuva viesti",
+        "Streams\/relatedTo\/Streams\/call": "Uusi puhelu alkoi vuonna {{toTitle}}",
+        "Streams\/relatedTo\/*": "Uusi {{relationDisplayType}} {{toTitle}} ssa",
+        "Streams\/relatedFrom\/*": "Lisätty {{toTitle}} ään {{relationDisplayType}} ksi",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} mainitsi sinut kommentissa",
+        "Streams\/call": "{{displayName}} aloitti reaaliaikaisen puhelun",
+        "changed": {
+            "ChangesIn": "Muutoksia {{title}}",
+            "Changed": "muuttunut",
+            "HereIsWhatChanged": "Tässä on mikä muuttui:"
+        },
+        "joined": {
+            "Joined": "{{subject}} liittyi <em>{{title}}<\/em>"
+        }
+    },
+    "invite": {
+        "command": "Kutsu",
+        "Invite": "Kutsu",
+        "Share": "Jaa",
+        "messageContent": "{{displayName}} kutsui sinut {{inviteUrl}}",
+        "youCanNowPaste": "Voit nyt liittää tämän linkin jonnekin kutsuaksesi ihmisiä",
+        "roles": {
+            "title": "Myönnetäänkö kutsutuille käyttäjille rooleja?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Anteeksi",
+                "alert": "Sinulla ei ole oikeutta myöntää tätä roolia"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Anteeksi",
+                "alert": "Sinulla ei ole oikeutta poistaa tätä roolia"
+            }
+        },
+        "labels": {
+            "title": "Mikä on suhteesi?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Valitse yhteystiedoistasi",
+            "chooseAgainFromContacts": "Valitse uudelleen yhteystiedoista",
+            "inviteSelectedContacts": "Kutsu valitut yhteystiedot",
+            "selectFromContacts": "Valitse yhteystiedoista",
+            "userChooserPlaceholder": "Hae nimellä",
+            "photo": "Ottaa valokuva",
+            "photoOf": "Ota kuva {{name}}",
+            "photoInstruction": "Jos QR-koodisi skannannut henkilö on edessäsi, ota kuva hänestä",
+            "to": "Vastaanottaja: {{Stream Title}}",
+            "go": "Mennä",
+            "title": "Kutsu",
+            "placeholder": "Matkapuhelinnumero tai sähköpostiosoite",
+            "orInvite": "Tai kutsu ihmisiä käyttämällä:",
+            "copyLink": "{{ClickOrTap}} kopioidaksesi kutsulinkin",
+            "shareOrCopyLink": "{{ClickOrTap}} jakaa tai kopioidaksesi kutsulinkin",
+            "QR": "{{ClickOrTap}} luodaksesi QR-koodin",
+            "QRtitle": "Skannaa tämä QR-koodi",
+            "QRscanned": "He skannasivat sen!",
+            "scannedQR": "{{ClickOrTap}} , jos koodi skannattu",
+            "byEmail": "Sähköposti",
+            "byText": "Teksti",
+            "byFacebook": "Facebook",
+            "byTwitter": "Viserrys",
+            "title2": "Kutsu ihmisiä",
+            "chooseMethod": "Valitse menetelmä:",
+            "selectContacts": "Valitse Yhteystiedot",
+            "scanQRCode": "Skannaa QR-koodi",
+            "shareLink": "Jaa linkki",
+            "chooseFromRegistered": "Valitse rekisteröityneistä käyttäjistä",
+            "inviteViaEmailOrSms": "Kutsu sähköpostilla tai tekstiviestillä",
+            "TakeGroupPhoto": "Ota ryhmäkuva",
+            "Skip": "Ohita",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "Lisää Rooleja",
+            "addPersonalRoles": "Lisää henkilökohtaisia suhteita"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Tervetuloa numeroon {{communityName}}",
+            "HasInvitedYou": "on kutsunut sinut:",
+            "HasInvitedYouToTheirProfile": "on kutsunut sinut muodostamaan yhteyden.",
+            "prompt": "Anna ystävien tunnistaa sinut:",
+            "accept": "Hyväksy kutsu"
+        },
+        "email": {
+            "subject": "Hei, tarkista tämä",
+            "PleaseVisitLink": "Käy seuraavasta linkistä:",
+            "InvitingYou": "Kutsun sinut numeroon {{title}}",
+            "HasInvitedYou": "{{displayName}} on kutsunut sinut {{title}}",
+            "HasMentionedYou": "{{displayName}} on maininnut sinut kohdassa &quot; {{title}} &quot;",
+            "YOUAREINVITED": "SINUT ON KUTSUTTU!",
+            "AcceptInvite": "Hyväksy kutsu"
+        },
+        "mobile": {
+            "content": "Sinut on kutsuttu numeroon {{title}} . Napauta {{url}}"
+        },
+        "notice": {
+            "text": "Sinut on kutsuttu. {{ClickOrTap}} täällä hyväksyäksesi ja liittyäksesi."
+        },
+        "chat": {
+            "prompt": "Kutsut ihmisiä keskusteluun, jossa voit pitää yhteyttä, jakaa valokuvia yhdessä ja paljon muuta. Anna sille nimi:"
+        },
+        "Participants": "Kutsu ihmisiä"
+    },
+    "messages": {
+        "html": {
+            "posted": "lähetti <em>{{message.fields.type}}<\/em> viestin numeroon {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "kommentoi",
+            "startedCallIn": "aloitti puhelun",
+            "in": "sisään",
+            "body": "vuonna {{{ url}} : {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "on lähetetty osoitteeseen",
+                "byAvatar": "{{avatar.displayName}} mennessä"
+            },
+            "relatedTo": {
+                "hasANew": "on uusi {{instructions.fromDisplayType}}",
+                "byAvatar": "lisäsi {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Kutsut lähetetään numerostamme, joita ystäväsi eivät vielä tunnista. Lähetä heille nopea tekstiviesti, jossa kerrot, että kutsu tuli sinulta ja pyydä heitä napsauttamaan linkkiä.",
+            "confirm": "Kutsut lähetetään numerostamme, joita ystäväsi eivät vielä tunnista. Haluatko lähettää heille nopean tekstiviestin, jossa kerrot, että kutsu tuli sinulta ja pyytää heitä napsauttamaan linkkiä.",
+            "check": "Hei, lähetin sinulle juuri kutsun {{app}} sovellukseen. Tarkista tekstiviestisi ja klikkaa linkkiä!",
+            "CheckYourMobile": "Tarkista tekstiviesti ja noudata ohjeita!"
+        },
+        "email": {
+            "alert": "Kutsut lähetetään verkkotunnuksestamme, joita ystäväsi eivät vielä tunnista. Lähetä heille nopea tekstiviesti, jossa kerrot, että kutsu tuli sinulta ja pyydä heitä napsauttamaan linkkiä.",
+            "confirm": "Kutsut lähetetään verkkotunnuksestamme, joita ystäväsi eivät vielä tunnista. Haluatko lähettää heille nopean tekstiviestin, jossa kerrot, että kutsu tuli sinulta ja pyytää heitä napsauttamaan linkkiä.",
+            "subject": "Saitko kutsun?",
+            "body": "Hei, lähetin sinulle juuri kutsun {{app}} sovellukseen. Tarkista sähköpostisi ja klikkaa siinä olevaa linkkiä!",
+            "CheckYourEmail": "Tarkista sähköpostisi ja seuraa ohjeita!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "Tietosuoja-asetukset"
+    },
+    "participating": {
+        "Title": "Otsikko",
+        "Subscribed": "Tilattu",
+        "Participants": "Osallistujat",
+        "AreYouSureRemoveIdentifier": "Haluatko varmasti poistaa tämän tunnisteen?",
+        "AreYouSureUnsubscribeIdentifier": "Oletko varma, että peruutat tämän tunnuksen tilauksen? Se poistaa käytöstä tämän tunnuksen ilmoitukset.",
+        "AreYouSureUnsubscribeDevice": "Oletko varma, että peruutat tämän laitteen tilauksen? Se poistaa tämän laitteen ilmoitukset käytöstä.",
+        "AreYouSureRemoveParticipant": "Haluatko varmasti poistaa tämän osallistujan?",
+        "RemoveParticipant": "Poista osallistuja",
+        "Identifiers": "Tunnisteet",
+        "Devices": "Laitteet",
+        "Streams": "Streamit"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Kutsuttu",
+            "description": "Kutsujen postilaatikko"
+        },
+        "Streams\/resource": {
+            "displayType": "Resurssi",
+            "description": "stream resurssin käytön hallintaan ja päivitysviestien lähettämiseen"
+        },
+        "Streams\/task": {
+            "description": "saadaksesi päivitykset tietyn tehtävän edistymisestä",
+            "displayType": "Tehtävä"
+        },
+        "Streams\/tasks": {
+            "description": "luokka tehtäville",
+            "displayType": "Tehtävät"
+        },
+        "Streams\/experience": {
+            "description": "yhteinen kokemus yhteisön jäsenille",
+            "displayType": "Yhteinen kokemus yhteisön jäsenille"
+        },
+        "Streams\/greeting": {
+            "description": "tervehdys, jolla käyttäjä voi esitellä itsensä",
+            "displayType": "Tervehdys"
+        },
+        "Streams\/number": {
+            "displayType": "Määrä",
+            "description": "matemaattinen luku"
+        },
+        "Streams\/date": {
+            "displayType": "Päivämäärä",
+            "description": "Päivämäärä"
+        },
+        "Streams\/text": {
+            "displayType": "Teksti",
+            "description": "tekstin runko"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Teksti",
+            "description": "pieni tekstiosa"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Teksti",
+            "description": "keskikokoinen tekstiosa"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Sähköpostiosoite",
+            "description": "sähköpostiosoite"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Puhelinnumero",
+            "description": "puhelinnumero"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL-osoite",
+            "description": "linkki verkossa"
+        },
+        "Streams\/image": {
+            "displayType": "Kuva",
+            "description": "visuaalinen kuva",
+            "newItem": "Lisää kuva"
+        },
+        "Streams\/images": {
+            "displayType": "kuvagalleria",
+            "description": "kuvagalleria"
+        },
+        "Streams\/album": {
+            "displayType": "Albumi",
+            "description": "albumi, johon eri mediat liittyvät"
+        },
+        "Streams\/file": {
+            "displayType": "Tiedosto",
+            "description": "ladattu tiedosto",
+            "newItem": "Lisää tiedosto"
+        },
+        "Streams\/audio": {
+            "displayType": "Äänileike",
+            "description": "äänileike",
+            "newItem": "Lisää ääni"
+        },
+        "Streams\/video": {
+            "displayType": "Videoleike",
+            "description": "videoleike",
+            "newItem": "Lisää video"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF-dokumentti",
+            "description": "PDF-dokumentti",
+            "newItem": "Lisää PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Suora lähetys",
+            "description": "live-ääntä tai -videota"
+        },
+        "Streams\/category": {
+            "displayType": "Kategoria",
+            "description": "luokka, johon muita virtoja voidaan yhdistää",
+            "newItem": "Lisää luokka"
+        },
+        "Streams\/participating": {
+            "displayType": "Osallistuva indeksi",
+            "description": "streamit liittyvät\/ei liity tähän, kun käyttäjä liittyy\/poistuu"
+        },
+        "Streams\/interest": {
+            "displayType": "Kiinnostuksen kohde",
+            "description": "edustaa käyttäjän kiinnostusta tiettyä aihetta kohtaan"
+        },
+        "Streams\/incoming": {
+            "displayType": "Saapuva",
+            "description": "kohde muiden käyttäjien lähettämille viesteille"
+        },
+        "Streams\/chat": {
+            "displayType": "Keskustelu",
+            "description": "keskustelu käyttäjien välillä historian kera"
+        },
+        "Streams\/question": {
+            "displayType": "Kysymys",
+            "description": "kysymysvirta",
+            "newItem": "Lisää kysymys"
+        },
+        "Streams\/answer": {
+            "displayType": "Vastaus",
+            "description": "vastausvirta"
+        }
+    },
+    "menu": {
+        "placeholder": "kirjoita sivun otsikko",
+        "ModTab": "Muokkaa kohdetta",
+        "Save": "Tallentaa",
+        "Delete": "Poistaa",
+        "Submenu": "Alivalikko"
+    },
+    "audio": {
+        "record": "Ennätys",
+        "reset": "Nollaa",
+        "edit": "Muokata",
+        "title": "otsikko",
+        "description": "kuvaus",
+        "upload": "Lataa",
+        "link": "Linkki",
+        "setUrl": "Aseta URL-osoite",
+        "save": "Tallentaa",
+        "setClip": "Leikkaa pois klipsi",
+        "invalidURL": "Virheellinen URL",
+        "invalidFile": "Virheellinen tiedosto",
+        "errorNoSource": "Ei äänilähdettä",
+        "uploadLimit": "Tiedoston enimmäiskoko: {{size}}",
+        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}"
+    },
+    "video": {
+        "reset": "Nollaa",
+        "edit": "Muokata",
+        "title": "otsikko",
+        "description": "kuvaus",
+        "upload": "Lataa",
+        "link": "Linkki",
+        "setUrl": "Aseta URL-osoite",
+        "save": "Tallentaa",
+        "setClip": "Leikkaa pois klipsi",
+        "invalidURL": "Virheellinen URL",
+        "invalidFile": "Virheellinen tiedosto",
+        "errorNoSource": "Ei videolähdettä",
+        "uploadLimit": "Tiedoston enimmäiskoko: {{size}}",
+        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}",
+        "createAnimatedThumbnail": "Luo animoitu pikkukuva",
+        "errorNotAvailable": "Anteeksi, mutta video ei ole vielä saatavilla. Yritä uudelleen myöhemmin."
+    },
+    "pdf": {
+        "reset": "Nollaa",
+        "edit": "Muokata",
+        "title": "otsikko",
+        "description": "kuvaus",
+        "upload": "Lataa",
+        "link": "Linkki",
+        "setUrl": "Aseta URL-osoite",
+        "save": "Tallentaa",
+        "setClip": "Leikkaa pois klipsi",
+        "invalidURL": "Virheellinen URL",
+        "invalidFile": "Virheellinen tiedosto",
+        "errorNoSource": "Ei pdf-lähdettä",
+        "uploadLimit": "Tiedoston enimmäiskoko: {{size}}",
+        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}"
+    },
+    "image": {
+        "reset": "Nollaa",
+        "edit": "Muokata",
+        "title": "otsikko",
+        "description": "kuvaus",
+        "upload": "Lataa",
+        "link": "Linkki",
+        "setUrl": "Aseta URL-osoite",
+        "save": "Tallentaa",
+        "uploadedImage": "Ladattu kuva",
+        "imageTitle": "Kuvan otsikko",
+        "setClip": "Leikkaa pois klipsi",
+        "invalidURL": "Virheellinen URL",
+        "invalidFile": "Virheellinen tiedosto",
+        "errorNoSource": "Ei kuvalähdettä",
+        "uploadLimit": "Tiedoston enimmäiskoko: {{size}}",
+        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}"
+    },
+    "questions": {
+        "Questions": "Kysymyksiä",
+        "Answers": "Vastaukset",
+        "AnswerQuestion": "Vastata kysymykseen",
+        "SetYourAnswer": "Ole hyvä ja vastaa kysymykseen",
+        "NewQuestion": "Uusi kysymys",
+        "EditQuestion": "Muokkaa kysymystä",
+        "NewAnswer": "Uusi vastaus",
+        "NewPossibleAnswer": "Uusi mahdollinen vastaus",
+        "AnswerDetails": "Vastauksen tiedot",
+        "answerOption": "Vaihtoehto",
+        "answerOptionExclusive": "Yksinomainen",
+        "answerTextarea": "Textarea",
+        "answerText": "Teksti",
+        "HideUntilAnswered": "Piilota, kunnes saat vastauksen",
+        "CantChangeAnswers": "Vastauksia ei voi muuttaa",
+        "FreeAnswer": "Kirjoita vastauksesi tähän",
+        "SaveQuestion": "Tallenna kysymys",
+        "SaveAnswer": "Tallenna vastaus",
+        "Save": "Tallentaa",
+        "Send": "Lähettää",
+        "TitleRequired": "Otsikko vaaditaan!",
+        "AlreadyAnswered": "Jo vastattu",
+        "TitlePlaceholder": "Kirjoita kysymyksesi",
+        "ContentPlaceholder": "Laita tähän lisätietoa auttaaksesi ihmisiä vastaamaan",
+        "ErrorTitle": "Kysymys vaaditaan",
+        "Placeholder": "Kirjoita ohjeet",
+        "AreYouSure": "Oletko varma?",
+        "ShortAnswer": "Kirjoita lyhyt vastaus"
+    },
+    "experience": {
+        "NewExperience": "Uusi kokemus",
+        "DefineTitle": "Määritä otsikko",
+        "Create": "Luoda"
+    },
+    "calls": {
+        "SettingsTitle": "Puhelut",
+        "MaxCalls": "Max puhelut",
+        "Update": "Päivittää",
+        "NoCallsYet": "Ei puheluita vielä",
+        "CallReasonTitle": "Mistä tässä puhelussa on kyse?",
+        "WaitingRoom": "Odotushuone",
+        "LiveRoom": "Live-huone",
+        "interviewedByAnotherHost": "Tällä hetkellä haastattelee toinen isäntä",
+        "bringToLive": "Bring To Live Show",
+        "putOnHold": "Pitoon",
+        "endCall": "Lopeta puhelu",
+        "interview": "Haastatella",
+        "markApproved": "Merkitse Hyväksytty"
+    },
+    "relate": {
+        "Add": "Lisää {{streamDisplayType}}"
+    },
+    "userChooser": {
+        "Placeholder": "Käyttäjän nimi..."
+    },
+    "task": {
+        "errorsTitle": "Virheitä tapahtui"
+    },
+    "topic": {
+        "NewTopic": "Uusi aihe",
+        "UpdateTopic": "Päivitä aihe",
+        "CreateTopic": "Luo aihe",
+        "AreYouSureDeleteTopic": "Haluatko varmasti poistaa tämän aiheen",
+        "TitlePlaceholder": "Aiheen otsikko...",
+        "DescribeTopic": "kuvaile aihetta...",
+        "TopicIcon": "Aihekuva",
+        "UploadIcon": "Latauskuvake",
+        "Conversation": "Keskustelu",
+        "Metrics": "Mittarit"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Luo animoitu pikkukuva",
+        "Width": "Leveys",
+        "Height": "Korkeus",
+        "Start": "alkaa",
+        "End": "Loppu",
+        "Delay": "Viive",
+        "Quality": "Laatu",
+        "Size": "Koko",
+        "OfFrames": "kehyksistä",
+        "Frame": "Kehys",
+        "UseThis": "Käytä tätä",
+        "ResultGIF": "Tulos GIF",
+        "VideoElementNotFound": "Videoelementtiä ei löydy"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} kasvoillesi",
+        "AcceptIcon": "Hyväksy valittu alue"
+    }
+}

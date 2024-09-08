@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "Bu məzmun sizdən gizlidir.",
+        "InplaceTypeMustBe": "inplaceType &#39;mətn sahəsi&#39; və ya &#39;mətn&#39; olmalıdır"
+    },
+    "preview": {
+        "NewItemTitle": "Yeni Element"
+    },
+    "avatar": {
+        "firstName": "ad",
+        "lastName": "Soyad",
+        "username": "istifadəçi adı"
+    },
+    "labels": {
+        "Streams\/invited": "Dəvət etdiyim insanlar",
+        "Streams\/invitedMe": "Məni kim dəvət etdi",
+        "DoYouAgree": "Razısan?",
+        "Yes": "Bəli",
+        "No": "Yox",
+        "JoinItNow": "İndi qoşulun?"
+    },
+    "login": {
+        "prompt": "Dostlar sizi tanısın:",
+        "newUser": "və ya aşağıda yeni hesab yaradın",
+        "picTooltip": "Bu şəkli sonra dəyişə bilərsiniz",
+        "placeholders": {
+            "fullName": "Tam adınızı daxil edin"
+        }
+    },
+    "interests": {
+        "Filter": "Axtarış maraqları",
+        "CanGrant": "Əgər hələ də axtardığınızı tapa bilmirsinizsə, aşağıya yeni maraq əlavə edə bilərsiniz:",
+        "TrySynonyms": "Görmürsən? Bəzi sinonimləri sınayın.",
+        "AddUnderCategory": "Kateqoriyaya əlavə edin...",
+        "Other": "Digər",
+        "Unlisted": "Siyahıdan kənar"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Mesaj admin tərəfindən nəzərdən keçirilmək üçün işarələnib. İşarəni silmək üçün yenidən toxunun.",
+        "noOneSaid": "Heç kim heç nə deməyib",
+        "closeChatButton": "Söhbəti bağlayın",
+        "closeChatConfirmTitle": "Bu söhbət bağlansın?",
+        "closeChatConfirm": "Bu çatı bağlamaq istədiyinizə əminsiniz?",
+        "Subscribed": "Bildirişlər Aktivdir",
+        "Unsubscribed": "Bildirişlər susduruldu",
+        "closeChatConfirmYes": "Bəli",
+        "closeChatConfirmNo": "Yox",
+        "earlierComments": "əvvəlki şərhlər",
+        "startedConversation": "söhbətə başladı",
+        "RealTimeCall": "Real vaxt zəngi",
+        "JoinWebRTC": "Telekonfrans",
+        "SearchByName": "Ada görə axtarın",
+        "Notifications": {
+            "Visit": "{{displayName}} çatı ziyarət edir",
+            "Join": "{{displayName}} söhbətə qoşulub",
+            "Leave": "{{displayName}} söhbəti tərk etdi",
+            "RelatedTo": "{{displayName}} {{stream.displayType}} ə başladı"
+        },
+        "placeholders": {
+            "Public": "Şərh əlavə edin",
+            "Private": "Şəxsi mesaj yazın"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "e-poçt abunəliyinizi idarə edin",
+        "IfUnsubscribe": "Abunəni ləğv etmək istəyirsinizsə",
+        "*": "{{{ message.fields.type}} dan {{& stream.fields.title}}} ə qədər mesaj göndərin",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} qoşulub",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} qalıb",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} dedi: {{& message.content}}}",
+        "Streams\/changed": "{{stream.fields.title}} -da dəyişikliklər",
+        "Streams\/invite": "Siz {{{ stream.fields.title}}} a dəvət olundunuz",
+        "Streams\/announcement": "{{{ stream.fields.title}}} -da elan",
+        "Streams\/access": "{{{call 'avatar.displayName'}} {{& stream.fields.title}}} də girişi dəyişdi",
+        "Streams\/chat\/edit": "{{{ stream.fields.title}}} ildə redaktə edilmiş söhbət mesajı",
+        "Streams\/chat\/remove": "Çat mesajı {{{ stream.fields.title}}} -da silindi",
+        "Streams\/closed": "{{stream.fields.title}} bağlandı",
+        "Streams\/task\/progress": "{{stream.fields.title}} da irəliləyiş əldə edildi",
+        "Streams\/task\/complete": "Tapşırıq tamamlandı: {{stream.fields.title}}",
+        "Streams\/task\/error": "Səhv zamanı: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Gələn Mesaj",
+        "Streams\/relatedTo\/Streams\/call": "Yeni Zəng {{toTitle}} ildə başladı",
+        "Streams\/relatedTo\/*": "Yeni {{relationDisplayType}} {{toTitle}}",
+        "Streams\/relatedFrom\/*": "{{toTitle}} {{relationDisplayType}} kimi əlavə edildi",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} şərhdə sizi qeyd etdi",
+        "Streams\/call": "{{displayName}} real vaxt zəng etməyə başladı",
+        "changed": {
+            "ChangesIn": "{{title}} -da dəyişikliklər",
+            "Changed": "dəyişdi",
+            "HereIsWhatChanged": "Budur nə dəyişdi:"
+        },
+        "joined": {
+            "Joined": "{{subject}} <em>{{title}}<\/em> qoşuldu"
+        }
+    },
+    "invite": {
+        "command": "dəvət et",
+        "Invite": "dəvət et",
+        "Share": "Paylaşın",
+        "messageContent": "{{displayName}} sizi {{inviteUrl}} ə dəvət etdi",
+        "youCanNowPaste": "İndi insanları dəvət etmək üçün bu linki harasa yerləşdirə bilərsiniz",
+        "roles": {
+            "title": "Dəvət olunmuş istifadəçilərə rollar verilsin?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Bağışlayın",
+                "alert": "Bu rolu vermək səlahiyyətiniz yoxdur"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Bağışlayın",
+                "alert": "Bu rolu silmək səlahiyyətiniz yoxdur"
+            }
+        },
+        "labels": {
+            "title": "Münasibətiniz necədir?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Kontaktlarınızdan seçin",
+            "chooseAgainFromContacts": "Kontaktlardan Yenidən seçin",
+            "inviteSelectedContacts": "Seçilmiş Kontaktları dəvət edin",
+            "selectFromContacts": "Kontaktlardan seçin",
+            "userChooserPlaceholder": "Ada görə axtarın",
+            "photo": "Şəkil çəkin",
+            "photoOf": "{{name}} un şəklini çəkin",
+            "photoInstruction": "QR kodunuzu skan edən şəxs qarşınızdadırsa, onun şəklini çəkin",
+            "to": "Kimə: {{Stream Title}}",
+            "go": "Get",
+            "title": "dəvət et",
+            "placeholder": "Mobil nömrə və ya e-poçt ünvanı",
+            "orInvite": "Və ya istifadə edərək insanları dəvət edin:",
+            "copyLink": "Dəvət linkini kopyalamaq üçün {{ClickOrTap}}",
+            "shareOrCopyLink": "Dəvət linkini paylaşmaq və ya kopyalamaq üçün {{ClickOrTap}}",
+            "QR": "QR kodu yaratmaq üçün {{ClickOrTap}}",
+            "QRtitle": "Bu QR kodunu skan edin",
+            "QRscanned": "Skan etdilər!",
+            "scannedQR": "Əgər kod skan edilibsə, {{ClickOrTap}}",
+            "byEmail": "E-poçt",
+            "byText": "Mətn",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "title2": "İnsanları dəvət edin",
+            "chooseMethod": "Bir üsul seçin:",
+            "selectContacts": "Kontaktlar seçin",
+            "scanQRCode": "QR kodunu skan edin",
+            "shareLink": "Link paylaşın",
+            "chooseFromRegistered": "Qeydiyyatdan keçmiş istifadəçilərdən seçin",
+            "inviteViaEmailOrSms": "E-poçt və ya SMS vasitəsilə dəvət edin",
+            "TakeGroupPhoto": "Qrup şəklini çəkin",
+            "Skip": "Keç",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "Rolları əlavə edin",
+            "addPersonalRoles": "Şəxsi münasibətlər əlavə edin"
+        },
+        "complete": {
+            "WelcomeToCommunity": "{{communityName}} a xoş gəlmisiniz",
+            "HasInvitedYou": "sizi dəvət etdi:",
+            "HasInvitedYouToTheirProfile": "qoşulmağa dəvət etdi.",
+            "prompt": "Dostlar sizi tanısın:",
+            "accept": "Dəvəti qəbul edin"
+        },
+        "email": {
+            "subject": "Hey, bunu yoxlayın",
+            "PleaseVisitLink": "Zəhmət olmasa aşağıdakı linkə daxil olun:",
+            "InvitingYou": "Sizi {{title}} -a dəvət edirəm",
+            "HasInvitedYou": "{{displayName}} sizi {{title}} ə dəvət etdi",
+            "HasMentionedYou": "{{displayName}} sizi &quot; {{title}} &quot;də qeyd etdi",
+            "YOUAREINVITED": "DƏVƏTLİSİNİZ!",
+            "AcceptInvite": "Dəvəti qəbul edin"
+        },
+        "mobile": {
+            "content": "Siz {{title}} a dəvət olundunuz. Zəhmət olmasa {{url}} vurun"
+        },
+        "notice": {
+            "text": "Siz dəvət olundunuz. {{ClickOrTap}} qəbul etmək və qoşulmaq üçün burada."
+        },
+        "chat": {
+            "prompt": "Siz insanları söhbətə dəvət edəcəksiniz, burada əlaqə saxlaya bilərsiniz, fotoşəkilləri birlikdə paylaşa və s. Bir ad verin:"
+        },
+        "Participants": "İnsanları Dəvət Et"
+    },
+    "messages": {
+        "html": {
+            "posted": "{{stream.fields.title}} ə <em>{{message.fields.type}}<\/em> mesaj göndərdi"
+        },
+        "text": {
+            "commentedOn": "şərh etdi",
+            "startedCallIn": "daxil zəng etməyə başladı",
+            "in": "in",
+            "body": "{{{ url}} -da: {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "ünvanına yerləşdirilib",
+                "byAvatar": "{{avatar.displayName}} ilə"
+            },
+            "relatedTo": {
+                "hasANew": "yeni {{instructions.fromDisplayType}} var",
+                "byAvatar": "{{avatar.displayName}} tərəfindən əlavə edildi"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Dəvətlər dostlarınızın hələ tanımadıqları nömrəmizdən göndərilir. Onlara dəvətin sizdən gəldiyini bildirmək üçün sürətli mətni izləyin və onlardan linki klikləmələrini xahiş edin.",
+            "confirm": "Dəvətlər dostlarınızın hələ tanımadıqları nömrəmizdən göndərilir. Dəvətin sizdən gəldiyini bildirmək və onlardan linki klikləmələrini xahiş etmək üçün qısa mətni izləmək istərdiniz.",
+            "check": "Hey, mən indicə sizə {{app}} proqramına dəvət göndərdim. Zəhmət olmasa sms-inizi yoxlayın və linkə daxil olun!",
+            "CheckYourMobile": "Zəhmət olmasa SMS-i yoxlayın və təlimatlara əməl edin!"
+        },
+        "email": {
+            "alert": "Dəvətlər dostlarınızın hələ tanımadıqları domenimizdən göndərilir. Onlara dəvətin sizdən gəldiyini bildirmək üçün sürətli mətni izləyin və onlardan linki klikləmələrini xahiş edin.",
+            "confirm": "Dəvətlər dostlarınızın hələ tanımadıqları domenimizdən göndərilir. Dəvətin sizdən gəldiyini bildirmək və onlardan linki klikləmələrini xahiş etmək üçün qısa mətni izləmək istərdiniz.",
+            "subject": "Dəvət almısınız?",
+            "body": "Hey, mən indicə sizə {{app}} proqramına dəvət göndərdim. E-poçtunuzu yoxlayın və oradakı linkə klikləyin!",
+            "CheckYourEmail": "E-poçtunuzu yoxlayın və təlimatlara əməl edin!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "Məxfilik Parametrləri"
+    },
+    "participating": {
+        "Title": "Başlıq",
+        "Subscribed": "Abunə oldu",
+        "Participants": "İştirakçılar",
+        "AreYouSureRemoveIdentifier": "Bu identifikatoru siləcəyinizə əminsiniz?",
+        "AreYouSureUnsubscribeIdentifier": "Bu identifikatorun abunəliyini ləğv etdiyinizə əminsiniz? Bu identifikatora bildirişləri söndürəcək.",
+        "AreYouSureUnsubscribeDevice": "Bu cihazın abunəliyini ləğv etdiyinizə əminsiniz? Bu cihaz üçün bildirişləri söndürəcək.",
+        "AreYouSureRemoveParticipant": "Bu iştirakçını silmək istədiyinizə əminsiniz?",
+        "RemoveParticipant": "İştirakçı silin",
+        "Identifiers": "İdentifikatorlar",
+        "Devices": "Cihazlar",
+        "Streams": "Axınlar"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Dəvət",
+            "description": "Dəvətlər üçün inbox"
+        },
+        "Streams\/resource": {
+            "displayType": "Resurs",
+            "description": "resursa girişi idarə etmək və yeniləmələr haqqında mesajlar göndərmək üçün axın"
+        },
+        "Streams\/task": {
+            "description": "müəyyən tapşırıq üzrə irəliləyiş haqqında yenilikləri almaq üçün",
+            "displayType": "Tapşırıq"
+        },
+        "Streams\/tasks": {
+            "description": "tapşırıqlar üçün kateqoriya",
+            "displayType": "Tapşırıqlar"
+        },
+        "Streams\/experience": {
+            "description": "icma üzvləri üçün ümumi təcrübə",
+            "displayType": "İcma üzvləri üçün ümumi təcrübə"
+        },
+        "Streams\/greeting": {
+            "description": "istifadəçinin özünü təqdim edə biləcəyi salam",
+            "displayType": "Salam"
+        },
+        "Streams\/number": {
+            "displayType": "Nömrə",
+            "description": "riyazi nömrə"
+        },
+        "Streams\/date": {
+            "displayType": "Tarix",
+            "description": "Tarix"
+        },
+        "Streams\/text": {
+            "displayType": "Mətn",
+            "description": "mətnin bədəni"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Mətn",
+            "description": "kiçik mətn hissəsi"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Mətn",
+            "description": "orta mətn"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "E-poçt ünvanı",
+            "description": "e-poçt ünvanı"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Telefon nömrəsi",
+            "description": "telefon nömrəsi"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "internetdə keçid"
+        },
+        "Streams\/image": {
+            "displayType": "Şəkil",
+            "description": "vizual görüntü",
+            "newItem": "Şəkil əlavə edin"
+        },
+        "Streams\/images": {
+            "displayType": "Şəkil Qalereyası",
+            "description": "şəkillər qalereyası"
+        },
+        "Streams\/album": {
+            "displayType": "Albom",
+            "description": "müxtəlif medianın əlaqəli olduğu albom"
+        },
+        "Streams\/file": {
+            "displayType": "Fayl",
+            "description": "yüklənmiş fayl",
+            "newItem": "Fayl əlavə et"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio klip",
+            "description": "audio klip",
+            "newItem": "Audio əlavə edin"
+        },
+        "Streams\/video": {
+            "displayType": "Video klip",
+            "description": "video klip",
+            "newItem": "Video əlavə et"
+        },
+        "Streams\/pdf": {
+            "displayType": "Pdf sənəd",
+            "description": "Pdf sənəd",
+            "newItem": "PDF əlavə et"
+        },
+        "Streams\/live": {
+            "displayType": "Canlı yayım",
+            "description": "canlı audio və ya video"
+        },
+        "Streams\/category": {
+            "displayType": "Kateqoriya",
+            "description": "digər axınların əlaqəli ola biləcəyi kateqoriya",
+            "newItem": "Kateqoriya əlavə edin"
+        },
+        "Streams\/participating": {
+            "displayType": "İştirakçı indeksi",
+            "description": "istifadəçi qoşulduqda\/çıxdıqda axınlar bununla əlaqədardır\/əlaqəsi yoxdur"
+        },
+        "Streams\/interest": {
+            "displayType": "Maraq",
+            "description": "istifadəçinin müəyyən mövzuya marağını ifadə edir"
+        },
+        "Streams\/incoming": {
+            "displayType": "Gələn",
+            "description": "digər istifadəçilər tərəfindən göndərilən mesajlar üçün təyinat"
+        },
+        "Streams\/chat": {
+            "displayType": "Söhbət",
+            "description": "istifadəçilər arasında tarixlə söhbət"
+        },
+        "Streams\/question": {
+            "displayType": "Sual",
+            "description": "sual axını",
+            "newItem": "Sual əlavə edin"
+        },
+        "Streams\/answer": {
+            "displayType": "Cavab verin",
+            "description": "cavab axını"
+        }
+    },
+    "menu": {
+        "placeholder": "səhifənin başlığını yazın",
+        "ModTab": "Elementi dəyişdirin",
+        "Save": "Yadda saxla",
+        "Delete": "Sil",
+        "Submenu": "Alt menyu"
+    },
+    "audio": {
+        "record": "Qeyd",
+        "reset": "Sıfırlayın",
+        "edit": "Redaktə et",
+        "title": "başlıq",
+        "description": "təsviri",
+        "upload": "Yükləmək",
+        "link": "Link",
+        "setUrl": "URL təyin edin",
+        "save": "Yadda saxla",
+        "setClip": "Klipi kəsin",
+        "invalidURL": "Yanlış URL",
+        "invalidFile": "Yanlış Fayl",
+        "errorNoSource": "Audio mənbəyi yoxdur",
+        "uploadLimit": "Maksimum fayl ölçüsü: {{size}}",
+        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur"
+    },
+    "video": {
+        "reset": "Sıfırlayın",
+        "edit": "Redaktə et",
+        "title": "başlıq",
+        "description": "təsviri",
+        "upload": "Yükləmək",
+        "link": "Link",
+        "setUrl": "URL təyin edin",
+        "save": "Yadda saxla",
+        "setClip": "Klipi kəsin",
+        "invalidURL": "Yanlış URL",
+        "invalidFile": "Yanlış Fayl",
+        "errorNoSource": "Video mənbəyi yoxdur",
+        "uploadLimit": "Maksimum fayl ölçüsü: {{size}}",
+        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur",
+        "createAnimatedThumbnail": "Animasiyalı miniatür yaradın",
+        "errorNotAvailable": "Bağışlayın, lakin video hələ əlçatan deyil. Zəhmət olmasa bir az sonra yenə cəhd edin."
+    },
+    "pdf": {
+        "reset": "Sıfırlayın",
+        "edit": "Redaktə et",
+        "title": "başlıq",
+        "description": "təsviri",
+        "upload": "Yükləmək",
+        "link": "Link",
+        "setUrl": "URL təyin edin",
+        "save": "Yadda saxla",
+        "setClip": "Klipi kəsin",
+        "invalidURL": "Yanlış URL",
+        "invalidFile": "Yanlış Fayl",
+        "errorNoSource": "Pdf mənbə yoxdur",
+        "uploadLimit": "Maksimum fayl ölçüsü: {{size}}",
+        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur"
+    },
+    "image": {
+        "reset": "Sıfırlayın",
+        "edit": "Redaktə et",
+        "title": "başlıq",
+        "description": "təsviri",
+        "upload": "Yükləmək",
+        "link": "Link",
+        "setUrl": "URL təyin edin",
+        "save": "Yadda saxla",
+        "uploadedImage": "Yüklənmiş şəkil",
+        "imageTitle": "Şəkil başlığı",
+        "setClip": "Klipi kəsin",
+        "invalidURL": "Yanlış URL",
+        "invalidFile": "Yanlış Fayl",
+        "errorNoSource": "Şəkil mənbəyi yoxdur",
+        "uploadLimit": "Maksimum fayl ölçüsü: {{size}}",
+        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur"
+    },
+    "questions": {
+        "Questions": "Suallar",
+        "Answers": "Cavablar",
+        "AnswerQuestion": "Suala cavab verin",
+        "SetYourAnswer": "Zəhmət olmasa suala cavab verin",
+        "NewQuestion": "Yeni Sual",
+        "EditQuestion": "Sualı redaktə edin",
+        "NewAnswer": "Yeni Cavab",
+        "NewPossibleAnswer": "Yeni Mümkün Cavab",
+        "AnswerDetails": "Cavab təfərrüatları",
+        "answerOption": "Seçim",
+        "answerOptionExclusive": "Eksklüziv",
+        "answerTextarea": "Mətn sahəsi",
+        "answerText": "Mətn",
+        "HideUntilAnswered": "Cavab verilənə qədər gizlədin",
+        "CantChangeAnswers": "Cavabları dəyişdirmək mümkün deyil",
+        "FreeAnswer": "Cavabınızı bura yazın",
+        "SaveQuestion": "Sualı yadda saxla",
+        "SaveAnswer": "Cavabı yadda saxla",
+        "Save": "Yadda saxla",
+        "Send": "Göndər",
+        "TitleRequired": "Başlıq tələb olunur!",
+        "AlreadyAnswered": "Artıq cavab verdi",
+        "TitlePlaceholder": "Sualınızı yazın",
+        "ContentPlaceholder": "İnsanlara cavab verməyə kömək etmək üçün hər hansı əlavə məlumatı bura qoyun",
+        "ErrorTitle": "Sual tələb olunur",
+        "Placeholder": "Təlimatları yazın",
+        "AreYouSure": "Sən əminsən?",
+        "ShortAnswer": "Qısa cavab yazın"
+    },
+    "experience": {
+        "NewExperience": "Yeni Təcrübə",
+        "DefineTitle": "Başlıq təyin edin",
+        "Create": "Yaradın"
+    },
+    "calls": {
+        "SettingsTitle": "Zənglər",
+        "MaxCalls": "Maksimum zənglər",
+        "Update": "Yeniləyin",
+        "NoCallsYet": "Hələ zəng yoxdur",
+        "CallReasonTitle": "Bu zəng nə ilə bağlıdır?",
+        "WaitingRoom": "Gözləmə otağı",
+        "LiveRoom": "Canlı otaq",
+        "interviewedByAnotherHost": "Hazırda başqa aparıcı ilə müsahibə verilir",
+        "bringToLive": "Canlı Şouya gətirin",
+        "putOnHold": "Gözləyin",
+        "endCall": "Zəngi bitir",
+        "interview": "Müsahibə",
+        "markApproved": "Təsdiqlə işarələyin"
+    },
+    "relate": {
+        "Add": "{{streamDisplayType}} əlavə edin"
+    },
+    "userChooser": {
+        "Placeholder": "İstifadəçinin adı..."
+    },
+    "task": {
+        "errorsTitle": "Səhvlər baş verdi"
+    },
+    "topic": {
+        "NewTopic": "Yeni Mövzu",
+        "UpdateTopic": "Mövzunu yeniləyin",
+        "CreateTopic": "Mövzu yaradın",
+        "AreYouSureDeleteTopic": "Bu mövzunu silmək istədiyinizə əminsiniz",
+        "TitlePlaceholder": "mövzu başlığı...",
+        "DescribeTopic": "mövzunu təsvir edin...",
+        "TopicIcon": "Mövzu şəkli",
+        "UploadIcon": "Yükləmə İkonu",
+        "Conversation": "Söhbət",
+        "Metrics": "Metriklər"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Animasiyalı miniatür yaradın",
+        "Width": "Genişlik",
+        "Height": "Hündürlük",
+        "Start": "Başlamaq",
+        "End": "Son",
+        "Delay": "Gecikmə",
+        "Quality": "Keyfiyyət",
+        "Size": "Ölçü",
+        "OfFrames": "Çərçivələr",
+        "Frame": "Çərçivə",
+        "UseThis": "Bunu istifadə et",
+        "ResultGIF": "Nəticə GIF",
+        "VideoElementNotFound": "Video element tapılmadı"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Üzünüzdə",
+        "AcceptIcon": "Seçilmiş ərazini qəbul edin"
+    }
+}

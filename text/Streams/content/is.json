@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "Þetta efni er falið fyrir þér.",
+        "InplaceTypeMustBe": "inplaceType verður að vera &#39;textarea&#39; eða &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Nýr hlutur"
+    },
+    "avatar": {
+        "firstName": "fyrsta nafn",
+        "lastName": "eftirnafn",
+        "username": "notendanafn"
+    },
+    "labels": {
+        "Streams\/invited": "Fólki sem ég bauð",
+        "Streams\/invitedMe": "Hver bauð mér",
+        "DoYouAgree": "Ertu sammála?",
+        "Yes": "Já",
+        "No": "Nei",
+        "JoinItNow": "Skráðu þig núna?"
+    },
+    "login": {
+        "prompt": "Láttu vini þekkja þig:",
+        "newUser": "eða stofnaðu nýjan reikning hér að neðan",
+        "picTooltip": "Þú getur breytt þessari mynd síðar",
+        "placeholders": {
+            "fullName": "Skrifaðu fullt nafn"
+        }
+    },
+    "interests": {
+        "Filter": "Leita áhugamál",
+        "CanGrant": "Ef þú finnur enn ekki það sem þú ert að leita að geturðu bætt við nýju áhugamáli hér að neðan:",
+        "TrySynonyms": "Sérðu það ekki? Prófaðu nokkur samheiti.",
+        "AddUnderCategory": "Bæta við undir flokk...",
+        "Other": "Annað",
+        "Unlisted": "Óskráð"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Skilaboð hafa verið merkt til yfirferðar stjórnanda. Pikkaðu aftur til að afmerkja.",
+        "noOneSaid": "Enginn hefur sagt neitt",
+        "closeChatButton": "Lokaðu spjallinu",
+        "closeChatConfirmTitle": "Loka þessu spjalli?",
+        "closeChatConfirm": "Ertu viss um að þú viljir loka þessu spjalli?",
+        "Subscribed": "Tilkynningar virkar",
+        "Unsubscribed": "Tilkynningar þaggaðar",
+        "closeChatConfirmYes": "Já",
+        "closeChatConfirmNo": "Nei",
+        "earlierComments": "fyrri athugasemdir",
+        "startedConversation": "hóf samtal",
+        "RealTimeCall": "Rauntímasímtal",
+        "JoinWebRTC": "Fjarfundur",
+        "SearchByName": "Leitaðu eftir nafni",
+        "Notifications": {
+            "Visit": "{{displayName}} er að heimsækja spjallið",
+            "Join": "{{displayName}} tóku þátt í spjallinu",
+            "Leave": "{{displayName}} yfirgáfu spjallið",
+            "RelatedTo": "{{displayName}} byrjaði á {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Bæta við athugasemd",
+            "Private": "Skrifaðu einkaskilaboð"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "stjórna tölvupóstáskriftum þínum",
+        "IfUnsubscribe": "Ef þú vilt segja upp áskrift",
+        "*": "Skilaboð {{{ message.fields.type}} til {{& stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} tóku þátt",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} eftir",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} sögðu: {{& message.content}}}",
+        "Streams\/changed": "Breytingar á {{stream.fields.title}}",
+        "Streams\/invite": "Þér var boðið í {{{ stream.fields.title}}}",
+        "Streams\/announcement": "Tilkynning í {{{ stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}} breyttu aðgangi í {{& stream.fields.title}}}",
+        "Streams\/chat\/edit": "Spjallskilaboðum breytt árið {{{ stream.fields.title}}}",
+        "Streams\/chat\/remove": "Spjallskilaboð fjarlægð árið {{{ stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} hefur verið lokað",
+        "Streams\/task\/progress": "Framfarir á árinu {{stream.fields.title}}",
+        "Streams\/task\/complete": "Verkefni lokið: {{stream.fields.title}}",
+        "Streams\/task\/error": "Villa á meðan: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Skilaboð sem berast",
+        "Streams\/relatedTo\/Streams\/call": "Nýtt símtal byrjað árið {{toTitle}}",
+        "Streams\/relatedTo\/*": "Nýtt {{relationDisplayType}} á {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Bætt við {{toTitle}} sem {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} minntist á þig í athugasemd",
+        "Streams\/call": "{{displayName}} hóf símtal í rauntíma",
+        "changed": {
+            "ChangesIn": "Breytingar á {{title}}",
+            "Changed": "breytt",
+            "HereIsWhatChanged": "Hér er það sem breyttist:"
+        },
+        "joined": {
+            "Joined": "{{subject}} tóku þátt <em>{{title}}<\/em>"
+        }
+    },
+    "invite": {
+        "command": "Bjóða",
+        "Invite": "Bjóða",
+        "Share": "Deila",
+        "messageContent": "{{displayName}} bauð þér í {{inviteUrl}}",
+        "youCanNowPaste": "Þú getur nú límt þennan hlekk einhvers staðar til að bjóða fólki",
+        "roles": {
+            "title": "Veita boðuðum notendum hlutverk?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Því miður",
+                "alert": "Þú hefur ekki heimild til að veita þetta hlutverk"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Því miður",
+                "alert": "Þú hefur ekki heimild til að fjarlægja þetta hlutverk"
+            }
+        },
+        "labels": {
+            "title": "Hvert er sambandið þitt?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Veldu úr tengiliðunum þínum",
+            "chooseAgainFromContacts": "Veldu Aftur úr Tengiliðir",
+            "inviteSelectedContacts": "Bjóddu völdum tengiliðum",
+            "selectFromContacts": "Veldu Frá tengiliðum",
+            "userChooserPlaceholder": "Leitaðu eftir nafni",
+            "photo": "Taktu mynd",
+            "photoOf": "Taktu mynd af {{name}}",
+            "photoInstruction": "Ef sá sem skannaði QR kóðann þinn er fyrir framan þig skaltu taka mynd af honum",
+            "to": "Til: {{Stream Title}}",
+            "go": "Farðu",
+            "title": "Bjóða",
+            "placeholder": "Farsímanúmer eða netfang",
+            "orInvite": "Eða bjóddu fólki með því að nota:",
+            "copyLink": "{{ClickOrTap}} til að afrita boðstengil",
+            "shareOrCopyLink": "{{ClickOrTap}} til að deila eða afrita boðstengil",
+            "QR": "{{ClickOrTap}} til að búa til QR kóða",
+            "QRtitle": "Skannaðu þennan QR kóða",
+            "QRscanned": "Þeir skannaðu það!",
+            "scannedQR": "{{ClickOrTap}} ef kóðinn var skannaður",
+            "byEmail": "Tölvupóstur",
+            "byText": "Texti",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "title2": "Bjóddu fólki",
+            "chooseMethod": "Veldu aðferð:",
+            "selectContacts": "Veldu Tengiliðir",
+            "scanQRCode": "Skannaðu QR kóða",
+            "shareLink": "Deildu tengli",
+            "chooseFromRegistered": "Veldu úr skráðum notendum",
+            "inviteViaEmailOrSms": "Boðið með tölvupósti eða SMS",
+            "TakeGroupPhoto": "Taktu hópmynd",
+            "Skip": "Sleppa",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "Bæta við hlutverkum",
+            "addPersonalRoles": "Bættu við persónulegum samböndum"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Velkomin í {{communityName}}",
+            "HasInvitedYou": "hefur boðið þér að:",
+            "HasInvitedYouToTheirProfile": "hefur boðið þér að tengjast.",
+            "prompt": "Láttu vini þekkja þig:",
+            "accept": "Samþykkja boð"
+        },
+        "email": {
+            "subject": "Hey, athugaðu þetta",
+            "PleaseVisitLink": "Vinsamlegast farðu á eftirfarandi hlekk:",
+            "InvitingYou": "Ég býð þér í {{title}}",
+            "HasInvitedYou": "{{displayName}} hefur boðið þér í {{title}}",
+            "HasMentionedYou": "{{displayName}} hefur minnst á þig í &quot; {{title}} &quot;",
+            "YOUAREINVITED": "ÞÉR ER BOÐIÐ!",
+            "AcceptInvite": "Samþykkja boð"
+        },
+        "mobile": {
+            "content": "Þér hefur verið boðið í {{title}} . Vinsamlegast smelltu á {{url}}"
+        },
+        "notice": {
+            "text": "Þér hefur verið boðið. {{ClickOrTap}} hér til að samþykkja og taka þátt."
+        },
+        "chat": {
+            "prompt": "Þú munt bjóða fólki í samtal þar sem þú getur verið í sambandi, deilt myndum saman og fleira. Gefðu því nafn:"
+        },
+        "Participants": "Bjóddu fólki"
+    },
+    "messages": {
+        "html": {
+            "posted": "sendi <em>{{message.fields.type}}<\/em> skilaboð til {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "gerði athugasemd við",
+            "startedCallIn": "byrjaði að hringja inn",
+            "in": "inn",
+            "body": "í {{{ url}} : {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "hefur verið sent til",
+                "byAvatar": "eftir {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "er með nýjan {{instructions.fromDisplayType}}",
+                "byAvatar": "bætt við um {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Boð eru send úr númerinu okkar, sem vinir þínir þekkja ekki enn. Fylgdu eftir með stuttum texta til að láta þá vita að boðið kom frá þér og biðja þá um að smella á hlekkinn.",
+            "confirm": "Boð eru send úr númerinu okkar, sem vinir þínir þekkja ekki enn. Viltu fylgja eftir með stuttum texta til að láta þá vita að boðið kom frá þér, biðja þá um að smella á hlekkinn.",
+            "check": "Hæ, ég sendi þér boð í {{app}} appið. Vinsamlegast athugaðu sms-ið þitt og smelltu á hlekkinn!",
+            "CheckYourMobile": "Vinsamlegast athugaðu SMS og fylgdu leiðbeiningunum!"
+        },
+        "email": {
+            "alert": "Boð eru send frá léninu okkar, sem vinir þínir þekkja ekki enn. Fylgdu eftir með stuttum texta til að láta þá vita að boðið kom frá þér og biðja þá um að smella á hlekkinn.",
+            "confirm": "Boð eru send frá léninu okkar, sem vinir þínir þekkja ekki enn. Viltu fylgja eftir með stuttum texta til að láta þá vita að boðið kom frá þér, biðja þá um að smella á hlekkinn.",
+            "subject": "Fékkstu boð?",
+            "body": "Hæ, ég sendi þér boð í {{app}} appið. Vinsamlegast athugaðu tölvupóstinn þinn og smelltu á hlekkinn þar!",
+            "CheckYourEmail": "Vinsamlegast athugaðu tölvupóstinn þinn og fylgdu leiðbeiningunum!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "Öryggisstillingar"
+    },
+    "participating": {
+        "Title": "Titill",
+        "Subscribed": "Gerður áskrifandi",
+        "Participants": "Þátttakendur",
+        "AreYouSureRemoveIdentifier": "Ertu viss um að fjarlægja þetta auðkenni?",
+        "AreYouSureUnsubscribeIdentifier": "Ertu viss um að hætta áskrift að þessu auðkenni? Það mun slökkva á tilkynningum til þessa auðkennis.",
+        "AreYouSureUnsubscribeDevice": "Ertu viss um að segja upp áskriftinni að þessu tæki? Það mun slökkva á tilkynningum í þetta tæki.",
+        "AreYouSureRemoveParticipant": "Ertu viss um að þú viljir fjarlægja þennan þátttakanda?",
+        "RemoveParticipant": "Fjarlægðu þátttakanda",
+        "Identifiers": "Auðkenni",
+        "Devices": "Tæki",
+        "Streams": "Straumar"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Boðið",
+            "description": "Innhólf fyrir boð"
+        },
+        "Streams\/resource": {
+            "displayType": "Auðlind",
+            "description": "streymi til að stjórna aðgangi að auðlind og senda skilaboð um uppfærslur"
+        },
+        "Streams\/task": {
+            "description": "fyrir að fá uppfærslur um framvindu á ákveðnu verkefni",
+            "displayType": "Verkefni"
+        },
+        "Streams\/tasks": {
+            "description": "flokki fyrir verkefni",
+            "displayType": "Verkefni"
+        },
+        "Streams\/experience": {
+            "description": "sameiginleg reynsla meðlima samfélags",
+            "displayType": "Sameiginleg reynsla fyrir meðlimi samfélags"
+        },
+        "Streams\/greeting": {
+            "description": "kveðju sem notandi getur kynnt sig með",
+            "displayType": "Kveðja"
+        },
+        "Streams\/number": {
+            "displayType": "Númer",
+            "description": "stærðfræðileg tala"
+        },
+        "Streams\/date": {
+            "displayType": "Dagsetning",
+            "description": "dagsetningu"
+        },
+        "Streams\/text": {
+            "displayType": "Texti",
+            "description": "meginmál textans"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Texti",
+            "description": "lítill texti"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Texti",
+            "description": "miðlungs meginmál texta"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Netfang",
+            "description": "Netfang"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Símanúmer",
+            "description": "símanúmer"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "hlekkur á vefnum"
+        },
+        "Streams\/image": {
+            "displayType": "Mynd",
+            "description": "sjónræn mynd",
+            "newItem": "Bæta við mynd"
+        },
+        "Streams\/images": {
+            "displayType": "Myndasafn",
+            "description": "myndasafn"
+        },
+        "Streams\/album": {
+            "displayType": "Albúm",
+            "description": "plata sem ýmsir miðlar tengjast"
+        },
+        "Streams\/file": {
+            "displayType": "Skrá",
+            "description": "hlaðið upp skrá",
+            "newItem": "Bæta við skrá"
+        },
+        "Streams\/audio": {
+            "displayType": "Hljóðbút",
+            "description": "hljóðinnskot",
+            "newItem": "Bæta við hljóði"
+        },
+        "Streams\/video": {
+            "displayType": "Myndskeið",
+            "description": "myndskeið",
+            "newItem": "Bæta við myndbandi"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF skjal",
+            "description": "PDF skjal",
+            "newItem": "Bæta við PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Bein útsending",
+            "description": "lifandi hljóð eða mynd"
+        },
+        "Streams\/category": {
+            "displayType": "Flokkur",
+            "description": "flokkur sem aðrir straumar geta tengst",
+            "newItem": "Bæta við flokki"
+        },
+        "Streams\/participating": {
+            "displayType": "Þátttökuvísitala",
+            "description": "straumar eru tengdir\/ótengdir þessu þegar notandi tengist\/fer"
+        },
+        "Streams\/interest": {
+            "displayType": "Áhugi",
+            "description": "táknar áhuga notanda á ákveðnu efni"
+        },
+        "Streams\/incoming": {
+            "displayType": "Komandi",
+            "description": "áfangastaður fyrir skilaboð send af öðrum notendum"
+        },
+        "Streams\/chat": {
+            "displayType": "Samtal",
+            "description": "samtal á milli notenda, með sögu"
+        },
+        "Streams\/question": {
+            "displayType": "Spurning",
+            "description": "spurningastraumur",
+            "newItem": "Bæta við spurningu"
+        },
+        "Streams\/answer": {
+            "displayType": "Svaraðu",
+            "description": "svarstraumur"
+        }
+    },
+    "menu": {
+        "placeholder": "sláðu inn titil síðu",
+        "ModTab": "Breyta hlut",
+        "Save": "Vista",
+        "Delete": "Eyða",
+        "Submenu": "Undirvalmynd"
+    },
+    "audio": {
+        "record": "Met",
+        "reset": "Endurstilla",
+        "edit": "Breyta",
+        "title": "titill",
+        "description": "lýsingu",
+        "upload": "Hlaða upp",
+        "link": "Tengill",
+        "setUrl": "Stilltu vefslóð",
+        "save": "Vista",
+        "setClip": "Klippa út",
+        "invalidURL": "Ógild vefslóð",
+        "invalidFile": "Ógild skrá",
+        "errorNoSource": "Enginn hljóðgjafi",
+        "uploadLimit": "Hámarks skráarstærð: {{size}}",
+        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}"
+    },
+    "video": {
+        "reset": "Endurstilla",
+        "edit": "Breyta",
+        "title": "titill",
+        "description": "lýsingu",
+        "upload": "Hlaða upp",
+        "link": "Tengill",
+        "setUrl": "Stilltu vefslóð",
+        "save": "Vista",
+        "setClip": "Klippa út",
+        "invalidURL": "Ógild vefslóð",
+        "invalidFile": "Ógild skrá",
+        "errorNoSource": "Engin myndbandsuppspretta",
+        "uploadLimit": "Hámarks skráarstærð: {{size}}",
+        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}",
+        "createAnimatedThumbnail": "Búðu til hreyfimyndir",
+        "errorNotAvailable": "Því miður er myndbandið ekki tiltækt ennþá. Vinsamlegast reyndu aftur síðar."
+    },
+    "pdf": {
+        "reset": "Endurstilla",
+        "edit": "Breyta",
+        "title": "titill",
+        "description": "lýsingu",
+        "upload": "Hlaða upp",
+        "link": "Tengill",
+        "setUrl": "Stilltu vefslóð",
+        "save": "Vista",
+        "setClip": "Klippa út",
+        "invalidURL": "Ógild vefslóð",
+        "invalidFile": "Ógild skrá",
+        "errorNoSource": "Engin pdf heimild",
+        "uploadLimit": "Hámarks skráarstærð: {{size}}",
+        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}"
+    },
+    "image": {
+        "reset": "Endurstilla",
+        "edit": "Breyta",
+        "title": "titill",
+        "description": "lýsingu",
+        "upload": "Hlaða upp",
+        "link": "Tengill",
+        "setUrl": "Stilltu vefslóð",
+        "save": "Vista",
+        "uploadedImage": "Hlaðið inn mynd",
+        "imageTitle": "Titill myndar",
+        "setClip": "Klippa út",
+        "invalidURL": "Ógild vefslóð",
+        "invalidFile": "Ógild skrá",
+        "errorNoSource": "Engin myndheimild",
+        "uploadLimit": "Hámarks skráarstærð: {{size}}",
+        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}"
+    },
+    "questions": {
+        "Questions": "Spurningar",
+        "Answers": "Svör",
+        "AnswerQuestion": "Svaraðu spurningu",
+        "SetYourAnswer": "Vinsamlegast svaraðu spurningunni",
+        "NewQuestion": "Ný spurning",
+        "EditQuestion": "Breyta spurningu",
+        "NewAnswer": "Nýtt svar",
+        "NewPossibleAnswer": "Nýtt svarmögulegt svar",
+        "AnswerDetails": "Upplýsingar um svar",
+        "answerOption": "Valkostur",
+        "answerOptionExclusive": "Einkarétt",
+        "answerTextarea": "Textasvæði",
+        "answerText": "Texti",
+        "HideUntilAnswered": "Fela þar til svarað er",
+        "CantChangeAnswers": "Get ekki breytt svörum",
+        "FreeAnswer": "Skrifaðu svar þitt hér",
+        "SaveQuestion": "Vista spurningu",
+        "SaveAnswer": "Vista svar",
+        "Save": "Vista",
+        "Send": "Senda",
+        "TitleRequired": "Titill áskilinn!",
+        "AlreadyAnswered": "Búinn að svara",
+        "TitlePlaceholder": "Sláðu inn spurninguna þína",
+        "ContentPlaceholder": "Settu allar viðbótarupplýsingar hér til að hjálpa fólki að svara",
+        "ErrorTitle": "Spurning nauðsynleg",
+        "Placeholder": "Skrifaðu leiðbeiningar",
+        "AreYouSure": "Ertu viss?",
+        "ShortAnswer": "Skrifaðu stutt svar"
+    },
+    "experience": {
+        "NewExperience": "Ný upplifun",
+        "DefineTitle": "Vinsamlega skilgreindu titil",
+        "Create": "Búa til"
+    },
+    "calls": {
+        "SettingsTitle": "Símtöl",
+        "MaxCalls": "Max hringir",
+        "Update": "Uppfærsla",
+        "NoCallsYet": "Engin símtöl ennþá",
+        "CallReasonTitle": "Um hvað snýst þetta símtal?",
+        "WaitingRoom": "Biðstofa",
+        "LiveRoom": "Live herbergi",
+        "interviewedByAnotherHost": "Eins og er er í viðtali við annan gestgjafa",
+        "bringToLive": "Komdu með í lifandi sýningu",
+        "putOnHold": "Setja á bið",
+        "endCall": "Ljúka símtali",
+        "interview": "Viðtal",
+        "markApproved": "Mark samþykkt"
+    },
+    "relate": {
+        "Add": "Bættu við {{streamDisplayType}}"
+    },
+    "userChooser": {
+        "Placeholder": "Nafn notanda..."
+    },
+    "task": {
+        "errorsTitle": "Villur komu upp"
+    },
+    "topic": {
+        "NewTopic": "Nýtt efni",
+        "UpdateTopic": "Uppfæra efni",
+        "CreateTopic": "Búa til efni",
+        "AreYouSureDeleteTopic": "Ertu viss um að þú viljir eyða þessu efni",
+        "TitlePlaceholder": "titill efnis...",
+        "DescribeTopic": "lýstu umræðuefni...",
+        "TopicIcon": "Efnismynd",
+        "UploadIcon": "Hlaða upp táknmynd",
+        "Conversation": "Samtal",
+        "Metrics": "Mælingar"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Búðu til hreyfimyndir",
+        "Width": "Breidd",
+        "Height": "Hæð",
+        "Start": "Byrjaðu",
+        "End": "Enda",
+        "Delay": "Töf",
+        "Quality": "Gæði",
+        "Size": "Stærð",
+        "OfFrames": "af ramma",
+        "Frame": "Rammi",
+        "UseThis": "Notaðu þetta",
+        "ResultGIF": "Niðurstaða GIF",
+        "VideoElementNotFound": "Myndbandsþáttur fannst ekki"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} On Your Face",
+        "AcceptIcon": "Samþykkja valið svæði"
+    }
+}

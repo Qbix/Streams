@@ -1,0 +1,812 @@
+{
+	"Q": {
+		"pluginInfo": {
+			"Streams": {
+				"version": "1.2.6",
+				"compatible": "0.9",
+				"requires": {"Users": "1.0.4"},
+				"permissions": ["Streams/icons"],
+				"connections": ["Streams"]
+			}
+		},
+		"handlersBeforeEvent": {
+			"Q/objects": ["Streams/before/Q_objects"],
+			"Q/responseExtras": ["Streams/before/Q_responseExtras"],
+			"Q/sessionExtras": ["Streams/before/Q_sessionExtras"],
+			"Q/Utils/canWriteToPath": ["Streams/before/Q_Utils_canWriteToPath"],
+			"Q/Utils/canReadFromPath": ["Streams/before/Q_Utils_canReadFromPath"],
+			"Db/Row/Users_Contact/saveExecute": ["Streams/before/Users_Contact_saveExecute"],
+			"Db/Row/Users_Contact/removeExecute": ["Streams/before/Users_Contact_removeExecute"],
+			"Users/canManageContacts": ["Streams/before/Users_canManageContacts"],
+			"Users/canManageLabels": ["Streams/before/Users_canManageLabels"],
+			"Users/User/displayName": ["Streams/before/Users_User_displayName"],
+			"Streams/Stream/save/Streams/user/profile": ["Streams/before/Streams_Stream_save_Streams_user_profile"],
+			"Streams/Stream/save/Streams/video": ["Streams/before/Streams_save_Streams_video"]
+		},
+		"handlersAfterEvent": {
+			"Q/Plugin/install": ["Streams/after/Q_Plugin_install"],
+			"Q/objects": ["Streams/after/Q_objects"],
+			"Q/sessionExtras": ["Streams/after/Q_sessionExtras"],
+			"Q/image/save": ["Streams/after/Q_image_save"],
+			"Q/file/save": ["Streams/after/Q_file_save"],
+			"Db/Row/Users_User/saveExecute": ["Streams/after/Users_User_saveExecute"],
+			"Db/Row/Users_Contact/saveExecute": ["Streams/after/Users_Contact_saveExecute"],
+			"Db/Row/Users_Label/saveExecute": ["Streams/after/Users_Label_saveExecute"],
+			"Db/Row/Users_Contact/removeExecute": ["Streams/after/Users_Contact_removeExecute"],
+			"Db/Row/Users_Label/removeExecute": ["Streams/after/Users_Label_removeExecute"],
+			"Users/saveContactsFromLinks": ["Streams/after/Users_saveContactsFromLinks"],
+			"Users/setLoggedInUser": ["Streams/after/Users_setLoggedInUser"],
+			"Users/updateUserIds": ["Streams/after/Users_updateUserIds"],
+			"Streams/message/Streams/chat/message": ["Streams/after/Streams_message_Streams_chat_message"],
+			"Streams/message/Streams/relatedTo": ["Streams/after/Streams_message_Streams_relatedTo"],
+			"Streams/message/Streams/unrelatedTo": ["Streams/after/Streams_message_Streams_unrelatedTo"],
+			"Streams/message/Streams/updateRelateTo": ["Streams/after/Streams_message_Streams_updateRelateTo"],
+			"Streams/message/Streams/changed": ["Streams/after/Streams_message_Streams_changed"],
+			"Streams/create/Streams/video": ["Streams/after/Streams_create_Streams_video"],
+			"Streams/create/Streams/chat": ["Streams/after/Streams_create_Streams_chat"],
+			"Streams/Stream/save/Streams/greeting": ["Streams/after/Streams_Stream_save_Streams_greeting"],
+			"Streams/relateTo/Streams/question": ["Streams/after/Streams_relateTo_Streams_question"],
+			"Streams/updateAvatars": ["Streams/after/Streams_updateAvatars"],
+			"Streams/close/Streams/video": ["Streams/after/Streams_close_Streams_video"]
+		},
+		"routes@start": {
+			"s/:publisherId/:streamName[]": {"module": "Streams", "action": "stream"},
+			"i/:token": {"module": "Streams", "action": "invited"},
+			"Streams/participating": {"module": "Streams", "action": "participating"},
+			"Streams/video": {"module": "Streams", "action": "video"},
+			"Streams/cloudConvertWebhook": {"module": "Streams", "action": "cloudConvertWebhook"},
+			"Streams/discourse-sso": {"module": "Streams", "action": "sso-discourse"},
+			"Q/plugins/Streams/invite/:token": {"module": "Streams", "action": "invite"},
+			"Q/plugins/Streams/:action": {"module": "Streams"},
+			"Users/:userId.vcf": { "module": "Streams", "action": "vcard" }
+		},
+		"web": {
+			"requireValidNonce": {
+				"include": ["Streams"],
+				"exclude": ["Streams/batch", "Streams/avatar", "Streams/register"]
+			}
+		},
+		"bundle": {
+			"exclude": {
+				"Streams": ["img/icons/Streams/interest", "img/icons/files"]
+			}
+		},
+		"environments": {
+			"live": {
+				"prepare": {
+					"{{Streams}}": ["js", "css"]
+				}
+			}
+		},
+		"images": {
+			"Streams/image": {
+				"sizes": ["40", "50", "80", "200x", "1000x"],
+				"defaultSize": "1000x",
+				"maxStretch": 2
+			},
+			"Streams/album": {
+				"sizes": ["40", "50", "80", "400"],
+				"defaultSize": "400",
+				"maxStretch": 2
+			},
+			"Streams/invite/groupPhoto": {
+				"sizes": ["1000x"],
+				"defaultSize": "1000x",
+				"maxStretch": 3
+			},
+			"Streams/interest": {
+				"sizes": {
+					"40": "40.png",
+					"50": "50.png",
+					"80": "80.png",
+					"200": "200.png",
+					"400": "400.png",
+					"400x": "400x.png",
+					"x400": "x400.png",
+					"150x100": "x100.png",
+					"500x333": "500x.png"
+				},
+				"defaultSize": "400",
+				"defaultCacheBust": 1000,
+				"maxStretch": 2
+			}
+		},
+		"text": {
+			"Streams": {
+				"*": ["Streams/content"]
+			}
+		},
+		"urls": {
+			"skip": ["Q/plugins/Streams/img/icons/Streams/interest"]
+		},
+		"capability": {
+			"permissions": {
+				"s": "Streams/observe"
+			}
+		}
+	},
+	"Users": {
+		"paths": {
+			"uploads": {
+				"files/{{app}}/uploads/Streams": true
+			}
+		},
+		"quotas": {
+			"Streams/invite": {
+				"86400": {
+					"": 10,
+					"Users/owners": 1000,
+					"Users/admins": 1000
+				}
+			},
+			"Streams/description": {
+				"86400": {
+					"": 10,
+					"Users/owners": 1000,
+					"Users/admins": 1000
+				}
+			}
+		},
+		"icon": {
+			"labels": "labels/default",
+			"canSetInitialCustom": ["Streams/invitedMe"]
+		},
+		"socket": {
+			"permissions": ["s"]
+		}
+	},
+	"Streams": {
+		"userStreams": {
+			"Streams": "streams.json"
+		},
+		"requiredUserStreams": {
+			"Streams/user/firstName": true,
+			"Streams/user/lastName": true,
+			"Streams/user/username": true,
+			"Streams/user/icon": true
+		},
+		"types": {
+			"*": {
+				"private": [
+					"insertedTime",
+					"updatedTime",
+					"messageCount",
+					"invitedCount",
+					"participatingCount",
+					"leftCount"
+				],
+				"access": {
+					"profiles": {
+						"private": {
+							"readLevel": 0,
+							"writeLevel": 0,
+							"adminLevel": 0,
+							"permissions": []
+						}
+					}
+				},
+				"admins": ["Users/owners", "Users/admins"],
+				"canCreate": ["Users/owners", "Users/admins"],
+				"invite": {
+					"dialog": {
+						"templateName": "Streams/invite"
+					}
+				},
+				"restricted": {
+					"attributes": {
+						"prefixes": ["Streams/", "Users/"]
+					}
+				},
+				"invited": {
+					"dialog": {
+						"title": "You've been invited",
+						"user": {
+							"text": "has invited you to"
+						},
+						"related": {
+						},
+						"prompt": "Let friends recognize you:",
+						"button": "Get Started",
+						"templateName": "Streams/invited/complete"
+					},
+					"duration": 2592000
+				},
+				"request": {
+					"duration": 2592000
+				},
+				"subscriptions": {
+					"filter": {
+						"types": ["^(?!(Users/)|(Streams/)).*/", "Streams/relatedTo", "Streams/chat/message"],
+						"notifications": 0
+					}
+				},
+				"observersMax": 100,
+				"getMessagesLimit": 100,
+				"getParticipantsLimit": 100,
+				"ephemerals": {},
+				"messages": {
+					"*": {
+						"subject": ["Streams/content", ["notifications", "*"]],
+						"log": "messages"
+					},
+					"Streams/joined": {
+						"description": "Someone has joined the stream",
+						"subject": ["Streams/content", ["notifications", "Streams/joined"]]
+					},
+					"Streams/left": {
+						"description": "Someone has left the stream",
+						"subject": ["Streams/content", ["notifications", "Streams/left"]]
+					},
+					"Streams/changed": {
+						"description": "Fields or attributes of the stream have changed",
+						"subject": ["Streams/content", ["notifications", "Streams/changed"]]
+					},
+					"Streams/invite": {
+						"description": "You were invited",
+						"subject": ["Streams/content", ["notifications", "Streams/invite"]],
+						"evenIfOnline": true,
+						"fetchAvatar": true
+					},
+					"Streams/announcement": {
+						"description": "Announcement for everyone in the stream",
+						"subject": ["Streams/content", ["notifications", "Streams/announcement"]]
+					},
+					"Streams/relatedTo": {
+						"description": "Some other stream has been related to this one",
+						"subject": "{{{call 'message.getInstruction' 'description'}}}"
+					},
+					"Streams/relatedFrom": {
+						"description": "This stream has been related to some other one",
+						"subject": "{{{call 'message.getInstruction' 'description'}}}"
+					},
+					"Streams/access": {
+						"description": "Access to stream has changed",
+						"subject": ["Streams/content", ["notifications", "Streams/access"]]
+					},
+					"Streams/chat/message": {
+						"description": "A chat message was posted",
+						"subject": ["Streams/content", ["notifications", "Streams/chat/message"]],
+						"autosubscribe": true
+					},
+					"Streams/chat/edit": {
+						"description": "A chat message was edited",
+						"subject": ["Streams/content", ["notifications", "Streams/chat/edit"]]
+					},
+					"Streams/chat/remove": {
+						"description": "A chat message was removed",
+						"subject": ["Streams/content", ["notifications", "Streams/chat/remove"]]
+					},
+					"Streams/closed": {
+						"description": "The stream has been closed",
+						"subject": ["Streams/content", ["notifications", "Streams/closed"]]
+					}
+				},
+				"relatedTo": {
+					"*": {
+						"description": ["Streams/content", ["notifications", "Streams/relatedTo/*"]]
+					}
+				},
+				"relatedFrom": {
+					"*": {
+						"description": ["Streams/content", ["notifications", "Streams/relatedFrom/*"]]
+					}
+				},
+				"updateRelations": false,
+				"defaults": {
+					"type": "Streams/text",
+					"title": "Untitled",
+					"icon": "default",
+					"content": "",
+					"attributes": "",
+					"readLevel": 0,
+					"writeLevel": 0,
+					"adminLevel": 0,
+					"messageCount": 0,
+					"invitedCount": 0,
+					"arrivedCount": 0,
+					"participatingCount": 0,
+					"leftCount": 0,
+					"arrivedRatio": 0,
+					"joinedRatio": 0
+				},
+				"url": "{{baseUrl}}/s/{{publisherId}}/{{name}}",
+				"uri": "Streams/stream publisherId={{publisherId}} streamName={{name}}",
+				"onInviteAccepted": {
+					"subscribe": true
+				},
+				"participating": ["Streams/participating"]
+			},
+			"Streams/invited": {
+				"emoji": "💌",
+				"create": false,
+				"subscriptions": {
+					"filter": {
+						"types": ["Streams/invite"],
+						"notifications": 0
+					}
+				}
+			},
+			"Streams/mentioned": {
+				"emoji": "📧",
+				"create": false,
+				"subscriptions": {
+					"filter": {
+						"types": ["Streams/mention"],
+						"notifications": 0
+					}
+				},
+				"messages": {
+					"Streams/mention": {
+						"description": "User was mentioned",
+						"subject": ["Streams/content", ["notifications", "Streams/mention"]]
+					}
+				}
+			},
+			"Streams/access": {
+				"emoji": "🔑",
+				"create": false,
+				"edit": false,
+				"defaults": {
+					"title": "Access Policy"
+				}
+			},
+			"Streams/task": {
+				"emoji": "📌",
+				"create": "true",
+				"messages": {
+					"Streams/task/progress": {
+						"description": "Progress has been made",
+						"subject": ["Streams/content", ["notifications", "Streams/task/progress"]]
+					},
+					"Streams/task/complete": {
+						"description": "Task has been completed",
+						"subject": ["Streams/content", ["notifications", "Streams/task/complete"]]
+					},
+					"Streams/task/error": {
+						"description": "Error during task",
+						"subject": ["Streams/content", ["notifications", "Streams/task/error"]]
+					}
+				},
+				"attributes": {
+					"state": "enum('unassigned','assigned','accepted','progress','paused','completed','approved')",
+					"progress": "double",
+					"items": "integer",
+					"processed": "integer"
+				},
+				"defaults": {
+					"title": "Untitled Task",
+					"icon": "Streams/task",
+					"readLevel": 0,
+					"writeLevel": 0,
+					"adminLevel": 0
+				},
+				"extend": ["Streams_Task"],
+				"participating": ["Streams/participating/tasks"]
+			},
+			"Streams/tasks": {
+				"emoji": "📋",
+				"create": true,
+				"attributes": {
+					"completed": "double"
+				},
+				"defaults": {
+					"title": "Tasks",
+					"icon": "Streams/tasks"
+				}
+			},
+			"Streams/question": {
+				"emoji": "❓",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"title": "Untitled question",
+					"icon": "Streams/question",
+					"readLevel": 20
+				}
+			},
+			"Streams/answer": {
+				"emoji": "❗",
+				"create": true,
+				"edit": false,
+				"defaults": {
+					"icon": "Streams/answer",
+					"readLevel": 20,
+					"writeLevel": 0
+				},
+				"messages": {
+					"Streams/extra/changed": {}
+				}
+			},
+			"Streams/topic": {
+				"emoji": "#️⃣",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"title": "",
+					"icon": "Streams/topic",
+					"readLevel": 20,
+					"writeLevel": 0,
+					"adminLevel": 0
+				}
+			},
+			"Streams/text": {
+				"emoji": "✍️",
+				"create": true, 
+				"edit": true
+			},
+			"Streams/text/small": {
+				"emoji": "✏️",
+				"create": true,
+				"edit": true,
+				"messages": {
+					"Streams/chat/message": {
+						"post": true
+					}
+				}
+			},
+			"Streams/text/medium": {"emoji": "✏️", "create": true, "edit": true},
+			"Streams/text/name": {"emoji": "🏷️", "create": true, "edit": true},
+			"Streams/text/url": {"emoji": "🔗", "create": true, "edit": true},
+			"Streams/text/emailAddress": {"emoji": "📧", "create": true, "edit": true},
+			"Streams/text/mobileNumber": {"emoji": "📱", "create": true, "edit": true},
+			"Streams/date": {"emoji": "📆", "create": true, "edit": true},
+			"Streams/number": {"emoji": "🔢", "create": true, "edit": true},
+			"Streams/xid/web3": {"emoji": "🆔", "create": true, "edit": true},
+			"Streams/enum/gender": {"emoji": "🚺", "create": true, "edit": true},
+			"Streams/enum/presence": {"emoji": "👻", "create": true, "edit": true},
+			"Streams/number/timezone": {"emoji": "🌐", "create": true, "edit": true},
+			"Streams/height": {"emoji": "🪜", "create": true, "edit": true},
+			"Streams/date/birthday": {"emoji": "🎂", "create": true, "edit": true},
+			"Streams/number/age": {"emoji": "⏳", "create": true, "edit": true},
+			"Streams/text/affiliation": {"emoji": "🫶🏼", "create": true, "edit": true},
+			"Streams/enum/dating": {"emoji": "💍", "create": true, "edit": true},
+			"Streams/image": {
+				"emoji": "🖼️",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"title": "Untitled Image",
+					"icon": "Streams/image"
+				}
+			},
+			"Streams/images": {
+				"emoji": "🎞️",
+				"create": true,
+				"edit": true,
+				"defaults": { 
+					"title": "Untitled Gallery"
+				}
+			},
+			"Streams/album": {
+				"emoji": "📒",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"icon": "Streams/image",
+					"title": "Untitled Image",
+					"readLevel": 40,
+					"writeLevel": 10,
+					"adminLevel": 20
+				}
+			},
+			"Streams/file": {
+				"emoji": "📄",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"icon": "files/_blank",
+					"title": "Untitled File"
+				},
+				"updateTitle": true,
+				"updateIcon": true
+			},
+			"Streams/audio": {
+				"emoji": "🔊",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"icon": "Streams/audio",
+					"title": "Untitled Audio Clip"
+				},
+				"ephemerals": {
+					"Streams/play": {},
+					"Streams/pause": {},
+					"Streams/seek": {}
+				},
+				"updateTitle": true
+			},
+			"Streams/video": {
+				"emoji": "▶️",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"icon": "Streams/video",
+					"title": "Untitled Video Clip"
+				},
+				"ephemerals": {
+					"Streams/play": {},
+					"Streams/pause": {},
+					"Streams/seek": {}
+				},
+				"updateTitle": true
+			},
+			"Streams/pdf": {
+				"emoji": "📑",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"icon": "files/pdf",
+					"title": "Untitled PDF doc"
+				},
+				"ephemerals": {
+					"Streams/scroll": {},
+					"Streams/slide": {}
+				},
+				"updateTitle": true
+			},
+			"Streams/live": {
+				"emoji": "🎦",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"icon": "Streams/live",
+					"title": "Untitled Live Audio/Video"
+				},
+				"updateTitle": true
+			},
+			"Streams/category": {
+				"emoji": "📁",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"title": "Untitled Category",
+					"icon": "Streams/category",
+					"readLevel": 40,
+					"writeLevel": 10,
+					"adminLevel": 20
+				},
+				"see": ["relatedTo"]
+			},
+			"Streams/chats": {
+				"create": false,
+				"edit": false,
+				"defaults": {
+					"title": "Category for chats",
+					"icon": "Streams/category",
+					"readLevel": 40,
+					"writeLevel": 10,
+					"adminLevel": 20
+				},
+				"see": ["relatedTo"]
+			},
+			"Streams/participating": {
+				"emoji": "🗣️",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"title": "Participating List",
+					"icon": "Streams/category"
+				}
+			},
+			"Streams/interest": {
+				"emoji": "💟",
+				"create": true,
+				"edit": true,
+				"defaults": {
+					"icon": "Streams/interest/default",
+					"title": "Untitled Interest"
+				}
+			},
+			"Streams/incoming": {
+				"emoji": "📥",
+				"create": true,
+				"messages": {
+					"Streams/incoming/message": {"post": true},
+					"*": {
+						"subject": ["Streams/content", ["notifications", "Streams/incoming/*"]]
+					}
+				}
+			},
+			"Streams/chat": {
+				"emoji": "💬",
+				"create": true,
+				"edit": ["icon", "title", "content"],
+				"subscriptions": {
+					"filter": {
+						"types": ["Streams/call"],
+						"notifications": 0
+					}
+				},
+				"messages": {
+					"Streams/chat/message": { "post": true },
+					"Streams/chat/edit": { "post": true },
+					"Streams/chat/remove": { "post": true },
+					"Streams/call": {
+						"description": ["Streams/content", ["description", "Streams/call"]],
+						"subject": ["Streams/content", ["notifications", "Streams/call"]]
+					}
+				},
+				"defaults": {
+					"title": "Conversation",
+					"icon": "Streams/chat"
+				}
+			},
+			"Streams/greeting": {
+				"emoji": "👋",
+				"edit": true,
+				"defaults": {
+					"title": "Community Greeting",
+					"readLevel": 40,
+					"writeLevel": 10,
+					"adminLevel": 20
+				}
+			},
+			"Streams/user/profile": {
+				"emoji": "👤",
+				"url": "{{baseUrl}}/profile/{{publisherId}}"
+			},
+			"Streams/external/post": {
+				"emoji": "🛸",
+				"defaults": {
+					"title": "External Post",
+					"icon": "Streams/external/post"
+				},
+				"url": "{{attributes.topicUrl}}"
+			},
+			"Streams/template": {
+				"defaults": {
+					"readLevel": 40,
+					"writeLevel": 10,
+					"adminLevel": 20
+				}
+			}
+		},
+		"categorize": {
+			"Streams/category": {
+				"Streams/interests": true
+			}
+		},
+		"lookup": {
+			"limit": 10,
+			"requireTitleIndex": true
+		},
+		"relate": {
+			"types": ["Streams/experience", "Streams/interest"]
+		},
+		"invites": {
+			"tokens": {
+				"length": 16,
+				"characters": "abcdefghijklmnopqrstuvwxyz"
+			},
+			"maxPerCall": 100,
+			"canSetToken": ["Streams/inviters"],
+			"baseUrl": "i",
+			"participantReason": "Was invited",
+			"limit": 100,
+			"layout": {
+				"default": "Streams/layout/invitations.php"
+			},
+			"signature": {
+				"length": 10
+			},
+			"expires": 86400,
+			"subpath": "{{app}}/uploads/Streams/invitations",
+			"sort": {}
+		},
+		"interests": {
+			"allowClientQueries": false,
+			"minInterests": 10 /* min amount of interests needed to show "Search interests" */
+		},
+		"db": {
+			"limits": {
+				"stream": 100,
+				"participating": 1000
+			},
+			"pages": 5
+		},
+		"readLevelOptions": {
+			"0": "nothing about it",
+			"10": "that something is there",
+			"20": "its current content",
+			"30": "who is participating in it",
+			"40": "the social activity inside"
+		},
+		"writeLevelOptions": {
+			"0": "do nothing to it",
+			"10": "participate in it",
+			"20": "post messages to it",
+			"30": "edit its content"
+		},
+		"adminLevelOptions": {
+			"0": "not do anything special",
+			"10": "share messages from the stream",
+			"30": "invite others to the stream",
+			"40": "manage the stream",
+			"50": "own it and appoint managers"
+		},
+		"onInsert": { /* streams to insert when a row is inserted */
+			"user": [
+				"Streams/contacts",
+				"Streams/labels",
+				"Streams/user/username",
+				"Streams/participating",
+				"Streams/user/icon"
+			],
+			"person": [
+				"Streams/invited",
+				"Streams/mentioned",
+				"Streams/user/firstName",
+				"Streams/user/lastName",
+				"Streams/user/emailAddress",
+				"Streams/user/mobileNumber",
+				"Streams/user/xid/web3",
+				"Streams/user/interests",
+				"Streams/image/album"
+			]
+		},
+		"onUpdate": { /* streams to update when a row is updated */
+			"Users_User": {
+				"username": "Streams/user/username",
+				"icon": "Streams/user/icon",
+				"emailAddress": "Streams/user/emailAddress",
+				"mobileNumber": "Streams/user/mobileNumber",
+				"xids": ["Streams/user/xid/web3"]
+			}
+		}, 
+		"rules": {
+			"deliver": {
+				"default": ["devices", "email", "mobile"],
+				"invited": [["devices", "email+pending"], "mobile+pending"],
+				"mentioned": [["devices", "email+pending"], "mobile+pending"]
+			}
+		},
+		"notifications": {
+			"onlyIfAllClientsOffline": true,
+			"debug": true,
+			"notices": {
+				"expired": 86400, /* skip messages posted more than seconds ago */
+				"Streams/chat/message": {
+					"timeout": 10
+				},
+				"Streams/invite": true
+			}
+		},
+		"import": {
+			"timeLimit": 100000,
+			"task": {
+				"title": "Importing members into {{communityName}}"
+			}
+		},
+		"meta": {
+			"description": {
+				"maxLength": 150
+			}
+		},
+		"canManage": ["Users/owners", "Users/admins"],
+		"possibleUserStreams": {
+			"Streams/questions": true,
+			"Streams/answer": true,
+			"Streams/user/birthday": true,
+			"Streams/user/gender": true,
+			"Streams/user/height": true,
+			"Streams/user/dating": true,
+			"Streams/user/affiliation": true,
+			"Streams/user/age": true,
+			"Streams/user/political": true,
+			"Streams/user/music":  true,
+			"Streams/user/tv": true,
+			"Streams/user/movies": true,
+			"Streams/user/books": true,
+			"Streams/user/urls": true,
+			"Streams/user/xid/web3": true,
+			"Streams/date/birthday": true
+		},
+		"calls": {
+			"answered": ["Users/owners", "Users/admins"]
+		},
+		"chat": {
+			"allowedRelatedStreams": ["Streams/video", "Streams/audio", "Streams/pdf", "Streams/image", "Streams/question"],
+			"delay": 20 /* delay between chat messages in seconds */
+		}
+	}
+}

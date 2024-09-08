@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "यह सामग्री आपसे छिपी हुई है।",
+        "InplaceTypeMustBe": "inplaceType &#39;textarea&#39; या &#39;text&#39; होना चाहिए"
+    },
+    "preview": {
+        "NewItemTitle": "नए वस्तु"
+    },
+    "avatar": {
+        "firstName": "पहला नाम",
+        "lastName": "उपनाम",
+        "username": "उपयोगकर्ता नाम"
+    },
+    "labels": {
+        "Streams\/invited": "जिन लोगों को मैंने आमंत्रित किया",
+        "Streams\/invitedMe": "मुझे किसने आमंत्रित किया",
+        "DoYouAgree": "क्या आप सहमत हैं?",
+        "Yes": "हाँ",
+        "No": "नहीं",
+        "JoinItNow": "अभी इसमें शामिल हों?"
+    },
+    "login": {
+        "prompt": "मित्रों को आपको पहचानने दें:",
+        "newUser": "या नीचे एक नया खाता बनाएँ",
+        "picTooltip": "आप इस तस्वीर को बाद में बदल सकते हैं",
+        "placeholders": {
+            "fullName": "अपना पूरा नाम भरें"
+        }
+    },
+    "interests": {
+        "Filter": "रुचियां खोजें",
+        "CanGrant": "यदि आपको अभी भी वह नहीं मिल रहा है जिसकी आप तलाश कर रहे हैं, तो आप नीचे एक नई रुचि जोड़ सकते हैं:",
+        "TrySynonyms": "यह नहीं देखा? कुछ पर्यायवाची शब्द आजमाएं।",
+        "AddUnderCategory": "श्रेणी के अंतर्गत जोड़ें...",
+        "Other": "अन्य",
+        "Unlisted": "गैर-सूचीबद्ध"
+    },
+    "chat": {
+        "flaggedForAdminReview": "व्यवस्थापक समीक्षा के लिए संदेश फ़्लैग किया गया है। अनफ्लैग करने के लिए फिर से टैप करें।",
+        "noOneSaid": "किसी ने कुछ नहीं कहा है",
+        "closeChatButton": "चैट बंद करें",
+        "closeChatConfirmTitle": "यह चैट बंद करें?",
+        "closeChatConfirm": "क्या आप वाकई इस चैट को बंद करना चाहते हैं?",
+        "Subscribed": "सूचनाएं सक्षम",
+        "Unsubscribed": "सूचनाएं म्यूट की गईं",
+        "closeChatConfirmYes": "हाँ",
+        "closeChatConfirmNo": "नहीं",
+        "earlierComments": "पहले की टिप्पणियाँ",
+        "startedConversation": "बातचीत शुरू की",
+        "RealTimeCall": "रीयल टाइम कॉल",
+        "JoinWebRTC": "दूर संवाद",
+        "SearchByName": "नाम से खोजें",
+        "Notifications": {
+            "Visit": "{{displayName}} चैट पर जा रहा है",
+            "Join": "{{displayName}} चैट में शामिल हुए",
+            "Leave": "{{displayName}} ने चैट छोड़ दी",
+            "RelatedTo": "{{displayName}} {{stream.displayType}} की शुरुआत की"
+        },
+        "placeholders": {
+            "Public": "एक टिप्पणी जोड़ने",
+            "Private": "एक निजी संदेश लिखें"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "अपनी ईमेल सदस्यताएँ प्रबंधित करें",
+        "IfUnsubscribe": "अगर आप सदस्यता समाप्त करना चाहते हैं",
+        "*": "संदेश {{{ message.fields.type}} से {{& stream.fields.title}}} तक",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} शामिल हुए",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} बचे हैं",
+        "Streams\/chat\/message": "{{{call 'avatar.displayName'}} ने कहा: {{& message.content}}}",
+        "Streams\/changed": "{{stream.fields.title}} में परिवर्तन",
+        "Streams\/invite": "आपको {{{ stream.fields.title}}} में आमंत्रित किया गया था",
+        "Streams\/announcement": "{{{ stream.fields.title}}} में घोषणा",
+        "Streams\/access": "{{{call 'avatar.displayName'}} ने {{& stream.fields.title}}} में पहुंच बदल दी",
+        "Streams\/chat\/edit": "चैट संदेश {{{ stream.fields.title}}} में संपादित किया गया",
+        "Streams\/chat\/remove": "चैट संदेश {{{ stream.fields.title}}} में हटा दिया गया",
+        "Streams\/closed": "{{stream.fields.title}} बंद कर दिया गया है",
+        "Streams\/task\/progress": "{{stream.fields.title}} पर प्रगति हुई",
+        "Streams\/task\/complete": "कार्य पूरा हुआ: {{stream.fields.title}}",
+        "Streams\/task\/error": "त्रुटि के दौरान: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : इनकमिंग मैसेज",
+        "Streams\/relatedTo\/Streams\/call": "{{toTitle}} में नई कॉल शुरू हुई",
+        "Streams\/relatedTo\/*": "{{toTitle}} में नया {{relationDisplayType}}",
+        "Streams\/relatedFrom\/*": "{{toTitle}} में {{relationDisplayType}} के रूप में जोड़ा गया",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} एक टिप्पणी में आपका उल्लेख किया",
+        "Streams\/call": "{{displayName}} ने रीयल-टाइम कॉल शुरू की",
+        "changed": {
+            "ChangesIn": "{{title}} में परिवर्तन",
+            "Changed": "बदला हुआ",
+            "HereIsWhatChanged": "यहां बताया गया है कि क्या परिवर्तन हुआ:"
+        },
+        "joined": {
+            "Joined": "{{subject}} जुड़े <em>{{title}}<\/em>"
+        }
+    },
+    "invite": {
+        "command": "आमंत्रित करना",
+        "Invite": "आमंत्रित करना",
+        "Share": "शेयर करना",
+        "messageContent": "{{displayName}} ने आपको {{inviteUrl}} पर आमंत्रित किया",
+        "youCanNowPaste": "अब आप लोगों को आमंत्रित करने के लिए इस लिंक को कहीं पेस्ट कर सकते हैं",
+        "roles": {
+            "title": "आमंत्रित उपयोगकर्ताओं को भूमिकाएँ प्रदान करें?",
+            "NotAuthorizedToGrantRole": {
+                "title": "क्षमा मांगना",
+                "alert": "आप इस भूमिका को प्रदान करने के लिए अधिकृत नहीं हैं"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "क्षमा मांगना",
+                "alert": "आप इस भूमिका को निकालने के लिए अधिकृत नहीं हैं"
+            }
+        },
+        "labels": {
+            "title": "आपका रिश्ता क्या है?"
+        },
+        "dialog": {
+            "chooseFromContacts": "अपने संपर्कों में से चुनें",
+            "chooseAgainFromContacts": "संपर्कों में से फिर से चुनें",
+            "inviteSelectedContacts": "चयनित संपर्कों को आमंत्रित करें",
+            "selectFromContacts": "संपर्कों में से चयन करें",
+            "userChooserPlaceholder": "नाम से खोजें",
+            "photo": "एक तस्वीर लें",
+            "photoOf": "{{name}} का फोटो लें",
+            "photoInstruction": "अगर आपके क्यूआर कोड को स्कैन करने वाला व्यक्ति आपके सामने है, तो उसकी एक फोटो लें",
+            "to": "करने के लिए: {{Stream Title}}",
+            "go": "जाना",
+            "title": "आमंत्रित करना",
+            "placeholder": "मोबाइल नंबर या ईमेल पता",
+            "orInvite": "या उपयोग करके लोगों को आमंत्रित करें:",
+            "copyLink": "{{ClickOrTap}} आमंत्रण लिंक कॉपी करने के लिए",
+            "shareOrCopyLink": "{{ClickOrTap}} आमंत्रण लिंक को साझा या कॉपी करने के लिए",
+            "QR": "{{ClickOrTap}} क्यूआर कोड उत्पन्न करने के लिए",
+            "QRtitle": "इस क्यूआर कोड को स्कैन करें",
+            "QRscanned": "उन्होंने इसे स्कैन किया!",
+            "scannedQR": "{{ClickOrTap}} अगर कोड स्कैन किया गया था",
+            "byEmail": "ईमेल",
+            "byText": "मूलपाठ",
+            "byFacebook": "फेसबुक",
+            "byTwitter": "ट्विटर",
+            "title2": "लोगो को निमंत्रण भेजो",
+            "chooseMethod": "कोई तरीका चुनें:",
+            "selectContacts": "संपर्क चुनें",
+            "scanQRCode": "स्कैन क्यू आर कोड",
+            "shareLink": "एक लिंक साझा करें",
+            "chooseFromRegistered": "पंजीकृत उपयोगकर्ताओं में से चुनें",
+            "inviteViaEmailOrSms": "ईमेल या एसएमएस द्वारा आमंत्रित करें",
+            "TakeGroupPhoto": "समूह फ़ोटो लें",
+            "Skip": "छोडना",
+            "byTelegram": "तार",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "भूमिकाएँ जोड़ें",
+            "addPersonalRoles": "व्यक्तिगत संबंध जोड़ें"
+        },
+        "complete": {
+            "WelcomeToCommunity": "{{communityName}} में आपका स्वागत है",
+            "HasInvitedYou": "आपको इसके लिए आमंत्रित किया है:",
+            "HasInvitedYouToTheirProfile": "आपको कनेक्ट करने के लिए आमंत्रित किया है।",
+            "prompt": "मित्रों को आपको पहचानने दें:",
+            "accept": "निमंत्रण स्वीकार करें"
+        },
+        "email": {
+            "subject": "हे, इसकी जांच करो",
+            "PleaseVisitLink": "कृपया निम्न लिंक पर जाएँ:",
+            "InvitingYou": "मैं आपको {{title}} पर आमंत्रित कर रहा हूं",
+            "HasInvitedYou": "{{displayName}} ने आपको {{title}} पर आमंत्रित किया है",
+            "HasMentionedYou": "{{displayName}} ने &quot; {{title}} &quot; में आपका उल्लेख किया है",
+            "YOUAREINVITED": "आप आमंत्रित हैं!",
+            "AcceptInvite": "निमंत्रण स्वीकार करें"
+        },
+        "mobile": {
+            "content": "आपको {{title}} पर आमंत्रित किया गया है। कृपया {{url}} टैप करें"
+        },
+        "notice": {
+            "text": "आपको आमंत्रित किया गया है। {{ClickOrTap}} यहाँ स्वीकार करने और शामिल होने के लिए।"
+        },
+        "chat": {
+            "prompt": "आप लोगों को एक वार्तालाप के लिए आमंत्रित करेंगे जहाँ आप संपर्क में रह सकते हैं, साथ में फ़ोटो साझा कर सकते हैं, और बहुत कुछ कर सकते हैं। इसे एक नाम दें:"
+        },
+        "Participants": "लोगो को निमंत्रण भेजो"
+    },
+    "messages": {
+        "html": {
+            "posted": "{{stream.fields.title}} को <em>{{message.fields.type}}<\/em> संदेश पोस्ट किया"
+        },
+        "text": {
+            "commentedOn": "पर टिप्पणी की है",
+            "startedCallIn": "में कॉल करना शुरू किया",
+            "in": "में",
+            "body": "{{{ url}} : {{& message.fields.content}}} में",
+            "relatedFrom": {
+                "hasBeenPostedTo": "पर पोस्ट किया गया है",
+                "byAvatar": "{{avatar.displayName}} द्वारा"
+            },
+            "relatedTo": {
+                "hasANew": "एक नया {{instructions.fromDisplayType}} है",
+                "byAvatar": "{{avatar.displayName}} द्वारा जोड़ा गया"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "आमंत्रण हमारे नंबर से भेजे जाते हैं, जिन्हें आपके मित्र अभी तक नहीं पहचानते हैं। उन्हें यह बताने के लिए त्वरित टेक्स्ट के साथ फ़ॉलो अप करें कि आमंत्रण आपकी ओर से आया है, उन्हें लिंक पर क्लिक करने के लिए कहें।",
+            "confirm": "आमंत्रण हमारे नंबर से भेजे जाते हैं, जिन्हें आपके मित्र अभी तक नहीं पहचानते हैं। क्या आप उन्हें लिंक पर क्लिक करने के लिए कहते हुए उन्हें यह बताने के लिए एक त्वरित पाठ के साथ अनुवर्ती कार्रवाई करना चाहेंगे कि आमंत्रण आपकी ओर से आया है।",
+            "check": "अरे, मैंने अभी आपको {{app}} ऐप के लिए आमंत्रण भेजा है। कृपया अपना एसएमएस जांचें और लिंक पर क्लिक करें!",
+            "CheckYourMobile": "कृपया एसएमएस जांचें और निर्देशों का पालन करें!"
+        },
+        "email": {
+            "alert": "आमंत्रण हमारे डोमेन से भेजे जाते हैं, जिन्हें आपके मित्र अभी तक नहीं पहचानते हैं। उन्हें यह बताने के लिए त्वरित टेक्स्ट के साथ फ़ॉलो अप करें कि आमंत्रण आपकी ओर से आया है, उन्हें लिंक पर क्लिक करने के लिए कहें।",
+            "confirm": "आमंत्रण हमारे डोमेन से भेजे जाते हैं, जिन्हें आपके मित्र अभी तक नहीं पहचानते हैं। क्या आप उन्हें लिंक पर क्लिक करने के लिए कहते हुए उन्हें यह बताने के लिए एक त्वरित पाठ के साथ अनुवर्ती कार्रवाई करना चाहेंगे कि आमंत्रण आपकी ओर से आया है।",
+            "subject": "क्या आपको निमंत्रण मिला?",
+            "body": "अरे, मैंने अभी आपको {{app}} ऐप के लिए आमंत्रण भेजा है। कृपया अपना ईमेल जांचें और वहां लिंक पर क्लिक करें!",
+            "CheckYourEmail": "कृपया अपना ईमेल जांचें और निर्देशों का पालन करें!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "गोपनीय सेटिंग"
+    },
+    "participating": {
+        "Title": "शीर्षक",
+        "Subscribed": "सदस्यता लिया",
+        "Participants": "प्रतिभागियों",
+        "AreYouSureRemoveIdentifier": "क्या आप वाकई इस पहचानकर्ता को हटाना चाहते हैं?",
+        "AreYouSureUnsubscribeIdentifier": "क्या आप निश्चित रूप से इस पहचानकर्ता की सदस्यता समाप्त कर रहे हैं? यह इस पहचानकर्ता के लिए सूचनाएं बंद कर देगा।",
+        "AreYouSureUnsubscribeDevice": "क्या आप वाकई इस डिवाइस की सदस्यता छोड़ रहे हैं? यह इस डिवाइस पर सूचनाएं बंद कर देगा।",
+        "AreYouSureRemoveParticipant": "क्या आप वाकई इस भागीदार को हटाना चाहते हैं?",
+        "RemoveParticipant": "प्रतिभागी को हटाएं",
+        "Identifiers": "पहचानकर्ता",
+        "Devices": "उपकरण",
+        "Streams": "स्ट्रीम"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "आमंत्रित",
+            "description": "निमंत्रण के लिए इनबॉक्स"
+        },
+        "Streams\/resource": {
+            "displayType": "संसाधन",
+            "description": "संसाधन तक पहुंच प्रबंधित करने और अपडेट के बारे में संदेश पोस्ट करने के लिए स्ट्रीम करें"
+        },
+        "Streams\/task": {
+            "description": "एक निश्चित कार्य पर प्रगति के बारे में अद्यतन प्राप्त करने के लिए",
+            "displayType": "काम"
+        },
+        "Streams\/tasks": {
+            "description": "कार्यों के लिए श्रेणी",
+            "displayType": "कार्य"
+        },
+        "Streams\/experience": {
+            "description": "एक समुदाय के सदस्यों के लिए एक सामान्य अनुभव",
+            "displayType": "एक समुदाय के सदस्यों के लिए सामान्य अनुभव"
+        },
+        "Streams\/greeting": {
+            "description": "अभिवादन जिससे उपयोगकर्ता अपना परिचय दे सकता है",
+            "displayType": "अभिवादन"
+        },
+        "Streams\/number": {
+            "displayType": "संख्या",
+            "description": "गणितीय संख्या"
+        },
+        "Streams\/date": {
+            "displayType": "तारीख",
+            "description": "तारीख"
+        },
+        "Streams\/text": {
+            "displayType": "मूलपाठ",
+            "description": "पाठ का शरीर"
+        },
+        "Streams\/text\/small": {
+            "displayType": "मूलपाठ",
+            "description": "पाठ का छोटा शरीर"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "मूलपाठ",
+            "description": "पाठ का मध्यम भाग"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "मेल पता",
+            "description": "मेल पता"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "फ़ोन नंबर",
+            "description": "फ़ोन नंबर"
+        },
+        "Streams\/text\/url": {
+            "displayType": "यूआरएल",
+            "description": "वेब पर लिंक"
+        },
+        "Streams\/image": {
+            "displayType": "छवि",
+            "description": "दृश्य छवि",
+            "newItem": "छवि जोड़ें"
+        },
+        "Streams\/images": {
+            "displayType": "छवि गैलरी",
+            "description": "छवियों की गैलरी"
+        },
+        "Streams\/album": {
+            "displayType": "एल्बम",
+            "description": "एक एल्बम जिससे विभिन्न मीडिया संबंधित हैं"
+        },
+        "Streams\/file": {
+            "displayType": "फ़ाइल",
+            "description": "अपलोड की गई फ़ाइल",
+            "newItem": "फ़ाइल जोड़ें"
+        },
+        "Streams\/audio": {
+            "displayType": "ऑडियो क्लिप",
+            "description": "ऑडियो क्लिप",
+            "newItem": "ऑडियो जोड़ें"
+        },
+        "Streams\/video": {
+            "displayType": "वीडियो क्लिप",
+            "description": "वीडियो क्लिप",
+            "newItem": "वीडियो जोड़ें"
+        },
+        "Streams\/pdf": {
+            "displayType": "पीडीएफ दस्तावेज़",
+            "description": "पीडीएफ दस्तावेज़",
+            "newItem": "पीडीएफ जोड़ें"
+        },
+        "Streams\/live": {
+            "displayType": "लाइव स्ट्रीम",
+            "description": "लाइव ऑडियो या वीडियो"
+        },
+        "Streams\/category": {
+            "displayType": "वर्ग",
+            "description": "एक श्रेणी जिससे अन्य धाराएँ संबंधित हो सकती हैं",
+            "newItem": "श्रेणी जोड़ना"
+        },
+        "Streams\/participating": {
+            "displayType": "भाग लेने वाला सूचकांक",
+            "description": "जब कोई उपयोगकर्ता जुड़ता\/छोड़ता है तो धाराएँ इससे संबंधित\/असंबंधित होती हैं"
+        },
+        "Streams\/interest": {
+            "displayType": "दिलचस्पी",
+            "description": "एक निश्चित विषय में उपयोगकर्ता की रुचि का प्रतिनिधित्व करता है"
+        },
+        "Streams\/incoming": {
+            "displayType": "आने वाली",
+            "description": "अन्य उपयोगकर्ताओं द्वारा भेजे गए संदेशों के लिए गंतव्य"
+        },
+        "Streams\/chat": {
+            "displayType": "बातचीत",
+            "description": "इतिहास के साथ, उपयोगकर्ताओं के बीच बातचीत"
+        },
+        "Streams\/question": {
+            "displayType": "सवाल",
+            "description": "प्रश्न धारा",
+            "newItem": "प्रश्न जोड़ें"
+        },
+        "Streams\/answer": {
+            "displayType": "उत्तर",
+            "description": "उत्तर धारा"
+        }
+    },
+    "menu": {
+        "placeholder": "पेज का शीर्षक टाइप करें",
+        "ModTab": "आइटम संशोधित करें",
+        "Save": "बचाना",
+        "Delete": "मिटाना",
+        "Submenu": "सबमेनू"
+    },
+    "audio": {
+        "record": "अभिलेख",
+        "reset": "रीसेट",
+        "edit": "संपादन करना",
+        "title": "शीर्षक",
+        "description": "विवरण",
+        "upload": "डालना",
+        "link": "जोड़ना",
+        "setUrl": "URL सेट करें",
+        "save": "बचाना",
+        "setClip": "कट आउट क्लिप",
+        "invalidURL": "असामान्य यूआरएल",
+        "invalidFile": "अमान्य लेख्यपत्र",
+        "errorNoSource": "कोई ऑडियो स्रोत नहीं",
+        "uploadLimit": "अधिकतम फ़ाइल आकार: {{size}}",
+        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है"
+    },
+    "video": {
+        "reset": "रीसेट",
+        "edit": "संपादन करना",
+        "title": "शीर्षक",
+        "description": "विवरण",
+        "upload": "डालना",
+        "link": "जोड़ना",
+        "setUrl": "URL सेट करें",
+        "save": "बचाना",
+        "setClip": "कट आउट क्लिप",
+        "invalidURL": "असामान्य यूआरएल",
+        "invalidFile": "अमान्य लेख्यपत्र",
+        "errorNoSource": "कोई वीडियो स्रोत नहीं",
+        "uploadLimit": "अधिकतम फ़ाइल आकार: {{size}}",
+        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है",
+        "createAnimatedThumbnail": "एनिमेटेड थंबनेल बनाएं",
+        "errorNotAvailable": "क्षमा करें, लेकिन वीडियो अभी उपलब्ध नहीं है। कृपया बाद में पुनः प्रयास करें।"
+    },
+    "pdf": {
+        "reset": "रीसेट",
+        "edit": "संपादन करना",
+        "title": "शीर्षक",
+        "description": "विवरण",
+        "upload": "डालना",
+        "link": "जोड़ना",
+        "setUrl": "URL सेट करें",
+        "save": "बचाना",
+        "setClip": "कट आउट क्लिप",
+        "invalidURL": "असामान्य यूआरएल",
+        "invalidFile": "अमान्य लेख्यपत्र",
+        "errorNoSource": "कोई पीडीएफ स्रोत नहीं",
+        "uploadLimit": "अधिकतम फ़ाइल आकार: {{size}}",
+        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है"
+    },
+    "image": {
+        "reset": "रीसेट",
+        "edit": "संपादन करना",
+        "title": "शीर्षक",
+        "description": "विवरण",
+        "upload": "डालना",
+        "link": "जोड़ना",
+        "setUrl": "URL सेट करें",
+        "save": "बचाना",
+        "uploadedImage": "अपलोड की गई छवि",
+        "imageTitle": "छवि शीर्षक",
+        "setClip": "कट आउट क्लिप",
+        "invalidURL": "असामान्य यूआरएल",
+        "invalidFile": "अमान्य लेख्यपत्र",
+        "errorNoSource": "कोई छवि स्रोत नहीं",
+        "uploadLimit": "अधिकतम फ़ाइल आकार: {{size}}",
+        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है"
+    },
+    "questions": {
+        "Questions": "प्रशन",
+        "Answers": "जवाब",
+        "AnswerQuestion": "जवाब सवाल",
+        "SetYourAnswer": "कृपया इस सवाल का जवाब दें",
+        "NewQuestion": "नया प्रश्न",
+        "EditQuestion": "प्रश्न संपादित करें",
+        "NewAnswer": "नया उत्तर",
+        "NewPossibleAnswer": "नया संभावित उत्तर",
+        "AnswerDetails": "उत्तर विवरण",
+        "answerOption": "विकल्प",
+        "answerOptionExclusive": "अनन्य",
+        "answerTextarea": "पाठ क्षेत्र",
+        "answerText": "मूलपाठ",
+        "HideUntilAnswered": "उत्तर देने तक छुपाएं",
+        "CantChangeAnswers": "उत्तर नहीं बदल सकते",
+        "FreeAnswer": "अपना उत्तर यहाँ लिखें",
+        "SaveQuestion": "प्रश्न सहेजें",
+        "SaveAnswer": "उत्तर सहेजें",
+        "Save": "बचाना",
+        "Send": "भेजना",
+        "TitleRequired": "शीर्षक आवश्यक!",
+        "AlreadyAnswered": "पहले से उत्तर दिया हुआ",
+        "TitlePlaceholder": "अपना प्रश्न टाइप करें",
+        "ContentPlaceholder": "लोगों को जवाब देने में मदद करने के लिए यहां कोई अतिरिक्त जानकारी दें",
+        "ErrorTitle": "प्रश्न आवश्यक है",
+        "Placeholder": "निर्देश लिखें",
+        "AreYouSure": "क्या आपको यकीन है?",
+        "ShortAnswer": "संक्षिप्त उत्तर लिखें"
+    },
+    "experience": {
+        "NewExperience": "नया अनुभव",
+        "DefineTitle": "कृपया एक शीर्षक परिभाषित करें",
+        "Create": "बनाएं"
+    },
+    "calls": {
+        "SettingsTitle": "कॉल",
+        "MaxCalls": "मैक्स कॉल",
+        "Update": "अद्यतन",
+        "NoCallsYet": "अभी तक कोई कॉल नहीं है",
+        "CallReasonTitle": "यह कॉल किस बारे में है?",
+        "WaitingRoom": "प्रतीक्षालय",
+        "LiveRoom": "कमरा जिएं",
+        "interviewedByAnotherHost": "वर्तमान में एक अन्य होस्ट द्वारा साक्षात्कार लिया गया है",
+        "bringToLive": "लाइव शो में लाओ",
+        "putOnHold": "ठंडे बस्ते में डालो",
+        "endCall": "कॉल समाप्त करें",
+        "interview": "साक्षात्कार",
+        "markApproved": "मार्क स्वीकृत"
+    },
+    "relate": {
+        "Add": "{{streamDisplayType}} जोड़ें"
+    },
+    "userChooser": {
+        "Placeholder": "उपयोगकर्ता का नाम..."
+    },
+    "task": {
+        "errorsTitle": "त्रुटियाँ हुईं"
+    },
+    "topic": {
+        "NewTopic": "नया विषय",
+        "UpdateTopic": "विषय अपडेट करें",
+        "CreateTopic": "विषय बनाएं",
+        "AreYouSureDeleteTopic": "क्या आप वाकई इस विषय को हटाना चाहते हैं",
+        "TitlePlaceholder": "विषय शीर्षक...",
+        "DescribeTopic": "विषय का वर्णन करें...",
+        "TopicIcon": "विषय चित्र",
+        "UploadIcon": "अपलोड आइकन",
+        "Conversation": "बातचीत",
+        "Metrics": "मेट्रिक्स"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "एनिमेटेड थंबनेल बनाएं",
+        "Width": "चौड़ाई",
+        "Height": "ऊंचाई",
+        "Start": "शुरू",
+        "End": "अंत",
+        "Delay": "देरी",
+        "Quality": "गुणवत्ता",
+        "Size": "आकार",
+        "OfFrames": "फ़्रेम की संख्या",
+        "Frame": "चौखटा",
+        "UseThis": "इस का उपयोग करें",
+        "ResultGIF": "परिणाम GIF",
+        "VideoElementNotFound": "वीडियो तत्व नहीं मिला"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} आपके चेहरे पर",
+        "AcceptIcon": "चयनित क्षेत्र स्वीकार करें"
+    }
+}

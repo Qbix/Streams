@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "Dieser Inhalt ist Ihnen verborgen.",
+        "InplaceTypeMustBe": "inplaceType muss &#39;textarea&#39; oder &#39;text&#39; sein"
+    },
+    "preview": {
+        "NewItemTitle": "Neuer Gegenstand"
+    },
+    "avatar": {
+        "firstName": "Vorname",
+        "lastName": "Familienname, Nachname",
+        "username": "Nutzername"
+    },
+    "labels": {
+        "Streams\/invited": "Leute, die ich eingeladen habe",
+        "Streams\/invitedMe": "Wer hat mich eingeladen",
+        "DoYouAgree": "Sind Sie einverstanden?",
+        "Yes": "Ja",
+        "No": "NEIN",
+        "JoinItNow": "Jetzt mitmachen?"
+    },
+    "login": {
+        "prompt": "Lassen Sie sich von Freunden erkennen:",
+        "newUser": "oder erstellen Sie unten ein neues Konto",
+        "picTooltip": "Sie können dieses Bild später ändern",
+        "placeholders": {
+            "fullName": "Geben Sie Ihren vollständigen Namen ein"
+        }
+    },
+    "interests": {
+        "Filter": "Interessen suchen",
+        "CanGrant": "Wenn Sie immer noch nicht finden, wonach Sie suchen, können Sie unten ein neues Interesse hinzufügen:",
+        "TrySynonyms": "Siehst du es nicht? Probieren Sie einige Synonyme aus.",
+        "AddUnderCategory": "Unter Kategorie hinzufügen...",
+        "Other": "Andere",
+        "Unlisted": "Nicht gelistet"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Die Nachricht wurde zur Überprüfung durch den Administrator markiert. Tippen Sie erneut, um die Markierung aufzuheben.",
+        "noOneSaid": "Niemand hat etwas gesagt",
+        "closeChatButton": "Chat schließen",
+        "closeChatConfirmTitle": "Diesen Chat schließen?",
+        "closeChatConfirm": "Möchten Sie diesen Chat wirklich schließen?",
+        "Subscribed": "Benachrichtigungen aktiviert",
+        "Unsubscribed": "Benachrichtigungen stummgeschaltet",
+        "closeChatConfirmYes": "Ja",
+        "closeChatConfirmNo": "NEIN",
+        "earlierComments": "frühere Kommentare",
+        "startedConversation": "begann ein Gespräch",
+        "RealTimeCall": "Echtzeit-Anruf",
+        "JoinWebRTC": "Telefonkonferenz",
+        "SearchByName": "Suche mit Name",
+        "Notifications": {
+            "Visit": "{{displayName}} besucht den Chat",
+            "Join": "{{displayName}} sind dem Chat beigetreten",
+            "Leave": "{{displayName}} hat den Chat verlassen",
+            "RelatedTo": "{{displayName}} begann ein {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Einen Kommentar hinzufügen",
+            "Private": "Schreiben Sie eine private Nachricht"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "Verwalten Sie Ihre E-Mail-Abonnements",
+        "IfUnsubscribe": "Wenn Sie sich abmelden möchten",
+        "*": "Nachricht {{{ message.fields.type}} an {{& stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} schlossen sich an",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} übrig",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} sagte: {{& message.content}}}",
+        "Streams\/changed": "Änderungen in {{stream.fields.title}}",
+        "Streams\/invite": "Sie wurden zu {{{ stream.fields.title}}} eingeladen",
+        "Streams\/announcement": "Ankündigung im {{{ stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}} hat den Zugriff in {{& stream.fields.title}}} geändert",
+        "Streams\/chat\/edit": "Chatnachricht bearbeitet in {{{ stream.fields.title}}}",
+        "Streams\/chat\/remove": "Chatnachricht {{{ stream.fields.title}}} entfernt",
+        "Streams\/closed": "{{stream.fields.title}} wurde geschlossen",
+        "Streams\/task\/progress": "Fortschritte bei {{stream.fields.title}}",
+        "Streams\/task\/complete": "Aufgabe erledigt: {{stream.fields.title}}",
+        "Streams\/task\/error": "Fehler während: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Eingehende Nachricht",
+        "Streams\/relatedTo\/Streams\/call": "Neuer Anruf im {{toTitle}} begonnen",
+        "Streams\/relatedTo\/*": "Neu {{relationDisplayType}} in {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Zu {{toTitle}} als {{relationDisplayType}} addiert",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} hat dich in einem Kommentar erwähnt",
+        "Streams\/call": "{{displayName}} hat einen Echtzeitanruf gestartet",
+        "changed": {
+            "ChangesIn": "Änderungen in {{title}}",
+            "Changed": "geändert",
+            "HereIsWhatChanged": "Folgendes hat sich geändert:"
+        },
+        "joined": {
+            "Joined": "{{subject}} schloss sich <em>{{title}}<\/em> an"
+        }
+    },
+    "invite": {
+        "command": "Einladen",
+        "Invite": "Einladen",
+        "Share": "Aktie",
+        "messageContent": "{{displayName}} hat dich zu {{inviteUrl}} eingeladen",
+        "youCanNowPaste": "Sie können diesen Link jetzt irgendwo einfügen, um Personen einzuladen",
+        "roles": {
+            "title": "Eingeladenen Benutzern Rollen zuweisen?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Verzeihung",
+                "alert": "Sie sind nicht berechtigt, diese Rolle zuzuweisen"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Verzeihung",
+                "alert": "Sie sind nicht berechtigt, diese Rolle zu entfernen"
+            }
+        },
+        "labels": {
+            "title": "Was ist deine Beziehung?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Wählen Sie aus Ihren Kontakten",
+            "chooseAgainFromContacts": "Wählen Sie Erneut aus den Kontakten",
+            "inviteSelectedContacts": "Ausgewählte Kontakte einladen",
+            "selectFromContacts": "Wählen Sie Aus Kontakten",
+            "userChooserPlaceholder": "Suche mit Name",
+            "photo": "Mach ein Foto",
+            "photoOf": "Mach ein Foto von {{name}}",
+            "photoInstruction": "Wenn die Person, die Ihren QR-Code gescannt hat, vor Ihnen steht, machen Sie ein Foto von ihr",
+            "to": "Bis: {{Stream Title}}",
+            "go": "Gehen",
+            "title": "Einladen",
+            "placeholder": "Handynummer oder E-Mail-Adresse",
+            "orInvite": "Oder laden Sie Personen ein, indem Sie Folgendes verwenden:",
+            "copyLink": "{{ClickOrTap}} zum Kopieren des Einladungslinks",
+            "shareOrCopyLink": "{{ClickOrTap}} zum Teilen oder Kopieren des Einladungslinks",
+            "QR": "{{ClickOrTap}} um QR-Code zu generieren",
+            "QRtitle": "Scannen Sie diesen QR-Code",
+            "QRscanned": "Sie haben es gescannt!",
+            "scannedQR": "{{ClickOrTap}} , wenn der Code gescannt wurde",
+            "byEmail": "Email",
+            "byText": "Text",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "title2": "Menschen einladen",
+            "chooseMethod": "Wählen Sie eine Methode:",
+            "selectContacts": "Wählen Sie Kontakte",
+            "scanQRCode": "QR-Code scannen",
+            "shareLink": "Teilen Sie einen Link",
+            "chooseFromRegistered": "Wählen Sie aus registrierten Benutzern",
+            "inviteViaEmailOrSms": "Per E-Mail oder SMS einladen",
+            "TakeGroupPhoto": "Machen Sie ein Gruppenfoto",
+            "Skip": "Überspringen",
+            "byTelegram": "Telegramm",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "Rollen hinzufügen",
+            "addPersonalRoles": "Persönliche Beziehungen hinzufügen"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Willkommen bei {{communityName}}",
+            "HasInvitedYou": "hat Sie eingeladen:",
+            "HasInvitedYouToTheirProfile": "hat Sie eingeladen, sich zu verbinden.",
+            "prompt": "Lassen Sie sich von Freunden erkennen:",
+            "accept": "Einladung annehmen"
+        },
+        "email": {
+            "subject": "Hey, sieh dir das an",
+            "PleaseVisitLink": "Bitte besuchen Sie den folgenden Link:",
+            "InvitingYou": "Ich lade Sie zu {{title}} ein",
+            "HasInvitedYou": "{{displayName}} hat Sie zu {{title}} eingeladen",
+            "HasMentionedYou": "{{displayName}} hat Sie in „ {{title}} “ erwähnt",
+            "YOUAREINVITED": "DU BIST EINGELADEN!",
+            "AcceptInvite": "Einladung annehmen"
+        },
+        "mobile": {
+            "content": "Sie wurden zu {{title}} eingeladen. Bitte tippen Sie auf {{url}}"
+        },
+        "notice": {
+            "text": "Du bist eingeladen. {{ClickOrTap}} hier, um zu akzeptieren und beizutreten."
+        },
+        "chat": {
+            "prompt": "Sie laden Leute zu einem Gespräch ein, bei dem Sie in Kontakt bleiben, gemeinsam Fotos austauschen und vieles mehr können. Geben Sie dem Gespräch einen Namen:"
+        },
+        "Participants": "Menschen einladen"
+    },
+    "messages": {
+        "html": {
+            "posted": "hat eine <em>{{message.fields.type}}<\/em> Nachricht an {{stream.fields.title}} gepostet"
+        },
+        "text": {
+            "commentedOn": "kommentiert",
+            "startedCallIn": "einen Anruf gestartet",
+            "in": "In",
+            "body": "im {{{ url}} : {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "gepostet wurde",
+                "byAvatar": "um {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "hat einen neuen {{instructions.fromDisplayType}}",
+                "byAvatar": "um {{avatar.displayName}} hinzugefügt"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Einladungen werden von unserer Nummer gesendet, die Ihre Freunde noch nicht kennen. Schreiben Sie anschließend eine kurze SMS, um sie wissen zu lassen, dass die Einladung von Ihnen kam, und bitten Sie sie, auf den Link zu klicken.",
+            "confirm": "Einladungen werden von unserer Nummer gesendet, die Ihre Freunde noch nicht kennen. Möchten Sie mit einer kurzen SMS nachfassen, um sie wissen zu lassen, dass die Einladung von Ihnen kam, und sie bitten, auf den Link zu klicken?",
+            "check": "Hey, ich habe dir gerade eine Einladung zur {{app}} App geschickt. Bitte überprüfen Sie Ihre SMS und klicken Sie auf den Link!",
+            "CheckYourMobile": "Bitte überprüfen Sie die SMS und folgen Sie den Anweisungen!"
+        },
+        "email": {
+            "alert": "Einladungen werden von unserer Domain gesendet, die Ihre Freunde noch nicht erkennen. Schreiben Sie anschließend eine kurze SMS, um sie wissen zu lassen, dass die Einladung von Ihnen kam, und bitten Sie sie, auf den Link zu klicken.",
+            "confirm": "Einladungen werden von unserer Domain gesendet, die Ihre Freunde noch nicht erkennen. Möchten Sie mit einer kurzen SMS nachfassen, um sie wissen zu lassen, dass die Einladung von Ihnen kam, und sie bitten, auf den Link zu klicken?",
+            "subject": "Hast du eine Einladung bekommen?",
+            "body": "Hey, ich habe dir gerade eine Einladung zur {{app}} App geschickt. Bitte überprüfen Sie Ihre E-Mail und klicken Sie auf den Link darin!",
+            "CheckYourEmail": "Bitte überprüfen Sie Ihre E-Mails und folgen Sie den Anweisungen!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "Datenschutzeinstellungen"
+    },
+    "participating": {
+        "Title": "Titel",
+        "Subscribed": "Gezeichnet",
+        "Participants": "Teilnehmer",
+        "AreYouSureRemoveIdentifier": "Möchten Sie diese Kennung wirklich entfernen?",
+        "AreYouSureUnsubscribeIdentifier": "Sind Sie sicher, dass Sie diese Kennung abbestellen? Benachrichtigungen an diese Kennung werden deaktiviert.",
+        "AreYouSureUnsubscribeDevice": "Möchten Sie dieses Gerät wirklich abbestellen? Benachrichtigungen an dieses Gerät werden deaktiviert.",
+        "AreYouSureRemoveParticipant": "Möchten Sie diesen Teilnehmer wirklich entfernen?",
+        "RemoveParticipant": "Teilnehmer entfernen",
+        "Identifiers": "Identifikatoren",
+        "Devices": "Geräte",
+        "Streams": "Ströme"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Eingeladen",
+            "description": "Posteingang für Einladungen"
+        },
+        "Streams\/resource": {
+            "displayType": "Ressource",
+            "description": "Stream zum Verwalten des Zugriffs auf eine Ressource und zum Posten von Nachrichten über Updates"
+        },
+        "Streams\/task": {
+            "description": "um Updates über den Fortschritt einer bestimmten Aufgabe zu erhalten",
+            "displayType": "Aufgabe"
+        },
+        "Streams\/tasks": {
+            "description": "Kategorie für Aufgaben",
+            "displayType": "Aufgaben"
+        },
+        "Streams\/experience": {
+            "description": "ein gemeinsames Erlebnis für Mitglieder einer Gemeinschaft",
+            "displayType": "Gemeinsame Erfahrung für Mitglieder einer Gemeinschaft"
+        },
+        "Streams\/greeting": {
+            "description": "Begrüßung, mit der sich ein Benutzer vorstellen kann",
+            "displayType": "Gruß"
+        },
+        "Streams\/number": {
+            "displayType": "Nummer",
+            "description": "mathematische Zahl"
+        },
+        "Streams\/date": {
+            "displayType": "Datum",
+            "description": "Datum"
+        },
+        "Streams\/text": {
+            "displayType": "Text",
+            "description": "Textkörper"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Text",
+            "description": "kleiner Textkörper"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Text",
+            "description": "mittlerer Textumfang"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "E-Mail-Addresse",
+            "description": "E-Mail-Addresse"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Telefonnummer",
+            "description": "Telefonnummer"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "im Netz verlinken"
+        },
+        "Streams\/image": {
+            "displayType": "Bild",
+            "description": "visuelles Bild",
+            "newItem": "Bild hinzufügen"
+        },
+        "Streams\/images": {
+            "displayType": "Bildergalerie",
+            "description": "Galerie von Bildern"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "ein Album, auf das sich verschiedene Medien beziehen"
+        },
+        "Streams\/file": {
+            "displayType": "Datei",
+            "description": "hochgeladene Datei",
+            "newItem": "Datei hinzufügen"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio clip",
+            "description": "Audio clip",
+            "newItem": "Audio hinzufügen"
+        },
+        "Streams\/video": {
+            "displayType": "Videoclip",
+            "description": "Videoclip",
+            "newItem": "Video hinzufügen"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF-Dokument",
+            "description": "PDF-Dokument",
+            "newItem": "PDF hinzufügen"
+        },
+        "Streams\/live": {
+            "displayType": "Liveübertragung",
+            "description": "Live-Audio oder -Video"
+        },
+        "Streams\/category": {
+            "displayType": "Kategorie",
+            "description": "eine Kategorie, der andere Streams zugeordnet werden können",
+            "newItem": "Kategorie hinzufügen"
+        },
+        "Streams\/participating": {
+            "displayType": "Teilnehmender Index",
+            "description": "Streams sind damit verbunden\/nicht verbunden, wenn ein Benutzer beitritt\/geht"
+        },
+        "Streams\/interest": {
+            "displayType": "Interesse",
+            "description": "repräsentiert das Interesse eines Benutzers an einem bestimmten Thema"
+        },
+        "Streams\/incoming": {
+            "displayType": "Eingehend",
+            "description": "Ziel für Nachrichten, die von anderen Benutzern gesendet werden"
+        },
+        "Streams\/chat": {
+            "displayType": "Gespräch",
+            "description": "ein Gespräch zwischen Benutzern, mit Geschichte"
+        },
+        "Streams\/question": {
+            "displayType": "Frage",
+            "description": "Fragenstrom",
+            "newItem": "Frage hinzufügen"
+        },
+        "Streams\/answer": {
+            "displayType": "Antworten",
+            "description": "Antwort-Stream"
+        }
+    },
+    "menu": {
+        "placeholder": "Seitentitel eingeben",
+        "ModTab": "Artikel ändern",
+        "Save": "Speichern",
+        "Delete": "Löschen",
+        "Submenu": "Untermenü"
+    },
+    "audio": {
+        "record": "Aufzeichnen",
+        "reset": "Zurücksetzen",
+        "edit": "Bearbeiten",
+        "title": "Titel",
+        "description": "Beschreibung",
+        "upload": "Hochladen",
+        "link": "Verknüpfung",
+        "setUrl": "URL festlegen",
+        "save": "Speichern",
+        "setClip": "Clip ausschneiden",
+        "invalidURL": "ungültige URL",
+        "invalidFile": "Ungültige Datei",
+        "errorNoSource": "Keine Audioquelle",
+        "uploadLimit": "Maximale Dateigröße: {{size}}",
+        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}"
+    },
+    "video": {
+        "reset": "Zurücksetzen",
+        "edit": "Bearbeiten",
+        "title": "Titel",
+        "description": "Beschreibung",
+        "upload": "Hochladen",
+        "link": "Verknüpfung",
+        "setUrl": "URL festlegen",
+        "save": "Speichern",
+        "setClip": "Clip ausschneiden",
+        "invalidURL": "ungültige URL",
+        "invalidFile": "Ungültige Datei",
+        "errorNoSource": "Keine Videoquelle",
+        "uploadLimit": "Maximale Dateigröße: {{size}}",
+        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}",
+        "createAnimatedThumbnail": "Animiertes Miniaturbild erstellen",
+        "errorNotAvailable": "Leider ist das Video noch nicht verfügbar. Bitte versuchen Sie es später noch einmal."
+    },
+    "pdf": {
+        "reset": "Zurücksetzen",
+        "edit": "Bearbeiten",
+        "title": "Titel",
+        "description": "Beschreibung",
+        "upload": "Hochladen",
+        "link": "Verknüpfung",
+        "setUrl": "URL festlegen",
+        "save": "Speichern",
+        "setClip": "Clip ausschneiden",
+        "invalidURL": "ungültige URL",
+        "invalidFile": "Ungültige Datei",
+        "errorNoSource": "Keine pdf-Quelle",
+        "uploadLimit": "Maximale Dateigröße: {{size}}",
+        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}"
+    },
+    "image": {
+        "reset": "Zurücksetzen",
+        "edit": "Bearbeiten",
+        "title": "Titel",
+        "description": "Beschreibung",
+        "upload": "Hochladen",
+        "link": "Verknüpfung",
+        "setUrl": "URL festlegen",
+        "save": "Speichern",
+        "uploadedImage": "Hochgeladenes Bild",
+        "imageTitle": "Bildtitel",
+        "setClip": "Clip ausschneiden",
+        "invalidURL": "ungültige URL",
+        "invalidFile": "Ungültige Datei",
+        "errorNoSource": "Keine Bildquelle",
+        "uploadLimit": "Maximale Dateigröße: {{size}}",
+        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}"
+    },
+    "questions": {
+        "Questions": "Fragen",
+        "Answers": "Antworten",
+        "AnswerQuestion": "Frage beantworten",
+        "SetYourAnswer": "Bitte beantworten Sie die Frage",
+        "NewQuestion": "Neue Frage",
+        "EditQuestion": "Frage bearbeiten",
+        "NewAnswer": "Neue Antwort",
+        "NewPossibleAnswer": "Neue mögliche Antwort",
+        "AnswerDetails": "Antwortdetails",
+        "answerOption": "Möglichkeit",
+        "answerOptionExclusive": "Exklusiv",
+        "answerTextarea": "Textbereich",
+        "answerText": "Text",
+        "HideUntilAnswered": "Ausblenden bis beantwortet",
+        "CantChangeAnswers": "Antworten können nicht geändert werden",
+        "FreeAnswer": "Schreiben Sie hier Ihre Antwort",
+        "SaveQuestion": "Frage speichern",
+        "SaveAnswer": "Antwort speichern",
+        "Save": "Speichern",
+        "Send": "Schicken",
+        "TitleRequired": "Titel erforderlich!",
+        "AlreadyAnswered": "Schon beantwortet",
+        "TitlePlaceholder": "Geben Sie Ihre Frage ein",
+        "ContentPlaceholder": "Geben Sie hier zusätzliche Informationen ein, um den Leuten bei der Beantwortung zu helfen",
+        "ErrorTitle": "Frage erforderlich",
+        "Placeholder": "Schreiben Sie Anweisungen",
+        "AreYouSure": "Bist du dir sicher?",
+        "ShortAnswer": "Schreiben Sie eine kurze Antwort"
+    },
+    "experience": {
+        "NewExperience": "Neue Erfahrung",
+        "DefineTitle": "Bitte definieren Sie einen Titel",
+        "Create": "Erstellen"
+    },
+    "calls": {
+        "SettingsTitle": "Anrufe",
+        "MaxCalls": "Max ruft an",
+        "Update": "Aktualisieren",
+        "NoCallsYet": "Noch keine Anrufe",
+        "CallReasonTitle": "Worum geht es in diesem Anruf?",
+        "WaitingRoom": "Wartezimmer",
+        "LiveRoom": "Wohnzimmer",
+        "interviewedByAnotherHost": "Wird derzeit von einem anderen Gastgeber interviewt",
+        "bringToLive": "Zur Live-Show bringen",
+        "putOnHold": "Auf Eis gelegt",
+        "endCall": "Anruf beenden",
+        "interview": "Interview",
+        "markApproved": "Genehmigt markieren"
+    },
+    "relate": {
+        "Add": "{{streamDisplayType}} hinzufügen"
+    },
+    "userChooser": {
+        "Placeholder": "Name eines Benutzers..."
+    },
+    "task": {
+        "errorsTitle": "Es sind Fehler aufgetreten"
+    },
+    "topic": {
+        "NewTopic": "Neues Thema",
+        "UpdateTopic": "Thema aktualisieren",
+        "CreateTopic": "Thema erstellen",
+        "AreYouSureDeleteTopic": "Möchten Sie dieses Thema wirklich löschen?",
+        "TitlePlaceholder": "Thementitel...",
+        "DescribeTopic": "Thema beschreiben...",
+        "TopicIcon": "Themenbild",
+        "UploadIcon": "Symbol „Hochladen“",
+        "Conversation": "Gespräch",
+        "Metrics": "Metriken"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Animiertes Miniaturbild erstellen",
+        "Width": "Breite",
+        "Height": "Höhe",
+        "Start": "Start",
+        "End": "Ende",
+        "Delay": "Verzögerung",
+        "Quality": "Qualität",
+        "Size": "Größe",
+        "OfFrames": "von Rahmen",
+        "Frame": "Rahmen",
+        "UseThis": "Benutze das",
+        "ResultGIF": "Ergebnis-GIF",
+        "VideoElementNotFound": "Videoelement nicht gefunden"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} auf deinem Gesicht",
+        "AcceptIcon": "Ausgewählten Bereich akzeptieren"
+    }
+}

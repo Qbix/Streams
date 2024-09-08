@@ -1,0 +1,108 @@
+.Streams_topic_tool > *:not(:last-child) {
+    border-bottom: 2px solid var(--separate-line-color);
+}
+.Streams_topic_tool .Streams_topic_image {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.Streams_topic_tool .Streams_topic_image[data-video=true] {
+    height: unset;
+    background-image: none;
+}
+.Streams_topic_tool .Streams_topic_description {
+    min-height: 40px;
+    max-height: 100px;
+    color: #fff;
+    padding: 5px;
+    overflow-y: auto;
+}
+.Q_tool.Streams_topic_tool .Streams_topic_conversation {
+    padding-left: 55px;
+    min-height: 50px;
+}
+.Q_tool.Streams_topic_tool[data-fullAccess=false] .Streams_topic_conversation {
+    display: none;
+}
+.Q_tool.Streams_topic_tool .Streams_topic_conversation:before {
+    font-family: 'qplatform-calendars' !important;
+    font-size: 50px;
+    content: "\e901";
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.Streams_topic_tool .Streams_preview_tool,
+.Streams_topic_tool .Streams_topic_conversation {
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.Streams_topic_tool .Streams_preview_tool h2,
+.Streams_topic_tool .Streams_topic_conversation h2 {
+    font-weight: normal;
+    font-size: 20px;
+}
+.Streams_topic_tool .Streams_preview_tool_image {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.Streams_topic_tool .Streams_preview_tool_image:before {
+
+}
+.Streams_topic_tool .Streams_preview_tool_right {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 5px;
+    top: 10px;
+    text-align: center;
+}
+.Streams_topic_tool .Streams_preview_tool_right .Streams_preview_tool_amount {
+    display: none;
+    color: blue;
+}
+.Streams_topic_tool .Streams_preview_tool[data-selected=true] .Streams_preview_tool_amount {
+    display: block;
+}
+.Streams_topic_tool .Streams_preview_tool_right .Streams_preview_tool_check {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #d5dadf;
+    border-radius: 50%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.Streams_topic_tool .Streams_preview_tool[data-selected=true] .Streams_preview_tool_check {
+    background-image: url(../../img/icon_selected.png);
+}
+.Streams_topic_tool .Streams_preview_tool_content {
+    width: calc(100% - 85px);
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.Streams_topic_relations .Streams_preview_tool {
+    padding: 5px 0;
+}
+.Q_notMobile .Q_columns_column.Streams_topic_streams_video,
+.Q_notMobile .Q_columns_column.Streams_topic_streams_pdf {
+    width: 60%;
+}
+.Q_notMobile .Q_columns_column.Streams_topic_streams_video .Q_video_tool {
+
+}
+.Q_notMobile .Q_columns_column.Streams_topic_streams_pdf .Q_pdf_tool {
+    height: 100%;
+}

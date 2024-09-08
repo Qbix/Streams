@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "このコンテンツは非表示になっています。",
+        "InplaceTypeMustBe": "inplaceType は &#39;textarea&#39; または &#39;text&#39; でなければなりません"
+    },
+    "preview": {
+        "NewItemTitle": "新商品"
+    },
+    "avatar": {
+        "firstName": "ファーストネーム",
+        "lastName": "苗字",
+        "username": "ユーザー名"
+    },
+    "labels": {
+        "Streams\/invited": "私が招待した人々",
+        "Streams\/invitedMe": "誰が私を招待したのか",
+        "DoYouAgree": "同意しますか？",
+        "Yes": "はい",
+        "No": "いいえ",
+        "JoinItNow": "今すぐ参加しますか?"
+    },
+    "login": {
+        "prompt": "友達にあなたを認識してもらいましょう:",
+        "newUser": "または、以下で新しいアカウントを作成してください",
+        "picTooltip": "この画像は後で変更できます",
+        "placeholders": {
+            "fullName": "フルネームを入れて下さい"
+        }
+    },
+    "interests": {
+        "Filter": "インタレストを検索",
+        "CanGrant": "それでも探しているものが見つからない場合は、以下に新しい興味を追加できます。",
+        "TrySynonyms": "見えない？類義語をいくつか試してください。",
+        "AddUnderCategory": "カテゴリの下に追加...",
+        "Other": "他の",
+        "Unlisted": "未公開"
+    },
+    "chat": {
+        "flaggedForAdminReview": "メッセージは、管理者によるレビューのためにフラグが立てられました。フラグを解除するには、もう一度タップします。",
+        "noOneSaid": "誰も何も言っていない",
+        "closeChatButton": "チャットを閉じる",
+        "closeChatConfirmTitle": "このチャットを閉じますか？",
+        "closeChatConfirm": "このチャットを閉じてもよろしいですか？",
+        "Subscribed": "通知有効",
+        "Unsubscribed": "通知をミュートしました",
+        "closeChatConfirmYes": "はい",
+        "closeChatConfirmNo": "いいえ",
+        "earlierComments": "以前のコメント",
+        "startedConversation": "会話を始めた",
+        "RealTimeCall": "リアルタイム通話",
+        "JoinWebRTC": "電話会議",
+        "SearchByName": "名前で検索",
+        "Notifications": {
+            "Visit": "{{displayName}}がチャットにアクセスしています",
+            "Join": "{{displayName}}チャットに参加",
+            "Leave": "{{displayName}}がチャットを退出しました",
+            "RelatedTo": "{{displayName}} {{stream.displayType}}を開始"
+        },
+        "placeholders": {
+            "Public": "コメントを追加",
+            "Private": "プライベートメッセージを書く"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "メール購読を管理する",
+        "IfUnsubscribe": "退会したい場合",
+        "*": "メッセージ{{{ message.fields.type}} ～ {{& stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}}が参加",
+        "Streams\/left": "{{{call 'avatar.displayName'}}}残り",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}が言った: {{& message.content}}}",
+        "Streams\/changed": "{{stream.fields.title}}の変化",
+        "Streams\/invite": "{{{ stream.fields.title}}}に招待されました",
+        "Streams\/announcement": "{{{ stream.fields.title}}}発表",
+        "Streams\/access": "{{{ stream.fields.title}}に{{&call 'avatar.displayName'}}}のアクセスが変更されました",
+        "Streams\/chat\/edit": "{{{ stream.fields.title}}}で編集されたチャットメッセージ",
+        "Streams\/chat\/remove": "チャット メッセージは{{{ stream.fields.title}}}で削除されました",
+        "Streams\/closed": "{{stream.fields.title}}閉鎖されました",
+        "Streams\/task\/progress": "{{stream.fields.title}}の進捗",
+        "Streams\/task\/complete": "タスク完了: {{stream.fields.title}}",
+        "Streams\/task\/error": "エラー中: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : 着信メッセージ",
+        "Streams\/relatedTo\/Streams\/call": "{{toTitle}}に開始された新しい通話",
+        "Streams\/relatedTo\/*": "{{toTitle}}の新しい{{relationDisplayType}}",
+        "Streams\/relatedFrom\/*": "{{relationDisplayType}}として{{toTitle}}に追加",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}}がコメントであなたをメンションしました",
+        "Streams\/call": "{{displayName}}リアルタイム通話を開始しました",
+        "changed": {
+            "ChangesIn": "{{title}}の変更点",
+            "Changed": "かわった",
+            "HereIsWhatChanged": "変更された点は次のとおりです:"
+        },
+        "joined": {
+            "Joined": "{{subject}} <em>{{title}}<\/em>参加"
+        }
+    },
+    "invite": {
+        "command": "招待",
+        "Invite": "招待",
+        "Share": "共有",
+        "messageContent": "{{displayName}}あなたを{{inviteUrl}}に招待しました",
+        "youCanNowPaste": "このリンクをどこかに貼り付けて、人を招待できるようになりました",
+        "roles": {
+            "title": "招待されたユーザーにロールを付与しますか?",
+            "NotAuthorizedToGrantRole": {
+                "title": "ごめん",
+                "alert": "この役割を付与する権限がありません"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "ごめん",
+                "alert": "この役割を削除する権限がありません"
+            }
+        },
+        "labels": {
+            "title": "あなたの関係は何ですか？"
+        },
+        "dialog": {
+            "chooseFromContacts": "連絡先から選択",
+            "chooseAgainFromContacts": "連絡先からもう一度選択",
+            "inviteSelectedContacts": "選択した連絡先を招待",
+            "selectFromContacts": "連絡先から選択",
+            "userChooserPlaceholder": "名前で検索",
+            "photo": "写真を撮る",
+            "photoOf": "{{name}}の写真を撮る",
+            "photoInstruction": "QR コードをスキャンした人が目の前にいる場合は、その人の写真を撮ります",
+            "to": "宛先: {{Stream Title}}",
+            "go": "行く",
+            "title": "招待",
+            "placeholder": "携帯番号またはメールアドレス",
+            "orInvite": "または、次を使用して人を招待します。",
+            "copyLink": "招待リンクをコピーするには{{ClickOrTap}}",
+            "shareOrCopyLink": "招待リンクを共有またはコピーするには{{ClickOrTap}}",
+            "QR": "{{ClickOrTap}}でQRコード生成",
+            "QRtitle": "このQRコードをスキャン",
+            "QRscanned": "彼らはそれをスキャンしました！",
+            "scannedQR": "コードがスキャンされた場合は{{ClickOrTap}}",
+            "byEmail": "Eメール",
+            "byText": "文章",
+            "byFacebook": "フェイスブック",
+            "byTwitter": "ツイッター",
+            "title2": "人を招待する",
+            "chooseMethod": "方法を選択してください:",
+            "selectContacts": "連絡先を選択",
+            "scanQRCode": "QRコードをスキャン",
+            "shareLink": "リンクを共有する",
+            "chooseFromRegistered": "登録ユーザーから選ぶ",
+            "inviteViaEmailOrSms": "メールまたは SMS で招待する",
+            "TakeGroupPhoto": "集合写真を撮る",
+            "Skip": "スキップ",
+            "byTelegram": "電報",
+            "byWhatsapp": "ワッツアップ",
+            "addRoles": "役割を追加",
+            "addPersonalRoles": "個人的な関係を追加する"
+        },
+        "complete": {
+            "WelcomeToCommunity": "{{communityName}}へようこそ",
+            "HasInvitedYou": "さんがあなたを招待しました:",
+            "HasInvitedYouToTheirProfile": "さんがあなたを接続に招待しています。",
+            "prompt": "友達にあなたを認識してもらいましょう:",
+            "accept": "招待を受け入れる"
+        },
+        "email": {
+            "subject": "ねえ、これをチェックしてください",
+            "PleaseVisitLink": "次のリンクにアクセスしてください。",
+            "InvitingYou": "あなたを{{title}}に招待します",
+            "HasInvitedYou": "{{displayName}}あなたを{{title}}に招待しました",
+            "HasMentionedYou": "{{displayName}}が「 {{title}} 」であなたをメンションしました",
+            "YOUAREINVITED": "あなたは招待されました！",
+            "AcceptInvite": "招待を受け入れる"
+        },
+        "mobile": {
+            "content": "{{title}}に招待されました。 {{url}}をタップしてください"
+        },
+        "notice": {
+            "text": "招待されました。 {{ClickOrTap}}で承認して参加できます。"
+        },
+        "chat": {
+            "prompt": "会話に人を招待して、連絡を取り合ったり、一緒に写真を共有したりすることができます。名前を付けます:"
+        },
+        "Participants": "人を招待する"
+    },
+    "messages": {
+        "html": {
+            "posted": "{{stream.fields.title}}に<em>{{message.fields.type}}<\/em>メッセージを投稿しました"
+        },
+        "text": {
+            "commentedOn": "コメントした",
+            "startedCallIn": "で通話を開始しました",
+            "in": "の",
+            "body": "{{{ url}} ： {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "に投稿されました",
+                "byAvatar": "{{avatar.displayName}}まで"
+            },
+            "relatedTo": {
+                "hasANew": "新しい{{instructions.fromDisplayType}}があります",
+                "byAvatar": "{{avatar.displayName}}によって追加されました"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "招待状は私たちの番号から送信されますが、あなたの友人はまだその番号を認識していません.フォローアップの簡単なテキストで、招待状があなたからのものであることを知らせ、リンクをクリックするように依頼します。",
+            "confirm": "招待状は私たちの番号から送信されますが、あなたの友人はまだその番号を認識していません.招待状があなたからのものであることを知らせ、リンクをクリックするように求める簡単なテキストでフォローアップしますか.",
+            "check": "こんにちは、 {{app}}アプリへの招待状を送信しました。 SMS を確認して、リンクをクリックしてください。",
+            "CheckYourMobile": "SMSをチェックして指示に従ってください！"
+        },
+        "email": {
+            "alert": "招待状は私たちのドメインから送信されますが、あなたの友人はまだそれを認識していません.フォローアップの簡単なテキストで、招待状があなたからのものであることを知らせ、リンクをクリックするように依頼します。",
+            "confirm": "招待状は私たちのドメインから送信されますが、あなたの友人はまだそれを認識していません.招待状があなたからのものであることを知らせ、リンクをクリックするように求める簡単なテキストでフォローアップしますか.",
+            "subject": "招待状は届きましたか？",
+            "body": "こんにちは、 {{app}}アプリへの招待状を送信しました。メールを確認して、そこにあるリンクをクリックしてください。",
+            "CheckYourEmail": "メールを確認し、指示に従ってください。"
+        }
+    },
+    "identifier": {
+        "privacySettings": "プライバシー設定"
+    },
+    "participating": {
+        "Title": "タイトル",
+        "Subscribed": "購読済み",
+        "Participants": "参加者",
+        "AreYouSureRemoveIdentifier": "この識別子を削除してもよろしいですか?",
+        "AreYouSureUnsubscribeIdentifier": "この識別子の登録を解除してもよろしいですか?この識別子への通知をオフにします。",
+        "AreYouSureUnsubscribeDevice": "このデバイスのサブスクリプションを解除してもよろしいですか?このデバイスへの通知をオフにします。",
+        "AreYouSureRemoveParticipant": "この参加者を削除してもよろしいですか?",
+        "RemoveParticipant": "参加者を削除",
+        "Identifiers": "識別子",
+        "Devices": "デバイス",
+        "Streams": "ストリーム"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "招待された",
+            "description": "招待状の受信トレイ"
+        },
+        "Streams\/resource": {
+            "displayType": "リソース",
+            "description": "リソースへのアクセスを管理し、更新に関するメッセージを投稿するためのストリーム"
+        },
+        "Streams\/task": {
+            "description": "特定のタスクの進行状況に関する最新情報を受け取るため",
+            "displayType": "タスク"
+        },
+        "Streams\/tasks": {
+            "description": "タスクのカテゴリ",
+            "displayType": "タスク"
+        },
+        "Streams\/experience": {
+            "description": "コミュニティのメンバーの共通の経験",
+            "displayType": "コミュニティのメンバーの共通の経験"
+        },
+        "Streams\/greeting": {
+            "description": "ユーザーが自己紹介できるあいさつ",
+            "displayType": "挨拶"
+        },
+        "Streams\/number": {
+            "displayType": "番号",
+            "description": "数学的数"
+        },
+        "Streams\/date": {
+            "displayType": "日にち",
+            "description": "日にち"
+        },
+        "Streams\/text": {
+            "displayType": "文章",
+            "description": "テキストの本文"
+        },
+        "Streams\/text\/small": {
+            "displayType": "文章",
+            "description": "小さな本文"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "文章",
+            "description": "中程度の本文"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "電子メールアドレス",
+            "description": "電子メールアドレス"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "電話番号",
+            "description": "電話番号"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "ウェブ上のリンク"
+        },
+        "Streams\/image": {
+            "displayType": "画像",
+            "description": "ビジュアルイメージ",
+            "newItem": "画像を追加"
+        },
+        "Streams\/images": {
+            "displayType": "イメージギャラリー",
+            "description": "画像ギャラリー"
+        },
+        "Streams\/album": {
+            "displayType": "アルバム",
+            "description": "様々なメディアが関係するアルバム"
+        },
+        "Streams\/file": {
+            "displayType": "ファイル",
+            "description": "アップロードされたファイル",
+            "newItem": "ファイルを追加"
+        },
+        "Streams\/audio": {
+            "displayType": "オーディオ クリップ",
+            "description": "オーディオ クリップ",
+            "newItem": "オーディオを追加"
+        },
+        "Streams\/video": {
+            "displayType": "ビデオクリップ",
+            "description": "ビデオクリップ",
+            "newItem": "ビデオを追加"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF文書",
+            "description": "PDF文書",
+            "newItem": "PDFを追加"
+        },
+        "Streams\/live": {
+            "displayType": "ライブストリーム",
+            "description": "ライブオーディオまたはビデオ"
+        },
+        "Streams\/category": {
+            "displayType": "カテゴリー",
+            "description": "他のストリームが関連付けられるカテゴリ",
+            "newItem": "カテゴリを追加"
+        },
+        "Streams\/participating": {
+            "displayType": "参加指数",
+            "description": "ユーザーが参加\/脱退するとき、ストリームはこれに関連する\/関連しない"
+        },
+        "Streams\/interest": {
+            "displayType": "興味",
+            "description": "特定のトピックに対するユーザーの関心を表します"
+        },
+        "Streams\/incoming": {
+            "displayType": "着信",
+            "description": "他のユーザーが送信したメッセージの送信先"
+        },
+        "Streams\/chat": {
+            "displayType": "会話",
+            "description": "歴史のあるユーザー間の会話"
+        },
+        "Streams\/question": {
+            "displayType": "質問",
+            "description": "質問の流れ",
+            "newItem": "質問を追加"
+        },
+        "Streams\/answer": {
+            "displayType": "答え",
+            "description": "回答ストリーム"
+        }
+    },
+    "menu": {
+        "placeholder": "ページタイトルを入力",
+        "ModTab": "アイテムの修正",
+        "Save": "保存",
+        "Delete": "消去",
+        "Submenu": "サブメニュー"
+    },
+    "audio": {
+        "record": "記録",
+        "reset": "リセット",
+        "edit": "編集",
+        "title": "タイトル",
+        "description": "説明",
+        "upload": "アップロード",
+        "link": "リンク",
+        "setUrl": "URL を設定",
+        "save": "保存",
+        "setClip": "クリップを切り取る",
+        "invalidURL": "無効なURL",
+        "invalidFile": "無効なファイル",
+        "errorNoSource": "音源なし",
+        "uploadLimit": "最大ファイル サイズ: {{size}}",
+        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です"
+    },
+    "video": {
+        "reset": "リセット",
+        "edit": "編集",
+        "title": "タイトル",
+        "description": "説明",
+        "upload": "アップロード",
+        "link": "リンク",
+        "setUrl": "URL を設定",
+        "save": "保存",
+        "setClip": "クリップを切り取る",
+        "invalidURL": "無効なURL",
+        "invalidFile": "無効なファイル",
+        "errorNoSource": "ビデオソースなし",
+        "uploadLimit": "最大ファイル サイズ: {{size}}",
+        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です",
+        "createAnimatedThumbnail": "アニメーションサムネイルを作成する",
+        "errorNotAvailable": "申し訳ありませんが、ビデオはまだ利用できません。しばらくしてからもう一度お試しください。"
+    },
+    "pdf": {
+        "reset": "リセット",
+        "edit": "編集",
+        "title": "タイトル",
+        "description": "説明",
+        "upload": "アップロード",
+        "link": "リンク",
+        "setUrl": "URL を設定",
+        "save": "保存",
+        "setClip": "クリップを切り取る",
+        "invalidURL": "無効なURL",
+        "invalidFile": "無効なファイル",
+        "errorNoSource": "PDFソースなし",
+        "uploadLimit": "最大ファイル サイズ: {{size}}",
+        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です"
+    },
+    "image": {
+        "reset": "リセット",
+        "edit": "編集",
+        "title": "タイトル",
+        "description": "説明",
+        "upload": "アップロード",
+        "link": "リンク",
+        "setUrl": "URL を設定",
+        "save": "保存",
+        "uploadedImage": "アップロードされた画像",
+        "imageTitle": "画像タイトル",
+        "setClip": "クリップを切り取る",
+        "invalidURL": "無効なURL",
+        "invalidFile": "無効なファイル",
+        "errorNoSource": "画像ソースなし",
+        "uploadLimit": "最大ファイル サイズ: {{size}}",
+        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です"
+    },
+    "questions": {
+        "Questions": "質問",
+        "Answers": "回答",
+        "AnswerQuestion": "質問に答える",
+        "SetYourAnswer": "質問に答えてください",
+        "NewQuestion": "新しい質問",
+        "EditQuestion": "質問を編集",
+        "NewAnswer": "新しい答え",
+        "NewPossibleAnswer": "新しい可能な答え",
+        "AnswerDetails": "回答の詳細",
+        "answerOption": "オプション",
+        "answerOptionExclusive": "エクスクルーシブ",
+        "answerTextarea": "テキストエリア",
+        "answerText": "文章",
+        "HideUntilAnswered": "回答があるまで非表示",
+        "CantChangeAnswers": "回答を変更できません",
+        "FreeAnswer": "ここに答えを書いてください",
+        "SaveQuestion": "質問を保存",
+        "SaveAnswer": "回答を保存",
+        "Save": "保存",
+        "Send": "送信",
+        "TitleRequired": "タイトル必須！",
+        "AlreadyAnswered": "回答済み",
+        "TitlePlaceholder": "質問を入力してください",
+        "ContentPlaceholder": "人々が回答できるように、ここに追加情報を入力してください",
+        "ErrorTitle": "質問必須",
+        "Placeholder": "指示を書く",
+        "AreYouSure": "本気ですか？",
+        "ShortAnswer": "短い答えを書いてください"
+    },
+    "experience": {
+        "NewExperience": "新しい経験",
+        "DefineTitle": "タイトルを定義してください",
+        "Create": "作成"
+    },
+    "calls": {
+        "SettingsTitle": "通話",
+        "MaxCalls": "最大通話数",
+        "Update": "アップデート",
+        "NoCallsYet": "まだ通話はありません",
+        "CallReasonTitle": "この電話は何についてですか？",
+        "WaitingRoom": "待合室",
+        "LiveRoom": "ライブルーム",
+        "interviewedByAnotherHost": "現在、別のホストからインタビューを受けています",
+        "bringToLive": "ライブショーに持ち込む",
+        "putOnHold": "保留にする",
+        "endCall": "通話終了",
+        "interview": "インタビュー",
+        "markApproved": "承認済みとしてマーク"
+    },
+    "relate": {
+        "Add": "{{streamDisplayType}}を追加"
+    },
+    "userChooser": {
+        "Placeholder": "ユーザーの名前..."
+    },
+    "task": {
+        "errorsTitle": "エラーが発生しました"
+    },
+    "topic": {
+        "NewTopic": "新しい話題",
+        "UpdateTopic": "トピックを更新",
+        "CreateTopic": "トピックを作成",
+        "AreYouSureDeleteTopic": "このトピックを削除してもよろしいですか?",
+        "TitlePlaceholder": "トピックタイトル...",
+        "DescribeTopic": "トピックを説明します...",
+        "TopicIcon": "トピック画像",
+        "UploadIcon": "アップロードアイコン",
+        "Conversation": "会話",
+        "Metrics": "メトリクス"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "アニメーションサムネイルを作成する",
+        "Width": "幅",
+        "Height": "身長",
+        "Start": "始める",
+        "End": "終わり",
+        "Delay": "遅れ",
+        "Quality": "品質",
+        "Size": "サイズ",
+        "OfFrames": "フレームの",
+        "Frame": "フレーム",
+        "UseThis": "これを使って",
+        "ResultGIF": "結果GIF",
+        "VideoElementNotFound": "ビデオ要素が見つかりません"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}}オン ユア フェイス",
+        "AcceptIcon": "選択したエリアを受け入れる"
+    }
+}

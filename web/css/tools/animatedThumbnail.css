@@ -1,0 +1,58 @@
+.Streams_video_animatedThumbnail .Q_dialog_content video {
+    margin: 0 auto 5px;
+    display: block;
+    width: 100%;
+    max-height: 250px;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content .Streams_video_animatedThumbnail_result {
+    display: none;
+    margin-top: 10px;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content .Streams_video_animatedThumbnail_result img.animatedThumbnail {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content .Streams_video_animatedThumbnail_settings,
+.Streams_video_animatedThumbnail .Q_dialog_content .Streams_video_animatedThumbnail_process {
+    display: none;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content button {
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    width: 100%;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content .Streams_video_animatedThumbnail_settings button[name=start].Q_disabled {
+    background-image: url("../../../Q/img/throbbers/long_bar.gif");
+    background-repeat: no-repeat;
+    background-size: 140% 170%;
+    background-position: center center;
+}
+
+.Streams_video_animatedThumbnail .Q_dialog_content ul {
+    margin: 0 auto;
+    list-style: none;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content input {
+    width: 60px;
+    height: 30px;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content table {
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content table td {
+    white-space: nowrap;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content table td:first-child,
+.Streams_video_animatedThumbnail .Q_dialog_content table td:nth-child(3) {
+    text-align: right;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content table td i {
+    font-style: unset;
+    font-size: 12px;
+}
+.Streams_video_animatedThumbnail .Q_dialog_content h2 {
+    padding-left: 20px;
+}

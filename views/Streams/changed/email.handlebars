@@ -1,0 +1,12 @@
+<html>
+<table>
+<caption>{{notifications.changed.HereIsWhatChanged}}</caption>
+{{#each instructions.changes}}
+	<tr>
+		<td>{{@key}}:</td>
+		<td>{{this}}</td>
+	</tr>
+{{/each}}
+<hr>
+<p>{{notifications.IfUnsubscribe}}, <a href="{{baseUrl}}/Streams/participating">{{notifications.ManageEmailSubscriptions}}</a></p>
+</html>

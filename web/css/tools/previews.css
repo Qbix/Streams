@@ -1,0 +1,421 @@
+.Streams_pdf_composer_preview.Q_pdf_tool {
+	max-height: 400px;
+}
+
+.Streams_audio_preview_tool .Streams_preview_audio_player {
+	display: inline-block;
+	position: relative;
+	height: 40px;
+	width: 40px;
+	vertical-align: middle;
+	margin: 5px;
+}
+
+.Streams_audio_preview_tool:not(.Streams_preview_composer) .Streams_preview_title {
+	line-height: normal;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.Streams_audio_preview_tool iframe {
+	display: none;
+}
+
+.Streams_audio_composer,
+.Streams_video_composer,
+.Streams_pdf_composer {
+	padding: 10px;
+	position: relative;
+}
+.Streams_audio_composer .Q_tabbing_item[data-content=record] {
+	position: relative;
+}
+
+.Streams_audio_composer button,
+.Streams_video_composer button,
+.Streams_pdf_composer button {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+.Streams_audio_composer .Q_pie_tool {
+	cursor: pointer;
+}
+.Streams_audio_composer label[for=url],
+.Streams_video_composer label[for=url],
+.Streams_pdf_composer label[for=url] {
+	margin-top: 10px;
+	display: block;
+	white-space: nowrap;
+}
+.Streams_audio_composer label[for=url] button,
+.Streams_audio_composer label[for=url] input,
+.Streams_video_composer label[for=url] button,
+.Streams_video_composer label[for=url] input,
+.Streams_pdf_composer label[for=url] button,
+.Streams_pdf_composer label[for=url] input {
+	display: inline-block;
+}
+.Streams_audio_composer label[for=url] input,
+.Streams_video_composer label[for=url] input,
+.Streams_pdf_composer label[for=url] input {
+	width: 60%;
+	margin-right: 5px;
+}
+.Streams_video_composer img.animatedThumbnail {
+	display: block;
+	margin: 10px auto 0;
+}
+.Streams_video_composer button[name=animatedThumbnail] {
+	display: none;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.Streams_dialog_audio,
+.Streams_dialog_video,
+.Streams_dialog_pdf {
+	min-width: 330px;
+}
+
+.Streams_dialog_audio .Q_tabbing_container .Q_tabbing_item,
+.Streams_dialog_video .Q_tabbing_container .Q_tabbing_item,
+.Streams_dialog_pdf .Q_tabbing_container .Q_tabbing_item {
+	min-height: 100px;
+}
+.Streams_dialog_audio .Q_tabbing_container .Q_tabbing_item[data-content=upload] input.Streams_audio_file,
+.Streams_dialog_audio .Q_tabbing_container .Q_tabbing_item[data-content=link] label,
+.Streams_dialog_video .Q_tabbing_container .Q_tabbing_item[data-content=upload] input.Streams_video_file,
+.Streams_dialog_video .Q_tabbing_container .Q_tabbing_item[data-content=link] label,
+.Streams_dialog_pdf .Q_tabbing_container .Q_tabbing_item[data-content=upload] input.Streams_pdf_file,
+.Streams_dialog_pdf .Q_tabbing_container .Q_tabbing_item[data-content=link] label {
+	display: block;
+	margin: 0 auto;
+	white-space: nowrap;
+	max-width: 100%;
+}
+.Streams_dialog_audio .Q_tabbing_container .Streams_audio_composer_upload_limit,
+.Streams_dialog_video .Q_tabbing_container .Streams_video_composer_upload_limit,
+.Streams_dialog_pdf .Q_tabbing_container .Streams_pdf_composer_upload_limit {
+	margin: 3px auto 0;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	color: red;
+}
+.Streams_dialog_audio .Q_tabbing_container .Q_tabbing_item[data-content=link] label button,
+.Streams_dialog_video .Q_tabbing_container .Q_tabbing_item[data-content=link] label button,
+.Streams_dialog_pdf .Q_tabbing_container .Q_tabbing_item[data-content=link] label button {
+	display: inline;
+}
+.Streams_dialog_audio .Q_tabbing_container audio {
+	width: 100%;
+}
+.Streams_dialog_audio .Streams_audio_composer_upload_limit,
+.Streams_dialog_video .Streams_video_composer_upload_limit,
+.Streams_dialog_pdf .Streams_pdf_composer_upload_limit {
+	margin: 3px auto 0;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	color: red;
+}
+.Streams_dialog_audio .Streams_audio_composer .Q_tabbing_tabs > .Q_tabbing_tab,
+.Streams_dialog_video .Streams_video_composer .Q_tabbing_tabs > .Q_tabbing_tab,
+.Streams_dialog_pdf .Streams_pdf_composer .Q_tabbing_tabs > .Q_tabbing_tab {
+	width: 60px;
+	background-repeat: no-repeat;
+	background-position: top center;
+	padding-top: 40px;
+}
+.Streams_dialog_audio .Streams_audio_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=edit],
+.Streams_dialog_video .Streams_video_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=edit],
+.Streams_dialog_pdf .Streams_pdf_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=edit] {
+	background-image: url(../../../Q/img/audio/edit/40.png);
+}
+.Streams_dialog_audio .Streams_audio_composer[data-composer=true] .Q_tabbing_tabs .Q_tabbing_tab[data-name=edit],
+.Streams_dialog_audio .Streams_audio_composer[data-composer=true] .Q_tabbing_container .Q_tabbing_item[data-content=edit],
+.Streams_dialog_video .Streams_video_composer[data-composer=true] .Q_tabbing_tabs .Q_tabbing_tab[data-name=edit],
+.Streams_dialog_video .Streams_video_composer[data-composer=true] .Q_tabbing_container .Q_tabbing_item[data-content=edit],
+.Streams_dialog_pdf .Streams_pdf_composer[data-composer=true] .Q_tabbing_tabs .Q_tabbing_tab[data-name=edit],
+.Streams_dialog_pdf .Streams_pdf_composer[data-composer=true] .Q_tabbing_container .Q_tabbing_item[data-content=edit]{
+	display: none;
+}
+.Streams_dialog_audio .Q_tabbing_item[data-content=edit] input[name=title],
+.Streams_dialog_audio .Q_tabbing_item[data-content=edit] textarea[name=content],
+.Streams_dialog_video .Q_tabbing_item[data-content=edit] input[name=title],
+.Streams_dialog_video .Q_tabbing_item[data-content=edit] textarea[name=content],
+.Streams_dialog_pdf .Q_tabbing_item[data-content=edit] input[name=title],
+.Streams_dialog_pdf .Q_tabbing_item[data-content=edit] textarea[name=content] {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 5px;
+}
+.Streams_dialog_audio .Streams_audio_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=record] {
+	background-image: url(../../../Q/img/audio/microphone/40.png);
+}
+.Streams_dialog_audio .Streams_audio_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=upload],
+.Streams_dialog_video .Streams_video_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=upload],
+.Streams_dialog_pdf .Streams_pdf_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=upload] {
+	background-image: url(../../../Q/img/audio/upload/40.png);
+}
+.Streams_dialog_audio .Streams_audio_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=link],
+.Streams_dialog_video .Streams_video_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=link],
+.Streams_dialog_pdf .Streams_pdf_composer .Q_tabbing_tabs > .Q_tabbing_tab[data-name=link] {
+	background-image: url(../../../Q/img/audio/link/40.png);
+}
+
+.Streams_dialog_audio .Streams_audio_composer .Streams_audio_composer_submit,
+.Streams_dialog_video .Streams_video_composer .Streams_video_composer_submit,
+.Streams_dialog_pdf .Streams_pdf_composer .Streams_pdf_composer_submit {
+	text-align: center;
+	white-space: nowrap;
+	margin-top: 10px;
+}
+.Streams_dialog_audio .Streams_audio_composer .Streams_audio_composer_submit button,
+.Streams_dialog_video .Streams_video_composer .Streams_video_composer_submit button,
+.Streams_dialog_pdf .Streams_pdf_composer .Streams_pdf_composer_submit button {
+	display: inline-block;
+	width: 100%;
+}
+.Streams_dialog_audio button,
+.Streams_dialog_audio input,
+.Streams_dialog_video button,
+.Streams_dialog_video input,
+.Streams_dialog_pdf button,
+.Streams_dialog_pdf input{
+	height: 40px;
+}
+.Streams_dialog_audio .Streams_audio_composer_submit button[name=reset],
+.Streams_dialog_video .Streams_video_composer_submit button[name=reset],
+.Streams_dialog_pdf .Streams_pdf_composer_submit button[name=reset] {
+	display: none;
+}
+
+.Streams_preview_dummy {
+	height: 50px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-image: url(../../../Q/img/throbbers/loading.gif);
+}
+
+/* Promise play dialog */
+.Streams_audio_preview_dialog_promisePlay.Q_overlay { width: auto; }
+.Streams_audio_preview_dialog_promisePlay .Q_title_slot {
+	display: none;
+}
+.Streams_audio_preview_dialog_promisePlay .Q_dialog_content {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+}
+/* ------------------- */
+
+/* <Streams_video_preview> */
+.Streams_video_composer .Streams_video_composer_preview {
+	margin: 10px 0;
+}
+.Streams_video_preview_tool .Streams_video_preview_icon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 80%;
+	background-image: url(../../img/translucent_play.png);
+	opacity: 0.6;
+}
+.Streams_video_preview_tool .Streams_preview_icon {
+	width: auto;
+}
+/* </Streams_video_preview> */
+
+/* <Streams_pdf_preview> */
+/* </Streams_pdf_preview> */
+
+/* <Streams_question_preview> */
+.Streams_question_dialog .Q_dialog_content,
+.Streams_dialog_editQuestion .Q_dialog_content,
+.Streams_dialog_answer .Q_dialog_content {
+	padding: 10px;
+	min-width: 300px;
+	min-height: 200px;
+}
+.Streams_answer_preview_tool,
+.Streams_question_preview_tool {
+	cursor: pointer;
+}
+.Streams_question_preview_tool.Streams_preview_tool .Streams_preview_container .Streams_preview_contents .Streams_question_subtitle {
+	white-space: normal;
+}
+.Streams_question_preview_tool .Streams_preview_title,
+.Streams_question_preview_tool .Streams_preview_title .Streams_inplace_tool,
+.Streams_question_preview_tool .Streams_preview_title .Streams_inplace_tool .Q_inplace_tool_container {
+	width: 100%;
+}
+.Streams_question_preview_tool .Q_inplace_tool_static_container {
+	padding: 0;
+	overflow: hidden;
+	text-overflow: unset;
+}
+.Streams_question_preview_tool .Streams_preview_title {
+	font-weight: bold;
+	font-size: 1.5em;
+	line-height: 1em;
+	border-bottom: 1px solid #000;
+	width: 100%;
+	text-align: start;
+}
+.Streams_question_preview_tool .Streams_question_subtitle {
+	text-align: start;
+}
+.Streams_question_preview_tool .Streams_preview_icon {
+	display: none;
+}
+.Streams_question_preview_tool + .Streams_related_tool {
+	margin-left: 20px;
+}
+.Streams_question_preview_tool + .Streams_related_tool:not(:last-of-type) {
+	margin-bottom: 20px;
+}
+.Streams_question_preview_tool + .Streams_related_tool .Streams_related_composer {
+	display: none;
+}
+.Streams_question_preview_tool + .Streams_related_tool[data-hideUntilAnswered=true] .Streams_answer_participants:not(.Streams_participants_tool) {
+	display: none;
+}
+.Streams_question_preview_tool + .Streams_related_tool[data-hideUntilAnswered=true] .Streams_answer_preview_tool[data-participating=true] .Streams_answer_participants:not(.Streams_participants_tool) {
+	display: block;
+}
+.Streams_question_preview_tool:not(:last-of-type),
+.Streams_answer_preview_tool:not(:last-of-type) {
+	margin-bottom: 5px;
+}
+.Streams_answer_preview_tool .Users_avatar_name {
+	display: none;
+}
+html.Streams_stream .Streams_question_preview_tool .Streams_preview_title {
+	display: none;
+}
+.Streams_question_preview_tool.Q_actions_tool .Streams_preview_contents .Q_inplace_tool_static,
+.Streams_question_preview_tool.Q_actions_tool .Streams_preview_contents .Streams_preview_title,
+.Streams_question_preview_tool.Q_actions_tool .Streams_preview_contents .Q_inplace_tool_static_container,
+.Streams_answer_preview_tool.Q_actions_tool .Streams_preview_contents .Streams_preview_title {
+	white-space: normal;
+	padding-right: 30px;
+	min-height: 30px;
+}
+.Streams_question_preview_tool .Streams_question_answers {
+	margin-top: 10px;
+	overflow: hidden;
+}
+.Streams_question_attributes {
+    padding: 10px;
+}
+.Streams_dialog_editQuestion .Streams_inplace_tool,
+.Streams_dialog_editQuestion .Streams_inplace_tool .Q_inplace_tool_container,
+.Streams_dialog_editQuestion .Streams_inplace_tool .Q_inplace_tool_container .Q_inplace_tool_static_container {
+	width: 100%;
+	height: 40px;
+}
+.Streams_dialog_editQuestion label {
+	display: block;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.Streams_answer_preview_tool label {
+	display: block;
+	padding: 5px 40px 5px 5px;
+	text-align: left;
+}
+.Streams_answer_preview_tool label span {
+	margin-left: 10px;
+}
+.Streams_answer_preview_tool[data-participants=false] .Streams_answer_participants {
+	display: none;
+}
+.Streams_answer_preview_tool[data-participants=true] .Streams_answer_participants:not(.Streams_participants_tool) {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 34px;
+	width: 34px;
+	text-align: center;
+	line-height: 34px;
+	border: 1px solid red;
+	border-radius: 50%;
+	background-color: #fff;
+}
+.Streams_answer_preview_tool[data-participants=true] .Streams_answer_participants:empty {
+	display: none;
+}
+.Streams_answer_preview_tool form {
+	display: flex;
+}
+.Streams_answer_preview_tool[data-participants=true][data-type=text] input[type=text] {
+	flex: 1;
+}
+.Streams_dialog_editQuestion input[type=checkbox],
+.Streams_answer_preview_tool input[type=checkbox],
+.Streams_answer_preview_tool input[type=radio] {
+	-ms-transform: scale(2); /* IE */
+	-moz-transform: scale(2); /* FF */
+	-webkit-transform: scale(2); /* Safari and Chrome */
+	-o-transform: scale(2); /* Opera */
+	transform: scale(2);
+	margin-right: 5px;
+}
+.Streams_answer_preview_tool input[type=text] {
+	width: calc(100% - 80px);
+	vertical-align: middle;
+}
+
+.Streams_dialog_answer_composer form * {
+	height: 40px;
+}
+.Streams_dialog_answer_composer form input[name=value] {
+	width: 50%;
+}
+.Streams_dialog_answer_composer form select {
+	width: 30%;
+}
+.Streams_dialog_answer_composer form button {
+	width: 17%;
+}
+.Streams_dialog_answer_composer form select,
+.Streams_dialog_answer_composer form select option {
+	font-size: 80%;
+	font-weight: bold;
+}
+.Streams_dialog_answer_composer .Q_dialog_content {
+	white-space: nowrap;
+	padding: 5px 5px 0 5px;
+}
+.Streams_dialog_answer_composer .Q_dialog_content * {
+	vertical-align: middle;
+}
+.Streams_dialog_answer_composer form {
+	display: flex;
+	gap: 5px;
+}
+/* </Streams_question_preview> */
+
+.Streams_chat_tool .Streams_preview_tool .Streams_preview_container,
+.Streams_preview_tool .Streams_preview_container.Streams_preview_view {
+	display: flex;
+	width: 100%;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.Streams_chat_tool .Streams_image_preview_tool .Streams_preview_container  {
+	display: block;
+}
+
+.Streams_preview_tool.Streams_image_preview_tool .Streams_preview_container {
+	text-align: center;
+}

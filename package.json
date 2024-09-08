@@ -1,0 +1,10 @@
+{
+  "name": "q.streams",
+  "version": "1.0.0",
+  "description": "Streams Plugin",
+  "author": "Qbix",
+  "license": "AGPL-1.0",
+  "dependencies": {
+
+  }
+}

@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "Αυτό το περιεχόμενο είναι κρυμμένο από εσάς.",
+        "InplaceTypeMustBe": "Το inplaceType πρέπει να είναι &quot;textarea&quot; ή &quot;text&quot;"
+    },
+    "preview": {
+        "NewItemTitle": "Νέο αντικείμενο"
+    },
+    "avatar": {
+        "firstName": "όνομα",
+        "lastName": "επίθετο",
+        "username": "όνομα χρήστη"
+    },
+    "labels": {
+        "Streams\/invited": "Άνθρωποι που προσκάλεσα",
+        "Streams\/invitedMe": "Ποιος με προσκάλεσε",
+        "DoYouAgree": "Συμφωνείς?",
+        "Yes": "Ναί",
+        "No": "Οχι",
+        "JoinItNow": "Εγγραφείτε τώρα;"
+    },
+    "login": {
+        "prompt": "Αφήστε τους φίλους σας να σας αναγνωρίσουν:",
+        "newUser": "ή δημιουργήστε έναν νέο λογαριασμό παρακάτω",
+        "picTooltip": "Μπορείτε να αλλάξετε αυτήν την εικόνα αργότερα",
+        "placeholders": {
+            "fullName": "Εισαγάγετε το πλήρες όνομά σας"
+        }
+    },
+    "interests": {
+        "Filter": "Ενδιαφέροντα αναζήτησης",
+        "CanGrant": "Εάν εξακολουθείτε να μην μπορείτε να βρείτε αυτό που ψάχνετε, μπορείτε να προσθέσετε ένα νέο ενδιαφέρον παρακάτω:",
+        "TrySynonyms": "Δεν το βλέπεις; Δοκιμάστε μερικά συνώνυμα.",
+        "AddUnderCategory": "Προσθήκη στην κατηγορία...",
+        "Other": "Αλλα",
+        "Unlisted": "Ακαταχώριστος"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Το μήνυμα έχει επισημανθεί για έλεγχο από διαχειριστή. Πατήστε ξανά για κατάργηση της επισήμανσης.",
+        "noOneSaid": "Κανείς δεν έχει πει τίποτα",
+        "closeChatButton": "Κλείσιμο συνομιλίας",
+        "closeChatConfirmTitle": "Κλείσιμο αυτής της συνομιλίας;",
+        "closeChatConfirm": "Είστε βέβαιοι ότι θέλετε να κλείσετε αυτήν τη συνομιλία;",
+        "Subscribed": "Οι ειδοποιήσεις ενεργοποιήθηκαν",
+        "Unsubscribed": "Ειδοποιήσεις σε σίγαση",
+        "closeChatConfirmYes": "Ναί",
+        "closeChatConfirmNo": "Οχι",
+        "earlierComments": "προηγούμενα σχόλια",
+        "startedConversation": "ξεκίνησε μια συζήτηση",
+        "RealTimeCall": "Κλήση σε πραγματικό χρόνο",
+        "JoinWebRTC": "Τηλεδιάσκεψη",
+        "SearchByName": "Αναζήτηση με όνομα",
+        "Notifications": {
+            "Visit": "{{displayName}} επισκέπτεται τη συνομιλία",
+            "Join": "{{displayName}} συμμετείχαν στη συνομιλία",
+            "Leave": "{{displayName}} αποχώρησαν από τη συνομιλία",
+            "RelatedTo": "{{displayName}} ξεκίνησε ένα {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Πρόσθεσε ένα σχόλιο",
+            "Private": "Γράψτε ένα προσωπικό μήνυμα"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "διαχειριστείτε τις συνδρομές email σας",
+        "IfUnsubscribe": "Εάν θέλετε να διαγραφείτε",
+        "*": "Μήνυμα {{{ message.fields.type}} έως {{& stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} εντάχθηκαν",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} έμειναν",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} είπε: {{& message.content}}}",
+        "Streams\/changed": "Αλλαγές το {{stream.fields.title}}",
+        "Streams\/invite": "Έχετε προσκληθεί στο {{{ stream.fields.title}}}",
+        "Streams\/announcement": "Ανακοίνωση το {{{ stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}} άλλαξε πρόσβαση το {{& stream.fields.title}}}",
+        "Streams\/chat\/edit": "Το μήνυμα συνομιλίας επεξεργάστηκε το {{{ stream.fields.title}}}",
+        "Streams\/chat\/remove": "Το μήνυμα συνομιλίας καταργήθηκε το {{{ stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} έκλεισε",
+        "Streams\/task\/progress": "Πρόοδος που σημειώθηκε το {{stream.fields.title}}",
+        "Streams\/task\/complete": "Ολοκληρωμένη εργασία: {{stream.fields.title}}",
+        "Streams\/task\/error": "Σφάλμα κατά τη διάρκεια: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Εισερχόμενο μήνυμα",
+        "Streams\/relatedTo\/Streams\/call": "Νέα κλήση ξεκίνησε το {{toTitle}}",
+        "Streams\/relatedTo\/*": "Νέα {{relationDisplayType}} σε {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Προστέθηκε στο {{toTitle}} ως {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} σας ανέφερε σε ένα σχόλιο",
+        "Streams\/call": "{{displayName}} ξεκίνησε μια κλήση σε πραγματικό χρόνο",
+        "changed": {
+            "ChangesIn": "Αλλαγές το {{title}}",
+            "Changed": "άλλαξε",
+            "HereIsWhatChanged": "Να τι άλλαξε:"
+        },
+        "joined": {
+            "Joined": "{{subject}} ενώθηκαν <em>{{title}}<\/em>"
+        }
+    },
+    "invite": {
+        "command": "Καλώ",
+        "Invite": "Καλώ",
+        "Share": "Μερίδιο",
+        "messageContent": "{{displayName}} σας προσκάλεσε στο {{inviteUrl}}",
+        "youCanNowPaste": "Τώρα μπορείτε να επικολλήσετε αυτόν τον σύνδεσμο κάπου για να προσκαλέσετε άτομα",
+        "roles": {
+            "title": "Παραχώρηση ρόλων σε προσκεκλημένους χρήστες;",
+            "NotAuthorizedToGrantRole": {
+                "title": "Συγνώμη",
+                "alert": "Δεν είστε εξουσιοδοτημένοι να εκχωρήσετε αυτόν τον ρόλο"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Συγνώμη",
+                "alert": "Δεν είστε εξουσιοδοτημένοι να καταργήσετε αυτόν τον ρόλο"
+            }
+        },
+        "labels": {
+            "title": "Ποια είναι η σχέση σας;"
+        },
+        "dialog": {
+            "chooseFromContacts": "Επιλέξτε από τις Επαφές σας",
+            "chooseAgainFromContacts": "Επιλέξτε ξανά από τις Επαφές",
+            "inviteSelectedContacts": "Πρόσκληση επιλεγμένων επαφών",
+            "selectFromContacts": "Επιλέξτε Από τις Επαφές",
+            "userChooserPlaceholder": "Αναζήτηση με όνομα",
+            "photo": "Βγάλε μια φωτογραφία",
+            "photoOf": "Τραβήξτε μια φωτογραφία του {{name}}",
+            "photoInstruction": "Εάν το άτομο που σάρωσε τον κωδικό QR σας βρίσκεται μπροστά σας, τραβήξτε μια φωτογραφία του",
+            "to": "Προς: {{Stream Title}}",
+            "go": "Πηγαίνω",
+            "title": "Καλώ",
+            "placeholder": "Αριθμός κινητού ή διεύθυνση email",
+            "orInvite": "Ή προσκαλέστε άτομα χρησιμοποιώντας:",
+            "copyLink": "{{ClickOrTap}} για να αντιγράψετε τον σύνδεσμο πρόσκλησης",
+            "shareOrCopyLink": "{{ClickOrTap}} για κοινή χρήση ή αντιγραφή συνδέσμου πρόσκλησης",
+            "QR": "{{ClickOrTap}} για τη δημιουργία κωδικού QR",
+            "QRtitle": "Σαρώστε αυτόν τον κωδικό QR",
+            "QRscanned": "Το σκάναραν!",
+            "scannedQR": "{{ClickOrTap}} εάν ο κωδικός σαρώθηκε",
+            "byEmail": "ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ",
+            "byText": "Κείμενο",
+            "byFacebook": "Facebook",
+            "byTwitter": "Κελάδημα",
+            "title2": "Προσκαλέστε ανθρώπους",
+            "chooseMethod": "Επιλέξτε μια μέθοδο:",
+            "selectContacts": "Επιλέξτε Επαφές",
+            "scanQRCode": "Σάρωση κωδικού QR",
+            "shareLink": "Μοιραστείτε έναν σύνδεσμο",
+            "chooseFromRegistered": "Επιλέξτε από εγγεγραμμένους χρήστες",
+            "inviteViaEmailOrSms": "Πρόσκληση μέσω email ή SMS",
+            "TakeGroupPhoto": "Τραβήξτε μια ομαδική φωτογραφία",
+            "Skip": "Παραλείπω",
+            "byTelegram": "Τηλεγράφημα",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "Προσθήκη ρόλων",
+            "addPersonalRoles": "Προσθήκη Προσωπικών Σχέσεων"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Καλώς ήρθατε στο {{communityName}}",
+            "HasInvitedYou": "σας προσκάλεσε να:",
+            "HasInvitedYouToTheirProfile": "σας προσκάλεσε να συνδεθείτε.",
+            "prompt": "Αφήστε τους φίλους σας να σας αναγνωρίσουν:",
+            "accept": "Αποδοχή πρόσκλησης"
+        },
+        "email": {
+            "subject": "Γεια, ελέγξτε αυτό",
+            "PleaseVisitLink": "Παρακαλούμε επισκεφθείτε τον παρακάτω σύνδεσμο:",
+            "InvitingYou": "Σας προσκαλώ στο {{title}}",
+            "HasInvitedYou": "{{displayName}} σας προσκάλεσε στο {{title}}",
+            "HasMentionedYou": "{{displayName}} σε έχει αναφέρει στο &quot; {{title}} &quot;",
+            "YOUAREINVITED": "ΚΑΛΕΙΣΤΕ!",
+            "AcceptInvite": "Αποδοχή πρόσκλησης"
+        },
+        "mobile": {
+            "content": "Έχετε προσκληθεί στο {{title}} . Πατήστε {{url}}"
+        },
+        "notice": {
+            "text": "Έχετε προσκληθεί. {{ClickOrTap}} εδώ για να αποδεχτείτε και να εγγραφείτε."
+        },
+        "chat": {
+            "prompt": "Θα προσκαλείτε άτομα σε μια συζήτηση όπου μπορείτε να μείνετε σε επαφή, να μοιράζεστε φωτογραφίες μαζί και πολλά άλλα. Δώστε του ένα όνομα:"
+        },
+        "Participants": "Προσκαλέστε ανθρώπους"
+    },
+    "messages": {
+        "html": {
+            "posted": "δημοσίευσε ένα μήνυμα <em>{{message.fields.type}}<\/em> στο {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "σχολίασε",
+            "startedCallIn": "ξεκίνησε μια κλήση",
+            "in": "σε",
+            "body": "το {{{ url}} : {{& message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "έχει αναρτηθεί στο",
+                "byAvatar": "έως το {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "έχει νέο {{instructions.fromDisplayType}}",
+                "byAvatar": "προστέθηκε από {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Οι προσκλήσεις αποστέλλονται από τον αριθμό μας, τον οποίο οι φίλοι σας δεν αναγνωρίζουν ακόμη. Συνεχίστε με ένα γρήγορο μήνυμα για να τους ενημερώσετε ότι η πρόσκληση προήλθε από εσάς, ζητώντας τους να κάνουν κλικ στον σύνδεσμο.",
+            "confirm": "Οι προσκλήσεις αποστέλλονται από τον αριθμό μας, τον οποίο οι φίλοι σας δεν αναγνωρίζουν ακόμη. Θα θέλατε να συνεχίσετε με ένα γρήγορο μήνυμα για να τους ενημερώσετε ότι η πρόσκληση προήλθε από εσάς, ζητώντας τους να κάνουν κλικ στον σύνδεσμο.",
+            "check": "Γεια σου, μόλις σου έστειλα μια πρόσκληση στην εφαρμογή {{app}} . Ελέγξτε το sms σας και κάντε κλικ στον σύνδεσμο!",
+            "CheckYourMobile": "Ελέγξτε το SMS και ακολουθήστε τις οδηγίες!"
+        },
+        "email": {
+            "alert": "Οι προσκλήσεις αποστέλλονται από τον τομέα μας, τους οποίους οι φίλοι σας δεν αναγνωρίζουν ακόμη. Συνεχίστε με ένα γρήγορο μήνυμα για να τους ενημερώσετε ότι η πρόσκληση προήλθε από εσάς, ζητώντας τους να κάνουν κλικ στον σύνδεσμο.",
+            "confirm": "Οι προσκλήσεις αποστέλλονται από τον τομέα μας, τους οποίους οι φίλοι σας δεν αναγνωρίζουν ακόμη. Θα θέλατε να συνεχίσετε με ένα γρήγορο μήνυμα για να τους ενημερώσετε ότι η πρόσκληση προήλθε από εσάς, ζητώντας τους να κάνουν κλικ στον σύνδεσμο.",
+            "subject": "Πήρες πρόσκληση;",
+            "body": "Γεια σου, μόλις σου έστειλα μια πρόσκληση στην εφαρμογή {{app}} . Ελέγξτε το email σας και κάντε κλικ στον σύνδεσμο εκεί!",
+            "CheckYourEmail": "Ελέγξτε το email σας και ακολουθήστε τις οδηγίες!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "Ρυθμίσεις απορρήτου"
+    },
+    "participating": {
+        "Title": "Τίτλος",
+        "Subscribed": "Εγγεγραμμένος",
+        "Participants": "Συμμετέχοντες",
+        "AreYouSureRemoveIdentifier": "Είστε βέβαιοι ότι θα καταργήσετε αυτό το αναγνωριστικό;",
+        "AreYouSureUnsubscribeIdentifier": "Είστε βέβαιοι ότι καταργείτε την εγγραφή αυτού του αναγνωριστικού; Θα απενεργοποιήσει τις ειδοποιήσεις σε αυτό το αναγνωριστικό.",
+        "AreYouSureUnsubscribeDevice": "Είστε βέβαιοι ότι καταργείτε την εγγραφή αυτής της συσκευής; Θα απενεργοποιήσει τις ειδοποιήσεις σε αυτήν τη συσκευή.",
+        "AreYouSureRemoveParticipant": "Είστε βέβαιοι ότι θέλετε να καταργήσετε αυτόν τον συμμετέχοντα;",
+        "RemoveParticipant": "Κατάργηση συμμετέχοντα",
+        "Identifiers": "Αναγνωριστικά",
+        "Devices": "συσκευές",
+        "Streams": "Ρεύματα"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Καλεσμένος",
+            "description": "Εισερχόμενα για προσκλήσεις"
+        },
+        "Streams\/resource": {
+            "displayType": "Πόρος",
+            "description": "ροή για τη διαχείριση της πρόσβασης σε έναν πόρο και τη δημοσίευση μηνυμάτων σχετικά με ενημερώσεις"
+        },
+        "Streams\/task": {
+            "description": "για τη λήψη ενημερώσεων σχετικά με την πρόοδο σε μια συγκεκριμένη εργασία",
+            "displayType": "Εργο"
+        },
+        "Streams\/tasks": {
+            "description": "κατηγορία για εργασίες",
+            "displayType": "Καθήκοντα"
+        },
+        "Streams\/experience": {
+            "description": "μια κοινή εμπειρία για τα μέλη μιας κοινότητας",
+            "displayType": "Κοινή εμπειρία για μέλη μιας κοινότητας"
+        },
+        "Streams\/greeting": {
+            "description": "χαιρετισμός με τον οποίο ένας χρήστης μπορεί να συστηθεί",
+            "displayType": "Χαιρετισμός"
+        },
+        "Streams\/number": {
+            "displayType": "Αριθμός",
+            "description": "μαθηματικός αριθμός"
+        },
+        "Streams\/date": {
+            "displayType": "Ημερομηνία",
+            "description": "ημερομηνία"
+        },
+        "Streams\/text": {
+            "displayType": "Κείμενο",
+            "description": "σώμα κειμένου"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Κείμενο",
+            "description": "μικρό σώμα κειμένου"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Κείμενο",
+            "description": "μεσαίο σώμα κειμένου"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Διεύθυνση ηλεκτρονικού ταχυδρομείου",
+            "description": "διεύθυνση ηλεκτρονικού ταχυδρομείου"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Τηλεφωνικό νούμερο",
+            "description": "τηλεφωνικό νούμερο"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "σύνδεσμος στον Ιστό"
+        },
+        "Streams\/image": {
+            "displayType": "Εικόνα",
+            "description": "οπτική εικόνα",
+            "newItem": "Προσθέστε εικόνα"
+        },
+        "Streams\/images": {
+            "displayType": "Συλλογή εικόνων",
+            "description": "γκαλερί εικόνων"
+        },
+        "Streams\/album": {
+            "displayType": "Αλμπουμ",
+            "description": "ένα άλμπουμ με το οποίο σχετίζονται διάφορα μέσα"
+        },
+        "Streams\/file": {
+            "displayType": "Αρχείο",
+            "description": "μεταφορτωμένο αρχείο",
+            "newItem": "Προσθήκη αρχείου"
+        },
+        "Streams\/audio": {
+            "displayType": "Κλιπ ήχου",
+            "description": "ηχητικό κλιπ",
+            "newItem": "Προσθήκη ήχου"
+        },
+        "Streams\/video": {
+            "displayType": "Βίντεο κλιπ",
+            "description": "βίντεο κλιπ",
+            "newItem": "Προσθήκη βίντεο"
+        },
+        "Streams\/pdf": {
+            "displayType": "έγγραφο PDF",
+            "description": "έγγραφο PDF",
+            "newItem": "Προσθήκη PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Απευθείας μετάδοση",
+            "description": "ζωντανό ήχο ή βίντεο"
+        },
+        "Streams\/category": {
+            "displayType": "Κατηγορία",
+            "description": "μια κατηγορία με την οποία μπορούν να συσχετιστούν άλλα ρεύματα",
+            "newItem": "Προσθήκη κατηγορίας"
+        },
+        "Streams\/participating": {
+            "displayType": "Συμμετέχοντας Ευρετήριο",
+            "description": "οι ροές σχετίζονται\/άσχετες με αυτό όταν ένας χρήστης εγγράφεται\/αποχωρεί"
+        },
+        "Streams\/interest": {
+            "displayType": "Ενδιαφέρον",
+            "description": "αντιπροσωπεύει το ενδιαφέρον ενός χρήστη για ένα συγκεκριμένο θέμα"
+        },
+        "Streams\/incoming": {
+            "displayType": "Εισερχόμενος",
+            "description": "προορισμός για μηνύματα που αποστέλλονται από άλλους χρήστες"
+        },
+        "Streams\/chat": {
+            "displayType": "Συνομιλία",
+            "description": "μια συνομιλία μεταξύ των χρηστών, με το ιστορικό"
+        },
+        "Streams\/question": {
+            "displayType": "Ερώτηση",
+            "description": "ροή ερωτήσεων",
+            "newItem": "Προσθήκη ερώτησης"
+        },
+        "Streams\/answer": {
+            "displayType": "Απάντηση",
+            "description": "ροή απαντήσεων"
+        }
+    },
+    "menu": {
+        "placeholder": "πληκτρολογήστε τίτλο σελίδας",
+        "ModTab": "Τροποποίηση αντικειμένου",
+        "Save": "Αποθηκεύσετε",
+        "Delete": "Διαγράφω",
+        "Submenu": "Υπομενού"
+    },
+    "audio": {
+        "record": "Ρεκόρ",
+        "reset": "Επαναφορά",
+        "edit": "Επεξεργασία",
+        "title": "τίτλος",
+        "description": "περιγραφή",
+        "upload": "Μεταφόρτωση",
+        "link": "Σύνδεσμος",
+        "setUrl": "Ορισμός διεύθυνσης URL",
+        "save": "Αποθηκεύσετε",
+        "setClip": "Αποκοπή κλιπ",
+        "invalidURL": "Μη έγκυρη διεύθυνση URL",
+        "invalidFile": "Μη έγκυρο αρχείο",
+        "errorNoSource": "Δεν υπάρχει πηγή ήχου",
+        "uploadLimit": "Μέγιστο μέγεθος αρχείου: {{size}}",
+        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}"
+    },
+    "video": {
+        "reset": "Επαναφορά",
+        "edit": "Επεξεργασία",
+        "title": "τίτλος",
+        "description": "περιγραφή",
+        "upload": "Μεταφόρτωση",
+        "link": "Σύνδεσμος",
+        "setUrl": "Ορισμός διεύθυνσης URL",
+        "save": "Αποθηκεύσετε",
+        "setClip": "Αποκοπή κλιπ",
+        "invalidURL": "Μη έγκυρη διεύθυνση URL",
+        "invalidFile": "Μη έγκυρο αρχείο",
+        "errorNoSource": "Δεν υπάρχει πηγή βίντεο",
+        "uploadLimit": "Μέγιστο μέγεθος αρχείου: {{size}}",
+        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}",
+        "createAnimatedThumbnail": "Δημιουργία κινούμενης μικρογραφίας",
+        "errorNotAvailable": "Λυπούμαστε, αλλά το βίντεο δεν είναι ακόμα διαθέσιμο. Παρακαλώ δοκιμάστε ξανά αργότερα."
+    },
+    "pdf": {
+        "reset": "Επαναφορά",
+        "edit": "Επεξεργασία",
+        "title": "τίτλος",
+        "description": "περιγραφή",
+        "upload": "Μεταφόρτωση",
+        "link": "Σύνδεσμος",
+        "setUrl": "Ορισμός διεύθυνσης URL",
+        "save": "Αποθηκεύσετε",
+        "setClip": "Αποκοπή κλιπ",
+        "invalidURL": "Μη έγκυρη διεύθυνση URL",
+        "invalidFile": "Μη έγκυρο αρχείο",
+        "errorNoSource": "Δεν υπάρχει πηγή pdf",
+        "uploadLimit": "Μέγιστο μέγεθος αρχείου: {{size}}",
+        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}"
+    },
+    "image": {
+        "reset": "Επαναφορά",
+        "edit": "Επεξεργασία",
+        "title": "τίτλος",
+        "description": "περιγραφή",
+        "upload": "Μεταφόρτωση",
+        "link": "Σύνδεσμος",
+        "setUrl": "Ορισμός διεύθυνσης URL",
+        "save": "Αποθηκεύσετε",
+        "uploadedImage": "Μεταφορτωμένη εικόνα",
+        "imageTitle": "Τίτλος εικόνας",
+        "setClip": "Αποκοπή κλιπ",
+        "invalidURL": "Μη έγκυρη διεύθυνση URL",
+        "invalidFile": "Μη έγκυρο αρχείο",
+        "errorNoSource": "Δεν υπάρχει πηγή εικόνας",
+        "uploadLimit": "Μέγιστο μέγεθος αρχείου: {{size}}",
+        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}"
+    },
+    "questions": {
+        "Questions": "Ερωτήσεις",
+        "Answers": "Απαντήσεις",
+        "AnswerQuestion": "Απάντησε στην ερώτηση",
+        "SetYourAnswer": "Παρακαλώ απαντήστε στην ερώτηση",
+        "NewQuestion": "Νέα Ερώτηση",
+        "EditQuestion": "Επεξεργασία ερώτησης",
+        "NewAnswer": "Νέα Απάντηση",
+        "NewPossibleAnswer": "Νέα πιθανή απάντηση",
+        "AnswerDetails": "Απάντηση Λεπτομέρειες",
+        "answerOption": "Επιλογή",
+        "answerOptionExclusive": "Αποκλειστικός",
+        "answerTextarea": "Textarea",
+        "answerText": "Κείμενο",
+        "HideUntilAnswered": "Απόκρυψη μέχρι να απαντηθεί",
+        "CantChangeAnswers": "Δεν μπορώ να αλλάξω τις απαντήσεις",
+        "FreeAnswer": "Γράψε την απάντησή σου εδώ",
+        "SaveQuestion": "Αποθήκευση ερώτησης",
+        "SaveAnswer": "Αποθήκευση απάντησης",
+        "Save": "Αποθηκεύσετε",
+        "Send": "Στείλετε",
+        "TitleRequired": "Απαιτείται τίτλος!",
+        "AlreadyAnswered": "Ήδη απαντήθηκε",
+        "TitlePlaceholder": "Πληκτρολογήστε την ερώτησή σας",
+        "ContentPlaceholder": "Βάλτε οποιεσδήποτε πρόσθετες πληροφορίες εδώ για να βοηθήσετε τους ανθρώπους να απαντήσουν",
+        "ErrorTitle": "Απαιτείται ερώτηση",
+        "Placeholder": "Γράψτε Οδηγίες",
+        "AreYouSure": "Είσαι σίγουρος?",
+        "ShortAnswer": "Γράψε μια σύντομη απάντηση"
+    },
+    "experience": {
+        "NewExperience": "Νέα εμπειρία",
+        "DefineTitle": "Ορίστε έναν τίτλο",
+        "Create": "Δημιουργώ"
+    },
+    "calls": {
+        "SettingsTitle": "κλήσεις",
+        "MaxCalls": "Ο Max καλεί",
+        "Update": "Εκσυγχρονίζω",
+        "NoCallsYet": "Δεν υπάρχουν ακόμη κλήσεις",
+        "CallReasonTitle": "Τι είναι αυτή η κλήση;",
+        "WaitingRoom": "Αίθουσα αναμονής",
+        "LiveRoom": "Live Room",
+        "interviewedByAnotherHost": "Αυτή τη στιγμή παίρνει συνέντευξη από άλλον οικοδεσπότη",
+        "bringToLive": "Bring To Live Show",
+        "putOnHold": "Βάζω σε αναμονή",
+        "endCall": "Τέλος κλήσης",
+        "interview": "Συνέντευξη",
+        "markApproved": "Σήμα Εγκρίθηκε"
+    },
+    "relate": {
+        "Add": "Προσθέστε {{streamDisplayType}}"
+    },
+    "userChooser": {
+        "Placeholder": "Όνομα χρήστη..."
+    },
+    "task": {
+        "errorsTitle": "Παρουσιάστηκαν σφάλματα"
+    },
+    "topic": {
+        "NewTopic": "Νέο θέμα",
+        "UpdateTopic": "Ενημέρωση θέματος",
+        "CreateTopic": "Δημιουργία θέματος",
+        "AreYouSureDeleteTopic": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το θέμα",
+        "TitlePlaceholder": "Τίτλος θέματος...",
+        "DescribeTopic": "περιγράψτε το θέμα...",
+        "TopicIcon": "Εικόνα θέματος",
+        "UploadIcon": "Μεταφόρτωση εικονίδιο",
+        "Conversation": "Συνομιλία",
+        "Metrics": "Μετρήσεις"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Δημιουργία κινούμενης μικρογραφίας",
+        "Width": "Πλάτος",
+        "Height": "Υψος",
+        "Start": "Αρχή",
+        "End": "Τέλος",
+        "Delay": "Καθυστέρηση",
+        "Quality": "Ποιότητα",
+        "Size": "Μέγεθος",
+        "OfFrames": "των πλαισίων",
+        "Frame": "Πλαίσιο",
+        "UseThis": "Χρησιμοποίησε αυτό",
+        "ResultGIF": "Αποτέλεσμα GIF",
+        "VideoElementNotFound": "Το στοιχείο βίντεο δεν βρέθηκε"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Στο πρόσωπό σου",
+        "AcceptIcon": "Αποδοχή της επιλεγμένης περιοχής"
+    }
+}

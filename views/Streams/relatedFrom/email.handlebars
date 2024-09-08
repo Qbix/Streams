@@ -1,0 +1,20 @@
+<html>
+{{#if (call 'message.getInstruction' 'fromUrl')}}
+	<h2><a href="{{fromUrl}}">{{stream.fields.title}}</a></h2>
+{{else}}
+	<h2>{{stream.fields.title}}</h2>
+{{/if}}
+<div>
+{{messages.text.relatedFrom.hasBeenPostedTo}}
+</div>
+{{#if (call 'message.getInstruction' 'toUrl')}}
+	<h2><a href="{{toUrl}}">{{toTitle}}</a></h2>
+{{else}}
+	<h2>{{toTitle}}</h2>
+{{/if}}
+<div>
+	{{interpolate messages.text.relatedFrom.byAvatar this}}
+</div>
+<hr>
+<p>{{notifications.IfUnsubscribe}}, <a href="{{baseUrl}}/Streams/participating">{{notifications.ManageEmailSubscriptions}}</a></p>
+</html>

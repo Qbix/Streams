@@ -1,0 +1,522 @@
+{
+    "errors": {
+        "HiddenFromYou": "Ez a tartalom el van rejtve előtted.",
+        "InplaceTypeMustBe": "Az inplaceType értéke &quot;textarea&quot; vagy &quot;text&quot; lehet"
+    },
+    "preview": {
+        "NewItemTitle": "Új elem"
+    },
+    "avatar": {
+        "firstName": "keresztnév",
+        "lastName": "vezetéknév",
+        "username": "felhasználónév"
+    },
+    "labels": {
+        "Streams\/invited": "Emberek, akiket meghívtam",
+        "Streams\/invitedMe": "Aki meghívott",
+        "DoYouAgree": "Egyetértesz?",
+        "Yes": "Igen",
+        "No": "Nem",
+        "JoinItNow": "Csatlakozz most?"
+    },
+    "login": {
+        "prompt": "Hagyd, hogy barátaid felismerjenek:",
+        "newUser": "vagy hozzon létre egy új fiókot alább",
+        "picTooltip": "Ezt a képet később megváltoztathatja",
+        "placeholders": {
+            "fullName": "Add meg a teljes neved"
+        }
+    },
+    "interests": {
+        "Filter": "Keresési érdeklődési körök",
+        "CanGrant": "Ha még mindig nem találja, amit keres, az alábbiakban hozzáadhat egy új érdeklődési kört:",
+        "TrySynonyms": "Nem látod? Próbáljon ki néhány szinonimát.",
+        "AddUnderCategory": "Hozzáadás a kategória alatt...",
+        "Other": "Egyéb",
+        "Unlisted": "Nem listázott"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Az üzenet meg lett jelölve adminisztrátori felülvizsgálatra. Koppintson újra a megjelölés megszüntetéséhez.",
+        "noOneSaid": "Senki nem mondott semmit",
+        "closeChatButton": "Csevegés bezárása",
+        "closeChatConfirmTitle": "Bezárja ezt a csevegést?",
+        "closeChatConfirm": "Biztosan bezárja ezt a csevegést?",
+        "Subscribed": "Értesítések engedélyezve",
+        "Unsubscribed": "Értesítések némítva",
+        "closeChatConfirmYes": "Igen",
+        "closeChatConfirmNo": "Nem",
+        "earlierComments": "korábbi hozzászólások",
+        "startedConversation": "beszélgetésbe kezdett",
+        "RealTimeCall": "Valós idejű hívás",
+        "JoinWebRTC": "Telekonferencia",
+        "SearchByName": "Keresés név szerint",
+        "Notifications": {
+            "Visit": "{{displayName}} látogatja a chat",
+            "Join": "{{displayName}} csatlakozott a chathez",
+            "Leave": "{{displayName}} kilépett a csevegésből",
+            "RelatedTo": "{{displayName}} {{stream.displayType}} et indított"
+        },
+        "placeholders": {
+            "Public": "Hozzászólni",
+            "Private": "Írj privát üzenetet"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "kezelheti e-mail-feliratkozásait",
+        "IfUnsubscribe": "Ha le szeretne iratkozni",
+        "*": "{{{ stream.fields.title}} {{& message.fields.type}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} en csatlakoztak",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} maradt",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} azt mondta: {{& message.content}}}",
+        "Streams\/changed": "Változások {{stream.fields.title}} -ben",
+        "Streams\/invite": "Meghívást kaptál {{{ stream.fields.title}}}",
+        "Streams\/announcement": "Bejelentés {{{ stream.fields.title}}} -ben",
+        "Streams\/access": "{{{call 'avatar.displayName'}} hozzáférést változtatott {{& stream.fields.title}}} ben",
+        "Streams\/chat\/edit": "{{{ stream.fields.title}}} -ben szerkesztett csevegőüzenet",
+        "Streams\/chat\/remove": "A csevegőüzenet {{{ stream.fields.title}}} -ben eltávolítva",
+        "Streams\/closed": "{{stream.fields.title}} bezárva",
+        "Streams\/task\/progress": "Előrelépés {{stream.fields.title}} -ben",
+        "Streams\/task\/complete": "Feladat teljesítve: {{stream.fields.title}}",
+        "Streams\/task\/error": "Hiba közben: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Bejövő üzenet",
+        "Streams\/relatedTo\/Streams\/call": "Új felhívás {{toTitle}} -ben indult",
+        "Streams\/relatedTo\/*": "Új {{relationDisplayType}} az {{toTitle}} -ben",
+        "Streams\/relatedFrom\/*": "{{toTitle}} hez hozzáadva {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} megemlített egy megjegyzésben",
+        "Streams\/call": "A {{displayName}} valós idejű hívást indított",
+        "changed": {
+            "ChangesIn": "Változások {{title}} ben",
+            "Changed": "megváltozott",
+            "HereIsWhatChanged": "Íme, mi változott:"
+        },
+        "joined": {
+            "Joined": "{{subject}} csatlakozott <em>{{title}}<\/em>"
+        }
+    },
+    "invite": {
+        "command": "Meghív",
+        "Invite": "Meghív",
+        "Share": "Ossza meg",
+        "messageContent": "{{displayName}} meghívott az {{inviteUrl}}",
+        "youCanNowPaste": "Most már beillesztheti ezt a linket valahova emberek meghívásához",
+        "roles": {
+            "title": "Szerepeket biztosít a meghívott felhasználóknak?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Sajnálom",
+                "alert": "Nincs jogosultsága ennek a szerepnek a megadására"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Sajnálom",
+                "alert": "Nincs jogosultsága ennek a szerepkörnek a eltávolítására"
+            }
+        },
+        "labels": {
+            "title": "Milyen a kapcsolatod?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Válasszon a Névjegyek közül",
+            "chooseAgainFromContacts": "Válassza újra a Névjegyek közül",
+            "inviteSelectedContacts": "A kiválasztott névjegyek meghívása",
+            "selectFromContacts": "Válassza a Névjegyekből lehetőséget",
+            "userChooserPlaceholder": "Keresés név szerint",
+            "photo": "Fotózd le",
+            "photoOf": "Készítsen fényképet {{name}} -ről",
+            "photoInstruction": "Ha a QR-kódot beolvasó személy előtted van, készíts róla fényképet",
+            "to": "Címzett: {{Stream Title}}",
+            "go": "Megy",
+            "title": "Meghív",
+            "placeholder": "Mobilszám vagy email cím",
+            "orInvite": "Vagy hívjon meg másokat a következő használatával:",
+            "copyLink": "{{ClickOrTap}} a meghívó link másolásához",
+            "shareOrCopyLink": "{{ClickOrTap}} a meghívólink megosztásához vagy másolásához",
+            "QR": "{{ClickOrTap}} QR-kód generálásához",
+            "QRtitle": "Olvassa be ezt a QR-kódot",
+            "QRscanned": "Beszkennelték!",
+            "scannedQR": "{{ClickOrTap}} , ha a kód beolvasásra került",
+            "byEmail": "Email",
+            "byText": "Szöveg",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "title2": "Emberek meghívása",
+            "chooseMethod": "Válasszon egy módszert:",
+            "selectContacts": "Válassza a Névjegyek lehetőséget",
+            "scanQRCode": "QR kód beolvasása",
+            "shareLink": "Link megosztása",
+            "chooseFromRegistered": "Válasszon a regisztrált felhasználók közül",
+            "inviteViaEmailOrSms": "Meghívás e-mailben vagy SMS-ben",
+            "TakeGroupPhoto": "Készítsen csoportképet",
+            "Skip": "Kihagyás",
+            "byTelegram": "Távirat",
+            "byWhatsapp": "WhatsApp",
+            "addRoles": "Szerepek hozzáadása",
+            "addPersonalRoles": "Személyes kapcsolatok hozzáadása"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Üdvözöljük a {{communityName}} -ben",
+            "HasInvitedYou": "meghívott téged a következőkre:",
+            "HasInvitedYouToTheirProfile": "meghívta Önt, hogy csatlakozzon.",
+            "prompt": "Hagyd, hogy barátaid felismerjenek:",
+            "accept": "Meghívás elfogadása"
+        },
+        "email": {
+            "subject": "Hé, ezt nézd meg",
+            "PleaseVisitLink": "Kérjük, látogasson el az alábbi linkre:",
+            "InvitingYou": "Meghívlak a {{title}}",
+            "HasInvitedYou": "{{displayName}} meghívott az {{title}}",
+            "HasMentionedYou": "{{displayName}} említett téged az &quot; {{title}} &quot;-ben",
+            "YOUAREINVITED": "MEG VAGY HÍVVA!",
+            "AcceptInvite": "Meghívás elfogadása"
+        },
+        "mobile": {
+            "content": "Meghívást kapott {{title}} . Kérjük, érintse meg {{url}}"
+        },
+        "notice": {
+            "text": "Meghívták. {{ClickOrTap}} ide, hogy elfogadja és csatlakozzon."
+        },
+        "chat": {
+            "prompt": "Meghívja az embereket egy beszélgetésre, ahol kapcsolatban maradhat, közös fotókat oszthat meg, és így tovább. Adj neki nevet:"
+        },
+        "Participants": "Emberek meghívása"
+    },
+    "messages": {
+        "html": {
+            "posted": "<em>{{message.fields.type}}<\/em> üzenetet írt az {{stream.fields.title}} re"
+        },
+        "text": {
+            "commentedOn": "kommentálta",
+            "startedCallIn": "hívást indított",
+            "in": "ban ben",
+            "body": "{{{ url}} : {{& message.fields.content}}} ben",
+            "relatedFrom": {
+                "hasBeenPostedTo": "elküldve ide",
+                "byAvatar": "{{avatar.displayName}} -ig"
+            },
+            "relatedTo": {
+                "hasANew": "van egy új {{instructions.fromDisplayType}}",
+                "byAvatar": "hozzáadta {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "A meghívókat a mi számunkról küldjük, amelyeket ismerősei még nem ismernek fel. Kövesse egy gyors szöveges üzenetet, amelyben tudatja velük, hogy Öntől érkezett meghívó, és kéri meg őket, hogy kattintson a linkre.",
+            "confirm": "A meghívókat a mi számunkról küldjük, amelyeket ismerősei még nem ismernek fel. Szeretne egy gyors szöveget küldeni, amelyben tudatja velük, hogy Öntől érkezett a meghívó, és megkéri őket, hogy kattintson a linkre.",
+            "check": "Hé, most küldtem egy meghívót a {{app}} alkalmazásba. Kérjük, nézze meg sms-ét és kattintson a linkre!",
+            "CheckYourMobile": "Kérjük, ellenőrizze az SMS-t, és kövesse az utasításokat!"
+        },
+        "email": {
+            "alert": "A meghívókat a mi domainünkből küldjük, amelyeket az ismerősei még nem ismernek fel. Kövesse egy gyors szöveges üzenetet, amelyben tudatja velük, hogy Öntől érkezett meghívó, és kéri meg őket, hogy kattintson a linkre.",
+            "confirm": "A meghívókat a mi domainünkből küldjük, amelyeket az ismerősei még nem ismernek fel. Szeretne egy gyors szöveget küldeni, amelyben tudatja velük, hogy Öntől érkezett a meghívó, és megkéri őket, hogy kattintson a linkre.",
+            "subject": "Kaptál meghívót?",
+            "body": "Hé, most küldtem egy meghívót a {{app}} alkalmazásba. Kérjük, ellenőrizze e-mailjeit, és kattintson az ott található linkre!",
+            "CheckYourEmail": "Kérjük, ellenőrizze e-mailjeit, és kövesse az utasításokat!"
+        }
+    },
+    "identifier": {
+        "privacySettings": "Adatvédelmi beállítások"
+    },
+    "participating": {
+        "Title": "Cím",
+        "Subscribed": "Előfizetve",
+        "Participants": "Résztvevők",
+        "AreYouSureRemoveIdentifier": "Biztosan eltávolítja ezt az azonosítót?",
+        "AreYouSureUnsubscribeIdentifier": "Biztosan leiratkozik erről az azonosítóról? Kikapcsolja az erre az azonosítóra küldött értesítéseket.",
+        "AreYouSureUnsubscribeDevice": "Biztosan leiratkozik erről az eszközről? Ezzel kikapcsolja az értesítéseket ezen az eszközön.",
+        "AreYouSureRemoveParticipant": "Biztosan eltávolítja ezt a résztvevőt?",
+        "RemoveParticipant": "Résztvevő eltávolítása",
+        "Identifiers": "Azonosítók",
+        "Devices": "Eszközök",
+        "Streams": "Streamek"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Meghívott",
+            "description": "Beérkező levelek a meghívók számára"
+        },
+        "Streams\/resource": {
+            "displayType": "Forrás",
+            "description": "adatfolyam az erőforrásokhoz való hozzáférés kezeléséhez és a frissítésekről szóló üzenetek közzétételéhez"
+        },
+        "Streams\/task": {
+            "description": "egy bizonyos feladat előrehaladásáról szóló frissítések fogadására",
+            "displayType": "Feladat"
+        },
+        "Streams\/tasks": {
+            "description": "kategória a feladatokhoz",
+            "displayType": "Feladatok"
+        },
+        "Streams\/experience": {
+            "description": "közös élmény egy közösség tagjai számára",
+            "displayType": "Közös élmény egy közösség tagjai számára"
+        },
+        "Streams\/greeting": {
+            "description": "köszönés, amellyel a felhasználó bemutatkozhat",
+            "displayType": "Üdvözlet"
+        },
+        "Streams\/number": {
+            "displayType": "Szám",
+            "description": "matematikai szám"
+        },
+        "Streams\/date": {
+            "displayType": "Dátum",
+            "description": "dátum"
+        },
+        "Streams\/text": {
+            "displayType": "Szöveg",
+            "description": "szövegtörzs"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Szöveg",
+            "description": "kis szövegrész"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Szöveg",
+            "description": "közepes szövegrész"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Email cím",
+            "description": "email cím"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Telefonszám",
+            "description": "telefonszám"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link a weben"
+        },
+        "Streams\/image": {
+            "displayType": "Kép",
+            "description": "vizuális kép",
+            "newItem": "Kép hozzáadása"
+        },
+        "Streams\/images": {
+            "displayType": "Képgaléria",
+            "description": "képgaléria"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "egy album, amelyhez különféle médiák kapcsolódnak"
+        },
+        "Streams\/file": {
+            "displayType": "Fájl",
+            "description": "feltöltött fájl",
+            "newItem": "Fájl hozzáadása"
+        },
+        "Streams\/audio": {
+            "displayType": "Hang klip",
+            "description": "audio klip",
+            "newItem": "Hang hozzáadása"
+        },
+        "Streams\/video": {
+            "displayType": "Videoklip",
+            "description": "Videoklip",
+            "newItem": "Videó hozzáadása lehetőségre"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF dokumentum",
+            "description": "PDF dokumentum",
+            "newItem": "PDF hozzáadása"
+        },
+        "Streams\/live": {
+            "displayType": "Élő adás",
+            "description": "élő hang vagy videó"
+        },
+        "Streams\/category": {
+            "displayType": "Kategória",
+            "description": "egy kategória, amelyhez más folyamok is kapcsolhatók",
+            "newItem": "Kategória hozzáadása"
+        },
+        "Streams\/participating": {
+            "displayType": "Részvételi index",
+            "description": "a folyamok ehhez kapcsolódnak\/nem kapcsolódnak, amikor egy felhasználó csatlakozik\/kilép"
+        },
+        "Streams\/interest": {
+            "displayType": "Érdeklődés",
+            "description": "képviseli a felhasználó érdeklődését egy bizonyos téma iránt"
+        },
+        "Streams\/incoming": {
+            "displayType": "Beérkező",
+            "description": "más felhasználók által küldött üzenetek célállomása"
+        },
+        "Streams\/chat": {
+            "displayType": "Beszélgetés",
+            "description": "a felhasználók közötti beszélgetés előzményekkel"
+        },
+        "Streams\/question": {
+            "displayType": "Kérdés",
+            "description": "kérdésfolyam",
+            "newItem": "Kérdés hozzáadása"
+        },
+        "Streams\/answer": {
+            "displayType": "Válasz",
+            "description": "válaszfolyam"
+        }
+    },
+    "menu": {
+        "placeholder": "írja be az oldal címét",
+        "ModTab": "Elem módosítása",
+        "Save": "Megment",
+        "Delete": "Töröl",
+        "Submenu": "Almenü"
+    },
+    "audio": {
+        "record": "Rekord",
+        "reset": "Visszaállítás",
+        "edit": "Szerkesztés",
+        "title": "cím",
+        "description": "leírás",
+        "upload": "Feltöltés",
+        "link": "Link",
+        "setUrl": "Állítsa be az URL-t",
+        "save": "Megment",
+        "setClip": "Kivágott klip",
+        "invalidURL": "érvénytelen URL",
+        "invalidFile": "Érvénytelen fájl",
+        "errorNoSource": "Nincs hangforrás",
+        "uploadLimit": "Max fájlméret: {{size}}",
+        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}"
+    },
+    "video": {
+        "reset": "Visszaállítás",
+        "edit": "Szerkesztés",
+        "title": "cím",
+        "description": "leírás",
+        "upload": "Feltöltés",
+        "link": "Link",
+        "setUrl": "Állítsa be az URL-t",
+        "save": "Megment",
+        "setClip": "Kivágott klip",
+        "invalidURL": "érvénytelen URL",
+        "invalidFile": "Érvénytelen fájl",
+        "errorNoSource": "Nincs videó forrás",
+        "uploadLimit": "Max fájlméret: {{size}}",
+        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
+        "createAnimatedThumbnail": "Animált miniatűr létrehozása",
+        "errorNotAvailable": "Sajnáljuk, de a videó még nem érhető el. Kérlek, próbáld újra később."
+    },
+    "pdf": {
+        "reset": "Visszaállítás",
+        "edit": "Szerkesztés",
+        "title": "cím",
+        "description": "leírás",
+        "upload": "Feltöltés",
+        "link": "Link",
+        "setUrl": "Állítsa be az URL-t",
+        "save": "Megment",
+        "setClip": "Kivágott klip",
+        "invalidURL": "érvénytelen URL",
+        "invalidFile": "Érvénytelen fájl",
+        "errorNoSource": "Nincs pdf forrás",
+        "uploadLimit": "Max fájlméret: {{size}}",
+        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}"
+    },
+    "image": {
+        "reset": "Visszaállítás",
+        "edit": "Szerkesztés",
+        "title": "cím",
+        "description": "leírás",
+        "upload": "Feltöltés",
+        "link": "Link",
+        "setUrl": "Állítsa be az URL-t",
+        "save": "Megment",
+        "uploadedImage": "Feltöltött kép",
+        "imageTitle": "Kép címe",
+        "setClip": "Kivágott klip",
+        "invalidURL": "érvénytelen URL",
+        "invalidFile": "Érvénytelen fájl",
+        "errorNoSource": "Nincs képforrás",
+        "uploadLimit": "Max fájlméret: {{size}}",
+        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}"
+    },
+    "questions": {
+        "Questions": "Kérdések",
+        "Answers": "Válaszok",
+        "AnswerQuestion": "Válaszolj a kérdésre",
+        "SetYourAnswer": "Kérem, válaszoljon a kérdésre",
+        "NewQuestion": "Új Kérdés",
+        "EditQuestion": "Kérdés szerkesztése",
+        "NewAnswer": "Új válasz",
+        "NewPossibleAnswer": "Új lehetséges válasz",
+        "AnswerDetails": "Válasz Részletek",
+        "answerOption": "választási lehetőség",
+        "answerOptionExclusive": "Kizárólagos",
+        "answerTextarea": "Textarea",
+        "answerText": "Szöveg",
+        "HideUntilAnswered": "Rejtse el a válaszig",
+        "CantChangeAnswers": "A válaszokat nem lehet megváltoztatni",
+        "FreeAnswer": "Írja ide a válaszát",
+        "SaveQuestion": "Kérdés mentése",
+        "SaveAnswer": "Válasz mentése",
+        "Save": "Megment",
+        "Send": "Küld",
+        "TitleRequired": "Cím kötelező!",
+        "AlreadyAnswered": "Már válaszolt",
+        "TitlePlaceholder": "Írja be kérdését",
+        "ContentPlaceholder": "Írjon ide minden további információt, hogy segítsen az embereknek válaszolni",
+        "ErrorTitle": "Kérdés kötelező",
+        "Placeholder": "Írja meg az utasításokat",
+        "AreYouSure": "biztos vagy ebben?",
+        "ShortAnswer": "Írj egy rövid választ"
+    },
+    "experience": {
+        "NewExperience": "Új tapasztalat",
+        "DefineTitle": "Kérjük, adjon meg egy címet",
+        "Create": "Teremt"
+    },
+    "calls": {
+        "SettingsTitle": "Hívások",
+        "MaxCalls": "Max hívások",
+        "Update": "Frissítés",
+        "NoCallsYet": "Még nincsenek hívások",
+        "CallReasonTitle": "Miről szól ez a hívás?",
+        "WaitingRoom": "Várószoba",
+        "LiveRoom": "Élőszoba",
+        "interviewedByAnotherHost": "Jelenleg egy másik műsorvezető interjúztatja",
+        "bringToLive": "Bring To Live Show",
+        "putOnHold": "Félretesz",
+        "endCall": "Hívás befejezése",
+        "interview": "Interjú",
+        "markApproved": "Jelölje meg jóváhagyva"
+    },
+    "relate": {
+        "Add": "Adjunk hozzá {{streamDisplayType}} et"
+    },
+    "userChooser": {
+        "Placeholder": "Egy felhasználó neve..."
+    },
+    "task": {
+        "errorsTitle": "Hibák történtek"
+    },
+    "topic": {
+        "NewTopic": "Új téma",
+        "UpdateTopic": "Téma frissítése",
+        "CreateTopic": "Téma létrehozása",
+        "AreYouSureDeleteTopic": "Biztosan törli ezt a témát?",
+        "TitlePlaceholder": "téma címe...",
+        "DescribeTopic": "írd le a témát...",
+        "TopicIcon": "Témakép",
+        "UploadIcon": "Feltöltés ikon",
+        "Conversation": "Beszélgetés",
+        "Metrics": "Mérések"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Animált miniatűr létrehozása",
+        "Width": "Szélesség",
+        "Height": "Magasság",
+        "Start": "Rajt",
+        "End": "Vége",
+        "Delay": "Késleltetés",
+        "Quality": "Minőség",
+        "Size": "Méret",
+        "OfFrames": "keretek közül",
+        "Frame": "Keret",
+        "UseThis": "Használd ezt",
+        "ResultGIF": "Eredmény GIF",
+        "VideoElementNotFound": "A videóelem nem található"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Az arcodon",
+        "AcceptIcon": "A kiválasztott terület elfogadása"
+    }
+}
