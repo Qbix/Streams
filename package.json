@@ -4,7 +4,5 @@
   "description": "Streams Plugin",
   "author": "Qbix",
   "license": "AGPL-1.0",
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }
