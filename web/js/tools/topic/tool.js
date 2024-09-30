@@ -204,7 +204,7 @@ Q.Tool.define("Streams/topic", function(options) {
 		stream.onFieldChanged("content").set(function (modFields, field) {
 			stream.refresh(function () {
 				stream = this;
-				Q.replace($(".Streams_topic_description", tool.element)[0], stream.fields.content);
+				Q.replace($(".Streams_topic_description", tool.element)[0], stream.fields.content.encodeHTML());
 			}, {
 				messages: true,
 				evenIfNotRetained: true
