@@ -220,7 +220,7 @@ Q.Tool.define("Streams/topic", function(options) {
 		Q.Template.render('Streams/topic/tool', {
 			src: stream.iconUrl(state.imagepicker.showSize),
 			title: stream.fields.title,
-			content
+			content: content.encodeHTML()
 		}, function (err, html) {
 			if (err) {
 				return;
