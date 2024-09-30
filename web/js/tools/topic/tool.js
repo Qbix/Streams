@@ -47,26 +47,20 @@ Q.Tool.define("Streams/topic", function(options) {
 						return;
 					}
 
-					var toolName, toolOptions;
+					var toolOptions;
 					var stream = this;
 					var canReadContent = stream.testReadLevel('content');
 					var teaser;
 
-					switch(streamType) {
-						case "Streams/video":
-							toolName = "Q/video";
-							break;
-						case "Streams/audio":
-							toolName = "Q/audio";
-							break;
-						case "Streams/pdf":
-							toolName = "Q/pdf";
-							break;
-						case "Streams/topic":
-							toolName = "Streams/topic";
-							break;
-						default:
-							throw new Q.Exception(streamType + " not recognised");
+					var toolNames = {
+						'Streams/video': 'Q/video',
+						'Streams/audio': 'Q/audio',
+						'Streams/pdf': 'Q/pdf',
+						'Streams/topic': 'Streams/topic'
+					};
+					var toolName = toolNames[streamType];
+					if (!toolName) {
+						throw new Q.Exception(streamType + " not recognized");
 					}
 
 					if (canReadContent) {
