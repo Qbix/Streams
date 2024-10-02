@@ -709,8 +709,10 @@
 			// onCreate video stream, check if teaser video exists and if yes unrelate from category and relate to this just created stream
 			if (!tool.stream) {
 				tool.preview.state.onCreate.set(function (stream) {
-					tool.teaserVideoStream.unrelateFrom(toPublisherId, toStreamName, teaserVideoRelationType);
-					tool.teaserVideoStream.relateTo(teaserVideoRelationType, stream.fields.publisherId, stream.fields.name);
+					if (tool.teaserVideoStream) {
+						tool.teaserVideoStream.unrelateFrom(toPublisherId, toStreamName, teaserVideoRelationType);
+						tool.teaserVideoStream.relateTo(teaserVideoRelationType, stream.fields.publisherId, stream.fields.name);
+					}
 				}, tool);
 			}
 

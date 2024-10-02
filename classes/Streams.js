@@ -36,7 +36,7 @@ if (!Q.plugins.Users) {
 
 var util = require('util');
 var Db = Q.require('Db');
-var Users = Q.plugins.Users;
+var Users = Q.require('Users');
 var socket = null;
 
 Q.makeEventEmitter(Streams);

@@ -47,26 +47,20 @@ Q.Tool.define("Streams/topic", function(options) {
 						return;
 					}
 
-					var toolName, toolOptions;
+					var toolOptions;
 					var stream = this;
 					var canReadContent = stream.testReadLevel('content');
 					var teaser;
 
-					switch(streamType) {
-						case "Streams/video":
-							toolName = "Q/video";
-							break;
-						case "Streams/audio":
-							toolName = "Q/audio";
-							break;
-						case "Streams/pdf":
-							toolName = "Q/pdf";
-							break;
-						case "Streams/topic":
-							toolName = "Streams/topic";
-							break;
-						default:
-							throw new Q.Exception(streamType + " not recognised");
+					var toolNames = {
+						'Streams/video': 'Q/video',
+						'Streams/audio': 'Q/audio',
+						'Streams/pdf': 'Q/pdf',
+						'Streams/topic': 'Streams/topic'
+					};
+					var toolName = toolNames[streamType];
+					if (!toolName) {
+						throw new Q.Exception(streamType + " not recognized");
 					}
 
 					if (canReadContent) {
@@ -178,7 +172,7 @@ Q.Tool.define("Streams/topic", function(options) {
 	publisherId: null,
 	streamName: null,
 	imagepicker: {
-		showSize: "200x",
+		showSize: "1000x",
 		fullSize: "1000x"
 	},
 	creatable: ["Streams/video", "Streams/audio", "Streams/pdf", "Streams/topic"] //TODO: make topics browser in topic preview tool and use it instead composer to select already created topic 'Streams/topic'
@@ -204,7 +198,7 @@ Q.Tool.define("Streams/topic", function(options) {
 		stream.onFieldChanged("content").set(function (modFields, field) {
 			stream.refresh(function () {
 				stream = this;
-				Q.replace($(".Streams_topic_description", tool.element)[0], stream.fields.content);
+				Q.replace($(".Streams_topic_description", tool.element)[0], stream.fields.content.encodeHTML());
 			}, {
 				messages: true,
 				evenIfNotRetained: true
@@ -220,7 +214,7 @@ Q.Tool.define("Streams/topic", function(options) {
 		Q.Template.render('Streams/topic/tool', {
 			src: stream.iconUrl(state.imagepicker.showSize),
 			title: stream.fields.title,
-			content
+			content: content.encodeHTML()
 		}, function (err, html) {
 			if (err) {
 				return;

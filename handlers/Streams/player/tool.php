@@ -11,6 +11,7 @@ function Streams_player_tool($options)
 		return "<a href='#$streamName_html'>hidden</a>";
 	}
 	$options['streamName'] = $stream->name;
+	$options['publisherId'] = $stream->publisherId;
 	switch ($stream->type) {
 		case 'Streams/text/small':
 		case 'Streams/text/medium':
