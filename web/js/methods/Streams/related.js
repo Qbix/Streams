@@ -26,6 +26,7 @@ Q.exports(function(priv, Streams, Stream){
     *   @param {Boolean} [options.messages] Pass a limit here to fetch that many recent messages and ignore cache.
     *   @param {Boolean} [options.withParticipant=true] Pass false here to return related streams without extra info about whether the logged-in user (if any) is a participant.
     *   @param {String} [options.messageType] optional String specifying the type of messages to fetch. Only honored if streamName is a string.
+    *   @param {array} [options.dontFilterUsers] Pass true to skip filtering publisherId of related streams using Users/filter/users event on the back-end
     *   @param {Object} [options."$Module/$fieldname"] any other fields you would like can be added, to be passed to your hooks on the back end
     * @param{function} callback
     *	if there were errors, first parameter is an array of errors

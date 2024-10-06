@@ -101,6 +101,7 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 				isCategory: true,
 				relatedOptions: {
 					ascending: true,
+					dontFilterUsers: true
 				},
 				previewOptions: {
 					closeable: false

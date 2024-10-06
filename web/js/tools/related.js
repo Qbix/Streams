@@ -20,7 +20,7 @@ var Streams = Q.Streams;
  *   @param {Q.Streams.Stream} [options.stream] You can pass a Streams.Stream object here instead of "publisherId" and "streamName"
  *   @param {String} [options.relationType=null] The type of the relation. If empty, will try to show all relations.
  *   @param {Boolean} [options.isCategory=true] Whether to show the streams related TO this stream, or the ones it is related to.
- *   @param {Object} [options.relatedOptions] Can include options like 'limit', 'offset', 'ascending', 'min', 'max', 'prefix' and 'fields'
+ *   @param {Object} [options.relatedOptions] Can include options like 'limit', 'offset', 'ascending', 'min', 'max', 'prefix', 'fields', and 'dontFilterUsers'
  *   @param {Boolean} [options.editable] Set to false to avoid showing even authorized users an interface to replace the image or text of related streams
  *   @param {Boolean} [options.closeable] Set to false to avoid showing even authorized users an interface to close related streams
  *   @param {Boolean} [options.composerPosition=null] Can be "first" or "last". Where to place composer in a tool. If null, composer arranged by relatedOptions.ascending.
@@ -192,7 +192,8 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	creatable: {},
 	relatedOptions: {
 		limit: 50,
-		offset: 0
+		offset: 0,
+		dontFilterUsers: false
 	},
 	sortable: false,
 	previewOptions: {},

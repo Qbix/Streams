@@ -17,6 +17,7 @@
  *   @param {boolean} [$_REQUEST.omitRedundantInfo=false] Whether to omit redundant publisherId and streamName fields in the output
  *   @param {integer} [$_REQUEST.messages=0] Whether to also return this many latest messages per stream
  *   @param {string} [$_REQUEST.messageType] The type of messages to get
+ *   @param {array} [$_REQUEST.dontFilterUsers] Pass true to skip filtering using Users/filter/users event
  *   @param {string|array} $_REQUEST.type The type of the relation(s)
  *   @param {integer} [$_REQUEST.participants=0] Whether to also return this many participants per stream
  */
@@ -51,7 +52,7 @@ function Streams_related_response()
 	$isCategory = !(empty($_REQUEST['isCategory']) or strtolower($_REQUEST['isCategory']) === 'false');
 	$withParticipant = Q::ifset($_REQUEST, 'withParticipant', true) === "false" ? false : true;
 	$options = Q::take($_REQUEST, array(
-		'limit', 'offset', 'min', 'max', 'type', 'prefix', 'filter'
+		'limit', 'offset', 'min', 'max', 'type', 'prefix', 'filter', 'dontFilterUsers'
 	));
 	$options['relationsOnly'] = !$streams_requested;
 	$options['orderBy'] = filter_var(Q::ifset($_REQUEST, 'ascending', 'false'), FILTER_VALIDATE_BOOLEAN);
