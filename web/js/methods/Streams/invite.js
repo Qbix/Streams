@@ -199,7 +199,8 @@ Q.exports(function() {
                     window.open(Q.Links.telegram(null, content, rsd.url), "_blank");
                     break;
                 case "copyLink":
-                    if (Q.getObject("share", navigator)) {
+                    if (Q.info.formFactor !== 'desktop'
+                    && Q.getObject("share", navigator)) {
                         navigator.share({url: rsd.url});
                     } else {
                         Q.Clipboard.copy(rsd.url);

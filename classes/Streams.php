@@ -53,7 +53,7 @@ abstract class Streams extends Base_Streams
 	 */
 	/**
 	 * Can see the stream content field
-	 * @property $READ_LEVEL['fields']
+	 * @property $READ_LEVEL['content']
 	 * @type integer
 	 * @default 23
 	 * @final
