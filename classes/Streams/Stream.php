@@ -2892,7 +2892,7 @@ class Streams_Stream extends Base_Streams_Stream
 	
 	/**
 	 * @method metas
-	 * @param {array} $options You can use these to override the default places to look
+	 * @param {array} $options You can use these to override the default places to look for values
 	 * @param {string} [$options.icon] The name of an attribute that contains the icon url prefix
 	 * @param {string} [$options.iconFile] The name of an attribute that contains the icon url prefix
 	 * @param {string} [$options.title] The name of an attribute that contains the title
@@ -2947,7 +2947,7 @@ class Streams_Stream extends Base_Streams_Stream
 			$metas[] = array('name' => 'property', 'value' => 'twitter:player:width', 'content' => "360");
 			$metas[] = array('name' => 'property', 'value' => 'twitter:player:height', 'content' => "200");
 		} else {
-			$metas[] = array('name' => 'property', 'value' => 'twitter:card', 'content' => 'summary');
+			$metas[] = array('name' => 'property', 'value' => 'twitter:card', 'content' => 'summary_large_image');
 		}
 		return $metas;
 	}
