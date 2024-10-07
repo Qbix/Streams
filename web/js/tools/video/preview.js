@@ -169,8 +169,6 @@
 				inplace = state.title;
 			}
 
-			$toolElement.removeClass('Q_uploading');
-
 			// render a template
 			Q.Template.render('Streams/video/preview/view', {
 				inplace: inplace
@@ -200,7 +198,7 @@
 			 */
 			var _process = function () {
 				var _error = function (err) {
-					state.mainDialog.removeClass('Q_uploading');
+					state.saveButton.removeClass('Q_uploading');
 					Q.alert(err);
 				};
 
@@ -219,7 +217,7 @@
 				var content = $("textarea[name=content]", $currentContent);
 				content = content.length ? content.val() : null;
 
-				state.mainDialog.addClass('Q_uploading');
+				state.saveButton.addClass('Q_uploading');
 
 				var params = {
 					type: "Streams/video",
@@ -351,7 +349,7 @@
 							//console.log(this);
 							var msg = Q.firstErrorMessage(err) || Q.firstErrorMessage(res && res.errors);
 							if (msg) {
-								if(state.mainDialog) state.mainDialog.removeClass('Q_uploading');
+								state.saveButton && state.saveButton.removeClass('Q_uploading');
 								return Q.handle([state.onError, state.onFinish], tool, [msg]);
 							}
 
@@ -472,14 +470,15 @@
 					}
 
 					// save by URL
-					$("button[name=save]", state.mainDialog).on(Q.Pointer.click, function (e) {
+					state.saveButton = $("button[name=save]", state.mainDialog);
+					state.saveButton.on(Q.Pointer.click, function (e) {
 						e.preventDefault();
 						e.stopPropagation();
 
-						state.mainDialog.addClass('Q_uploading');
+						state.saveButton.addClass('Q_uploading');
 
 						var _error = function (err) {
-							state.mainDialog.removeClass('Q_uploading');
+							state.saveButton.removeClass('Q_uploading');
 							Q.alert(err);
 						};
 						var action = state.mainDialog.attr("data-action");
