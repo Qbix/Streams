@@ -475,7 +475,8 @@
         "ContentPlaceholder": "Put any additional information here to help people answer",
         "ErrorTitle": "Question required",
         "Placeholder": "Write Instructions",
-        "AreYouSure": "Are you sure?"
+        "AreYouSure": "Are you sure?",
+        "AnswerCantBeChanged": "Answer can't be changed"
     },
     "experience": {
         "NewExperience": "New Experience",

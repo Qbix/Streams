@@ -122,12 +122,14 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 						streamName: answerStreamName,
 						type: answerType
 					};
+					var radioToRevert;
 					var _reqCallback = function (err, response) {
 						var $this = this;
 						var msg = Q.firstErrorMessage(err) || Q.firstErrorMessage(response && response.errors);
 						if (msg) {
 							if (["option", "option.exclusive"].includes(answerType)) {
 								$this.prop("checked", !$this.prop("checked"));
+								radioToRevert instanceof $ && radioToRevert.prop("checked", !radioToRevert.prop("checked"));
 							} else if (answerType === "text") {
 								Q.Streams.Participant.get(answerPublisherId, answerStreamName, loggedInUserId,function (err, participant) {
 									var msg = Q.firstErrorMessage(err);
@@ -135,7 +137,7 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 										return console.warn(msg);
 									}
 
-									$this.val(participant.getExtra("content"));
+									participant && $this.val(participant.getExtra("content"));
 								});
 							}
 							return msg !== "return" && Q.alert(msg);
@@ -157,16 +159,7 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 
 					$("input[type=radio],input[type=checkbox]", answerTool.element).on('change', function () {
 						var $this = $(this);
-
-						if (!$this.prop("checked")) {
-							Q.req('Streams/answer', ["content"], _reqCallback.bind($this), {
-								method: 'put',
-								fields: Q.extend(reqOptions, {
-									content: ""
-								})
-							});
-							return;
-						}
+						radioToRevert = null;
 
 						$("input[type=radio],input[type=checkbox]", tool.$answersRelated).not($this).each(function () {
 							var $_this = $(this);
@@ -176,7 +169,8 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 							}
 
 							if ($_this.prop("type") === "radio" && $this.prop("type") === "radio") {
-								$_this.prop("checked", false).trigger("change");
+								radioToRevert = $_this;
+								$_this.prop("checked", false);
 							}
 						});
 
@@ -184,7 +178,7 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 							Q.req('Streams/answer', ["content"], _reqCallback.bind($this), {
 								method: 'put',
 								fields: Q.extend(reqOptions, {
-									content: $this.val()
+									content: $this.prop("checked") ? $this.val() : ""
 								})
 							});
 						};
@@ -301,11 +295,29 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 				}).activate();
 				$("input[name=hideUntilAnswered]", dialog).on("change", function () {
 					tool.stream.setAttribute("hideUntilAnswered", $(this).prop("checked"));
-					tool.stream.save();
+					tool.stream.save({
+						onSave: function () {
+							tool.stream.refresh(function () {
+								tool.stream = this;
+							}, {
+								messages: true,
+								evenIfNotRetained: true
+							});
+						}
+					});
 				});
 				$("input[name=cantChangeAnswers]", dialog).on("change", function () {
 					tool.stream.setAttribute("cantChangeAnswers", $(this).prop("checked"));
-					tool.stream.save();
+					tool.stream.save({
+						onSave: function () {
+							tool.stream.refresh(function () {
+								tool.stream = this;
+							}, {
+								messages: true,
+								evenIfNotRetained: true
+							});
+						}
+					});
 				});
 			},
 			onClose: function () {
