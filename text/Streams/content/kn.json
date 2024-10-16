@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType &#39;textarea&#39; ಅಥವಾ &#39;text&#39; ಆಗಿರಬೇಕು"
     },
     "preview": {
-        "NewItemTitle": "ಹೊಸ ಐಟಂ"
+        "NewItemTitle": "ಹೊಸ ಐಟಂ",
+        "Teaser": "ಟೀಸರ್"
     },
     "avatar": {
         "firstName": "ಮೊದಲ ಹೆಸರು",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "ಉತ್ತರ",
             "description": "ಉತ್ತರ ಸ್ಟ್ರೀಮ್"
+        },
+        "Streams\/topic": {
+            "displayType": "ವಿಷಯ",
+            "description": "ವಿಷಯದ ಸ್ಟ್ರೀಮ್",
+            "newItem": "ವಿಷಯವನ್ನು ಸೇರಿಸಿ"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "ಅಮಾನ್ಯ ಫೈಲ್",
         "errorNoSource": "ಆಡಿಯೋ ಮೂಲವಿಲ್ಲ",
         "uploadLimit": "ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ: {{size}}",
-        "errorFileSize": "ಕ್ಷಮಿಸಿ, ಆದರೆ ಫೈಲ್ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.<br> ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ {{size}}"
+        "errorFileSize": "ಕ್ಷಮಿಸಿ, ಆದರೆ ಫೈಲ್ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.<br> ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ {{size}}",
+        "TeaserAudio": "ಟೀಸರ್ ಆಡಿಯೋ"
     },
     "video": {
         "reset": "ಮರುಹೊಂದಿಸಿ",
@@ -393,7 +400,10 @@
         "uploadLimit": "ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ: {{size}}",
         "errorFileSize": "ಕ್ಷಮಿಸಿ, ಆದರೆ ಫೈಲ್ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.<br> ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ {{size}}",
         "createAnimatedThumbnail": "ಅನಿಮೇಟೆಡ್ ಥಂಬ್‌ನೇಲ್ ರಚಿಸಿ",
-        "errorNotAvailable": "ಕ್ಷಮಿಸಿ, ಆದರೆ ವೀಡಿಯೊ ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+        "errorNotAvailable": "ಕ್ಷಮಿಸಿ, ಆದರೆ ವೀಡಿಯೊ ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+        "NewVideo": "ಹೊಸ ವೀಡಿಯೊ",
+        "EditVideo": "ವೀಡಿಯೊ ಸಂಪಾದಿಸಿ",
+        "TeaserVideo": "ಟೀಸರ್ ವಿಡಿಯೋ"
     },
     "pdf": {
         "reset": "ಮರುಹೊಂದಿಸಿ",
@@ -409,7 +419,8 @@
         "invalidFile": "ಅಮಾನ್ಯ ಫೈಲ್",
         "errorNoSource": "ಯಾವುದೇ ಪಿಡಿಎಫ್ ಮೂಲವಿಲ್ಲ",
         "uploadLimit": "ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ: {{size}}",
-        "errorFileSize": "ಕ್ಷಮಿಸಿ, ಆದರೆ ಫೈಲ್ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.<br> ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ {{size}}"
+        "errorFileSize": "ಕ್ಷಮಿಸಿ, ಆದರೆ ಫೈಲ್ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.<br> ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ {{size}}",
+        "TeaserPDF": "ಟೀಸರ್ PDF"
     },
     "image": {
         "reset": "ಮರುಹೊಂದಿಸಿ",
@@ -427,7 +438,8 @@
         "invalidFile": "ಅಮಾನ್ಯ ಫೈಲ್",
         "errorNoSource": "ಯಾವುದೇ ಚಿತ್ರದ ಮೂಲವಿಲ್ಲ",
         "uploadLimit": "ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ: {{size}}",
-        "errorFileSize": "ಕ್ಷಮಿಸಿ, ಆದರೆ ಫೈಲ್ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.<br> ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ {{size}}"
+        "errorFileSize": "ಕ್ಷಮಿಸಿ, ಆದರೆ ಫೈಲ್ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.<br> ಗರಿಷ್ಠ ಫೈಲ್ ಗಾತ್ರ {{size}}",
+        "TeaserImage": "ಟೀಸರ್ ಚಿತ್ರ"
     },
     "questions": {
         "Questions": "ಪ್ರಶ್ನೆಗಳು",
@@ -498,7 +510,10 @@
         "TopicIcon": "ವಿಷಯದ ಚಿತ್ರ",
         "UploadIcon": "ಅಪ್‌ಲೋಡ್ ಐಕಾನ್",
         "Conversation": "ಸಂಭಾಷಣೆ",
-        "Metrics": "ಮೆಟ್ರಿಕ್ಸ್"
+        "Metrics": "ಮೆಟ್ರಿಕ್ಸ್",
+        "Teaser": "ಟೀಸರ್",
+        "TeaserDescription": "ಟೀಸರ್ ವಿವರಣೆ...",
+        "TeaserVideo": "ಟೀಸರ್ ವಿಡಿಯೋ"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "ಅನಿಮೇಟೆಡ್ ಥಂಬ್‌ನೇಲ್ ರಚಿಸಿ",

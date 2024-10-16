@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "يجب أن يكون inplaceType &quot;textarea&quot; أو &quot;text&quot;"
     },
     "preview": {
-        "NewItemTitle": "عنصر جديد"
+        "NewItemTitle": "عنصر جديد",
+        "Teaser": "تشويق"
     },
     "avatar": {
         "firstName": "الاسم الأول",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "إجابة",
             "description": "دفق الإجابة"
+        },
+        "Streams\/topic": {
+            "displayType": "عنوان",
+            "description": "تيار الموضوع",
+            "newItem": "أضف موضوعا"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "ملف غير صالح",
         "errorNoSource": "لا يوجد مصدر صوتي",
         "uploadLimit": "الحد الأقصى لحجم الملف: {{size}}",
-        "errorFileSize": "عذرا ، ولكن الملف كبير جدا.<br> الحد الأقصى لحجم الملف هو {{size}}"
+        "errorFileSize": "عذرا ، ولكن الملف كبير جدا.<br> الحد الأقصى لحجم الملف هو {{size}}",
+        "TeaserAudio": "مقطع صوتي تشويقي"
     },
     "video": {
         "reset": "إعادة ضبط",
@@ -393,7 +400,10 @@
         "uploadLimit": "الحد الأقصى لحجم الملف: {{size}}",
         "errorFileSize": "عذرا ، ولكن الملف كبير جدا.<br> الحد الأقصى لحجم الملف هو {{size}}",
         "createAnimatedThumbnail": "إنشاء صورة مصغرة متحركة",
-        "errorNotAvailable": "آسف، ولكن الفيديو غير متوفر بعد. الرجاء معاودة المحاولة في وقت لاحق."
+        "errorNotAvailable": "آسف، ولكن الفيديو غير متوفر بعد. الرجاء معاودة المحاولة في وقت لاحق.",
+        "NewVideo": "فيديو جديد",
+        "EditVideo": "تعديل الفيديو",
+        "TeaserVideo": "فيديو تشويقي"
     },
     "pdf": {
         "reset": "إعادة ضبط",
@@ -409,7 +419,8 @@
         "invalidFile": "ملف غير صالح",
         "errorNoSource": "لا يوجد مصدر pdf",
         "uploadLimit": "الحد الأقصى لحجم الملف: {{size}}",
-        "errorFileSize": "عذرا ، ولكن الملف كبير جدا.<br> الحد الأقصى لحجم الملف هو {{size}}"
+        "errorFileSize": "عذرا ، ولكن الملف كبير جدا.<br> الحد الأقصى لحجم الملف هو {{size}}",
+        "TeaserPDF": "ملف PDF تشويقي"
     },
     "image": {
         "reset": "إعادة ضبط",
@@ -427,7 +438,8 @@
         "invalidFile": "ملف غير صالح",
         "errorNoSource": "لا يوجد مصدر للصورة",
         "uploadLimit": "الحد الأقصى لحجم الملف: {{size}}",
-        "errorFileSize": "عذرا ، ولكن الملف كبير جدا.<br> الحد الأقصى لحجم الملف هو {{size}}"
+        "errorFileSize": "عذرا ، ولكن الملف كبير جدا.<br> الحد الأقصى لحجم الملف هو {{size}}",
+        "TeaserImage": "صورة تشويقية"
     },
     "questions": {
         "Questions": "أسئلة",
@@ -498,7 +510,10 @@
         "TopicIcon": "صورة الموضوع",
         "UploadIcon": "أيقونة التحميل",
         "Conversation": "محادثة",
-        "Metrics": "المقاييس"
+        "Metrics": "المقاييس",
+        "Teaser": "تشويق",
+        "TeaserDescription": "وصف تشويقي...",
+        "TeaserVideo": "فيديو تشويقي"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "إنشاء صورة مصغرة متحركة",

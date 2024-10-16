@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType debe ser &#39;textarea&#39; ou &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Elemento novo"
+        "NewItemTitle": "Elemento novo",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "nome",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Resposta",
             "description": "fluxo de respostas"
+        },
+        "Streams\/topic": {
+            "displayType": "Tema",
+            "description": "fluxo temático",
+            "newItem": "Engadir tema"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Ficheiro non válido",
         "errorNoSource": "Sen fonte de audio",
         "uploadLimit": "Tamaño máximo do ficheiro: {{size}}",
-        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}"
+        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}",
+        "TeaserAudio": "Teaser Audio"
     },
     "video": {
         "reset": "Restablecer",
@@ -393,7 +400,10 @@
         "uploadLimit": "Tamaño máximo do ficheiro: {{size}}",
         "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}",
         "createAnimatedThumbnail": "Crear miniatura animada",
-        "errorNotAvailable": "O vídeo aínda non está dispoñible. Por favor inténtao de novo máis tarde."
+        "errorNotAvailable": "O vídeo aínda non está dispoñible. Por favor inténtao de novo máis tarde.",
+        "NewVideo": "Vídeo novo",
+        "EditVideo": "Editar vídeo",
+        "TeaserVideo": "Vídeo teaser"
     },
     "pdf": {
         "reset": "Restablecer",
@@ -409,7 +419,8 @@
         "invalidFile": "Ficheiro non válido",
         "errorNoSource": "Sen fonte pdf",
         "uploadLimit": "Tamaño máximo do ficheiro: {{size}}",
-        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}"
+        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Restablecer",
@@ -427,7 +438,8 @@
         "invalidFile": "Ficheiro non válido",
         "errorNoSource": "Sen fonte de imaxe",
         "uploadLimit": "Tamaño máximo do ficheiro: {{size}}",
-        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}"
+        "errorFileSize": "O ficheiro é demasiado grande.<br> O tamaño máximo do ficheiro é {{size}}",
+        "TeaserImage": "Imaxe teaser"
     },
     "questions": {
         "Questions": "Preguntas",
@@ -498,7 +510,10 @@
         "TopicIcon": "Imaxe do tema",
         "UploadIcon": "Icona de carga",
         "Conversation": "Conversa",
-        "Metrics": "Métricas"
+        "Metrics": "Métricas",
+        "Teaser": "Teaser",
+        "TeaserDescription": "descrición do teaser...",
+        "TeaserVideo": "Vídeo teaser"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Crear miniatura animada",

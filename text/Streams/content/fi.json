@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType-arvon on oltava tekstialue tai teksti"
     },
     "preview": {
-        "NewItemTitle": "Uusi kohde"
+        "NewItemTitle": "Uusi kohde",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "etunimi",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Vastaus",
             "description": "vastausvirta"
+        },
+        "Streams\/topic": {
+            "displayType": "Aihe",
+            "description": "aihevirta",
+            "newItem": "Lisää aihe"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Virheellinen tiedosto",
         "errorNoSource": "Ei äänilähdettä",
         "uploadLimit": "Tiedoston enimmäiskoko: {{size}}",
-        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}"
+        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}",
+        "TeaserAudio": "Teaser Audio"
     },
     "video": {
         "reset": "Nollaa",
@@ -393,7 +400,10 @@
         "uploadLimit": "Tiedoston enimmäiskoko: {{size}}",
         "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}",
         "createAnimatedThumbnail": "Luo animoitu pikkukuva",
-        "errorNotAvailable": "Anteeksi, mutta video ei ole vielä saatavilla. Yritä uudelleen myöhemmin."
+        "errorNotAvailable": "Anteeksi, mutta video ei ole vielä saatavilla. Yritä uudelleen myöhemmin.",
+        "NewVideo": "Uusi Video",
+        "EditVideo": "Muokkaa videota",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "Nollaa",
@@ -409,7 +419,8 @@
         "invalidFile": "Virheellinen tiedosto",
         "errorNoSource": "Ei pdf-lähdettä",
         "uploadLimit": "Tiedoston enimmäiskoko: {{size}}",
-        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}"
+        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Nollaa",
@@ -427,7 +438,8 @@
         "invalidFile": "Virheellinen tiedosto",
         "errorNoSource": "Ei kuvalähdettä",
         "uploadLimit": "Tiedoston enimmäiskoko: {{size}}",
-        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}"
+        "errorFileSize": "Anteeksi, mutta tiedosto on liian suuri.<br> Tiedoston enimmäiskoko on {{size}}",
+        "TeaserImage": "Teaser-kuva"
     },
     "questions": {
         "Questions": "Kysymyksiä",
@@ -498,7 +510,10 @@
         "TopicIcon": "Aihekuva",
         "UploadIcon": "Latauskuvake",
         "Conversation": "Keskustelu",
-        "Metrics": "Mittarit"
+        "Metrics": "Mittarit",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaserin kuvaus...",
+        "TeaserVideo": "Teaser Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Luo animoitu pikkukuva",

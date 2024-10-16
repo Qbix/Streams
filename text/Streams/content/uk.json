@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType має бути &#39;textarea&#39; або &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Новий товар"
+        "NewItemTitle": "Новий товар",
+        "Teaser": "Тизер"
     },
     "avatar": {
         "firstName": "ім&#39;я",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Відповідь",
             "description": "потік відповідей"
+        },
+        "Streams\/topic": {
+            "displayType": "Тема",
+            "description": "тематичний потік",
+            "newItem": "Додати тему"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Недійсний файл",
         "errorNoSource": "Немає джерела звуку",
         "uploadLimit": "Максимальний розмір файлу: {{size}}",
-        "errorFileSize": "Вибачте, але файл завеликий.<br> Максимальний розмір файлу – {{size}}"
+        "errorFileSize": "Вибачте, але файл завеликий.<br> Максимальний розмір файлу – {{size}}",
+        "TeaserAudio": "Тизер Аудіо"
     },
     "video": {
         "reset": "Скинути",
@@ -393,7 +400,10 @@
         "uploadLimit": "Максимальний розмір файлу: {{size}}",
         "errorFileSize": "Вибачте, але файл завеликий.<br> Максимальний розмір файлу – {{size}}",
         "createAnimatedThumbnail": "Створення анімованої мініатюри",
-        "errorNotAvailable": "Вибачте, але відео поки що недоступне. Будь-ласка спробуйте пізніше."
+        "errorNotAvailable": "Вибачте, але відео поки що недоступне. Будь-ласка спробуйте пізніше.",
+        "NewVideo": "Нове відео",
+        "EditVideo": "Редагувати відео",
+        "TeaserVideo": "Відео-тизер"
     },
     "pdf": {
         "reset": "Скинути",
@@ -409,7 +419,8 @@
         "invalidFile": "Недійсний файл",
         "errorNoSource": "Немає джерела pdf",
         "uploadLimit": "Максимальний розмір файлу: {{size}}",
-        "errorFileSize": "Вибачте, але файл завеликий.<br> Максимальний розмір файлу – {{size}}"
+        "errorFileSize": "Вибачте, але файл завеликий.<br> Максимальний розмір файлу – {{size}}",
+        "TeaserPDF": "Тизер PDF"
     },
     "image": {
         "reset": "Скинути",
@@ -427,7 +438,8 @@
         "invalidFile": "Недійсний файл",
         "errorNoSource": "Немає джерела зображення",
         "uploadLimit": "Максимальний розмір файлу: {{size}}",
-        "errorFileSize": "Вибачте, але файл завеликий.<br> Максимальний розмір файлу – {{size}}"
+        "errorFileSize": "Вибачте, але файл завеликий.<br> Максимальний розмір файлу – {{size}}",
+        "TeaserImage": "Зображення тизера"
     },
     "questions": {
         "Questions": "Питання",
@@ -498,7 +510,10 @@
         "TopicIcon": "Тематичний малюнок",
         "UploadIcon": "Завантажити значок",
         "Conversation": "Розмова",
-        "Metrics": "Метрики"
+        "Metrics": "Метрики",
+        "Teaser": "Тизер",
+        "TeaserDescription": "опис тизера...",
+        "TeaserVideo": "Відео-тизер"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Створення анімованої мініатюри",

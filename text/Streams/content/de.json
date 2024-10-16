@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType muss &#39;textarea&#39; oder &#39;text&#39; sein"
     },
     "preview": {
-        "NewItemTitle": "Neuer Gegenstand"
+        "NewItemTitle": "Neuer Gegenstand",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "Vorname",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Antworten",
             "description": "Antwort-Stream"
+        },
+        "Streams\/topic": {
+            "displayType": "Thema",
+            "description": "Themenstream",
+            "newItem": "Thema hinzufügen"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Ungültige Datei",
         "errorNoSource": "Keine Audioquelle",
         "uploadLimit": "Maximale Dateigröße: {{size}}",
-        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}"
+        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}",
+        "TeaserAudio": "Teaser-Audio"
     },
     "video": {
         "reset": "Zurücksetzen",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maximale Dateigröße: {{size}}",
         "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}",
         "createAnimatedThumbnail": "Animiertes Miniaturbild erstellen",
-        "errorNotAvailable": "Leider ist das Video noch nicht verfügbar. Bitte versuchen Sie es später noch einmal."
+        "errorNotAvailable": "Leider ist das Video noch nicht verfügbar. Bitte versuchen Sie es später noch einmal.",
+        "NewVideo": "Neues Video",
+        "EditVideo": "Video bearbeiten",
+        "TeaserVideo": "Teaser-Video"
     },
     "pdf": {
         "reset": "Zurücksetzen",
@@ -409,7 +419,8 @@
         "invalidFile": "Ungültige Datei",
         "errorNoSource": "Keine pdf-Quelle",
         "uploadLimit": "Maximale Dateigröße: {{size}}",
-        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}"
+        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Zurücksetzen",
@@ -427,7 +438,8 @@
         "invalidFile": "Ungültige Datei",
         "errorNoSource": "Keine Bildquelle",
         "uploadLimit": "Maximale Dateigröße: {{size}}",
-        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}"
+        "errorFileSize": "Entschuldigung, aber die Datei ist zu groß.<br> Die maximale Dateigröße beträgt {{size}}",
+        "TeaserImage": "Teaser-Bild"
     },
     "questions": {
         "Questions": "Fragen",
@@ -498,7 +510,10 @@
         "TopicIcon": "Themenbild",
         "UploadIcon": "Symbol „Hochladen“",
         "Conversation": "Gespräch",
-        "Metrics": "Metriken"
+        "Metrics": "Metriken",
+        "Teaser": "Teaser",
+        "TeaserDescription": "Teaser-Beschreibung...",
+        "TeaserVideo": "Teaser-Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Animiertes Miniaturbild erstellen",

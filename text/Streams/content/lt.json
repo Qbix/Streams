@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType turi būti „textarea“ arba „text“"
     },
     "preview": {
-        "NewItemTitle": "Naujas daiktas"
+        "NewItemTitle": "Naujas daiktas",
+        "Teaser": "Anonsas"
     },
     "avatar": {
         "firstName": "Pirmas vardas",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Atsakymas",
             "description": "atsakymų srautas"
+        },
+        "Streams\/topic": {
+            "displayType": "Tema",
+            "description": "temos srautas",
+            "newItem": "Pridėti temą"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Neteisingas failas",
         "errorNoSource": "Nėra garso šaltinio",
         "uploadLimit": "Maksimalus failo dydis: {{size}}",
-        "errorFileSize": "Atsiprašome, bet failas per didelis.<br> Maksimalus failo dydis yra {{size}}"
+        "errorFileSize": "Atsiprašome, bet failas per didelis.<br> Maksimalus failo dydis yra {{size}}",
+        "TeaserAudio": "Anonso garsas"
     },
     "video": {
         "reset": "Nustatyti iš naujo",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maksimalus failo dydis: {{size}}",
         "errorFileSize": "Atsiprašome, bet failas per didelis.<br> Maksimalus failo dydis yra {{size}}",
         "createAnimatedThumbnail": "Sukurkite animuotą miniatiūrą",
-        "errorNotAvailable": "Atsiprašome, bet vaizdo įrašas dar nepasiekiamas. Pabandykite dar kartą vėliau."
+        "errorNotAvailable": "Atsiprašome, bet vaizdo įrašas dar nepasiekiamas. Pabandykite dar kartą vėliau.",
+        "NewVideo": "Naujas Video",
+        "EditVideo": "Redaguoti vaizdo įrašą",
+        "TeaserVideo": "Anonsinis vaizdo įrašas"
     },
     "pdf": {
         "reset": "Nustatyti iš naujo",
@@ -409,7 +419,8 @@
         "invalidFile": "Neteisingas failas",
         "errorNoSource": "Nėra pdf šaltinio",
         "uploadLimit": "Maksimalus failo dydis: {{size}}",
-        "errorFileSize": "Atsiprašome, bet failas per didelis.<br> Maksimalus failo dydis yra {{size}}"
+        "errorFileSize": "Atsiprašome, bet failas per didelis.<br> Maksimalus failo dydis yra {{size}}",
+        "TeaserPDF": "Anonsas PDF"
     },
     "image": {
         "reset": "Nustatyti iš naujo",
@@ -427,7 +438,8 @@
         "invalidFile": "Neteisingas failas",
         "errorNoSource": "Nėra vaizdo šaltinio",
         "uploadLimit": "Maksimalus failo dydis: {{size}}",
-        "errorFileSize": "Atsiprašome, bet failas per didelis.<br> Maksimalus failo dydis yra {{size}}"
+        "errorFileSize": "Atsiprašome, bet failas per didelis.<br> Maksimalus failo dydis yra {{size}}",
+        "TeaserImage": "Anonso vaizdas"
     },
     "questions": {
         "Questions": "Klausimai",
@@ -498,7 +510,10 @@
         "TopicIcon": "Temos paveikslėlis",
         "UploadIcon": "Įkėlimo piktograma",
         "Conversation": "Pokalbis",
-        "Metrics": "Metrika"
+        "Metrics": "Metrika",
+        "Teaser": "Anonsas",
+        "TeaserDescription": "anonso aprašymas...",
+        "TeaserVideo": "Anonsinis vaizdo įrašas"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Sukurkite animuotą miniatiūrą",

@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "Az inplaceType értéke &quot;textarea&quot; vagy &quot;text&quot; lehet"
     },
     "preview": {
-        "NewItemTitle": "Új elem"
+        "NewItemTitle": "Új elem",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "keresztnév",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Válasz",
             "description": "válaszfolyam"
+        },
+        "Streams\/topic": {
+            "displayType": "Téma",
+            "description": "témafolyam",
+            "newItem": "Téma hozzáadása elemre"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Érvénytelen fájl",
         "errorNoSource": "Nincs hangforrás",
         "uploadLimit": "Max fájlméret: {{size}}",
-        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}"
+        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
+        "TeaserAudio": "Teaser Hang"
     },
     "video": {
         "reset": "Visszaállítás",
@@ -393,7 +400,10 @@
         "uploadLimit": "Max fájlméret: {{size}}",
         "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
         "createAnimatedThumbnail": "Animált miniatűr létrehozása",
-        "errorNotAvailable": "Sajnáljuk, de a videó még nem érhető el. Kérlek, próbáld újra később."
+        "errorNotAvailable": "Sajnáljuk, de a videó még nem érhető el. Kérlek, próbáld újra később.",
+        "NewVideo": "Új Videó",
+        "EditVideo": "Videó szerkesztése",
+        "TeaserVideo": "Teaser videó"
     },
     "pdf": {
         "reset": "Visszaállítás",
@@ -409,7 +419,8 @@
         "invalidFile": "Érvénytelen fájl",
         "errorNoSource": "Nincs pdf forrás",
         "uploadLimit": "Max fájlméret: {{size}}",
-        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}"
+        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Visszaállítás",
@@ -427,7 +438,8 @@
         "invalidFile": "Érvénytelen fájl",
         "errorNoSource": "Nincs képforrás",
         "uploadLimit": "Max fájlméret: {{size}}",
-        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}"
+        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
+        "TeaserImage": "Teaser kép"
     },
     "questions": {
         "Questions": "Kérdések",
@@ -498,7 +510,10 @@
         "TopicIcon": "Témakép",
         "UploadIcon": "Feltöltés ikon",
         "Conversation": "Beszélgetés",
-        "Metrics": "Mérések"
+        "Metrics": "Mérések",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser leírása...",
+        "TeaserVideo": "Teaser videó"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Animált miniatűr létrehozása",

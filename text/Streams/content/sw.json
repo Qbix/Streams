@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType lazima iwe &#39;textarea&#39; au &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Kipengee Kipya"
+        "NewItemTitle": "Kipengee Kipya",
+        "Teaser": "Kicheshi"
     },
     "avatar": {
         "firstName": "jina la kwanza",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Jibu",
             "description": "jibu mkondo"
+        },
+        "Streams\/topic": {
+            "displayType": "Mada",
+            "description": "mkondo wa mada",
+            "newItem": "Ongeza Mada"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Faili Batili",
         "errorNoSource": "Hakuna chanzo cha sauti",
         "uploadLimit": "Ukubwa wa juu wa faili: {{size}}",
-        "errorFileSize": "Samahani, lakini faili ni kubwa sana.<br> Ukubwa wa juu wa faili ni {{size}}"
+        "errorFileSize": "Samahani, lakini faili ni kubwa sana.<br> Ukubwa wa juu wa faili ni {{size}}",
+        "TeaserAudio": "Sauti ya Teaser"
     },
     "video": {
         "reset": "Weka upya",
@@ -393,7 +400,10 @@
         "uploadLimit": "Ukubwa wa juu wa faili: {{size}}",
         "errorFileSize": "Samahani, lakini faili ni kubwa sana.<br> Ukubwa wa juu wa faili ni {{size}}",
         "createAnimatedThumbnail": "Unda kijipicha kilichohuishwa",
-        "errorNotAvailable": "Samahani, lakini video bado haipatikani. Tafadhali jaribu tena baadae."
+        "errorNotAvailable": "Samahani, lakini video bado haipatikani. Tafadhali jaribu tena baadae.",
+        "NewVideo": "Video Mpya",
+        "EditVideo": "Hariri Video",
+        "TeaserVideo": "Video ya Teaser"
     },
     "pdf": {
         "reset": "Weka upya",
@@ -409,7 +419,8 @@
         "invalidFile": "Faili Batili",
         "errorNoSource": "Hakuna chanzo cha pdf",
         "uploadLimit": "Ukubwa wa juu wa faili: {{size}}",
-        "errorFileSize": "Samahani, lakini faili ni kubwa sana.<br> Ukubwa wa juu wa faili ni {{size}}"
+        "errorFileSize": "Samahani, lakini faili ni kubwa sana.<br> Ukubwa wa juu wa faili ni {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Weka upya",
@@ -427,7 +438,8 @@
         "invalidFile": "Faili Batili",
         "errorNoSource": "Hakuna chanzo cha picha",
         "uploadLimit": "Ukubwa wa juu wa faili: {{size}}",
-        "errorFileSize": "Samahani, lakini faili ni kubwa sana.<br> Ukubwa wa juu wa faili ni {{size}}"
+        "errorFileSize": "Samahani, lakini faili ni kubwa sana.<br> Ukubwa wa juu wa faili ni {{size}}",
+        "TeaserImage": "Picha ya Teaser"
     },
     "questions": {
         "Questions": "Maswali",
@@ -498,7 +510,10 @@
         "TopicIcon": "Picha ya mada",
         "UploadIcon": "Aikoni ya Kupakia",
         "Conversation": "Mazungumzo",
-        "Metrics": "Vipimo"
+        "Metrics": "Vipimo",
+        "Teaser": "Kicheshi",
+        "TeaserDescription": "maelezo ya kichochezi...",
+        "TeaserVideo": "Video ya Teaser"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Unda kijipicha kilichohuishwa",

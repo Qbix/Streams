@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType verður að vera &#39;textarea&#39; eða &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Nýr hlutur"
+        "NewItemTitle": "Nýr hlutur",
+        "Teaser": "Kynning"
     },
     "avatar": {
         "firstName": "fyrsta nafn",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Svaraðu",
             "description": "svarstraumur"
+        },
+        "Streams\/topic": {
+            "displayType": "Umræðuefni",
+            "description": "efnisstreymi",
+            "newItem": "Bæta við efni"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Ógild skrá",
         "errorNoSource": "Enginn hljóðgjafi",
         "uploadLimit": "Hámarks skráarstærð: {{size}}",
-        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}"
+        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}",
+        "TeaserAudio": "Kynningarhljóð"
     },
     "video": {
         "reset": "Endurstilla",
@@ -393,7 +400,10 @@
         "uploadLimit": "Hámarks skráarstærð: {{size}}",
         "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}",
         "createAnimatedThumbnail": "Búðu til hreyfimyndir",
-        "errorNotAvailable": "Því miður er myndbandið ekki tiltækt ennþá. Vinsamlegast reyndu aftur síðar."
+        "errorNotAvailable": "Því miður er myndbandið ekki tiltækt ennþá. Vinsamlegast reyndu aftur síðar.",
+        "NewVideo": "Nýtt myndband",
+        "EditVideo": "Breyta myndbandi",
+        "TeaserVideo": "Kynningarmyndband"
     },
     "pdf": {
         "reset": "Endurstilla",
@@ -409,7 +419,8 @@
         "invalidFile": "Ógild skrá",
         "errorNoSource": "Engin pdf heimild",
         "uploadLimit": "Hámarks skráarstærð: {{size}}",
-        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}"
+        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}",
+        "TeaserPDF": "Kynning pdf"
     },
     "image": {
         "reset": "Endurstilla",
@@ -427,7 +438,8 @@
         "invalidFile": "Ógild skrá",
         "errorNoSource": "Engin myndheimild",
         "uploadLimit": "Hámarks skráarstærð: {{size}}",
-        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}"
+        "errorFileSize": "Því miður, en skráin er of stór.<br> Hámarksskráarstærð er {{size}}",
+        "TeaserImage": "Kynningarmynd"
     },
     "questions": {
         "Questions": "Spurningar",
@@ -498,7 +510,10 @@
         "TopicIcon": "Efnismynd",
         "UploadIcon": "Hlaða upp táknmynd",
         "Conversation": "Samtal",
-        "Metrics": "Mælingar"
+        "Metrics": "Mælingar",
+        "Teaser": "Kynning",
+        "TeaserDescription": "kynningarlýsing...",
+        "TeaserVideo": "Kynningarmyndband"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Búðu til hreyfimyndir",

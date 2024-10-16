@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "ইনপ্লেস টাইপ অবশ্যই &#39;টেক্সটেরিয়া&#39; বা &#39;টেক্সট&#39; হতে হবে"
     },
     "preview": {
-        "NewItemTitle": "নতুন"
+        "NewItemTitle": "নতুন",
+        "Teaser": "টিজার"
     },
     "avatar": {
         "firstName": "নামের প্রথম অংশ",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "উত্তর",
             "description": "উত্তর প্রবাহ"
+        },
+        "Streams\/topic": {
+            "displayType": "বিষয়",
+            "description": "বিষয় প্রবাহ",
+            "newItem": "বিষয় যোগ করুন"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "অবৈধ ফাইল",
         "errorNoSource": "কোনো অডিও উৎস নেই",
         "uploadLimit": "সর্বাধিক ফাইলের আকার: {{size}}",
-        "errorFileSize": "দুঃখিত, কিন্তু ফাইল খুব বড়.<br> সর্বাধিক ফাইলের আকার {{size}}"
+        "errorFileSize": "দুঃখিত, কিন্তু ফাইল খুব বড়.<br> সর্বাধিক ফাইলের আকার {{size}}",
+        "TeaserAudio": "টিজার অডিও"
     },
     "video": {
         "reset": "রিসেট",
@@ -393,7 +400,10 @@
         "uploadLimit": "সর্বাধিক ফাইলের আকার: {{size}}",
         "errorFileSize": "দুঃখিত, কিন্তু ফাইল খুব বড়.<br> সর্বাধিক ফাইলের আকার {{size}}",
         "createAnimatedThumbnail": "অ্যানিমেটেড থাম্বনেইল তৈরি করুন",
-        "errorNotAvailable": "দুঃখিত, কিন্তু ভিডিও এখনও অনুপলব্ধ. অনুগ্রহ করে একটু পরে আবার চেষ্টা করুন."
+        "errorNotAvailable": "দুঃখিত, কিন্তু ভিডিও এখনও অনুপলব্ধ. অনুগ্রহ করে একটু পরে আবার চেষ্টা করুন.",
+        "NewVideo": "নতুন ভিডিও",
+        "EditVideo": "ভিডিও সম্পাদনা করুন",
+        "TeaserVideo": "টিজার ভিডিও"
     },
     "pdf": {
         "reset": "রিসেট",
@@ -409,7 +419,8 @@
         "invalidFile": "অবৈধ ফাইল",
         "errorNoSource": "কোনো পিডিএফ উৎস নেই",
         "uploadLimit": "সর্বাধিক ফাইলের আকার: {{size}}",
-        "errorFileSize": "দুঃখিত, কিন্তু ফাইল খুব বড়.<br> সর্বাধিক ফাইলের আকার {{size}}"
+        "errorFileSize": "দুঃখিত, কিন্তু ফাইল খুব বড়.<br> সর্বাধিক ফাইলের আকার {{size}}",
+        "TeaserPDF": "টিজার পিডিএফ"
     },
     "image": {
         "reset": "রিসেট",
@@ -427,7 +438,8 @@
         "invalidFile": "অবৈধ ফাইল",
         "errorNoSource": "কোন ইমেজ উৎস",
         "uploadLimit": "সর্বাধিক ফাইলের আকার: {{size}}",
-        "errorFileSize": "দুঃখিত, কিন্তু ফাইল খুব বড়.<br> সর্বাধিক ফাইলের আকার {{size}}"
+        "errorFileSize": "দুঃখিত, কিন্তু ফাইল খুব বড়.<br> সর্বাধিক ফাইলের আকার {{size}}",
+        "TeaserImage": "টিজার ইমেজ"
     },
     "questions": {
         "Questions": "প্রশ্ন",
@@ -498,7 +510,10 @@
         "TopicIcon": "বিষয় ছবি",
         "UploadIcon": "আপলোড আইকন",
         "Conversation": "কথোপকথন",
-        "Metrics": "মেট্রিক্স"
+        "Metrics": "মেট্রিক্স",
+        "Teaser": "টিজার",
+        "TeaserDescription": "টিজারের বর্ণনা...",
+        "TeaserVideo": "টিজার ভিডিও"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "অ্যানিমেটেড থাম্বনেইল তৈরি করুন",

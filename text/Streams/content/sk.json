@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType musí byť „textarea“ alebo „text“"
     },
     "preview": {
-        "NewItemTitle": "Nová vec"
+        "NewItemTitle": "Nová vec",
+        "Teaser": "Ukážka"
     },
     "avatar": {
         "firstName": "krstné meno",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Odpoveď",
             "description": "stream odpovedí"
+        },
+        "Streams\/topic": {
+            "displayType": "Téma",
+            "description": "tematický prúd",
+            "newItem": "Pridať tému"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Neplatný súbor",
         "errorNoSource": "Žiadny zdroj zvuku",
         "uploadLimit": "Maximálna veľkosť súboru: {{size}}",
-        "errorFileSize": "Prepáčte, ale súbor je príliš veľký.<br> Maximálna veľkosť súboru je {{size}}"
+        "errorFileSize": "Prepáčte, ale súbor je príliš veľký.<br> Maximálna veľkosť súboru je {{size}}",
+        "TeaserAudio": "Zvuková ukážka"
     },
     "video": {
         "reset": "Resetovať",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maximálna veľkosť súboru: {{size}}",
         "errorFileSize": "Prepáčte, ale súbor je príliš veľký.<br> Maximálna veľkosť súboru je {{size}}",
         "createAnimatedThumbnail": "Vytvorte animovanú miniatúru",
-        "errorNotAvailable": "Ospravedlňujeme sa, ale video zatiaľ nie je k dispozícii. Skúste neskôr prosím."
+        "errorNotAvailable": "Ospravedlňujeme sa, ale video zatiaľ nie je k dispozícii. Skúste neskôr prosím.",
+        "NewVideo": "Nové video",
+        "EditVideo": "Upraviť video",
+        "TeaserVideo": "Video s ukážkou"
     },
     "pdf": {
         "reset": "Resetovať",
@@ -409,7 +419,8 @@
         "invalidFile": "Neplatný súbor",
         "errorNoSource": "Žiadny zdroj pdf",
         "uploadLimit": "Maximálna veľkosť súboru: {{size}}",
-        "errorFileSize": "Prepáčte, ale súbor je príliš veľký.<br> Maximálna veľkosť súboru je {{size}}"
+        "errorFileSize": "Prepáčte, ale súbor je príliš veľký.<br> Maximálna veľkosť súboru je {{size}}",
+        "TeaserPDF": "Upútavka vo formáte PDF"
     },
     "image": {
         "reset": "Resetovať",
@@ -427,7 +438,8 @@
         "invalidFile": "Neplatný súbor",
         "errorNoSource": "Žiadny zdroj obrazu",
         "uploadLimit": "Maximálna veľkosť súboru: {{size}}",
-        "errorFileSize": "Prepáčte, ale súbor je príliš veľký.<br> Maximálna veľkosť súboru je {{size}}"
+        "errorFileSize": "Prepáčte, ale súbor je príliš veľký.<br> Maximálna veľkosť súboru je {{size}}",
+        "TeaserImage": "Obrázok ukážky"
     },
     "questions": {
         "Questions": "Otázky",
@@ -498,7 +510,10 @@
         "TopicIcon": "Obrázok témy",
         "UploadIcon": "Ikona odovzdania",
         "Conversation": "Konverzácia",
-        "Metrics": "Metriky"
+        "Metrics": "Metriky",
+        "Teaser": "Ukážka",
+        "TeaserDescription": "popis upútavky...",
+        "TeaserVideo": "Video s ukážkou"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Vytvorte animovanú miniatúru",

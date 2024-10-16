@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType باید &quot;textarea&quot; یا &quot;text&quot; باشد"
     },
     "preview": {
-        "NewItemTitle": "گزینه جدید"
+        "NewItemTitle": "گزینه جدید",
+        "Teaser": "تیزر"
     },
     "avatar": {
         "firstName": "نام کوچک",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "پاسخ",
             "description": "جریان پاسخ"
+        },
+        "Streams\/topic": {
+            "displayType": "موضوع",
+            "description": "جریان موضوع",
+            "newItem": "اضافه کردن موضوع"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "فایل نامعتبر",
         "errorNoSource": "منبع صوتی وجود ندارد",
         "uploadLimit": "حداکثر حجم فایل: {{size}}",
-        "errorFileSize": "متاسفم، اما فایل خیلی بزرگ است.<br> حداکثر اندازه فایل {{size}} است"
+        "errorFileSize": "متاسفم، اما فایل خیلی بزرگ است.<br> حداکثر اندازه فایل {{size}} است",
+        "TeaserAudio": "تیزر صوتی"
     },
     "video": {
         "reset": "بازنشانی کنید",
@@ -393,7 +400,10 @@
         "uploadLimit": "حداکثر حجم فایل: {{size}}",
         "errorFileSize": "متاسفم، اما فایل خیلی بزرگ است.<br> حداکثر اندازه فایل {{size}} است",
         "createAnimatedThumbnail": "تصویر کوچک متحرک ایجاد کنید",
-        "errorNotAvailable": "متأسفیم، اما ویدیو هنوز در دسترس نیست. لطفاً بعداً دوباره امتحان کنید."
+        "errorNotAvailable": "متأسفیم، اما ویدیو هنوز در دسترس نیست. لطفاً بعداً دوباره امتحان کنید.",
+        "NewVideo": "ویدیو جدید",
+        "EditVideo": "ویرایش ویدیو",
+        "TeaserVideo": "تیزر ویدیو"
     },
     "pdf": {
         "reset": "بازنشانی کنید",
@@ -409,7 +419,8 @@
         "invalidFile": "فایل نامعتبر",
         "errorNoSource": "منبع پی دی اف نیست",
         "uploadLimit": "حداکثر حجم فایل: {{size}}",
-        "errorFileSize": "متاسفم، اما فایل خیلی بزرگ است.<br> حداکثر اندازه فایل {{size}} است"
+        "errorFileSize": "متاسفم، اما فایل خیلی بزرگ است.<br> حداکثر اندازه فایل {{size}} است",
+        "TeaserPDF": "تیزر پی دی اف"
     },
     "image": {
         "reset": "بازنشانی کنید",
@@ -427,7 +438,8 @@
         "invalidFile": "فایل نامعتبر",
         "errorNoSource": "منبع تصویری وجود ندارد",
         "uploadLimit": "حداکثر حجم فایل: {{size}}",
-        "errorFileSize": "متاسفم، اما فایل خیلی بزرگ است.<br> حداکثر اندازه فایل {{size}} است"
+        "errorFileSize": "متاسفم، اما فایل خیلی بزرگ است.<br> حداکثر اندازه فایل {{size}} است",
+        "TeaserImage": "تصویر تیزر"
     },
     "questions": {
         "Questions": "سوالات",
@@ -498,7 +510,10 @@
         "TopicIcon": "تصویر موضوع",
         "UploadIcon": "نماد آپلود",
         "Conversation": "گفتگو",
-        "Metrics": "معیارهای"
+        "Metrics": "معیارهای",
+        "Teaser": "تیزر",
+        "TeaserDescription": "توضیحات تیزر ...",
+        "TeaserVideo": "تیزر ویدیو"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "تصویر کوچک متحرک ایجاد کنید",

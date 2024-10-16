@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "InplaceType &#39;textarea&#39; ወይም &#39;text&#39; መሆን አለበት"
     },
     "preview": {
-        "NewItemTitle": "አዲስ ነገር"
+        "NewItemTitle": "አዲስ ነገር",
+        "Teaser": "ቲዘር"
     },
     "avatar": {
         "firstName": "የመጀመሪያ ስም",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "መልስ",
             "description": "መልስ ዥረት"
+        },
+        "Streams\/topic": {
+            "displayType": "ርዕስ",
+            "description": "ርዕስ ዥረት",
+            "newItem": "ርዕስ ጨምር"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "ልክ ያልሆነ ፋይል",
         "errorNoSource": "ምንም የድምጽ ምንጭ የለም።",
         "uploadLimit": "ከፍተኛው የፋይል መጠን {{size}}",
-        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።"
+        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።",
+        "TeaserAudio": "Teaser Audio"
     },
     "video": {
         "reset": "ዳግም አስጀምር",
@@ -393,7 +400,10 @@
         "uploadLimit": "ከፍተኛው የፋይል መጠን {{size}}",
         "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።",
         "createAnimatedThumbnail": "የታነመ ድንክዬ ይፍጠሩ",
-        "errorNotAvailable": "ይቅርታ፣ ግን ቪዲዮው እስካሁን የለም። እባክዎ ቆየት ብለው ይሞክሩ."
+        "errorNotAvailable": "ይቅርታ፣ ግን ቪዲዮው እስካሁን የለም። እባክዎ ቆየት ብለው ይሞክሩ.",
+        "NewVideo": "አዲስ ቪዲዮ",
+        "EditVideo": "ቪዲዮ አርትዕ",
+        "TeaserVideo": "Teaser ቪዲዮ"
     },
     "pdf": {
         "reset": "ዳግም አስጀምር",
@@ -409,7 +419,8 @@
         "invalidFile": "ልክ ያልሆነ ፋይል",
         "errorNoSource": "የፒዲኤፍ ምንጭ የለም።",
         "uploadLimit": "ከፍተኛው የፋይል መጠን {{size}}",
-        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።"
+        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "ዳግም አስጀምር",
@@ -427,7 +438,8 @@
         "invalidFile": "ልክ ያልሆነ ፋይል",
         "errorNoSource": "ምንም የምስል ምንጭ የለም።",
         "uploadLimit": "ከፍተኛው የፋይል መጠን {{size}}",
-        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።"
+        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።",
+        "TeaserImage": "Teaser ምስል"
     },
     "questions": {
         "Questions": "ጥያቄዎች",
@@ -498,7 +510,10 @@
         "TopicIcon": "የርዕስ ምስል",
         "UploadIcon": "የመስቀል አዶ",
         "Conversation": "ውይይት",
-        "Metrics": "መለኪያዎች"
+        "Metrics": "መለኪያዎች",
+        "Teaser": "ቲሴር",
+        "TeaserDescription": "የቲዘር መግለጫ...",
+        "TeaserVideo": "Teaser ቪዲዮ"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "የታነመ ድንክዬ ይፍጠሩ",

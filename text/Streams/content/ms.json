@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType mestilah &#39;textarea&#39; atau &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Item Baru"
+        "NewItemTitle": "Item Baru",
+        "Teaser": "Penggoda"
     },
     "avatar": {
         "firstName": "nama pertama",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Jawab",
             "description": "aliran jawapan"
+        },
+        "Streams\/topic": {
+            "displayType": "Topik",
+            "description": "aliran topik",
+            "newItem": "Tambah Topik"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Fail Tidak Sah",
         "errorNoSource": "Tiada sumber audio",
         "uploadLimit": "Saiz fail maksimum: {{size}}",
-        "errorFileSize": "Maaf, tetapi fail terlalu besar.<br> Saiz fail maksimum ialah {{size}}"
+        "errorFileSize": "Maaf, tetapi fail terlalu besar.<br> Saiz fail maksimum ialah {{size}}",
+        "TeaserAudio": "Audio Penggoda"
     },
     "video": {
         "reset": "Tetapkan semula",
@@ -393,7 +400,10 @@
         "uploadLimit": "Saiz fail maksimum: {{size}}",
         "errorFileSize": "Maaf, tetapi fail terlalu besar.<br> Saiz fail maksimum ialah {{size}}",
         "createAnimatedThumbnail": "Cipta lakaran kecil animasi",
-        "errorNotAvailable": "Maaf, tetapi video masih belum tersedia. Sila cuba sebentar lagi."
+        "errorNotAvailable": "Maaf, tetapi video masih belum tersedia. Sila cuba sebentar lagi.",
+        "NewVideo": "Video Baharu",
+        "EditVideo": "Edit Video",
+        "TeaserVideo": "Video Teaser"
     },
     "pdf": {
         "reset": "Tetapkan semula",
@@ -409,7 +419,8 @@
         "invalidFile": "Fail Tidak Sah",
         "errorNoSource": "Tiada sumber pdf",
         "uploadLimit": "Saiz fail maksimum: {{size}}",
-        "errorFileSize": "Maaf, tetapi fail terlalu besar.<br> Saiz fail maksimum ialah {{size}}"
+        "errorFileSize": "Maaf, tetapi fail terlalu besar.<br> Saiz fail maksimum ialah {{size}}",
+        "TeaserPDF": "PDF teaser"
     },
     "image": {
         "reset": "Tetapkan semula",
@@ -427,7 +438,8 @@
         "invalidFile": "Fail Tidak Sah",
         "errorNoSource": "Tiada sumber imej",
         "uploadLimit": "Saiz fail maksimum: {{size}}",
-        "errorFileSize": "Maaf, tetapi fail terlalu besar.<br> Saiz fail maksimum ialah {{size}}"
+        "errorFileSize": "Maaf, tetapi fail terlalu besar.<br> Saiz fail maksimum ialah {{size}}",
+        "TeaserImage": "Imej Teaser"
     },
     "questions": {
         "Questions": "Soalan",
@@ -498,7 +510,10 @@
         "TopicIcon": "Gambar topik",
         "UploadIcon": "Ikon Muat Naik",
         "Conversation": "Perbualan",
-        "Metrics": "Metrik"
+        "Metrics": "Metrik",
+        "Teaser": "Penggoda",
+        "TeaserDescription": "penerangan teaser...",
+        "TeaserVideo": "Video Teaser"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Cipta lakaran kecil animasi",

@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType harus berupa &#39;textarea&#39; atau &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Barang baru"
+        "NewItemTitle": "Barang baru",
+        "Teaser": "Pengejek"
     },
     "avatar": {
         "firstName": "nama depan",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Menjawab",
             "description": "aliran jawaban"
+        },
+        "Streams\/topic": {
+            "displayType": "Topik",
+            "description": "aliran topik",
+            "newItem": "Tambahkan Topik"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "File tidak valid",
         "errorNoSource": "Tidak ada sumber audio",
         "uploadLimit": "Ukuran file maks: {{size}}",
-        "errorFileSize": "Maaf, tapi file terlalu besar.<br> Ukuran file maks adalah {{size}}"
+        "errorFileSize": "Maaf, tapi file terlalu besar.<br> Ukuran file maks adalah {{size}}",
+        "TeaserAudio": "Audio Penggoda"
     },
     "video": {
         "reset": "Mengatur ulang",
@@ -393,7 +400,10 @@
         "uploadLimit": "Ukuran file maks: {{size}}",
         "errorFileSize": "Maaf, tapi file terlalu besar.<br> Ukuran file maks adalah {{size}}",
         "createAnimatedThumbnail": "Buat gambar mini animasi",
-        "errorNotAvailable": "Maaf, video belum tersedia. Silakan coba lagi nanti."
+        "errorNotAvailable": "Maaf, video belum tersedia. Silakan coba lagi nanti.",
+        "NewVideo": "Video Baru",
+        "EditVideo": "Mengedit Video",
+        "TeaserVideo": "Video Teaser"
     },
     "pdf": {
         "reset": "Mengatur ulang",
@@ -409,7 +419,8 @@
         "invalidFile": "File tidak valid",
         "errorNoSource": "Tidak ada sumber pdf",
         "uploadLimit": "Ukuran file maks: {{size}}",
-        "errorFileSize": "Maaf, tapi file terlalu besar.<br> Ukuran file maks adalah {{size}}"
+        "errorFileSize": "Maaf, tapi file terlalu besar.<br> Ukuran file maks adalah {{size}}",
+        "TeaserPDF": "Cuplikan PDF"
     },
     "image": {
         "reset": "Mengatur ulang",
@@ -427,7 +438,8 @@
         "invalidFile": "File tidak valid",
         "errorNoSource": "Tidak ada sumber gambar",
         "uploadLimit": "Ukuran file maks: {{size}}",
-        "errorFileSize": "Maaf, tapi file terlalu besar.<br> Ukuran file maks adalah {{size}}"
+        "errorFileSize": "Maaf, tapi file terlalu besar.<br> Ukuran file maks adalah {{size}}",
+        "TeaserImage": "Gambar Teaser"
     },
     "questions": {
         "Questions": "Pertanyaan",
@@ -498,7 +510,10 @@
         "TopicIcon": "Gambar topik",
         "UploadIcon": "Unggah Ikon",
         "Conversation": "Percakapan",
-        "Metrics": "Metrik"
+        "Metrics": "Metrik",
+        "Teaser": "Pengejek",
+        "TeaserDescription": "deskripsi teaser...",
+        "TeaserVideo": "Video Teaser"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Buat gambar mini animasi",

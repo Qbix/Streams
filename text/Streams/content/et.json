@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType peab olema tekstiala või tekst"
     },
     "preview": {
-        "NewItemTitle": "Uus üksus"
+        "NewItemTitle": "Uus üksus",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "eesnimi",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Vastus",
             "description": "vastuste voog"
+        },
+        "Streams\/topic": {
+            "displayType": "Teema",
+            "description": "teemavoog",
+            "newItem": "Lisa teema"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Vigane fail",
         "errorNoSource": "Heliallikat pole",
         "uploadLimit": "Max faili suurus: {{size}}",
-        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}"
+        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
+        "TeaserAudio": "Teaser Audio"
     },
     "video": {
         "reset": "Lähtesta",
@@ -393,7 +400,10 @@
         "uploadLimit": "Max faili suurus: {{size}}",
         "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
         "createAnimatedThumbnail": "Looge animeeritud pisipilt",
-        "errorNotAvailable": "Kahjuks pole video veel saadaval. Palun proovi hiljem uuesti."
+        "errorNotAvailable": "Kahjuks pole video veel saadaval. Palun proovi hiljem uuesti.",
+        "NewVideo": "Uus Video",
+        "EditVideo": "Redigeeri videot",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "Lähtesta",
@@ -409,7 +419,8 @@
         "invalidFile": "Vigane fail",
         "errorNoSource": "Pdf-allikat pole",
         "uploadLimit": "Max faili suurus: {{size}}",
-        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}"
+        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Lähtesta",
@@ -427,7 +438,8 @@
         "invalidFile": "Vigane fail",
         "errorNoSource": "Pildiallikas puudub",
         "uploadLimit": "Max faili suurus: {{size}}",
-        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}"
+        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
+        "TeaserImage": "Teaseri pilt"
     },
     "questions": {
         "Questions": "Küsimused",
@@ -498,7 +510,10 @@
         "TopicIcon": "Teema pilt",
         "UploadIcon": "Üleslaadimise ikoon",
         "Conversation": "Vestlus",
-        "Metrics": "Mõõdikud"
+        "Metrics": "Mõõdikud",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaseri kirjeldus...",
+        "TeaserVideo": "Teaser Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Looge animeeritud pisipilt",

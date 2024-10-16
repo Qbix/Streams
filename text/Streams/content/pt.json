@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType deve ser &#39;textarea&#39; ou &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Novo item"
+        "NewItemTitle": "Novo item",
+        "Teaser": "Provocação"
     },
     "avatar": {
         "firstName": "primeiro nome",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Responder",
             "description": "fluxo de resposta"
+        },
+        "Streams\/topic": {
+            "displayType": "Tópico",
+            "description": "fluxo de tópicos",
+            "newItem": "Adicionar Tópico"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Arquivo inválido",
         "errorNoSource": "Nenhuma fonte de áudio",
         "uploadLimit": "Tamanho máximo do arquivo: {{size}}",
-        "errorFileSize": "Desculpe, mas o arquivo é muito grande.<br> O tamanho máximo do arquivo é {{size}}"
+        "errorFileSize": "Desculpe, mas o arquivo é muito grande.<br> O tamanho máximo do arquivo é {{size}}",
+        "TeaserAudio": "Áudio Teaser"
     },
     "video": {
         "reset": "Reiniciar",
@@ -393,7 +400,10 @@
         "uploadLimit": "Tamanho máximo do arquivo: {{size}}",
         "errorFileSize": "Desculpe, mas o arquivo é muito grande.<br> O tamanho máximo do arquivo é {{size}}",
         "createAnimatedThumbnail": "Crie uma miniatura animada",
-        "errorNotAvailable": "Desculpe, mas o vídeo ainda não está disponível. Por favor, tente novamente mais tarde."
+        "errorNotAvailable": "Desculpe, mas o vídeo ainda não está disponível. Por favor, tente novamente mais tarde.",
+        "NewVideo": "Novo vídeo",
+        "EditVideo": "Editar vídeo",
+        "TeaserVideo": "Vídeo Teaser"
     },
     "pdf": {
         "reset": "Reiniciar",
@@ -409,7 +419,8 @@
         "invalidFile": "Arquivo inválido",
         "errorNoSource": "Nenhuma fonte de pdf",
         "uploadLimit": "Tamanho máximo do arquivo: {{size}}",
-        "errorFileSize": "Desculpe, mas o arquivo é muito grande.<br> O tamanho máximo do arquivo é {{size}}"
+        "errorFileSize": "Desculpe, mas o arquivo é muito grande.<br> O tamanho máximo do arquivo é {{size}}",
+        "TeaserPDF": "PDF de amostra"
     },
     "image": {
         "reset": "Reiniciar",
@@ -427,7 +438,8 @@
         "invalidFile": "Arquivo inválido",
         "errorNoSource": "Nenhuma fonte de imagem",
         "uploadLimit": "Tamanho máximo do arquivo: {{size}}",
-        "errorFileSize": "Desculpe, mas o arquivo é muito grande.<br> O tamanho máximo do arquivo é {{size}}"
+        "errorFileSize": "Desculpe, mas o arquivo é muito grande.<br> O tamanho máximo do arquivo é {{size}}",
+        "TeaserImage": "Imagem Teaser"
     },
     "questions": {
         "Questions": "Questões",
@@ -498,7 +510,10 @@
         "TopicIcon": "Imagem do tópico",
         "UploadIcon": "Carregar ícone",
         "Conversation": "Conversação",
-        "Metrics": "Métricas"
+        "Metrics": "Métricas",
+        "Teaser": "Provocação",
+        "TeaserDescription": "descrição do teaser...",
+        "TeaserVideo": "Vídeo Teaser"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Crie uma miniatura animada",

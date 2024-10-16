@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType павінен быць &#39;textarea&#39; або &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Новы пункт"
+        "NewItemTitle": "Новы пункт",
+        "Teaser": "Тызер"
     },
     "avatar": {
         "firstName": "імя",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Адказ",
             "description": "паток адказаў"
+        },
+        "Streams\/topic": {
+            "displayType": "Тэма",
+            "description": "тэматычны паток",
+            "newItem": "Дадаць тэму"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Няправільны файл",
         "errorNoSource": "Няма крыніцы гуку",
         "uploadLimit": "Максімальны памер файла: {{size}}",
-        "errorFileSize": "Выбачайце, але файл занадта вялікі.<br> Максімальны памер файла {{size}}"
+        "errorFileSize": "Выбачайце, але файл занадта вялікі.<br> Максімальны памер файла {{size}}",
+        "TeaserAudio": "Цізер аўдыё"
     },
     "video": {
         "reset": "Скінуць",
@@ -393,7 +400,10 @@
         "uploadLimit": "Максімальны памер файла: {{size}}",
         "errorFileSize": "Выбачайце, але файл занадта вялікі.<br> Максімальны памер файла {{size}}",
         "createAnimatedThumbnail": "Стварыце аніміраваную мініяцюру",
-        "errorNotAvailable": "На жаль, відэа пакуль што недаступнае. Калі ласка паспрабуйце зноў пазней."
+        "errorNotAvailable": "На жаль, відэа пакуль што недаступнае. Калі ласка паспрабуйце зноў пазней.",
+        "NewVideo": "Новае відэа",
+        "EditVideo": "Рэдагаваць відэа",
+        "TeaserVideo": "Тызер відэа"
     },
     "pdf": {
         "reset": "Скінуць",
@@ -409,7 +419,8 @@
         "invalidFile": "Няправільны файл",
         "errorNoSource": "Няма крыніцы pdf",
         "uploadLimit": "Максімальны памер файла: {{size}}",
-        "errorFileSize": "Выбачайце, але файл занадта вялікі.<br> Максімальны памер файла {{size}}"
+        "errorFileSize": "Выбачайце, але файл занадта вялікі.<br> Максімальны памер файла {{size}}",
+        "TeaserPDF": "Цізер PDF"
     },
     "image": {
         "reset": "Скінуць",
@@ -427,7 +438,8 @@
         "invalidFile": "Няправільны файл",
         "errorNoSource": "Няма крыніцы выявы",
         "uploadLimit": "Максімальны памер файла: {{size}}",
-        "errorFileSize": "Выбачайце, але файл занадта вялікі.<br> Максімальны памер файла {{size}}"
+        "errorFileSize": "Выбачайце, але файл занадта вялікі.<br> Максімальны памер файла {{size}}",
+        "TeaserImage": "Малюнак тызера"
     },
     "questions": {
         "Questions": "пытанні",
@@ -498,7 +510,10 @@
         "TopicIcon": "Тэматычная карцінка",
         "UploadIcon": "Значок загрузкі",
         "Conversation": "Гутарка",
-        "Metrics": "Метрыка"
+        "Metrics": "Метрыка",
+        "Teaser": "Тызер",
+        "TeaserDescription": "апісанне цізера...",
+        "TeaserVideo": "Тызер відэа"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Стварыце аніміраваную мініяцюру",

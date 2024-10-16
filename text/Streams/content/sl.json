@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType mora biti &#39;textarea&#39; ali &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Nov predmet"
+        "NewItemTitle": "Nov predmet",
+        "Teaser": "Dražljivka"
     },
     "avatar": {
         "firstName": "ime",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Odgovori",
             "description": "tok odgovorov"
+        },
+        "Streams\/topic": {
+            "displayType": "Tema",
+            "description": "tok teme",
+            "newItem": "Dodaj temo"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Neveljavna datoteka",
         "errorNoSource": "Ni zvočnega vira",
         "uploadLimit": "Največja velikost datoteke: {{size}}",
-        "errorFileSize": "Žal je datoteka prevelika.<br> Največja velikost datoteke je {{size}}"
+        "errorFileSize": "Žal je datoteka prevelika.<br> Največja velikost datoteke je {{size}}",
+        "TeaserAudio": "Dražljiv zvok"
     },
     "video": {
         "reset": "Ponastaviti",
@@ -393,7 +400,10 @@
         "uploadLimit": "Največja velikost datoteke: {{size}}",
         "errorFileSize": "Žal je datoteka prevelika.<br> Največja velikost datoteke je {{size}}",
         "createAnimatedThumbnail": "Ustvarite animirano sličico",
-        "errorNotAvailable": "Žal video še ni na voljo. Prosim poskusite kasneje."
+        "errorNotAvailable": "Žal video še ni na voljo. Prosim poskusite kasneje.",
+        "NewVideo": "Nov video",
+        "EditVideo": "Uredi video",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "Ponastaviti",
@@ -409,7 +419,8 @@
         "invalidFile": "Neveljavna datoteka",
         "errorNoSource": "Ni vira pdf",
         "uploadLimit": "Največja velikost datoteke: {{size}}",
-        "errorFileSize": "Žal je datoteka prevelika.<br> Največja velikost datoteke je {{size}}"
+        "errorFileSize": "Žal je datoteka prevelika.<br> Največja velikost datoteke je {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Ponastaviti",
@@ -427,7 +438,8 @@
         "invalidFile": "Neveljavna datoteka",
         "errorNoSource": "Ni vira slike",
         "uploadLimit": "Največja velikost datoteke: {{size}}",
-        "errorFileSize": "Žal je datoteka prevelika.<br> Največja velikost datoteke je {{size}}"
+        "errorFileSize": "Žal je datoteka prevelika.<br> Največja velikost datoteke je {{size}}",
+        "TeaserImage": "Slika dražljivke"
     },
     "questions": {
         "Questions": "Vprašanja",
@@ -498,7 +510,10 @@
         "TopicIcon": "Slika teme",
         "UploadIcon": "Ikona za nalaganje",
         "Conversation": "Pogovor",
-        "Metrics": "Metrike"
+        "Metrics": "Metrike",
+        "Teaser": "Dražljivka",
+        "TeaserDescription": "opis teaserja...",
+        "TeaserVideo": "Dražilni video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Ustvarite animirano sličico",

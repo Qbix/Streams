@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType moet &#39;textarea&#39; of &#39;text&#39; wees"
     },
     "preview": {
-        "NewItemTitle": "Nuwe item"
+        "NewItemTitle": "Nuwe item",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "eerste naam",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Antwoord",
             "description": "antwoordstroom"
+        },
+        "Streams\/topic": {
+            "displayType": "Onderwerp",
+            "description": "onderwerp stroom",
+            "newItem": "Voeg onderwerp by"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Ongeldige lêer",
         "errorNoSource": "Geen oudiobron nie",
         "uploadLimit": "Maksimum lêergrootte: {{size}}",
-        "errorFileSize": "Jammer, maar lêer te groot.<br> Maksimum lêergrootte is {{size}}"
+        "errorFileSize": "Jammer, maar lêer te groot.<br> Maksimum lêergrootte is {{size}}",
+        "TeaserAudio": "Teaser Oudio"
     },
     "video": {
         "reset": "Stel terug",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maksimum lêergrootte: {{size}}",
         "errorFileSize": "Jammer, maar lêer te groot.<br> Maksimum lêergrootte is {{size}}",
         "createAnimatedThumbnail": "Skep geanimeerde kleinkiekie",
-        "errorNotAvailable": "Jammer, maar video is nog nie beskikbaar nie. Probeer asseblief weer later."
+        "errorNotAvailable": "Jammer, maar video is nog nie beskikbaar nie. Probeer asseblief weer later.",
+        "NewVideo": "Nuwe video",
+        "EditVideo": "Redigeer video",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "Stel terug",
@@ -409,7 +419,8 @@
         "invalidFile": "Ongeldige lêer",
         "errorNoSource": "Geen pdf-bron nie",
         "uploadLimit": "Maksimum lêergrootte: {{size}}",
-        "errorFileSize": "Jammer, maar lêer te groot.<br> Maksimum lêergrootte is {{size}}"
+        "errorFileSize": "Jammer, maar lêer te groot.<br> Maksimum lêergrootte is {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Stel terug",
@@ -427,7 +438,8 @@
         "invalidFile": "Ongeldige lêer",
         "errorNoSource": "Geen beeldbron nie",
         "uploadLimit": "Maksimum lêergrootte: {{size}}",
-        "errorFileSize": "Jammer, maar lêer te groot.<br> Maksimum lêergrootte is {{size}}"
+        "errorFileSize": "Jammer, maar lêer te groot.<br> Maksimum lêergrootte is {{size}}",
+        "TeaserImage": "Teaser Beeld"
     },
     "questions": {
         "Questions": "Vrae",
@@ -498,7 +510,10 @@
         "TopicIcon": "Onderwerp prentjie",
         "UploadIcon": "Oplaai-ikoon",
         "Conversation": "Gesprek",
-        "Metrics": "Metrieke"
+        "Metrics": "Metrieke",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser beskrywing...",
+        "TeaserVideo": "Teaser Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Skep geanimeerde kleinkiekie",

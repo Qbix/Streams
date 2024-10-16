@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceRhaid i&#39;r math fod yn &#39;textarea&#39; neu &#39;testun&#39;"
     },
     "preview": {
-        "NewItemTitle": "Eitem Newydd"
+        "NewItemTitle": "Eitem Newydd",
+        "Teaser": "Ymlidiwr"
     },
     "avatar": {
         "firstName": "enw cyntaf",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Ateb",
             "description": "ffrwd ateb"
+        },
+        "Streams\/topic": {
+            "displayType": "Testun",
+            "description": "ffrwd pwnc",
+            "newItem": "Ychwanegu Pwnc"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Ffeil Annilys",
         "errorNoSource": "Dim ffynhonnell sain",
         "uploadLimit": "Maint ffeil mwyaf: {{size}}",
-        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}"
+        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
+        "TeaserAudio": "Sain ymlid"
     },
     "video": {
         "reset": "Ail gychwyn",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maint ffeil mwyaf: {{size}}",
         "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
         "createAnimatedThumbnail": "Creu bawd animeiddiedig",
-        "errorNotAvailable": "Mae&#39;n ddrwg gennym, ond nid yw fideo ar gael eto. Rho gynnig Arni eto&#39;n hwyrach."
+        "errorNotAvailable": "Mae&#39;n ddrwg gennym, ond nid yw fideo ar gael eto. Rho gynnig Arni eto&#39;n hwyrach.",
+        "NewVideo": "Fideo Newydd",
+        "EditVideo": "Golygu Fideo",
+        "TeaserVideo": "Fideo ymlid"
     },
     "pdf": {
         "reset": "Ail gychwyn",
@@ -409,7 +419,8 @@
         "invalidFile": "Ffeil Annilys",
         "errorNoSource": "Dim ffynhonnell pdf",
         "uploadLimit": "Maint ffeil mwyaf: {{size}}",
-        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}"
+        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
+        "TeaserPDF": "PDF ymlidiwr"
     },
     "image": {
         "reset": "Ail gychwyn",
@@ -427,7 +438,8 @@
         "invalidFile": "Ffeil Annilys",
         "errorNoSource": "Dim ffynhonnell delwedd",
         "uploadLimit": "Maint ffeil mwyaf: {{size}}",
-        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}"
+        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
+        "TeaserImage": "Delwedd ymlid"
     },
     "questions": {
         "Questions": "Cwestiynau",
@@ -498,7 +510,10 @@
         "TopicIcon": "Llun pwnc",
         "UploadIcon": "Uwchlwytho Eicon",
         "Conversation": "Sgwrs",
-        "Metrics": "Metrigau"
+        "Metrics": "Metrigau",
+        "Teaser": "Ymlidiwr",
+        "TeaserDescription": "disgrifiad teaser...",
+        "TeaserVideo": "Fideo ymlid"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Creu bawd animeiddiedig",

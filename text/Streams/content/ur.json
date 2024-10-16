@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType &#39;textarea&#39; یا &#39;text&#39; ہونا چاہیے"
     },
     "preview": {
-        "NewItemTitle": "نئی چیز"
+        "NewItemTitle": "نئی چیز",
+        "Teaser": "ٹیزر"
     },
     "avatar": {
         "firstName": "پہلا نام",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "جواب دیں۔",
             "description": "جوابی سلسلہ"
+        },
+        "Streams\/topic": {
+            "displayType": "موضوع",
+            "description": "موضوع کا سلسلہ",
+            "newItem": "موضوع شامل کریں۔"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "غلط فائل",
         "errorNoSource": "کوئی آڈیو ذریعہ نہیں ہے۔",
         "uploadLimit": "زیادہ سے زیادہ فائل کا سائز: {{size}}",
-        "errorFileSize": "معذرت، لیکن فائل بہت بڑی ہے۔<br> فائل کا زیادہ سے زیادہ سائز {{size}} ہے۔"
+        "errorFileSize": "معذرت، لیکن فائل بہت بڑی ہے۔<br> فائل کا زیادہ سے زیادہ سائز {{size}} ہے۔",
+        "TeaserAudio": "ٹیزر آڈیو"
     },
     "video": {
         "reset": "دوبارہ ترتیب دیں۔",
@@ -393,7 +400,10 @@
         "uploadLimit": "زیادہ سے زیادہ فائل کا سائز: {{size}}",
         "errorFileSize": "معذرت، لیکن فائل بہت بڑی ہے۔<br> فائل کا زیادہ سے زیادہ سائز {{size}} ہے۔",
         "createAnimatedThumbnail": "متحرک تھمب نیل بنائیں",
-        "errorNotAvailable": "معذرت، لیکن ویڈیو ابھی تک دستیاب نہیں ہے۔ براہ کرم کچھ دیر بعد کوشش کریں."
+        "errorNotAvailable": "معذرت، لیکن ویڈیو ابھی تک دستیاب نہیں ہے۔ براہ کرم کچھ دیر بعد کوشش کریں.",
+        "NewVideo": "نئی ویڈیو",
+        "EditVideo": "ویڈیو میں ترمیم کریں۔",
+        "TeaserVideo": "ٹیزر ویڈیو"
     },
     "pdf": {
         "reset": "دوبارہ ترتیب دیں۔",
@@ -409,7 +419,8 @@
         "invalidFile": "غلط فائل",
         "errorNoSource": "کوئی پی ڈی ایف سورس نہیں۔",
         "uploadLimit": "زیادہ سے زیادہ فائل کا سائز: {{size}}",
-        "errorFileSize": "معذرت، لیکن فائل بہت بڑی ہے۔<br> فائل کا زیادہ سے زیادہ سائز {{size}} ہے۔"
+        "errorFileSize": "معذرت، لیکن فائل بہت بڑی ہے۔<br> فائل کا زیادہ سے زیادہ سائز {{size}} ہے۔",
+        "TeaserPDF": "ٹیزر پی ڈی ایف"
     },
     "image": {
         "reset": "دوبارہ ترتیب دیں۔",
@@ -427,7 +438,8 @@
         "invalidFile": "غلط فائل",
         "errorNoSource": "کوئی تصویری ماخذ نہیں۔",
         "uploadLimit": "زیادہ سے زیادہ فائل کا سائز: {{size}}",
-        "errorFileSize": "معذرت، لیکن فائل بہت بڑی ہے۔<br> فائل کا زیادہ سے زیادہ سائز {{size}} ہے۔"
+        "errorFileSize": "معذرت، لیکن فائل بہت بڑی ہے۔<br> فائل کا زیادہ سے زیادہ سائز {{size}} ہے۔",
+        "TeaserImage": "ٹیزر امیج"
     },
     "questions": {
         "Questions": "سوالات",
@@ -498,7 +510,10 @@
         "TopicIcon": "موضوع کی تصویر",
         "UploadIcon": "اپ لوڈ آئیکن",
         "Conversation": "بات چیت",
-        "Metrics": "میٹرکس"
+        "Metrics": "میٹرکس",
+        "Teaser": "ٹیزر",
+        "TeaserDescription": "ٹیزر کی تفصیل...",
+        "TeaserVideo": "ٹیزر ویڈیو"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "متحرک تھمب نیل بنائیں",

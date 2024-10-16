@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType skal være &#39;textarea&#39; eller &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Ny vare"
+        "NewItemTitle": "Ny vare",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "fornavn",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Svar",
             "description": "svarstrøm"
+        },
+        "Streams\/topic": {
+            "displayType": "Emne",
+            "description": "emnestrøm",
+            "newItem": "Tilføj emne"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Ugyldig fil",
         "errorNoSource": "Ingen lydkilde",
         "uploadLimit": "Maksimal filstørrelse: {{size}}",
-        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}"
+        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}",
+        "TeaserAudio": "Teaser lyd"
     },
     "video": {
         "reset": "Nulstil",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maksimal filstørrelse: {{size}}",
         "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}",
         "createAnimatedThumbnail": "Opret animeret thumbnail",
-        "errorNotAvailable": "Beklager, men videoen er endnu ikke tilgængelig. Prøv igen senere."
+        "errorNotAvailable": "Beklager, men videoen er endnu ikke tilgængelig. Prøv igen senere.",
+        "NewVideo": "Ny video",
+        "EditVideo": "Rediger video",
+        "TeaserVideo": "Teaser video"
     },
     "pdf": {
         "reset": "Nulstil",
@@ -409,7 +419,8 @@
         "invalidFile": "Ugyldig fil",
         "errorNoSource": "Ingen pdf-kilde",
         "uploadLimit": "Maksimal filstørrelse: {{size}}",
-        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}"
+        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}",
+        "TeaserPDF": "Teaser pdf"
     },
     "image": {
         "reset": "Nulstil",
@@ -427,7 +438,8 @@
         "invalidFile": "Ugyldig fil",
         "errorNoSource": "Ingen billedkilde",
         "uploadLimit": "Maksimal filstørrelse: {{size}}",
-        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}"
+        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}",
+        "TeaserImage": "Teaser billede"
     },
     "questions": {
         "Questions": "Spørgsmål",
@@ -498,7 +510,10 @@
         "TopicIcon": "Emnebillede",
         "UploadIcon": "Upload ikon",
         "Conversation": "Samtale",
-        "Metrics": "Metrics"
+        "Metrics": "Metrics",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser beskrivelse...",
+        "TeaserVideo": "Teaser video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Opret animeret thumbnail",

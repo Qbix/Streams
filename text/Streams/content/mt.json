@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType għandu jkun &#39;textarea&#39; jew &#39;test&#39;"
     },
     "preview": {
-        "NewItemTitle": "Punt Ġdid"
+        "NewItemTitle": "Punt Ġdid",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "isem",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Tweġiba",
             "description": "fluss tat-tweġiba"
+        },
+        "Streams\/topic": {
+            "displayType": "Suġġett",
+            "description": "fluss tas-suġġett",
+            "newItem": "Żid Suġġett"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Fajl Invalidu",
         "errorNoSource": "L-ebda sors awdjo",
         "uploadLimit": "Daqs massimu tal-fajl: {{size}}",
-        "errorFileSize": "Jiddispjaċini, imma fajl kbir wisq.<br> Id-daqs massimu tal-fajl huwa {{size}}"
+        "errorFileSize": "Jiddispjaċini, imma fajl kbir wisq.<br> Id-daqs massimu tal-fajl huwa {{size}}",
+        "TeaserAudio": "Teaser Awdjo"
     },
     "video": {
         "reset": "Irrisettja",
@@ -393,7 +400,10 @@
         "uploadLimit": "Daqs massimu tal-fajl: {{size}}",
         "errorFileSize": "Jiddispjaċini, imma fajl kbir wisq.<br> Id-daqs massimu tal-fajl huwa {{size}}",
         "createAnimatedThumbnail": "Oħloq thumbnail animata",
-        "errorNotAvailable": "Jiddispjaċini, iżda l-vidjo għadu mhux disponibbli. Jekk jogħġbok erġa&#39; pprova aktar tard."
+        "errorNotAvailable": "Jiddispjaċini, iżda l-vidjo għadu mhux disponibbli. Jekk jogħġbok erġa&#39; pprova aktar tard.",
+        "NewVideo": "Video Ġdid",
+        "EditVideo": "Editja Video",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "Irrisettja",
@@ -409,7 +419,8 @@
         "invalidFile": "Fajl Invalidu",
         "errorNoSource": "L-ebda sors pdf",
         "uploadLimit": "Daqs massimu tal-fajl: {{size}}",
-        "errorFileSize": "Jiddispjaċini, imma fajl kbir wisq.<br> Id-daqs massimu tal-fajl huwa {{size}}"
+        "errorFileSize": "Jiddispjaċini, imma fajl kbir wisq.<br> Id-daqs massimu tal-fajl huwa {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Irrisettja",
@@ -427,7 +438,8 @@
         "invalidFile": "Fajl Invalidu",
         "errorNoSource": "L-ebda sors ta &#39;immaġni",
         "uploadLimit": "Daqs massimu tal-fajl: {{size}}",
-        "errorFileSize": "Jiddispjaċini, imma fajl kbir wisq.<br> Id-daqs massimu tal-fajl huwa {{size}}"
+        "errorFileSize": "Jiddispjaċini, imma fajl kbir wisq.<br> Id-daqs massimu tal-fajl huwa {{size}}",
+        "TeaserImage": "Teaser Image"
     },
     "questions": {
         "Questions": "Mistoqsijiet",
@@ -498,7 +510,10 @@
         "TopicIcon": "Stampa tas-suġġett",
         "UploadIcon": "Tella Ikona",
         "Conversation": "Konversazzjoni",
-        "Metrics": "Metriċi"
+        "Metrics": "Metriċi",
+        "Teaser": "Teaser",
+        "TeaserDescription": "deskrizzjoni teaser...",
+        "TeaserVideo": "Teaser Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Oħloq thumbnail animata",

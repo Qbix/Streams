@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType musi mieć wartość „textarea” lub „text”"
     },
     "preview": {
-        "NewItemTitle": "Nowy przedmiot"
+        "NewItemTitle": "Nowy przedmiot",
+        "Teaser": "Kłopotliwe pytanie"
     },
     "avatar": {
         "firstName": "imię",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Odpowiedź",
             "description": "strumień odpowiedzi"
+        },
+        "Streams\/topic": {
+            "displayType": "Temat",
+            "description": "strumień tematyczny",
+            "newItem": "Dodaj temat"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Niepoprawny plik",
         "errorNoSource": "Brak źródła dźwięku",
         "uploadLimit": "Maksymalny rozmiar pliku: {{size}}",
-        "errorFileSize": "Przepraszamy, ale plik jest za duży.<br> Maksymalny rozmiar pliku to {{size}}"
+        "errorFileSize": "Przepraszamy, ale plik jest za duży.<br> Maksymalny rozmiar pliku to {{size}}",
+        "TeaserAudio": "Zwiastun audio"
     },
     "video": {
         "reset": "Resetowanie",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maksymalny rozmiar pliku: {{size}}",
         "errorFileSize": "Przepraszamy, ale plik jest za duży.<br> Maksymalny rozmiar pliku to {{size}}",
         "createAnimatedThumbnail": "Utwórz animowaną miniaturę",
-        "errorNotAvailable": "Przepraszamy, ale wideo jest jeszcze niedostępne. Spróbuj ponownie później."
+        "errorNotAvailable": "Przepraszamy, ale wideo jest jeszcze niedostępne. Spróbuj ponownie później.",
+        "NewVideo": "Nowe wideo",
+        "EditVideo": "Edytuj wideo",
+        "TeaserVideo": "Wideo teaserowe"
     },
     "pdf": {
         "reset": "Resetowanie",
@@ -409,7 +419,8 @@
         "invalidFile": "Niepoprawny plik",
         "errorNoSource": "Brak źródła pdf",
         "uploadLimit": "Maksymalny rozmiar pliku: {{size}}",
-        "errorFileSize": "Przepraszamy, ale plik jest za duży.<br> Maksymalny rozmiar pliku to {{size}}"
+        "errorFileSize": "Przepraszamy, ale plik jest za duży.<br> Maksymalny rozmiar pliku to {{size}}",
+        "TeaserPDF": "Zwiastun PDF"
     },
     "image": {
         "reset": "Resetowanie",
@@ -427,7 +438,8 @@
         "invalidFile": "Niepoprawny plik",
         "errorNoSource": "Brak źródła obrazu",
         "uploadLimit": "Maksymalny rozmiar pliku: {{size}}",
-        "errorFileSize": "Przepraszamy, ale plik jest za duży.<br> Maksymalny rozmiar pliku to {{size}}"
+        "errorFileSize": "Przepraszamy, ale plik jest za duży.<br> Maksymalny rozmiar pliku to {{size}}",
+        "TeaserImage": "Obrazek teaserowy"
     },
     "questions": {
         "Questions": "pytania",
@@ -498,7 +510,10 @@
         "TopicIcon": "Zdjęcie tematyczne",
         "UploadIcon": "Prześlij ikonę",
         "Conversation": "Rozmowa",
-        "Metrics": "Metryka"
+        "Metrics": "Metryka",
+        "Teaser": "Kłopotliwe pytanie",
+        "TeaserDescription": "opis teasera...",
+        "TeaserVideo": "Wideo teaserowe"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Utwórz animowaną miniaturę",

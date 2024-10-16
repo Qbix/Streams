@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType deve essere &#39;textarea&#39; o &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Nuovo oggetto"
+        "NewItemTitle": "Nuovo oggetto",
+        "Teaser": "Anticipazione"
     },
     "avatar": {
         "firstName": "nome di battesimo",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Risposta",
             "description": "flusso di risposta"
+        },
+        "Streams\/topic": {
+            "displayType": "Argomento",
+            "description": "flusso di argomenti",
+            "newItem": "Aggiungi argomento"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "File non valido",
         "errorNoSource": "Nessuna sorgente audio",
         "uploadLimit": "Dimensione massima del file: {{size}}",
-        "errorFileSize": "Siamo spiacenti, ma il file è troppo grande.<br> La dimensione massima del file è {{size}}"
+        "errorFileSize": "Siamo spiacenti, ma il file è troppo grande.<br> La dimensione massima del file è {{size}}",
+        "TeaserAudio": "Audio anticipato"
     },
     "video": {
         "reset": "Ripristina",
@@ -393,7 +400,10 @@
         "uploadLimit": "Dimensione massima del file: {{size}}",
         "errorFileSize": "Siamo spiacenti, ma il file è troppo grande.<br> La dimensione massima del file è {{size}}",
         "createAnimatedThumbnail": "Crea una miniatura animata",
-        "errorNotAvailable": "Siamo spiacenti, ma il video non è ancora disponibile. Per favore riprova più tardi."
+        "errorNotAvailable": "Siamo spiacenti, ma il video non è ancora disponibile. Per favore riprova più tardi.",
+        "NewVideo": "Nuovo video",
+        "EditVideo": "Modifica video",
+        "TeaserVideo": "Video anticipato"
     },
     "pdf": {
         "reset": "Ripristina",
@@ -409,7 +419,8 @@
         "invalidFile": "File non valido",
         "errorNoSource": "Nessuna fonte pdf",
         "uploadLimit": "Dimensione massima del file: {{size}}",
-        "errorFileSize": "Siamo spiacenti, ma il file è troppo grande.<br> La dimensione massima del file è {{size}}"
+        "errorFileSize": "Siamo spiacenti, ma il file è troppo grande.<br> La dimensione massima del file è {{size}}",
+        "TeaserPDF": "Anteprima PDF"
     },
     "image": {
         "reset": "Ripristina",
@@ -427,7 +438,8 @@
         "invalidFile": "File non valido",
         "errorNoSource": "Nessuna fonte dell&#39;immagine",
         "uploadLimit": "Dimensione massima del file: {{size}}",
-        "errorFileSize": "Siamo spiacenti, ma il file è troppo grande.<br> La dimensione massima del file è {{size}}"
+        "errorFileSize": "Siamo spiacenti, ma il file è troppo grande.<br> La dimensione massima del file è {{size}}",
+        "TeaserImage": "Immagine teaser"
     },
     "questions": {
         "Questions": "Domande",
@@ -498,7 +510,10 @@
         "TopicIcon": "Immagine dell&#39;argomento",
         "UploadIcon": "Carica icona",
         "Conversation": "Conversazione",
-        "Metrics": "Metrica"
+        "Metrics": "Metrica",
+        "Teaser": "Anticipazione",
+        "TeaserDescription": "descrizione teaser...",
+        "TeaserVideo": "Video anticipato"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Crea una miniatura animata",

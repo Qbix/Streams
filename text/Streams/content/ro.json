@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType trebuie să fie „textarea” sau „text”"
     },
     "preview": {
-        "NewItemTitle": "Articol nou"
+        "NewItemTitle": "Articol nou",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "Nume",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Răspuns",
             "description": "flux de răspunsuri"
+        },
+        "Streams\/topic": {
+            "displayType": "Subiect",
+            "description": "flux de subiecte",
+            "newItem": "Adăugați subiect"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Fișier invalid",
         "errorNoSource": "Fără sursă audio",
         "uploadLimit": "Dimensiunea maximă a fișierului: {{size}}",
-        "errorFileSize": "Ne pare rău, dar fișierul este prea mare.<br> Dimensiunea maximă a fișierului este de {{size}}"
+        "errorFileSize": "Ne pare rău, dar fișierul este prea mare.<br> Dimensiunea maximă a fișierului este de {{size}}",
+        "TeaserAudio": "Teaser audio"
     },
     "video": {
         "reset": "Resetați",
@@ -393,7 +400,10 @@
         "uploadLimit": "Dimensiunea maximă a fișierului: {{size}}",
         "errorFileSize": "Ne pare rău, dar fișierul este prea mare.<br> Dimensiunea maximă a fișierului este de {{size}}",
         "createAnimatedThumbnail": "Creați o miniatură animată",
-        "errorNotAvailable": "Ne pare rău, dar videoclipul nu este încă disponibil. Vă rugăm să încercați din nou mai târziu."
+        "errorNotAvailable": "Ne pare rău, dar videoclipul nu este încă disponibil. Vă rugăm să încercați din nou mai târziu.",
+        "NewVideo": "Videoclip nou",
+        "EditVideo": "Editați videoclipul",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "Resetați",
@@ -409,7 +419,8 @@
         "invalidFile": "Fișier invalid",
         "errorNoSource": "Fără sursă pdf",
         "uploadLimit": "Dimensiunea maximă a fișierului: {{size}}",
-        "errorFileSize": "Ne pare rău, dar fișierul este prea mare.<br> Dimensiunea maximă a fișierului este de {{size}}"
+        "errorFileSize": "Ne pare rău, dar fișierul este prea mare.<br> Dimensiunea maximă a fișierului este de {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Resetați",
@@ -427,7 +438,8 @@
         "invalidFile": "Fișier invalid",
         "errorNoSource": "Nicio sursă de imagine",
         "uploadLimit": "Dimensiunea maximă a fișierului: {{size}}",
-        "errorFileSize": "Ne pare rău, dar fișierul este prea mare.<br> Dimensiunea maximă a fișierului este de {{size}}"
+        "errorFileSize": "Ne pare rău, dar fișierul este prea mare.<br> Dimensiunea maximă a fișierului este de {{size}}",
+        "TeaserImage": "Imagine teaser"
     },
     "questions": {
         "Questions": "Întrebări",
@@ -498,7 +510,10 @@
         "TopicIcon": "Poza subiectului",
         "UploadIcon": "Pictograma Încărcare",
         "Conversation": "Conversaţie",
-        "Metrics": "Metrici"
+        "Metrics": "Metrici",
+        "Teaser": "Teaser",
+        "TeaserDescription": "descriere teaser...",
+        "TeaserVideo": "Teaser Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Creați o miniatură animată",

@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType ต้องเป็น &#39;textarea&#39; หรือ &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "ไอเท็มใหม่"
+        "NewItemTitle": "ไอเท็มใหม่",
+        "Teaser": "ตัวอย่าง"
     },
     "avatar": {
         "firstName": "ชื่อจริง",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "คำตอบ",
             "description": "สตรีมคำตอบ"
+        },
+        "Streams\/topic": {
+            "displayType": "หัวข้อ",
+            "description": "สตรีมหัวข้อ",
+            "newItem": "เพิ่มหัวข้อ"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "ไฟล์ไม่ถูกต้อง",
         "errorNoSource": "ไม่มีแหล่งที่มาของเสียง",
         "uploadLimit": "ขนาดไฟล์สูงสุด: {{size}}",
-        "errorFileSize": "ขออภัย ไฟล์ใหญ่เกินไป<br> ขนาดไฟล์สูงสุดคือ {{size}}"
+        "errorFileSize": "ขออภัย ไฟล์ใหญ่เกินไป<br> ขนาดไฟล์สูงสุดคือ {{size}}",
+        "TeaserAudio": "ตัวอย่างเสียง"
     },
     "video": {
         "reset": "รีเซ็ต",
@@ -393,7 +400,10 @@
         "uploadLimit": "ขนาดไฟล์สูงสุด: {{size}}",
         "errorFileSize": "ขออภัย ไฟล์ใหญ่เกินไป<br> ขนาดไฟล์สูงสุดคือ {{size}}",
         "createAnimatedThumbnail": "สร้างภาพขนาดย่อแบบเคลื่อนไหว",
-        "errorNotAvailable": "ขออภัย วิดีโอยังไม่พร้อมใช้งาน กรุณาลองใหม่อีกครั้งในภายหลัง."
+        "errorNotAvailable": "ขออภัย วิดีโอยังไม่พร้อมใช้งาน กรุณาลองใหม่อีกครั้งในภายหลัง.",
+        "NewVideo": "วีดีโอใหม่",
+        "EditVideo": "ตัดต่อวีดีโอ",
+        "TeaserVideo": "วิดีโอตัวอย่าง"
     },
     "pdf": {
         "reset": "รีเซ็ต",
@@ -409,7 +419,8 @@
         "invalidFile": "ไฟล์ไม่ถูกต้อง",
         "errorNoSource": "ไม่มีแหล่งที่มาของ PDF",
         "uploadLimit": "ขนาดไฟล์สูงสุด: {{size}}",
-        "errorFileSize": "ขออภัย ไฟล์ใหญ่เกินไป<br> ขนาดไฟล์สูงสุดคือ {{size}}"
+        "errorFileSize": "ขออภัย ไฟล์ใหญ่เกินไป<br> ขนาดไฟล์สูงสุดคือ {{size}}",
+        "TeaserPDF": "ตัวอย่าง PDF"
     },
     "image": {
         "reset": "รีเซ็ต",
@@ -427,7 +438,8 @@
         "invalidFile": "ไฟล์ไม่ถูกต้อง",
         "errorNoSource": "ไม่มีแหล่งที่มาของภาพ",
         "uploadLimit": "ขนาดไฟล์สูงสุด: {{size}}",
-        "errorFileSize": "ขออภัย ไฟล์ใหญ่เกินไป<br> ขนาดไฟล์สูงสุดคือ {{size}}"
+        "errorFileSize": "ขออภัย ไฟล์ใหญ่เกินไป<br> ขนาดไฟล์สูงสุดคือ {{size}}",
+        "TeaserImage": "ภาพทีเซอร์"
     },
     "questions": {
         "Questions": "คำถาม",
@@ -498,7 +510,10 @@
         "TopicIcon": "ภาพหัวข้อ",
         "UploadIcon": "อัพโหลดไอคอน",
         "Conversation": "การสนทนา",
-        "Metrics": "เมตริก"
+        "Metrics": "เมตริก",
+        "Teaser": "ตัวอย่าง",
+        "TeaserDescription": "คำอธิบายตัวอย่าง...",
+        "TeaserVideo": "วิดีโอตัวอย่าง"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "สร้างภาพขนาดย่อแบบเคลื่อนไหว",

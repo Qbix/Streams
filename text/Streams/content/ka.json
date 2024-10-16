@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType უნდა იყოს „textarea“ ან „ტექსტი“"
     },
     "preview": {
-        "NewItemTitle": "Ახალი ნივთი"
+        "NewItemTitle": "Ახალი ნივთი",
+        "Teaser": "თიზერი"
     },
     "avatar": {
         "firstName": "სახელი",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "უპასუხე",
             "description": "პასუხების ნაკადი"
+        },
+        "Streams\/topic": {
+            "displayType": "თემა",
+            "description": "თემის ნაკადი",
+            "newItem": "თემის დამატება"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Არასწორი ფაილი",
         "errorNoSource": "აუდიო წყარო არ არის",
         "uploadLimit": "ფაილის მაქსიმალური ზომა: {{size}}",
-        "errorFileSize": "უკაცრავად, მაგრამ ფაილი ძალიან დიდია.<br> ფაილის მაქსიმალური ზომაა {{size}}"
+        "errorFileSize": "უკაცრავად, მაგრამ ფაილი ძალიან დიდია.<br> ფაილის მაქსიმალური ზომაა {{size}}",
+        "TeaserAudio": "თიზერის აუდიო"
     },
     "video": {
         "reset": "გადატვირთვა",
@@ -393,7 +400,10 @@
         "uploadLimit": "ფაილის მაქსიმალური ზომა: {{size}}",
         "errorFileSize": "უკაცრავად, მაგრამ ფაილი ძალიან დიდია.<br> ფაილის მაქსიმალური ზომაა {{size}}",
         "createAnimatedThumbnail": "შექმენით ანიმაციური მინიატურა",
-        "errorNotAvailable": "უკაცრავად, მაგრამ ვიდეო ჯერ მიუწვდომელია. Გთხოვთ სცადოთ მოგვიანებით."
+        "errorNotAvailable": "უკაცრავად, მაგრამ ვიდეო ჯერ მიუწვდომელია. Გთხოვთ სცადოთ მოგვიანებით.",
+        "NewVideo": "ახალი ვიდეო",
+        "EditVideo": "ვიდეოს რედაქტირება",
+        "TeaserVideo": "თიზერული ვიდეო"
     },
     "pdf": {
         "reset": "გადატვირთვა",
@@ -409,7 +419,8 @@
         "invalidFile": "Არასწორი ფაილი",
         "errorNoSource": "pdf წყარო არ არის",
         "uploadLimit": "ფაილის მაქსიმალური ზომა: {{size}}",
-        "errorFileSize": "უკაცრავად, მაგრამ ფაილი ძალიან დიდია.<br> ფაილის მაქსიმალური ზომაა {{size}}"
+        "errorFileSize": "უკაცრავად, მაგრამ ფაილი ძალიან დიდია.<br> ფაილის მაქსიმალური ზომაა {{size}}",
+        "TeaserPDF": "თიზერი PDF"
     },
     "image": {
         "reset": "გადატვირთვა",
@@ -427,7 +438,8 @@
         "invalidFile": "Არასწორი ფაილი",
         "errorNoSource": "სურათის წყარო არ არის",
         "uploadLimit": "ფაილის მაქსიმალური ზომა: {{size}}",
-        "errorFileSize": "უკაცრავად, მაგრამ ფაილი ძალიან დიდია.<br> ფაილის მაქსიმალური ზომაა {{size}}"
+        "errorFileSize": "უკაცრავად, მაგრამ ფაილი ძალიან დიდია.<br> ფაილის მაქსიმალური ზომაა {{size}}",
+        "TeaserImage": "თიზერის სურათი"
     },
     "questions": {
         "Questions": "კითხვები",
@@ -498,7 +510,10 @@
         "TopicIcon": "თემის სურათი",
         "UploadIcon": "ატვირთვის ხატულა",
         "Conversation": "Საუბარი",
-        "Metrics": "მეტრიკა"
+        "Metrics": "მეტრიკა",
+        "Teaser": "თიზერი",
+        "TeaserDescription": "თიზერის აღწერა...",
+        "TeaserVideo": "თიზერული ვიდეო"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "შექმენით ანიმაციური მინიატურა",

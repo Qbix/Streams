@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType mora biti &#39;textarea&#39; ili &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Nova stvar"
+        "NewItemTitle": "Nova stvar",
+        "Teaser": "Zadirkivač"
     },
     "avatar": {
         "firstName": "ime",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Odgovor",
             "description": "tok odgovora"
+        },
+        "Streams\/topic": {
+            "displayType": "Tema",
+            "description": "tok teme",
+            "newItem": "Dodaj temu"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Nevažeća datoteka",
         "errorNoSource": "Nema izvora zvuka",
         "uploadLimit": "Maksimalna veličina datoteke: {{size}}",
-        "errorFileSize": "Žao nam je, ali datoteka je prevelika.<br> Maksimalna veličina datoteke je {{size}}"
+        "errorFileSize": "Žao nam je, ali datoteka je prevelika.<br> Maksimalna veličina datoteke je {{size}}",
+        "TeaserAudio": "Teaser Audio"
     },
     "video": {
         "reset": "Resetiraj",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maksimalna veličina datoteke: {{size}}",
         "errorFileSize": "Žao nam je, ali datoteka je prevelika.<br> Maksimalna veličina datoteke je {{size}}",
         "createAnimatedThumbnail": "Stvorite animiranu sličicu",
-        "errorNotAvailable": "Žao nam je, ali video još nije dostupan. Molimo pokušajte ponovo kasnije."
+        "errorNotAvailable": "Žao nam je, ali video još nije dostupan. Molimo pokušajte ponovo kasnije.",
+        "NewVideo": "Novi Video",
+        "EditVideo": "Uredi video",
+        "TeaserVideo": "Najavni video"
     },
     "pdf": {
         "reset": "Resetiraj",
@@ -409,7 +419,8 @@
         "invalidFile": "Nevažeća datoteka",
         "errorNoSource": "Nema pdf izvora",
         "uploadLimit": "Maksimalna veličina datoteke: {{size}}",
-        "errorFileSize": "Žao nam je, ali datoteka je prevelika.<br> Maksimalna veličina datoteke je {{size}}"
+        "errorFileSize": "Žao nam je, ali datoteka je prevelika.<br> Maksimalna veličina datoteke je {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Resetiraj",
@@ -427,7 +438,8 @@
         "invalidFile": "Nevažeća datoteka",
         "errorNoSource": "Nema izvora slike",
         "uploadLimit": "Maksimalna veličina datoteke: {{size}}",
-        "errorFileSize": "Žao nam je, ali datoteka je prevelika.<br> Maksimalna veličina datoteke je {{size}}"
+        "errorFileSize": "Žao nam je, ali datoteka je prevelika.<br> Maksimalna veličina datoteke je {{size}}",
+        "TeaserImage": "Najavna slika"
     },
     "questions": {
         "Questions": "Pitanja",
@@ -498,7 +510,10 @@
         "TopicIcon": "Slika teme",
         "UploadIcon": "Ikona za prijenos",
         "Conversation": "Razgovor",
-        "Metrics": "Metrika"
+        "Metrics": "Metrika",
+        "Teaser": "Zadirkivač",
+        "TeaserDescription": "opis teasera...",
+        "TeaserVideo": "Najavni video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Stvorite animiranu sličicu",

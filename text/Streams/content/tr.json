@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType, &quot;textarea&quot; veya &quot;text&quot; olmalıdır"
     },
     "preview": {
-        "NewItemTitle": "Yeni öğe"
+        "NewItemTitle": "Yeni öğe",
+        "Teaser": "Fragman"
     },
     "avatar": {
         "firstName": "ilk adı",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Cevap",
             "description": "cevap akışı"
+        },
+        "Streams\/topic": {
+            "displayType": "Başlık",
+            "description": "konu akışı",
+            "newItem": "Konu Ekle"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Geçersiz dosya",
         "errorNoSource": "ses kaynağı yok",
         "uploadLimit": "Maksimum dosya boyutu: {{size}}",
-        "errorFileSize": "Üzgünüm ama dosya çok büyük.<br> Maksimum dosya boyutu {{size}}"
+        "errorFileSize": "Üzgünüm ama dosya çok büyük.<br> Maksimum dosya boyutu {{size}}",
+        "TeaserAudio": "Teaser Ses"
     },
     "video": {
         "reset": "Sıfırla",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maksimum dosya boyutu: {{size}}",
         "errorFileSize": "Üzgünüm ama dosya çok büyük.<br> Maksimum dosya boyutu {{size}}",
         "createAnimatedThumbnail": "Animasyonlu küçük resim oluştur",
-        "errorNotAvailable": "Üzgünüm ama video henüz kullanılamıyor. Lütfen daha sonra tekrar deneyiniz."
+        "errorNotAvailable": "Üzgünüm ama video henüz kullanılamıyor. Lütfen daha sonra tekrar deneyiniz.",
+        "NewVideo": "Yeni Video",
+        "EditVideo": "Videoyu Düzenle",
+        "TeaserVideo": "Tanıtım Videosu"
     },
     "pdf": {
         "reset": "Sıfırla",
@@ -409,7 +419,8 @@
         "invalidFile": "Geçersiz dosya",
         "errorNoSource": "Pdf kaynağı yok",
         "uploadLimit": "Maksimum dosya boyutu: {{size}}",
-        "errorFileSize": "Üzgünüm ama dosya çok büyük.<br> Maksimum dosya boyutu {{size}}"
+        "errorFileSize": "Üzgünüm ama dosya çok büyük.<br> Maksimum dosya boyutu {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Sıfırla",
@@ -427,7 +438,8 @@
         "invalidFile": "Geçersiz dosya",
         "errorNoSource": "Resim kaynağı yok",
         "uploadLimit": "Maksimum dosya boyutu: {{size}}",
-        "errorFileSize": "Üzgünüm ama dosya çok büyük.<br> Maksimum dosya boyutu {{size}}"
+        "errorFileSize": "Üzgünüm ama dosya çok büyük.<br> Maksimum dosya boyutu {{size}}",
+        "TeaserImage": "Teaser Görüntüsü"
     },
     "questions": {
         "Questions": "Sorular",
@@ -498,7 +510,10 @@
         "TopicIcon": "Konu resmi",
         "UploadIcon": "Simgeyi Yükle",
         "Conversation": "Konuşma",
-        "Metrics": "Metrikler"
+        "Metrics": "Metrikler",
+        "Teaser": "Fragman",
+        "TeaserDescription": "teaser açıklaması...",
+        "TeaserVideo": "Tanıtım Videosu"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Animasyonlu küçük resim oluştur",

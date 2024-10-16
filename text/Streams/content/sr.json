@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "инплацеТипе мора бити &#39;тектареа&#39; или &#39;тект&#39;"
     },
     "preview": {
-        "NewItemTitle": "Нова ставка"
+        "NewItemTitle": "Нова ставка",
+        "Teaser": "Теасер"
     },
     "avatar": {
         "firstName": "име",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Одговор",
             "description": "ток одговора"
+        },
+        "Streams\/topic": {
+            "displayType": "Тема",
+            "description": "ток тема",
+            "newItem": "Додај тему"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Неисправан фајл",
         "errorNoSource": "Нема извора звука",
         "uploadLimit": "Максимална величина датотеке: {{size}}",
-        "errorFileSize": "Извините, али датотека је превелика.<br> Максимална величина датотеке је {{size}}"
+        "errorFileSize": "Извините, али датотека је превелика.<br> Максимална величина датотеке је {{size}}",
+        "TeaserAudio": "Теасер Аудио"
     },
     "video": {
         "reset": "Ресетовати",
@@ -393,7 +400,10 @@
         "uploadLimit": "Максимална величина датотеке: {{size}}",
         "errorFileSize": "Извините, али датотека је превелика.<br> Максимална величина датотеке је {{size}}",
         "createAnimatedThumbnail": "Направите анимирану сличицу",
-        "errorNotAvailable": "Жао нам је, али видео још увек није доступан. Покушајте поново касније."
+        "errorNotAvailable": "Жао нам је, али видео још увек није доступан. Покушајте поново касније.",
+        "NewVideo": "Нови видео",
+        "EditVideo": "Уреди видео",
+        "TeaserVideo": "Теасер Видео"
     },
     "pdf": {
         "reset": "Ресетовати",
@@ -409,7 +419,8 @@
         "invalidFile": "Неисправан фајл",
         "errorNoSource": "Нема пдф извора",
         "uploadLimit": "Максимална величина датотеке: {{size}}",
-        "errorFileSize": "Извините, али датотека је превелика.<br> Максимална величина датотеке је {{size}}"
+        "errorFileSize": "Извините, али датотека је превелика.<br> Максимална величина датотеке је {{size}}",
+        "TeaserPDF": "Теасер ПДФ"
     },
     "image": {
         "reset": "Ресетовати",
@@ -427,7 +438,8 @@
         "invalidFile": "Неисправан фајл",
         "errorNoSource": "Нема извора слике",
         "uploadLimit": "Максимална величина датотеке: {{size}}",
-        "errorFileSize": "Извините, али датотека је превелика.<br> Максимална величина датотеке је {{size}}"
+        "errorFileSize": "Извините, али датотека је превелика.<br> Максимална величина датотеке је {{size}}",
+        "TeaserImage": "Теасер Имаге"
     },
     "questions": {
         "Questions": "Питања",
@@ -498,7 +510,10 @@
         "TopicIcon": "Слика теме",
         "UploadIcon": "Икона за отпремање",
         "Conversation": "Разговор",
-        "Metrics": "метрике"
+        "Metrics": "метрике",
+        "Teaser": "Теасер",
+        "TeaserDescription": "опис тизера...",
+        "TeaserVideo": "Теасер Видео"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Направите анимирану сличицу",

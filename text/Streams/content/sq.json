@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType duhet të jetë &#39;textarea&#39; ose &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Artikull i ri"
+        "NewItemTitle": "Artikull i ri",
+        "Teaser": "Ngacmues"
     },
     "avatar": {
         "firstName": "Emri",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Përgjigju",
             "description": "rrjedha e përgjigjeve"
+        },
+        "Streams\/topic": {
+            "displayType": "Tema",
+            "description": "rrjedha e temës",
+            "newItem": "Shto temë"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Skedar i pavlefshëm",
         "errorNoSource": "Nuk ka burim audio",
         "uploadLimit": "Madhësia maksimale e skedarit: {{size}}",
-        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}"
+        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}",
+        "TeaserAudio": "Audio ngacmuese"
     },
     "video": {
         "reset": "Rivendos",
@@ -393,7 +400,10 @@
         "uploadLimit": "Madhësia maksimale e skedarit: {{size}}",
         "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}",
         "createAnimatedThumbnail": "Krijo miniaturë të animuar",
-        "errorNotAvailable": "Na vjen keq, por video nuk është ende e disponueshme. Ju lutemi provoni përsëri më vonë."
+        "errorNotAvailable": "Na vjen keq, por video nuk është ende e disponueshme. Ju lutemi provoni përsëri më vonë.",
+        "NewVideo": "Video e re",
+        "EditVideo": "Edit Video",
+        "TeaserVideo": "Video ngacmuese"
     },
     "pdf": {
         "reset": "Rivendos",
@@ -409,7 +419,8 @@
         "invalidFile": "Skedar i pavlefshëm",
         "errorNoSource": "Nuk ka burim pdf",
         "uploadLimit": "Madhësia maksimale e skedarit: {{size}}",
-        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}"
+        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Rivendos",
@@ -427,7 +438,8 @@
         "invalidFile": "Skedar i pavlefshëm",
         "errorNoSource": "Nuk ka burim imazhi",
         "uploadLimit": "Madhësia maksimale e skedarit: {{size}}",
-        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}"
+        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}",
+        "TeaserImage": "Imazhi ngacmues"
     },
     "questions": {
         "Questions": "Pyetje",
@@ -498,7 +510,10 @@
         "TopicIcon": "Foto e temës",
         "UploadIcon": "Ikona e ngarkimit",
         "Conversation": "bashkëbisedim",
-        "Metrics": "Metrikë"
+        "Metrics": "Metrikë",
+        "Teaser": "Ngacmues",
+        "TeaserDescription": "përshkrimi i ngacmimit...",
+        "TeaserVideo": "Video ngacmuese"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Krijo miniaturë të animuar",

@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType мора да биде „textarea“ или „text“"
     },
     "preview": {
-        "NewItemTitle": "Нова ставка"
+        "NewItemTitle": "Нова ставка",
+        "Teaser": "Закачка"
     },
     "avatar": {
         "firstName": "име",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Одговори",
             "description": "тек на одговори"
+        },
+        "Streams\/topic": {
+            "displayType": "Тема",
+            "description": "тек на тема",
+            "newItem": "Додај тема"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Неважечка датотека",
         "errorNoSource": "Нема аудио извор",
         "uploadLimit": "Максимална големина на датотека: {{size}}",
-        "errorFileSize": "Извинете, но датотеката е премногу голема.<br> Максималната големина на датотеката е {{size}}"
+        "errorFileSize": "Извинете, но датотеката е премногу голема.<br> Максималната големина на датотеката е {{size}}",
+        "TeaserAudio": "Аудио закачка"
     },
     "video": {
         "reset": "Ресетирај",
@@ -393,7 +400,10 @@
         "uploadLimit": "Максимална големина на датотека: {{size}}",
         "errorFileSize": "Извинете, но датотеката е премногу голема.<br> Максималната големина на датотеката е {{size}}",
         "createAnimatedThumbnail": "Креирајте анимирана слика",
-        "errorNotAvailable": "Извинете, но видеото сè уште е недостапно. Обидете се повторно подоцна."
+        "errorNotAvailable": "Извинете, но видеото сè уште е недостапно. Обидете се повторно подоцна.",
+        "NewVideo": "Ново видео",
+        "EditVideo": "Уреди видео",
+        "TeaserVideo": "Тизер видео"
     },
     "pdf": {
         "reset": "Ресетирај",
@@ -409,7 +419,8 @@
         "invalidFile": "Неважечка датотека",
         "errorNoSource": "Нема извор на pdf",
         "uploadLimit": "Максимална големина на датотека: {{size}}",
-        "errorFileSize": "Извинете, но датотеката е премногу голема.<br> Максималната големина на датотеката е {{size}}"
+        "errorFileSize": "Извинете, но датотеката е премногу голема.<br> Максималната големина на датотеката е {{size}}",
+        "TeaserPDF": "Тизер PDF"
     },
     "image": {
         "reset": "Ресетирај",
@@ -427,7 +438,8 @@
         "invalidFile": "Неважечка датотека",
         "errorNoSource": "Нема извор на слика",
         "uploadLimit": "Максимална големина на датотека: {{size}}",
-        "errorFileSize": "Извинете, но датотеката е премногу голема.<br> Максималната големина на датотеката е {{size}}"
+        "errorFileSize": "Извинете, но датотеката е премногу голема.<br> Максималната големина на датотеката е {{size}}",
+        "TeaserImage": "Закачка слика"
     },
     "questions": {
         "Questions": "Прашања",
@@ -498,7 +510,10 @@
         "TopicIcon": "Слика на тема",
         "UploadIcon": "Икона за поставување",
         "Conversation": "Разговор",
-        "Metrics": "Метрика"
+        "Metrics": "Метрика",
+        "Teaser": "Закачка",
+        "TeaserDescription": "опис на тизерот...",
+        "TeaserVideo": "Тизер видео"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Креирајте анимирана слика",

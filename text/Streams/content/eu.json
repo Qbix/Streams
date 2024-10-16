@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType-k &#39;textarea&#39; edo &#39;text&#39; izan behar du"
     },
     "preview": {
-        "NewItemTitle": "Elementu berria"
+        "NewItemTitle": "Elementu berria",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "izena",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Erantzun",
             "description": "erantzun korrontea"
+        },
+        "Streams\/topic": {
+            "displayType": "Gaia",
+            "description": "gaiaren korrontea",
+            "newItem": "Gehitu gaia"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Fitxategi baliogabea",
         "errorNoSource": "Ez dago audio iturririk",
         "uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
-        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da"
+        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
+        "TeaserAudio": "Teaser Audioa"
     },
     "video": {
         "reset": "Berrezarri",
@@ -393,7 +400,10 @@
         "uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
         "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
         "createAnimatedThumbnail": "Sortu miniatura animatua",
-        "errorNotAvailable": "Barkatu, baina bideoa ez dago erabilgarri oraindik. Saiatu berriro geroago."
+        "errorNotAvailable": "Barkatu, baina bideoa ez dago erabilgarri oraindik. Saiatu berriro geroago.",
+        "NewVideo": "Bideo berria",
+        "EditVideo": "Editatu bideoa",
+        "TeaserVideo": "Teaser Bideoa"
     },
     "pdf": {
         "reset": "Berrezarri",
@@ -409,7 +419,8 @@
         "invalidFile": "Fitxategi baliogabea",
         "errorNoSource": "Ez dago pdf iturririk",
         "uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
-        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da"
+        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Berrezarri",
@@ -427,7 +438,8 @@
         "invalidFile": "Fitxategi baliogabea",
         "errorNoSource": "Ez dago irudi iturririk",
         "uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
-        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da"
+        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
+        "TeaserImage": "Teaser Irudia"
     },
     "questions": {
         "Questions": "Galderak",
@@ -498,7 +510,10 @@
         "TopicIcon": "Gaiaren irudia",
         "UploadIcon": "Kargatu ikonoa",
         "Conversation": "Elkarrizketa",
-        "Metrics": "Metrikak"
+        "Metrics": "Metrikak",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser deskribapena...",
+        "TeaserVideo": "Teaser Bideoa"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Sortu miniatura animatua",

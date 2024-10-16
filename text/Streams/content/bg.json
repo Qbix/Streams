@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType трябва да бъде &#39;textarea&#39; или &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Нов продукт"
+        "NewItemTitle": "Нов продукт",
+        "Teaser": "Тийзър"
     },
     "avatar": {
         "firstName": "първо име",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Отговор",
             "description": "поток от отговори"
+        },
+        "Streams\/topic": {
+            "displayType": "Тема",
+            "description": "поток от теми",
+            "newItem": "Добавяне на тема"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Невалиден файл",
         "errorNoSource": "Няма аудио източник",
         "uploadLimit": "Максимален размер на файла: {{size}}",
-        "errorFileSize": "Съжалявам, но файлът е твърде голям.<br> Максималният размер на файла е {{size}}"
+        "errorFileSize": "Съжалявам, но файлът е твърде голям.<br> Максималният размер на файла е {{size}}",
+        "TeaserAudio": "Тийзър аудио"
     },
     "video": {
         "reset": "Нулиране",
@@ -393,7 +400,10 @@
         "uploadLimit": "Максимален размер на файла: {{size}}",
         "errorFileSize": "Съжалявам, но файлът е твърде голям.<br> Максималният размер на файла е {{size}}",
         "createAnimatedThumbnail": "Създайте анимирана миниатюра",
-        "errorNotAvailable": "Съжаляваме, но видеото все още не е налично. Моля, опитайте отново по-късно."
+        "errorNotAvailable": "Съжаляваме, но видеото все още не е налично. Моля, опитайте отново по-късно.",
+        "NewVideo": "Ново видео",
+        "EditVideo": "Редактиране на видео",
+        "TeaserVideo": "Тийзър видео"
     },
     "pdf": {
         "reset": "Нулиране",
@@ -409,7 +419,8 @@
         "invalidFile": "Невалиден файл",
         "errorNoSource": "Няма pdf източник",
         "uploadLimit": "Максимален размер на файла: {{size}}",
-        "errorFileSize": "Съжалявам, но файлът е твърде голям.<br> Максималният размер на файла е {{size}}"
+        "errorFileSize": "Съжалявам, но файлът е твърде голям.<br> Максималният размер на файла е {{size}}",
+        "TeaserPDF": "Тийзър PDF"
     },
     "image": {
         "reset": "Нулиране",
@@ -427,7 +438,8 @@
         "invalidFile": "Невалиден файл",
         "errorNoSource": "Няма източник на изображение",
         "uploadLimit": "Максимален размер на файла: {{size}}",
-        "errorFileSize": "Съжалявам, но файлът е твърде голям.<br> Максималният размер на файла е {{size}}"
+        "errorFileSize": "Съжалявам, но файлът е твърде голям.<br> Максималният размер на файла е {{size}}",
+        "TeaserImage": "Изображение на тийзър"
     },
     "questions": {
         "Questions": "Въпроси",
@@ -498,7 +510,10 @@
         "TopicIcon": "Снимка на темата",
         "UploadIcon": "Икона за качване",
         "Conversation": "Разговор",
-        "Metrics": "Метрика"
+        "Metrics": "Метрика",
+        "Teaser": "Тийзър",
+        "TeaserDescription": "описание на тийзъра...",
+        "TeaserVideo": "Тийзър видео"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Създайте анимирана миниатюра",

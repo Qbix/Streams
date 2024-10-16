@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType ha de ser &quot;textarea&quot; o &quot;text&quot;"
     },
     "preview": {
-        "NewItemTitle": "Article nou"
+        "NewItemTitle": "Article nou",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "nom",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Respon",
             "description": "corrent de resposta"
+        },
+        "Streams\/topic": {
+            "displayType": "Tema",
+            "description": "corrent del tema",
+            "newItem": "Afegeix tema"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Fitxer no vàlid",
         "errorNoSource": "Sense font d&#39;àudio",
         "uploadLimit": "Mida màxima del fitxer: {{size}}",
-        "errorFileSize": "Ho sentim, però el fitxer és massa gran.<br> La mida màxima del fitxer és {{size}}"
+        "errorFileSize": "Ho sentim, però el fitxer és massa gran.<br> La mida màxima del fitxer és {{size}}",
+        "TeaserAudio": "Teaser d&#39;àudio"
     },
     "video": {
         "reset": "Restableix",
@@ -393,7 +400,10 @@
         "uploadLimit": "Mida màxima del fitxer: {{size}}",
         "errorFileSize": "Ho sentim, però el fitxer és massa gran.<br> La mida màxima del fitxer és {{size}}",
         "createAnimatedThumbnail": "Crea una miniatura animada",
-        "errorNotAvailable": "Ho sentim, però el vídeo encara no està disponible. Siusplau, intenta-ho més tard."
+        "errorNotAvailable": "Ho sentim, però el vídeo encara no està disponible. Siusplau, intenta-ho més tard.",
+        "NewVideo": "Nou Vídeo",
+        "EditVideo": "Edita el vídeo",
+        "TeaserVideo": "Vídeo teaser"
     },
     "pdf": {
         "reset": "Restableix",
@@ -409,7 +419,8 @@
         "invalidFile": "Fitxer no vàlid",
         "errorNoSource": "No hi ha font pdf",
         "uploadLimit": "Mida màxima del fitxer: {{size}}",
-        "errorFileSize": "Ho sentim, però el fitxer és massa gran.<br> La mida màxima del fitxer és {{size}}"
+        "errorFileSize": "Ho sentim, però el fitxer és massa gran.<br> La mida màxima del fitxer és {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Restableix",
@@ -427,7 +438,8 @@
         "invalidFile": "Fitxer no vàlid",
         "errorNoSource": "Sense font d&#39;imatge",
         "uploadLimit": "Mida màxima del fitxer: {{size}}",
-        "errorFileSize": "Ho sentim, però el fitxer és massa gran.<br> La mida màxima del fitxer és {{size}}"
+        "errorFileSize": "Ho sentim, però el fitxer és massa gran.<br> La mida màxima del fitxer és {{size}}",
+        "TeaserImage": "Imatge teaser"
     },
     "questions": {
         "Questions": "Preguntes",
@@ -498,7 +510,10 @@
         "TopicIcon": "Imatge del tema",
         "UploadIcon": "Icona de càrrega",
         "Conversation": "Conversa",
-        "Metrics": "Mètriques"
+        "Metrics": "Mètriques",
+        "Teaser": "Teaser",
+        "TeaserDescription": "descripció del teaser...",
+        "TeaserVideo": "Vídeo teaser"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Crea una miniatura animada",

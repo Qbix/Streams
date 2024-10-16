@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType должен быть textarea или text."
     },
     "preview": {
-        "NewItemTitle": "Новый предмет"
+        "NewItemTitle": "Новый предмет",
+        "Teaser": "Тизер"
     },
     "avatar": {
         "firstName": "имя",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Отвечать",
             "description": "поток ответов"
+        },
+        "Streams\/topic": {
+            "displayType": "Тема",
+            "description": "тема потока",
+            "newItem": "Добавить тему"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Неверный файл",
         "errorNoSource": "Нет источника звука",
         "uploadLimit": "Максимальный размер файла: {{size}}",
-        "errorFileSize": "Извините, но файл слишком большой.<br> Максимальный размер файла {{size}}"
+        "errorFileSize": "Извините, но файл слишком большой.<br> Максимальный размер файла {{size}}",
+        "TeaserAudio": "Тизер Аудио"
     },
     "video": {
         "reset": "Перезагрузить",
@@ -393,7 +400,10 @@
         "uploadLimit": "Максимальный размер файла: {{size}}",
         "errorFileSize": "Извините, но файл слишком большой.<br> Максимальный размер файла {{size}}",
         "createAnimatedThumbnail": "Создать анимированную миниатюру",
-        "errorNotAvailable": "Извините, но видео пока недоступно. Пожалуйста, повторите попытку позже."
+        "errorNotAvailable": "Извините, но видео пока недоступно. Пожалуйста, повторите попытку позже.",
+        "NewVideo": "Новое видео",
+        "EditVideo": "Редактировать видео",
+        "TeaserVideo": "Видео-тизер"
     },
     "pdf": {
         "reset": "Перезагрузить",
@@ -409,7 +419,8 @@
         "invalidFile": "Неверный файл",
         "errorNoSource": "Нет источника pdf",
         "uploadLimit": "Максимальный размер файла: {{size}}",
-        "errorFileSize": "Извините, но файл слишком большой.<br> Максимальный размер файла {{size}}"
+        "errorFileSize": "Извините, но файл слишком большой.<br> Максимальный размер файла {{size}}",
+        "TeaserPDF": "Тизер PDF"
     },
     "image": {
         "reset": "Перезагрузить",
@@ -427,7 +438,8 @@
         "invalidFile": "Неверный файл",
         "errorNoSource": "Нет источника изображения",
         "uploadLimit": "Максимальный размер файла: {{size}}",
-        "errorFileSize": "Извините, но файл слишком большой.<br> Максимальный размер файла {{size}}"
+        "errorFileSize": "Извините, но файл слишком большой.<br> Максимальный размер файла {{size}}",
+        "TeaserImage": "Изображение-тизер"
     },
     "questions": {
         "Questions": "Вопросы",
@@ -498,7 +510,10 @@
         "TopicIcon": "Изображение темы",
         "UploadIcon": "Значок загрузки",
         "Conversation": "Беседа",
-        "Metrics": "Метрики"
+        "Metrics": "Метрики",
+        "Teaser": "Тизер",
+        "TeaserDescription": "описание тизера...",
+        "TeaserVideo": "Видео-тизер"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Создать анимированную миниатюру",

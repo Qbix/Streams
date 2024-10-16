@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType phải là &#39;textarea&#39; hoặc &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Vật phẩm mới"
+        "NewItemTitle": "Vật phẩm mới",
+        "Teaser": "Đoạn giới thiệu"
     },
     "avatar": {
         "firstName": "tên đầu tiên",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Trả lời",
             "description": "luồng câu trả lời"
+        },
+        "Streams\/topic": {
+            "displayType": "Đề tài",
+            "description": "luồng chủ đề",
+            "newItem": "Thêm chủ đề"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Tập tin không hợp lệ",
         "errorNoSource": "Không có nguồn âm thanh",
         "uploadLimit": "Kích thước tệp tối đa: {{size}}",
-        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}"
+        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}",
+        "TeaserAudio": "Âm thanh Teaser"
     },
     "video": {
         "reset": "Cài lại",
@@ -393,7 +400,10 @@
         "uploadLimit": "Kích thước tệp tối đa: {{size}}",
         "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}",
         "createAnimatedThumbnail": "Tạo hình thu nhỏ hoạt hình",
-        "errorNotAvailable": "Xin lỗi, nhưng video hiện chưa có. Vui lòng thử lại sau."
+        "errorNotAvailable": "Xin lỗi, nhưng video hiện chưa có. Vui lòng thử lại sau.",
+        "NewVideo": "Video mới",
+        "EditVideo": "Chỉnh sửa Video",
+        "TeaserVideo": "Video giới thiệu"
     },
     "pdf": {
         "reset": "Cài lại",
@@ -409,7 +419,8 @@
         "invalidFile": "Tập tin không hợp lệ",
         "errorNoSource": "Không có nguồn pdf",
         "uploadLimit": "Kích thước tệp tối đa: {{size}}",
-        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}"
+        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}",
+        "TeaserPDF": "PDF giới thiệu"
     },
     "image": {
         "reset": "Cài lại",
@@ -427,7 +438,8 @@
         "invalidFile": "Tập tin không hợp lệ",
         "errorNoSource": "Không có nguồn hình ảnh",
         "uploadLimit": "Kích thước tệp tối đa: {{size}}",
-        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}"
+        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}",
+        "TeaserImage": "Hình ảnh Teaser"
     },
     "questions": {
         "Questions": "câu hỏi",
@@ -498,7 +510,10 @@
         "TopicIcon": "Hình ảnh chủ đề",
         "UploadIcon": "Biểu tượng tải lên",
         "Conversation": "Cuộc hội thoại",
-        "Metrics": "Số liệu"
+        "Metrics": "Số liệu",
+        "Teaser": "Đoạn giới thiệu",
+        "TeaserDescription": "mô tả đoạn giới thiệu...",
+        "TeaserVideo": "Video giới thiệu"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Tạo hình thu nhỏ hoạt hình",

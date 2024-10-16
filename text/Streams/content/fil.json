@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "Ang inplaceType ay dapat na &#39;textarea&#39; o &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "Bagong Item"
+        "NewItemTitle": "Bagong Item",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "pangalan",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Sagot",
             "description": "sagot stream"
+        },
+        "Streams\/topic": {
+            "displayType": "Paksa",
+            "description": "stream ng paksa",
+            "newItem": "Magdagdag ng Paksa"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Di-wastong File",
         "errorNoSource": "Walang audio source",
         "uploadLimit": "Max na laki ng file: {{size}}",
-        "errorFileSize": "Paumanhin, ngunit masyadong malaki ang file.<br> Ang maximum na laki ng file ay {{size}}"
+        "errorFileSize": "Paumanhin, ngunit masyadong malaki ang file.<br> Ang maximum na laki ng file ay {{size}}",
+        "TeaserAudio": "Audio ng Teaser"
     },
     "video": {
         "reset": "I-reset",
@@ -393,7 +400,10 @@
         "uploadLimit": "Max na laki ng file: {{size}}",
         "errorFileSize": "Paumanhin, ngunit masyadong malaki ang file.<br> Ang maximum na laki ng file ay {{size}}",
         "createAnimatedThumbnail": "Lumikha ng animated na thumbnail",
-        "errorNotAvailable": "Paumanhin, ngunit hindi pa available ang video. Subukang muli mamaya."
+        "errorNotAvailable": "Paumanhin, ngunit hindi pa available ang video. Subukang muli mamaya.",
+        "NewVideo": "Bagong Video",
+        "EditVideo": "I-edit ang Video",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "I-reset",
@@ -409,7 +419,8 @@
         "invalidFile": "Di-wastong File",
         "errorNoSource": "Walang pdf source",
         "uploadLimit": "Max na laki ng file: {{size}}",
-        "errorFileSize": "Paumanhin, ngunit masyadong malaki ang file.<br> Ang maximum na laki ng file ay {{size}}"
+        "errorFileSize": "Paumanhin, ngunit masyadong malaki ang file.<br> Ang maximum na laki ng file ay {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "I-reset",
@@ -427,7 +438,8 @@
         "invalidFile": "Di-wastong File",
         "errorNoSource": "Walang pinagmumulan ng larawan",
         "uploadLimit": "Max na laki ng file: {{size}}",
-        "errorFileSize": "Paumanhin, ngunit masyadong malaki ang file.<br> Ang maximum na laki ng file ay {{size}}"
+        "errorFileSize": "Paumanhin, ngunit masyadong malaki ang file.<br> Ang maximum na laki ng file ay {{size}}",
+        "TeaserImage": "Larawan ng Teaser"
     },
     "questions": {
         "Questions": "Mga tanong",
@@ -498,7 +510,10 @@
         "TopicIcon": "Larawan ng paksa",
         "UploadIcon": "Icon ng Pag-upload",
         "Conversation": "Pag-uusap",
-        "Metrics": "Mga sukatan"
+        "Metrics": "Mga sukatan",
+        "Teaser": "Teaser",
+        "TeaserDescription": "paglalarawan ng teaser...",
+        "TeaserVideo": "Teaser Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Gumawa ng animated na thumbnail",

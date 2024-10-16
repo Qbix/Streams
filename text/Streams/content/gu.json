@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType &#39;textarea&#39; અથવા &#39;text&#39; હોવો જોઈએ"
     },
     "preview": {
-        "NewItemTitle": "નવી આઇટમ"
+        "NewItemTitle": "નવી આઇટમ",
+        "Teaser": "ટીઝર"
     },
     "avatar": {
         "firstName": "પ્રથમ નામ",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "જવાબ આપો",
             "description": "જવાબ પ્રવાહ"
+        },
+        "Streams\/topic": {
+            "displayType": "વિષય",
+            "description": "વિષય પ્રવાહ",
+            "newItem": "વિષય ઉમેરો"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "અમાન્ય ફાઇલ",
         "errorNoSource": "કોઈ ઓડિયો સ્ત્રોત નથી",
         "uploadLimit": "મહત્તમ ફાઇલ કદ: {{size}}",
-        "errorFileSize": "માફ કરશો, પરંતુ ફાઇલ ખૂબ મોટી છે.<br> મહત્તમ ફાઇલ કદ {{size}} છે"
+        "errorFileSize": "માફ કરશો, પરંતુ ફાઇલ ખૂબ મોટી છે.<br> મહત્તમ ફાઇલ કદ {{size}} છે",
+        "TeaserAudio": "ટીઝર ઓડિયો"
     },
     "video": {
         "reset": "રીસેટ કરો",
@@ -393,7 +400,10 @@
         "uploadLimit": "મહત્તમ ફાઇલ કદ: {{size}}",
         "errorFileSize": "માફ કરશો, પરંતુ ફાઇલ ખૂબ મોટી છે.<br> મહત્તમ ફાઇલ કદ {{size}} છે",
         "createAnimatedThumbnail": "એનિમેટેડ થંબનેલ બનાવો",
-        "errorNotAvailable": "માફ કરશો, પરંતુ વિડિયો હજુ સુધી અનુપલબ્ધ છે. પછીથી ફરી પ્રયત્ન કરો."
+        "errorNotAvailable": "માફ કરશો, પરંતુ વિડિયો હજુ સુધી અનુપલબ્ધ છે. પછીથી ફરી પ્રયત્ન કરો.",
+        "NewVideo": "નવો વિડિયો",
+        "EditVideo": "વિડિઓ સંપાદિત કરો",
+        "TeaserVideo": "ટીઝર વિડિઓ"
     },
     "pdf": {
         "reset": "રીસેટ કરો",
@@ -409,7 +419,8 @@
         "invalidFile": "અમાન્ય ફાઇલ",
         "errorNoSource": "પીડીએફ સ્ત્રોત નથી",
         "uploadLimit": "મહત્તમ ફાઇલ કદ: {{size}}",
-        "errorFileSize": "માફ કરશો, પરંતુ ફાઇલ ખૂબ મોટી છે.<br> મહત્તમ ફાઇલ કદ {{size}} છે"
+        "errorFileSize": "માફ કરશો, પરંતુ ફાઇલ ખૂબ મોટી છે.<br> મહત્તમ ફાઇલ કદ {{size}} છે",
+        "TeaserPDF": "પીડીએફ ટીઝર"
     },
     "image": {
         "reset": "રીસેટ કરો",
@@ -427,7 +438,8 @@
         "invalidFile": "અમાન્ય ફાઇલ",
         "errorNoSource": "કોઈ છબી સ્ત્રોત નથી",
         "uploadLimit": "મહત્તમ ફાઇલ કદ: {{size}}",
-        "errorFileSize": "માફ કરશો, પરંતુ ફાઇલ ખૂબ મોટી છે.<br> મહત્તમ ફાઇલ કદ {{size}} છે"
+        "errorFileSize": "માફ કરશો, પરંતુ ફાઇલ ખૂબ મોટી છે.<br> મહત્તમ ફાઇલ કદ {{size}} છે",
+        "TeaserImage": "ટીઝર છબી"
     },
     "questions": {
         "Questions": "પ્રશ્નો",
@@ -498,7 +510,10 @@
         "TopicIcon": "વિષય ચિત્ર",
         "UploadIcon": "અપલોડ આઇકન",
         "Conversation": "વાતચીત",
-        "Metrics": "મેટ્રિક્સ"
+        "Metrics": "મેટ્રિક્સ",
+        "Teaser": "ટીઝર",
+        "TeaserDescription": "ટીઝર વર્ણન...",
+        "TeaserVideo": "ટીઝર વિડિઓ"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "એનિમેટેડ થંબનેલ બનાવો",

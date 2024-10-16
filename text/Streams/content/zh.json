@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType 必须是 &#39;textarea&#39; 或 &#39;text&#39;"
     },
     "preview": {
-        "NewItemTitle": "新物品"
+        "NewItemTitle": "新物品",
+        "Teaser": "预告片"
     },
     "avatar": {
         "firstName": "名",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "回答",
             "description": "答案流"
+        },
+        "Streams\/topic": {
+            "displayType": "话题",
+            "description": "主题流",
+            "newItem": "添加主题"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "无效文件",
         "errorNoSource": "无音源",
         "uploadLimit": "最大文件大小： {{size}}",
-        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}"
+        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
+        "TeaserAudio": "预告音频"
     },
     "video": {
         "reset": "重置",
@@ -393,7 +400,10 @@
         "uploadLimit": "最大文件大小： {{size}}",
         "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
         "createAnimatedThumbnail": "创建动画缩略图",
-        "errorNotAvailable": "抱歉，视频暂时不可用。请稍后重试。"
+        "errorNotAvailable": "抱歉，视频暂时不可用。请稍后重试。",
+        "NewVideo": "新视频",
+        "EditVideo": "編輯影片",
+        "TeaserVideo": "预告视频"
     },
     "pdf": {
         "reset": "重置",
@@ -409,7 +419,8 @@
         "invalidFile": "无效文件",
         "errorNoSource": "没有pdf源",
         "uploadLimit": "最大文件大小： {{size}}",
-        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}"
+        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
+        "TeaserPDF": "预告 PDF"
     },
     "image": {
         "reset": "重置",
@@ -427,7 +438,8 @@
         "invalidFile": "无效文件",
         "errorNoSource": "没有图片来源",
         "uploadLimit": "最大文件大小： {{size}}",
-        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}"
+        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
+        "TeaserImage": "预告图片"
     },
     "questions": {
         "Questions": "问题",
@@ -498,7 +510,10 @@
         "TopicIcon": "主题图片",
         "UploadIcon": "上传图标",
         "Conversation": "对话",
-        "Metrics": "指标"
+        "Metrics": "指标",
+        "Teaser": "预告片",
+        "TeaserDescription": "预告描述...",
+        "TeaserVideo": "预告视频"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "创建动画缩略图",

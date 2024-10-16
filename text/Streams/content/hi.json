@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType &#39;textarea&#39; या &#39;text&#39; होना चाहिए"
     },
     "preview": {
-        "NewItemTitle": "नए वस्तु"
+        "NewItemTitle": "नए वस्तु",
+        "Teaser": "टीज़र"
     },
     "avatar": {
         "firstName": "पहला नाम",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "उत्तर",
             "description": "उत्तर धारा"
+        },
+        "Streams\/topic": {
+            "displayType": "विषय",
+            "description": "विषय धारा",
+            "newItem": "विषय जोड़ें"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "अमान्य लेख्यपत्र",
         "errorNoSource": "कोई ऑडियो स्रोत नहीं",
         "uploadLimit": "अधिकतम फ़ाइल आकार: {{size}}",
-        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है"
+        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है",
+        "TeaserAudio": "टीज़र ऑडियो"
     },
     "video": {
         "reset": "रीसेट",
@@ -393,7 +400,10 @@
         "uploadLimit": "अधिकतम फ़ाइल आकार: {{size}}",
         "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है",
         "createAnimatedThumbnail": "एनिमेटेड थंबनेल बनाएं",
-        "errorNotAvailable": "क्षमा करें, लेकिन वीडियो अभी उपलब्ध नहीं है। कृपया बाद में पुनः प्रयास करें।"
+        "errorNotAvailable": "क्षमा करें, लेकिन वीडियो अभी उपलब्ध नहीं है। कृपया बाद में पुनः प्रयास करें।",
+        "NewVideo": "नया वीडियो",
+        "EditVideo": "वीडियो संपादित करें",
+        "TeaserVideo": "टीज़र वीडियो"
     },
     "pdf": {
         "reset": "रीसेट",
@@ -409,7 +419,8 @@
         "invalidFile": "अमान्य लेख्यपत्र",
         "errorNoSource": "कोई पीडीएफ स्रोत नहीं",
         "uploadLimit": "अधिकतम फ़ाइल आकार: {{size}}",
-        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है"
+        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है",
+        "TeaserPDF": "टीज़र पीडीएफ"
     },
     "image": {
         "reset": "रीसेट",
@@ -427,7 +438,8 @@
         "invalidFile": "अमान्य लेख्यपत्र",
         "errorNoSource": "कोई छवि स्रोत नहीं",
         "uploadLimit": "अधिकतम फ़ाइल आकार: {{size}}",
-        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है"
+        "errorFileSize": "क्षमा करें, लेकिन फ़ाइल बहुत बड़ी है.<br> अधिकतम फ़ाइल आकार {{size}} है",
+        "TeaserImage": "टीज़र छवि"
     },
     "questions": {
         "Questions": "प्रशन",
@@ -498,7 +510,10 @@
         "TopicIcon": "विषय चित्र",
         "UploadIcon": "अपलोड आइकन",
         "Conversation": "बातचीत",
-        "Metrics": "मेट्रिक्स"
+        "Metrics": "मेट्रिक्स",
+        "Teaser": "टीज़र",
+        "TeaserDescription": "टीज़र विवरण...",
+        "TeaserVideo": "टीज़र वीडियो"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "एनिमेटेड थंबनेल बनाएं",

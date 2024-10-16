@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType &#39;mətn sahəsi&#39; və ya &#39;mətn&#39; olmalıdır"
     },
     "preview": {
-        "NewItemTitle": "Yeni Element"
+        "NewItemTitle": "Yeni Element",
+        "Teaser": "Tizer"
     },
     "avatar": {
         "firstName": "ad",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Cavab verin",
             "description": "cavab axını"
+        },
+        "Streams\/topic": {
+            "displayType": "Mövzu",
+            "description": "mövzu axını",
+            "newItem": "Mövzu əlavə edin"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Yanlış Fayl",
         "errorNoSource": "Audio mənbəyi yoxdur",
         "uploadLimit": "Maksimum fayl ölçüsü: {{size}}",
-        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur"
+        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur",
+        "TeaserAudio": "Audio tizer"
     },
     "video": {
         "reset": "Sıfırlayın",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maksimum fayl ölçüsü: {{size}}",
         "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur",
         "createAnimatedThumbnail": "Animasiyalı miniatür yaradın",
-        "errorNotAvailable": "Bağışlayın, lakin video hələ əlçatan deyil. Zəhmət olmasa bir az sonra yenə cəhd edin."
+        "errorNotAvailable": "Bağışlayın, lakin video hələ əlçatan deyil. Zəhmət olmasa bir az sonra yenə cəhd edin.",
+        "NewVideo": "Yeni Video",
+        "EditVideo": "Videonu redaktə edin",
+        "TeaserVideo": "Video tizer"
     },
     "pdf": {
         "reset": "Sıfırlayın",
@@ -409,7 +419,8 @@
         "invalidFile": "Yanlış Fayl",
         "errorNoSource": "Pdf mənbə yoxdur",
         "uploadLimit": "Maksimum fayl ölçüsü: {{size}}",
-        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur"
+        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur",
+        "TeaserPDF": "Tizer pdf"
     },
     "image": {
         "reset": "Sıfırlayın",
@@ -427,7 +438,8 @@
         "invalidFile": "Yanlış Fayl",
         "errorNoSource": "Şəkil mənbəyi yoxdur",
         "uploadLimit": "Maksimum fayl ölçüsü: {{size}}",
-        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur"
+        "errorFileSize": "Bağışlayın, lakin fayl çox böyükdür.<br> Maksimum fayl ölçüsü {{size}} dur",
+        "TeaserImage": "Tizer Şəkil"
     },
     "questions": {
         "Questions": "Suallar",
@@ -498,7 +510,10 @@
         "TopicIcon": "Mövzu şəkli",
         "UploadIcon": "Yükləmə İkonu",
         "Conversation": "Söhbət",
-        "Metrics": "Metriklər"
+        "Metrics": "Metriklər",
+        "Teaser": "Tizer",
+        "TeaserDescription": "tizer təsviri...",
+        "TeaserVideo": "Video tizer"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Animasiyalı miniatür yaradın",

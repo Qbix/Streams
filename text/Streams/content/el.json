@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "Το inplaceType πρέπει να είναι &quot;textarea&quot; ή &quot;text&quot;"
     },
     "preview": {
-        "NewItemTitle": "Νέο αντικείμενο"
+        "NewItemTitle": "Νέο αντικείμενο",
+        "Teaser": "Πειρακτήριο"
     },
     "avatar": {
         "firstName": "όνομα",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Απάντηση",
             "description": "ροή απαντήσεων"
+        },
+        "Streams\/topic": {
+            "displayType": "Θέμα",
+            "description": "ροή θέματος",
+            "newItem": "Προσθήκη θέματος"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Μη έγκυρο αρχείο",
         "errorNoSource": "Δεν υπάρχει πηγή ήχου",
         "uploadLimit": "Μέγιστο μέγεθος αρχείου: {{size}}",
-        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}"
+        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}",
+        "TeaserAudio": "Teaser Audio"
     },
     "video": {
         "reset": "Επαναφορά",
@@ -393,7 +400,10 @@
         "uploadLimit": "Μέγιστο μέγεθος αρχείου: {{size}}",
         "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}",
         "createAnimatedThumbnail": "Δημιουργία κινούμενης μικρογραφίας",
-        "errorNotAvailable": "Λυπούμαστε, αλλά το βίντεο δεν είναι ακόμα διαθέσιμο. Παρακαλώ δοκιμάστε ξανά αργότερα."
+        "errorNotAvailable": "Λυπούμαστε, αλλά το βίντεο δεν είναι ακόμα διαθέσιμο. Παρακαλώ δοκιμάστε ξανά αργότερα.",
+        "NewVideo": "Νέο Βίντεο",
+        "EditVideo": "Επεξεργασία βίντεο",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "Επαναφορά",
@@ -409,7 +419,8 @@
         "invalidFile": "Μη έγκυρο αρχείο",
         "errorNoSource": "Δεν υπάρχει πηγή pdf",
         "uploadLimit": "Μέγιστο μέγεθος αρχείου: {{size}}",
-        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}"
+        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Επαναφορά",
@@ -427,7 +438,8 @@
         "invalidFile": "Μη έγκυρο αρχείο",
         "errorNoSource": "Δεν υπάρχει πηγή εικόνας",
         "uploadLimit": "Μέγιστο μέγεθος αρχείου: {{size}}",
-        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}"
+        "errorFileSize": "Λυπούμαστε, αλλά το αρχείο είναι πολύ μεγάλο.<br> Το μέγιστο μέγεθος αρχείου είναι {{size}}",
+        "TeaserImage": "Teaser εικόνα"
     },
     "questions": {
         "Questions": "Ερωτήσεις",
@@ -498,7 +510,10 @@
         "TopicIcon": "Εικόνα θέματος",
         "UploadIcon": "Μεταφόρτωση εικονίδιο",
         "Conversation": "Συνομιλία",
-        "Metrics": "Μετρήσεις"
+        "Metrics": "Μετρήσεις",
+        "Teaser": "Πειρακτήριο",
+        "TeaserDescription": "περιγραφή teaser...",
+        "TeaserVideo": "Teaser Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Δημιουργία κινούμενης μικρογραφίας",

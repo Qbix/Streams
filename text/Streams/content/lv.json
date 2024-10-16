@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType ir jābūt “textarea” vai “text”"
     },
     "preview": {
-        "NewItemTitle": "Jauns vienums"
+        "NewItemTitle": "Jauns vienums",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "vārds",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Atbilde",
             "description": "atbilžu straume"
+        },
+        "Streams\/topic": {
+            "displayType": "Tēma",
+            "description": "tēmu straume",
+            "newItem": "Pievienot tēmu"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Nederīgs fails",
         "errorNoSource": "Nav audio avota",
         "uploadLimit": "Maksimālais faila lielums: {{size}}",
-        "errorFileSize": "Atvainojiet, bet fails ir pārāk liels.<br> Maksimālais faila lielums ir {{size}}"
+        "errorFileSize": "Atvainojiet, bet fails ir pārāk liels.<br> Maksimālais faila lielums ir {{size}}",
+        "TeaserAudio": "Teaser Audio"
     },
     "video": {
         "reset": "Atiestatīt",
@@ -393,7 +400,10 @@
         "uploadLimit": "Maksimālais faila lielums: {{size}}",
         "errorFileSize": "Atvainojiet, bet fails ir pārāk liels.<br> Maksimālais faila lielums ir {{size}}",
         "createAnimatedThumbnail": "Izveidojiet animētu sīktēlu",
-        "errorNotAvailable": "Atvainojiet, bet video vēl nav pieejams. Lūdzu, pamēģiniet vēlreiz vēlāk."
+        "errorNotAvailable": "Atvainojiet, bet video vēl nav pieejams. Lūdzu, pamēģiniet vēlreiz vēlāk.",
+        "NewVideo": "Jauns Video",
+        "EditVideo": "Rediģēt video",
+        "TeaserVideo": "Teaser Video"
     },
     "pdf": {
         "reset": "Atiestatīt",
@@ -409,7 +419,8 @@
         "invalidFile": "Nederīgs fails",
         "errorNoSource": "Nav pdf avota",
         "uploadLimit": "Maksimālais faila lielums: {{size}}",
-        "errorFileSize": "Atvainojiet, bet fails ir pārāk liels.<br> Maksimālais faila lielums ir {{size}}"
+        "errorFileSize": "Atvainojiet, bet fails ir pārāk liels.<br> Maksimālais faila lielums ir {{size}}",
+        "TeaserPDF": "Teaser PDF"
     },
     "image": {
         "reset": "Atiestatīt",
@@ -427,7 +438,8 @@
         "invalidFile": "Nederīgs fails",
         "errorNoSource": "Nav attēla avota",
         "uploadLimit": "Maksimālais faila lielums: {{size}}",
-        "errorFileSize": "Atvainojiet, bet fails ir pārāk liels.<br> Maksimālais faila lielums ir {{size}}"
+        "errorFileSize": "Atvainojiet, bet fails ir pārāk liels.<br> Maksimālais faila lielums ir {{size}}",
+        "TeaserImage": "Teaser attēls"
     },
     "questions": {
         "Questions": "Jautājumi",
@@ -498,7 +510,10 @@
         "TopicIcon": "Tēmas attēls",
         "UploadIcon": "Augšupielādes ikona",
         "Conversation": "Saruna",
-        "Metrics": "Metrika"
+        "Metrics": "Metrika",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser apraksts...",
+        "TeaserVideo": "Teaser Video"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Izveidojiet animētu sīktēlu",

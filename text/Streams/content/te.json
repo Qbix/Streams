@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType తప్పనిసరిగా &#39;textarea&#39; లేదా &#39;text&#39; అయి ఉండాలి"
     },
     "preview": {
-        "NewItemTitle": "కొత్త వస్తువు"
+        "NewItemTitle": "కొత్త వస్తువు",
+        "Teaser": "టీజర్"
     },
     "avatar": {
         "firstName": "మొదటి పేరు",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "సమాధానం",
             "description": "జవాబు ప్రవాహం"
+        },
+        "Streams\/topic": {
+            "displayType": "అంశం",
+            "description": "టాపిక్ స్ట్రీమ్",
+            "newItem": "అంశాన్ని జోడించండి"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "చెల్లని ఫైల్",
         "errorNoSource": "ఆడియో సోర్స్ లేదు",
         "uploadLimit": "గరిష్ట ఫైల్ పరిమాణం: {{size}}",
-        "errorFileSize": "క్షమించండి, కానీ ఫైల్ చాలా పెద్దది.<br> గరిష్ట ఫైల్ పరిమాణం {{size}}"
+        "errorFileSize": "క్షమించండి, కానీ ఫైల్ చాలా పెద్దది.<br> గరిష్ట ఫైల్ పరిమాణం {{size}}",
+        "TeaserAudio": "టీజర్ ఆడియో"
     },
     "video": {
         "reset": "రీసెట్ చేయండి",
@@ -393,7 +400,10 @@
         "uploadLimit": "గరిష్ట ఫైల్ పరిమాణం: {{size}}",
         "errorFileSize": "క్షమించండి, కానీ ఫైల్ చాలా పెద్దది.<br> గరిష్ట ఫైల్ పరిమాణం {{size}}",
         "createAnimatedThumbnail": "యానిమేటెడ్ సూక్ష్మచిత్రాన్ని సృష్టించండి",
-        "errorNotAvailable": "క్షమించండి, కానీ వీడియో ఇంకా అందుబాటులో లేదు. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి."
+        "errorNotAvailable": "క్షమించండి, కానీ వీడియో ఇంకా అందుబాటులో లేదు. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి.",
+        "NewVideo": "కొత్త వీడియో",
+        "EditVideo": "వీడియోను సవరించండి",
+        "TeaserVideo": "టీజర్ వీడియో"
     },
     "pdf": {
         "reset": "రీసెట్ చేయండి",
@@ -409,7 +419,8 @@
         "invalidFile": "చెల్లని ఫైల్",
         "errorNoSource": "పిడిఎఫ్ మూలం లేదు",
         "uploadLimit": "గరిష్ట ఫైల్ పరిమాణం: {{size}}",
-        "errorFileSize": "క్షమించండి, కానీ ఫైల్ చాలా పెద్దది.<br> గరిష్ట ఫైల్ పరిమాణం {{size}}"
+        "errorFileSize": "క్షమించండి, కానీ ఫైల్ చాలా పెద్దది.<br> గరిష్ట ఫైల్ పరిమాణం {{size}}",
+        "TeaserPDF": "టీజర్ PDF"
     },
     "image": {
         "reset": "రీసెట్ చేయండి",
@@ -427,7 +438,8 @@
         "invalidFile": "చెల్లని ఫైల్",
         "errorNoSource": "చిత్ర మూలం లేదు",
         "uploadLimit": "గరిష్ట ఫైల్ పరిమాణం: {{size}}",
-        "errorFileSize": "క్షమించండి, కానీ ఫైల్ చాలా పెద్దది.<br> గరిష్ట ఫైల్ పరిమాణం {{size}}"
+        "errorFileSize": "క్షమించండి, కానీ ఫైల్ చాలా పెద్దది.<br> గరిష్ట ఫైల్ పరిమాణం {{size}}",
+        "TeaserImage": "టీజర్ చిత్రం"
     },
     "questions": {
         "Questions": "ప్రశ్నలు",
@@ -498,7 +510,10 @@
         "TopicIcon": "టాపిక్ చిత్రం",
         "UploadIcon": "అప్‌లోడ్ చిహ్నం",
         "Conversation": "సంభాషణ",
-        "Metrics": "కొలమానాలు"
+        "Metrics": "కొలమానాలు",
+        "Teaser": "టీజర్",
+        "TeaserDescription": "టీజర్ వివరణ...",
+        "TeaserVideo": "టీజర్ వీడియో"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "యానిమేటెడ్ సూక్ష్మచిత్రాన్ని సృష్టించండి",

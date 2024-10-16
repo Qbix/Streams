@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "inplaceType は &#39;textarea&#39; または &#39;text&#39; でなければなりません"
     },
     "preview": {
-        "NewItemTitle": "新商品"
+        "NewItemTitle": "新商品",
+        "Teaser": "ティーザー"
     },
     "avatar": {
         "firstName": "ファーストネーム",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "答え",
             "description": "回答ストリーム"
+        },
+        "Streams\/topic": {
+            "displayType": "トピック",
+            "description": "トピックストリーム",
+            "newItem": "トピックを追加"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "無効なファイル",
         "errorNoSource": "音源なし",
         "uploadLimit": "最大ファイル サイズ: {{size}}",
-        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です"
+        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です",
+        "TeaserAudio": "ティーザーオーディオ"
     },
     "video": {
         "reset": "リセット",
@@ -393,7 +400,10 @@
         "uploadLimit": "最大ファイル サイズ: {{size}}",
         "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です",
         "createAnimatedThumbnail": "アニメーションサムネイルを作成する",
-        "errorNotAvailable": "申し訳ありませんが、ビデオはまだ利用できません。しばらくしてからもう一度お試しください。"
+        "errorNotAvailable": "申し訳ありませんが、ビデオはまだ利用できません。しばらくしてからもう一度お試しください。",
+        "NewVideo": "新しいビデオ",
+        "EditVideo": "ビデオ編集",
+        "TeaserVideo": "ティーザービデオ"
     },
     "pdf": {
         "reset": "リセット",
@@ -409,7 +419,8 @@
         "invalidFile": "無効なファイル",
         "errorNoSource": "PDFソースなし",
         "uploadLimit": "最大ファイル サイズ: {{size}}",
-        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です"
+        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です",
+        "TeaserPDF": "ティーザーPDF"
     },
     "image": {
         "reset": "リセット",
@@ -427,7 +438,8 @@
         "invalidFile": "無効なファイル",
         "errorNoSource": "画像ソースなし",
         "uploadLimit": "最大ファイル サイズ: {{size}}",
-        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です"
+        "errorFileSize": "申し訳ありませんが、ファイルが大きすぎます。<br>最大ファイル サイズは{{size}}です",
+        "TeaserImage": "ティーザー画像"
     },
     "questions": {
         "Questions": "質問",
@@ -498,7 +510,10 @@
         "TopicIcon": "トピック画像",
         "UploadIcon": "アップロードアイコン",
         "Conversation": "会話",
-        "Metrics": "メトリクス"
+        "Metrics": "メトリクス",
+        "Teaser": "ティーザー",
+        "TeaserDescription": "ティーザーの説明...",
+        "TeaserVideo": "ティーザービデオ"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "アニメーションサムネイルを作成する",

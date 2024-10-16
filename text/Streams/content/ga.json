@@ -4,7 +4,8 @@
         "InplaceTypeMustBe": "Ní mór &#39;textarea&#39; nó &#39;téacs&#39; a bheith inplaceType"
     },
     "preview": {
-        "NewItemTitle": "Mír Nua"
+        "NewItemTitle": "Mír Nua",
+        "Teaser": "Teaser"
     },
     "avatar": {
         "firstName": "ainm",
@@ -351,6 +352,11 @@
         "Streams\/answer": {
             "displayType": "Freagra",
             "description": "sruth freagra"
+        },
+        "Streams\/topic": {
+            "displayType": "Topaic",
+            "description": "sruth ábhar",
+            "newItem": "Cuir Topaic leis"
         }
     },
     "menu": {
@@ -375,7 +381,8 @@
         "invalidFile": "Comhad Neamhbhailí",
         "errorNoSource": "Gan fhoinse fuaime",
         "uploadLimit": "Uasmhéid comhaid: {{size}}",
-        "errorFileSize": "Ár leithscéal, ach tá an comhad rómhór.<br> Is é {{size}} méid uasta comhaid"
+        "errorFileSize": "Ár leithscéal, ach tá an comhad rómhór.<br> Is é {{size}} méid uasta comhaid",
+        "TeaserAudio": "Fuaime Teaser"
     },
     "video": {
         "reset": "Athshocraigh",
@@ -393,7 +400,10 @@
         "uploadLimit": "Uasmhéid comhaid: {{size}}",
         "errorFileSize": "Ár leithscéal, ach tá an comhad rómhór.<br> Is é {{size}} méid comhaid uasta",
         "createAnimatedThumbnail": "Cruthaigh mionsamhail beoite",
-        "errorNotAvailable": "Ár leithscéal, níl an físeán ar fáil go fóill. Bain triail eile as ar ball."
+        "errorNotAvailable": "Ár leithscéal, níl an físeán ar fáil go fóill. Bain triail eile as ar ball.",
+        "NewVideo": "Físeán Nua",
+        "EditVideo": "Cuir Físeán in Eagar",
+        "TeaserVideo": "Físeán teaser"
     },
     "pdf": {
         "reset": "Athshocraigh",
@@ -409,7 +419,8 @@
         "invalidFile": "Comhad Neamhbhailí",
         "errorNoSource": "Níl aon fhoinse pdf",
         "uploadLimit": "Uasmhéid comhaid: {{size}}",
-        "errorFileSize": "Ár leithscéal, ach tá an comhad rómhór.<br> Is é {{size}} méid uasta comhaid"
+        "errorFileSize": "Ár leithscéal, ach tá an comhad rómhór.<br> Is é {{size}} méid uasta comhaid",
+        "TeaserPDF": "Teaser pdf"
     },
     "image": {
         "reset": "Athshocraigh",
@@ -427,7 +438,8 @@
         "invalidFile": "Comhad Neamhbhailí",
         "errorNoSource": "Gan fhoinse íomhá",
         "uploadLimit": "Uasmhéid comhaid: {{size}}",
-        "errorFileSize": "Ár leithscéal, ach tá an comhad rómhór.<br> Is é {{size}} méid uasta comhaid"
+        "errorFileSize": "Ár leithscéal, ach tá an comhad rómhór.<br> Is é {{size}} méid uasta comhaid",
+        "TeaserImage": "Íomhá teaser"
     },
     "questions": {
         "Questions": "Ceisteanna",
@@ -498,7 +510,10 @@
         "TopicIcon": "Pictiúr topaic",
         "UploadIcon": "Uaslódáil Icon",
         "Conversation": "Comhrá",
-        "Metrics": "Méadracht"
+        "Metrics": "Méadracht",
+        "Teaser": "Teaser",
+        "TeaserDescription": "cur síos teaser...",
+        "TeaserVideo": "Físeán teaser"
     },
     "animatedThumbnail": {
         "CreateAnimatedThumbnail": "Cruthaigh mionsamhail beoite",
