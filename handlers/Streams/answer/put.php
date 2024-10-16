@@ -5,6 +5,7 @@ function Streams_answer_put ($params) {
 
 	$request = array_merge($_REQUEST, $params);
 	$content = Q::ifset($request, "content", null);
+	$text = Q_Text::get('Streams/content')['questions'];
 
 	$publisherId = Streams::requestedPublisherId(true);
 	$streamName = Streams::requestedName(true);
@@ -29,36 +30,34 @@ function Streams_answer_put ($params) {
 		throw new Streams_Exception_NoSuchStream();
 	}
 	$questionStream = Streams::fetchOne(null, $questionStream->toPublisherId, $questionStream->toStreamName, true);
-	if ($questionStream->getAttribute("cantChangeAnswers")) {
-		if ($answerStream->getAttribute("type") != "option.exclusive") {
-			if (empty($content)) {
-				throw new Exception(empty($content) ? "Answer can't be changed" : "return");
-			}
-		} else {
-			$relatedAnswers = Streams_RelatedTo::select()->where(array(
-				"toPublisherId" => $questionStream->publisherId,
-				"toStreamName" => $questionStream->name,
-				"type" => "Streams/answers",
-			))->fetchDbRows();
-			foreach ($relatedAnswers as $relatedAnswer) {
-				$relatedAnswer = Streams::fetchOne(null, $relatedAnswer->fromPublisherId, $relatedAnswer->fromStreamName, true);
-				if ($relatedAnswer->getAttribute("type") != "option.exclusive") {
-					continue;
-				}
+	if ($questionStream->getAttribute("cantChangeAnswers") && $answerStream->getAttribute("type") == "option" && empty($content)) {
+		throw new Exception($text['AnswerCantBeChanged']);
+	}
 
-				$participated = Streams_Participant::select("count(*) as res")
-					->where(array(
-						"publisherId" => $relatedAnswer->publisherId,
-						"streamName" => $relatedAnswer->name,
-						"userId" => $user->id,
-						"state" => "participating"
-					))
-					->ignoreCache()
-					->execute()
-					->fetchAll(PDO::FETCH_ASSOC)[0]["res"];
-				if ($participated) {
-					throw new Exception(empty($content) ? "Answer can't be changed" : "return");
-				}
+	$relatedAnswers = Streams_RelatedTo::select()->where(array(
+		"toPublisherId" => $questionStream->publisherId,
+		"toStreamName" => $questionStream->name,
+		"type" => "Streams/answers",
+	))->fetchDbRows();
+	foreach ($relatedAnswers as $relatedAnswer) {
+		$relatedAnswer = Streams::fetchOne(null, $relatedAnswer->fromPublisherId, $relatedAnswer->fromStreamName, true);
+		$participated = Streams_Participant::select("count(*) as res")
+			->where(array(
+				"publisherId" => $relatedAnswer->publisherId,
+				"streamName" => $relatedAnswer->name,
+				"userId" => $user->id,
+				"state" => "participating"
+			))
+			->ignoreCache()
+			->execute()
+			->fetchAll(PDO::FETCH_ASSOC)[0]["res"];
+		if ($participated) {
+			if ($questionStream->getAttribute("cantChangeAnswers") && $answerStream->getAttribute("type") != "option" && $relatedAnswer->getAttribute("type") != "option") {
+				throw new Exception($text['AnswerCantBeChanged']);
+			}
+
+			if ($answerStream->getAttribute("type") == "option.exclusive" && $relatedAnswer->name != $answerStream->name) {
+				$relatedAnswer->leave(array('userId' => $user->id));
 			}
 		}
 	}

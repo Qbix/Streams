@@ -132,7 +132,7 @@ function Streams_stream_put($params) {
 			$req['attributes'] = (array)$req['attributes'];
 		}
 		foreach ($req['attributes'] as $k => $v) {
-			$v = $v == "null" ? null : $v;
+			$v = $v === "null" ? null : $v;
 			$stream->setAttribute($k, $v);
 		}
 		unset($req['attributes']);
