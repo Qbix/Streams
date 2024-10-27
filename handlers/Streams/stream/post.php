@@ -12,12 +12,11 @@
  *   @param {string} $params.publisherId  Required. The id of the user to publish the stream.
  *   @param {string} [$params.type] The type of the stream. If stream name defined will try to get type from config, otherwise type should be in request.
  *   @param {string} [$params.name] Optionally set the exact name of the stream to be created. This only works if the name of the stream is in Streams/possibleUserStreams config array, and the logged-inuser has adminLevel >= "own".
- *   @param {string|array} [$params.private] Pass to mark this stream as private, can also be an array containing ["invite"]
+ *   @param {boolean|array} [$params.private] Pass true to mark this stream as private, can also be an array containing ["invite"]
  *   @param {string} [$params.Q_Streams_related_publisherId] Optionally indicate the publisher of the stream to relate the newly created to. Used together with the related.streamName option.
  *   @param {string} [$params.Q_Streams_related_streamName] Optionally indicate the name of a stream to relate the newly crated stream to. This is often necessary in order to obtain permissions to create the stream.
  *   @param {bool} [$params.dontSubscribe=false] Pass 1 or true here in order to skip auto-subscribing to the newly created stream.
  *   @param {string} [$params.accessProfileName] The name of the access profile in the config, for this type of stream, if specified it overrides public access saved in templates
- *   @param {boolean|array} [$params.private] Pass true to mark this stream as private, can also be an array containing ["invite"]
  *   @param {boolean} [$params.notices] Pass true to mark this stream as generating notices even if user retained it
  *   @param {array} [$params.icon] This is used to upload a custom icon for the stream which will then be saved in different sizes. See fields for Q/image/post method
  *     @param {string} [$params.icon.data]  Required if $_FILES is empty. Base64-encoded  data URI - see RFC 2397
@@ -133,7 +132,7 @@ function Streams_stream_post($params = array())
 
 	// Set up options
 	$result = null;
-	$options = compact('private', 'accessProfileName', 'notices');
+	$options = Q::take($req, array('private', 'accessProfileName', 'notices'));
 	$options['relate'] = $relate;
 	$options['result'] = &$result;
 
