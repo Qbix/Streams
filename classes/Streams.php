@@ -698,12 +698,12 @@ abstract class Streams extends Base_Streams
 	 * @method justPublicStreams
 	 * @static
 	 * @param {array} $streams
-	 * @return {array}
+	 * @return {array} In the format array(publisherId => array(name => true))
 	 */
 	static function justPublicStreams($streams)
 	{
 		$public = array();
-		foreach ($participating as $stream) {
+		foreach ($streams as $stream) {
 			if (!$stream->isPrivate()
 			and $stream->readLevel >= Streams::$READ_LEVEL['messages']) {
 				// can be fetched in bulk as a public stream
