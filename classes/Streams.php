@@ -694,6 +694,26 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
+	 * Returns the streams that are not private and whose readLevel >= messages
+	 * @method justPublicStreams
+	 * @static
+	 * @param {array} $streams
+	 * @return {array}
+	 */
+	static function justPublicStreams($streams)
+	{
+		$public = array();
+		foreach ($participating as $stream) {
+			if (!$stream->isPrivate()
+			and $stream->readLevel >= Streams::$READ_LEVEL['messages']) {
+				// can be fetched in bulk as a public stream
+				$public[$stream->publisherId][$stream->name] = true;
+			}
+		}
+		return $public;
+	}
+
+	/**
 	 * Tell the client using scriptData to call Q.Streams.arePublic()
 	 * and mark some streams as public
 	 * @method arePublic
