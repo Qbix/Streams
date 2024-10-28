@@ -925,10 +925,12 @@ Streams.Chat = {
 
 Q.Tool.onActivate("Streams/chat").set(function () {
 	var $e = $(this.element);
-	Q.each(Streams.Chat.extensions, function (i, name) {
-		$e.tool(name);
-	});
-	$e.activate();
+	setTimeout(function () {
+		Q.each(Streams.Chat.extensions, function (i, name) {
+			$e.tool(name);
+		});
+		$e.activate();
+	}, 0);
 }, 'Streams');
 
 /**
