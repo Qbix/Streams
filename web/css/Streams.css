@@ -839,3 +839,7 @@
 .Q_overlay.Streams_chat_streams_video {
 	min-width: 90% !important;
 }
+
+.Q_overlay.Streams_chat_streams_pdf {
+	min-height: 70vh;
+}
