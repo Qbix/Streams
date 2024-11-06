@@ -147,14 +147,17 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 
 						answerTool.updateContent(loggedInUserId, response.slots.content);
 
-						answerTool.stream.refresh(function (err) {
-							if (err) {
-								return;
-							}
-							
-							answerTool.stream = this;
-							answerTool.setParticipants();
-						}, {messages: true, unlessSocket: true, evenIfNotRetained: true});
+						var answerTools = tool.children('Streams/answer/preview');
+						for (var k in ) {
+							var answerTool = answerTools[k];
+							answerTool.stream.refresh(function (err) {
+								if (err) {
+									return;
+								}
+								answerTool.stream = this;
+								answerTool.setParticipants();
+							}, {messages: true, unlessSocket: true, evenIfNotRetained: true});
+						}
 					};
 
 					$("input[type=radio],input[type=checkbox]", answerTool.element).on('change', function () {
