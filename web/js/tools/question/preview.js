@@ -144,18 +144,16 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 						}
 
 						$(answerTool.element).attr("data-participating", !!response.slots.content);
-
 						answerTool.updateContent(loggedInUserId, response.slots.content);
 
 						var answerTools = tool.children('Streams/answer/preview');
 						for (var k in children) {
-							var answerTool = answerTools[k];
-							answerTool.stream.refresh(function (err) {
+							answerTools[k].stream.refresh(function (err) {
 								if (err) {
 									return;
 								}
-								answerTool.stream = this;
-								answerTool.setParticipants();
+								answerTools[k].stream = this;
+								answerTools[k].setParticipants();
 							}, {messages: true, unlessSocket: true, evenIfNotRetained: true});
 						}
 					};
