@@ -147,7 +147,7 @@ Q.Tool.define("Streams/question/preview", ["Streams/preview"], function _Streams
 						answerTool.updateContent(loggedInUserId, response.slots.content);
 
 						var answerTools = tool.children('Streams/answer/preview');
-						for (var k in children) {
+						for (var k in answerTools) {
 							answerTools[k].stream.refresh(function (err) {
 								if (err) {
 									return;
