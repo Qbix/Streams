@@ -29,9 +29,9 @@ var Row = Q.require('Db/Row');
  * @param {String|Buffer} [fields.grantedByUserId] defaults to null
  * @param {String|Db.Expression} [fields.insertedTime] defaults to new Db.Expression("CURRENT_TIMESTAMP")
  * @param {String|Db.Expression} [fields.updatedTime] defaults to null
- * @param {Integer} [fields.readLevel] defaults to 0
- * @param {Integer} [fields.writeLevel] defaults to 0
- * @param {Integer} [fields.adminLevel] defaults to 0
+ * @param {Integer} [fields.readLevel] defaults to -1
+ * @param {Integer} [fields.writeLevel] defaults to -1
+ * @param {Integer} [fields.adminLevel] defaults to -1
  * @param {String} [fields.permissions] defaults to null
  */
 function Base (fields) {
@@ -91,20 +91,20 @@ Q.mixin(Base, Row);
 /**
  * @property readLevel
  * @type Integer
- * @default 0
- * <0=ignored, 0='none', 10='see', 20='content', 30='participants', 40='messages'
+ * @default -1
+ * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 35='messages', 40='receipts'
  */
 /**
  * @property writeLevel
  * @type Integer
- * @default 0
- * <0=ignored, 0='none', 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+ * @default -1
+ * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
  */
 /**
  * @property adminLevel
  * @type Integer
- * @default 0
- * <0=ignored, 0='none', 10='publish', 20='invite', 30='manage', 40='own'
+ * @default -1
+ * 0=none, 10='publish', 20='invite', 30='manage', 40='own'
  */
 /**
  * @property permissions
@@ -648,7 +648,7 @@ Base.prototype.maxSize_readLevel = function () {
 	 */
 Base.column_readLevel = function () {
 
-return [["int",null,null,null],false,"","0"];
+return [["int",null,null,null],false,"","-1"];
 };
 
 /**
@@ -683,7 +683,7 @@ Base.prototype.maxSize_writeLevel = function () {
 	 */
 Base.column_writeLevel = function () {
 
-return [["int",null,null,null],false,"","0"];
+return [["int",null,null,null],false,"","-1"];
 };
 
 /**
@@ -718,7 +718,7 @@ Base.prototype.maxSize_adminLevel = function () {
 	 */
 Base.column_adminLevel = function () {
 
-return [["int",null,null,null],false,"","0"];
+return [["int",null,null,null],false,"","-1"];
 };
 
 /**

@@ -24,9 +24,9 @@
  * @param {string} [$fields.grantedByUserId] defaults to null
  * @param {string|Db_Expression} [$fields.insertedTime] defaults to new Db_Expression("CURRENT_TIMESTAMP")
  * @param {string|Db_Expression} [$fields.updatedTime] defaults to null
- * @param {integer} [$fields.readLevel] defaults to 0
- * @param {integer} [$fields.writeLevel] defaults to 0
- * @param {integer} [$fields.adminLevel] defaults to 0
+ * @param {integer} [$fields.readLevel] defaults to -1
+ * @param {integer} [$fields.writeLevel] defaults to -1
+ * @param {integer} [$fields.adminLevel] defaults to -1
  * @param {string} [$fields.permissions] defaults to null
  */
 abstract class Base_Streams_Access extends Db_Row
@@ -82,20 +82,20 @@ abstract class Base_Streams_Access extends Db_Row
 	/**
 	 * @property $readLevel
 	 * @type integer
-	 * @default 0
-	 * <0=ignored, 0='none', 10='see', 20='content', 30='participants', 40='messages'
+	 * @default -1
+	 * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 35='messages', 40='receipts'
 	 */
 	/**
 	 * @property $writeLevel
 	 * @type integer
-	 * @default 0
-	 * <0=ignored, 0='none', 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+	 * @default -1
+	 * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
 	 */
 	/**
 	 * @property $adminLevel
 	 * @type integer
-	 * @default 0
-	 * <0=ignored, 0='none', 10='publish', 20='invite', 30='manage', 40='own'
+	 * @default -1
+	 * 0=none, 10='publish', 20='invite', 30='manage', 40='own'
 	 */
 	/**
 	 * @property $permissions
@@ -799,7 +799,7 @@ return array (
   ),
   1 => false,
   2 => '',
-  3 => '0',
+  3 => '-1',
 );			
 	}
 
@@ -854,7 +854,7 @@ return array (
   ),
   1 => false,
   2 => '',
-  3 => '0',
+  3 => '-1',
 );			
 	}
 
@@ -909,7 +909,7 @@ return array (
   ),
   1 => false,
   2 => '',
-  3 => '0',
+  3 => '-1',
 );			
 	}
 

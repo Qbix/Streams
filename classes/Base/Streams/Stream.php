@@ -99,19 +99,19 @@ abstract class Base_Streams_Stream extends Db_Row
 	 * @property $readLevel
 	 * @type integer
 	 * @default 40
-	 * <0=ignored, 0='none', 10='see', 20='content', 30='participants', 40='messages'
+	 * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 35='messages', 40='receipts'
 	 */
 	/**
 	 * @property $writeLevel
 	 * @type integer
 	 * @default 10
-	 * <0=ignored, 0='none', 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+	 * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
 	 */
 	/**
 	 * @property $adminLevel
 	 * @type integer
 	 * @default 20
-	 * <0=ignored, 0='none', 10='publish', 20='invite', 30='manage', 40='own'
+	 * 0=none, 10='publish', 20='invite', 30='manage', 40='own'
 	 */
 	/**
 	 * @property $permissions
