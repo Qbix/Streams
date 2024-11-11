@@ -100,7 +100,7 @@ function Streams_stream_put($params) {
 	$icon = Q::ifset($fieldNames, 'icon', null);
 	if (is_array($icon)) {
 		unset($fieldNames['icon']);
-		Q_Response::setSlot('icon', Q::event("Q/image/post", $icon));
+		Q_Response::setSlot('icon', Q_Image::postNewImage($icon));
 	}
 	
 	// Process any file that was posted

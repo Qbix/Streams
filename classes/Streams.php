@@ -4106,16 +4106,18 @@ abstract class Streams extends Base_Streams
 
 			$assign = Q::ifset($options, 'assign', array());
 			if ($assign) {
+				// SECURITY: anyone inviting this user can set the initial fields to anything
 				try {
-					$assign['userId'] = $userId;
-					Q::event("Streams/basic/post", $assign);
+					Streams_Internal::updateBasicStreams($userId, $assign);
 				} catch (Exception $e) {}
-				if (!empty($assign['icon'])) {
+				$user = Users::fetch($userId);
+				if (!empty($assign['icon']) and $user and !Users::isCustomIcon($user->icon)) {
 					try {
-						Q::event('Q/image/post', array(
+						$subpath = Q_Utils::splitId($userId, 3, '/')."/icon/".time();
+						Q_Image::postNewImage(array(
 							'data' => $assign['icon'],
 							'path' => "Q/uploads/Users",
-							'subpath' => Q_Utils::splitId($userId, 3, '/')."/icon/".time(),
+							'subpath' => $subpath,
 							'save' => "Users/icon",
 							'skipAccess' => true
 						));
@@ -5568,10 +5570,11 @@ abstract class Streams extends Base_Streams
 		}
 
 		// upload image to stream
+		$subpath = Q_Utils::splitId($publisherId, 3, '/')."/".$streamName."/icon/".time();
 		Q_Image::save(array(
 			'data' => $icon, // these frills, with base64 and comma, to format image data for Q/image/post handler.
 			'path' => "Q/uploads/Streams",
-			'subpath' => Q_Utils::splitId($publisherId, 3, '/')."/".$streamName."/icon/".time(),
+			'subpath' => $subpath,
 			'save' => $save,
 			'skipAccess' => $skipAccess
 		));

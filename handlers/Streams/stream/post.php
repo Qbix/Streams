@@ -190,7 +190,7 @@ function Streams_stream_post($params = array())
 		if (empty($icon['subpath'])) {
 			$icon['subpath'] = $splitId.DS.$streamName.DS."icon".DS.time();
 		}
-		Q_Response::setSlot('icon', Q::event("Q/image/post", $icon));
+		Q_Response::setSlot('icon', Q_Image::postNewImage($icon));
 		// the Streams/after/Q_image_save hook saves some attributes
 	}
 
