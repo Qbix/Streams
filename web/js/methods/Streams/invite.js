@@ -140,6 +140,7 @@ Q.exports(function() {
                 fields: fields,
                 baseUrl: baseUrl
             });
+            // At the same time, synchronously continue to handle event and open external link:
             var rsd = r.data;
             var rss = r.stream;
             var t;

@@ -158,7 +158,7 @@
 		"writeLevel": 0,
 		"adminLevel": 0,
 		"platforms": {
-			"web3": "email"
+			
 		}
 	},
 	"Streams/user/status": {
