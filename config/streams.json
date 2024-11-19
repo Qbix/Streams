@@ -154,7 +154,7 @@
 		"type": "Streams/xid/web3",
 		"title": "Web3 Address",
 		"icon": "",
-		"readLevel": 20,
+		"readLevel": 23,
 		"writeLevel": 0,
 		"adminLevel": 0,
 		"platforms": {
