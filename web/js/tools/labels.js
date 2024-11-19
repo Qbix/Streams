@@ -20,7 +20,7 @@ Q.Tool.define("Streams/labels", function(options) {
 	var tool = this;
 	var state = tool.state;
 	var publisherId = state.publisherId || Users.loggedInUserId();
-	if (!state.prefix || state.prefix.substring(-1) !== '/') {
+	if (!state.prefix || state.prefix[state.prefix.length] !== '/') {
 		throw new Q.Error("Streams/labels: prefix must end in a slash");
 	}
 	if (!publisherId) {
