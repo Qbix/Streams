@@ -439,7 +439,7 @@ Q.Tool.define("Streams/preview", function _Streams_preview(options) {
 							var iconUrl = this.iconUrl(40);
 							var p = 'Q/plugins/';
 							var i = iconUrl.indexOf('Q/plugins/');
-							if (iconUrl.substr(i+p.length).startsWith('Users/')) {
+							if (iconUrl.substring(i+p.length).startsWith('Users/')) {
 								// uploading a user icon
 								path = 'Q/uploads/Users';
 								subpath = state.publisherId.splitId() + '/icon';

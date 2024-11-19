@@ -1223,7 +1223,7 @@ Streams.iconUrl = function(icon, basename) {
 	basename = (String(basename).match(/\.\w+$/g)) ? basename : basename+'.png';
 	icon = icon.match(/\.\w+$/g) ? icon : icon + (basename ? '/' + basename : '');
 	var src = Q.interpolateUrl(icon);
-	return src.isUrl() || icon.substr(0, 2) == '{{'
+	return src.isUrl() || icon.substring(0, 2) == '{{'
 		? Q.url(src)
 		: Q.url('{{Streams}}/img/icons/'+src);
 };

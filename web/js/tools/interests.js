@@ -407,7 +407,7 @@ Q.Tool.define("Streams/interests", function (options) {
 											matched = false;
 											for (var i2=0; i2<pl2; ++i2) {
 												var p1 = parts1[i1];
-												var p2 = parts2[i2].substr(0, p1.length).toLowerCase();
+												var p2 = parts2[i2].substring(0, p1.length).toLowerCase();
 												if (p1 === p2) {
 													matched = true;
 													break;

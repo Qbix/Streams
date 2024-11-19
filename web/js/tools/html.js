@@ -127,8 +127,8 @@ Q.Tool.define("Streams/html", function (options) {
 				$toolElement.froalaEditor(state.froala)
 				.on('froalaEditor.image.removed', function (e, editor, $img) {
 					var src = $img.attr('src');
-					if (src.substr(0, 5) === 'data:'
-					|| src.substr(0, 5) === 'blob:') {
+					if (src.substring(0, 5) === 'data:'
+					|| src.substring(0, 5) === 'blob:') {
 						return;
 					}
 					var parts = src.split('/');

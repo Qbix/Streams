@@ -440,7 +440,7 @@ Streams.iconUrl = function(icon, size) {
 	size = (String(size).match(/\.\w+$/g)) ? size : size+'.png';
 	icon = icon.match(/\w+\/\w+\.\w+$/g) ? icon : icon + (size ? '/' + size : '');
 	var src = Q.interpolateUrl(icon);
-	return src.isUrl() || icon.substr(0, 2) == '{{'
+	return src.isUrl() || icon.substring(0, 2) == '{{'
 		? Q.url(src)
 		: Q.url('{{Streams}}/img/icons/'+src);
 };
