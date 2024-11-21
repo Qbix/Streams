@@ -586,7 +586,8 @@ abstract class Streams extends Base_Streams
 	 * because the stream content should be accessible to be read by anybody,
 	 * i.e. at least testReadLevel('content').
 	 * It simply returns the Streams_Stream rows with their own public read/write/admin levels.
-	 * Also, it skips any sort of template and mutable stuff.
+	 * It may end up missing some streams, if they weren't in the database.
+	 * Also, it skips any sort of template and mutable streams.
 	 * @method fetchPublicStreams
 	 * @static
 	 * @param {array} $publishersAndNames
@@ -595,7 +596,6 @@ abstract class Streams extends Base_Streams
 	 * @return {array}
 	 *  Returns an array of Streams_Stream objects indexed by
 	 *  $publisherId => $name => $stream
-	 *  It may end up missing some streams, if they weren't in the database.
 	 */
 	static function fetchPublicStreams(
 		$publishersAndNames,
@@ -2523,7 +2523,7 @@ abstract class Streams extends Base_Streams
 	 * Fetch all the streams which are related to, or from, a given stream.
 	 * Right now, all the streams that are fetched have to be from the same publisher.
 	 * So, if there are relations to streams from other publishers, you have to additionally
-	 * go ahead and fetch them yourself.
+	 * go ahead and fetch them yourself. Also consider using relationsOnly and calling publishersAndNames() .
 	 * @method related
 	 * @static
 	 * @param {string} $asUserId
@@ -2553,7 +2553,7 @@ abstract class Streams extends Base_Streams
 	 * @param {array} [$options.fetchOptions] An array of any options to pass to Streams::fetch when fetching streams
 	 * @param {array} [$options.relationsOnly] If true, returns only the relations to/from stream, doesn't fetch the other data. Useful if publisher id of relation objects is not the same as provided by publisherId.
 	 * @param {array} [$options.streamsOnly] If true, returns only the streams related to/from stream, doesn't return the other data.
-	 * @param {array} [$options.fetchPublicStreams] If true, when fetching streams, also gets those published by others, using Streams::fetchPublicStreams() method which doesn't check access
+	 *    Note that the streams returned by this function are only the ones published by the publisherId.
 	 * @param {array} [$options.streamFields] If specified, fetches only the fields listed here for any streams.
 	 * @param {callable} [$options.filterUsersFunction] Optional function to call to filter the relations. It should return a filtered array of relations.
 	 * @param {array} [$options.dontFilterUsers] Pass true to skip filtering using Users/filter/users event
@@ -2776,23 +2776,15 @@ abstract class Streams extends Base_Streams
 		}
 		$FTP = $FT.'PublisherId';
 		$FSN = $FT.'StreamName';
-		if (!empty($options['fetchPublicStreams'])) {
-			$publishersAndNames = array();
-			foreach ($relations as $name => $r) {
-				$publishersAndNames[$r->FTP][] = $r->FSN;
+		$names = array();
+		foreach ($relations as $name => $r) {
+			if ($r->$FTP === $publisherId) {
+				$names[] = $r->$FSN;
 			}
-			Streams::fetchPublicStreams($publishersAndNames);
-		} else {
-			$names = array();
-			foreach ($relations as $name => $r) {
-				if ($r->$FTP === $publisherId) {
-					$names[] = $r->$FSN;
-				}
-			}
-			$relatedStreams = Streams::fetch(
-				$asUserId, $publisherId, $names, $fields, $fetchOptions
-			);
 		}
+		$relatedStreams = Streams::fetch(
+			$asUserId, $publisherId, $names, $fields, $fetchOptions
+		);
 		foreach ($relatedStreams as $name => $s) {
 			if (!$s) continue;
 			$weight = isset($relations[$name]->weight)
