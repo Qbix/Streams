@@ -56,7 +56,6 @@ class Streams_Related
 				$results[] = $pnr[$key];
 			}
 		}
-		Q::	var_dump($results);exit;
 		return $results;
 	}
     
