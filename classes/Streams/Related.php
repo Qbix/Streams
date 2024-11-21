@@ -28,7 +28,7 @@ class Streams_Related
 		$results = array();
 		$pns = array();
 		$pnr = array();
-		foreach ($allRelations as $r) {
+		foreach ($relations as $r) {
 			if ($r->get('public')) {
 				$results[] = $r;
 			} else {
