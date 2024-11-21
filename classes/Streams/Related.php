@@ -24,7 +24,7 @@ class Streams_Related
 	static function filter($relations, $options, $isCategory)
 	{
         $fieldP = $isCategory ? 'fromPublisherId' : 'toPublisherId';
-        $fieldN = $isCategory ? 'fromStreamName', 'toStreamName';
+        $fieldN = $isCategory ? 'fromStreamName' : 'toStreamName';
 		$results = array();
 		$pns = array();
 		$pnr = array();
