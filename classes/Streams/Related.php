@@ -33,29 +33,30 @@ class Streams_Related
 				$results[] = $r;
 			} else {
 				$key = $r->$fieldP . "\t" . $r->$fieldN;
-				$pns[$relation->$fieldP][] = $r->$fieldN;
+				$pns[$r->$fieldP][] = $r->$fieldN;
 				$pnr[$key] = $r;
 			}
 		}
 		foreach ($pns as $publisherId => $streamNames) {
 			$streams = Streams::fetch(null, $publisherId, $streamNames);
 			foreach ($streams as $s) {
-				if (empty($options['readLevel']) && !$s->testReadLevel($options['readLevel'])) {
+				if (!empty($options['readLevel']) && !$s->testReadLevel($options['readLevel'])) {
 					continue;
 				}
-				if (empty($options['writeLevel']) && !$s->testWriteLevel($options['writeLevel'])) {
+				if (!empty($options['writeLevel']) && !$s->testWriteLevel($options['writeLevel'])) {
 					continue;
 				}
-				if (empty($options['adminLevel']) && !$s->testAdminLevel('adminLevel')) {
+				if (!empty($options['adminLevel']) && !$s->testAdminLevel('adminLevel')) {
 					continue;
 				}
-				if (empty($options['permission']) && !$s->testPermission('permission')) {
+				if (!empty($options['permission']) && !$s->testPermission('permission')) {
 					continue;
 				}
-				$key = $r->$fieldP . "\t" . $r->$fieldN;
+				$key = $s->publisherId . "\t" . $s->name;
 				$results[] = $pnr[$key];
 			}
 		}
+		Q::	var_dump($results);exit;
 		return $results;
 	}
     
