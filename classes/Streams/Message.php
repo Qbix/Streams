@@ -177,7 +177,7 @@ class Streams_Message extends Base_Streams_Message
 			$streamNames = array_keys($messages[$publisherId]);
 			$streams[$publisherId] = $fetched = Streams::fetch(
 				$asUserId, $publisherId, $streamNames, '*', 
-				array('refetch' => true, 'begin' => true) // lock for updates
+				array('refetch' => true, 'begin' => true, 'skipAccess' => $skipAccess) // lock for updates
 			);
 			foreach ($arr as $streamName => $m) {
 				// Get the Streams_Stream object
@@ -311,7 +311,13 @@ class Streams_Message extends Base_Streams_Message
 		// on all the shards where the streams were fetched.
 		foreach ($updates as $publisherId => $arr) {
 			foreach ($arr as $count => $streamNames) {
+				$criteria = array(
+					'publisherId' => $publisherId,
+					'name' => $streamNames
+				);
 				if (!is_numeric($count)) {
+					$commit = Streams_Stream::commit();
+					$commit->execute(null, $commit->shard(null, $criteria));
 					continue;
 				}
 				$suffix = " + $count";
@@ -319,10 +325,8 @@ class Streams_Message extends Base_Streams_Message
 					->set(array(
 						'messageCount' => new Db_Expression('messageCount'.$suffix),
 						'updatedTime' => new Db_Expression("CURRENT_TIMESTAMP")
-					))->where(array(
-						'publisherId' => $publisherId,
-						'name' => $streamNames
-					))->commit()
+					))->where($criteria)
+					->commit()
 					->execute();
 			}
 		}
