@@ -2936,7 +2936,7 @@ abstract class Streams extends Base_Streams
 				foreach ($fromPublisherIds as $fromPublisherId) {
 					foreach ($fromStreamNames as $fromStreamName) {
 						$fields = compact(
-							'toPublisherId', 'toStreamName'
+							'toPublisherId', 'toStreamName',
 							'fromPublisherId', 'fromStreamName'
 						);
 						foreach ($typeWeightArray as $type => $weight) {
