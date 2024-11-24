@@ -2930,6 +2930,8 @@ abstract class Streams extends Base_Streams
 		$fromPublisherIds = is_array($fromPublisherId) ? $fromPublisherId : array($fromPublisherId);
 		$fromStreamNames = is_array($fromStreamName) ? $fromStreamName : array($fromStreamName);
 
+		$category = Streams_Stream::fetch($asUserId, $toPublisherId, $toStreamName, '*', $options);
+
 		$rowsToInsert = array();
 		foreach ($toPublisherIds as $toPublisherId) {
 			foreach ($toStreamNames as $toStreamName) {

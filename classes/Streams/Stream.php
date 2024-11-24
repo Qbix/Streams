@@ -790,7 +790,7 @@ class Streams_Stream extends Base_Streams_Stream
 				'stream' => $this,
 			), 'before', false, $this);
 		}
-		
+
 		foreach ($modifiedFields as $name => $value) {
 			if (!empty($this->fieldsModified[$name])) {
 				$this->fields[$name] = $value;
@@ -2498,21 +2498,21 @@ class Streams_Stream extends Base_Streams_Stream
 			}
 			foreach ($toStreams as $relationType => $info) {
 				$unrelateRelationTypes = array();
-				$toStreams[$relationType]['unrelateTypes'] =& $unrelateRelationTypes;
+				$toStreams[$relationType]['@unrelateTypes'] =& $unrelateRelationTypes;
 				foreach ($removeRelationTypes as $rrt) {
 					if (Q::startsWith($rrt, $relationType.'=')) {
 						$unrelateRelationTypes[] = $rrt;
 					}
 				}
 				$relateRelationTypes = array();
-				$toStreams[$relationType]['relateTypes'] = &$relateRelationTypes;
+				$toStreams[$relationType]['@relateTypes'] = &$relateRelationTypes;
 				foreach ($addRelationTypes as $art) {
 					if (Q::startsWith($art, $relationType.'=')) {
 						$relateRelationTypes[] = $art;
 					}
 				}
 				$updateRelationTypes = array();
-				$toStreams[$relationType]['updateTypes'] = &$updateRelationTypes;
+				$toStreams[$relationType]['@updateTypes'] = &$updateRelationTypes;
 				foreach ($weightRelationTypes as $wrt => $w) {
 					if ($wrt == $relationType) {
 						$updateRelationTypes[$wrt] = $w;
@@ -2545,7 +2545,7 @@ class Streams_Stream extends Base_Streams_Stream
 							$toPublisherId, $toStreamNames,
 							$this->publisherId, $this->name,
 							$updateRelationTypes,
-							array('skipAccess' => true)
+							array('skipAccess' => true, 'skipMessageTo' => true)
 						);
 					}
 				}
