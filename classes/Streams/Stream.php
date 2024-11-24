@@ -933,7 +933,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {array} $rowObjects
 	 * @return {Db_Result}
 	 */
-	function afterInsertManyAndExecute($rowObjects)
+	static function afterInsertManyAndExecute($rowObjects)
 	{
 		Streams::calculateAccess($asUserId);
 		
