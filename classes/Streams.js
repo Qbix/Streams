@@ -80,7 +80,8 @@ Q.makeEventEmitter(Streams);
  * @type integer
  * @default 23
  * @final
- *//**
+ */
+/**
  * Can see most of the stream's fields
  * @property READ_LEVEL.fields
  * @type integer

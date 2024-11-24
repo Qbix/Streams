@@ -240,7 +240,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 *   if you want to set some fields besides "name".
 	 * @param {array} [$options.relate] to pass to create function,
 	 *   if you want to relate the newly created stream to a category
-	 * @param {array} [$options.skipAccess] to pass to create function,
+	 * @param {array} [$options.skipAccess] to pass to fetch and create functions,
 	 *   if you want to skip access checks
 	 * @param {array} [$options.type] to pass to create function,
 	 *   not required if the stream is described in Streams::userStreams (streams.json files)
@@ -279,6 +279,7 @@ class Streams_Stream extends Base_Streams_Stream
 				'result' => &$relateResult
 			)
 		);
+		$stream->calculateAccess();
 		$commit->execute(null, $commit->shard(null, $criteria));
 		if (!$stream) {
 			return null;
@@ -830,10 +831,112 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @method afterSaveExecute
 	 * @param {Db_Result} $result
 	 * @param {Db_Query} $query
+	 * @param {array} $modifiedFields
+	 * @param {array} $where
+	 * @param {array} [$wasInserted]
 	 * @return {Db_Result}
 	 */
-	function afterSaveExecute($result, $query, $modifiedFields, $where)
+	function afterSaveExecute($result, $query, $modifiedFields, $where, $wasInserted = null)
 	{
+		$stream = $this;
+
+		$asUserId = $stream->get('asUserId', $stream->get('createdAsUserId', null));
+		if (!$asUserId) {
+			$user = Users::loggedInUser(false, false);
+			$asUserId = $user ? $user->id : '';
+		}
+		
+		if ($stream->inserted) {
+			// The stream was just saved
+			Q_Utils::sendToNode(array(
+				"Q/method" => "Streams/Stream/create",
+				"stream" => Q::json_encode($stream->toArray())
+			));
+
+			/**
+			 * @event Streams/create/$streamType {after}
+			 * @param {Streams_Stream} stream
+			 * @param {string} asUserId
+			 */
+			Q::event("Streams/create/{$stream->type}",
+				@compact('stream', 'asUserId'), 'after', false, $stream);
+		}
+
+		$stream->updateRelations($asUserId);
+
+		/**
+		 * @event Streams/Stream/save/$streamType {after}
+		 * @param {Streams_Stream} stream
+		 * @param {string} 'asUserId'
+		 */
+		$params = array('stream' => $this);
+		Q::event("Streams/Stream/save/{$this->type}", $params, 'after');
+		
+		if ($wasInserted !== 'insertManyAndExecute'
+		or $asUserId === $this->publisherId) {
+			// OPTIMIZATION: don't generate queries per stream during bulk operations,
+			// one can always call calculateAccess() on the stream later
+			$stream->calculateAccess($asUserId);
+		}
+
+		// Assume that the stream's name is not being changed
+		$fields = array(
+			'Streams/user/firstName' => false,
+			'Streams/user/lastName' => false,
+			'Streams/user/gender' => false,
+			'Streams/user/username' => 'username',
+			'Streams/user/icon' => 'icon'
+		);
+		if (!isset($fields[$this->name])) {
+			return $result;
+		}
+
+		$field = ($this->name === 'Streams/user/icon')
+			? 'icon'
+			: 'content';
+		$wasModified = !empty($this->fieldsModified[$field])
+			or !empty($this->fieldsModified['readLevel']);
+		if (!$wasModified) {
+			return $result;
+		}
+		$publicField = $fields[$this->name];
+		if ($publicField = $fields[$this->name]
+		and !Q::eventStack('Db/Row/Users_User/saveExecute')) {
+			Streams::$beingSaved[$publicField] = $this;
+			try {
+				$user = Users_User::fetch($this->publisherId, true);
+				$user->$publicField = $modifiedFields[$field];
+				$user->save(false, false, true);
+			} catch (Exception $e) {
+				Streams::$beingSaved[$publicField] = array();
+				throw $e;
+			}
+			Streams::$beingSaved[$publicField] = array();
+			return Streams::$beingSavedQuery;
+		}
+
+		if ($this->retrieved and !$publicField) {
+			// Update all avatars corresponding to access rows for this stream
+			$taintedAccess = Streams_Access::select()
+				->where(array(
+					'publisherId' => $this->publisherId,
+					'streamName' => $this->name
+				))->fetchDbRows();
+			Streams_Avatar::updateAvatars($this->publisherId, $taintedAccess, $this, true);
+		}
+
+		return $result;
+	}
+
+	/**
+	 * @method afterSaveExecute
+	 * @param {array} $rowObjects
+	 * @return {Db_Result}
+	 */
+	function afterInsertManyAndExecute($rowObjects)
+	{
+		Streams::calculateAccess($asUserId);
+		
 		$stream = $this;
 
 		$asUserId = $stream->get('asUserId', $stream->get('createdAsUserId', null));
@@ -1024,6 +1127,9 @@ class Streams_Stream extends Base_Streams_Stream
 
 	protected function _verifyUser ($options, &$user = null) {
 		if (isset($options['userId'])) {
+			if (!empty($options['skipAccess'])) {
+				return $options['userId'];
+			}
 			$user = Users_User::fetch($options['userId'], true);
 		} else {
 			$user = Users::loggedInUser(true);
@@ -2318,6 +2424,7 @@ class Streams_Stream extends Base_Streams_Stream
 			$weight = time(); // is_numeric($attr[$k]) ? $attr[$k] : 1;
 			$removeRelationTypes = array();
 			$addRelationTypes = array();
+			$weightRelationTypes = array();
 			foreach ($attributesChanged as $ak => $av) {
 				$found = false;
 				foreach ($rfroms as $rf) {
@@ -2338,22 +2445,24 @@ class Streams_Stream extends Base_Streams_Stream
 						$removeRelationTypes[] = "attribute/$ak=$r";
 					}
 				} else {
-					// handle regular scalar values
-					$removeRelationTypes[] = "attribute/$ak=$av";
+					// regular scalar value - nothing to remove
 				}
 				$av_new = $attr[$ak];
-				if (is_numeric($av_new)) {
-					// this form for numbers makes lexicographical comparisons agree with numeric ones
-					$av_new = sprintf("%015.2f", $av_new);
-				}
 				if (is_array($av_new)) {
+					if (is_numeric($av_new)) {
+						// this form for numbers makes lexicographical comparisons agree with numeric ones
+						$av_new = sprintf("%015.2f", $av_new);
+					}
 					$toAdd = array_diff($av_new, $orig[$ak]);
 					foreach ($toAdd as $a) {
 						$addRelationTypes[] = "attribute/$ak=$r";
 					}
 				} else {
 					// handle regular scalar values
-					$addRelationTypes[] = "attribute/$ak=$av_new";
+					if (is_numeric($av)) {
+						$av = floatval($av); // the floats may not be exact, but allow for range queries
+					}
+					$weightRelationTypes["attribute/$ak"] = $av_new;
 				}
 			}
 			foreach ($attributesAdded as $ak => $av) {
@@ -2378,10 +2487,9 @@ class Streams_Stream extends Base_Streams_Stream
 				} else {
 					// handle regular scalar values
 					if (is_numeric($av)) {
-						// this form for numbers makes lexicographical comparisons agree with numeric ones
-						$av = sprintf("%015.2f", $av);
+						$av = floatval($av); // the floats may not be exact, but allow for range queries
 					}
-					$addRelationTypes[] = "attribute/$ak=$av";
+					$weightRelationTypes["attribute/$ak"] = $av;
 				}
 			}
 			$toStreams = array();
@@ -2389,37 +2497,57 @@ class Streams_Stream extends Base_Streams_Stream
 				$toStreams[$rf->type][$rf->toPublisherId][] = $rf->toStreamName;
 			}
 			foreach ($toStreams as $relationType => $info) {
-				$toStreams[$relationType]['unrelateTypes']
-				= $unrelateRelationTypes = array();
+				$unrelateRelationTypes = array();
+				$toStreams[$relationType]['unrelateTypes'] =& $unrelateRelationTypes;
 				foreach ($removeRelationTypes as $rrt) {
-					if (Q::startsWith($rrt, $relationType)) {
+					if (Q::startsWith($rrt, $relationType.'=')) {
 						$unrelateRelationTypes[] = $rrt;
 					}
 				}
-				$toStreams[$relationType]['relateTypes']
-			 	= $relateRelationTypes = array();
+				$relateRelationTypes = array();
+				$toStreams[$relationType]['relateTypes'] = &$relateRelationTypes;
 				foreach ($addRelationTypes as $art) {
-					if (Q::startsWith($art, $relationType)) {
+					if (Q::startsWith($art, $relationType.'=')) {
 						$relateRelationTypes[] = $art;
 					}
 				}
+				$updateRelationTypes = array();
+				$toStreams[$relationType]['updateTypes'] = &$updateRelationTypes;
+				foreach ($weightRelationTypes as $wrt => $w) {
+					if ($wrt == $relationType) {
+						$updateRelationTypes[$wrt] = $w;
+					}
+				}
 				foreach ($info as $toPublisherId => $toStreamNames) {
-					Streams::unrelate(
-						Q::app(), 
-						$toPublisherId,
-						$toStreamNames,
-						$unrelateRelationTypes,
-						$this->publisherId, $this->name,
-						array('skipAccess' => true)
-					);
-					Streams::relate(
-						Q::app(), 
-						$toPublisherId,
-						$toStreamNames,
-						$relateRelationTypes,
-						$this->publisherId, $this->name,
-						array('skipAccess' => true, 'weight' => $weight)
-					);
+					if ($unrelateRelationTypes) {
+						Streams::unrelate(
+							Q::app(), 
+							$toPublisherId,
+							$toStreamNames,
+							$unrelateRelationTypes,
+							$this->publisherId, $this->name,
+							array('skipAccess' => true, 'skipMessageTo' => true)
+						);
+					}
+					if ($relateRelationTypes) {
+						Streams::relate(
+							Q::app(), 
+							$toPublisherId,
+							$toStreamNames,
+							$relateRelationTypes,
+							$this->publisherId, $this->name,
+							array('skipAccess' => true, 'weight' => $weight, 'skipMessageTo' => true)
+						);
+					}
+					if ($updateRelationTypes) {
+						Streams::updateRelations(
+							Q::app(),
+							$toPublisherId, $toStreamNames,
+							$this->publisherId, $this->name,
+							$updateRelationTypes,
+							array('skipAccess' => true)
+						);
+					}
 				}
 			}
 		}

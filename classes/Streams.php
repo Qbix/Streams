@@ -398,6 +398,9 @@ abstract class Streams extends Base_Streams
 	 *	 pass array('withRelatedFromTotals' => array($streamName => true)) for all rows
 	 *	 pass array('withRelatedFromTotals' => array($streamName => array('relationType', ...))) for particular rows
 	 *   to additionally call ->set('relatedFromTotals', $t) on the stream objects.
+	 *  @param {array} [$options.skipAccess]
+	 *   pass true to skip calling calculateAccess() on the streams -- thus if later you want to call
+	 *   stream->testReadLevel() etc. you'd have to call calculateAccess() yourself first
 	 *  @param {reference} $results=array()
 	 *   pass an array here, to be filled with intermediate results you might want to use
 	 * @return {array}
@@ -496,7 +499,9 @@ abstract class Streams extends Base_Streams
 
 		$streams = $allCached ? array_merge($allCached, $allRetrieved) : $allRetrieved;
 
-		Streams::calculateAccess($asUserId, $publisherId, $streams, false);
+		if (empty($options['skipAccess'])) {
+			Streams::calculateAccess($asUserId, $publisherId, $streams, false);
+		}
 		
 		$streams = self::messageTotals($publisherId, $name, $options, $streams);
 		$streams = self::relatedToTotals($publisherId, $name, $options, $streams);
@@ -1189,11 +1194,13 @@ abstract class Streams extends Base_Streams
 			}
 			$stream->type = $type;
 		}
-		$authorized = self::canCreateStreamType(
-			$asUserId, $publisherId, $stream->type, $relate
-		);
-		if (!$authorized and !$skipAccess) {
-			throw new Users_Exception_NotAuthorized();
+		if (!$skipAccess) {
+			$authorized = self::canCreateStreamType(
+				$asUserId, $publisherId, $stream->type, $relate
+			);
+			if (!$authorized) {
+				throw new Users_Exception_NotAuthorized();
+			}
 		}
 		
 		// prepare attributes field
@@ -1387,7 +1394,7 @@ abstract class Streams extends Base_Streams
 				$s->notModified($fn);
 				$s->wasRetrieved(true);
 			}
-			$s->afterSaveExecute(null, null, $modifiedFields, $s->getPKValue());
+			$s->afterSaveExecute(null, null, $modifiedFields, $s->getPKValue(), false);
 		}
 		
 		return $streams;
@@ -1969,6 +1976,12 @@ abstract class Streams extends Base_Streams
 		$fromStreamName,
 		$options = array())
 	{
+		if (empty($type)) {
+			return array(
+				'messagesTo' => array(),
+				'messagesFrom' => array()
+			);
+		}
 		self::getRelations(
 			$asUserId,
 			$toPublisherId,
@@ -2344,6 +2357,9 @@ abstract class Streams extends Base_Streams
 		$fromStreamName,
 		$options = array())
 	{
+		if (empty($type)) {
+			return array(array(), array());
+		}
 		self::getRelations(
 			$asUserId,
 			$toPublisherId,
@@ -2817,7 +2833,9 @@ abstract class Streams extends Base_Streams
 	 * @return {boolean} if available or not
 	 */
 	static function checkAvailableRelations ($asUserId, $publisherId, $streamName, $relationType, $options=array()) {
-		$stream = Streams_Stream::fetch($asUserId, $publisherId, $streamName);
+		$stream = Streams_Stream::fetch($asUserId, $publisherId, $streamName, '*', array(
+			'skipAccess' => true
+		));
 		$maxRelations = Q::ifset($stream->getAttribute("Streams/maxRelations"), $relationType, null);
 		if (!is_numeric($maxRelations)) {
 			return true;
@@ -2875,7 +2893,114 @@ abstract class Streams extends Base_Streams
 		}
 	}
 	/**
-	 * Updates the weight on a relation
+	 * Inserts multiple relations and/or updates the weight on multiple relations.
+	 * Doesn't adjust weights of other relations, unlike the updateRelation() method.
+	 * @method updateRelations
+	 * @param {string} $asUserId
+	 *  The id of the user on whose behalf the app will be updating the relation
+	 * @param {string|array} $toPublisherId
+	 *  The publisher(s) of the stream on the 'to' end of the relation
+	 * @param {string|array} $toStreamName
+	 *  The name(s) of the stream on the 'to' end of the relation
+	 * @param {string|array} $fromPublisherId
+	 *  The publisher(s) of the stream on the 'from' end of the relation
+	 * @param {string|array} $fromStreamName
+	 *  The name(s) of the stream on the 'from' end of the relation
+	 * @param {array} $weight
+	 *  Array of $type => $weight pairs, to update weights in bulk
+	 * @param {array} $options=array()
+	 * @param {boolean} [$options.skipAccess=false] If true, skips the access checks and just updates the relation
+	 * @param {boolean} [$options.skipMessageTo=false] If true, skips posting the Streams/updatedRelateTo message to the "to" streams
+	 * @param {string|array} [$options.extra] Any info to save in the "extra" field.
+	 * @return {array|boolean}
+	 *  Returns false if the operation was canceled by a hook
+	 *  Otherwise returns array with key "to" and value of type Streams_Message
+	 */
+	static function updateRelations(
+		$asUserId,
+		$toPublisherId,
+		$toStreamName,
+		$fromPublisherId,
+		$fromStreamName,
+		$typeWeightArray,
+		$options = array()
+	) {
+		$toPublisherIds = is_array($toPublisherId) ? $toPublisherId : array($toPublisherId);
+		$toStreamNames = is_array($toStreamName) ? $toStreamName : array($toStreamName);
+		$fromPublisherIds = is_array($fromPublisherId) ? $fromPublisherId : array($fromPublisherId);
+		$fromStreamNames = is_array($fromStreamName) ? $fromStreamName : array($fromStreamName);
+
+		$rowsToInsert = array();
+		foreach ($toPublisherIds as $toPublisherId) {
+			foreach ($toStreamNames as $toStreamName) {
+				foreach ($fromPublisherIds as $fromPublisherId) {
+					foreach ($fromStreamNames as $fromStreamName) {
+						$fields = compact(
+							'toPublisherId', 'toStreamName'
+							'fromPublisherId', 'fromStreamName'
+						);
+						foreach ($typeWeightArray as $type => $weight) {
+							$fields['type'] = $type;
+							$fields['weight'] = $weight;
+							if (Q::event(
+								"Streams/updateRelation/$type",
+								$fields, 
+								'before') === false
+							) {
+								return false;
+							}
+							$rowsToInsert[] = $fields;
+							// Stream messages to post
+							$previousWeight = null; // unknown
+							$adjustWeightsBy = 0;
+							$messages[$toPublisherId][$toStreamName] = array(
+								'type' => 'Streams/updatedRelateTo',
+								'instructions' => @compact(
+									'fromPublisherId', 'fromStreamName', 'type', 'weight', 'previousWeight', 'adjustWeightsBy', 'asUserId'
+								)
+							);
+						}
+					}
+				}
+			}
+		}
+		Streams_RelatedTo::insertManyAndExecute($rowsToInsert, array(
+			'onDuplicateKeyUpdate' => array(
+				'weight' => new Db_Expression('VALUES(weight)')
+			)
+		));
+		if (empty($options['skipMessageTo'])) {
+			// Send Streams/updatedRelateTo message to the category stream
+			// node server will be notified by Streams_Message::post
+			$adjustWeightsBy = 0;
+			$message = Streams_Message::post($asUserId, $toPublisherId, $toStreamName, array(
+				'type' => 'Streams/updatedRelateTo',
+				'instructions' => @compact(
+					'fromPublisherId', 'fromStreamName', 'type', 'weight', 'previousWeight', 'adjustWeightsBy', 'asUserId'
+				)
+			), true);
+			Streams_Message::postMessages($asUserId, $messages, true);
+		}
+
+		/**
+		 * @event Streams/updateRelation/$categoryType {after}
+		 * @param {string} relatedTo
+		 * @param {string} relatedFrom
+		 * @param {string} asUserId
+		 * @param {double} weight
+		 * @param {double} previousWeight
+		 */
+		Q::event(
+			"Streams/updateRelation/{$category->type}",
+			@compact(
+				'relatedTo', 'relatedFrom', 'type', 'weight', 
+				'previousWeight', 'adjustWeightsBy', 'asUserId', 'extra'
+			),
+			'after'
+		);
+	}
+	/**
+	 * Updates the weight on a relation, possibly adjusting weights of other relations
 	 * @method updateRelation
 	 * @param {string} $asUserId
 	 *  The id of the user on whose behalf the app will be updating the relation
@@ -2897,6 +3022,7 @@ abstract class Streams extends Base_Streams
 	 *  Or, set to 0 to prevent moving the other weights.
 	 * @param {array} $options=array()
 	 * @param {boolean} [$options.skipAccess=false] If true, skips the access checks and just updates the relation
+	 * @param {boolean} [$options.skipMessageTo=false] If true, skips posting the Streams/updatedRelateTo message to the "to" streams
 	 * @param {string|array} [$options.extra] Any info to save in the "extra" field.
 	 * @return {array|boolean}
 	 *  Returns false if the operation was canceled by a hook
@@ -3022,14 +3148,16 @@ abstract class Streams extends Base_Streams
 		$relatedTo->weight = $newWeight;
 		$relatedTo->save();
 		
-		// Send Streams/updatedRelateTo message to the category stream
-		// node server will be notified by Streams_Message::post
-		$message = Streams_Message::post($asUserId, $toPublisherId, $toStreamName, array(
-			'type' => 'Streams/updatedRelateTo',
-			'instructions' => @compact(
-				'fromPublisherId', 'fromStreamName', 'type', 'weight', 'previousWeight', 'adjustWeightsBy', 'asUserId'
-			)
-		), true);
+		if (empty($options['skipMessageTo'])) {
+			// Send Streams/updatedRelateTo message to the category stream
+			// node server will be notified by Streams_Message::post
+			$message = Streams_Message::post($asUserId, $toPublisherId, $toStreamName, array(
+				'type' => 'Streams/updatedRelateTo',
+				'instructions' => @compact(
+					'fromPublisherId', 'fromStreamName', 'type', 'weight', 'previousWeight', 'adjustWeightsBy', 'asUserId'
+				)
+			), true);
+		}
 		
 		/**
 		 * @event Streams/updateRelation/$categoryType {after}
@@ -3217,7 +3345,9 @@ abstract class Streams extends Base_Streams
 		}
 		foreach ($relateStreams as $pn => $streamTypes) {
 			foreach ($streamTypes as $streamType => $streamNames) {
-				if (!Streams_Stream::fetch($asUserId, $asUserId, $pn)) {
+				if (!Streams_Stream::fetch($asUserId, $asUserId, $pn, '*', array(
+					'skipAccess' => true
+				))) {
 					Streams::create($asUserId, $asUserId, 'Streams/participating', array('name' => $pn));
 				}
 				$extraArray = array();
