@@ -20,6 +20,7 @@
 			"Users/canManageContacts": ["Streams/before/Users_canManageContacts"],
 			"Users/canManageLabels": ["Streams/before/Users_canManageLabels"],
 			"Users/User/displayName": ["Streams/before/Users_User_displayName"],
+			"Users/register": ["Streams/before/Users_register"],
 			"Streams/Stream/save/Streams/user/profile": ["Streams/before/Streams_Stream_save_Streams_user_profile"],
 			"Streams/Stream/save/Streams/video": ["Streams/before/Streams_save_Streams_video"]
 		},
@@ -37,6 +38,7 @@
 			"Users/saveContactsFromLinks": ["Streams/after/Users_saveContactsFromLinks"],
 			"Users/setLoggedInUser": ["Streams/after/Users_setLoggedInUser"],
 			"Users/updateUserIds": ["Streams/after/Users_updateUserIds"],
+			"Users/register": ["Streams/after/Users_register"],
 			"Streams/message/Streams/chat/message": ["Streams/after/Streams_message_Streams_chat_message"],
 			"Streams/message/Streams/relatedTo": ["Streams/after/Streams_message_Streams_relatedTo"],
 			"Streams/message/Streams/unrelatedTo": ["Streams/after/Streams_message_Streams_unrelatedTo"],

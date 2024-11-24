@@ -9,9 +9,13 @@ function Streams_after_Users_Label_saveExecute($params)
 	$user = Users::loggedInUser(false, false);
 	$asUserId = $user ? $user->id : Q::app();
 	if ($inserted) {
+		Streams_Stream::fetchOrCreate($asUserId, $label->userId, 'Streams/labels', array(
+			'skipAccess' => true
+		));
 		Streams_Message::post($asUserId, $label->userId, 'Streams/labels', array(
 			'type' => 'Streams/labels/inserted',
-			'instructions' => array('label' => $label->exportArray())
+			'instructions' => array('label' => $label->exportArray()),
+			'skipAccess' => true
 		), true);
 	} else {
 		$updates = Q::take($modifiedFields, array('icon', 'title'));
