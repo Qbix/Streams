@@ -17,7 +17,7 @@ Q.exports(function(priv){
             }
             try {
                 if (Q.isPlainObject(fields[k])
-                && JSON.stringify(fields[k]) === JSON.stringify(stream.fields)) {
+                && JSON.stringify(fields[k]) === JSON.stringify(stream.fields[k])) {
                     continue; // nothing changed in special fields
                 }
             } catch (e) {
