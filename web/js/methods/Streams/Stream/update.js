@@ -10,7 +10,7 @@ Q.exports(function(priv){
         // events about updated fields
         for (k in fields) {
             if (onlyChangedFields
-            && typeof(fields[k]) !== 'object'
+            && !Q.isPlainObject(fields[k])
             && fields[k] === stream.fields[k]
             && !Q.has(onlyChangedFields, k)) {
                 continue;
