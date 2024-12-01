@@ -15,6 +15,14 @@ Q.exports(function(priv){
             && !Q.has(onlyChangedFields, k)) {
                 continue;
             }
+            try {
+                if (Q.isPlainObject(fields[k])
+                && JSON.stringify(fields[k]) === JSON.stringify(stream.fields)) {
+                    continue; // nothing changed in special fields
+                }
+            } catch (e) {
+
+            }
             Q.handle(
                 Q.getObject([publisherId, streamName, k], priv._streamFieldChangedHandlers),
                 stream,
