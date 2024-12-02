@@ -441,6 +441,7 @@ abstract class Streams extends Base_Streams
 		if (empty($options['refetch']) and empty($options['begin'])
 		and (is_array($name) or is_string($name))) {
 			$arr = is_array($name) ? $name : array($name);
+			$arr = array_unique($arr);
 			$namesToFetch = array();
 			foreach ($arr as $n) {
 				if (isset(self::$fetch[$asUserId][$publisherId][$n][$fields])) {
@@ -1220,7 +1221,7 @@ abstract class Streams extends Base_Streams
 
 		$accessProfileInherit = array();
 		if ($accessProfileName) {
-			$ap = Streams_Stream::getConfigField($type, array('access', 'profiles', $accessProfileName), null);
+			$ap = Streams_Stream::getConfigField($stream->type, array('access', 'profiles', $accessProfileName), null);
 			Q::take($ap, array(
 				'readLevel', 'writeLevel', 'adminLevel', 'permissions'
 			), $stream);
@@ -1230,7 +1231,7 @@ abstract class Streams extends Base_Streams
 		}
 
 		// extend with any config defaults for this stream type
-		$fieldNames = Streams::getExtendFieldNames($type);
+		$fieldNames = Streams::getExtendFieldNames($stream->type);
 		$fieldNames[] = 'name';
 		foreach ($fieldNames as $f) {
 			if (isset($fields[$f])) {
@@ -1267,7 +1268,7 @@ abstract class Streams extends Base_Streams
 			$options = array(
 				'weight' => isset($relate['weight']) ? $relate['weight'] : null,
 				'skipAccess' => $skipAccess,
-				'inheritAccess' => Q_Config::get("Streams", "types", $type, "inheritAccess", Q::ifset($relate, 'inheritAccess', true))
+				'inheritAccess' => Q_Config::get("Streams", "types", $stream->type, "inheritAccess", Q::ifset($relate, 'inheritAccess', true))
 			);
 			if (isset($relate['extra'])) {
 				$options['extra'] = $relate['extra'];
