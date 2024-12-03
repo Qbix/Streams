@@ -1139,7 +1139,8 @@ abstract class Streams extends Base_Streams
 		$publisherId, 
 		$type = null,
 		$fields = array(), 
-		$options = array())
+		$options = array(),
+		&$result = null)
 	{
 		if (!isset($fields)) {
 			$fields = array();
@@ -1282,7 +1283,6 @@ abstract class Streams extends Base_Streams
 				$stream->name,
 				$options
 			);
-			$options['result'] = $result;
 		}
 
 		self::$fetch[$asUserId][$publisherId][$stream->name] = array('*' => $stream);
@@ -5597,10 +5597,10 @@ abstract class Streams extends Base_Streams
 	 * 0x6162630000000000646566000000000000000000000000000000000000000000
 	 * while Streams::toHexString("abc/123", "def") returns
 	 * 0x616263000000007b646566000000000000000000000000000000000000000000
-	 * @param {string} $publisherId Takes the first 8 ASCII characters
-	 * @param {string|integer} $streamId Takes the first 24 ASCII characters, or an unsigned integer up to PHP_INT_MAX
-	 *  If the $streamId contains a slash, then the first part is interpreted as an unsigned integer up to 255,
+	 * @param {string} $publisherId Takes the first 8 ASCII characters.
+	 *  If the $publisherId contains a slash, then the last part is interpreted as an unsigned integer up to 255,
 	 *  and determines the 15th and 16th hexit in the string. This is typically used for "seriesId" under a publisher.
+	 * @param {string|integer} $streamId Takes the next 24 ASCII characters, or an unsigned integer up to PHP_INT_MAX
 	 * @param {boolean} [$isNotNumeric=null] Set to true to encode $streamId as an ASCII string, even if it is numeric
 	 * @return {string} A hex string starting with "0x..." followed by 16 hexits and then 48 hexits.
 	 */

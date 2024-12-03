@@ -265,12 +265,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				} else {
 					$(closestLargerElement).after(element);
 				}
-			} else if (state.composerPosition && elementsAmount === 1) {
-				if (state.composerPosition === "first") {
-					$container.append(element);
-				} else if (state.composerPosition === "last") {
-					$container.prepend(element);
-				}
 			} else {
 				if (ascending) {
 					if (elementsAmount === 1) {
@@ -286,6 +280,14 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 					}
 				}
 			}
+
+			var composerPosition = state.composerPosition || (ascending ? "last" : "first");
+			var $composer = $container.find('.Streams_related_composer');
+				if (composerPosition === "first") {
+					$container.prepend($composer);
+				} else if (composerPosition === "last") {
+					$container.append($composer);
+				}
 		}
 
 		function addComposer(streamType, params) {
@@ -325,7 +327,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 					$container.append(element);
 				}
 			} else {
-				if (ascending) {
+				if (!ascending) {
 					$container.prepend(element);
 				} else {
 					$container.append(element);
@@ -351,10 +353,9 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 					// check if such preview already exists before place
 					if (Q.handle(state.beforeRenderPreview, tool, [Q.extend({}, tff, {name: stream.fields.name}), element]) === false) {
 						element.remove();
-					} else {
-						// place new preview to the valid place in the list
-						_placeRelatedTool(element);
 					}
+					// place new preview to the valid place in the list
+					_placeRelatedTool(element);
 
 					addComposer(streamType, params);
 				}, tool);

@@ -239,7 +239,10 @@ Q.Tool.define("Streams/image/preview", "Streams/preview", function(options, prev
 							tool.preview.loading();
 						}, 0);
 						ps.streamName = stream.fields.name;
-					}, null, ps.creatable && ps.creatable.options);
+						if (extra.related) {
+							ps.related.weight = extra.related.weight;	
+						}
+					}, ps.related, ps.creatable && ps.creatable.options);
 				}
 			},
 			onFinish: {'Streams/image/preview': function (data, key, file) {
@@ -253,15 +256,16 @@ Q.Tool.define("Streams/image/preview", "Streams/preview", function(options, prev
 					);
 				}
 
-				Q.Streams.Stream.refresh(ps.publisherId, ps.streamName, null, {
+				Q.Streams.Stream.refresh(ps.publisherId, ps.streamName, function () {
+					ps.onCreate.handle.call(tool.preview, this);
+					tool.element.removeClass('Streams_preview_composer');
+					tool.element.addClass('Streams_preview_stream');
+					tool.preview.preview();
+				}, {
 					messages: true,
 					changed: {icon: true},
 					evenIfNotRetained: true
 				});
-				ps.onCreate.handle.call(tool, this);
-				tool.element.removeClass('Streams_preview_composer');
-				tool.element.addClass('Streams_preview_stream');
-				tool.preview.preview();
 				return false;
 			}}
 		});
@@ -279,6 +283,7 @@ Q.Tool.define("Streams/image/preview", "Streams/preview", function(options, prev
 			return;
 			tool.create.bind(tool);
 		});	
+		return false;
 	}
 }
 

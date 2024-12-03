@@ -291,8 +291,9 @@ Q.Tool.define("Streams/preview", function _Streams_preview(options) {
 						: {};
 					container.plugin('Q/clickable', clo);
 				}
-				container.on([Q.Pointer.fastclick, '.Streams_preview'], tool.create.bind(tool));
-				Q.handle(state.onComposer, tool);
+				if (false !== Q.handle(state.onComposer, tool)) {
+					container.on([Q.Pointer.fastclick, '.Streams_preview'], tool.create.bind(tool));
+				}
 			},
 			state.templates.create
 		);

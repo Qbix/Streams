@@ -134,7 +134,6 @@ function Streams_stream_post($params = array())
 	$result = null;
 	$options = Q::take($req, array('private', 'accessProfileName', 'notices'));
 	$options['relate'] = $relate;
-	$options['result'] = &$result;
 
 	// Prevent setting restricted fields
 	if (is_array($create)) {
@@ -165,7 +164,7 @@ function Streams_stream_post($params = array())
 
 	// if $stream is null - Create new stream
 	if (!$stream instanceof Streams_Stream) {
-		$stream =  Streams::create($user->id, $publisherId, $type, $fields, $options);
+		$stream =  Streams::create($user->id, $publisherId, $type, $fields, $options, $result);
 		$streamName = $stream->name;
 	}
 	$messageTo = false;

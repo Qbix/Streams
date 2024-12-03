@@ -317,7 +317,7 @@
 	},
 	"Streams/image/album": {
 		"type": "Streams/album",
-		"title": "Quotes",
+		"title": "Personal Album",
 		"icon": ""
 	},
 	"Streams/participating/tasks": {
