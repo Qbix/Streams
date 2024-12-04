@@ -895,7 +895,7 @@ class Streams_Stream extends Base_Streams_Stream
 			? 'icon'
 			: 'content';
 		$wasModified = !empty($this->fieldsModified[$field])
-			or !empty($this->fieldsModified['readLevel']);
+			|| !empty($this->fieldsModified['readLevel']);
 		if (!$wasModified) {
 			return $result;
 		}
