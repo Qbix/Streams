@@ -1127,7 +1127,7 @@ abstract class Streams extends Base_Streams
 	 * @param {string} [$options.relate.publisherId] The id of the user publishing the category stream, defaults to $publisherId
 	 * @param {string} [$options.relate.streamName] The name of the category stream
 	 * @param {string} [$options.relate.type] The type of relation, defaults to ""
-	 * @param {string} [$optionsrelate.weight] To set the weight for the relation. You can pass a numeric value here, or something like "max+1" to make the weight 1 greater than the current MAX(weight)
+	 * @param {string} [$options.relate.weight] To set the weight for the relation. You can pass a numeric value here, or something like "max+1" to make the weight 1 greater than the current MAX(weight)
 	 * @param {string} [$options.relate.inheritAccess=true] If false skip inherit access from category.
 	 * @param {array} [$options.relate.extra=array()] Any extra information to pass to Streams::relate()
 	 * @param {array} [$options.&result=null] Optionally pass a reference here to hold the result of calling Streams::relate().
@@ -4559,7 +4559,8 @@ abstract class Streams extends Base_Streams
 			$asUserId, 
 			$stream->publisherId, 
 			$stream->name, 
-			true
+			true,
+			array('dontFilterUsers' => true)
 		);
 		foreach ($relations as $r) {
 			try {
@@ -4580,7 +4581,8 @@ abstract class Streams extends Base_Streams
 			$asUserId,
 			$stream->publisherId,
 			$stream->name,
-			false
+			false,
+			array('dontFilterUsers' => true)
 		);
 		if (empty($options['unrelate']) or $options['unrelate'] === true) {
 			$options['unrelate'] = array(
