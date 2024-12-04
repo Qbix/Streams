@@ -267,13 +267,13 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				}
 			} else {
 				if (ascending) {
-					if (elementsAmount === 1) {
+					if (elementsAmount <= 1) {
 						$container.append(element);
 					} else {
 						$(".Streams_related_stream:last", $container).after(element);
 					}
 				} else {
-					if (elementsAmount === 1) {
+					if (elementsAmount <= 1) {
 						$container.prepend(element);
 					} else {
 						$(".Streams_related_stream:first", $container).before(element);
