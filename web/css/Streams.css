@@ -365,6 +365,10 @@
 .Streams_preview_tool .Streams_preview_add { margin-right: 3px; }
 .Streams_image_preview_tool .Streams_inplace_tool { width: 100%; text-align: center; }
 
+.Streams_image_preview_tool .Streams_preview_container {
+	display: flex; flex-direction: column;
+}
+
 .Streams_preview_tool .Streams_preview_container {
 	display: flex;
 	align-items: center;
@@ -480,7 +484,7 @@
 	background-color: transparent;
 }
 .Users_avatar_tool .Users_avatar_name>*{ position: relative; }
-.Streams_closed { opacity: 0.75; -webkit-transition: opacity 1s; transition: opacity 1s; }
+.Streams_closed { opacity: 0.25; -webkit-transition: opacity 1s; transition: opacity 1s; }
 .Streams_task_progress { border: 1px solid #555; }
 .Streams_task_progress_bar { border: 1px solid #555; width: 0; height: 40px; }
 .Streams_invitation { font-size: 20px; text-align: center; padding: 50px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -490,7 +494,7 @@
 .Streams_callToAction { padding: 10px; border: 1px solid #aaa; text-align: center; }
 .Streams_callToAction h2 { font-size: 25px; }
 .Streams_explanation { text-align: left; }
-.Streams_related_composer { display: inline-block; margin-right: 10px; width: 100%; text-align: left; border: none; }
+.Streams_related_composer { display: inline-block; margin-right: 10px; text-align: left; border: none; }
 .Streams_file_preview_tool label { cursor: pointer; }
 .Streams_file_form,
 .Streams_file_form input { 

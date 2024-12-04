@@ -257,6 +257,7 @@ Q.Tool.define("Streams/image/preview", "Streams/preview", function(options, prev
 				}
 
 				Q.Streams.Stream.refresh(ps.publisherId, ps.streamName, function () {
+					ps.beforeCreate.handle.call(tool.preview);
 					ps.onCreate.handle.call(tool.preview, this);
 					tool.element.removeClass('Streams_preview_composer');
 					tool.element.addClass('Streams_preview_stream');

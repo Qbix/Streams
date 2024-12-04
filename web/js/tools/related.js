@@ -339,10 +339,14 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				var previewState = preview.state;
 				tool.integrateWithTabs([element], true);
 				previewState.beforeCreate.set(function () {
-					$(this.element).addClass('Streams_related_loading').removeClass('Streams_related_composer');
+					$(this.element).addClass('Streams_related_loading')
+						.removeClass('Streams_related_composer');
 					previewState.beforeCreate.remove(tool);
 				}, tool);
 				previewState.onCreate.set(function (stream) {
+
+					element.addClass('Streams_related_stream');
+
 					// set data-streamName attribute to mark tool as not composer
 					element.setAttribute("data-streamName", stream.fields.name);
 
