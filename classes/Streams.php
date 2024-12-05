@@ -593,6 +593,7 @@ abstract class Streams extends Base_Streams
 	 * i.e. at least testReadLevel('content').
 	 * It simply returns the Streams_Stream rows with their own public read/write/admin levels.
 	 * It may end up missing some streams, if they weren't in the database.
+	 * It will not return any extended stream fields from other tables, you have to get those yourself.
 	 * Also, it skips any sort of template and mutable streams.
 	 * @method fetchPublicStreams
 	 * @static

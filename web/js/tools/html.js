@@ -100,7 +100,8 @@ Q.Tool.define("Streams/html", function (options) {
 				"{{Q}}/js/froala/css/plugins/colors.min.css",
 				"{{Q}}/js/froala/css/plugins/image.min.css",
 				"{{Q}}/js/froala/css/plugins/table.min.css",
-				"{{Q}}/js/froala/css/plugins/code_view.min.css"
+				"{{Q}}/js/froala/css/plugins/code_view.min.css",
+				"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 			], { slotName: 'Q' });
 			var scripts = [
 				"{{Q}}/js/froala/js/froala_editor.min.js",

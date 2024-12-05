@@ -847,3 +847,7 @@
 .Q_overlay.Streams_chat_streams_pdf {
 	min-height: 70vh;
 }
+
+div[style="position: absolute; bottom: 0px; left: 0px; z-index: 9999;"] {
+	display: none; /* workaround for now, you should license froala editor */
+}
