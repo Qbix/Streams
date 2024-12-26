@@ -2575,6 +2575,7 @@ abstract class Streams extends Base_Streams
 	 * @param {array} [$options.streamFields] If specified, fetches only the fields listed here for any streams.
 	 * @param {callable} [$options.filterUsersFunction] Optional function to call to filter the relations. It should return a filtered array of relations.
 	 * @param {array} [$options.dontFilterUsers] Pass true to skip filtering using Users/filter/users event
+	 * @param {array} [$options.alsoFilterOwnStreams] If filtering streams using Users/filter/users event, pass true to filter even streams published by category publisher
 	 * @param {boolean} [$options.skipAccess=false] If true, skips the access checks and just fetches the relations and related streams
 	 * @param {array} [$options.skipFields] Optional array of field names. If specified, skips these fields when fetching streams
 	 * @param {array} [$options.skipTypes] Optional array of ($streamName => $relationTypes) to skip when fetching relations.
@@ -2761,8 +2762,12 @@ abstract class Streams extends Base_Streams
 				$userIds[] = $userId = $r->$col3;
 			}
 			$userIdsUniq = array_unique($userIds);
-			$userIds = Q::event('Users/filter/users', array(
-				'from' => 'Streams::related'
+			$from = 'Streams::related';
+			$alsoFilterOwnStreams = !empty($options['alsoFilterOwnStreams']);
+
+			$userIds = Q::event('Users/filter/users', compact(
+				'from',
+				'asUserId', 'publisherId', 'streamName', 'isCategory', 'options'
 			), 'after', false, $userIdsUniq, $handlersCalled);
 			if ($handlersCalled) {
 				$temp = array();
@@ -2775,6 +2780,10 @@ abstract class Streams extends Base_Streams
 				}
 				$relations = $temp;
 			}
+		}
+		if (empty($options['alsoFilterOwnStreams'])
+		and !in_array($publisherId, $userIds)) {
+			$userIds[] = $publisherId;
 		}
 		
 		if (!empty($options['relationsOnly'])) {
