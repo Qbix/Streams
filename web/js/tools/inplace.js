@@ -218,7 +218,7 @@ Q.Tool.define("Streams/inplace", function (options) {
 			//Q.handle(state.onLoad, tool);
 		} else if ($container.length) {
 			tool.Q.onInit.add(_content, tool);
-		} else {
+		} else if (tool.element.isConnected) {
 			tool.setUpElement(tool.element, 'Q/inplace', ipo);
 			Q.activate(tool.element, _content);
 		}
