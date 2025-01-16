@@ -5781,12 +5781,12 @@ abstract class Streams extends Base_Streams
 			)
 		);
 		foreach ($fields as $Connection => $f1) {
-			foreach ($f1 as $Table => $fields) {
-				if (!is_array($fields)) {
-					$fields = array($fields);
+			foreach ($f1 as $Table => $fields2) {
+				if (!is_array($fields2)) {
+					$fields2 = array($fields2);
 				}
 				$ClassName = $Connection . '_' . $Table;
-				foreach ($fields as $i => $field) {
+				foreach ($fields2 as $i => $field) {
 					$publisherIdField = Q::ifset($publisherIdFields, $Connection, $Table, $i, 'publisherId');
 					foreach ($chunks as $chunk) {
 						$criteria = array($field => array_keys($chunk));
