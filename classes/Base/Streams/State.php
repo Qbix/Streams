@@ -539,7 +539,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".uri");
-		if (strlen($value) > 1023)
+		if (strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".uri");
 		return array('uri', $value);			
 	}
@@ -551,7 +551,7 @@ return array (
 	function maxSize_uri()
 	{
 
-		return 1023;			
+		return 255;			
 	}
 
 	/**
@@ -565,7 +565,7 @@ return array (
   0 => 
   array (
     0 => 'varbinary',
-    1 => '1023',
+    1 => '255',
     2 => '',
     3 => false,
   ),

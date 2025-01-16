@@ -1,0 +1,1 @@
+ALTER TABLE {{prefix}}state CHANGE COLUMN `URI` `uri` VARBINARY(255) NOT NULL DEFAULT '' COMMENT 'prefixes can be file:/// or https:// or stream://publisherId/streamName';

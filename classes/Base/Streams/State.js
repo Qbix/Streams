@@ -450,7 +450,7 @@ Base.prototype.beforeSet_uri = function (value) {
 		if (value instanceof Db.Expression) return value;
 		if (typeof value !== "string" && typeof value !== "number" && !(value instanceof Buffer))
 			throw new Error('Must pass a String or Buffer to '+this.table()+".uri");
-		if (typeof value === "string" && value.length > 1023)
+		if (typeof value === "string" && value.length > 255)
 			throw new Error('Exceedingly long value being assigned to '+this.table()+".uri");
 		return value;
 };
@@ -461,7 +461,7 @@ Base.prototype.beforeSet_uri = function (value) {
 	 */
 Base.prototype.maxSize_uri = function () {
 
-		return 1023;
+		return 255;
 };
 
 	/**
@@ -470,7 +470,7 @@ Base.prototype.maxSize_uri = function () {
 	 */
 Base.column_uri = function () {
 
-return [["varbinary","1023","",false],false,"MUL",""];
+return [["varbinary","255","",false],false,"MUL",""];
 };
 
 Base.prototype.beforeSave = function (value) {
