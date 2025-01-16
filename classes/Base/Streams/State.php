@@ -21,7 +21,7 @@
  * @param {string|Db_Expression} [$fields.insertedTime] defaults to new Db_Expression("CURRENT_TIMESTAMP")
  * @param {string|Db_Expression} [$fields.updatedTime] defaults to null
  * @param {string} [$fields.extra] defaults to ""
- * @param {string} [$fields.URI] defaults to ""
+ * @param {string} [$fields.uri] defaults to ""
  */
 abstract class Base_Streams_State extends Db_Row
 {
@@ -56,7 +56,7 @@ abstract class Base_Streams_State extends Db_Row
 	 * 
 	 */
 	/**
-	 * @property $URI
+	 * @property $uri
 	 * @type string
 	 * @default ""
 	 * prefixes can be file:/// or https:// or stream://publisherId/streamName
@@ -523,42 +523,42 @@ return array (
 	/**
 	 * Method is called before setting the field and verifies if value is string of length within acceptable limit.
 	 * Optionally accept numeric value which is converted to string
-	 * @method beforeSet_URI
+	 * @method beforeSet_uri
 	 * @param {string} $value
 	 * @return {array} An array of field name and value
 	 * @throws {Exception} An exception is thrown if $value is not string or is exceedingly long
 	 */
-	function beforeSet_URI($value)
+	function beforeSet_uri($value)
 	{
 		if (!isset($value)) {
 			$value='';
 		}
 		if ($value instanceof Db_Expression
                or $value instanceof Db_Range) {
-			return array('URI', $value);
+			return array('uri', $value);
 		}
 		if (!is_string($value) and !is_numeric($value))
-			throw new Exception('Must pass a string to '.$this->getTable().".URI");
+			throw new Exception('Must pass a string to '.$this->getTable().".uri");
 		if (strlen($value) > 1023)
-			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".URI");
-		return array('URI', $value);			
+			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".uri");
+		return array('uri', $value);			
 	}
 
 	/**
-	 * Returns the maximum string length that can be assigned to the URI field
+	 * Returns the maximum string length that can be assigned to the uri field
 	 * @return {integer}
 	 */
-	function maxSize_URI()
+	function maxSize_uri()
 	{
 
 		return 1023;			
 	}
 
 	/**
-	 * Returns schema information for URI column
+	 * Returns schema information for uri column
 	 * @return {array} [[typeName, displayRange, modifiers, unsigned], isNull, key, default]
 	 */
-	static function column_URI()
+	static function column_uri()
 	{
 
 return array (
@@ -593,7 +593,7 @@ return array (
 	 */
 	static function fieldNames($table_alias = null, $field_alias_prefix = null)
 	{
-		$field_names = array('hash', 'algorithm', 'insertedTime', 'updatedTime', 'extra', 'URI');
+		$field_names = array('hash', 'algorithm', 'insertedTime', 'updatedTime', 'extra', 'uri');
 		$result = $field_names;
 		if (!empty($table_alias)) {
 			$temp = array();

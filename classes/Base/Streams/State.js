@@ -26,7 +26,7 @@ var Row = Q.require('Db/Row');
  * @param {String|Db.Expression} [fields.insertedTime] defaults to new Db.Expression("CURRENT_TIMESTAMP")
  * @param {String|Db.Expression} [fields.updatedTime] defaults to null
  * @param {String|Buffer} [fields.extra] defaults to ""
- * @param {String|Buffer} [fields.URI] defaults to ""
+ * @param {String|Buffer} [fields.uri] defaults to ""
  */
 function Base (fields) {
 	Base.constructors.apply(this, arguments);
@@ -65,7 +65,7 @@ Q.mixin(Base, Row);
  * 
  */
 /**
- * @property URI
+ * @property uri
  * @type String|Buffer
  * @default ""
  * prefixes can be file:/// or https:// or stream://publisherId/streamName
@@ -283,7 +283,7 @@ Base.fieldNames = function () {
 		"insertedTime",
 		"updatedTime",
 		"extra",
-		"URI"
+		"uri"
 	];
 };
 
@@ -438,37 +438,37 @@ return [["varbinary","1023","",false],true,"",""];
 /**
  * Method is called before setting the field and verifies if value is string of length within acceptable limit.
  * Optionally accept numeric value which is converted to string
- * @method beforeSet_URI
+ * @method beforeSet_uri
  * @param {string} value
  * @return {string} The value
  * @throws {Error} An exception is thrown if 'value' is not string or is exceedingly long
  */
-Base.prototype.beforeSet_URI = function (value) {
+Base.prototype.beforeSet_uri = function (value) {
 		if (value == null) {
 			value='';
 		}
 		if (value instanceof Db.Expression) return value;
 		if (typeof value !== "string" && typeof value !== "number" && !(value instanceof Buffer))
-			throw new Error('Must pass a String or Buffer to '+this.table()+".URI");
+			throw new Error('Must pass a String or Buffer to '+this.table()+".uri");
 		if (typeof value === "string" && value.length > 1023)
-			throw new Error('Exceedingly long value being assigned to '+this.table()+".URI");
+			throw new Error('Exceedingly long value being assigned to '+this.table()+".uri");
 		return value;
 };
 
 	/**
-	 * Returns the maximum string length that can be assigned to the URI field
+	 * Returns the maximum string length that can be assigned to the uri field
 	 * @return {integer}
 	 */
-Base.prototype.maxSize_URI = function () {
+Base.prototype.maxSize_uri = function () {
 
 		return 1023;
 };
 
 	/**
-	 * Returns schema information for URI column
+	 * Returns schema information for uri column
 	 * @return {array} [[typeName, displayRange, modifiers, unsigned], isNull, key, default]
 	 */
-Base.column_URI = function () {
+Base.column_uri = function () {
 
 return [["varbinary","1023","",false],false,"MUL",""];
 };
