@@ -5732,28 +5732,8 @@ abstract class Streams extends Base_Streams
 		return strpos($icon, '/Q/uploads/Streams/') !== false;
 	}
 
-	/**
-	 * Call this method to update names of one or more streams.
-	 * This should update them in many tables of the Streams plugin.
-	 * Also, other plugins can add a hook to create their own updates.
-	 * @method updateStreamNames
-	 * @static
-	 * @param {array} $updates pairs of (oldStreamName => newStreamName)
-	 * @param {array} [$options=array()]
-	 * @param {boolean} [$options.accumulateErrors=false] set to true to keep going
-	 *  even if an update fails, accumulating errors
-	 * @param {string|array} [$publisherId=null] can be used to limit to only streams by certain publishers
-	 * @param {string} [$newPublisherId=null] set a new publisherId for the streams, in addition to name
-	 * @return {array} any errors that have accumulated, if accumulateErrors is true, otherwise empty array
-	 */
-	static function updateStreamNames(array $updates, $options = array())
+	static private function _fields()
 	{
-		$chunkSize = 100;
-		$chunks = array_chunk($updates, $chunkSize, true);
-		$transactionKey = Q_Utils::randomString(10);
-		$errors = array();
-		Streams_Stream::begin(null, $transactionKey)->execute();
-		// can be rolled back on any exception
 		$fields = array(
 			'Streams' => array(
 				'Stream' => 'name',
@@ -5780,6 +5760,99 @@ abstract class Streams extends Base_Streams
 				'RelatedFromTotal' => array('fromPublisherId')
 			)
 		);
+		return array($fields, $publisherIdFields);
+	}
+
+	/**
+	 * Call this method to delete a bunch of streams from tables
+	 * This should delete them from many tables of the Streams plugin.
+	 * Also, other plugins can add a hook to create their own updates.
+	 * @method deleteStreams
+	 * @static
+	 * @param {array} $criteria array of (publisherId => streamNames) arrays
+	 * @param {array} [$options=array()]
+	 * @param {boolean} [$options.accumulateErrors=false] set to true to keep going
+	 *  even if an update fails, accumulating errors
+	 * @return {array} any errors that have accumulated, if accumulateErrors is true, otherwise empty array
+	 */
+	static function deleteStreams(array $criteria, array $options = array())
+	{
+		$chunkSize = 100;
+		$transactionKey = Q_Utils::randomString(10);
+		$errors = array();
+		Streams_Stream::begin(null, $transactionKey)->execute();
+		// can be rolled back on any exception
+		list($fields, $publisherIdFields) = self::_fields();
+		foreach ($fields as $Connection => $f1) {
+			foreach ($f1 as $Table => $fields2) {
+				if (!is_array($fields2)) {
+					$fields2 = array($fields2);
+				}
+				$ClassName = $Connection . '_' . $Table;
+				foreach ($fields2 as $i => $field) {
+					$publisherIdField = Q::ifset($publisherIdFields, $Connection, $Table, $i, 'publisherId');
+					foreach ($criteria as $publisherId => $streamNames) {
+						try {
+							$c = array();
+							foreach ($streamNames as $streamName) {
+								$c[] = array($publisherId, $streamName);
+							}
+							call_user_func(array($ClassName, 'delete'))
+							->where(array(
+								"$publisherIdField,$field" => $c
+							))->execute();
+						} catch (Exception $e) {
+							if (!empty($options['accumulateErrors'])) {
+								$errors[] = $e;
+							} else {
+								throw $e;
+							}
+						}
+					}
+				}
+			}
+		}
+		$params = array_merge(compact(
+			'criteria', 'accumulateErrors', 
+			'fields', 'publisherIdFields'
+		), $options);
+		$params['errors'] =& $errors;
+		/**
+		 * Gives any plugin or app a chance to update stream names in its own tables
+		 * @event Streams/updateStreamNames
+		 * @param {array} $publisherId
+		 * @param {array} $updates an array of (oldStreamName => newStreamName) pairs
+		 * @param {boolean} [$accumulateErrors=false] if true, accumulate errors and keep going
+		 * @param {boolean} [$errors=array()] reference to an array to push errors here
+		 */
+		Q::event('Streams/deleteStreams', $params, 'after');
+		Streams_Stream::commit($transactionKey)->execute();
+		return $errors;
+	}
+
+	/**
+	 * Call this method to update names of one or more streams.
+	 * This should update them in many tables of the Streams plugin.
+	 * Also, other plugins can add a hook to create their own updates.
+	 * @method updateStreamNames
+	 * @static
+	 * @param {array} $updates pairs of (oldStreamName => newStreamName)
+	 * @param {array} [$options=array()]
+	 * @param {boolean} [$options.accumulateErrors=false] set to true to keep going
+	 *  even if an update fails, accumulating errors
+	 * @param {string|array} [$publisherId=null] can be used to limit to only streams by certain publishers
+	 * @param {string} [$newPublisherId=null] set a new publisherId for the streams, in addition to name
+	 * @return {array} any errors that have accumulated, if accumulateErrors is true, otherwise empty array
+	 */
+	static function updateStreamNames(array $updates, $options = array())
+	{
+		$chunkSize = 100;
+		$chunks = array_chunk($updates, $chunkSize, true);
+		$transactionKey = Q_Utils::randomString(10);
+		$errors = array();
+		Streams_Stream::begin(null, $transactionKey)->execute();
+		// can be rolled back on any exception
+		list($fields, $publisherIdFields) = self::_fields();
 		foreach ($fields as $Connection => $f1) {
 			foreach ($f1 as $Table => $fields2) {
 				if (!is_array($fields2)) {
