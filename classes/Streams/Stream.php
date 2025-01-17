@@ -1882,48 +1882,73 @@ class Streams_Stream extends Base_Streams_Stream
 	}
 	
 	/**
-	 * Inherit access from a specific stream. Pushes it onto the stack.
-	 * @method inheritAccessAdd
-	 * @param {string} [$publisherId] Publisher id of the stream from which to inherit access
-	 * @param {string} [$streamName] Name of the stream from which to inherit access
-	 * @return {boolean} Whether it was already there before
+	 * Inherit access from a specific stream.
+	 * If it didn't already exist, appends it to the array at the end.
+	 * If it already existed, you can use this function to update caps on accessLevels or permissions.
+	 * @method inheritAccessSet
+	 * @param {string} $publisherId Publisher id of the stream from which to inherit access
+	 * @param {string} $streamName Name of the stream from which to inherit access
+	 * @param {array} [$accessLevels] Optionally set caps on access labels by passing an array of [readLevelCap, writeLevelCap, accessLevelCap]
+	 * @param {array} [$permissions] Optionally set caps on permissions by passing the array of permission strings that can be inherited
+	 * @return {boolean} Whether the row was changed
 	 */
-	function inheritAccessAdd($publisherId, $streamName)
+	function inheritAccessSet($publisherId, $streamName, $accessLevels = null, $permissions = null)
 	{
 		$item = array($publisherId, $streamName);
-		$inheritAccess = json_decode($this->inheritAccess, true);
-		if ($inheritAccess and is_array($inheritAccess)) {
-			$found = array_search($item, $inheritAccess);
-			if ($found !== false) {
-				return true;
+		if (isset($accessLevels)) {
+			$item[] = $accessLevels;
+		}
+		if (isset($permissions)) {
+			if (!isset($accessLevels)) {
+				$item[] = null;
 			}
-			$inheritAccess[] = $item;
-		} else {
+			$item[] = $permissions;
+		}
+		$inheritAccess = json_decode($this->inheritAccess, true);
+		if (!$inheritAccess or !is_array($inheritAccess)) {
 			$inheritAccess = array($item);
+		} else {
+			$found = false;
+			foreach ($inheritAccess as $i => $arr) {
+				if ($arr[0] === $publisherId && $arr[1] === $streamName) {
+					if ($arr == $item) {
+						return false; // nothing to change
+					}
+					$found = true;
+					$inheritAccess[$i] = $item;
+				}
+			}
+			if (!$found) {
+				$inheritAccess[] = $item;
+			}
 		}
 		$this->inheritAccess = Q::json_encode($inheritAccess);
 		$this->changed();
-		return false;
+		return true;
 	}
 
 	/**
 	 * Stop inheriting access from a specific stream. Splices it from the stack.
-	 * @method inheritAccessRemove
+	 * @method inheritAccessUnset
 	 * @param {string} [$publisherId] Publisher id of the stream from which to stop inheriting access
 	 * @param {string} [$streamName] Name of the stream from which to stop inheriting access
-	 * @return {boolean} Whether it was already there before
+	 * @return {boolean} Whether the row was changed
 	 */
-	function inheritAccessRemove($publisherId, $streamName)
+	function inheritAccessUnset($publisherId, $streamName)
 	{
 		$item = array($publisherId, $streamName);
 		$inheritAccess = json_decode($this->inheritAccess, true);
-		if ($inheritAccess and is_array($inheritAccess)) {
-			$found = array_search($item, $inheritAccess);
-			if ($found === false) {
-				return false;
+		if (!$inheritAccess or !is_array($inheritAccess)) {
+			return false;
+		}
+		$removed = false;
+		foreach ($inheritAccess as $i => $arr) {
+			if ($arr[0] === $publisherId && $arr[1] === $streamName) {
+				array_splice($inheritAccess, $i, 1);
+				$removed = true;
 			}
-			array_splice($inheritAccess, $found, 1);
-		} else {
+		}
+		if (!$removed) {
 			return false;
 		}
 		$this->inheritAccess = Q::json_encode($inheritAccess);
