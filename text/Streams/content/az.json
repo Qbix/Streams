@@ -469,7 +469,8 @@
         "ErrorTitle": "Sual tələb olunur",
         "Placeholder": "Təlimatları yazın",
         "AreYouSure": "Sən əminsən?",
-        "ShortAnswer": "Qısa cavab yazın"
+        "ShortAnswer": "Qısa cavab yazın",
+        "AnswerCantBeChanged": "Cavab dəyişdirilə bilməz"
     },
     "experience": {
         "NewExperience": "Yeni Təcrübə",

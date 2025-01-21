@@ -469,7 +469,8 @@
         "ErrorTitle": "질문 필요",
         "Placeholder": "쓰기 지침",
         "AreYouSure": "확실합니까?",
-        "ShortAnswer": "짧은 답을 쓰세요"
+        "ShortAnswer": "짧은 답을 쓰세요",
+        "AnswerCantBeChanged": "답변은 변경할 수 없습니다."
     },
     "experience": {
         "NewExperience": "새로운 경험",

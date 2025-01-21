@@ -469,7 +469,8 @@
         "ErrorTitle": "คำถามที่จำเป็น",
         "Placeholder": "เขียนคำแนะนำ",
         "AreYouSure": "คุณแน่ใจไหม?",
-        "ShortAnswer": "เขียนคำตอบสั้นๆ"
+        "ShortAnswer": "เขียนคำตอบสั้นๆ",
+        "AnswerCantBeChanged": "คำตอบไม่สามารถเปลี่ยนแปลงได้"
     },
     "experience": {
         "NewExperience": "ประสบการณ์ใหม่",

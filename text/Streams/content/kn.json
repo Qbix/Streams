@@ -469,7 +469,8 @@
         "ErrorTitle": "ಪ್ರಶ್ನೆ ಅಗತ್ಯವಿದೆ",
         "Placeholder": "ಸೂಚನೆಗಳನ್ನು ಬರೆಯಿರಿ",
         "AreYouSure": "ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ?",
-        "ShortAnswer": "ಸಣ್ಣ ಉತ್ತರವನ್ನು ಬರೆಯಿರಿ"
+        "ShortAnswer": "ಸಣ್ಣ ಉತ್ತರವನ್ನು ಬರೆಯಿರಿ",
+        "AnswerCantBeChanged": "ಉತ್ತರವನ್ನು ಬದಲಾಯಿಸಲಾಗುವುದಿಲ್ಲ"
     },
     "experience": {
         "NewExperience": "ಹೊಸ ಅನುಭವ",

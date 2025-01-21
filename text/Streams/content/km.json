@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "ខ្លឹមសារនេះត្រូវបានលាក់ពីអ្នក។",
+        "InplaceTypeMustBe": "inplaceType ត្រូវតែជា &#39;textarea&#39; ឬ &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "ធាតុថ្មី។",
+        "Teaser": "ឈុតខ្លីៗ"
+    },
+    "avatar": {
+        "firstName": "ឈ្មោះដំបូង",
+        "lastName": "នាមត្រកូល",
+        "username": "ឈ្មោះអ្នកប្រើប្រាស់"
+    },
+    "labels": {
+        "Streams\/invited": "មនុស្សដែលខ្ញុំបានអញ្ជើញ",
+        "Streams\/invitedMe": "អ្នកណាអញ្ជើញខ្ញុំ",
+        "DoYouAgree": "តើអ្នកយល់ព្រមទេ?",
+        "JoinItNow": "ចូលរួមឥឡូវនេះ?",
+        "Yes": "បាទ",
+        "No": "ទេ"
+    },
+    "login": {
+        "prompt": "អនុញ្ញាតឱ្យមិត្តភក្តិស្គាល់អ្នក៖",
+        "newUser": "ឬបង្កើតគណនីថ្មីខាងក្រោម",
+        "picTooltip": "អ្នកអាចផ្លាស់ប្តូររូបភាពនេះនៅពេលក្រោយ",
+        "placeholders": {
+            "fullName": "បញ្ចូលឈ្មោះពេញរបស់អ្នក។"
+        }
+    },
+    "interests": {
+        "Filter": "ស្វែងរកចំណាប់អារម្មណ៍",
+        "CanGrant": "ប្រសិនបើអ្នកនៅតែមិនអាចរកឃើញអ្វីដែលអ្នកកំពុងស្វែងរក អ្នកអាចបន្ថែមចំណាប់អារម្មណ៍ថ្មីខាងក្រោម៖",
+        "TrySynonyms": "អត់ឃើញទេ? សាកល្បងពាក្យមានន័យដូចខ្លះ។",
+        "AddUnderCategory": "បន្ថែមនៅក្រោមប្រភេទ...",
+        "Other": "ផ្សេងៗ",
+        "Unlisted": "មិនមានក្នុងបញ្ជី"
+    },
+    "relate": {
+        "Add": "បន្ថែម {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "សារ​ត្រូវ​បាន​ដាក់​ទង់​សម្រាប់​ការ​ពិនិត្យ​មើល​របស់​អ្នក​គ្រប់គ្រង។ ប៉ះម្តងទៀតដើម្បីដោះទង់។",
+        "noOneSaid": "គ្មាននរណាម្នាក់បាននិយាយអ្វីទេ។",
+        "closeChatButton": "បិទការជជែក",
+        "closeChatConfirmTitle": "បិទការជជែកនេះ?",
+        "closeChatConfirm": "តើអ្នកប្រាកដថាចង់បិទការជជែកនេះទេ?",
+        "Subscribed": "បានបើកការជូនដំណឹង",
+        "Unsubscribed": "បានបិទការជូនដំណឹង",
+        "closeChatConfirmYes": "បាទ",
+        "closeChatConfirmNo": "ទេ",
+        "earlierComments": "យោបល់មុន។",
+        "startedConversation": "បានចាប់ផ្តើមការសន្ទនា",
+        "RealTimeCall": "ការហៅតាមពេលវេលាពិត",
+        "JoinWebRTC": "សន្និសីទទូរគមនាគមន៍",
+        "SearchByName": "ស្វែងរកតាមឈ្មោះ",
+        "Notifications": {
+            "Visit": "{{displayName}} កំពុងទស្សនាការជជែក",
+            "Join": "{{displayName}} បាន​ចូល​រួម​ជជែក",
+            "Leave": "{{displayName}} បានចាកចេញពីការជជែក",
+            "RelatedTo": "{{displayName}} បានចាប់ផ្តើម {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "បន្ថែមមតិយោបល់",
+            "Private": "សរសេរសារឯកជន"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "គ្រប់គ្រងការជាវអ៊ីមែលរបស់អ្នក។",
+        "IfUnsubscribe": "ប្រសិនបើអ្នកចង់ឈប់ជាវ",
+        "changed": {
+            "ChangesIn": "ការផ្លាស់ប្តូរនៅក្នុង {{title}}",
+            "Changed": "បានផ្លាស់ប្តូរ",
+            "HereIsWhatChanged": "នេះជាអ្វីដែលបានផ្លាស់ប្តូរ៖"
+        },
+        "joined": {
+            "Joined": "{{subject}} ចូលរួម <em>{{title}}<\/em>"
+        },
+        "*": "សារ {{{message.fields.type}}} ទៅ {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} បានចូលរួម",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} នៅសល់",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} បាននិយាយថា: {{{message.content}}}",
+        "Streams\/changed": "ការផ្លាស់ប្តូរនៅក្នុង {{stream.fields.title}}",
+        "Streams\/invite": "អ្នកត្រូវបានអញ្ជើញឱ្យទៅ {{{stream.fields.title}}}",
+        "Streams\/announcement": "សេចក្តីប្រកាសលេខ {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} បានផ្លាស់ប្តូរការចូលប្រើក្នុង {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "សារជជែកត្រូវបានកែសម្រួលក្នុង {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "សារជជែកត្រូវបានដកចេញនៅ {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} ត្រូវបានបិទ",
+        "Streams\/task\/progress": "វឌ្ឍនភាពបានធ្វើឡើងនៅលើ {{stream.fields.title}}",
+        "Streams\/task\/complete": "កិច្ចការបានបញ្ចប់៖ {{stream.fields.title}}",
+        "Streams\/task\/error": "កំហុសអំឡុងពេល៖ {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} ៖ សារចូល",
+        "Streams\/relatedTo\/Streams\/call": "ការហៅថ្មីបានចាប់ផ្តើមនៅ {{toTitle}}",
+        "Streams\/relatedTo\/*": "ថ្មី {{relationDisplayType}} ក្នុង {{toTitle}}",
+        "Streams\/relatedFrom\/*": "បន្ថែមទៅ {{toTitle}} ជា {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} បានលើកឡើងអ្នកនៅក្នុងមតិយោបល់",
+        "Streams\/call": "{{displayName}} បានចាប់ផ្តើមការហៅតាមពេលវេលាជាក់ស្តែង"
+    },
+    "invite": {
+        "command": "អញ្ជើញ",
+        "Invite": "អញ្ជើញ",
+        "Share": "ចែករំលែក",
+        "Participants": "អញ្ជើញមនុស្ស",
+        "messageContent": "{{displayName}} បានអញ្ជើញអ្នកទៅ {{inviteUrl}}",
+        "youCanNowPaste": "ឥឡូវនេះ អ្នកអាចបិទភ្ជាប់តំណនេះនៅកន្លែងណាមួយដើម្បីអញ្ជើញមនុស្ស",
+        "roles": {
+            "title": "ផ្តល់តួនាទីដល់អ្នកប្រើប្រាស់ដែលបានអញ្ជើញ?",
+            "NotAuthorizedToGrantRole": {
+                "title": "សុំទោស",
+                "alert": "អ្នកមិនត្រូវបានអនុញ្ញាតឱ្យផ្តល់តួនាទីនេះទេ។"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "សុំទោស",
+                "alert": "អ្នកមិនត្រូវបានអនុញ្ញាតឱ្យដកតួនាទីនេះចេញទេ។"
+            }
+        },
+        "labels": {
+            "title": "តើទំនាក់ទំនងរបស់អ្នកគឺជាអ្វី?"
+        },
+        "dialog": {
+            "chooseFromContacts": "ជ្រើសរើសពីទំនាក់ទំនងរបស់អ្នក។",
+            "chooseAgainFromContacts": "ជ្រើសរើសម្តងទៀតពីទំនាក់ទំនង",
+            "inviteSelectedContacts": "អញ្ជើញទំនាក់ទំនងដែលបានជ្រើសរើស",
+            "selectFromContacts": "ជ្រើសរើសពីទំនាក់ទំនង",
+            "userChooserPlaceholder": "ស្វែងរកតាមឈ្មោះ",
+            "photo": "ថតរូប",
+            "photoOf": "ថតរូប {{name}}",
+            "photoInstruction": "ប្រសិនបើអ្នកដែលស្កែនកូដ QR របស់អ្នកនៅពីមុខអ្នក សូមថតរូបពួកគេ។",
+            "to": "ដល់៖ {{Stream Title}}",
+            "go": "ទៅ",
+            "title": "អញ្ជើញ",
+            "placeholder": "លេខទូរស័ព្ទ ឬអាសយដ្ឋានអ៊ីមែល",
+            "orInvite": "ឬអញ្ជើញមនុស្សដោយប្រើ៖",
+            "copyLink": "{{ClickOrTap}} ដើម្បីចម្លងតំណអញ្ជើញ ",
+            "shareOrCopyLink": "{{ClickOrTap}} ដើម្បីចែករំលែក ឬចម្លងតំណអញ្ជើញ ",
+            "QR": "{{ClickOrTap}} ដើម្បីបង្កើតកូដ QR",
+            "QRtitle": "ស្កេនកូដ QR នេះ។",
+            "QRscanned": "ពួកគេបានស្កេន!",
+            "scannedQR": "{{ClickOrTap}} ប្រសិនបើលេខកូដត្រូវបានស្កេន",
+            "TakeGroupPhoto": "ថតរូបជាក្រុម",
+            "Skip": "រំលង",
+            "byEmail": "អ៊ីមែល",
+            "byText": "អត្ថបទ",
+            "byFacebook": "ហ្វេសប៊ុក",
+            "byTwitter": "Twitter",
+            "byTelegram": "តេឡេក្រាម",
+            "byWhatsapp": "កម្មវិធី WhatsApp",
+            "title2": "អញ្ជើញមនុស្ស",
+            "chooseMethod": "ជ្រើសរើសវិធីសាស្ត្រ៖",
+            "selectContacts": "ជ្រើសរើសទំនាក់ទំនង",
+            "scanQRCode": "ស្កេន QR កូដ",
+            "shareLink": "ចែករំលែកតំណ",
+            "chooseFromRegistered": "ជ្រើសរើសពីអ្នកប្រើប្រាស់ដែលបានចុះឈ្មោះ",
+            "inviteViaEmailOrSms": "អញ្ជើញតាមរយៈអ៊ីមែល ឬសារ SMS",
+            "addRoles": "បន្ថែមតួនាទី",
+            "addPersonalRoles": "បន្ថែមទំនាក់ទំនងផ្ទាល់ខ្លួន"
+        },
+        "complete": {
+            "WelcomeToCommunity": "សូមស្វាគមន៍មកកាន់ {{communityName}}",
+            "HasInvitedYou": "បានអញ្ជើញអ្នកឱ្យ៖",
+            "HasInvitedYouToTheirProfile": "បានអញ្ជើញអ្នកឱ្យភ្ជាប់។",
+            "prompt": "អនុញ្ញាតឱ្យមិត្តភក្តិស្គាល់អ្នក៖",
+            "accept": "ទទួលយកការអញ្ជើញ"
+        },
+        "email": {
+            "subject": "ហេ ពិនិត្យរឿងនេះ",
+            "PleaseVisitLink": "សូមចូលទៅកាន់តំណភ្ជាប់ខាងក្រោម៖",
+            "InvitingYou": "ខ្ញុំកំពុងអញ្ជើញអ្នកទៅ {{title}}",
+            "HasInvitedYou": "{{displayName}} បានអញ្ជើញអ្នកទៅ {{title}}",
+            "HasMentionedYou": "{{displayName}} បានរៀបរាប់អ្នកនៅក្នុង &quot; {{title}} &quot;",
+            "YOUAREINVITED": "អ្នកត្រូវបានអញ្ជើញ!",
+            "AcceptInvite": "ទទួលយកការអញ្ជើញ"
+        },
+        "mobile": {
+            "content": "អ្នកត្រូវបានអញ្ជើញឱ្យទៅ {{title}} ។ សូម​ចុច {{url}}"
+        },
+        "notice": {
+            "text": "អ្នកត្រូវបានអញ្ជើញ។ {{ClickOrTap}} នៅទីនេះដើម្បីទទួលយក និងចូលរួម។"
+        },
+        "chat": {
+            "prompt": "អ្នក​នឹង​អញ្ជើញ​មនុស្ស​ឱ្យ​ចូល​រួម​ការ​សន្ទនា ដែល​អ្នក​អាច​រក្សា​ទំនាក់ទំនង ចែករំលែក​រូបថត​ជាមួយ​គ្នា និង​ច្រើន​ទៀត។ ដាក់ឈ្មោះឱ្យវា៖"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "បានបង្ហោះសារ <em>{{message.fields.type}}<\/em> ទៅ {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "បានអធិប្បាយលើ",
+            "startedCallIn": "បានចាប់ផ្តើមការហៅចូល",
+            "in": "ក្នុង",
+            "body": "ក្នុង {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "ត្រូវបានបង្ហោះទៅ",
+                "byAvatar": "ដោយ {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "មាន {{instructions.fromDisplayType}} ថ្មី។",
+                "byAvatar": "បន្ថែមដោយ {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "ការអញ្ជើញត្រូវបានផ្ញើពីលេខរបស់យើង ដែលមិត្តរបស់អ្នកមិនទាន់ស្គាល់។ តាមដានជាមួយអត្ថបទខ្លីៗ ដើម្បីឲ្យពួកគេដឹងថាការអញ្ជើញមកពីអ្នក ដោយសុំឱ្យពួកគេចុចតំណ។",
+            "confirm": "ការអញ្ជើញត្រូវបានផ្ញើពីលេខរបស់យើង ដែលមិត្តរបស់អ្នកមិនទាន់ស្គាល់។ តើ​អ្នក​ចង់​តាម​ដាន​ជាមួយ​នឹង​អត្ថបទ​រហ័ស​ដើម្បី​ប្រាប់​ពួកគេ​ថា​ការ​អញ្ជើញ​បាន​មក​ពី​អ្នក​ដោយ​សុំ​ឱ្យ​ពួកគេ​ចុច​លើ​តំណ។",
+            "check": "ហេ ខ្ញុំទើបតែផ្ញើការអញ្ជើញទៅកម្មវិធី {{app}} ។ សូមពិនិត្យមើលសារ SMS របស់អ្នកហើយចុចលើតំណភ្ជាប់!",
+            "CheckYourMobile": "សូមពិនិត្យមើលសារ SMS ហើយធ្វើតាមការណែនាំ!"
+        },
+        "email": {
+            "alert": "ការអញ្ជើញត្រូវបានផ្ញើពីដែនរបស់យើង ដែលមិត្តរបស់អ្នកមិនទាន់ទទួលស្គាល់។ តាមដានជាមួយអត្ថបទខ្លីៗ ដើម្បីឲ្យពួកគេដឹងថាការអញ្ជើញមកពីអ្នក ដោយសុំឱ្យពួកគេចុចតំណ។",
+            "confirm": "ការអញ្ជើញត្រូវបានផ្ញើពីដែនរបស់យើង ដែលមិត្តរបស់អ្នកមិនទាន់ទទួលស្គាល់។ តើ​អ្នក​ចង់​តាម​ដាន​ជាមួយ​នឹង​អត្ថបទ​ខ្លី​មួយ​ដើម្បី​ឱ្យ​ពួកគេ​ដឹង​ថា​ការ​អញ្ជើញ​មក​ពី​អ្នក​ដោយ​សុំ​ឱ្យ​ពួកគេ​ចុច​លើ​តំណ។",
+            "subject": "តើអ្នកបានទទួលការអញ្ជើញទេ?",
+            "body": "ហេ ខ្ញុំទើបតែផ្ញើការអញ្ជើញទៅកម្មវិធី {{app}} ។ សូមពិនិត្យមើលអ៊ីមែលរបស់អ្នក ហើយចុចលើតំណភ្ជាប់នៅទីនោះ!",
+            "CheckYourEmail": "សូមពិនិត្យមើលអ៊ីមែលរបស់អ្នក ហើយធ្វើតាមការណែនាំ!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "ឈ្មោះអ្នកប្រើប្រាស់..."
+    },
+    "identifier": {
+        "privacySettings": "ការកំណត់ឯកជនភាព"
+    },
+    "participating": {
+        "Title": "ចំណងជើង",
+        "Subscribed": "បានជាវ",
+        "Participants": "អ្នកចូលរួម",
+        "AreYouSureRemoveIdentifier": "តើ​អ្នក​ប្រាកដ​ក្នុង​ចិត្ត​លុប​អត្តសញ្ញាណ​នេះ​ចេញ​ឬ?",
+        "AreYouSureUnsubscribeIdentifier": "តើ​អ្នក​ប្រាកដ​ជា​ឈប់​ជាវ​ឧបករណ៍​សម្គាល់​នេះ​ឬ? វានឹងបិទការជូនដំណឹងទៅកាន់ឧបករណ៍កំណត់អត្តសញ្ញាណនេះ។",
+        "AreYouSureUnsubscribeDevice": "តើអ្នកប្រាកដថាឈប់ជាវឧបករណ៍នេះទេ? វានឹងបិទការជូនដំណឹងទៅកាន់ឧបករណ៍នេះ។",
+        "AreYouSureRemoveParticipant": "តើ​អ្នក​ប្រាកដ​ជា​ចង់​ដក​អ្នក​ចូលរួម​នេះ​ចេញ?",
+        "RemoveParticipant": "ដកអ្នកចូលរួមចេញ",
+        "Identifiers": "អ្នកកំណត់អត្តសញ្ញាណ",
+        "Devices": "ឧបករណ៍",
+        "Streams": "ស្ទ្រីម"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "បានអញ្ជើញ",
+            "description": "ប្រអប់សំបុត្រសម្រាប់ការអញ្ជើញ"
+        },
+        "Streams\/resource": {
+            "displayType": "ធនធាន",
+            "description": "ស្ទ្រីមសម្រាប់គ្រប់គ្រងការចូលប្រើធនធាន និងការបង្ហោះសារអំពីបច្ចុប្បន្នភាព"
+        },
+        "Streams\/task": {
+            "description": "សម្រាប់ការទទួលបានព័ត៌មានថ្មីៗអំពីវឌ្ឍនភាពលើកិច្ចការជាក់លាក់មួយ។",
+            "displayType": "កិច្ចការ"
+        },
+        "Streams\/tasks": {
+            "description": "ប្រភេទសម្រាប់ភារកិច្ច",
+            "displayType": "កិច្ចការ"
+        },
+        "Streams\/experience": {
+            "description": "បទពិសោធន៍ទូទៅសម្រាប់សមាជិកនៃសហគមន៍",
+            "displayType": "បទពិសោធន៍ទូទៅសម្រាប់សមាជិកនៃសហគមន៍"
+        },
+        "Streams\/greeting": {
+            "description": "ការស្វាគមន៍ដែលអ្នកប្រើប្រាស់អាចណែនាំខ្លួនឯងបាន។",
+            "displayType": "ជំរាបសួរ"
+        },
+        "Streams\/number": {
+            "displayType": "លេខ",
+            "description": "លេខគណិតវិទ្យា"
+        },
+        "Streams\/date": {
+            "displayType": "កាលបរិច្ឆេទ",
+            "description": "កាលបរិច្ឆេទ"
+        },
+        "Streams\/text": {
+            "displayType": "អត្ថបទ",
+            "description": "តួអត្ថបទ"
+        },
+        "Streams\/text\/small": {
+            "displayType": "អត្ថបទ",
+            "description": "តួអត្ថបទតូច"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "អត្ថបទ",
+            "description": "តួអត្ថបទមធ្យម"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "អាសយដ្ឋានអ៊ីមែល",
+            "description": "អាសយដ្ឋានអ៊ីមែល"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "លេខទូរស័ព្ទ",
+            "description": "លេខទូរស័ព្ទ"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "តំណភ្ជាប់នៅលើគេហទំព័រ"
+        },
+        "Streams\/image": {
+            "displayType": "រូបភាព",
+            "description": "រូបភាពដែលមើលឃើញ",
+            "newItem": "បន្ថែមរូបភាព"
+        },
+        "Streams\/images": {
+            "displayType": "វិចិត្រសាលរូបភាព",
+            "description": "វិចិត្រសាលរូបភាព"
+        },
+        "Streams\/album": {
+            "displayType": "អាល់ប៊ុម",
+            "description": "អាល់ប៊ុមដែលប្រព័ន្ធផ្សព្វផ្សាយផ្សេងៗទាក់ទងគ្នា។"
+        },
+        "Streams\/file": {
+            "displayType": "ឯកសារ",
+            "description": "ឯកសារដែលបានផ្ទុកឡើង",
+            "newItem": "បន្ថែមឯកសារ"
+        },
+        "Streams\/audio": {
+            "displayType": "ឈុតសំឡេង",
+            "description": "ឈុតអូឌីយ៉ូ",
+            "newItem": "បន្ថែមអូឌីយ៉ូ"
+        },
+        "Streams\/video": {
+            "displayType": "ឃ្លីបវីដេអូ",
+            "description": "វីដេអូឃ្លីប",
+            "newItem": "បន្ថែមវីដេអូ"
+        },
+        "Streams\/pdf": {
+            "displayType": "ឯកសារ PDF",
+            "description": "ឯកសារ PDF",
+            "newItem": "បន្ថែម PDF"
+        },
+        "Streams\/live": {
+            "displayType": "ការផ្សាយបន្តផ្ទាល់",
+            "description": "សំឡេង ឬវីដេអូបន្តផ្ទាល់"
+        },
+        "Streams\/category": {
+            "displayType": "ប្រភេទ",
+            "description": "ប្រភេទ​ដែល​ការ​ផ្សាយ​ផ្សេង​ទៀត​អាច​ទាក់​ទង",
+            "newItem": "បន្ថែមប្រភេទ"
+        },
+        "Streams\/participating": {
+            "displayType": "សន្ទស្សន៍ចូលរួម",
+            "description": "ការស្ទ្រីមគឺទាក់ទង\/មិនទាក់ទងនឹងវា នៅពេលដែលអ្នកប្រើប្រាស់ចូលរួម\/ចាកចេញ"
+        },
+        "Streams\/interest": {
+            "displayType": "ការប្រាក់",
+            "description": "តំណាងឱ្យចំណាប់អារម្មណ៍របស់អ្នកប្រើលើប្រធានបទជាក់លាក់មួយ។"
+        },
+        "Streams\/incoming": {
+            "displayType": "ចូល",
+            "description": "គោលដៅសម្រាប់សារដែលផ្ញើដោយអ្នកប្រើប្រាស់ផ្សេងទៀត។"
+        },
+        "Streams\/chat": {
+            "displayType": "ការសន្ទនា",
+            "description": "ការសន្ទនារវាងអ្នកប្រើប្រាស់ ជាមួយនឹងប្រវត្តិ"
+        },
+        "Streams\/question": {
+            "displayType": "សំណួរ",
+            "description": "ស្ទ្រីមសំណួរ",
+            "newItem": "បន្ថែមសំណួរ"
+        },
+        "Streams\/answer": {
+            "displayType": "ចម្លើយ",
+            "description": "ឆ្លើយឆ្លង"
+        },
+        "Streams\/topic": {
+            "displayType": "ប្រធានបទ",
+            "description": "ស្ទ្រីមប្រធានបទ",
+            "newItem": "បន្ថែមប្រធានបទ"
+        }
+    },
+    "menu": {
+        "placeholder": "វាយចំណងជើងទំព័រ",
+        "ModTab": "កែប្រែធាតុ",
+        "Save": "រក្សាទុក",
+        "Delete": "លុប",
+        "Submenu": "ម៉ឺនុយរង"
+    },
+    "audio": {
+        "record": "កត់ត្រា",
+        "reset": "កំណត់ឡើងវិញ",
+        "edit": "កែសម្រួល",
+        "title": "ចំណងជើង",
+        "description": "ការពិពណ៌នា",
+        "upload": "ផ្ទុកឡើង",
+        "link": "តំណភ្ជាប់",
+        "setUrl": "កំណត់ URL",
+        "save": "រក្សាទុក",
+        "setClip": "កាត់ឃ្លីប",
+        "invalidURL": "URL មិនត្រឹមត្រូវ",
+        "invalidFile": "ឯកសារមិនត្រឹមត្រូវ",
+        "errorNoSource": "គ្មានប្រភពសំឡេងទេ។",
+        "uploadLimit": "ទំហំឯកសារអតិបរមា៖ {{size}}",
+        "errorFileSize": "សូមទោស ប៉ុន្តែឯកសារធំពេក។<br> ទំហំឯកសារអតិបរមាគឺ {{size}}",
+        "TeaserAudio": "អូឌីយ៉ូ Teaser"
+    },
+    "video": {
+        "NewVideo": "វីដេអូថ្មី។",
+        "EditVideo": "កែសម្រួលវីដេអូ",
+        "reset": "កំណត់ឡើងវិញ",
+        "edit": "កែសម្រួល",
+        "title": "ចំណងជើង",
+        "description": "ការពិពណ៌នា",
+        "upload": "ផ្ទុកឡើង",
+        "link": "តំណភ្ជាប់",
+        "setUrl": "កំណត់ URL",
+        "save": "រក្សាទុក",
+        "createAnimatedThumbnail": "បង្កើតរូបភាពតូចដែលមានចលនា",
+        "setClip": "កាត់ឃ្លីប",
+        "invalidURL": "URL មិនត្រឹមត្រូវ",
+        "invalidFile": "ឯកសារមិនត្រឹមត្រូវ",
+        "errorNoSource": "គ្មានប្រភពវីដេអូទេ។",
+        "uploadLimit": "ទំហំឯកសារអតិបរមា៖ {{size}}",
+        "errorFileSize": "សូមទោស ប៉ុន្តែឯកសារធំពេក។<br> ទំហំឯកសារអតិបរមាគឺ {{size}}",
+        "errorNotAvailable": "សូមអភ័យទោស ប៉ុន្តែវីដេអូមិនទាន់មាននៅឡើយទេ។ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។",
+        "TeaserVideo": "វីដេអូ Teaser"
+    },
+    "pdf": {
+        "reset": "កំណត់ឡើងវិញ",
+        "edit": "កែសម្រួល",
+        "title": "ចំណងជើង",
+        "description": "ការពិពណ៌នា",
+        "upload": "ផ្ទុកឡើង",
+        "link": "តំណភ្ជាប់",
+        "setUrl": "កំណត់ URL",
+        "save": "រក្សាទុក",
+        "setClip": "កាត់ឃ្លីប",
+        "invalidURL": "URL មិនត្រឹមត្រូវ",
+        "invalidFile": "ឯកសារមិនត្រឹមត្រូវ",
+        "errorNoSource": "គ្មានប្រភព pdf ទេ។",
+        "uploadLimit": "ទំហំឯកសារអតិបរមា៖ {{size}}",
+        "errorFileSize": "សូមទោស ប៉ុន្តែឯកសារធំពេក។<br> ទំហំឯកសារអតិបរមាគឺ {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "កំណត់ឡើងវិញ",
+        "edit": "កែសម្រួល",
+        "title": "ចំណងជើង",
+        "description": "ការពិពណ៌នា",
+        "upload": "ផ្ទុកឡើង",
+        "link": "តំណភ្ជាប់",
+        "setUrl": "កំណត់ URL",
+        "save": "រក្សាទុក",
+        "uploadedImage": "រូបភាពដែលបានបង្ហោះ",
+        "imageTitle": "ចំណងជើងរូបភាព",
+        "setClip": "កាត់ចេញឃ្លីប",
+        "invalidURL": "URL មិនត្រឹមត្រូវ",
+        "invalidFile": "ឯកសារមិនត្រឹមត្រូវ",
+        "errorNoSource": "គ្មានប្រភពរូបភាព",
+        "uploadLimit": "ទំហំឯកសារអតិបរមា៖ {{size}}",
+        "errorFileSize": "សូមទោស ប៉ុន្តែឯកសារធំពេក។<br> ទំហំឯកសារអតិបរមាគឺ {{size}}",
+        "TeaserImage": "រូបភាព Teaser"
+    },
+    "questions": {
+        "Questions": "សំណួរ",
+        "Answers": "ចម្លើយ",
+        "AnswerQuestion": "ឆ្លើយសំណួរ",
+        "SetYourAnswer": "សូមឆ្លើយសំណួរ",
+        "NewQuestion": "សំណួរថ្មី។",
+        "EditQuestion": "កែសម្រួលសំណួរ",
+        "NewAnswer": "ចម្លើយថ្មី។",
+        "NewPossibleAnswer": "ចម្លើយដែលអាចទៅរួចថ្មី។",
+        "AnswerDetails": "ចម្លើយលម្អិត",
+        "answerOption": "ជម្រើស",
+        "answerOptionExclusive": "ផ្តាច់មុខ",
+        "answerTextarea": "អត្ថបទ",
+        "answerText": "អត្ថបទ",
+        "HideUntilAnswered": "លាក់រហូតដល់ឆ្លើយ",
+        "CantChangeAnswers": "មិនអាចផ្លាស់ប្តូរចម្លើយបានទេ។",
+        "ShortAnswer": "សរសេរចម្លើយខ្លីមួយ។",
+        "FreeAnswer": "សរសេរចម្លើយរបស់អ្នកនៅទីនេះ",
+        "SaveQuestion": "រក្សាទុកសំណួរ",
+        "SaveAnswer": "រក្សាទុកចម្លើយ",
+        "Save": "រក្សាទុក",
+        "Send": "ផ្ញើ",
+        "TitleRequired": "ត្រូវការចំណងជើង!",
+        "AlreadyAnswered": "ឆ្លើយរួចហើយ",
+        "TitlePlaceholder": "វាយសំណួររបស់អ្នក។",
+        "ContentPlaceholder": "ដាក់ព័ត៌មានបន្ថែមនៅទីនេះ ដើម្បីជួយមនុស្សឆ្លើយ",
+        "ErrorTitle": "សំណួរចាំបាច់",
+        "Placeholder": "សរសេរការណែនាំ",
+        "AreYouSure": "តើអ្នកប្រាកដទេ?",
+        "AnswerCantBeChanged": "ចម្លើយមិនអាចផ្លាស់ប្តូរបានទេ។"
+    },
+    "experience": {
+        "NewExperience": "បទពិសោធន៍ថ្មី។",
+        "DefineTitle": "សូមកំណត់ចំណងជើង",
+        "Create": "បង្កើត"
+    },
+    "calls": {
+        "SettingsTitle": "ការហៅទូរស័ព្ទ",
+        "MaxCalls": "ការហៅទូរស័ព្ទអតិបរមា",
+        "Update": "ធ្វើបច្ចុប្បន្នភាព",
+        "NoCallsYet": "មិន​ទាន់​មាន​ការ​ហៅ​ទូរសព្ទ​ទេ។",
+        "CallReasonTitle": "តើការហៅនេះនិយាយអំពីអ្វី?",
+        "WaitingRoom": "បន្ទប់រង់ចាំ",
+        "LiveRoom": "បន្ទប់រស់នៅ",
+        "interviewedByAnotherHost": "បច្ចុប្បន្នត្រូវបានសម្ភាសដោយពិធីករម្នាក់ទៀត។",
+        "bringToLive": "នាំយកទៅកម្មវិធីផ្សាយផ្ទាល់",
+        "putOnHold": "ដាក់​ឱ្យ​ជាប់​",
+        "endCall": "បញ្ចប់ការហៅទូរសព្ទ",
+        "interview": "សំភាសន៍",
+        "markApproved": "Mark បានយល់ព្រម"
+    },
+    "task": {
+        "errorsTitle": "កំហុសបានកើតឡើង"
+    },
+    "topic": {
+        "NewTopic": "ប្រធានបទថ្មី។",
+        "UpdateTopic": "ធ្វើបច្ចុប្បន្នភាពប្រធានបទ",
+        "CreateTopic": "បង្កើតប្រធានបទ",
+        "AreYouSureDeleteTopic": "តើអ្នកប្រាកដទេថាអ្នកចង់លុបប្រធានបទនេះ។",
+        "TitlePlaceholder": "ប្រធានបទ...",
+        "DescribeTopic": "ពិពណ៌នាប្រធានបទ...",
+        "TopicIcon": "រូបភាពប្រធានបទ",
+        "UploadIcon": "រូបតំណាងបង្ហោះ",
+        "Conversation": "ការសន្ទនា",
+        "Metrics": "ម៉ែត្រ",
+        "Teaser": "ឈុតខ្លីៗ",
+        "TeaserDescription": "ការពណ៌នា Teaser...",
+        "TeaserVideo": "វីដេអូ Teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "បង្កើតរូបភាពតូចៗដែលមានចលនា",
+        "Width": "ទទឹង",
+        "Height": "កម្ពស់",
+        "Start": "ចាប់ផ្តើម",
+        "End": "ចប់",
+        "Delay": "ពន្យារពេល",
+        "Quality": "គុណភាព",
+        "Size": "ទំហំ",
+        "OfFrames": "នៃស៊ុម",
+        "Frame": "ស៊ុម",
+        "UseThis": "ប្រើនេះ។",
+        "ResultGIF": "លទ្ធផល GIF",
+        "VideoElementNotFound": "រកមិនឃើញធាតុវីដេអូទេ។"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} នៅលើមុខរបស់អ្នក។",
+        "AcceptIcon": "ទទួលយកតំបន់ដែលបានជ្រើសរើស"
+    }
+}

@@ -469,7 +469,8 @@
         "ErrorTitle": "Galdera behar da",
         "Placeholder": "Idatzi Jarraibideak",
         "AreYouSure": "Ziur zaude?",
-        "ShortAnswer": "Idatzi erantzun labur bat"
+        "ShortAnswer": "Idatzi erantzun labur bat",
+        "AnswerCantBeChanged": "Erantzuna ezin da aldatu"
     },
     "experience": {
         "NewExperience": "Esperientzia Berria",

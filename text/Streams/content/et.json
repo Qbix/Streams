@@ -469,7 +469,8 @@
         "ErrorTitle": "Vajalik küsimus",
         "Placeholder": "Kirjutage juhised",
         "AreYouSure": "Oled sa kindel?",
-        "ShortAnswer": "Kirjutage lühike vastus"
+        "ShortAnswer": "Kirjutage lühike vastus",
+        "AnswerCantBeChanged": "Vastust ei saa muuta"
     },
     "experience": {
         "NewExperience": "Uus kogemus",

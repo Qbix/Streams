@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "O lenei mea e natia mai ia te oe.",
+        "InplaceTypeMustBe": "inplaceType e tatau ona &#39;textarea&#39; po&#39;o le &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Mea fou",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "igoa muamua",
+        "lastName": "fa&#39;aiu",
+        "username": "username"
+    },
+    "labels": {
+        "Streams\/invited": "Tagata na ou valaaulia",
+        "Streams\/invitedMe": "O ai na valaaulia au",
+        "DoYouAgree": "E te ioe?",
+        "JoinItNow": "Auai nei loa?",
+        "Yes": "Ioe",
+        "No": "Leai"
+    },
+    "login": {
+        "prompt": "Tuu atu i uo e iloa oe:",
+        "newUser": "pe fai se tala fou i lalo",
+        "picTooltip": "E mafai ona e suia lenei ata mulimuli ane",
+        "placeholders": {
+            "fullName": "Ulufale lou igoa atoa"
+        }
+    },
+    "interests": {
+        "Filter": "Saili mea e fiafia i ai",
+        "CanGrant": "Afai e le mafai lava ona e mauaina le mea o loʻo e suʻeina, e mafai ona e faʻaopoopoina se fiafiaga fou i lalo:",
+        "TrySynonyms": "Le vaai i ai? Taumafai nisi o upu tutusa.",
+        "AddUnderCategory": "Fa&#39;aopoopo i lalo o vaega...",
+        "Other": "Isi",
+        "Unlisted": "Le lisiina"
+    },
+    "relate": {
+        "Add": "Faaopoopo {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Ua fa&#39;ailoga le fe&#39;au mo le iloiloga a le pulega. Toe tap e tatala le fu&#39;a.",
+        "noOneSaid": "E leai se tasi na fai mai se mea",
+        "closeChatButton": "Tapuni talanoaga",
+        "closeChatConfirmTitle": "Tapuni le talanoaga?",
+        "closeChatConfirm": "E te mautinoa e te mana&#39;o e tapuni le talanoaga?",
+        "Subscribed": "Fa&#39;asilasilaga Fa&#39;aagaoi",
+        "Unsubscribed": "Fa&#39;aliga Fa&#39;alogo",
+        "closeChatConfirmYes": "Ioe",
+        "closeChatConfirmNo": "Leai",
+        "earlierComments": "fa&#39;amatalaga muamua",
+        "startedConversation": "amata se talanoaga",
+        "RealTimeCall": "Valaau Taimi Moni",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Su&#39;e ile igoa",
+        "Notifications": {
+            "Visit": "{{displayName}} o lo&#39;o asiasi i le talatalanoaga",
+            "Join": "{{displayName}} na auai i le talatalanoaga",
+            "Leave": "Na tuua {{displayName}} le talanoaga",
+            "RelatedTo": "{{displayName}} na amata ile {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Fa&#39;aopoopo se fa&#39;amatalaga",
+            "Private": "Tusi se savali patino"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "pulea au imeli imeli",
+        "IfUnsubscribe": "Afai e te mana&#39;o e unsubscribe",
+        "changed": {
+            "ChangesIn": "Suiga i le {{title}}",
+            "Changed": "suia",
+            "HereIsWhatChanged": "O le mea lea na suia:"
+        },
+        "joined": {
+            "Joined": "{{subject}} auai i <em>{{title}}<\/em>"
+        },
+        "*": "Feau {{{message.fields.type}}} i le {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} na auai",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} totoe",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} fai mai: {{{message.content}}}",
+        "Streams\/changed": "Suiga i le {{stream.fields.title}}",
+        "Streams\/invite": "Na vala&#39;aulia oe i le {{{stream.fields.title}}}",
+        "Streams\/announcement": "Faʻaaliga i {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} suia avanoa i {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Talatala fe&#39;au fa&#39;atonu i {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Na aveese le fe&#39;au talatalanoa i {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} ua tapunia",
+        "Streams\/task\/progress": "Alualu i luma i {{stream.fields.title}}",
+        "Streams\/task\/complete": "Galuega mae&#39;a: {{stream.fields.title}}",
+        "Streams\/task\/error": "Sese ile taimi: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Sau Mai",
+        "Streams\/relatedTo\/Streams\/call": "Valaau Fou na amata ile {{toTitle}}",
+        "Streams\/relatedTo\/*": "Fou {{relationDisplayType}} ile {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Faaopoopo i {{toTitle}} e pei o {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} na taʻua oe i se faʻamatalaga",
+        "Streams\/call": "{{displayName}} na amata se telefoni i le taimi moni"
+    },
+    "invite": {
+        "command": "Valaaulia",
+        "Invite": "Valaaulia",
+        "Share": "Faasoa",
+        "Participants": "Valaaulia Tagata",
+        "messageContent": "{{displayName}} valaaulia oe i {{inviteUrl}}",
+        "youCanNowPaste": "E mafai nei ona e fa&#39;apipi&#39;i le so&#39;oga lea i se mea e vala&#39;aulia ai tagata",
+        "roles": {
+            "title": "Fa&#39;amea Matafaioi i Tagata Fa&#39;aaogāina?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Malie",
+                "alert": "E le fa&#39;atagaina oe e tu&#39;uina atu lenei matafaioi"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Malie",
+                "alert": "E le fa&#39;atagaina oe e aveese lenei matafaioi"
+            }
+        },
+        "labels": {
+            "title": "O le a lau Mafutaga?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Filifili mai au Feso&#39;ota&#39;iga",
+            "chooseAgainFromContacts": "Toe filifili mai Feso&#39;ota&#39;iga",
+            "inviteSelectedContacts": "Valaaulia Feso&#39;ota&#39;iga Filifilia",
+            "selectFromContacts": "Filifili Mai Feso&#39;ota&#39;iga",
+            "userChooserPlaceholder": "Su&#39;e ile igoa",
+            "photo": "Pu&#39;e se ata",
+            "photoOf": "Pu&#39;e se ata o le {{name}}",
+            "photoInstruction": "Afai o loʻo i ou luma le tagata na suʻeina lau QR code, puʻe se ata o ia",
+            "to": "Ia: {{Stream Title}}",
+            "go": "Alu",
+            "title": "Valaaulia",
+            "placeholder": "Numera feavea&#39;i po&#39;o tuatusi imeli",
+            "orInvite": "Pe valaaulia tagata e ala i le faaaogaina:",
+            "copyLink": "{{ClickOrTap}} e kopi ai le sootaga valaaulia ",
+            "shareOrCopyLink": "{{ClickOrTap}} e faʻasoa pe kopi le fesoʻotaʻiga valaaulia ",
+            "QR": "{{ClickOrTap}} e gaosia ai le QR code",
+            "QRtitle": "Va&#39;ai le QR code lenei",
+            "QRscanned": "Sa latou su&#39;esu&#39;eina!",
+            "scannedQR": "{{ClickOrTap}} pe a su&#39;e le code",
+            "TakeGroupPhoto": "Pu&#39;e se Ata Vaega",
+            "Skip": "Fa&#39;ase&#39;e",
+            "byEmail": "imeli",
+            "byText": "Tusitusi",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Valaaulia Tagata",
+            "chooseMethod": "Filifili se auala:",
+            "selectContacts": "Filifili Feso&#39;ota&#39;iga",
+            "scanQRCode": "Su&#39;e le QR Code",
+            "shareLink": "Fa&#39;asoa se so&#39;oga",
+            "chooseFromRegistered": "Filifili mai tagata fa&#39;aoga resitalaina",
+            "inviteViaEmailOrSms": "Valaaulia e ala i imeli poʻo SMS",
+            "addRoles": "Faaopoopo Matafaioi",
+            "addPersonalRoles": "Faaopoopo Fegalegaleaiga a le Tagata Lava Ia"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Susu mai i le {{communityName}}",
+            "HasInvitedYou": "ua valaaulia oe e:",
+            "HasInvitedYouToTheirProfile": "ua valaaulia oe e fesootai.",
+            "prompt": "Tuu atu i uo e iloa oe:",
+            "accept": "Talia le Valaaulia"
+        },
+        "email": {
+            "subject": "Ei, siaki lenei mea",
+            "PleaseVisitLink": "Fa&#39;amolemole asiasi i le so&#39;oga lea:",
+            "InvitingYou": "Ou te valaaulia oe i {{title}}",
+            "HasInvitedYou": "{{displayName}} ua valaaulia oe i le {{title}}",
+            "HasMentionedYou": "{{displayName}} ua taʻua oe i le &quot; {{title}} &quot;",
+            "YOUAREINVITED": "E VAVALIA AI OE!",
+            "AcceptInvite": "Talia le Valaaulia"
+        },
+        "mobile": {
+            "content": "Ua vala&#39;aulia oe i {{title}} . Fa&#39;amolemole tap {{url}}"
+        },
+        "notice": {
+            "text": "Ua valaaulia oe. {{ClickOrTap}} iinei e talia ma auai."
+        },
+        "chat": {
+            "prompt": "O le a e vala&#39;aulia tagata i se talanoaga e mafai ona e fa&#39;afeso&#39;ota&#39;i, fefa&#39;asoaa&#39;i ata, ma isi mea. Tuu i ai se igoa:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "lafo se fe&#39;au <em>{{message.fields.type}}<\/em> i le {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "fa&#39;amatalaga",
+            "startedCallIn": "amata se valaau i totonu",
+            "in": "i totonu",
+            "body": "i le {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "ua lafo i",
+                "byAvatar": "e {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "e iai le {{instructions.fromDisplayType}} fou",
+                "byAvatar": "faaopoopo e {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "O valaaulia e lafo mai i la matou numera, lea e le&#39;i iloaina e au uo. Tulai mai ma se tusitusiga vave e taʻu atu ia i latou o le valaaulia na sau mai ia te oe, fai atu ia i latou e kiliki le sootaga.",
+            "confirm": "O valaaulia e lafo mai i la matou numera, lea e le&#39;i iloaina e au uo. E te mana&#39;o e tulitatao i se tusitusiga vave e ta&#39;u atu ia i latou o le valaaulia na sau mai ia te oe, fai atu ia i latou e kiliki le sootaga.",
+            "check": "Ei, faatoa ou lafo atu ia te oe se valaaulia i le {{app}} app. Faamolemole siaki lau sms ma kiliki le sootaga!",
+            "CheckYourMobile": "Faamolemole siaki SMS ma mulimuli i faatonuga!"
+        },
+        "email": {
+            "alert": "O valaaulia e lafo mai i la matou vaega, lea e le&#39;i iloaina e au uo. Tulai mai ma se tusitusiga vave e taʻu atu ia i latou o le valaaulia na sau mai ia te oe, fai atu ia i latou e kiliki le sootaga.",
+            "confirm": "O valaaulia e lafo mai i la matou vaega, lea e le&#39;i iloaina e au uo. E te mana&#39;o e tulitatao i se tusitusiga vave e ta&#39;u atu ia i latou o le valaaulia na sau mai ia te oe, fai atu ia i latou e kiliki le sootaga.",
+            "subject": "Na e mauaina se valaaulia?",
+            "body": "Ei, na&#39;o ou lafo atu ia te oe se valaaulia i le {{app}} app. Faamolemole siaki lau imeli ma kiliki le sootaga i totonu!",
+            "CheckYourEmail": "Faamolemole siaki lau imeli ma mulimuli i faatonuga!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Igoa o se tagata fa&#39;aoga..."
+    },
+    "identifier": {
+        "privacySettings": "Fa&#39;atonu Fa&#39;atonu"
+    },
+    "participating": {
+        "Title": "Ulutala",
+        "Subscribed": "Fa&#39;asoa",
+        "Participants": "Tagata auai",
+        "AreYouSureRemoveIdentifier": "E te mautinoa e aveese lenei fa&#39;amatalaga?",
+        "AreYouSureUnsubscribeIdentifier": "E te mautinoa e le&#39;i lesitalaina lenei fa&#39;asinomaga? O le a tape fa&#39;amatalaga i lenei fa&#39;amatalaga.",
+        "AreYouSureUnsubscribeDevice": "E te mautinoa e le&#39;i lesitalaina lenei masini? O le a tape fa&#39;amatalaga i lenei masini.",
+        "AreYouSureRemoveParticipant": "E te mautinoa e te mana&#39;o e aveese lenei tagata auai?",
+        "RemoveParticipant": "Aveese le tagata auai",
+        "Identifiers": "Fa&#39;ailoga",
+        "Devices": "Meafaigaluega",
+        "Streams": "Vaitafe"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Valaaulia",
+            "description": "Inbox mo valaaulia"
+        },
+        "Streams\/resource": {
+            "displayType": "Punaoa",
+            "description": "vaitafe mo le puleaina o avanoa i se punaoa ma faʻasalalau feʻau e uiga i faʻafouga"
+        },
+        "Streams\/task": {
+            "description": "mo le mauaina o faʻamatalaga e uiga i le alualu i luma i se galuega patino",
+            "displayType": "Galuega"
+        },
+        "Streams\/tasks": {
+            "description": "vaega mo galuega",
+            "displayType": "Galuega"
+        },
+        "Streams\/experience": {
+            "description": "ose aafiaga masani mo tagata o se nuu",
+            "displayType": "Aafiaga masani mo tagata o se alalafaga"
+        },
+        "Streams\/greeting": {
+            "description": "fa&#39;afeiloa&#39;iga e mafai ai e se tagata fa&#39;aoga ona fa&#39;ailoa mai i latou",
+            "displayType": "Fa&#39;afeiloa&#39;i"
+        },
+        "Streams\/number": {
+            "displayType": "Numera",
+            "description": "numera numera"
+        },
+        "Streams\/date": {
+            "displayType": "Aso",
+            "description": "aso"
+        },
+        "Streams\/text": {
+            "displayType": "Tusitusi",
+            "description": "tino o tusitusiga"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Tusitusi",
+            "description": "vaega itiiti o tusitusiga"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Tusitusi",
+            "description": "tino o tusitusiga"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Imeli tuatusi",
+            "description": "imeli tuatusi"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Numera telefoni",
+            "description": "numera telefoni"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "so&#39;oga i luga ole laiga"
+        },
+        "Streams\/image": {
+            "displayType": "Ata",
+            "description": "ata vaaia",
+            "newItem": "Faaopoopo Ata"
+        },
+        "Streams\/images": {
+            "displayType": "Ata Ata",
+            "description": "faletusi o ata"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "o se lipine e feso&#39;ota&#39;i iai fa&#39;asalalauga eseese"
+        },
+        "Streams\/file": {
+            "displayType": "faila",
+            "description": "faila faila",
+            "newItem": "Fa&#39;aopoopo faila"
+        },
+        "Streams\/audio": {
+            "displayType": "Kipi leo",
+            "description": "kilipi leo",
+            "newItem": "Fa&#39;aopoopo le leo"
+        },
+        "Streams\/video": {
+            "displayType": "Vitio Vitio",
+            "description": "ata vitio",
+            "newItem": "Faaopoopo Vitio"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF pepa",
+            "description": "PDF pepa",
+            "newItem": "Fa&#39;aopoopo le PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "leo ola po o le vitio"
+        },
+        "Streams\/category": {
+            "displayType": "Vaega",
+            "description": "se vaega e mafai ona fesootai i isi vaitafe",
+            "newItem": "Fa&#39;aopoopo le Vaega"
+        },
+        "Streams\/participating": {
+            "displayType": "Faasino Upu",
+            "description": "vaitafe e feso&#39;ota&#39;i\/le feso&#39;ota&#39;i i lenei mea pe a fa&#39;atasi\/tu&#39;ua se tagata fa&#39;aoga"
+        },
+        "Streams\/interest": {
+            "displayType": "Tului",
+            "description": "o lo&#39;o fa&#39;atusalia le fiafia o le tagata fa&#39;aoga i se autu"
+        },
+        "Streams\/incoming": {
+            "displayType": "ulufale mai",
+            "description": "nofoaga mo fe&#39;au na lafo e isi tagata fa&#39;aoga"
+        },
+        "Streams\/chat": {
+            "displayType": "Talanoaga",
+            "description": "se talanoaga i le va o tagata faʻaoga, faʻatasi ai ma talafaasolopito"
+        },
+        "Streams\/question": {
+            "displayType": "Fesili",
+            "description": "vaitafe fesili",
+            "newItem": "Faaopoopo Fesili"
+        },
+        "Streams\/answer": {
+            "displayType": "Tali",
+            "description": "tali vaitafe"
+        },
+        "Streams\/topic": {
+            "displayType": "Autu",
+            "description": "ala autu",
+            "newItem": "Faaopoopo Autu"
+        }
+    },
+    "menu": {
+        "placeholder": "ta&#39;i le ulutala itulau",
+        "ModTab": "Suia Mea",
+        "Save": "Faasaoina",
+        "Delete": "Aveese",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Faamaumauga",
+        "reset": "Toe setiina",
+        "edit": "Fa&#39;atonu",
+        "title": "suafa",
+        "description": "fa&#39;amatalaga",
+        "upload": "Tu&#39;u mai",
+        "link": "So&#39;oga",
+        "setUrl": "Seti URL",
+        "save": "Faasaoina",
+        "setClip": "Oti ese Kilipi",
+        "invalidURL": "Le aoga URL",
+        "invalidFile": "Faila le aoga",
+        "errorNoSource": "Leai se puna leo",
+        "uploadLimit": "Le tele o faila faila: {{size}}",
+        "errorFileSize": "Fa&#39;amalie atu, ae tele naua le faila.<br> Ole tele ole faila ole {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Vitio Fou",
+        "EditVideo": "Fa&#39;asa&#39;o Vitio",
+        "reset": "Toe setiina",
+        "edit": "Fa&#39;atonu",
+        "title": "suafa",
+        "description": "fa&#39;amatalaga",
+        "upload": "Tu&#39;u mai",
+        "link": "So&#39;oga",
+        "setUrl": "Seti URL",
+        "save": "Faasaoina",
+        "createAnimatedThumbnail": "Fausia ata fa&#39;aaono",
+        "setClip": "Oti ese Kilipi",
+        "invalidURL": "Le aoga URL",
+        "invalidFile": "Faila le aoga",
+        "errorNoSource": "Leai se puna vitio",
+        "uploadLimit": "Le tele o faila faila: {{size}}",
+        "errorFileSize": "Fa&#39;amalie atu, ae tele naua le faila.<br> Ole tele ole faila ole {{size}}",
+        "errorNotAvailable": "Fa&#39;amalie atu, ae le&#39;o avanoa le vitiō. Faamolemole toe taumafai mulimuli ane.",
+        "TeaserVideo": "Teaser Vitio"
+    },
+    "pdf": {
+        "reset": "Toe setiina",
+        "edit": "Fa&#39;atonu",
+        "title": "suafa",
+        "description": "fa&#39;amatalaga",
+        "upload": "Tu&#39;u mai",
+        "link": "So&#39;oga",
+        "setUrl": "Seti URL",
+        "save": "Faasaoina",
+        "setClip": "Oti ese Kilipi",
+        "invalidURL": "Le aoga URL",
+        "invalidFile": "Faila le aoga",
+        "errorNoSource": "Leai se puna pdf",
+        "uploadLimit": "Le tele o faila faila: {{size}}",
+        "errorFileSize": "Fa&#39;amalie atu, ae tele naua le faila.<br> Ole tele ole faila ole {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Toe setiina",
+        "edit": "Fa&#39;atonu",
+        "title": "suafa",
+        "description": "fa&#39;amatalaga",
+        "upload": "Tu&#39;u mai",
+        "link": "So&#39;oga",
+        "setUrl": "Seti URL",
+        "save": "Faasaoina",
+        "uploadedImage": "Ata ua lafoina",
+        "imageTitle": "Igoa ata",
+        "setClip": "Oti ese Kilipi",
+        "invalidURL": "Le aoga URL",
+        "invalidFile": "Faila le aoga",
+        "errorNoSource": "Leai se puna ata",
+        "uploadLimit": "Le tele o faila faila: {{size}}",
+        "errorFileSize": "Fa&#39;amalie atu, ae tele naua le faila.<br> Ole tele ole faila ole {{size}}",
+        "TeaserImage": "Ata Teaser"
+    },
+    "questions": {
+        "Questions": "Fesili",
+        "Answers": "Tali",
+        "AnswerQuestion": "Tali Fesili",
+        "SetYourAnswer": "Faamolemole tali le fesili",
+        "NewQuestion": "Fesili Fou",
+        "EditQuestion": "Fa&#39;atonu Fesili",
+        "NewAnswer": "Tali Fou",
+        "NewPossibleAnswer": "Tali Fou Mafai",
+        "AnswerDetails": "Tali Fa&#39;amatalaga",
+        "answerOption": "Filifiliga",
+        "answerOptionExclusive": "Fa&#39;apitoa",
+        "answerTextarea": "Textarea",
+        "answerText": "Tusitusi",
+        "HideUntilAnswered": "Natia seia tali",
+        "CantChangeAnswers": "Le mafai ona suia tali",
+        "ShortAnswer": "Tusi se tali puupuu",
+        "FreeAnswer": "Tusi lau tali iinei",
+        "SaveQuestion": "Faasaoina Fesili",
+        "SaveAnswer": "Faasaoina Tali",
+        "Save": "Faasaoina",
+        "Send": "Auina atu",
+        "TitleRequired": "Manaomia le suafa!",
+        "AlreadyAnswered": "Ua uma ona tali",
+        "TitlePlaceholder": "Tusi lau fesili",
+        "ContentPlaceholder": "Tuu so&#39;o se fa&#39;amatalaga fa&#39;aopoopo iinei e fesoasoani ai i tagata e tali",
+        "ErrorTitle": "Fesili e mana&#39;omia",
+        "Placeholder": "Tusi Faatonuga",
+        "AreYouSure": "E mo&#39;i lava oe?",
+        "AnswerCantBeChanged": "E le mafai ona suia le tali"
+    },
+    "experience": {
+        "NewExperience": "Aafiaga Fou",
+        "DefineTitle": "Fa&#39;amolemole fa&#39;amatala se ulutala",
+        "Create": "Fausia"
+    },
+    "calls": {
+        "SettingsTitle": "Valaau",
+        "MaxCalls": "Ua valaau mai Max",
+        "Update": "Fa&#39;afou",
+        "NoCallsYet": "E leai se telefoni",
+        "CallReasonTitle": "O le a le uiga o lenei valaau?",
+        "WaitingRoom": "Potu Faatalitali",
+        "LiveRoom": "Potu Ola",
+        "interviewedByAnotherHost": "O le taimi nei o loʻo faʻatalanoaina e se isi talimalo",
+        "bringToLive": "Aumai e Ola Fa&#39;aaliga",
+        "putOnHold": "Taofi",
+        "endCall": "Fa&#39;ai&#39;u Valaau",
+        "interview": "Fa&#39;atalanoaga",
+        "markApproved": "Faamaonia Mareko"
+    },
+    "task": {
+        "errorsTitle": "Na tutupu mea sese"
+    },
+    "topic": {
+        "NewTopic": "Autu Fou",
+        "UpdateTopic": "Fa&#39;afou Autu",
+        "CreateTopic": "Fausia Autu",
+        "AreYouSureDeleteTopic": "E te mautinoa e te mana&#39;o e tape lenei autu",
+        "TitlePlaceholder": "ulutala autu...",
+        "DescribeTopic": "faamatala le mataupu...",
+        "TopicIcon": "Ata autu",
+        "UploadIcon": "Tu&#39;u i luga le Ata",
+        "Conversation": "Talanoaga",
+        "Metrics": "Fuafuaga",
+        "Teaser": "Teaser",
+        "TeaserDescription": "fa&#39;amatalaga fa&#39;aali...",
+        "TeaserVideo": "Teaser Vitio"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Fausia ata fa&#39;aaono",
+        "Width": "Lautele",
+        "Height": "Maualuluga",
+        "Start": "Amata",
+        "End": "Fa&#39;ai&#39;uga",
+        "Delay": "Fa&#39;atuai",
+        "Quality": "Tulaga lelei",
+        "Size": "Tele",
+        "OfFrames": "o Fa&#39;avaa",
+        "Frame": "Fa&#39;avaa",
+        "UseThis": "Fa&#39;aaoga lenei",
+        "ResultGIF": "I&#39;uga GIF",
+        "VideoElementNotFound": "E le maua le elemene vitio"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} I Ou Mata",
+        "AcceptIcon": "Talia vaega filifilia"
+    }
+}

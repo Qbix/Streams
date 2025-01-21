@@ -469,7 +469,8 @@
         "ErrorTitle": "প্রশ্ন আবশ্যক",
         "Placeholder": "নির্দেশনা লিখুন",
         "AreYouSure": "তুমি কি নিশ্চিত?",
-        "ShortAnswer": "একটি সংক্ষিপ্ত উত্তর লিখুন"
+        "ShortAnswer": "একটি সংক্ষিপ্ত উত্তর লিখুন",
+        "AnswerCantBeChanged": "উত্তর পরিবর্তন করা যাবে না"
     },
     "experience": {
         "NewExperience": "নতুন অভিজ্ঞতা",

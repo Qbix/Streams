@@ -469,7 +469,8 @@
         "ErrorTitle": "Soalan diperlukan",
         "Placeholder": "Tulis Arahan",
         "AreYouSure": "Adakah anda pasti?",
-        "ShortAnswer": "Tulis jawapan ringkas"
+        "ShortAnswer": "Tulis jawapan ringkas",
+        "AnswerCantBeChanged": "Jawapan tidak boleh diubah"
     },
     "experience": {
         "NewExperience": "Pengalaman baru",

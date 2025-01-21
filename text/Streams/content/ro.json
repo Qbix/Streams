@@ -469,7 +469,8 @@
         "ErrorTitle": "Întrebare necesară",
         "Placeholder": "Scrieți instrucțiuni",
         "AreYouSure": "Esti sigur?",
-        "ShortAnswer": "Scrieți un răspuns scurt"
+        "ShortAnswer": "Scrieți un răspuns scurt",
+        "AnswerCantBeChanged": "Răspunsul nu poate fi schimbat"
     },
     "experience": {
         "NewExperience": "Experienta noua",

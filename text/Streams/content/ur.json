@@ -469,7 +469,8 @@
         "ErrorTitle": "سوال درکار ہے۔",
         "Placeholder": "ہدایات لکھیں۔",
         "AreYouSure": "کیا تمہیں یقین ہے؟",
-        "ShortAnswer": "مختصر جواب لکھیں۔"
+        "ShortAnswer": "مختصر جواب لکھیں۔",
+        "AnswerCantBeChanged": "جواب تبدیل نہیں کیا جا سکتا"
     },
     "experience": {
         "NewExperience": "نیا تجربہ",

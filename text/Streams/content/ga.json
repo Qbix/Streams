@@ -469,7 +469,8 @@
         "ErrorTitle": "Ceist ag teastáil",
         "Placeholder": "Scríobh Treoracha",
         "AreYouSure": "An bhfuil tú cinnte?",
-        "ShortAnswer": "Scríobh freagra gairid"
+        "ShortAnswer": "Scríobh freagra gairid",
+        "AnswerCantBeChanged": "Ní féidir an freagra a athrú"
     },
     "experience": {
         "NewExperience": "Taithí Nua",

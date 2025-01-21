@@ -469,7 +469,8 @@
         "ErrorTitle": "Pergunta obrigatória",
         "Placeholder": "Instruções de escrita",
         "AreYouSure": "Tem certeza?",
-        "ShortAnswer": "Escreva uma resposta curta"
+        "ShortAnswer": "Escreva uma resposta curta",
+        "AnswerCantBeChanged": "A resposta não pode ser alterada"
     },
     "experience": {
         "NewExperience": "Nova experiência",

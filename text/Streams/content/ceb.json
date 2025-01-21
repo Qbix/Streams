@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Kini nga sulod gitago gikan kanimo.",
+        "InplaceTypeMustBe": "inplaceType kinahanglan nga &#39;textarea&#39; o &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Bag-ong Butang",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "unang ngalan",
+        "lastName": "apelyido",
+        "username": "username"
+    },
+    "labels": {
+        "Streams\/invited": "Mga tawo nga akong giimbitar",
+        "Streams\/invitedMe": "Kinsay nangimbitar nako",
+        "DoYouAgree": "Uyon ka?",
+        "JoinItNow": "Apil na karon?",
+        "Yes": "Oo",
+        "No": "Dili"
+    },
+    "login": {
+        "prompt": "Tugoti ang mga higala nga makaila kanimo:",
+        "newUser": "o paghimo og bag-ong account sa ubos",
+        "picTooltip": "Mahimo nimong usbon kini nga litrato sa ulahi",
+        "placeholders": {
+            "fullName": "Ibutang ang imong tibuok nga ngalan"
+        }
+    },
+    "interests": {
+        "Filter": "Mga interes sa pagpangita",
+        "CanGrant": "Kung dili gihapon nimo makit-an ang imong gipangita, mahimo nimong idugang ang usa ka bag-ong interes sa ubos:",
+        "TrySynonyms": "Wala ka makakita niini? Sulayi ang pipila ka mga synonyms.",
+        "AddUnderCategory": "Idugang ubos sa kategorya...",
+        "Other": "Ang uban",
+        "Unlisted": "Wala nalista"
+    },
+    "relate": {
+        "Add": "Idugang {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Ang mensahe gi-flag para sa admin review. I-tap pag-usab aron i-unflag.",
+        "noOneSaid": "Walay usa nga nagsulti bisan unsa",
+        "closeChatButton": "Close chat",
+        "closeChatConfirmTitle": "Isira kini nga chat?",
+        "closeChatConfirm": "Sigurado ka nga gusto nimong isira kini nga chat?",
+        "Subscribed": "Gi-enable ang Notifications",
+        "Unsubscribed": "Gipahilom ang mga Notipikasyon",
+        "closeChatConfirmYes": "Oo",
+        "closeChatConfirmNo": "Dili",
+        "earlierComments": "naunang mga komento",
+        "startedConversation": "nagsugod og panag-istoryahanay",
+        "RealTimeCall": "Tinuod nga Oras nga Tawag",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Pangitaa pinaagi sa ngalan",
+        "Notifications": {
+            "Visit": "Si {{displayName}} mibisita sa chat",
+            "Join": "{{displayName}} miapil sa chat",
+            "Leave": "{{displayName}} mibiya sa chat",
+            "RelatedTo": "{{displayName}} nagsugod ug {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Pagdugang og komento",
+            "Private": "Pagsulat ug pribadong mensahe"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "pagdumala sa imong mga suskrisyon sa email",
+        "IfUnsubscribe": "Kung gusto nimo mag-unsubscribe",
+        "changed": {
+            "ChangesIn": "Mga pagbag-o sa {{title}}",
+            "Changed": "nausab",
+            "HereIsWhatChanged": "Ania ang nabag-o:"
+        },
+        "joined": {
+            "Joined": "{{subject}} miapil sa <em>{{title}}<\/em>"
+        },
+        "*": "Mensahe {{{message.fields.type}}} hangtod {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} ang miapil",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} ang nahabilin",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} miingon: {{{message.content}}}",
+        "Streams\/changed": "Mga pagbag-o sa {{stream.fields.title}}",
+        "Streams\/invite": "Giimbitar ka sa {{{stream.fields.title}}}",
+        "Streams\/announcement": "Pagpahibalo sa {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} nag-usab sa access sa {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Ang mensahe sa chat gi-edit sa {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Ang mensahe sa chat gitangtang sa {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} gisirhan na",
+        "Streams\/task\/progress": "Ang pag-uswag nahimo sa {{stream.fields.title}}",
+        "Streams\/task\/complete": "Buluhaton nahuman: {{stream.fields.title}}",
+        "Streams\/task\/error": "Sayop sa panahon: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Nag-abut nga Mensahe",
+        "Streams\/relatedTo\/Streams\/call": "Bag-ong Tawag Nagsugod sa {{toTitle}}",
+        "Streams\/relatedTo\/*": "Bag-ong {{relationDisplayType}} sa {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Gidugang sa {{toTitle}} isip {{relationDisplayType}}",
+        "Streams\/mention": "Gihisgotan ka ni {{{call 'avatar.displayName'}}} sa usa ka komento",
+        "Streams\/call": "{{displayName}} nagsugod sa usa ka real-time nga tawag"
+    },
+    "invite": {
+        "command": "Pagdapit",
+        "Invite": "Pagdapit",
+        "Share": "Ipaambit",
+        "Participants": "Dapita ang mga Tawo",
+        "messageContent": "Giimbitar ka sa {{displayName}} sa {{inviteUrl}}",
+        "youCanNowPaste": "Mahimo nimong i-paste kini nga link sa usa ka lugar aron maimbitahan ang mga tawo",
+        "roles": {
+            "title": "Ihatag ang mga Papel sa Giimbitar nga mga Gumagamit?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Sorry",
+                "alert": "Dili ka awtorisado sa paghatag niini nga tahas"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Sorry",
+                "alert": "Dili ka awtorisado nga tangtangon kini nga tahas"
+            }
+        },
+        "labels": {
+            "title": "Unsa imong Relasyon?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Pagpili gikan sa imong mga Contact",
+            "chooseAgainFromContacts": "Pagpili Pag-usab gikan sa Mga Contact",
+            "inviteSelectedContacts": "Dapita ang Pinili nga mga Kontak",
+            "selectFromContacts": "Pagpili Gikan sa Mga Contact",
+            "userChooserPlaceholder": "Pangitaa pinaagi sa ngalan",
+            "photo": "Pagkuha og litrato",
+            "photoOf": "Pagkuha og litrato sa {{name}}",
+            "photoInstruction": "Kung ang tawo nga nag-scan sa imong QR code naa sa imong atubangan, kuhaa sila og litrato",
+            "to": "Sa: {{Stream Title}}",
+            "go": "Lakaw",
+            "title": "Pagdapit",
+            "placeholder": "Numero sa mobile o email address",
+            "orInvite": "O pagdapit og mga tawo pinaagi sa paggamit sa:",
+            "copyLink": "{{ClickOrTap}} aron kopyahon ang link sa pagdapit ",
+            "shareOrCopyLink": "{{ClickOrTap}} aron ipaambit o kopyahon ang link sa pagdapit ",
+            "QR": "{{ClickOrTap}} aron makamugna og QR code",
+            "QRtitle": "I-scan kini nga QR code",
+            "QRscanned": "Gi-scan nila kini!",
+            "scannedQR": "{{ClickOrTap}} kung gi-scan ang code",
+            "TakeGroupPhoto": "Pagkuha og Grupo nga Litrato",
+            "Skip": "Laktaw",
+            "byEmail": "Email",
+            "byText": "Text",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegrama",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Dapita ang mga Tawo",
+            "chooseMethod": "Pagpili og pamaagi:",
+            "selectContacts": "Pilia ang Contacts",
+            "scanQRCode": "I-scan ang QR Code",
+            "shareLink": "Ipakigbahin ang usa ka link",
+            "chooseFromRegistered": "Pagpili gikan sa mga rehistradong tiggamit",
+            "inviteViaEmailOrSms": "Pagdapit pinaagi sa email o SMS",
+            "addRoles": "Idugang ang mga Papel",
+            "addPersonalRoles": "Idugang ang Personal nga Relasyon"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Welcome sa {{communityName}}",
+            "HasInvitedYou": "nag-imbitar kanimo sa:",
+            "HasInvitedYouToTheirProfile": "nagdapit kanimo sa pagkonektar.",
+            "prompt": "Tugoti ang mga higala nga makaila kanimo:",
+            "accept": "Dawata ang Imbitasyon"
+        },
+        "email": {
+            "subject": "Uy, susiha kini",
+            "PleaseVisitLink": "Palihug bisitaha ang mosunod nga link:",
+            "InvitingYou": "Gidapit ko ikaw sa {{title}}",
+            "HasInvitedYou": "Giimbitar ka {{displayName}} sa {{title}}",
+            "HasMentionedYou": "Gihisgotan ka ni {{displayName}} sa &quot; {{title}} &quot;",
+            "YOUAREINVITED": "INVITED KA!",
+            "AcceptInvite": "Dawata ang Imbitasyon"
+        },
+        "mobile": {
+            "content": "Giimbitar ka sa {{title}} . Palihug i-tap {{url}}"
+        },
+        "notice": {
+            "text": "Giimbitar ka. {{ClickOrTap}} dinhi sa pagdawat ug pag-apil."
+        },
+        "chat": {
+            "prompt": "Mag-imbitar ka sa mga tawo sa usa ka panag-istoryahanay diin mahimo kang mag-uban, mag-ambitay og mga litrato, ug uban pa. Hatagi kini og ngalan:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "nagpost ug <em>{{message.fields.type}}<\/em> nga mensahe sa {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "mikomentaryo sa",
+            "startedCallIn": "nagsugod ug tawag",
+            "in": "sa",
+            "body": "sa {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "gi-post na sa",
+                "byAvatar": "sa {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "adunay bag-ong {{instructions.fromDisplayType}}",
+                "byAvatar": "gidugang sa {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Ang mga imbitasyon gipadala gikan sa among numero, nga wala pa mailhi sa imong mga higala. Pag-follow up sa usa ka dali nga teksto aron mahibal-an nila nga ang imbitasyon gikan kanimo, nga gihangyo sila nga i-klik ang link.",
+            "confirm": "Ang mga imbitasyon gipadala gikan sa among numero, nga wala pa mailhi sa imong mga higala. Gusto ba nimo nga i-follow up ang usa ka dali nga teksto aron mahibal-an nila nga ang imbitasyon gikan kanimo, nga gihangyo sila nga i-klik ang link.",
+            "check": "Uy, nagpadala lang ko ug imbitasyon sa {{app}} app. Palihug tan-awa ang imong sms ug i-klik ang link!",
+            "CheckYourMobile": "Palihug susiha ang SMS ug sunda ang mga instruksyon!"
+        },
+        "email": {
+            "alert": "Ang mga imbitasyon gipadala gikan sa among domain, nga wala pa mailhi sa imong mga higala. Pag-follow up sa usa ka dali nga teksto aron mahibal-an nila nga ang imbitasyon gikan kanimo, nga gihangyo sila nga i-klik ang link.",
+            "confirm": "Ang mga imbitasyon gipadala gikan sa among domain, nga wala pa mailhi sa imong mga higala. Gusto ba nimo nga i-follow up ang usa ka dali nga teksto aron mahibal-an nila nga ang imbitasyon gikan kanimo, nga gihangyo sila nga i-klik ang link.",
+            "subject": "Nakadawat ka ug imbitasyon?",
+            "body": "Uy, nagpadala lang ko ug imbitasyon sa {{app}} app. Palihug tan-awa ang imong email ug i-klik ang link didto!",
+            "CheckYourEmail": "Palihug susiha ang imong email ug sunda ang mga instruksyon!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Ngalan sa user..."
+    },
+    "identifier": {
+        "privacySettings": "Mga Setting sa Pagkapribado"
+    },
+    "participating": {
+        "Title": "Titulo",
+        "Subscribed": "Nag-subscribe",
+        "Participants": "Mga partisipante",
+        "AreYouSureRemoveIdentifier": "Sigurado ka nga tangtangon kini nga identifier?",
+        "AreYouSureUnsubscribeIdentifier": "Sigurado ka nga i-unsubscribe kini nga identifier? Ipalong niini ang mga pahibalo sa kini nga identifier.",
+        "AreYouSureUnsubscribeDevice": "Sigurado ka ba nga i-unsubscribe kini nga aparato? Ipalong niini ang mga pahibalo sa kini nga aparato.",
+        "AreYouSureRemoveParticipant": "Sigurado ka ba nga gusto nimong tangtangon kini nga partisipante?",
+        "RemoveParticipant": "Kuhaa ang partisipante",
+        "Identifiers": "Mga identifier",
+        "Devices": "Mga gamit",
+        "Streams": "Mga sapa"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Giimbitar",
+            "description": "Inbox para sa mga imbitasyon"
+        },
+        "Streams\/resource": {
+            "displayType": "Kapanguhaan",
+            "description": "stream alang sa pagdumala sa pag-access sa usa ka kapanguhaan ug pag-post sa mga mensahe bahin sa mga update"
+        },
+        "Streams\/task": {
+            "description": "para sa pagdawat og mga update bahin sa pag-uswag sa usa ka buluhaton",
+            "displayType": "Buluhaton"
+        },
+        "Streams\/tasks": {
+            "description": "kategorya para sa mga buluhaton",
+            "displayType": "Mga buluhaton"
+        },
+        "Streams\/experience": {
+            "description": "usa ka komon nga kasinatian alang sa mga miyembro sa usa ka komunidad",
+            "displayType": "Komon nga kasinatian alang sa mga miyembro sa usa ka komunidad"
+        },
+        "Streams\/greeting": {
+            "description": "pagtimbaya diin ang usa ka tiggamit makapakilala sa ilang kaugalingon",
+            "displayType": "Nangumusta"
+        },
+        "Streams\/number": {
+            "displayType": "Numero",
+            "description": "numero sa matematika"
+        },
+        "Streams\/date": {
+            "displayType": "Petsa",
+            "description": "petsa"
+        },
+        "Streams\/text": {
+            "displayType": "Text",
+            "description": "lawas sa teksto"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Text",
+            "description": "gamay nga lawas sa teksto"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Text",
+            "description": "medium nga lawas sa teksto"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Email Address",
+            "description": "email address"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Numero sa Telepono",
+            "description": "numero sa telepono"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link sa web"
+        },
+        "Streams\/image": {
+            "displayType": "Hulagway",
+            "description": "biswal nga hulagway",
+            "newItem": "Idugang ang Imahe"
+        },
+        "Streams\/images": {
+            "displayType": "Gallery sa Imahe",
+            "description": "gallery sa mga hulagway"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "usa ka album diin adunay kalabotan ang lainlaing media"
+        },
+        "Streams\/file": {
+            "displayType": "file",
+            "description": "gi-upload nga file",
+            "newItem": "Idugang ang File"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio Clip",
+            "description": "audio clip",
+            "newItem": "Idugang ang Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Video Clip",
+            "description": "video clip",
+            "newItem": "Idugang ang Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF nga dokumento",
+            "description": "PDF nga dokumento",
+            "newItem": "Idugang ang PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "live nga audio o video"
+        },
+        "Streams\/category": {
+            "displayType": "Kategorya",
+            "description": "usa ka kategoriya diin ang ubang mga sapa mahimong may kalabutan",
+            "newItem": "Idugang ang Kategorya"
+        },
+        "Streams\/participating": {
+            "displayType": "Pag-apil nga Index",
+            "description": "Ang mga sapa adunay kalabutan \/ wala’y kalabutan niini kung ang usa ka tiggamit moapil \/ mobiya"
+        },
+        "Streams\/interest": {
+            "displayType": "Interes",
+            "description": "nagrepresentar sa interes sa usa ka user sa usa ka hilisgutan"
+        },
+        "Streams\/incoming": {
+            "displayType": "umaabot",
+            "description": "destinasyon alang sa mga mensahe nga gipadala sa ubang mga tiggamit"
+        },
+        "Streams\/chat": {
+            "displayType": "Pag-istoryahanay",
+            "description": "usa ka panag-istoryahanay tali sa mga tiggamit, nga adunay kasaysayan"
+        },
+        "Streams\/question": {
+            "displayType": "Pangutana",
+            "description": "pangutana stream",
+            "newItem": "Dugang Pangutana"
+        },
+        "Streams\/answer": {
+            "displayType": "Tubag",
+            "description": "tubag stream"
+        },
+        "Streams\/topic": {
+            "displayType": "Hilisgutan",
+            "description": "topiko stream",
+            "newItem": "Idugang ang Hilisgutan"
+        }
+    },
+    "menu": {
+        "placeholder": "i-type ang titulo sa panid",
+        "ModTab": "Usba ang Item",
+        "Save": "Tipigi",
+        "Delete": "Pagtangtang",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Pagrekord",
+        "reset": "I-reset",
+        "edit": "Edit",
+        "title": "titulo",
+        "description": "paghulagway",
+        "upload": "Pag-upload",
+        "link": "Link",
+        "setUrl": "Ibutang ang URL",
+        "save": "Tipigi",
+        "setClip": "Guntinga ang Clip",
+        "invalidURL": "Dili balido nga URL",
+        "invalidFile": "Dili balido nga File",
+        "errorNoSource": "Walay tinubdan sa audio",
+        "uploadLimit": "Max nga gidak-on sa file: {{size}}",
+        "errorFileSize": "Sorry, pero dako kaayo ang file.<br> Ang maximum nga gidak-on sa file mao ang {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Bag-ong Video",
+        "EditVideo": "I-edit ang Video",
+        "reset": "I-reset",
+        "edit": "Edit",
+        "title": "titulo",
+        "description": "paghulagway",
+        "upload": "Pag-upload",
+        "link": "Link",
+        "setUrl": "Ibutang ang URL",
+        "save": "Tipigi",
+        "createAnimatedThumbnail": "Paghimo animated thumbnail",
+        "setClip": "Guntinga ang Clip",
+        "invalidURL": "Dili balido nga URL",
+        "invalidFile": "Dili balido nga File",
+        "errorNoSource": "Walay tinubdan sa video",
+        "uploadLimit": "Max nga gidak-on sa file: {{size}}",
+        "errorFileSize": "Sorry, pero dako kaayo ang file.<br> Ang maximum nga gidak-on sa file mao ang {{size}}",
+        "errorNotAvailable": "Sorry, pero dili pa available ang video. Palihug sulayi pag-usab unya.",
+        "TeaserVideo": "Teaser nga Video"
+    },
+    "pdf": {
+        "reset": "I-reset",
+        "edit": "Edit",
+        "title": "titulo",
+        "description": "paghulagway",
+        "upload": "Pag-upload",
+        "link": "Link",
+        "setUrl": "Ibutang ang URL",
+        "save": "Tipigi",
+        "setClip": "Guntinga ang Clip",
+        "invalidURL": "Dili balido nga URL",
+        "invalidFile": "Dili balido nga File",
+        "errorNoSource": "Walay pdf nga tinubdan",
+        "uploadLimit": "Max nga gidak-on sa file: {{size}}",
+        "errorFileSize": "Sorry, pero dako kaayo ang file.<br> Ang maximum nga gidak-on sa file mao ang {{size}}",
+        "TeaserPDF": "Teaser nga PDF"
+    },
+    "image": {
+        "reset": "I-reset",
+        "edit": "Edit",
+        "title": "titulo",
+        "description": "paghulagway",
+        "upload": "Pag-upload",
+        "link": "Link",
+        "setUrl": "Ibutang ang URL",
+        "save": "Tipigi",
+        "uploadedImage": "Gi-upload nga hulagway",
+        "imageTitle": "Titulo sa hulagway",
+        "setClip": "Guntinga ang Clip",
+        "invalidURL": "Dili balido nga URL",
+        "invalidFile": "Dili balido nga File",
+        "errorNoSource": "Walay tinubdan sa hulagway",
+        "uploadLimit": "Max nga gidak-on sa file: {{size}}",
+        "errorFileSize": "Sorry, pero dako kaayo ang file.<br> Ang maximum nga gidak-on sa file mao ang {{size}}",
+        "TeaserImage": "Imahe sa Teaser"
+    },
+    "questions": {
+        "Questions": "Mga pangutana",
+        "Answers": "Mga tubag",
+        "AnswerQuestion": "Tubag sa Pangutana",
+        "SetYourAnswer": "Palihug tubaga ang pangutana",
+        "NewQuestion": "Bag-ong Pangutana",
+        "EditQuestion": "Usba ang Pangutana",
+        "NewAnswer": "Bag-ong Tubag",
+        "NewPossibleAnswer": "Bag-ong Posibleng Tubag",
+        "AnswerDetails": "Tubag sa mga Detalye",
+        "answerOption": "Opsyon",
+        "answerOptionExclusive": "Eksklusibo",
+        "answerTextarea": "Textarea",
+        "answerText": "Text",
+        "HideUntilAnswered": "Tagoa hangtod matubag",
+        "CantChangeAnswers": "Dili mausab ang mga tubag",
+        "ShortAnswer": "Pagsulat og mubo nga tubag",
+        "FreeAnswer": "Isulat ang imong tubag dinhi",
+        "SaveQuestion": "I-save ang Pangutana",
+        "SaveAnswer": "I-save ang Tubag",
+        "Save": "Tipigi",
+        "Send": "Ipadala",
+        "TitleRequired": "Titulo gikinahanglan!",
+        "AlreadyAnswered": "Gitubag na",
+        "TitlePlaceholder": "I-type ang imong pangutana",
+        "ContentPlaceholder": "Ibutang ang bisan unsang dugang nga kasayuran dinhi aron matabangan ang mga tawo nga makatubag",
+        "ErrorTitle": "Pangutana gikinahanglan",
+        "Placeholder": "Pagsulat og mga Instruksyon",
+        "AreYouSure": "Sigurado ka?",
+        "AnswerCantBeChanged": "Ang tubag dili mausab"
+    },
+    "experience": {
+        "NewExperience": "Bag-ong Kasinatian",
+        "DefineTitle": "Palihog pagpasabot ug titulo",
+        "Create": "Paghimo"
+    },
+    "calls": {
+        "SettingsTitle": "Mga tawag",
+        "MaxCalls": "Nagtawag si Max",
+        "Update": "Update",
+        "NoCallsYet": "Wala pay tawag",
+        "CallReasonTitle": "Mahitungod sa unsa kini nga tawag?",
+        "WaitingRoom": "Hulat nga lawak",
+        "LiveRoom": "Live Room",
+        "interviewedByAnotherHost": "Sa pagkakaron gi-interview sa laing host",
+        "bringToLive": "Bring To Live Show",
+        "putOnHold": "Huwata",
+        "endCall": "Tapuson ang Tawag",
+        "interview": "Interbyu",
+        "markApproved": "Giaprobahan ni Mark"
+    },
+    "task": {
+        "errorsTitle": "Nahitabo ang mga sayop"
+    },
+    "topic": {
+        "NewTopic": "Bag-ong Hilisgutan",
+        "UpdateTopic": "Update Topic",
+        "CreateTopic": "Paghimo og topiko",
+        "AreYouSureDeleteTopic": "Sigurado ka nga gusto nimong papason kini nga hilisgutan",
+        "TitlePlaceholder": "ulohan sa topic...",
+        "DescribeTopic": "ihulagway ang hilisgutan...",
+        "TopicIcon": "Hilisgutan nga hulagway",
+        "UploadIcon": "Icon sa Pag-upload",
+        "Conversation": "Pag-istoryahanay",
+        "Metrics": "Mga sukatan",
+        "Teaser": "Teaser",
+        "TeaserDescription": "paghulagway sa teaser...",
+        "TeaserVideo": "Teaser nga Video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Paghimo og animated nga thumbnail",
+        "Width": "Lapad",
+        "Height": "Gitas-on",
+        "Start": "Pagsugod",
+        "End": "Katapusan",
+        "Delay": "Paglangan",
+        "Quality": "Kalidad",
+        "Size": "Gidak-on",
+        "OfFrames": "sa mga Frame",
+        "Frame": "Frame",
+        "UseThis": "Gamita kini",
+        "ResultGIF": "Resulta GIF",
+        "VideoElementNotFound": "Ang elemento sa video wala makit-an"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Sa Imong Nawong",
+        "AcceptIcon": "Dawata ang pinili nga lugar"
+    }
+}

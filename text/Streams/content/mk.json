@@ -469,7 +469,8 @@
         "ErrorTitle": "Потребно е прашање",
         "Placeholder": "Напиши инструкции",
         "AreYouSure": "Дали си сигурен?",
-        "ShortAnswer": "Напишете краток одговор"
+        "ShortAnswer": "Напишете краток одговор",
+        "AnswerCantBeChanged": "Одговорот не може да се смени"
     },
     "experience": {
         "NewExperience": "Ново искуство",

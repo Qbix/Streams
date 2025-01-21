@@ -469,7 +469,8 @@
         "ErrorTitle": "ጥያቄ ያስፈልጋል",
         "Placeholder": "መመሪያዎችን ጻፍ",
         "AreYouSure": "ኧረ",
-        "ShortAnswer": "አጭር መልስ ጻፍ"
+        "ShortAnswer": "አጭር መልስ ጻፍ",
+        "AnswerCantBeChanged": "መልሱ ሊቀየር አይችልም።"
     },
     "experience": {
         "NewExperience": "አዲስ ልምድ",

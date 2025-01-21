@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Hoc te latet contentum.",
+        "InplaceTypeMustBe": "inplaceType debet esse &#39;textarea&#39; vel &#39;textus&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "New Item",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "praenomen",
+        "lastName": "cognomen",
+        "username": "usoris"
+    },
+    "labels": {
+        "Streams\/invited": "Populus invitavi",
+        "Streams\/invitedMe": "Qui me invitavit",
+        "DoYouAgree": "Placetne tibi?",
+        "JoinItNow": "Coniunge nunc?",
+        "Yes": "Ita",
+        "No": "No"
+    },
+    "login": {
+        "prompt": "Agnoscunt te amici;",
+        "newUser": "seu novam rationem infra",
+        "picTooltip": "Te potest mutare hanc postea",
+        "placeholders": {
+            "fullName": "Intra nomen tuum"
+        }
+    },
+    "interests": {
+        "Filter": "Quaerere utilitates",
+        "CanGrant": "Si adhuc invenire non potes quod petebas, novam rem infra addere potes:",
+        "TrySynonyms": "Non vides? Conare nonnulla synonyma.",
+        "AddUnderCategory": "Adde sub categoria...",
+        "Other": "Other",
+        "Unlisted": "non audio"
+    },
+    "relate": {
+        "Add": "Add {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Epistula languefacta est pro recognitione admin. ICTUS iterum ad unglag.",
+        "noOneSaid": "Nemo aliquid dixit",
+        "closeChatButton": "Close chat",
+        "closeChatConfirmTitle": "Claudite hunc chat?",
+        "closeChatConfirm": "Certusne esne hoc chat occludere?",
+        "Subscribed": "Acta Vicimediorum Enabled",
+        "Unsubscribed": "Notificationes Muted",
+        "closeChatConfirmYes": "Ita",
+        "closeChatConfirmNo": "No",
+        "earlierComments": "ante comment",
+        "startedConversation": "coepi colloquium",
+        "RealTimeCall": "Verus tempus Call",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Quaere nomine",
+        "Notifications": {
+            "Visit": "{{displayName}} invisit chat",
+            "Join": "{{displayName}} ad chat",
+            "Leave": "{{displayName}} reliquit chat",
+            "RelatedTo": "{{displayName}} incepit {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Addere comment",
+            "Private": "Scribere privata nuntius"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "administrare vestri email subnotationes",
+        "IfUnsubscribe": "Si vis unsubscribe",
+        "changed": {
+            "ChangesIn": "Mutationes in {{title}}",
+            "Changed": "mutatum",
+            "HereIsWhatChanged": "Hinc est quod mutatur;"
+        },
+        "joined": {
+            "Joined": "{{subject}} coniunguntur <em>{{title}}<\/em>"
+        },
+        "*": "Nuntius {{{message.fields.type}}} ad {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} joined",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} left",
+        "Streams\/chat\/message": "{{{call 'avatar.displayName'}}} dixit: {{{message.content}}}",
+        "Streams\/changed": "Mutationes in {{stream.fields.title}}",
+        "Streams\/invite": "Invitatus es ad {{{stream.fields.title}}}",
+        "Streams\/announcement": "Nuntius in {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} mutata accessum in {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Chat nuntius edidit in {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Chat nuntius remotus est in {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} est clausus",
+        "Streams\/task\/progress": "Progressus in {{stream.fields.title}}",
+        "Streams\/task\/complete": "Negotium perficitur: {{stream.fields.title}}",
+        "Streams\/task\/error": "Error in: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Reditus Nuntius",
+        "Streams\/relatedTo\/Streams\/call": "Novum Voca Coepi in {{toTitle}}",
+        "Streams\/relatedTo\/*": "Novae {{relationDisplayType}} in {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Additum {{toTitle}} sicut {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} nominavi in comment",
+        "Streams\/call": "{{displayName}} coepi realis-vicis vocatio"
+    },
+    "invite": {
+        "command": "invitare",
+        "Invite": "invitare",
+        "Share": "Share",
+        "Participants": "invitare Homines",
+        "messageContent": "{{displayName}} te invitavit ad {{inviteUrl}}",
+        "youCanNowPaste": "Nunc crustulum hoc nexum alicubi homines invitare potes",
+        "roles": {
+            "title": "Dona munera invitati Users?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Ignosce",
+                "alert": "Hoc munus concedere non es auctoritate"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Ignosce",
+                "alert": "Hoc munus removere auctoritate non es"
+            }
+        },
+        "labels": {
+            "title": "Quid est necessitudinis?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Elige ex Contactus",
+            "chooseAgainFromContacts": "Elige Iterum ex Contactus",
+            "inviteSelectedContacts": "Lego invitare Contactus",
+            "selectFromContacts": "Ex Contactus eligere",
+            "userChooserPlaceholder": "Quaere nomine",
+            "photo": "Accipies photo",
+            "photoOf": "Imaginem photographicam {{name}}",
+            "photoInstruction": "Si is qui inspectis tuis QR code est coram te, accipe imaginem photographicam eorum",
+            "to": "Ad: {{Stream Title}}",
+            "go": "Go",
+            "title": "invitare",
+            "placeholder": "Mobile numerum vel inscriptio electronica",
+            "orInvite": "Vel invitare utendo;",
+            "copyLink": "{{ClickOrTap}} ad effingo invitare link ",
+            "shareOrCopyLink": "{{ClickOrTap}} ad participes vel effingo invite link ",
+            "QR": "{{ClickOrTap}} QR code generate",
+            "QRtitle": "Hoc QR code scan",
+            "QRscanned": "Viderunt eam!",
+            "scannedQR": "{{ClickOrTap}} si codice inspecto",
+            "TakeGroupPhoto": "Accipies Group Photo",
+            "Skip": "Skip",
+            "byEmail": "Email",
+            "byText": "Textum",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "whatsapp",
+            "title2": "invitare Homines",
+            "chooseMethod": "Modum elige:",
+            "selectContacts": "Contactus Select",
+            "scanQRCode": "QR code Scan",
+            "shareLink": "Participes nexum",
+            "chooseFromRegistered": "Elige usores",
+            "inviteViaEmailOrSms": "Invitare per email vel SMS",
+            "addRoles": "Adde Roles",
+            "addPersonalRoles": "Addere relationes personales"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Welcome to {{communityName}}",
+            "HasInvitedYou": "te invitavit;",
+            "HasInvitedYouToTheirProfile": "te ad coniungere invitavit.",
+            "prompt": "Agnoscunt te amici;",
+            "accept": "Accipere invitare"
+        },
+        "email": {
+            "subject": "Hey, check this out",
+            "PleaseVisitLink": "Quaeso vide nexum sequentem:",
+            "InvitingYou": "Ego te invitamus ad {{title}}",
+            "HasInvitedYou": "{{displayName}} te invitavit ad {{title}}",
+            "HasMentionedYou": "{{displayName}} te per &quot; {{title}} &quot; nominavit.",
+            "YOUAREINVITED": "Invitari!",
+            "AcceptInvite": "Accipere invitare"
+        },
+        "mobile": {
+            "content": "Invitatus es ad {{title}} . Quaeso ICTUS {{url}}"
+        },
+        "notice": {
+            "text": "Invitatus es. {{ClickOrTap}} hie admitte et adjunge."
+        },
+        "chat": {
+            "prompt": "Populos ad colloquium invitabis ubi tactus manere potes, imagines simul participes, et plura. Nomen dare;"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "missae a <em>{{message.fields.type}}<\/em> ad {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "commentatione",
+            "startedCallIn": "coepi vocatio in",
+            "in": "in",
+            "body": "in {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "missae sunt",
+                "byAvatar": "by {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "habet novum {{instructions.fromDisplayType}}",
+                "byAvatar": "addita per {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Invitationes ex numero nostro mittuntur, quas amici nondum agnoscunt. Sequere cum textu celeri ut sciant invitationem abs te venisse, rogans ut nexum strepat.",
+            "confirm": "Invitationes ex numero nostro mittuntur, quas amici nondum agnoscunt. Velisne textum cum festinatione sequi ut sciant invitationem a te venisse, rogans ut nexum strepat.",
+            "check": "Hey, I just sent you an invitation to the {{app}} app. Quaeso reprehendo tuum SMS et preme nexum!",
+            "CheckYourMobile": "Please SMS and follow instructions!"
+        },
+        "email": {
+            "alert": "Invitationes ex dominio nostro mittuntur, quas amici tui nondum agnoscunt. Sequere textum celeris ut sciant invitationem abs te venisse, rogans ut nexum strepat.",
+            "confirm": "Invitationes ex dominio nostro mittuntur, quas amici tui nondum agnoscunt. Velisne textum cum festinatione sequi ut sciant invitationem a te venisse, rogans ut nexum strepat.",
+            "subject": "An invitare habuistis?",
+            "body": "Hey, I just sent you an invitation to the {{app}} app. Quaeso reprehendo vestri email et preme nexum in ibi!",
+            "CheckYourEmail": "Please your email and follow instructions!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Nomen a user..."
+    },
+    "identifier": {
+        "privacySettings": "Secretum Optiones"
+    },
+    "participating": {
+        "Title": "Titulus",
+        "Subscribed": "Subscriptum",
+        "Participants": "Praesent",
+        "AreYouSureRemoveIdentifier": "Certus esne hoc identifier tollere?",
+        "AreYouSureUnsubscribeIdentifier": "Certus esne hoc identifier unsubscribe? Non averte notificationes huic identifier.",
+        "AreYouSureUnsubscribeDevice": "Certusne es hanc machinam unsubscribe? Hoc autem averte notificationes huic fabrica.",
+        "AreYouSureRemoveParticipant": "Certus esne hunc participem amovere vis?",
+        "RemoveParticipant": "Aufer participem",
+        "Identifiers": "Identifiers",
+        "Devices": "Devices",
+        "Streams": "rivi"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "invitatus",
+            "description": "Inbuxo ad invitationes"
+        },
+        "Streams\/resource": {
+            "displayType": "Resource",
+            "description": "amnis ad administrandi accessum ad a resource ac nuntiis de updates dispositis"
+        },
+        "Streams\/task": {
+            "description": "ad recipiendum updates de progressus ad certum negotium",
+            "displayType": "Negotium"
+        },
+        "Streams\/tasks": {
+            "description": "genus operis",
+            "displayType": "Tasks"
+        },
+        "Streams\/experience": {
+            "description": "communis usus ad membra communitatis",
+            "displayType": "Communia experientia membra communitatis"
+        },
+        "Streams\/greeting": {
+            "description": "salutem quibus a user potest inducere se",
+            "displayType": "salutatio"
+        },
+        "Streams\/number": {
+            "displayType": "Numerus",
+            "description": "mathematical numerus"
+        },
+        "Streams\/date": {
+            "displayType": "Date",
+            "description": "date"
+        },
+        "Streams\/text": {
+            "displayType": "Textum",
+            "description": "corpus illud"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Textum",
+            "description": "parvum corpus text"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Textum",
+            "description": "medium corpus text"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Inscriptio electronica",
+            "description": "inscriptio electronica"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Numerus telephonicus",
+            "description": "numerus telephonicus"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link in web"
+        },
+        "Streams\/image": {
+            "displayType": "Image",
+            "description": "visual image",
+            "newItem": "Imaginem addere"
+        },
+        "Streams\/images": {
+            "displayType": "Imago Gallery",
+            "description": "gallery imaginum"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "album cui varia media comparatur"
+        },
+        "Streams\/file": {
+            "displayType": "File",
+            "description": "uploaded file",
+            "newItem": "Tabularium addere"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio Clip",
+            "description": "audio clip",
+            "newItem": "Adde Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Video Clip",
+            "description": "video clip",
+            "newItem": "Add Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF document",
+            "description": "PDF document",
+            "newItem": "Add PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "Vivamus audio vel video"
+        },
+        "Streams\/category": {
+            "displayType": "Categoria",
+            "description": "genus ad quod alii rivi referri possunt",
+            "newItem": "Add Categoria"
+        },
+        "Streams\/participating": {
+            "displayType": "Participating Index",
+            "description": "flumina comparantur \/ finitimus huic cum usor coniungit \/ folia"
+        },
+        "Streams\/interest": {
+            "displayType": "Interest",
+            "description": "constituit user scriptor interest in quadam topic"
+        },
+        "Streams\/incoming": {
+            "displayType": "advenientis",
+            "description": "destinatum nuntiis ab aliis users"
+        },
+        "Streams\/chat": {
+            "displayType": "Colloquium",
+            "description": "colloquium inter utentes cum historia"
+        },
+        "Streams\/question": {
+            "displayType": "Quaestione",
+            "description": "quaestio stream",
+            "newItem": "Quaestionem addere"
+        },
+        "Streams\/answer": {
+            "displayType": "Answer",
+            "description": "responsum amnis"
+        },
+        "Streams\/topic": {
+            "displayType": "Topic",
+            "description": "topic stream",
+            "newItem": "Add Topic"
+        }
+    },
+    "menu": {
+        "placeholder": "typus pagina titulum",
+        "ModTab": "Mutare Item",
+        "Save": "Servare",
+        "Delete": "Delere",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Record",
+        "reset": "Reset",
+        "edit": "Edit",
+        "title": "titulus",
+        "description": "description",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "URL constitue",
+        "save": "Servare",
+        "setClip": "Tonde de Clip",
+        "invalidURL": "Aliquam URL",
+        "invalidFile": "Aliquam File",
+        "errorNoSource": "Non audio fontem",
+        "uploadLimit": "Max lima amplitudo: {{size}}",
+        "errorFileSize": "Dolemus, sed file magna nimis.<br> Max file magnitudo est {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Novum Video",
+        "EditVideo": "Recensere Video",
+        "reset": "Reset",
+        "edit": "Edit",
+        "title": "titulus",
+        "description": "description",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "URL constitue",
+        "save": "Servare",
+        "createAnimatedThumbnail": "Create animatum image",
+        "setClip": "Tonde de Clip",
+        "invalidURL": "Aliquam URL",
+        "invalidFile": "Aliquam File",
+        "errorNoSource": "Non video fontem",
+        "uploadLimit": "Max lima amplitudo: {{size}}",
+        "errorFileSize": "Dolemus, sed file magna nimis.<br> Max file magnitudo est {{size}}",
+        "errorNotAvailable": "Dolemus, sed video tamen inaccessibile est. Mox iterum conare.",
+        "TeaserVideo": "Teaser Video"
+    },
+    "pdf": {
+        "reset": "Reset",
+        "edit": "Edit",
+        "title": "titulus",
+        "description": "description",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "URL constitue",
+        "save": "Servare",
+        "setClip": "Tonde de Clip",
+        "invalidURL": "Aliquam URL",
+        "invalidFile": "Aliquam File",
+        "errorNoSource": "Nulla pdf fons",
+        "uploadLimit": "Max lima amplitudo: {{size}}",
+        "errorFileSize": "Dolemus, sed file magna nimis.<br> Max file magnitudo est {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Reset",
+        "edit": "Edit",
+        "title": "titulus",
+        "description": "description",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "URL constitue",
+        "save": "Servare",
+        "uploadedImage": "Uploaded image",
+        "imageTitle": "Imago titulus",
+        "setClip": "Tonde de Clip",
+        "invalidURL": "Aliquam URL",
+        "invalidFile": "Aliquam File",
+        "errorNoSource": "Nulla imago fons",
+        "uploadLimit": "Max lima amplitudo: {{size}}",
+        "errorFileSize": "Dolemus, sed file magna nimis.<br> Max file magnitudo est {{size}}",
+        "TeaserImage": "Imago Teaser"
+    },
+    "questions": {
+        "Questions": "Quaestiones",
+        "Answers": "Answers",
+        "AnswerQuestion": "Quaestione responde",
+        "SetYourAnswer": "Obsecro quaestio",
+        "NewQuestion": "Nova quaestio",
+        "EditQuestion": "Quaestionum recensere",
+        "NewAnswer": "Novum Answer",
+        "NewPossibleAnswer": "Novum Possibile Answer",
+        "AnswerDetails": "Responde Details",
+        "answerOption": "Option",
+        "answerOptionExclusive": "Exclusive",
+        "answerTextarea": "Textarea",
+        "answerText": "Textum",
+        "HideUntilAnswered": "Ad celare respondit",
+        "CantChangeAnswers": "Potest mutare responsa",
+        "ShortAnswer": "Scribere brevi respondere",
+        "FreeAnswer": "Responsum tuum hic scribere",
+        "SaveQuestion": "Serva Quaestio",
+        "SaveAnswer": "Salvum Answer",
+        "Save": "Servare",
+        "Send": "Mitte",
+        "TitleRequired": "Titulus requiritur!",
+        "AlreadyAnswered": "Iam respondit",
+        "TitlePlaceholder": "Typus quaeris",
+        "ContentPlaceholder": "Pone hic informationis informationis ad auxilium hominum responde",
+        "ErrorTitle": "Quaeritur",
+        "Placeholder": "Scribere mandatum",
+        "AreYouSure": "Certus es?",
+        "AnswerCantBeChanged": "Responsum mutari non potest"
+    },
+    "experience": {
+        "NewExperience": "Nova experientia",
+        "DefineTitle": "Quaeso definias titulum",
+        "Create": "Create"
+    },
+    "calls": {
+        "SettingsTitle": "vocat",
+        "MaxCalls": "Max vocat",
+        "Update": "Renovatio",
+        "NoCallsYet": "No vocat adhuc",
+        "CallReasonTitle": "Quid est hoc de vocatione?",
+        "WaitingRoom": "Exspecto volutpat",
+        "LiveRoom": "Vivamus volutpat",
+        "interviewedByAnotherHost": "Currently ab alio adierunt exercitum",
+        "bringToLive": "Adduc ad vive Show",
+        "putOnHold": "Pone de habe",
+        "endCall": "Finis Call",
+        "interview": "Colloquium",
+        "markApproved": "Mark Probatum"
+    },
+    "task": {
+        "errorsTitle": "Errores occurrit"
+    },
+    "topic": {
+        "NewTopic": "New Topic",
+        "UpdateTopic": "Update Topic",
+        "CreateTopic": "Create Topic",
+        "AreYouSureDeleteTopic": "Visne vero hunc locum delere",
+        "TitlePlaceholder": "topic title...",
+        "DescribeTopic": "describere topic...",
+        "TopicIcon": "Topic picture",
+        "UploadIcon": "Index icon",
+        "Conversation": "Colloquium",
+        "Metrics": "Metrics",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser descriptio...",
+        "TeaserVideo": "Teaser Video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Create animatum image",
+        "Width": "Latitudo",
+        "Height": "Altitudo",
+        "Start": "Satus",
+        "End": "End",
+        "Delay": "Mora",
+        "Quality": "Qualitas",
+        "Size": "Magnitudo",
+        "OfFrames": "de Tabulata",
+        "Frame": "Artus",
+        "UseThis": "Hoc utere",
+        "ResultGIF": "Proventus GIF",
+        "VideoElementNotFound": "Video elementum non inveni"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} ad faciem tuam",
+        "AcceptIcon": "Accipe lectus area"
+    }
+}

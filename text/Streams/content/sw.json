@@ -469,7 +469,8 @@
         "ErrorTitle": "Swali linahitajika",
         "Placeholder": "Andika Maagizo",
         "AreYouSure": "Una uhakika?",
-        "ShortAnswer": "Andika jibu fupi"
+        "ShortAnswer": "Andika jibu fupi",
+        "AnswerCantBeChanged": "Jibu haliwezi kubadilishwa"
     },
     "experience": {
         "NewExperience": "Uzoefu Mpya",

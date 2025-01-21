@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Litaba tsena li patiloe ho uena.",
+        "InplaceTypeMustBe": "inplaceType e tlameha ho ba &#39;textarea&#39; kapa &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Ntho e Ncha",
+        "Teaser": "Motlalehi"
+    },
+    "avatar": {
+        "firstName": "lebitso la pele",
+        "lastName": "fane",
+        "username": "lebitso la mosebedisi"
+    },
+    "labels": {
+        "Streams\/invited": "Batho bao ke ba memileng",
+        "Streams\/invitedMe": "Ea &#39;memileng",
+        "DoYouAgree": "Na ua lumela?",
+        "JoinItNow": "E kenelle hona joale?",
+        "Yes": "Ee",
+        "No": "Che"
+    },
+    "login": {
+        "prompt": "Etsa hore metsoalle e u tsebe:",
+        "newUser": "kapa theha ak&#39;haonte e ncha ka tlase",
+        "picTooltip": "U ka fetola setšoantšo sena hamorao",
+        "placeholders": {
+            "fullName": "Kenya lebitso la hau ka botlalo"
+        }
+    },
+    "interests": {
+        "Filter": "Batla lintho tseo u li ratang",
+        "CanGrant": "Haeba u ntse u sa fumane seo u se batlang, u ka kenya thahasello e ncha ka tlase:",
+        "TrySynonyms": "Ha u e bone? Leka mantsoe a tšoanang.",
+        "AddUnderCategory": "Kenya tlasa sehlopha...",
+        "Other": "Tse ding",
+        "Unlisted": "E sa thathamisoang"
+    },
+    "relate": {
+        "Add": "Kenya {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Molaetsa o tšoailoe hore o hlahlojoe ke batsamaisi. Tlanya hape ho hlakola molaetsa.",
+        "noOneSaid": "Ha ho motho ea buileng letho",
+        "closeChatButton": "Koala moqoqo",
+        "closeChatConfirmTitle": "Koala moqoqo ona?",
+        "closeChatConfirm": "Na ehlile u batla ho koala puisano ee?",
+        "Subscribed": "Litsebiso li Buletsoe",
+        "Unsubscribed": "Litsebiso Li khutsitsoe",
+        "closeChatConfirmYes": "Ee",
+        "closeChatConfirmNo": "Che",
+        "earlierComments": "maikutlo a pejana",
+        "startedConversation": "qala moqoqo",
+        "RealTimeCall": "Pitso ea Nako ea &#39;Nete",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Batla ka mabitso",
+        "Notifications": {
+            "Visit": "{{displayName}} e etela moqoqo",
+            "Join": "{{displayName}} e kene moqoqong",
+            "Leave": "{{displayName}} e tlohile moqoqong",
+            "RelatedTo": "{{displayName}} e qalile {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Kenya maikutlo",
+            "Private": "Ngola molaetsa oa lekunutu"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "laola lipehelo tsa hau tsa lengolo-tsoibila",
+        "IfUnsubscribe": "Haeba u batla ho itokolla",
+        "changed": {
+            "ChangesIn": "Liphetoho ka {{title}}",
+            "Changed": "fetotsoe",
+            "HereIsWhatChanged": "Mona ke se fetohileng:"
+        },
+        "joined": {
+            "Joined": "{{subject}} e kopane le <em>{{title}}<\/em>"
+        },
+        "*": "Molaetsa {{{message.fields.type}}} ho isa ho {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} e kopane",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} e setseng",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} e itse: {{{message.content}}}",
+        "Streams\/changed": "Liphetoho ka {{stream.fields.title}}",
+        "Streams\/invite": "U memetsoe ho {{{stream.fields.title}}}",
+        "Streams\/announcement": "Phatlalatso ka {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} e fetotse phihlello ho {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Molaetsa oa moqoqo o hlophisitsoeng ka {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Molaetsa oa moqoqo o tlositsoe ka {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} e koetsoe",
+        "Streams\/task\/progress": "Khatelo-pele e entsoeng ka {{stream.fields.title}}",
+        "Streams\/task\/complete": "Mosebetsi o phethiloe: {{stream.fields.title}}",
+        "Streams\/task\/error": "Phoso nakong ea: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Molaetsa o kenang",
+        "Streams\/relatedTo\/Streams\/call": "Pitso e Ncha e qalile ka {{toTitle}}",
+        "Streams\/relatedTo\/*": "E ncha {{relationDisplayType}} ho {{toTitle}}",
+        "Streams\/relatedFrom\/*": "E kenyellelitsoe ho {{toTitle}} joalo ka {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} o buile ka uena maikutlong",
+        "Streams\/call": "{{displayName}} e qalile mohala oa nako ea nnete"
+    },
+    "invite": {
+        "command": "Mema",
+        "Invite": "Mema",
+        "Share": "Arolelana",
+        "Participants": "Mema Batho",
+        "messageContent": "{{displayName}} e u memetse ho {{inviteUrl}}",
+        "youCanNowPaste": "Joale u ka beha sehokelo sena kae-kae ho mema batho",
+        "roles": {
+            "title": "Fana ka Mesebetsi ho Basebelisi ba Memetsoeng?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Tšoarelo",
+                "alert": "Ha ua lumelloa ho fana ka karolo ena"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Tšoarelo",
+                "alert": "Ha ua lumelloa ho tlosa karolo ena"
+            }
+        },
+        "labels": {
+            "title": "Kamano ea hau ke efe?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Khetha ho Mabitso a hau",
+            "chooseAgainFromContacts": "Khetha Hape ho Mabitso",
+            "inviteSelectedContacts": "Mema Mabitso a Khethiloeng",
+            "selectFromContacts": "Kgetha Ho Mabitso",
+            "userChooserPlaceholder": "Batla ka mabitso",
+            "photo": "Nka senepe",
+            "photoOf": "Nka senepe sa {{name}}",
+            "photoInstruction": "Haeba motho ea skeneng khoutu ea hau ea QR a le ka pel&#39;a hao, mo nke senepe",
+            "to": "ho: {{Stream Title}}",
+            "go": "Eya",
+            "title": "Mema",
+            "placeholder": "Nomoro ea mohala kapa aterese ea lengolo-tsoibila",
+            "orInvite": "Kapa u meme batho ka ho sebelisa:",
+            "copyLink": "{{ClickOrTap}} ho kopitsa sehokelo sa memo ",
+            "shareOrCopyLink": "{{ClickOrTap}} ho arolelana kapa ho kopitsa sehokelo sa memo ",
+            "QR": "{{ClickOrTap}} ho hlahisa khoutu ea QR",
+            "QRtitle": "Hlakola khoutu ena ea QR",
+            "QRscanned": "Ba ile ba e hlahloba!",
+            "scannedQR": "{{ClickOrTap}} haeba khoutu e ile ea hlahlojoa",
+            "TakeGroupPhoto": "Nka Senepe sa Sehlopha",
+            "Skip": "Tlola",
+            "byEmail": "Email",
+            "byText": "Mongolo",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Thelekramo",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Mema Batho",
+            "chooseMethod": "Khetha mokhoa:",
+            "selectContacts": "Kgetha Mabitso",
+            "scanQRCode": "Hlakola khoutu ea QR",
+            "shareLink": "Arolelana sehokelo",
+            "chooseFromRegistered": "Khetha ho basebelisi ba ngolisitsoeng",
+            "inviteViaEmailOrSms": "Mema ka lengolo-tsoibila kapa SMS",
+            "addRoles": "Eketsa Mesebetsi",
+            "addPersonalRoles": "Eketsa Likamano tsa Botho"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Rea u amohela ho {{communityName}}",
+            "HasInvitedYou": "o o memetse ho:",
+            "HasInvitedYouToTheirProfile": "e u memetse ho hokela.",
+            "prompt": "Etsa hore metsoalle e u tsebe:",
+            "accept": "Amohela Memo"
+        },
+        "email": {
+            "subject": "Lumela, hlahloba sena",
+            "PleaseVisitLink": "Ka kopo etela sehokelo se latelang:",
+            "InvitingYou": "Ke u memela ho {{title}}",
+            "HasInvitedYou": "{{displayName}} e u memetse ho {{title}}",
+            "HasMentionedYou": "{{displayName}} e u boletse ho &quot; {{title}} &quot;",
+            "YOUAREINVITED": "O A MENGOA!",
+            "AcceptInvite": "Amohela Memo"
+        },
+        "mobile": {
+            "content": "U memetsoe ho {{title}} . Ka kopo, tlanya {{url}}"
+        },
+        "notice": {
+            "text": "U memiloe. {{ClickOrTap}} mona ho amohela le ho kenela."
+        },
+        "chat": {
+            "prompt": "U tla be u memela batho moqoqong oo le ka lulang le buisana, oa arolelana linepe le &#39;moho, le tse ling. E rehe lebitso:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "o ngotse molaetsa oa <em>{{message.fields.type}}<\/em> ho {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "a fana ka maikutlo ka",
+            "startedCallIn": "a qala mohala",
+            "in": "ho",
+            "body": "ka {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "e rometsoe ho",
+                "byAvatar": "ka {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "e na le {{instructions.fromDisplayType}} e ncha",
+                "byAvatar": "e ekelitsoe ke {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Memo e romelloa ho tsoa nomorong ea rona, eo metsoalle ea hau e e-so e tsebe. Latela ka mongolo o potlakileng ho ba tsebisa hore memo e tsoa ho uena, u ba kope ho tobetsa sehokelo.",
+            "confirm": "Memo e romelloa ho tsoa nomorong ea rona, eo metsoalle ea hau e e-so e tsebe. Na u ka thabela ho latela molaetsa o potlakileng ho ba tsebisa hore memo e tsoa ho uena, u ba kopa ho tobetsa sehokelo.",
+            "check": "Lumela, ke qeta ho u romella memo ea {{app}} app. Ka kopo sheba li-sms tsa hau ebe u tobetsa sehokelo!",
+            "CheckYourMobile": "Ka kopo, sheba SMS &#39;me u latele litaelo!"
+        },
+        "email": {
+            "alert": "Memo e romelloa ho tsoa domeineng ea rona, eo metsoalle ea hau e e-so e tsebe. Latela ka mongolo o potlakileng ho ba tsebisa hore memo e tsoa ho uena, u ba kope ho tobetsa sehokelo.",
+            "confirm": "Memo e romelloa ho tsoa domeineng ea rona, eo metsoalle ea hau e e-so e tsebe. Na u ka thabela ho latela molaetsa o potlakileng ho ba tsebisa hore memo e tsoa ho uena, u ba kopa ho tobetsa sehokelo.",
+            "subject": "O fumane memo?",
+            "body": "Lumela, ke qeta ho u romella memo ea {{app}} app. Ka kopo sheba lengolo-tsoibila la hau mme o tobetse sehokelo se teng moo!",
+            "CheckYourEmail": "Ka kopo sheba lengolo-tsoibila la hau mme u latele litaelo!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Lebitso la mosebedisi..."
+    },
+    "identifier": {
+        "privacySettings": "Litlhophiso tsa Lekunutu"
+    },
+    "participating": {
+        "Title": "Sehlooho",
+        "Subscribed": "O ngolisitsoe",
+        "Participants": "Barupeluoa",
+        "AreYouSureRemoveIdentifier": "Na u na le bonnete ba hore u tla tlosa sekhetho see?",
+        "AreYouSureUnsubscribeIdentifier": "Na ehlile u ntšitse boingoliso ba sekhetho see? E tla tima litsebiso ho sekhetho sena.",
+        "AreYouSureUnsubscribeDevice": "Na ehlile u tlositse boingoliso ba sesebelisoa see? E tla tima litemoso sesebelisoa sena.",
+        "AreYouSureRemoveParticipant": "Na ehlile u batla ho tlosa motla-karolo ee?",
+        "RemoveParticipant": "Tlosa monkakarolo",
+        "Identifiers": "Litlhaloso",
+        "Devices": "Lisebelisoa",
+        "Streams": "Melapo"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "O memiloe",
+            "description": "Inbox bakeng sa limemo"
+        },
+        "Streams\/resource": {
+            "displayType": "Mohlodi",
+            "description": "stream bakeng sa ho laola phihlello ya mohlodi le ho romela melaetsa ka diapdeite"
+        },
+        "Streams\/task": {
+            "description": "bakeng sa ho amohela diapdeite mabapi le kgatelopele ya mosebetsi o itseng",
+            "displayType": "Mosebetsi"
+        },
+        "Streams\/tasks": {
+            "description": "sehlopha bakeng sa mesebetsi",
+            "displayType": "Mesebetsi"
+        },
+        "Streams\/experience": {
+            "description": "phihlelo e tloaelehileng bakeng sa litho tsa sechaba",
+            "displayType": "Phihlelo e tloaelehileng bakeng sa litho tsa sechaba"
+        },
+        "Streams\/greeting": {
+            "description": "tumediso eo mosebedisi a ka itsebisang ka yona",
+            "displayType": "Lumela"
+        },
+        "Streams\/number": {
+            "displayType": "Nomoro",
+            "description": "nomoro ea lipalo"
+        },
+        "Streams\/date": {
+            "displayType": "Letsatsi",
+            "description": "letsatsi"
+        },
+        "Streams\/text": {
+            "displayType": "Mongolo",
+            "description": "mmele wa mongolo"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Mongolo",
+            "description": "karolo e nyane ya mongolo"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Mongolo",
+            "description": "mmele o mahareng wa mongolo"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Aterese ea imeile",
+            "description": "aterese ea imeile"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Nomoro ea mohala",
+            "description": "nomoro ea mohala"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link ho tepo"
+        },
+        "Streams\/image": {
+            "displayType": "Setšoantšo",
+            "description": "setšoantšo sa pono",
+            "newItem": "Kenya Setšoantšo"
+        },
+        "Streams\/images": {
+            "displayType": "Khalase ea Litšoantšo",
+            "description": "pokello ea litšoantšo"
+        },
+        "Streams\/album": {
+            "displayType": "Letlapa",
+            "description": "albamo eo mecha ea litaba e fapaneng e amanang le eona"
+        },
+        "Streams\/file": {
+            "displayType": "Faele",
+            "description": "faele e kentsoeng",
+            "newItem": "Kenya Faele"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio Clip",
+            "description": "sekotwana sa modumo",
+            "newItem": "Kenya Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Sekotwana sa Video",
+            "description": "sekotwana sa video",
+            "newItem": "Kenya Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "Tokomane ea PDF",
+            "description": "Tokomane ea PDF",
+            "newItem": "Kenya PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "audio kapa video e phelang"
+        },
+        "Streams\/category": {
+            "displayType": "Sehlopha",
+            "description": "sehlopha seo melapo e meng e ka amanang le sona",
+            "newItem": "Kenya Sehlopha"
+        },
+        "Streams\/participating": {
+            "displayType": "Index ea ho Kopanela",
+            "description": "melapo e amana\/ha e amane le sena ha mosebelisi a kenella\/a tsamaea"
+        },
+        "Streams\/interest": {
+            "displayType": "Thahasello",
+            "description": "e emela kgahleho ya mosebedisi sehloohong se itseng"
+        },
+        "Streams\/incoming": {
+            "displayType": "Tse kenang",
+            "description": "moo molaetsa o romelloang ke basebelisi ba bang"
+        },
+        "Streams\/chat": {
+            "displayType": "Moqoqo",
+            "description": "puisano pakeng tsa basebelisi, le histori"
+        },
+        "Streams\/question": {
+            "displayType": "Potso",
+            "description": "molapo oa potso",
+            "newItem": "Eketsa Potso"
+        },
+        "Streams\/answer": {
+            "displayType": "Araba",
+            "description": "araba molapo"
+        },
+        "Streams\/topic": {
+            "displayType": "Sehlooho",
+            "description": "molapo wa sehlooho",
+            "newItem": "Eketsa Sehlooho"
+        }
+    },
+    "menu": {
+        "placeholder": "thaepa sehlooho sa leqephe",
+        "ModTab": "Fetola Ntho",
+        "Save": "Boloka",
+        "Delete": "Hlakola",
+        "Submenu": "Lenane le tlase"
+    },
+    "audio": {
+        "record": "Rekota",
+        "reset": "Seta bocha",
+        "edit": "Fetola",
+        "title": "sehlooho",
+        "description": "tlhaloso",
+        "upload": "Kenya",
+        "link": "Sehokelo",
+        "setUrl": "Beha URL",
+        "save": "Boloka",
+        "setClip": "Khaola Clip",
+        "invalidURL": "URL e fosahetseng",
+        "invalidFile": "Faele e Fosahetseng",
+        "errorNoSource": "Ha ho mohloli oa molumo",
+        "uploadLimit": "Boholo ba faele: {{size}}",
+        "errorFileSize": "Tšoarelo, empa faele e kholo haholo.<br> Boholo ba faele ke {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Video e Ncha",
+        "EditVideo": "Fetola Video",
+        "reset": "Seta bocha",
+        "edit": "Fetola",
+        "title": "sehlooho",
+        "description": "tlhaloso",
+        "upload": "Kenya",
+        "link": "Sehokelo",
+        "setUrl": "Beha URL",
+        "save": "Boloka",
+        "createAnimatedThumbnail": "Etsa lipopae tse nyane",
+        "setClip": "Khaola Clip",
+        "invalidURL": "URL e fosahetseng",
+        "invalidFile": "Faele e Fosahetseng",
+        "errorNoSource": "Ha ho mohloli oa video",
+        "uploadLimit": "Boholo ba faele: {{size}}",
+        "errorFileSize": "Tšoarelo, empa faele e kholo haholo.<br> Boholo ba faele ke {{size}}",
+        "errorNotAvailable": "Tšoarelo, empa video ha e so fumanehe. Ka kopo, leka hape hamorao.",
+        "TeaserVideo": "Video ea Teaser"
+    },
+    "pdf": {
+        "reset": "Seta bocha",
+        "edit": "Fetola",
+        "title": "sehlooho",
+        "description": "tlhaloso",
+        "upload": "Kenya",
+        "link": "Sehokelo",
+        "setUrl": "Beha URL",
+        "save": "Boloka",
+        "setClip": "Khaola Clip",
+        "invalidURL": "URL e fosahetseng",
+        "invalidFile": "Faele e Fosahetseng",
+        "errorNoSource": "Ha ho mohloli oa pdf",
+        "uploadLimit": "Boholo ba faele: {{size}}",
+        "errorFileSize": "Tšoarelo, empa faele e kholo haholo.<br> Boholo ba faele ke {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Seta bocha",
+        "edit": "Fetola",
+        "title": "sehlooho",
+        "description": "tlhaloso",
+        "upload": "Kenya",
+        "link": "Sehokelo",
+        "setUrl": "Beha URL",
+        "save": "Boloka",
+        "uploadedImage": "Setšoantšo se kentsoeng",
+        "imageTitle": "Sehlooho sa setšoantšo",
+        "setClip": "Khaola Clip",
+        "invalidURL": "URL e fosahetseng",
+        "invalidFile": "Faele e Fosahetseng",
+        "errorNoSource": "Ha ho mohloli oa setšoantšo",
+        "uploadLimit": "Boholo ba faele: {{size}}",
+        "errorFileSize": "Tšoarelo, empa faele e kholo haholo.<br> Boholo ba faele ke {{size}}",
+        "TeaserImage": "Setšoantšo sa Teaser"
+    },
+    "questions": {
+        "Questions": "Lipotso",
+        "Answers": "Likarabo",
+        "AnswerQuestion": "Araba Potso",
+        "SetYourAnswer": "Ke kopa o arabe potso",
+        "NewQuestion": "Potso e Ncha",
+        "EditQuestion": "Fetola Potso",
+        "NewAnswer": "Karabo e Ncha",
+        "NewPossibleAnswer": "Karabo e Ncha e ka khonehang",
+        "AnswerDetails": "Araba Lintlha",
+        "answerOption": "Khetho",
+        "answerOptionExclusive": "E ikhethang",
+        "answerTextarea": "Textarea",
+        "answerText": "Mongolo",
+        "HideUntilAnswered": "Ipate ho fihlela o arajoa",
+        "CantChangeAnswers": "Ha e khone ho fetola likarabo",
+        "ShortAnswer": "Ngola karabo e khutšoanyane",
+        "FreeAnswer": "Ngola karabo ea hau mona",
+        "SaveQuestion": "Boloka Potso",
+        "SaveAnswer": "Boloka Karabo",
+        "Save": "Boloka",
+        "Send": "Romela",
+        "TitleRequired": "Ho hlokahala sehlooho!",
+        "AlreadyAnswered": "E se e arabile",
+        "TitlePlaceholder": "Ngola potso ea hau",
+        "ContentPlaceholder": "Kenya lintlha tse ling mona ho thusa batho ho araba",
+        "ErrorTitle": "Ho hlokahala potso",
+        "Placeholder": "Ngola Litaelo",
+        "AreYouSure": "U na le bonnete?",
+        "AnswerCantBeChanged": "Karabo e ka se fetoloe"
+    },
+    "experience": {
+        "NewExperience": "Phihlelo e Ncha",
+        "DefineTitle": "Ka kopo, hlalosa sehlooho",
+        "Create": "Theha"
+    },
+    "calls": {
+        "SettingsTitle": "Mehala",
+        "MaxCalls": "Mehala e mengata",
+        "Update": "Nchafatso",
+        "NoCallsYet": "Ha ho na mehala",
+        "CallReasonTitle": "Mohala oo o bua ka eng?",
+        "WaitingRoom": "Kamore ea ho Leta",
+        "LiveRoom": "Kamore ea ho Phela",
+        "interviewedByAnotherHost": "Hajoale ho buisanoa le moamoheli e mong",
+        "bringToLive": "Tlisa ho Live Show",
+        "putOnHold": "Beha Tšoarella",
+        "endCall": "Qetella Pitso",
+        "interview": "Puisano",
+        "markApproved": "Tšoaea O amohetsoe"
+    },
+    "task": {
+        "errorsTitle": "Ho bile le liphoso"
+    },
+    "topic": {
+        "NewTopic": "Sehlooho se Secha",
+        "UpdateTopic": "Nchafatso Sehlooho",
+        "CreateTopic": "Theha Sehlooho",
+        "AreYouSureDeleteTopic": "Na u na le bonnete ba hore u batla ho hlakola sehlooho sena",
+        "TitlePlaceholder": "sehlooho sa sehlooho...",
+        "DescribeTopic": "hlalosa sehlooho...",
+        "TopicIcon": "Setšoantšo sa sehlooho",
+        "UploadIcon": "Kenya Letšoao",
+        "Conversation": "Moqoqo",
+        "Metrics": "Melemo",
+        "Teaser": "Motlalehi",
+        "TeaserDescription": "tlhaloso ea motlae...",
+        "TeaserVideo": "Video ea Teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Theha manane a popae",
+        "Width": "Bophara",
+        "Height": "Bophahamo",
+        "Start": "Qala",
+        "End": "QETA",
+        "Delay": "tieho",
+        "Quality": "Boleng",
+        "Size": "Boholo",
+        "OfFrames": "ea Liforeimi",
+        "Frame": "Foreimi",
+        "UseThis": "Sebelisa sena",
+        "ResultGIF": "Sephetho GIF",
+        "VideoElementNotFound": "Karolo ea video ha e fumanehe"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Sefahlehong sa Hao",
+        "AcceptIcon": "Amohela sebaka se khethiloeng"
+    }
+}

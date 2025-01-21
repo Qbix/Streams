@@ -469,7 +469,8 @@
         "ErrorTitle": "Пытанне патрабуецца",
         "Placeholder": "Напісаць інструкцыі",
         "AreYouSure": "Вы ўпэўнены?",
-        "ShortAnswer": "Напішыце кароткі адказ"
+        "ShortAnswer": "Напішыце кароткі адказ",
+        "AnswerCantBeChanged": "Адказ не можа быць зменены"
     },
     "experience": {
         "NewExperience": "Новы вопыт",

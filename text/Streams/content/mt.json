@@ -469,7 +469,8 @@
         "ErrorTitle": "Mistoqsija meħtieġa",
         "Placeholder": "Ikteb Istruzzjonijiet",
         "AreYouSure": "Żgur?",
-        "ShortAnswer": "Ikteb tweġiba qasira"
+        "ShortAnswer": "Ikteb tweġiba qasira",
+        "AnswerCantBeChanged": "It-tweġiba ma tistax tinbidel"
     },
     "experience": {
         "NewExperience": "Esperjenza Ġdida",

@@ -469,7 +469,8 @@
         "ErrorTitle": "Kérdés kötelező",
         "Placeholder": "Írja meg az utasításokat",
         "AreYouSure": "biztos vagy ebben?",
-        "ShortAnswer": "Írj egy rövid választ"
+        "ShortAnswer": "Írj egy rövid választ",
+        "AnswerCantBeChanged": "A választ nem lehet megváltoztatni"
     },
     "experience": {
         "NewExperience": "Új tapasztalat",

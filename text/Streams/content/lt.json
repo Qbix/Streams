@@ -469,7 +469,8 @@
         "ErrorTitle": "Reikalingas klausimas",
         "Placeholder": "Parašykite instrukcijas",
         "AreYouSure": "Ar tu tuo tikras?",
-        "ShortAnswer": "Parašykite trumpą atsakymą"
+        "ShortAnswer": "Parašykite trumpą atsakymą",
+        "AnswerCantBeChanged": "Atsakymo pakeisti negalima"
     },
     "experience": {
         "NewExperience": "Nauja patirtis",

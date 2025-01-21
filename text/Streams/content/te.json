@@ -469,7 +469,8 @@
         "ErrorTitle": "ప్రశ్న అవసరం",
         "Placeholder": "సూచనలను వ్రాయండి",
         "AreYouSure": "మీరు చెప్పేది నిజమా?",
-        "ShortAnswer": "చిన్న సమాధానం రాయండి"
+        "ShortAnswer": "చిన్న సమాధానం రాయండి",
+        "AnswerCantBeChanged": "సమాధానాన్ని మార్చడం సాధ్యం కాదు"
     },
     "experience": {
         "NewExperience": "కొత్త అనుభవం",

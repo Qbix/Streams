@@ -469,7 +469,8 @@
         "ErrorTitle": "câu hỏi bắt buộc",
         "Placeholder": "Viết hướng dẫn",
         "AreYouSure": "Bạn có chắc không?",
-        "ShortAnswer": "Viết một câu trả lời ngắn"
+        "ShortAnswer": "Viết một câu trả lời ngắn",
+        "AnswerCantBeChanged": "Câu trả lời không thể thay đổi"
     },
     "experience": {
         "NewExperience": "Kinh nghiệm mới",

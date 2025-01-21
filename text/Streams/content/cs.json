@@ -469,7 +469,8 @@
         "ErrorTitle": "Vyžaduje se otázka",
         "Placeholder": "Napište Pokyny",
         "AreYouSure": "Jsi si jistá?",
-        "ShortAnswer": "Napište krátkou odpověď"
+        "ShortAnswer": "Napište krátkou odpověď",
+        "AnswerCantBeChanged": "Odpověď nelze změnit"
     },
     "experience": {
         "NewExperience": "Nový zážitek",

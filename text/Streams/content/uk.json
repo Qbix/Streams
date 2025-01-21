@@ -469,7 +469,8 @@
         "ErrorTitle": "Питання обов&#39;язкове",
         "Placeholder": "Напишіть інструкції",
         "AreYouSure": "Ти впевнений?",
-        "ShortAnswer": "Напишіть коротку відповідь"
+        "ShortAnswer": "Напишіть коротку відповідь",
+        "AnswerCantBeChanged": "Відповідь змінити не можна"
     },
     "experience": {
         "NewExperience": "Новий досвід",

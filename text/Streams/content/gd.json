@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Tha an susbaint seo falaichte bhuat.",
+        "InplaceTypeMustBe": "Feumaidh inplaceType a bhith mar ‘textarea’ no ‘text’"
+    },
+    "preview": {
+        "NewItemTitle": "Nì Ùr",
+        "Teaser": "Teasairg"
+    },
+    "avatar": {
+        "firstName": "A’ chiad ainm",
+        "lastName": "An t-ainm mu dheireadh",
+        "username": "ainm neach-cleachdaidh"
+    },
+    "labels": {
+        "Streams\/invited": "Daoine air an tug mi cuireadh",
+        "Streams\/invitedMe": "Cò thug cuireadh dhomh",
+        "DoYouAgree": "A bheil thu ag aontachadh?",
+        "JoinItNow": "Thig còmhla ris a-nis?",
+        "Yes": "Tha",
+        "No": "Chan eil"
+    },
+    "login": {
+        "prompt": "Leig le do charaidean aithneachadh:",
+        "newUser": "no cruthaich cunntas ùr gu h-ìosal",
+        "picTooltip": "Faodaidh tu an dealbh seo atharrachadh nas fhaide air adhart",
+        "placeholders": {
+            "fullName": "Cuir a-steach d’ ainm slàn"
+        }
+    },
+    "interests": {
+        "Filter": "Rannsaich ùidhean",
+        "CanGrant": "Mura h-urrainn dhut na tha thu a’ sireadh a lorg fhathast, faodaidh tu ùidh ùr a chuir ris gu h-ìosal:",
+        "TrySynonyms": "Nach eil thu ga fhaicinn? Feuch cuid de cho-fhaclan.",
+        "AddUnderCategory": "Cuir ris fon roinn ...",
+        "Other": "Eile",
+        "Unlisted": "Gun chlàradh"
+    },
+    "relate": {
+        "Add": "Cuir {{streamDisplayType}} ris"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Chaidh an teachdaireachd a chomharrachadh airson ath-sgrùdadh rianachd. Tap air a-rithist gus an suaicheantas a thoirt air falbh.",
+        "noOneSaid": "Chan eil duine air dad a ràdh",
+        "closeChatButton": "Dùin còmhradh",
+        "closeChatConfirmTitle": "An dùin an còmhradh seo?",
+        "closeChatConfirm": "A bheil thu cinnteach gu bheil thu airson an còmhradh seo a dhùnadh?",
+        "Subscribed": "Brathan air an comasachadh",
+        "Unsubscribed": "Sanasan air an sgàineadh",
+        "closeChatConfirmYes": "Tha",
+        "closeChatConfirmNo": "Chan eil",
+        "earlierComments": "beachdan nas tràithe",
+        "startedConversation": "thòisich còmhradh",
+        "RealTimeCall": "Call fìor-ùine",
+        "JoinWebRTC": "Tele-cho-labhairt",
+        "SearchByName": "Lorg le ainm",
+        "Notifications": {
+            "Visit": "Tha {{displayName}} a’ tadhal air a’ chat",
+            "Join": "Thàinig {{displayName}} a-steach don chat",
+            "Leave": "Dh’ fhàg {{displayName}} an còmhradh",
+            "RelatedTo": "Thòisich {{displayName}} {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Cuir beachd ris",
+            "Private": "Sgrìobh teachdaireachd prìobhaideach"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "stiùir na fo-sgrìobhaidhean post-d agad",
+        "IfUnsubscribe": "Ma tha thu airson crìoch a chur air an fho-sgrìobhadh",
+        "changed": {
+            "ChangesIn": "Atharrachaidhean ùine ann {{title}}",
+            "Changed": "air atharrachadh",
+            "HereIsWhatChanged": "Seo na dh’atharraich:"
+        },
+        "joined": {
+            "Joined": "Thàinig {{subject}} còmhla ri <em>{{title}}<\/em>"
+        },
+        "*": "Teachdaireachd {{{message.fields.type}}} gu {{{stream.fields.title}}}",
+        "Streams\/joined": "Thàinig {{{call 'avatar.displayName'}}} còmhla",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} air falbh",
+        "Streams\/chat\/message": "💬 thuirt {{{call 'avatar.displayName'}}} : {{{message.content}}}",
+        "Streams\/changed": "Atharrachaidhean ùine ann {{stream.fields.title}}",
+        "Streams\/invite": "Fhuair thu cuireadh gu {{{stream.fields.title}}}",
+        "Streams\/announcement": "Sanas ann {{{stream.fields.title}}}",
+        "Streams\/access": "Dh&#39;atharraich {{{call 'avatar.displayName'}}} ruigsinneachd ann an {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Teachdaireachd cabadaich deasaichte ann an {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Chaidh teachdaireachd còmhraidh a thoirt air falbh ann an {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} air a bhith dùinte",
+        "Streams\/task\/progress": "Adhartas air a dhèanamh air {{stream.fields.title}}",
+        "Streams\/task\/complete": "Gnìomh crìochnaichte: {{stream.fields.title}}",
+        "Streams\/task\/error": "Mearachd rè: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Teachdaireachd a’ tighinn a-steach",
+        "Streams\/relatedTo\/Streams\/call": "Call Ùr air tòiseachadh ann an {{toTitle}}",
+        "Streams\/relatedTo\/*": "{{relationDisplayType}} ùr ann an {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Air a chur ri {{toTitle}} mar {{relationDisplayType}}",
+        "Streams\/mention": "Thug {{{call 'avatar.displayName'}}} iomradh ort ann am beachd",
+        "Streams\/call": "Thòisich {{displayName}} gairm fìor-ùine"
+    },
+    "invite": {
+        "command": "Thoir cuireadh",
+        "Invite": "Thoir cuireadh",
+        "Share": "Roinn",
+        "Participants": "Thoir cuireadh do Dhaoine",
+        "messageContent": "Thug {{displayName}} cuireadh dhut gu {{inviteUrl}}",
+        "youCanNowPaste": "Faodaidh tu a-nis an ceangal seo a phasgadh an àiteigin airson cuireadh a thoirt do dhaoine",
+        "roles": {
+            "title": "Dreuchdan Tabhartais do Luchd-cleachdaidh a fhuair cuireadh?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Duilich",
+                "alert": "Chan eil cead agad an dreuchd seo a bhuileachadh"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Duilich",
+                "alert": "Chan eil cead agad an dreuchd seo a thoirt air falbh"
+            }
+        },
+        "labels": {
+            "title": "Dè an dàimh a th’ agad?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Tagh bhon luchd-aithne agad",
+            "chooseAgainFromContacts": "Tagh a-rithist bho Contacts",
+            "inviteSelectedContacts": "Thoir cuireadh dha na caraidean taghte",
+            "selectFromContacts": "Tagh Bho Contacts",
+            "userChooserPlaceholder": "Lorg le ainm",
+            "photo": "Gabh dealbh",
+            "photoOf": "Gabh dealbh de {{name}}",
+            "photoInstruction": "Ma tha an neach a rinn sganadh air a’ chòd QR agad air do bheulaibh, tog dealbh dhiubh",
+            "to": "Gu: {{Stream Title}}",
+            "go": "Rachaibh",
+            "title": "Thoir cuireadh",
+            "placeholder": "Àireamh fòn-làimhe no seòladh puist-d",
+            "orInvite": "No thoir cuireadh do dhaoine le bhith a’ cleachdadh:",
+            "copyLink": "{{ClickOrTap}} gus lethbhreac a dhèanamh den cheangal cuireadh ",
+            "shareOrCopyLink": "{{ClickOrTap}} gus ceangal cuireadh a cho-roinn no a chopaigeadh ",
+            "QR": "{{ClickOrTap}} gus còd QR a ghineadh",
+            "QRtitle": "Sgan an còd QR seo",
+            "QRscanned": "Rinn iad sganadh air!",
+            "scannedQR": "{{ClickOrTap}} ma chaidh an còd a sganadh",
+            "TakeGroupPhoto": "Gabh dealbh buidheann",
+            "Skip": "Leum",
+            "byEmail": "Post-d",
+            "byText": "Teacs",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Teileagram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Thoir cuireadh do Dhaoine",
+            "chooseMethod": "Tagh dòigh-obrach:",
+            "selectContacts": "Tagh Caraidean",
+            "scanQRCode": "Sgan QR Code",
+            "shareLink": "Roinn ceangal",
+            "chooseFromRegistered": "Tagh bho luchd-cleachdaidh clàraichte",
+            "inviteViaEmailOrSms": "Thoir cuireadh tro phost-d no SMS",
+            "addRoles": "Cuir dreuchdan ris",
+            "addPersonalRoles": "Cuir Dàimhean Pearsanta ris"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Fàilte gu {{communityName}}",
+            "HasInvitedYou": "thug e cuireadh dhut:",
+            "HasInvitedYouToTheirProfile": "thug e cuireadh dhut ceangal a dhèanamh.",
+            "prompt": "Leig le do charaidean aithneachadh:",
+            "accept": "Gabh ris an cuireadh"
+        },
+        "email": {
+            "subject": "Hey, thoir sùil air seo",
+            "PleaseVisitLink": "Feuch an tadhal thu air a’ cheangal a leanas:",
+            "InvitingYou": "Tha mi a’ toirt cuireadh dhut gu {{title}}",
+            "HasInvitedYou": "Tha {{displayName}} air cuireadh a thoirt dhut gu {{title}}",
+            "HasMentionedYou": "Tha {{displayName}} air iomradh a thoirt ort ann an &quot; {{title}} &quot;",
+            "YOUAREINVITED": "CUIR cuireadh!",
+            "AcceptInvite": "Gabh ris an cuireadh"
+        },
+        "mobile": {
+            "content": "Fhuair thu cuireadh gu {{title}} . Thoir gnogag air {{url}}"
+        },
+        "notice": {
+            "text": "Tha thu air cuireadh fhaighinn. {{ClickOrTap}} an seo gus gabhail ris agus a dhol còmhla."
+        },
+        "chat": {
+            "prompt": "Bidh thu a’ toirt cuireadh do dhaoine gu còmhradh far an urrainn dhut fuireach ann an conaltradh, dealbhan a cho-roinn, agus barrachd. Thoir ainm dha:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "chuir sinn teachdaireachd <em>{{message.fields.type}}<\/em> gu {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "iomradh air",
+            "startedCallIn": "thòisich gairm a-steach",
+            "in": "anns",
+            "body": "ann {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "air a phostadh gu",
+                "byAvatar": "le {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "tha {{instructions.fromDisplayType}} ùr aige",
+                "byAvatar": "air a chur ris le {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Thèid cuiridhean a chuir bhon àireamh againn, nach eil do charaidean ag aithneachadh fhathast. Lean air adhart le teacsa sgiobalta gus innse dhaibh gun tàinig an cuireadh bhuat, ag iarraidh orra briogadh air a’ cheangal.",
+            "confirm": "Thèid cuiridhean a chuir bhon àireamh againn, nach eil do charaidean ag aithneachadh fhathast. Am bu toil leat teacsa sgiobalta a leantainn gus innse dhaibh gun tàinig an cuireadh bhuat, ag iarraidh orra briogadh air a’ cheangal.",
+            "check": "Hey, tha mi dìreach air cuireadh a chuir thugad chun app {{app}} . Feuch an toir thu sùil air do sms agus cliog air a’ cheangal!",
+            "CheckYourMobile": "Feuch an toir thu sùil air SMS agus lean an stiùireadh!"
+        },
+        "email": {
+            "alert": "Thèid cuiridhean a chuir bhon àrainn againn, nach eil do charaidean ag aithneachadh fhathast. Lean air adhart le teacsa sgiobalta gus innse dhaibh gun tàinig an cuireadh bhuat, ag iarraidh orra briogadh air a’ cheangal.",
+            "confirm": "Thèid cuiridhean a chuir bhon àrainn againn, nach eil do charaidean ag aithneachadh fhathast. Am bu toil leat teacsa sgiobalta a leantainn gus innse dhaibh gun tàinig an cuireadh bhuat, ag iarraidh orra briogadh air a’ cheangal.",
+            "subject": "An d’ fhuair thu cuireadh?",
+            "body": "Hey, tha mi dìreach air cuireadh a chuir thugad chun app {{app}} . Feuch an toir thu sùil air a’ phost-d agad agus cliog air a’ cheangal a-staigh an sin!",
+            "CheckYourEmail": "Feuch an toir thu sùil air a’ phost-d agad agus lean an stiùireadh!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Ainm neach-cleachdaidh ..."
+    },
+    "identifier": {
+        "privacySettings": "Roghainnean prìobhaideachd"
+    },
+    "participating": {
+        "Title": "Tiotal",
+        "Subscribed": "Fo-sgrìobhadh",
+        "Participants": "Com-pàirtichean",
+        "AreYouSureRemoveIdentifier": "A bheil thu cinnteach an aithnichear seo a thoirt air falbh?",
+        "AreYouSureUnsubscribeIdentifier": "A bheil thu cinnteach gun cuir thu crìoch air an fho-sgrìobhadh dhan aithnichear seo? Cuiridh e dheth fiosan don aithnichear seo.",
+        "AreYouSureUnsubscribeDevice": "A bheil thu cinnteach gun cuir thu crìoch air an fho-sgrìobhadh dhan inneal seo? Cuiridh e dheth fiosan don inneal seo.",
+        "AreYouSureRemoveParticipant": "A bheil thu cinnteach gu bheil thu airson an com-pàirtiche seo a thoirt air falbh?",
+        "RemoveParticipant": "Thoir air falbh com-pàirtiche",
+        "Identifiers": "Luchd-aithneachaidh",
+        "Devices": "Innealan",
+        "Streams": "Sruthan"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Thugadh cuireadh",
+            "description": "Bogsa a-steach airson cuiridhean"
+        },
+        "Streams\/resource": {
+            "displayType": "Goireas",
+            "description": "sruth airson ruigsinneachd air goireas a stiùireadh agus teachdaireachdan a phostadh mu ùrachaidhean"
+        },
+        "Streams\/task": {
+            "description": "airson ùrachaidhean fhaighinn mu adhartas air gnìomh sònraichte",
+            "displayType": "Tasc"
+        },
+        "Streams\/tasks": {
+            "description": "roinn-seòrsa airson gnìomhan",
+            "displayType": "Gnìomhan"
+        },
+        "Streams\/experience": {
+            "description": "eòlas coitcheann do bhuill coimhearsnachd",
+            "displayType": "Eòlas cumanta do bhuill coimhearsnachd"
+        },
+        "Streams\/greeting": {
+            "description": "fàilte leis an urrainn neach-cleachdaidh iad fhèin a chuir a-steach",
+            "displayType": "Beannachd"
+        },
+        "Streams\/number": {
+            "displayType": "Aireamh",
+            "description": "àireamh matamataigeach"
+        },
+        "Streams\/date": {
+            "displayType": "Ceann-latha",
+            "description": "ceann-latha"
+        },
+        "Streams\/text": {
+            "displayType": "Teacs",
+            "description": "corp teacsa"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Teacs",
+            "description": "corp beag teacsa"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Teacs",
+            "description": "corp meadhanach teacsa"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Seòladh puist-d",
+            "description": "Seòladh puist-d"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Àireamh fòn",
+            "description": "àireamh fòn"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "ceangal air an lìon"
+        },
+        "Streams\/image": {
+            "displayType": "Dealbh",
+            "description": "dealbh lèirsinneach",
+            "newItem": "Cuir Ìomhaigh ris"
+        },
+        "Streams\/images": {
+            "displayType": "Gailearaidh Dhealbhan",
+            "description": "gailearaidh dhealbhan"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "clàr ris a bheil diofar mheadhanan co-cheangailte"
+        },
+        "Streams\/file": {
+            "displayType": "Faidhle",
+            "description": "faidhle air a luchdachadh suas",
+            "newItem": "Cuir File ris"
+        },
+        "Streams\/audio": {
+            "displayType": "Clip Fuaim",
+            "description": "criomag claisneachd",
+            "newItem": "Cuir Fuaim ris"
+        },
+        "Streams\/video": {
+            "displayType": "Criomag Bhideo",
+            "description": "criomag bhidio",
+            "newItem": "Cuir bhidio ris"
+        },
+        "Streams\/pdf": {
+            "displayType": "Sgrìobhainn PDF",
+            "description": "Sgrìobhainn PDF",
+            "newItem": "Cuir PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Sruth beò",
+            "description": "claisneachd beò no bhidio"
+        },
+        "Streams\/category": {
+            "displayType": "Roinn-seòrsa",
+            "description": "roinn ris am faod sruthan eile a bhith co-cheangailte",
+            "newItem": "Cuir Roinn-seòrsa ris"
+        },
+        "Streams\/participating": {
+            "displayType": "Clàr-innse com-pàirteachail",
+            "description": "tha sruthan co-cheangailte\/neo-cheangailte ri seo nuair a thig neach-cleachdaidh a-steach\/a’ fàgail"
+        },
+        "Streams\/interest": {
+            "displayType": "Ùidh",
+            "description": "a’ riochdachadh ùidh neach-cleachdaidh ann an cuspair sònraichte"
+        },
+        "Streams\/incoming": {
+            "displayType": "A&#39; tighinn a-steach",
+            "description": "ceann-uidhe airson teachdaireachdan a chuir luchd-cleachdaidh eile a-steach"
+        },
+        "Streams\/chat": {
+            "displayType": "Còmhradh",
+            "description": "còmhradh eadar luchd-cleachdaidh, le eachdraidh"
+        },
+        "Streams\/question": {
+            "displayType": "Ceist",
+            "description": "sruth cheist",
+            "newItem": "Cuir Ceist"
+        },
+        "Streams\/answer": {
+            "displayType": "Freagairt",
+            "description": "sruth freagair"
+        },
+        "Streams\/topic": {
+            "displayType": "Cuspair",
+            "description": "sruth cuspair",
+            "newItem": "Cuir cuspair ris"
+        }
+    },
+    "menu": {
+        "placeholder": "seòrsa tiotal na duilleige",
+        "ModTab": "Atharraich Nì",
+        "Save": "Sàbhail",
+        "Delete": "Sguab às",
+        "Submenu": "Fo-chlàr"
+    },
+    "audio": {
+        "record": "Clàr",
+        "reset": "Ath-shuidhich",
+        "edit": "Deasaich",
+        "title": "tiotal",
+        "description": "tuairisgeul",
+        "upload": "Luchdaich suas",
+        "link": "Ceangal",
+        "setUrl": "Suidhich URL",
+        "save": "Sàbhail",
+        "setClip": "Gearr a-mach Clip",
+        "invalidURL": "URL mì-dhligheach",
+        "invalidFile": "Faidhle mì-dhligheach",
+        "errorNoSource": "Gun stòr claisneachd",
+        "uploadLimit": "Meud an fhaidhle as motha: {{size}}",
+        "errorFileSize": "Duilich, ach tha am faidhle ro mhòr.<br> Is e meud faidhle as motha {{size}}",
+        "TeaserAudio": "Fuaim teaser"
+    },
+    "video": {
+        "NewVideo": "Bhidio Ùr",
+        "EditVideo": "Deasaich bhidio",
+        "reset": "Ath-shuidhich",
+        "edit": "Deasaich",
+        "title": "tiotal",
+        "description": "tuairisgeul",
+        "upload": "Luchdaich suas",
+        "link": "Ceangal",
+        "setUrl": "Suidhich URL",
+        "save": "Sàbhail",
+        "createAnimatedThumbnail": "Cruthaich mion-dhealbh beòthail",
+        "setClip": "Gearr a-mach Clip",
+        "invalidURL": "URL mì-dhligheach",
+        "invalidFile": "Faidhle mì-dhligheach",
+        "errorNoSource": "Chan eil stòr bhidio ann",
+        "uploadLimit": "Meud an fhaidhle as motha: {{size}}",
+        "errorFileSize": "Duilich, ach tha am faidhle ro mhòr.<br> Is e meud faidhle as motha {{size}}",
+        "errorNotAvailable": "Duilich, ach chan eil bhidio ri fhaighinn fhathast. Feuch ris a-rithist nas anmoiche.",
+        "TeaserVideo": "Video teaser"
+    },
+    "pdf": {
+        "reset": "Ath-shuidhich",
+        "edit": "Deasaich",
+        "title": "tiotal",
+        "description": "tuairisgeul",
+        "upload": "Luchdaich suas",
+        "link": "Ceangal",
+        "setUrl": "Suidhich URL",
+        "save": "Sàbhail",
+        "setClip": "Gearr a-mach Clip",
+        "invalidURL": "URL mì-dhligheach",
+        "invalidFile": "Faidhle mì-dhligheach",
+        "errorNoSource": "Chan eil tùs pdf",
+        "uploadLimit": "Meud an fhaidhle as motha: {{size}}",
+        "errorFileSize": "Duilich, ach tha am faidhle ro mhòr.<br> Is e meud faidhle as motha {{size}}",
+        "TeaserPDF": "Teaser faidhle pdf"
+    },
+    "image": {
+        "reset": "Ath-shuidhich",
+        "edit": "Deasaich",
+        "title": "tiotal",
+        "description": "tuairisgeul",
+        "upload": "Luchdaich suas",
+        "link": "Ceangal",
+        "setUrl": "Suidhich URL",
+        "save": "Sàbhail",
+        "uploadedImage": "Dealbh air a luchdachadh suas",
+        "imageTitle": "Tiotal ìomhaigh",
+        "setClip": "Gearr a-mach Clip",
+        "invalidURL": "URL mì-dhligheach",
+        "invalidFile": "Faidhle mì-dhligheach",
+        "errorNoSource": "Gun stòr ìomhaigh",
+        "uploadLimit": "Meud an fhaidhle as motha: {{size}}",
+        "errorFileSize": "Duilich, ach tha am faidhle ro mhòr.<br> Is e meud faidhle as motha {{size}}",
+        "TeaserImage": "Dealbh teaser"
+    },
+    "questions": {
+        "Questions": "Ceistean",
+        "Answers": "Freagairtean",
+        "AnswerQuestion": "Freagair Ceist",
+        "SetYourAnswer": "Feuch an freagair a&#39; cheist",
+        "NewQuestion": "Ceist Ùr",
+        "EditQuestion": "Deasaich Ceist",
+        "NewAnswer": "Freagairt Ùr",
+        "NewPossibleAnswer": "Freagairt Ùr comasach",
+        "AnswerDetails": "Freagairt Mion-fhiosrachadh",
+        "answerOption": "Roghainn",
+        "answerOptionExclusive": "Sònraichte",
+        "answerTextarea": "Raon-teacsa",
+        "answerText": "Teacs",
+        "HideUntilAnswered": "Falaich gus am freagair thu",
+        "CantChangeAnswers": "Chan urrainn dhomh freagairtean atharrachadh",
+        "ShortAnswer": "Sgrìobh freagairt ghoirid",
+        "FreeAnswer": "Sgrìobh do fhreagairt an seo",
+        "SaveQuestion": "Sàbhail Ceist",
+        "SaveAnswer": "Sàbhail Freagairt",
+        "Save": "Sàbhail",
+        "Send": "Seol",
+        "TitleRequired": "Tha feum air tiotal!",
+        "AlreadyAnswered": "Fhreagair e mar-thà",
+        "TitlePlaceholder": "Taidhp do cheist",
+        "ContentPlaceholder": "Cuir fiosrachadh sam bith a bharrachd an seo gus daoine a chuideachadh gus freagairt",
+        "ErrorTitle": "Ceist a dhìth",
+        "Placeholder": "Sgrìobh Stiùireadh",
+        "AreYouSure": "A bheil thu cinnteach?",
+        "AnswerCantBeChanged": "Chan urrainnear am freagairt atharrachadh"
+    },
+    "experience": {
+        "NewExperience": "Eòlas Ùr",
+        "DefineTitle": "Feuch an dearbhaich thu tiotal",
+        "Create": "Cruthaich"
+    },
+    "calls": {
+        "SettingsTitle": "Glaodh",
+        "MaxCalls": "Max a &#39; fòn",
+        "Update": "Ùraich",
+        "NoCallsYet": "Chan eil gairmean fhathast",
+        "CallReasonTitle": "Cò mu dheidhinn a tha a’ ghairm seo?",
+        "WaitingRoom": "Seòmar Feitheimh",
+        "LiveRoom": "Seòmar beò",
+        "interviewedByAnotherHost": "An-dràsta ga agallamh le aoigh eile",
+        "bringToLive": "A thoirt gu taisbeanadh beò",
+        "putOnHold": "Put On Hold",
+        "endCall": "Call deireadh",
+        "interview": "Agallamh",
+        "markApproved": "Mark air aontachadh"
+    },
+    "task": {
+        "errorsTitle": "Thachair mearachdan"
+    },
+    "topic": {
+        "NewTopic": "Cuspair Ùr",
+        "UpdateTopic": "Cuspair a chur a-nuas",
+        "CreateTopic": "Cruthaich Cuspair",
+        "AreYouSureDeleteTopic": "A bheil thu cinnteach gu bheil thu airson an cuspair seo a sguabadh às",
+        "TitlePlaceholder": "tiotal cuspair...",
+        "DescribeTopic": "thoir cunntas air a’ chuspair...",
+        "TopicIcon": "Dealbh cuspair",
+        "UploadIcon": "Luchdaich suas ìomhaigh",
+        "Conversation": "Còmhradh",
+        "Metrics": "Meatrics",
+        "Teaser": "Teasair",
+        "TeaserDescription": "tuairisgeul teaser...",
+        "TeaserVideo": "Video teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Cruthaich mion-dhealbh beòthail",
+        "Width": "Leud",
+        "Height": "Àirde",
+        "Start": "Tòisich",
+        "End": "Crìochnaich",
+        "Delay": "Moill",
+        "Quality": "Càileachd",
+        "Size": "Meud",
+        "OfFrames": "de Fhramaichean",
+        "Frame": "Frèam",
+        "UseThis": "Cleachd seo",
+        "ResultGIF": "Toradh GIF",
+        "VideoElementNotFound": "Cha deach eileamaid bhidio a lorg"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Air d&#39; aghaidh",
+        "AcceptIcon": "Gabh ris an raon taghte"
+    }
+}

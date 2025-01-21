@@ -469,7 +469,8 @@
         "ErrorTitle": "Spurning nauðsynleg",
         "Placeholder": "Skrifaðu leiðbeiningar",
         "AreYouSure": "Ertu viss?",
-        "ShortAnswer": "Skrifaðu stutt svar"
+        "ShortAnswer": "Skrifaðu stutt svar",
+        "AnswerCantBeChanged": "Ekki er hægt að breyta svari"
     },
     "experience": {
         "NewExperience": "Ný upplifun",

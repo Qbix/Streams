@@ -469,7 +469,8 @@
         "ErrorTitle": "Kysymys vaaditaan",
         "Placeholder": "Kirjoita ohjeet",
         "AreYouSure": "Oletko varma?",
-        "ShortAnswer": "Kirjoita lyhyt vastaus"
+        "ShortAnswer": "Kirjoita lyhyt vastaus",
+        "AnswerCantBeChanged": "Vastausta ei voi muuttaa"
     },
     "experience": {
         "NewExperience": "Uusi kokemus",

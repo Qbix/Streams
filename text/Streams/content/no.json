@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Dette innholdet er skjult for deg.",
+        "InplaceTypeMustBe": "inplaceType må være &#39;textarea&#39; eller &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Nytt element",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "fornavn",
+        "lastName": "etternavn",
+        "username": "brukernavn"
+    },
+    "labels": {
+        "Streams\/invited": "Folk jeg inviterte",
+        "Streams\/invitedMe": "Hvem inviterte meg",
+        "DoYouAgree": "Er du enig?",
+        "JoinItNow": "Bli med nå?",
+        "Yes": "Ja",
+        "No": "Ingen"
+    },
+    "login": {
+        "prompt": "La venner kjenne deg igjen:",
+        "newUser": "eller opprett en ny konto nedenfor",
+        "picTooltip": "Du kan endre dette bildet senere",
+        "placeholders": {
+            "fullName": "Skriv inn ditt fulle navn"
+        }
+    },
+    "interests": {
+        "Filter": "Søk etter interesser",
+        "CanGrant": "Hvis du fortsatt ikke finner det du leter etter, kan du legge til en ny interesse nedenfor:",
+        "TrySynonyms": "Ser du det ikke? Prøv noen synonymer.",
+        "AddUnderCategory": "Legg til under kategori...",
+        "Other": "Annen",
+        "Unlisted": "Unotert"
+    },
+    "relate": {
+        "Add": "Legg til {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Meldingen har blitt flagget for administratorgjennomgang. Trykk på nytt for å fjerne flagget.",
+        "noOneSaid": "Ingen har sagt noe",
+        "closeChatButton": "Lukk chat",
+        "closeChatConfirmTitle": "Vil du lukke denne chatten?",
+        "closeChatConfirm": "Er du sikker på at du vil lukke denne chatten?",
+        "Subscribed": "Varsler aktivert",
+        "Unsubscribed": "Varsler er dempet",
+        "closeChatConfirmYes": "Ja",
+        "closeChatConfirmNo": "Ingen",
+        "earlierComments": "tidligere kommentarer",
+        "startedConversation": "startet en samtale",
+        "RealTimeCall": "Sanntidsanrop",
+        "JoinWebRTC": "Telekonferanse",
+        "SearchByName": "Søk etter navn",
+        "Notifications": {
+            "Visit": "{{displayName}} besøker chatten",
+            "Join": "{{displayName}} ble med i chatten",
+            "Leave": "{{displayName}} forlot chatten",
+            "RelatedTo": "{{displayName}} startet en {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Legg til en kommentar",
+            "Private": "Skriv en privat melding"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "administrere e-postabonnementene dine",
+        "IfUnsubscribe": "Hvis du vil avslutte abonnementet",
+        "changed": {
+            "ChangesIn": "Endringer i {{title}}",
+            "Changed": "endret",
+            "HereIsWhatChanged": "Her er hva som endret seg:"
+        },
+        "joined": {
+            "Joined": "{{subject}} ble med <em>{{title}}<\/em>"
+        },
+        "*": "Melding {{{message.fields.type}}} til {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} ble med",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} igjen",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} sa: {{{message.content}}}",
+        "Streams\/changed": "Endringer i {{stream.fields.title}}",
+        "Streams\/invite": "Du ble invitert til {{{stream.fields.title}}}",
+        "Streams\/announcement": "Kunngjøring i {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} endret tilgang i {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Chatmelding redigert i {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Chatmelding fjernet i {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} er stengt",
+        "Streams\/task\/progress": "Fremgang gjort på {{stream.fields.title}}",
+        "Streams\/task\/complete": "Oppgave fullført: {{stream.fields.title}}",
+        "Streams\/task\/error": "Feil under: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Innkommende melding",
+        "Streams\/relatedTo\/Streams\/call": "Ny samtale startet i {{toTitle}}",
+        "Streams\/relatedTo\/*": "Ny {{relationDisplayType}} i {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Lagt til {{toTitle}} som {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} nevnte deg i en kommentar",
+        "Streams\/call": "{{displayName}} startet en sanntidsanrop"
+    },
+    "invite": {
+        "command": "Invitere",
+        "Invite": "Invitere",
+        "Share": "Dele",
+        "Participants": "Inviter folk",
+        "messageContent": "{{displayName}} inviterte deg til {{inviteUrl}}",
+        "youCanNowPaste": "Du kan nå lime inn denne linken et sted for å invitere folk",
+        "roles": {
+            "title": "Gi roller til inviterte brukere?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Beklager",
+                "alert": "Du er ikke autorisert til å gi denne rollen"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Beklager",
+                "alert": "Du er ikke autorisert til å fjerne denne rollen"
+            }
+        },
+        "labels": {
+            "title": "Hva er ditt forhold?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Velg fra dine kontakter",
+            "chooseAgainFromContacts": "Velg Igjen fra Kontakter",
+            "inviteSelectedContacts": "Inviter valgte kontakter",
+            "selectFromContacts": "Velg Fra kontakter",
+            "userChooserPlaceholder": "Søk etter navn",
+            "photo": "Ta et bilde",
+            "photoOf": "Ta et bilde av {{name}}",
+            "photoInstruction": "Hvis personen som skannet QR-koden din er foran deg, ta et bilde av vedkommende",
+            "to": "Til: {{Stream Title}}",
+            "go": "Gå",
+            "title": "Invitere",
+            "placeholder": "Mobilnummer eller e-postadresse",
+            "orInvite": "Eller inviter folk ved å bruke:",
+            "copyLink": "{{ClickOrTap}} for å kopiere invitasjonslenken ",
+            "shareOrCopyLink": "{{ClickOrTap}} for å dele eller kopiere invitasjonslenken ",
+            "QR": "{{ClickOrTap}} for å generere QR-kode",
+            "QRtitle": "Skann denne QR-koden",
+            "QRscanned": "De skannet det!",
+            "scannedQR": "{{ClickOrTap}} hvis koden ble skannet",
+            "TakeGroupPhoto": "Ta et gruppebilde",
+            "Skip": "Hopp over",
+            "byEmail": "E-post",
+            "byText": "Tekst",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Inviter folk",
+            "chooseMethod": "Velg en metode:",
+            "selectContacts": "Velg Kontakter",
+            "scanQRCode": "Skann QR-kode",
+            "shareLink": "Del en lenke",
+            "chooseFromRegistered": "Velg blant registrerte brukere",
+            "inviteViaEmailOrSms": "Inviter via e-post eller SMS",
+            "addRoles": "Legg til roller",
+            "addPersonalRoles": "Legg til personlige relasjoner"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Velkommen til {{communityName}}",
+            "HasInvitedYou": "har invitert deg til:",
+            "HasInvitedYouToTheirProfile": "har invitert deg til å koble til.",
+            "prompt": "La venner kjenne deg igjen:",
+            "accept": "Godta invitasjon"
+        },
+        "email": {
+            "subject": "Hei, sjekk dette",
+            "PleaseVisitLink": "Vennligst besøk følgende lenke:",
+            "InvitingYou": "Jeg inviterer deg til {{title}}",
+            "HasInvitedYou": "{{displayName}} har invitert deg til {{title}}",
+            "HasMentionedYou": "{{displayName}} har nevnt deg i &quot; {{title}} &quot;",
+            "YOUAREINVITED": "DU ER INVITERET!",
+            "AcceptInvite": "Godta invitasjon"
+        },
+        "mobile": {
+            "content": "Du har blitt invitert til {{title}} . Trykk på {{url}}"
+        },
+        "notice": {
+            "text": "Du er invitert. {{ClickOrTap}} her for å godta og bli med."
+        },
+        "chat": {
+            "prompt": "Du vil invitere folk til en samtale der du kan holde kontakten, dele bilder sammen og mer. Gi den et navn:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "postet en <em>{{message.fields.type}}<\/em> melding til {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "kommentert",
+            "startedCallIn": "startet en samtale",
+            "in": "i",
+            "body": "i {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "har blitt postet til",
+                "byAvatar": "innen {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "har en ny {{instructions.fromDisplayType}}",
+                "byAvatar": "lagt til av {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Invitasjoner sendes fra vårt nummer, som vennene dine ennå ikke kjenner igjen. Følg opp med en rask tekst for å fortelle dem at invitasjonen kom fra deg, og be dem klikke på koblingen.",
+            "confirm": "Invitasjoner sendes fra vårt nummer, som vennene dine ennå ikke kjenner igjen. Vil du følge opp med en rask tekst for å fortelle dem at invitasjonen kom fra deg, og be dem om å klikke på lenken.",
+            "check": "Hei, jeg har nettopp sendt deg en invitasjon til {{app}} -appen. Vennligst sjekk sms og klikk på linken!",
+            "CheckYourMobile": "Vennligst sjekk SMS og følg instruksjonene!"
+        },
+        "email": {
+            "alert": "Invitasjoner sendes fra domenet vårt, som vennene dine ennå ikke kjenner igjen. Følg opp med en rask tekst for å fortelle dem at invitasjonen kom fra deg, og be dem klikke på koblingen.",
+            "confirm": "Invitasjoner sendes fra domenet vårt, som vennene dine ennå ikke kjenner igjen. Vil du følge opp med en rask tekst for å fortelle dem at invitasjonen kom fra deg, og be dem om å klikke på lenken.",
+            "subject": "Fikk du en invitasjon?",
+            "body": "Hei, jeg har nettopp sendt deg en invitasjon til {{app}} -appen. Vennligst sjekk e-posten din og klikk på linken der!",
+            "CheckYourEmail": "Vennligst sjekk e-posten din og følg instruksjonene!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Navn på en bruker..."
+    },
+    "identifier": {
+        "privacySettings": "Personverninnstillinger"
+    },
+    "participating": {
+        "Title": "Tittel",
+        "Subscribed": "Abonner",
+        "Participants": "Deltakere",
+        "AreYouSureRemoveIdentifier": "Er du sikker på at du vil fjerne denne identifikatoren?",
+        "AreYouSureUnsubscribeIdentifier": "Er du sikker på å avslutte abonnementet på denne identifikatoren? Det vil slå av varsler til denne identifikatoren.",
+        "AreYouSureUnsubscribeDevice": "Er du sikker på å avslutte abonnementet på denne enheten? Det vil slå av varsler til denne enheten.",
+        "AreYouSureRemoveParticipant": "Er du sikker på at du vil fjerne denne deltakeren?",
+        "RemoveParticipant": "Fjern deltaker",
+        "Identifiers": "Identifikatorer",
+        "Devices": "Enheter",
+        "Streams": "Strømmer"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Invitert",
+            "description": "Innboks for invitasjoner"
+        },
+        "Streams\/resource": {
+            "displayType": "Ressurs",
+            "description": "strøm for å administrere tilgang til en ressurs og legge ut meldinger om oppdateringer"
+        },
+        "Streams\/task": {
+            "description": "for å motta oppdateringer om fremdrift på en bestemt oppgave",
+            "displayType": "Oppgave"
+        },
+        "Streams\/tasks": {
+            "description": "kategori for oppgaver",
+            "displayType": "Oppgaver"
+        },
+        "Streams\/experience": {
+            "description": "en felles opplevelse for medlemmer av et fellesskap",
+            "displayType": "Felles erfaring for medlemmer av et fellesskap"
+        },
+        "Streams\/greeting": {
+            "description": "hilsen som en bruker kan presentere seg med",
+            "displayType": "Hilsen"
+        },
+        "Streams\/number": {
+            "displayType": "Tall",
+            "description": "matematisk tall"
+        },
+        "Streams\/date": {
+            "displayType": "Dato",
+            "description": "dato"
+        },
+        "Streams\/text": {
+            "displayType": "Tekst",
+            "description": "teksten"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Tekst",
+            "description": "liten tekstdel"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Tekst",
+            "description": "middels tekstdel"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "E-postadresse",
+            "description": "e-postadresse"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Telefonnummer",
+            "description": "telefonnummer"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "lenke på nettet"
+        },
+        "Streams\/image": {
+            "displayType": "Bilde",
+            "description": "visuelt bilde",
+            "newItem": "Legg til bilde"
+        },
+        "Streams\/images": {
+            "displayType": "Bildegalleri",
+            "description": "galleri med bilder"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "et album som ulike medier er relatert til"
+        },
+        "Streams\/file": {
+            "displayType": "Fil",
+            "description": "opplastet fil",
+            "newItem": "Legg til fil"
+        },
+        "Streams\/audio": {
+            "displayType": "Lydklipp",
+            "description": "lydklipp",
+            "newItem": "Legg til lyd"
+        },
+        "Streams\/video": {
+            "displayType": "Videoklipp",
+            "description": "videoklipp",
+            "newItem": "Legg til video"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF-dokument",
+            "description": "PDF-dokument",
+            "newItem": "Legg til PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "live lyd eller video"
+        },
+        "Streams\/category": {
+            "displayType": "Kategori",
+            "description": "en kategori som andre strømmer kan relateres til",
+            "newItem": "Legg til kategori"
+        },
+        "Streams\/participating": {
+            "displayType": "Deltakende indeks",
+            "description": "strømmer er relatert\/urelatert til dette når en bruker blir med\/forlater"
+        },
+        "Streams\/interest": {
+            "displayType": "Interesse",
+            "description": "representerer en brukers interesse for et bestemt emne"
+        },
+        "Streams\/incoming": {
+            "displayType": "Innkommende",
+            "description": "destinasjon for meldinger sendt av andre brukere"
+        },
+        "Streams\/chat": {
+            "displayType": "Samtale",
+            "description": "en samtale mellom brukere, med historie"
+        },
+        "Streams\/question": {
+            "displayType": "Spørsmål",
+            "description": "spørsmålsstrøm",
+            "newItem": "Legg til spørsmål"
+        },
+        "Streams\/answer": {
+            "displayType": "Svare",
+            "description": "svarstrøm"
+        },
+        "Streams\/topic": {
+            "displayType": "Emne",
+            "description": "emnestrøm",
+            "newItem": "Legg til emne"
+        }
+    },
+    "menu": {
+        "placeholder": "skriv inn sidetittel",
+        "ModTab": "Endre element",
+        "Save": "Spare",
+        "Delete": "Slett",
+        "Submenu": "Undermeny"
+    },
+    "audio": {
+        "record": "Rekord",
+        "reset": "Tilbakestill",
+        "edit": "Redigere",
+        "title": "tittel",
+        "description": "beskrivelse",
+        "upload": "Last opp",
+        "link": "Link",
+        "setUrl": "Angi URL",
+        "save": "Spare",
+        "setClip": "Klipp ut klips",
+        "invalidURL": "Ugyldig URL",
+        "invalidFile": "Ugyldig fil",
+        "errorNoSource": "Ingen lydkilde",
+        "uploadLimit": "Maks filstørrelse: {{size}}",
+        "errorFileSize": "Beklager, men filen er for stor.<br> Maks filstørrelse er {{size}}",
+        "TeaserAudio": "Teaser lyd"
+    },
+    "video": {
+        "NewVideo": "Ny video",
+        "EditVideo": "Rediger video",
+        "reset": "Tilbakestill",
+        "edit": "Redigere",
+        "title": "tittel",
+        "description": "beskrivelse",
+        "upload": "Last opp",
+        "link": "Link",
+        "setUrl": "Angi URL",
+        "save": "Spare",
+        "createAnimatedThumbnail": "Lag animert miniatyrbilde",
+        "setClip": "Klipp ut klips",
+        "invalidURL": "Ugyldig URL",
+        "invalidFile": "Ugyldig fil",
+        "errorNoSource": "Ingen videokilde",
+        "uploadLimit": "Maks filstørrelse: {{size}}",
+        "errorFileSize": "Beklager, men filen er for stor.<br> Maks filstørrelse er {{size}}",
+        "errorNotAvailable": "Beklager, men videoen er ikke tilgjengelig ennå. Prøv igjen senere.",
+        "TeaserVideo": "Teaser-video"
+    },
+    "pdf": {
+        "reset": "Tilbakestill",
+        "edit": "Redigere",
+        "title": "tittel",
+        "description": "beskrivelse",
+        "upload": "Last opp",
+        "link": "Link",
+        "setUrl": "Angi URL",
+        "save": "Spare",
+        "setClip": "Klipp ut klips",
+        "invalidURL": "Ugyldig URL",
+        "invalidFile": "Ugyldig fil",
+        "errorNoSource": "Ingen pdf-kilde",
+        "uploadLimit": "Maks filstørrelse: {{size}}",
+        "errorFileSize": "Beklager, men filen er for stor.<br> Maks filstørrelse er {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Tilbakestill",
+        "edit": "Redigere",
+        "title": "tittel",
+        "description": "beskrivelse",
+        "upload": "Last opp",
+        "link": "Link",
+        "setUrl": "Angi URL",
+        "save": "Spare",
+        "uploadedImage": "Lastet opp bilde",
+        "imageTitle": "Bildetittel",
+        "setClip": "Klipp ut klips",
+        "invalidURL": "Ugyldig URL",
+        "invalidFile": "Ugyldig fil",
+        "errorNoSource": "Ingen bildekilde",
+        "uploadLimit": "Maks filstørrelse: {{size}}",
+        "errorFileSize": "Beklager, men filen er for stor.<br> Maks filstørrelse er {{size}}",
+        "TeaserImage": "Teaser-bilde"
+    },
+    "questions": {
+        "Questions": "Spørsmål",
+        "Answers": "Svar",
+        "AnswerQuestion": "Svar på spørsmål",
+        "SetYourAnswer": "Vennligst svar på spørsmålet",
+        "NewQuestion": "Nytt spørsmål",
+        "EditQuestion": "Rediger spørsmål",
+        "NewAnswer": "Nytt svar",
+        "NewPossibleAnswer": "Nytt mulig svar",
+        "AnswerDetails": "Svardetaljer",
+        "answerOption": "Alternativ",
+        "answerOptionExclusive": "Eksklusiv",
+        "answerTextarea": "Tekstområde",
+        "answerText": "Tekst",
+        "HideUntilAnswered": "Skjul til du svarer",
+        "CantChangeAnswers": "Kan ikke endre svar",
+        "ShortAnswer": "Skriv et kort svar",
+        "FreeAnswer": "Skriv svaret ditt her",
+        "SaveQuestion": "Lagre spørsmål",
+        "SaveAnswer": "Lagre svar",
+        "Save": "Spare",
+        "Send": "Sende",
+        "TitleRequired": "Tittel påkrevd!",
+        "AlreadyAnswered": "Allerede besvart",
+        "TitlePlaceholder": "Skriv inn spørsmålet ditt",
+        "ContentPlaceholder": "Legg inn tilleggsinformasjon her for å hjelpe folk å svare",
+        "ErrorTitle": "Spørsmål påkrevd",
+        "Placeholder": "Skriv instruksjoner",
+        "AreYouSure": "Er du sikker?",
+        "AnswerCantBeChanged": "Svaret kan ikke endres"
+    },
+    "experience": {
+        "NewExperience": "Ny opplevelse",
+        "DefineTitle": "Vennligst definer en tittel",
+        "Create": "Skape"
+    },
+    "calls": {
+        "SettingsTitle": "Samtaler",
+        "MaxCalls": "Max ringer",
+        "Update": "Oppdater",
+        "NoCallsYet": "Ingen anrop ennå",
+        "CallReasonTitle": "Hva handler denne samtalen om?",
+        "WaitingRoom": "Venterom",
+        "LiveRoom": "Live Room",
+        "interviewedByAnotherHost": "Er for tiden intervjuet av en annen vert",
+        "bringToLive": "Ta med til Live Show",
+        "putOnHold": "Sett på vent",
+        "endCall": "Avslutt samtale",
+        "interview": "Intervju",
+        "markApproved": "Merk godkjent"
+    },
+    "task": {
+        "errorsTitle": "Det oppsto feil"
+    },
+    "topic": {
+        "NewTopic": "Nytt emne",
+        "UpdateTopic": "Oppdater emne",
+        "CreateTopic": "Opprett emne",
+        "AreYouSureDeleteTopic": "Er du sikker på at du vil slette dette emnet",
+        "TitlePlaceholder": "emnetittel...",
+        "DescribeTopic": "beskriv emne...",
+        "TopicIcon": "Temabilde",
+        "UploadIcon": "Last opp ikon",
+        "Conversation": "Samtale",
+        "Metrics": "Beregninger",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser beskrivelse...",
+        "TeaserVideo": "Teaser-video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Lag animert miniatyrbilde",
+        "Width": "Bredde",
+        "Height": "Høyde",
+        "Start": "Start",
+        "End": "Slutt",
+        "Delay": "Utsette",
+        "Quality": "Kvalitet",
+        "Size": "Størrelse",
+        "OfFrames": "av rammer",
+        "Frame": "Ramme",
+        "UseThis": "Bruk denne",
+        "ResultGIF": "Resultat GIF",
+        "VideoElementNotFound": "Finner ikke videoelementet"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} på ansiktet ditt",
+        "AcceptIcon": "Godta valgt område"
+    }
+}

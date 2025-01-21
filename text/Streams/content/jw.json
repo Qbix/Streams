@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Isi iki didhelikake saka sampeyan.",
+        "InplaceTypeMustBe": "inplaceType kudu &#39;textarea&#39; utawa &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Item anyar",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "jeneng ngarep",
+        "lastName": "jeneng mburi",
+        "username": "jeneng panganggo"
+    },
+    "labels": {
+        "Streams\/invited": "Wong sing dakundang",
+        "Streams\/invitedMe": "Sing ngajak aku",
+        "DoYouAgree": "Apa sampeyan setuju?",
+        "JoinItNow": "Gabung saiki?",
+        "Yes": "ya wis",
+        "No": "Ora"
+    },
+    "login": {
+        "prompt": "Ayo kanca-kanca ngenali sampeyan:",
+        "newUser": "utawa nggawe akun anyar ing ngisor iki",
+        "picTooltip": "Sampeyan bisa ngganti gambar iki mengko",
+        "placeholders": {
+            "fullName": "Ketik jeneng lengkap"
+        }
+    },
+    "interests": {
+        "Filter": "Golek kapentingan",
+        "CanGrant": "Yen sampeyan isih ora bisa nemokake apa sing sampeyan goleki, sampeyan bisa nambah kapentingan anyar ing ngisor iki:",
+        "TrySynonyms": "ora weruh? Coba sawetara sinonim.",
+        "AddUnderCategory": "Tambah ing kategori ...",
+        "Other": "Liyane",
+        "Unlisted": "Ora kadhaptar"
+    },
+    "relate": {
+        "Add": "Tambah {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Pesen wis diwenehi tandha kanggo review admin. Tutul maneh kanggo mbusak tandha.",
+        "noOneSaid": "Ora ana sing ngomong apa-apa",
+        "closeChatButton": "Nutup chatting",
+        "closeChatConfirmTitle": "Tutup obrolan iki?",
+        "closeChatConfirm": "Apa sampeyan yakin arep nutup obrolan iki?",
+        "Subscribed": "Notifikasi Diaktifake",
+        "Unsubscribed": "Notifikasi Mute",
+        "closeChatConfirmYes": "ya wis",
+        "closeChatConfirmNo": "Ora",
+        "earlierComments": "komentar sadurungé",
+        "startedConversation": "miwiti obrolan",
+        "RealTimeCall": "Telpon Real Time",
+        "JoinWebRTC": "Telekonferensi",
+        "SearchByName": "Telusuri miturut jeneng",
+        "Notifications": {
+            "Visit": "{{displayName}} ngunjungi chatting",
+            "Join": "{{displayName}} gabung karo chatting",
+            "Leave": "{{displayName}} ninggalake obrolan",
+            "RelatedTo": "{{displayName}} miwiti {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Tambah komentar",
+            "Private": "Tulis pesen pribadi"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "ngatur langganan email",
+        "IfUnsubscribe": "Yen sampeyan pengin unsubscribe",
+        "changed": {
+            "ChangesIn": "Owah-owahan ing {{title}}",
+            "Changed": "diganti",
+            "HereIsWhatChanged": "Iki sing diganti:"
+        },
+        "joined": {
+            "Joined": "{{subject}} gabung karo <em>{{title}}<\/em>"
+        },
+        "*": "Pesen {{{message.fields.type}}} nganti {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} gabung",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} isih",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} ngandika: {{{message.content}}}",
+        "Streams\/changed": "Owah-owahan ing {{stream.fields.title}}",
+        "Streams\/invite": "Sampeyan diundang menyang {{{stream.fields.title}}}",
+        "Streams\/announcement": "Pengumuman taun {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} ngganti akses ing {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Pesen chatting diowahi ing {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Pesen obrolan dibusak ing {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} wis ditutup",
+        "Streams\/task\/progress": "Kemajuan digawe ing {{stream.fields.title}}",
+        "Streams\/task\/complete": "Tugas rampung: {{stream.fields.title}}",
+        "Streams\/task\/error": "Kesalahan sajrone: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Pesen mlebu",
+        "Streams\/relatedTo\/Streams\/call": "Telpon Anyar Diwiwiti ing {{toTitle}}",
+        "Streams\/relatedTo\/*": "Anyar {{relationDisplayType}} ing {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Ditambahake menyang {{toTitle}} minangka {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} nyebutake sampeyan ing komentar",
+        "Streams\/call": "{{displayName}} miwiti telpon wektu nyata"
+    },
+    "invite": {
+        "command": "ngundang",
+        "Invite": "ngundang",
+        "Share": "Nuduhake",
+        "Participants": "Ngundang Wong",
+        "messageContent": "{{displayName}} ngajak sampeyan menyang {{inviteUrl}}",
+        "youCanNowPaste": "Sampeyan saiki bisa nempel link iki nang endi wae kanggo ngajak wong",
+        "roles": {
+            "title": "Menehi Peran kanggo Pangguna sing Diundang?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Nuwun sewu",
+                "alert": "Sampeyan ora duwe wewenang kanggo menehi peran iki"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Nuwun sewu",
+                "alert": "Sampeyan ora sah mbusak peran iki"
+            }
+        },
+        "labels": {
+            "title": "Apa Hubunganmu?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Pilih saka Kontak sampeyan",
+            "chooseAgainFromContacts": "Pilih maneh saka Kontak",
+            "inviteSelectedContacts": "Ngundang Kontak sing Dipilih",
+            "selectFromContacts": "Pilih Saka Kontak",
+            "userChooserPlaceholder": "Telusuri miturut jeneng",
+            "photo": "Njupuk foto",
+            "photoOf": "Njupuk foto {{name}}",
+            "photoInstruction": "Yen wong sing mindhai kode QR sampeyan ana ing ngarep sampeyan, jupuk foto",
+            "to": "Iki: {{Stream Title}}",
+            "go": "lunga",
+            "title": "ngundang",
+            "placeholder": "Nomer seluler utawa alamat email",
+            "orInvite": "Utawa ngajak wong kanthi nggunakake:",
+            "copyLink": "{{ClickOrTap}} kanggo nyalin link undangan ",
+            "shareOrCopyLink": "{{ClickOrTap}} kanggo nuduhake utawa nyalin link undhangan ",
+            "QR": "{{ClickOrTap}} kanggo ngasilake kode QR",
+            "QRtitle": "Pindai kode QR iki",
+            "QRscanned": "Padha mentas!",
+            "scannedQR": "{{ClickOrTap}} yen kode kasebut dipindai",
+            "TakeGroupPhoto": "Njupuk Foto Grup",
+            "Skip": "Skip",
+            "byEmail": "Email",
+            "byText": "Teks",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Ngundang Wong",
+            "chooseMethod": "Pilih metode:",
+            "selectContacts": "Pilih Kontak",
+            "scanQRCode": "Scan QR Code",
+            "shareLink": "Nuduhake link",
+            "chooseFromRegistered": "Pilih saka pangguna sing wis kadhaptar",
+            "inviteViaEmailOrSms": "Ngundang liwat email utawa SMS",
+            "addRoles": "Tambah Peran",
+            "addPersonalRoles": "Tambah Hubungan Pribadi"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Sugeng rawuh ing {{communityName}}",
+            "HasInvitedYou": "wis ngajak sampeyan:",
+            "HasInvitedYouToTheirProfile": "wis ngajak sampeyan nyambung.",
+            "prompt": "Ayo kanca-kanca ngenali sampeyan:",
+            "accept": "Nampa Undangan"
+        },
+        "email": {
+            "subject": "Hey, priksa iki",
+            "PleaseVisitLink": "Mangga ngunjungi link ing ngisor iki:",
+            "InvitingYou": "Aku ngundang sampeyan menyang {{title}}",
+            "HasInvitedYou": "{{displayName}} wis ngundang sampeyan menyang {{title}}",
+            "HasMentionedYou": "{{displayName}} wis nyebutake sampeyan ing &quot; {{title}} &quot;",
+            "YOUAREINVITED": "KOWE DIUNDANG!",
+            "AcceptInvite": "Nampa Undangan"
+        },
+        "mobile": {
+            "content": "Sampeyan wis diundang menyang {{title}} . Mangga tutul {{url}}"
+        },
+        "notice": {
+            "text": "Sampeyan wis diundang. {{ClickOrTap}} kene kanggo nampa lan gabung."
+        },
+        "chat": {
+            "prompt": "Sampeyan bakal ngundang wong menyang obrolan ing ngendi sampeyan bisa tetep sesambungan, nuduhake foto bebarengan, lan liya-liyane. Menehi jeneng:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "ngirim pesen <em>{{message.fields.type}}<\/em> menyang {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "komentar ing",
+            "startedCallIn": "miwiti telpon ing",
+            "in": "ing",
+            "body": "ing {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "wis dikirim menyang",
+                "byAvatar": "dening {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "duwe {{instructions.fromDisplayType}} anyar",
+                "byAvatar": "ditambahake dening {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Undhangan dikirim saka nomer kita, sing durung dingerteni kanca-kanca. Tindakake teks cepet supaya dheweke ngerti yen undhangan teka saka sampeyan, njaluk dheweke ngeklik link kasebut.",
+            "confirm": "Undhangan dikirim saka nomer kita, sing durung dingerteni kanca-kanca. Apa sampeyan pengin ngetutake teks cepet supaya dheweke ngerti yen undhangan teka saka sampeyan, njaluk dheweke ngeklik link kasebut.",
+            "check": "Eh, aku mung ngirim undangan menyang aplikasi {{app}} . Mangga priksa sms sampeyan lan klik link!",
+            "CheckYourMobile": "Mangga priksa SMS lan tindakake pandhuan!"
+        },
+        "email": {
+            "alert": "Undhangan dikirim saka domain kita, sing durung dingerteni kanca-kanca. Tindakake teks cepet supaya dheweke ngerti yen undhangan teka saka sampeyan, njaluk dheweke ngeklik link kasebut.",
+            "confirm": "Undhangan dikirim saka domain kita, sing durung dingerteni kanca-kanca. Apa sampeyan pengin ngetutake teks cepet supaya dheweke ngerti yen undhangan teka saka sampeyan, njaluk dheweke ngeklik link kasebut.",
+            "subject": "Apa sampeyan entuk undangan?",
+            "body": "Eh, aku mung ngirim undangan menyang aplikasi {{app}} . Mangga dipriksa email lan klik link ing kono!",
+            "CheckYourEmail": "Mangga dipriksa email lan tindakake pandhuan!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Jeneng pangguna ..."
+    },
+    "identifier": {
+        "privacySettings": "Setelan Privasi"
+    },
+    "participating": {
+        "Title": "judhul",
+        "Subscribed": "Langganan",
+        "Participants": "Peserta",
+        "AreYouSureRemoveIdentifier": "Apa sampeyan yakin mbusak pengenal iki?",
+        "AreYouSureUnsubscribeIdentifier": "Apa sampeyan yakin ora langganan pengenal iki? Iku bakal mateni kabar kanggo pengenal iki.",
+        "AreYouSureUnsubscribeDevice": "Apa sampeyan yakin batal langganan piranti iki? Bakal mateni kabar menyang piranti iki.",
+        "AreYouSureRemoveParticipant": "Apa sampeyan yakin pengin mbusak peserta iki?",
+        "RemoveParticipant": "Mbusak peserta",
+        "Identifiers": "Pengenal",
+        "Devices": "Piranti",
+        "Streams": "Aliran"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "diundang",
+            "description": "Inbox kanggo undangan"
+        },
+        "Streams\/resource": {
+            "displayType": "sumber daya",
+            "description": "stream kanggo ngatur akses menyang sumber lan ngirim pesen babagan nganyari"
+        },
+        "Streams\/task": {
+            "description": "kanggo nampa nganyari babagan kemajuan ing tugas tartamtu",
+            "displayType": "tugas"
+        },
+        "Streams\/tasks": {
+            "description": "kategori kanggo tugas",
+            "displayType": "tugas"
+        },
+        "Streams\/experience": {
+            "description": "pengalaman umum kanggo anggota masyarakat",
+            "displayType": "Pengalaman umum kanggo anggota komunitas"
+        },
+        "Streams\/greeting": {
+            "description": "salam sing pangguna bisa ngenalake awake dhewe",
+            "displayType": "salam"
+        },
+        "Streams\/number": {
+            "displayType": "Nomer",
+            "description": "nomer matematika"
+        },
+        "Streams\/date": {
+            "displayType": "Tanggal",
+            "description": "tanggal"
+        },
+        "Streams\/text": {
+            "displayType": "Teks",
+            "description": "badan teks"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Teks",
+            "description": "awak cilik teks"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Teks",
+            "description": "awak medium teks"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Alamat Email",
+            "description": "alamat email"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Nomer telpon",
+            "description": "nomer telpon"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link ing web"
+        },
+        "Streams\/image": {
+            "displayType": "Gambar",
+            "description": "gambar visual",
+            "newItem": "Tambah Gambar"
+        },
+        "Streams\/images": {
+            "displayType": "Galeri gambar",
+            "description": "galeri gambar"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "album sing ana hubungane karo macem-macem media"
+        },
+        "Streams\/file": {
+            "displayType": "File",
+            "description": "file sing diunggah",
+            "newItem": "Tambah File"
+        },
+        "Streams\/audio": {
+            "displayType": "Klip Audio",
+            "description": "klip audio",
+            "newItem": "Tambah Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Video Klip",
+            "description": "video klip",
+            "newItem": "Tambah Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "dokumen PDF",
+            "description": "dokumen PDF",
+            "newItem": "Tambah PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "audio utawa video urip"
+        },
+        "Streams\/category": {
+            "displayType": "kategori",
+            "description": "kategori sing bisa digandhengake karo aliran liyane",
+            "newItem": "Tambah Kategori"
+        },
+        "Streams\/participating": {
+            "displayType": "Indeks Partisipasi",
+            "description": "streams ana hubungane \/ ora ana hubungane karo iki nalika pangguna gabung \/ ninggalake"
+        },
+        "Streams\/interest": {
+            "displayType": "kapentingan",
+            "description": "nuduhake kapentingan pangguna ing topik tartamtu"
+        },
+        "Streams\/incoming": {
+            "displayType": "mlebu",
+            "description": "tujuan kanggo pesen sing dikirim dening pangguna liyane"
+        },
+        "Streams\/chat": {
+            "displayType": "pacelathon",
+            "description": "obrolan antarane kedhaftar, karo sajarah"
+        },
+        "Streams\/question": {
+            "displayType": "Pitakonan",
+            "description": "stream pitakonan",
+            "newItem": "Tambah Pitakonan"
+        },
+        "Streams\/answer": {
+            "displayType": "Wangsulan",
+            "description": "wangsulan stream"
+        },
+        "Streams\/topic": {
+            "displayType": "Topik",
+            "description": "aliran topik",
+            "newItem": "Tambah Topik"
+        }
+    },
+    "menu": {
+        "placeholder": "ngetik judhul kaca",
+        "ModTab": "Ngowahi Item",
+        "Save": "Simpen",
+        "Delete": "Mbusak",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Rekam",
+        "reset": "Reset",
+        "edit": "Sunting",
+        "title": "judhul",
+        "description": "katrangan",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Setel URL",
+        "save": "Simpen",
+        "setClip": "Cut Out Klip",
+        "invalidURL": "URL ora valid",
+        "invalidFile": "File ora sah",
+        "errorNoSource": "Ora ana sumber audio",
+        "uploadLimit": "Ukuran file maksimal: {{size}}",
+        "errorFileSize": "Sorry, nanging file gedhe banget.<br> Ukuran file maksimal yaiku {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Video Anyar",
+        "EditVideo": "Sunting Video",
+        "reset": "Reset",
+        "edit": "Sunting",
+        "title": "judhul",
+        "description": "katrangan",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Setel URL",
+        "save": "Simpen",
+        "createAnimatedThumbnail": "Nggawe gambar cilik animasi",
+        "setClip": "Cut Out Klip",
+        "invalidURL": "URL ora valid",
+        "invalidFile": "File ora sah",
+        "errorNoSource": "Ora ana sumber video",
+        "uploadLimit": "Ukuran file maksimal: {{size}}",
+        "errorFileSize": "Sorry, nanging file gedhe banget.<br> Ukuran file maksimal yaiku {{size}}",
+        "errorNotAvailable": "Ngapunten, nanging video durung kasedhiya. Mangga coba maneh mengko.",
+        "TeaserVideo": "Video Teaser"
+    },
+    "pdf": {
+        "reset": "Reset",
+        "edit": "Sunting",
+        "title": "judhul",
+        "description": "katrangan",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Setel URL",
+        "save": "Simpen",
+        "setClip": "Cut Out Klip",
+        "invalidURL": "URL ora valid",
+        "invalidFile": "File ora sah",
+        "errorNoSource": "Ora sumber pdf",
+        "uploadLimit": "Ukuran file maksimal: {{size}}",
+        "errorFileSize": "Sorry, nanging file gedhe banget.<br> Ukuran file maksimal yaiku {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Reset",
+        "edit": "Sunting",
+        "title": "judhul",
+        "description": "katrangan",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Setel URL",
+        "save": "Simpen",
+        "uploadedImage": "Gambar sing diunggah",
+        "imageTitle": "Judhul gambar",
+        "setClip": "Cut Out Klip",
+        "invalidURL": "URL ora valid",
+        "invalidFile": "File ora sah",
+        "errorNoSource": "Ora ana sumber gambar",
+        "uploadLimit": "Ukuran file maksimal: {{size}}",
+        "errorFileSize": "Sorry, nanging file gedhe banget.<br> Ukuran file maksimal yaiku {{size}}",
+        "TeaserImage": "Gambar Teaser"
+    },
+    "questions": {
+        "Questions": "Pitakonan",
+        "Answers": "Wangsulan",
+        "AnswerQuestion": "Wangsulan Pitakonan",
+        "SetYourAnswer": "Mangga wangsulana pitakonan",
+        "NewQuestion": "Pitakonan Anyar",
+        "EditQuestion": "Sunting Pitakonan",
+        "NewAnswer": "Jawaban anyar",
+        "NewPossibleAnswer": "Jawaban Anyar sing Bisa",
+        "AnswerDetails": "Njawab Details",
+        "answerOption": "Pilihan",
+        "answerOptionExclusive": "Eksklusif",
+        "answerTextarea": "Textarea",
+        "answerText": "Teks",
+        "HideUntilAnswered": "Singidaken nganti dijawab",
+        "CantChangeAnswers": "Ora bisa ngganti jawaban",
+        "ShortAnswer": "Tulis jawaban singkat",
+        "FreeAnswer": "Tulis jawaban sampeyan ing kene",
+        "SaveQuestion": "Simpen Pitakonan",
+        "SaveAnswer": "Simpen Jawaban",
+        "Save": "Simpen",
+        "Send": "Ngirim",
+        "TitleRequired": "Judhul dibutuhake!",
+        "AlreadyAnswered": "Wis mangsuli",
+        "TitlePlaceholder": "Ketik pitakonan sampeyan",
+        "ContentPlaceholder": "Sijine informasi tambahan ing kene kanggo mbantu wong mangsuli",
+        "ErrorTitle": "Pitakonan dibutuhake",
+        "Placeholder": "Tulis Instruksi",
+        "AreYouSure": "Apa sampeyan yakin?",
+        "AnswerCantBeChanged": "Jawaban ora bisa diganti"
+    },
+    "experience": {
+        "NewExperience": "Pengalaman Anyar",
+        "DefineTitle": "Mangga nemtokake judhul",
+        "Create": "Nggawe"
+    },
+    "calls": {
+        "SettingsTitle": "Telpon",
+        "MaxCalls": "Max telpon",
+        "Update": "Nganyari",
+        "NoCallsYet": "Durung ana telpon",
+        "CallReasonTitle": "Apa panggilan iki?",
+        "WaitingRoom": "Ruang Tunggu",
+        "LiveRoom": "Kamar Urip",
+        "interviewedByAnotherHost": "Saiki diwawancarai dening host liyane",
+        "bringToLive": "Bring To Live Show",
+        "putOnHold": "Sijine ditahan",
+        "endCall": "Mungkasi Telpon",
+        "interview": "Wawancara",
+        "markApproved": "Tandha Disetujui"
+    },
+    "task": {
+        "errorsTitle": "Kesalahan dumadi"
+    },
+    "topic": {
+        "NewTopic": "Topik Anyar",
+        "UpdateTopic": "Nganyari Topik",
+        "CreateTopic": "Nggawe Topik",
+        "AreYouSureDeleteTopic": "Apa sampeyan yakin arep mbusak topik iki",
+        "TitlePlaceholder": "judule topik...",
+        "DescribeTopic": "describe topik...",
+        "TopicIcon": "Gambar topik",
+        "UploadIcon": "Upload Ikon",
+        "Conversation": "pacelathon",
+        "Metrics": "Metrik",
+        "Teaser": "Teaser",
+        "TeaserDescription": "Deskripsi teaser...",
+        "TeaserVideo": "Video Teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Nggawe gambar cilik animasi",
+        "Width": "Jembar",
+        "Height": "dhuwur",
+        "Start": "Miwiti",
+        "End": "Pungkasan",
+        "Delay": "Tundha",
+        "Quality": "Kualitas",
+        "Size": "Ukuran",
+        "OfFrames": "saka Frames",
+        "Frame": "Pigura",
+        "UseThis": "Gunakake iki",
+        "ResultGIF": "GIF asil",
+        "VideoElementNotFound": "Unsur video ora ditemokake"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Ing Pasuryan",
+        "AcceptIcon": "Nampa wilayah sing dipilih"
+    }
+}

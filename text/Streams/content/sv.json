@@ -469,7 +469,8 @@
         "ErrorTitle": "Fråga krävs",
         "Placeholder": "Skriv instruktioner",
         "AreYouSure": "Är du säker?",
-        "ShortAnswer": "Skriv ett kort svar"
+        "ShortAnswer": "Skriv ett kort svar",
+        "AnswerCantBeChanged": "Svaret kan inte ändras"
     },
     "experience": {
         "NewExperience": "Ny upplevelse",

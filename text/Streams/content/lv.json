@@ -469,7 +469,8 @@
         "ErrorTitle": "Nepieciešams jautājums",
         "Placeholder": "Uzrakstiet instrukcijas",
         "AreYouSure": "Vai tu esi pārliecināts?",
-        "ShortAnswer": "Uzrakstiet īsu atbildi"
+        "ShortAnswer": "Uzrakstiet īsu atbildi",
+        "AnswerCantBeChanged": "Atbildi nevar mainīt"
     },
     "experience": {
         "NewExperience": "Jauna pieredze",

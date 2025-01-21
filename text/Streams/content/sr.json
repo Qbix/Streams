@@ -469,7 +469,8 @@
         "ErrorTitle": "Питање је обавезно",
         "Placeholder": "Напишите упутства",
         "AreYouSure": "Јеси ли сигуран?",
-        "ShortAnswer": "Напишите кратак одговор"
+        "ShortAnswer": "Напишите кратак одговор",
+        "AnswerCantBeChanged": "Одговор се не може променити"
     },
     "experience": {
         "NewExperience": "Ново искуство",

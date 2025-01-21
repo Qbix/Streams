@@ -469,7 +469,8 @@
         "ErrorTitle": "प्रश्न आवश्यक है",
         "Placeholder": "निर्देश लिखें",
         "AreYouSure": "क्या आपको यकीन है?",
-        "ShortAnswer": "संक्षिप्त उत्तर लिखें"
+        "ShortAnswer": "संक्षिप्त उत्तर लिखें",
+        "AnswerCantBeChanged": "उत्तर बदला नहीं जा सकता"
     },
     "experience": {
         "NewExperience": "नया अनुभव",

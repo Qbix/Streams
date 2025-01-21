@@ -469,7 +469,8 @@
         "ErrorTitle": "Wymagane pytanie",
         "Placeholder": "Napisz instrukcje",
         "AreYouSure": "Jesteś pewny?",
-        "ShortAnswer": "Napisz krótką odpowiedź"
+        "ShortAnswer": "Napisz krótką odpowiedź",
+        "AnswerCantBeChanged": "Odpowiedzi nie można zmienić"
     },
     "experience": {
         "NewExperience": "Nowe doświadczenie",

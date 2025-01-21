@@ -469,7 +469,8 @@
         "ErrorTitle": "Frage erforderlich",
         "Placeholder": "Schreiben Sie Anweisungen",
         "AreYouSure": "Bist du dir sicher?",
-        "ShortAnswer": "Schreiben Sie eine kurze Antwort"
+        "ShortAnswer": "Schreiben Sie eine kurze Antwort",
+        "AnswerCantBeChanged": "Antwort kann nicht geändert werden"
     },
     "experience": {
         "NewExperience": "Neue Erfahrung",

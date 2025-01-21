@@ -469,7 +469,8 @@
         "ErrorTitle": "質問必須",
         "Placeholder": "指示を書く",
         "AreYouSure": "本気ですか？",
-        "ShortAnswer": "短い答えを書いてください"
+        "ShortAnswer": "短い答えを書いてください",
+        "AnswerCantBeChanged": "回答は変更できません"
     },
     "experience": {
         "NewExperience": "新しい経験",

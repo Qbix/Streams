@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Stu cuntenutu hè oculatu da voi.",
+        "InplaceTypeMustBe": "inplaceType deve esse &quot;textarea&quot; o &quot;text&quot;"
+    },
+    "preview": {
+        "NewItemTitle": "Articulu novu",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "nome",
+        "lastName": "casata",
+        "username": "nome d&#39;utilizatore"
+    },
+    "labels": {
+        "Streams\/invited": "E persone chì aghju invitatu",
+        "Streams\/invitedMe": "Chi m&#39;hà invitatu",
+        "DoYouAgree": "Sò d&#39;accordu ?",
+        "JoinItNow": "Unisciti avà?",
+        "Yes": "Iè",
+        "No": "Innò"
+    },
+    "login": {
+        "prompt": "Chì l&#39;amichi ti ricunnosce:",
+        "newUser": "o creanu un novu contu sottu",
+        "picTooltip": "Pudete cambià sta stampa dopu",
+        "placeholders": {
+            "fullName": "Inserite u vostru nome cumpletu"
+        }
+    },
+    "interests": {
+        "Filter": "Ricerca interessi",
+        "CanGrant": "Se ùn pudete ancu truvà ciò chì cercate, pudete aghjunghje un novu interessu quì sottu:",
+        "TrySynonyms": "Ùn vede micca? Pruvate alcuni sinonimi.",
+        "AddUnderCategory": "Aghjunghjite sottu a categuria...",
+        "Other": "Altru",
+        "Unlisted": "Unlisted"
+    },
+    "relate": {
+        "Add": "Aghjunghjite {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "U messagiu hè statu marcatu per a revisione di l&#39;amministratore. Tocca di novu per annullà a marca.",
+        "noOneSaid": "Nimu hà dettu nunda",
+        "closeChatButton": "Chiudi chat",
+        "closeChatConfirmTitle": "Chiudi sta chat ?",
+        "closeChatConfirm": "Sò sicuru chì vulete chjude stu chat?",
+        "Subscribed": "Notificazioni attivate",
+        "Unsubscribed": "Notificazioni silenziate",
+        "closeChatConfirmYes": "Iè",
+        "closeChatConfirmNo": "Innò",
+        "earlierComments": "cumenti prima",
+        "startedConversation": "principiatu una conversazione",
+        "RealTimeCall": "Chjama in tempu reale",
+        "JoinWebRTC": "Teleconferenza",
+        "SearchByName": "Ricerca per nome",
+        "Notifications": {
+            "Visit": "{{displayName}} hè visitatu u chat",
+            "Join": "{{displayName}} hà unitu à u chat",
+            "Leave": "{{displayName}} hà lasciatu u chat",
+            "RelatedTo": "{{displayName}} hà iniziatu un {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Aghjunghjite un cumentu",
+            "Private": "Scrivite un missaghju privatu"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "gestisce i vostri abbonamenti email",
+        "IfUnsubscribe": "Sè vo vulete unsubscribe",
+        "changed": {
+            "ChangesIn": "Cambiamenti in {{title}}",
+            "Changed": "cambiatu",
+            "HereIsWhatChanged": "Eccu ciò chì hà cambiatu:"
+        },
+        "joined": {
+            "Joined": "{{subject}} unitu à <em>{{title}}<\/em>"
+        },
+        "*": "Missaghju {{{message.fields.type}}} à {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} si sò uniti",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} mancanu",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} hà dettu: {{{message.content}}}",
+        "Streams\/changed": "Cambiamenti in {{stream.fields.title}}",
+        "Streams\/invite": "Avete statu invitatu à {{{stream.fields.title}}}",
+        "Streams\/announcement": "L&#39;annunziu in {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} hà cambiatu l&#39;accessu in {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Missaghju di chat editatu in {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Missaghju di chat eliminatu in {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} hè stata chjusa",
+        "Streams\/task\/progress": "Prugressu fattu nantu à {{stream.fields.title}}",
+        "Streams\/task\/complete": "Task finitu: {{stream.fields.title}}",
+        "Streams\/task\/error": "Error durante: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Missaghju entrata",
+        "Streams\/relatedTo\/Streams\/call": "A nova chjama principia in {{toTitle}}",
+        "Streams\/relatedTo\/*": "Novu {{relationDisplayType}} in {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Aggiuntu à {{toTitle}} cum&#39;è {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} t&#39;hà citatu in un cumentu",
+        "Streams\/call": "{{displayName}} hà iniziatu una chjama in tempu reale"
+    },
+    "invite": {
+        "command": "Invita",
+        "Invite": "Invita",
+        "Share": "sparte",
+        "Participants": "Invita a ghjente",
+        "messageContent": "{{displayName}} vi hà invitatu à {{inviteUrl}}",
+        "youCanNowPaste": "Pudete avà incollà stu ligame in un locu per invità a ghjente",
+        "roles": {
+            "title": "Concede un rolu à l&#39;utilizatori invitati?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Scusa",
+                "alert": "Ùn site micca autorizatu à cuncede stu rolu"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Scusa",
+                "alert": "Ùn site micca autorizatu à sguassà stu rolu"
+            }
+        },
+        "labels": {
+            "title": "Chì ghjè a vostra Relazione?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Sceglite da i vostri cuntatti",
+            "chooseAgainFromContacts": "Sceglie di novu da Cuntatti",
+            "inviteSelectedContacts": "Invita i Cuntatti Scelti",
+            "selectFromContacts": "Selezziunà From Contacts",
+            "userChooserPlaceholder": "Ricerca per nome",
+            "photo": "Pigliate una foto",
+            "photoOf": "Pigliate una foto di {{name}}",
+            "photoInstruction": "Se a persona chì hà scansatu u vostru codice QR hè davanti à voi, pigliate una foto di elli",
+            "to": "À: {{Stream Title}}",
+            "go": "Vai",
+            "title": "Invita",
+            "placeholder": "Numeru mobile o indirizzu email",
+            "orInvite": "O invita a ghjente usendu:",
+            "copyLink": "{{ClickOrTap}} per copià u ligame d&#39;invitu ",
+            "shareOrCopyLink": "{{ClickOrTap}} per sparte o copià u ligame d&#39;invitu ",
+            "QR": "{{ClickOrTap}} per generà codice QR",
+            "QRtitle": "Scansate stu codice QR",
+            "QRscanned": "L&#39;anu scansatu !",
+            "scannedQR": "{{ClickOrTap}} se u codice hè scansatu",
+            "TakeGroupPhoto": "Pigliate una foto di gruppu",
+            "Skip": "Saltà",
+            "byEmail": "E-mail",
+            "byText": "Testu",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Invita a ghjente",
+            "chooseMethod": "Sceglite un metudu:",
+            "selectContacts": "Selezziunà Cuntatti",
+            "scanQRCode": "Scansà u codice QR",
+            "shareLink": "Condividi un ligame",
+            "chooseFromRegistered": "Sceglite trà l&#39;utilizatori registrati",
+            "inviteViaEmailOrSms": "Invita via email o SMS",
+            "addRoles": "Aghjunghjite roli",
+            "addPersonalRoles": "Aghjunghjite Relazioni Personali"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Benvenuti à {{communityName}}",
+            "HasInvitedYou": "vi hà invitatu à:",
+            "HasInvitedYouToTheirProfile": "vi hà invitatu à cunnette.",
+            "prompt": "Chì l&#39;amichi ti ricunnosce:",
+            "accept": "Accetta l&#39;invitu"
+        },
+        "email": {
+            "subject": "Ehi, verificate questu",
+            "PleaseVisitLink": "Per piacè visitate u ligame seguente:",
+            "InvitingYou": "Vi invitu à {{title}}",
+            "HasInvitedYou": "{{displayName}} vi hà invitatu à {{title}}",
+            "HasMentionedYou": "{{displayName}} t&#39;hà citatu in &quot; {{title}} &quot;",
+            "YOUAREINVITED": "VOI SI INVITATU !",
+            "AcceptInvite": "Accetta l&#39;invitu"
+        },
+        "mobile": {
+            "content": "Avete statu invitatu à {{title}} . Per piacè tocca {{url}}"
+        },
+        "notice": {
+            "text": "Avete statu invitatu. {{ClickOrTap}} quì per accettà è unisce."
+        },
+        "chat": {
+            "prompt": "Inviterete a ghjente à una conversazione induve pudete stà in cuntattu, sparte e foto inseme, è più. Dà un nome:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "hà publicatu un messagiu <em>{{message.fields.type}}<\/em> à {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "cummentatu",
+            "startedCallIn": "hà iniziatu una chjama",
+            "in": "in",
+            "body": "in {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "hè stata publicata à",
+                "byAvatar": "da {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "hà un novu {{instructions.fromDisplayType}}",
+                "byAvatar": "aghjuntu da {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "L&#39;inviti sò mandati da u nostru numeru, chì i vostri amichi ùn anu ancu ricunnisciutu. Segui cun un testu rapidu per fà sapè chì l&#39;invitu hè vinutu da voi, dumandendu à cliccà u ligame.",
+            "confirm": "L&#39;inviti sò mandati da u nostru numeru, chì i vostri amichi ùn anu ancu ricunnisciutu. Vulete seguità cù un testu rapidu per fà sapè chì l&#39;invitu hè vinutu da voi, dumandendu à cliccà u ligame.",
+            "check": "Ehi, aghju appena mandatu un invitu à l&#39;app {{app}} . Per piacè verificate u vostru sms è cliccate u ligame!",
+            "CheckYourMobile": "Per piacè verificate l&#39;SMS è seguite l&#39;istruzzioni!"
+        },
+        "email": {
+            "alert": "L&#39;inviti sò mandati da u nostru duminiu, chì i vostri amichi ùn anu ancu ricunnisciutu. Segui cun un testu rapidu per fà sapè chì l&#39;invitu hè vinutu da voi, dumandendu à cliccà u ligame.",
+            "confirm": "L&#39;inviti sò mandati da u nostru duminiu, chì i vostri amichi ùn anu ancu ricunnisciutu. Vulete seguità cù un testu rapidu per fà sapè chì l&#39;invitu hè vinutu da voi, dumandendu à cliccà u ligame.",
+            "subject": "Avete ricevutu un invitu ?",
+            "body": "Ehi, aghju appena mandatu un invitu à l&#39;app {{app}} . Per piacè verificate u vostru email è cliccate u ligame quì!",
+            "CheckYourEmail": "Per piacè verificate u vostru email è seguite l&#39;istruzzioni!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Nome di un utilizatore..."
+    },
+    "identifier": {
+        "privacySettings": "Impostazioni di privacy"
+    },
+    "participating": {
+        "Title": "Titulu",
+        "Subscribed": "Abbonatu",
+        "Participants": "I participanti",
+        "AreYouSureRemoveIdentifier": "Sò sicuru di sguassà stu identificatore ?",
+        "AreYouSureUnsubscribeIdentifier": "Sò sicuru di annullà stu identificatore? Spegnerà e notificazioni à questu identificatore.",
+        "AreYouSureUnsubscribeDevice": "Sò sicuru di annullà l&#39;abbonamentu di stu dispusitivu? Spegnerà e notificazioni à stu dispusitivu.",
+        "AreYouSureRemoveParticipant": "Sò sicuru chì vulete sguassà stu participante ?",
+        "RemoveParticipant": "Elimina participant",
+        "Identifiers": "Identificatori",
+        "Devices": "Dispositivi",
+        "Streams": "Flussi"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Invitatu",
+            "description": "Inbox per l&#39;inviti"
+        },
+        "Streams\/resource": {
+            "displayType": "Risorsa",
+            "description": "flussu per gestisce l&#39;accessu à una risorsa è pubblicà missaghji nantu à l&#39;aghjurnamenti"
+        },
+        "Streams\/task": {
+            "description": "per riceve l&#39;aghjurnamenti nantu à u prugressu in una certa attività",
+            "displayType": "Task"
+        },
+        "Streams\/tasks": {
+            "description": "categuria per i travaglii",
+            "displayType": "I compiti"
+        },
+        "Streams\/experience": {
+            "description": "una sperienza cumuna per i membri di una cumunità",
+            "displayType": "Esperienza cumuna per i membri di una cumunità"
+        },
+        "Streams\/greeting": {
+            "description": "salutu cù quale un utilizatore pò presentà si",
+            "displayType": "Salutu"
+        },
+        "Streams\/number": {
+            "displayType": "numeru",
+            "description": "numeru matematicu"
+        },
+        "Streams\/date": {
+            "displayType": "Data",
+            "description": "data"
+        },
+        "Streams\/text": {
+            "displayType": "Testu",
+            "description": "corpu di testu"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Testu",
+            "description": "picculu corpu di testu"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Testu",
+            "description": "corpu mediu di testu"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Indirizzu mail",
+            "description": "indirizzu mail"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Numeru di telefonu",
+            "description": "numeru di telefonu"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "ligame nant&#39;à u web"
+        },
+        "Streams\/image": {
+            "displayType": "Image",
+            "description": "imagine visuale",
+            "newItem": "Aggiungi Image"
+        },
+        "Streams\/images": {
+            "displayType": "Galleria d&#39;Image",
+            "description": "galerie d&#39;imaghjini"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "un album à quale parechji media sò in relazione"
+        },
+        "Streams\/file": {
+            "displayType": "File",
+            "description": "u schedariu caricatu",
+            "newItem": "Add File"
+        },
+        "Streams\/audio": {
+            "displayType": "Clip audio",
+            "description": "clip audio",
+            "newItem": "Add Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Video Clip",
+            "description": "video clip",
+            "newItem": "Add Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "document PDF",
+            "description": "document PDF",
+            "newItem": "Aghjunghjite PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "audio o video in diretta"
+        },
+        "Streams\/category": {
+            "displayType": "categuria",
+            "description": "una categuria à quale altri flussi ponu esse ligati",
+            "newItem": "Add Category"
+        },
+        "Streams\/participating": {
+            "displayType": "Indice di participazione",
+            "description": "i flussi sò in relazione \/ senza relazione cù questu quandu un utilizatore si unisce \/ esce"
+        },
+        "Streams\/interest": {
+            "displayType": "Interessu",
+            "description": "rapprisenta l&#39;interessu di l&#39;utilizatori in un certu tema"
+        },
+        "Streams\/incoming": {
+            "displayType": "Arrivutu",
+            "description": "destinazione per i missaghji mandati da altri utilizatori"
+        },
+        "Streams\/chat": {
+            "displayType": "Cunversazione",
+            "description": "una conversazione trà utilizatori, cù a storia"
+        },
+        "Streams\/question": {
+            "displayType": "Quistione",
+            "description": "flussu di quistione",
+            "newItem": "Aghjunghjite a quistione"
+        },
+        "Streams\/answer": {
+            "displayType": "Rispondi",
+            "description": "flussu di risposta"
+        },
+        "Streams\/topic": {
+            "displayType": "Sugettu",
+            "description": "flussu di tema",
+            "newItem": "Aghjunghjite u tema"
+        }
+    },
+    "menu": {
+        "placeholder": "tipu di titulu di pagina",
+        "ModTab": "Mudificà l&#39;articulu",
+        "Save": "Salvà",
+        "Delete": "Sguassà",
+        "Submenu": "Sottomenu"
+    },
+    "audio": {
+        "record": "Record",
+        "reset": "Resettate",
+        "edit": "Edit",
+        "title": "titulu",
+        "description": "descrizzione",
+        "upload": "Caricà",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Salvà",
+        "setClip": "Tagliate Clip",
+        "invalidURL": "URL invalidu",
+        "invalidFile": "File invalidu",
+        "errorNoSource": "Nisuna fonte audio",
+        "uploadLimit": "Dimensione massima di u schedariu: {{size}}",
+        "errorFileSize": "Scusate, ma u schedariu troppu grande.<br> A dimensione massima di u schedariu hè {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "New Video",
+        "EditVideo": "Edit Video",
+        "reset": "Resettate",
+        "edit": "Edit",
+        "title": "titulu",
+        "description": "descrizzione",
+        "upload": "Caricà",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Salvà",
+        "createAnimatedThumbnail": "Crea una miniatura animata",
+        "setClip": "Tagliate Clip",
+        "invalidURL": "URL invalidu",
+        "invalidFile": "File invalidu",
+        "errorNoSource": "Nisuna fonte video",
+        "uploadLimit": "Dimensione massima di u schedariu: {{size}}",
+        "errorFileSize": "Scusate, ma u schedariu troppu grande.<br> A dimensione massima di u schedariu hè {{size}}",
+        "errorNotAvailable": "Scusate, ma u video ùn hè ancu dispunibule. Per piacè pruvate di novu più tardi.",
+        "TeaserVideo": "Teaser Video"
+    },
+    "pdf": {
+        "reset": "Resettate",
+        "edit": "Edit",
+        "title": "titulu",
+        "description": "descrizzione",
+        "upload": "Caricà",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Salvà",
+        "setClip": "Tagliate Clip",
+        "invalidURL": "URL invalidu",
+        "invalidFile": "File invalidu",
+        "errorNoSource": "Nisuna fonte pdf",
+        "uploadLimit": "Dimensione massima di u schedariu: {{size}}",
+        "errorFileSize": "Scusate, ma u schedariu troppu grande.<br> A dimensione massima di u schedariu hè {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Resettate",
+        "edit": "Edit",
+        "title": "titulu",
+        "description": "descrizzione",
+        "upload": "Caricà",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Salvà",
+        "uploadedImage": "Immagine caricata",
+        "imageTitle": "Titulu di l&#39;imagine",
+        "setClip": "Tagliate Clip",
+        "invalidURL": "URL invalidu",
+        "invalidFile": "File invalidu",
+        "errorNoSource": "Nisuna fonte d&#39;imaghjini",
+        "uploadLimit": "Dimensione massima di u schedariu: {{size}}",
+        "errorFileSize": "Scusate, ma u schedariu troppu grande.<br> A dimensione massima di u schedariu hè {{size}}",
+        "TeaserImage": "Teaser Image"
+    },
+    "questions": {
+        "Questions": "Dumande",
+        "Answers": "Risposte",
+        "AnswerQuestion": "Rispondi à a quistione",
+        "SetYourAnswer": "Per piacè risponde à a quistione",
+        "NewQuestion": "Nova Question",
+        "EditQuestion": "Edita quistione",
+        "NewAnswer": "Nova Risposta",
+        "NewPossibleAnswer": "Nova Risposta Possibile",
+        "AnswerDetails": "Rispondi Dettagli",
+        "answerOption": "Opzione",
+        "answerOptionExclusive": "Esclusivu",
+        "answerTextarea": "Area di testu",
+        "answerText": "Testu",
+        "HideUntilAnswered": "Nascondi finu à a risposta",
+        "CantChangeAnswers": "Ùn pò micca cambià e risposte",
+        "ShortAnswer": "Scrivite una risposta corta",
+        "FreeAnswer": "Scrivite a vostra risposta quì",
+        "SaveQuestion": "Salvà a quistione",
+        "SaveAnswer": "Salvà Risposta",
+        "Save": "Salvà",
+        "Send": "Mandate",
+        "TitleRequired": "Titulu necessariu!",
+        "AlreadyAnswered": "Digià rispostu",
+        "TitlePlaceholder": "Scrivite a vostra dumanda",
+        "ContentPlaceholder": "Mettite ogni infurmazione supplementaria quì per aiutà e persone à risponde",
+        "ErrorTitle": "Quistione necessaria",
+        "Placeholder": "Scrive Istruzzioni",
+        "AreYouSure": "Sì sicuru?",
+        "AnswerCantBeChanged": "A risposta ùn pò esse cambiata"
+    },
+    "experience": {
+        "NewExperience": "Esperienza nova",
+        "DefineTitle": "Per piacè definisce un titulu",
+        "Create": "Crià"
+    },
+    "calls": {
+        "SettingsTitle": "Chjama",
+        "MaxCalls": "Max chjama",
+        "Update": "Actualizazione",
+        "NoCallsYet": "Nisuna chjama ancora",
+        "CallReasonTitle": "Chì ghjè sta chjama?",
+        "WaitingRoom": "Sala d&#39;attesa",
+        "LiveRoom": "Sala Live",
+        "interviewedByAnotherHost": "Attualmente hè intervistatu da un altru host",
+        "bringToLive": "Porta à Live Show",
+        "putOnHold": "Metti in attesa",
+        "endCall": "Fine Call",
+        "interview": "Entrevista",
+        "markApproved": "Marca Appruvata"
+    },
+    "task": {
+        "errorsTitle": "Errori accaduti"
+    },
+    "topic": {
+        "NewTopic": "Novu Tema",
+        "UpdateTopic": "Aghjurnà u tema",
+        "CreateTopic": "Crea un tema",
+        "AreYouSureDeleteTopic": "Sò sicuru chì vulete sguassà stu tema",
+        "TitlePlaceholder": "titre du sujet...",
+        "DescribeTopic": "descrivi u tema...",
+        "TopicIcon": "Stampa di u tema",
+        "UploadIcon": "Caricà l&#39;icona",
+        "Conversation": "Cunversazione",
+        "Metrics": "Metriche",
+        "Teaser": "Teaser",
+        "TeaserDescription": "descrizione teaser...",
+        "TeaserVideo": "Teaser Video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Crea una miniatura animata",
+        "Width": "Larghezza",
+        "Height": "Altezza",
+        "Start": "Principià",
+        "End": "Fine",
+        "Delay": "ritardu",
+        "Quality": "Qualità",
+        "Size": "Taglia",
+        "OfFrames": "di Frames",
+        "Frame": "Frame",
+        "UseThis": "Aduprate questu",
+        "ResultGIF": "Risultatu GIF",
+        "VideoElementNotFound": "Elementu Video ùn hè micca trovu"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} À a vostra faccia",
+        "AcceptIcon": "Accetta l&#39;area scelta"
+    }
+}

@@ -469,7 +469,8 @@
         "ErrorTitle": "Domanda richiesta",
         "Placeholder": "Scrivi istruzioni",
         "AreYouSure": "Sei sicuro?",
-        "ShortAnswer": "Scrivi una breve risposta"
+        "ShortAnswer": "Scrivi una breve risposta",
+        "AnswerCantBeChanged": "La risposta non può essere modificata"
     },
     "experience": {
         "NewExperience": "Nuova esperienza",

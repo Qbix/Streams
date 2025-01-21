@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Konten ini disembunyikan dari Anda.",
+        "InplaceTypeMustBe": "inplaceType harus &#39;textarea&#39; atau &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Barang Baru",
+        "Teaser": "Pengejek"
+    },
+    "avatar": {
+        "firstName": "nama depan",
+        "lastName": "nama belakang",
+        "username": "nama belakang"
+    },
+    "labels": {
+        "Streams\/invited": "Orang-orang yang saya undang",
+        "Streams\/invitedMe": "Siapa yang mengundangku?",
+        "DoYouAgree": "Apakah Anda setuju?",
+        "JoinItNow": "Bergabung sekarang?",
+        "Yes": "Ya",
+        "No": "TIDAK"
+    },
+    "login": {
+        "prompt": "Biarkan teman mengenali Anda:",
+        "newUser": "atau buat akun baru di bawah ini",
+        "picTooltip": "Anda dapat mengubah gambar ini nanti",
+        "placeholders": {
+            "fullName": "Masukkan nama lengkap Anda"
+        }
+    },
+    "interests": {
+        "Filter": "Minat pencarian",
+        "CanGrant": "Jika Anda masih tidak dapat menemukan apa yang Anda cari, Anda dapat menambahkan minat baru di bawah ini:",
+        "TrySynonyms": "Tidak melihatnya? Cobalah beberapa sinonim.",
+        "AddUnderCategory": "Tambahkan di bawah kategori...",
+        "Other": "Lainnya",
+        "Unlisted": "Tidak terdaftar"
+    },
+    "relate": {
+        "Add": "Tambahkan {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Pesan telah ditandai untuk ditinjau oleh admin. Ketuk lagi untuk membatalkan tanda.",
+        "noOneSaid": "Tidak ada seorang pun yang mengatakan apa pun",
+        "closeChatButton": "Tutup obrolan",
+        "closeChatConfirmTitle": "Tutup obrolan ini?",
+        "closeChatConfirm": "Apakah Anda yakin ingin menutup obrolan ini?",
+        "Subscribed": "Notifikasi Diaktifkan",
+        "Unsubscribed": "Notifikasi Dimatikan",
+        "closeChatConfirmYes": "Ya",
+        "closeChatConfirmNo": "TIDAK",
+        "earlierComments": "komentar sebelumnya",
+        "startedConversation": "memulai percakapan",
+        "RealTimeCall": "Panggilan Waktu Nyata",
+        "JoinWebRTC": "Telekonferensi",
+        "SearchByName": "Pencarian berdasarkan nama",
+        "Notifications": {
+            "Visit": "{{displayName}} sedang mengunjungi obrolan",
+            "Join": "{{displayName}} bergabung dalam obrolan",
+            "Leave": "{{displayName}} meninggalkan obrolan",
+            "RelatedTo": "{{displayName}} memulai {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Tambahkan komentar",
+            "Private": "Tulis pesan pribadi"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "kelola langganan email Anda",
+        "IfUnsubscribe": "Jika Anda ingin berhenti berlangganan",
+        "changed": {
+            "ChangesIn": "Perubahan pada {{title}}",
+            "Changed": "berubah",
+            "HereIsWhatChanged": "Berikut ini yang berubah:"
+        },
+        "joined": {
+            "Joined": "{{subject}} bergabung dengan <em>{{title}}<\/em>"
+        },
+        "*": "Pesan {{{message.fields.type}}} hingga {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} bergabung",
+        "Streams\/left": "tersisa {{{call 'avatar.displayName'}}}",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} mengatakan: {{{message.content}}}",
+        "Streams\/changed": "Perubahan pada {{stream.fields.title}}",
+        "Streams\/invite": "Anda diundang ke {{{stream.fields.title}}}",
+        "Streams\/announcement": "Pengumuman di {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} mengubah akses di {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Pesan obrolan diedit pada {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Pesan obrolan dihapus pada {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} telah ditutup",
+        "Streams\/task\/progress": "Kemajuan yang dicapai pada {{stream.fields.title}}",
+        "Streams\/task\/complete": "Tugas selesai: {{stream.fields.title}}",
+        "Streams\/task\/error": "Kesalahan selama: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Pesan Masuk",
+        "Streams\/relatedTo\/Streams\/call": "Panggilan Baru Dimulai pada {{toTitle}}",
+        "Streams\/relatedTo\/*": "{{relationDisplayType}} baru di {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Ditambahkan ke {{toTitle}} sebagai {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} menyebutkan Anda dalam sebuah komentar",
+        "Streams\/call": "{{displayName}} memulai panggilan waktu nyata"
+    },
+    "invite": {
+        "command": "Mengundang",
+        "Invite": "Mengundang",
+        "Share": "Membagikan",
+        "Participants": "Undang Orang",
+        "messageContent": "{{displayName}} mengundang Anda ke {{inviteUrl}}",
+        "youCanNowPaste": "Anda sekarang dapat menempelkan tautan ini di suatu tempat untuk mengundang orang",
+        "roles": {
+            "title": "Berikan Peran kepada Pengguna yang Diundang?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Maaf",
+                "alert": "Anda tidak berwenang memberikan peran ini"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Maaf",
+                "alert": "Anda tidak berwenang untuk menghapus peran ini"
+            }
+        },
+        "labels": {
+            "title": "Apa Hubungan Anda?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Pilih dari Kontak Anda",
+            "chooseAgainFromContacts": "Pilih Lagi dari Kontak",
+            "inviteSelectedContacts": "Undang Kontak Terpilih",
+            "selectFromContacts": "Pilih Dari Kontak",
+            "userChooserPlaceholder": "Pencarian berdasarkan nama",
+            "photo": "Ambil foto",
+            "photoOf": "Ambil foto {{name}}",
+            "photoInstruction": "Jika orang yang memindai kode QR Anda ada di depan Anda, ambil fotonya",
+            "to": "Ke: {{Stream Title}}",
+            "go": "Pergi",
+            "title": "Mengundang",
+            "placeholder": "Nomor ponsel atau alamat email",
+            "orInvite": "Atau undang orang dengan menggunakan:",
+            "copyLink": "{{ClickOrTap}} untuk menyalin tautan undangan ",
+            "shareOrCopyLink": "{{ClickOrTap}} untuk berbagi atau menyalin tautan undangan ",
+            "QR": "{{ClickOrTap}} untuk menghasilkan kode QR",
+            "QRtitle": "Pindai kode QR ini",
+            "QRscanned": "Mereka memindainya!",
+            "scannedQR": "{{ClickOrTap}} jika kode dipindai",
+            "TakeGroupPhoto": "Ambil Foto Grup",
+            "Skip": "Melewati",
+            "byEmail": "E-mail",
+            "byText": "Teks",
+            "byFacebook": "Indonesia",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "Ada apa",
+            "title2": "Undang Orang",
+            "chooseMethod": "Pilih metode:",
+            "selectContacts": "Pilih Kontak",
+            "scanQRCode": "Pindai Kode QR",
+            "shareLink": "Bagikan tautan",
+            "chooseFromRegistered": "Pilih dari pengguna terdaftar",
+            "inviteViaEmailOrSms": "Undang melalui email atau SMS",
+            "addRoles": "Tambahkan Peran",
+            "addPersonalRoles": "Tambahkan Hubungan Pribadi"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Selamat datang di {{communityName}}",
+            "HasInvitedYou": "telah mengundang Anda untuk:",
+            "HasInvitedYouToTheirProfile": "telah mengundang Anda untuk terhubung.",
+            "prompt": "Biarkan teman mengenali Anda:",
+            "accept": "Terima Undangan"
+        },
+        "email": {
+            "subject": "Hei, lihat ini",
+            "PleaseVisitLink": "Silakan kunjungi tautan berikut:",
+            "InvitingYou": "Saya mengundang Anda ke {{title}}",
+            "HasInvitedYou": "{{displayName}} telah mengundang Anda ke {{title}}",
+            "HasMentionedYou": "{{displayName}} telah menyebut Anda di &quot; {{title}} &quot;",
+            "YOUAREINVITED": "ANDA DIUNDANG!",
+            "AcceptInvite": "Terima Undangan"
+        },
+        "mobile": {
+            "content": "Anda telah diundang ke {{title}} Silakan ketuk {{url}}"
+        },
+        "notice": {
+            "text": "Anda telah diundang. {{ClickOrTap}} di sini untuk menerima dan bergabung."
+        },
+        "chat": {
+            "prompt": "Anda akan mengundang orang ke percakapan tempat Anda dapat tetap berhubungan, berbagi foto bersama, dan banyak lagi. Beri nama:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "memposting pesan <em>{{message.fields.type}}<\/em> ke {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "dikomentari pada",
+            "startedCallIn": "memulai panggilan di",
+            "in": "di dalam",
+            "body": "dalam {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "telah diposting ke",
+                "byAvatar": "oleh {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "memiliki {{instructions.fromDisplayType}} baru",
+                "byAvatar": "ditambahkan oleh {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Undangan dikirim dari nomor kami, yang belum dikenali oleh teman Anda. Tindak lanjuti dengan teks singkat untuk memberi tahu mereka bahwa undangan tersebut berasal dari Anda, dan minta mereka untuk mengeklik tautan tersebut.",
+            "confirm": "Undangan dikirim dari nomor kami, yang belum dikenali oleh teman Anda. Apakah Anda ingin menindaklanjutinya dengan teks singkat untuk memberi tahu mereka bahwa undangan tersebut berasal dari Anda, dan meminta mereka untuk mengeklik tautan tersebut?",
+            "check": "Hai, saya baru saja mengirimi Anda undangan ke aplikasi {{app}} Silakan periksa SMS Anda dan klik tautannya!",
+            "CheckYourMobile": "Silakan periksa SMS dan ikuti petunjuknya!"
+        },
+        "email": {
+            "alert": "Undangan dikirim dari domain kami, yang belum dikenali oleh teman Anda. Tindak lanjuti dengan teks singkat untuk memberi tahu mereka bahwa undangan tersebut berasal dari Anda, dan minta mereka untuk mengeklik tautan tersebut.",
+            "confirm": "Undangan dikirim dari domain kami, yang belum dikenali oleh teman Anda. Apakah Anda ingin menindaklanjutinya dengan teks singkat untuk memberi tahu mereka bahwa undangan tersebut berasal dari Anda, dan meminta mereka untuk mengeklik tautan tersebut?",
+            "subject": "Apakah kamu mendapat undangan?",
+            "body": "Hai, saya baru saja mengirimi Anda undangan ke aplikasi {{app}} Silakan periksa email Anda dan klik tautan di sana!",
+            "CheckYourEmail": "Silakan periksa email Anda dan ikuti petunjuknya!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Nama pengguna..."
+    },
+    "identifier": {
+        "privacySettings": "Pengaturan Privasi"
+    },
+    "participating": {
+        "Title": "Judul",
+        "Subscribed": "Berlangganan",
+        "Participants": "Peserta",
+        "AreYouSureRemoveIdentifier": "Apakah Anda yakin ingin menghapus pengenal ini?",
+        "AreYouSureUnsubscribeIdentifier": "Apakah Anda yakin untuk berhenti berlangganan pengenal ini? Tindakan ini akan menonaktifkan notifikasi untuk pengenal ini.",
+        "AreYouSureUnsubscribeDevice": "Apakah Anda yakin untuk berhenti berlangganan perangkat ini? Tindakan ini akan menonaktifkan notifikasi pada perangkat ini.",
+        "AreYouSureRemoveParticipant": "Apakah Anda yakin ingin menghapus peserta ini?",
+        "RemoveParticipant": "Hapus peserta",
+        "Identifiers": "Pengidentifikasi",
+        "Devices": "Perangkat",
+        "Streams": "Aliran"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Diundang",
+            "description": "Kotak masuk untuk undangan"
+        },
+        "Streams\/resource": {
+            "displayType": "Sumber",
+            "description": "aliran untuk mengelola akses ke sumber daya dan memposting pesan tentang pembaruan"
+        },
+        "Streams\/task": {
+            "description": "untuk menerima pembaruan tentang kemajuan tugas tertentu",
+            "displayType": "Tugas"
+        },
+        "Streams\/tasks": {
+            "description": "kategori untuk tugas",
+            "displayType": "Tugas"
+        },
+        "Streams\/experience": {
+            "description": "pengalaman umum bagi anggota suatu komunitas",
+            "displayType": "Pengalaman umum bagi anggota suatu komunitas"
+        },
+        "Streams\/greeting": {
+            "description": "salam yang dapat digunakan pengguna untuk memperkenalkan diri",
+            "displayType": "Salam"
+        },
+        "Streams\/number": {
+            "displayType": "Nomor",
+            "description": "angka matematika"
+        },
+        "Streams\/date": {
+            "displayType": "Tanggal",
+            "description": "tanggal"
+        },
+        "Streams\/text": {
+            "displayType": "Teks",
+            "description": "isi teks"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Teks",
+            "description": "badan teks kecil"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Teks",
+            "description": "badan teks sedang"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Alamat Email",
+            "description": "alamat email"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Nomor telepon",
+            "description": "nomor telepon"
+        },
+        "Streams\/text\/url": {
+            "displayType": "Alamat URL-nya",
+            "description": "tautan di web"
+        },
+        "Streams\/image": {
+            "displayType": "Gambar",
+            "description": "gambar visual",
+            "newItem": "Tambahkan Gambar"
+        },
+        "Streams\/images": {
+            "displayType": "Galeri Gambar",
+            "description": "galeri gambar"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "album yang berhubungan dengan berbagai media"
+        },
+        "Streams\/file": {
+            "displayType": "Mengajukan",
+            "description": "file yang diunggah",
+            "newItem": "Tambahkan File"
+        },
+        "Streams\/audio": {
+            "displayType": "Klip Audio",
+            "description": "klip audio",
+            "newItem": "Tambahkan Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Klip Video",
+            "description": "klip video",
+            "newItem": "Tambahkan Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "Dokumen PDF",
+            "description": "Dokumen PDF",
+            "newItem": "Tambahkan PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Siaran langsung",
+            "description": "audio atau video langsung"
+        },
+        "Streams\/category": {
+            "displayType": "Kategori",
+            "description": "kategori yang dapat dikaitkan dengan aliran lainnya",
+            "newItem": "Tambahkan Kategori"
+        },
+        "Streams\/participating": {
+            "displayType": "Indeks yang Berpartisipasi",
+            "description": "aliran terkait\/tidak terkait dengan ini saat pengguna bergabung\/keluar"
+        },
+        "Streams\/interest": {
+            "displayType": "Minat",
+            "description": "mewakili minat pengguna pada topik tertentu"
+        },
+        "Streams\/incoming": {
+            "displayType": "Masuk",
+            "description": "tujuan untuk pesan yang dikirim oleh pengguna lain"
+        },
+        "Streams\/chat": {
+            "displayType": "Percakapan",
+            "description": "percakapan antar pengguna, dengan riwayat"
+        },
+        "Streams\/question": {
+            "displayType": "Pertanyaan",
+            "description": "aliran pertanyaan",
+            "newItem": "Tambahkan Pertanyaan"
+        },
+        "Streams\/answer": {
+            "displayType": "Menjawab",
+            "description": "aliran jawaban"
+        },
+        "Streams\/topic": {
+            "displayType": "Topik",
+            "description": "aliran topik",
+            "newItem": "Tambahkan Topik"
+        }
+    },
+    "menu": {
+        "placeholder": "ketik judul halaman",
+        "ModTab": "Ubah Item",
+        "Save": "Menyimpan",
+        "Delete": "Menghapus",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Catatan",
+        "reset": "Mengatur ulang",
+        "edit": "Sunting",
+        "title": "judul",
+        "description": "keterangan",
+        "upload": "Mengunggah",
+        "link": "Link",
+        "setUrl": "Tetapkan URL",
+        "save": "Menyimpan",
+        "setClip": "Potong Klip",
+        "invalidURL": "URL tidak valid",
+        "invalidFile": "File Tidak Valid",
+        "errorNoSource": "Tidak ada sumber audio",
+        "uploadLimit": "Ukuran berkas maks: {{size}}",
+        "errorFileSize": "Maaf, tapi berkasnya terlalu besar.<br> Ukuran file maksimum adalah {{size}}",
+        "TeaserAudio": "Audio Penggoda"
+    },
+    "video": {
+        "NewVideo": "Video Baru",
+        "EditVideo": "Mengedit Video",
+        "reset": "Mengatur ulang",
+        "edit": "Sunting",
+        "title": "judul",
+        "description": "keterangan",
+        "upload": "Mengunggah",
+        "link": "Link",
+        "setUrl": "Tetapkan URL",
+        "save": "Menyimpan",
+        "createAnimatedThumbnail": "Buat gambar mini animasi",
+        "setClip": "Potong Klip",
+        "invalidURL": "URL tidak valid",
+        "invalidFile": "File Tidak Valid",
+        "errorNoSource": "Tidak ada sumber video",
+        "uploadLimit": "Ukuran berkas maks: {{size}}",
+        "errorFileSize": "Maaf, tapi berkasnya terlalu besar.<br> Ukuran file maksimum adalah {{size}}",
+        "errorNotAvailable": "Maaf, videonya belum tersedia. Coba lagi nanti.",
+        "TeaserVideo": "Video Teaser"
+    },
+    "pdf": {
+        "reset": "Mengatur ulang",
+        "edit": "Sunting",
+        "title": "judul",
+        "description": "keterangan",
+        "upload": "Mengunggah",
+        "link": "Link",
+        "setUrl": "Tetapkan URL",
+        "save": "Menyimpan",
+        "setClip": "Potong Klip",
+        "invalidURL": "URL tidak valid",
+        "invalidFile": "File Tidak Valid",
+        "errorNoSource": "Tidak ada sumber pdf",
+        "uploadLimit": "Ukuran berkas maks: {{size}}",
+        "errorFileSize": "Maaf, tapi berkasnya terlalu besar.<br> Ukuran file maksimum adalah {{size}}",
+        "TeaserPDF": "Cuplikan PDF"
+    },
+    "image": {
+        "reset": "Mengatur ulang",
+        "edit": "Sunting",
+        "title": "judul",
+        "description": "keterangan",
+        "upload": "Mengunggah",
+        "link": "Link",
+        "setUrl": "Tetapkan URL",
+        "save": "Menyimpan",
+        "uploadedImage": "Gambar yang diunggah",
+        "imageTitle": "Judul gambar",
+        "setClip": "Potong Klip",
+        "invalidURL": "URL tidak valid",
+        "invalidFile": "File Tidak Valid",
+        "errorNoSource": "Tidak ada sumber gambar",
+        "uploadLimit": "Ukuran berkas maks: {{size}}",
+        "errorFileSize": "Maaf, tapi berkasnya terlalu besar.<br> Ukuran file maksimum adalah {{size}}",
+        "TeaserImage": "Gambar Teaser"
+    },
+    "questions": {
+        "Questions": "Pertanyaan",
+        "Answers": "Jawaban",
+        "AnswerQuestion": "Jawab Pertanyaan",
+        "SetYourAnswer": "Tolong jawab pertanyaanya",
+        "NewQuestion": "Pertanyaan Baru",
+        "EditQuestion": "Edit Pertanyaan",
+        "NewAnswer": "Jawaban Baru",
+        "NewPossibleAnswer": "Jawaban Baru yang Mungkin",
+        "AnswerDetails": "Detail Jawaban",
+        "answerOption": "Pilihan",
+        "answerOptionExclusive": "Eksklusif",
+        "answerTextarea": "Area teks",
+        "answerText": "Teks",
+        "HideUntilAnswered": "Sembunyikan sampai dijawab",
+        "CantChangeAnswers": "Tidak dapat mengubah jawaban",
+        "ShortAnswer": "Tulis jawaban singkat",
+        "FreeAnswer": "Tulis jawabanmu di sini",
+        "SaveQuestion": "Simpan Pertanyaan",
+        "SaveAnswer": "Simpan Jawaban",
+        "Save": "Menyimpan",
+        "Send": "Mengirim",
+        "TitleRequired": "Judul diperlukan!",
+        "AlreadyAnswered": "Sudah dijawab",
+        "TitlePlaceholder": "Ketik pertanyaan Anda",
+        "ContentPlaceholder": "Tambahkan informasi tambahan apa pun di sini untuk membantu orang menjawab",
+        "ErrorTitle": "Pertanyaan diperlukan",
+        "Placeholder": "Tulis Instruksi",
+        "AreYouSure": "Apa kamu yakin?",
+        "AnswerCantBeChanged": "Jawaban tidak dapat diubah"
+    },
+    "experience": {
+        "NewExperience": "Pengalaman Baru",
+        "DefineTitle": "Tolong jelaskan judulnya",
+        "Create": "Membuat"
+    },
+    "calls": {
+        "SettingsTitle": "Panggilan",
+        "MaxCalls": "Panggilan maksimal",
+        "Update": "Memperbarui",
+        "NoCallsYet": "Belum ada panggilan",
+        "CallReasonTitle": "Tentang apa panggilan ini?",
+        "WaitingRoom": "Ruang tunggu",
+        "LiveRoom": "Ruang Langsung",
+        "interviewedByAnotherHost": "Saat ini sedang diwawancarai oleh host lain",
+        "bringToLive": "Bawa Ke Pertunjukan Langsung",
+        "putOnHold": "Ditunda",
+        "endCall": "Akhiri Panggilan",
+        "interview": "Wawancara",
+        "markApproved": "Tandai Disetujui"
+    },
+    "task": {
+        "errorsTitle": "Terjadi kesalahan"
+    },
+    "topic": {
+        "NewTopic": "Topik Baru",
+        "UpdateTopic": "Perbarui Topik",
+        "CreateTopic": "Buat Topik",
+        "AreYouSureDeleteTopic": "Apakah Anda yakin ingin menghapus topik ini?",
+        "TitlePlaceholder": "judul topik...",
+        "DescribeTopic": "jelaskan topik...",
+        "TopicIcon": "Gambar topik",
+        "UploadIcon": "Ikon Unggah",
+        "Conversation": "Percakapan",
+        "Metrics": "Metrik",
+        "Teaser": "Pengejek",
+        "TeaserDescription": "deskripsi teaser...",
+        "TeaserVideo": "Video Teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Buat gambar mini animasi",
+        "Width": "Lebar",
+        "Height": "Tinggi",
+        "Start": "Awal",
+        "End": "Akhir",
+        "Delay": "Menunda",
+        "Quality": "Kualitas",
+        "Size": "Ukuran",
+        "OfFrames": "dari Bingkai",
+        "Frame": "Bingkai",
+        "UseThis": "Gunakan ini",
+        "ResultGIF": "Hasil GIF",
+        "VideoElementNotFound": "Elemen video tidak ditemukan"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Di Wajahmu",
+        "AcceptIcon": "Terima area yang dipilih"
+    }
+}

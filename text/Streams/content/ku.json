@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Ev naverok ji we veşartî ye.",
+        "InplaceTypeMustBe": "inplaceType divê &#39;textarea&#39; an &#39;text&#39; be"
+    },
+    "preview": {
+        "NewItemTitle": "Babetê Nû",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "nav",
+        "lastName": "paşnav",
+        "username": "navê bikarhêner"
+    },
+    "labels": {
+        "Streams\/invited": "Kesên ku min vexwendin",
+        "Streams\/invitedMe": "Kê ez vexwendim",
+        "DoYouAgree": "Tu dipejirînî?",
+        "JoinItNow": "Tevlî wê bibin niha?",
+        "Yes": "Erê",
+        "No": "Na"
+    },
+    "login": {
+        "prompt": "Bila heval we nas bikin:",
+        "newUser": "an jî li jêr hesabek nû biafirînin",
+        "picTooltip": "Hûn dikarin vê wêneyê paşê biguherînin",
+        "placeholders": {
+            "fullName": "Navê xwe yê tevahî binivîse"
+        }
+    },
+    "interests": {
+        "Filter": "Berjewendiyên lêgerînê",
+        "CanGrant": "Heke hûn hîn jî nikanin tiştê ku hûn lê digerin bibînin, hûn dikarin berjewendiyek nû li jêr zêde bikin:",
+        "TrySynonyms": "Ma nabîne? Hin hevwateyan biceribînin.",
+        "AddUnderCategory": "Di binê kategoriyê de zêde bikin...",
+        "Other": "Yên din",
+        "Unlisted": "Unlisted"
+    },
+    "relate": {
+        "Add": "{{streamDisplayType}} zêde bike"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Peyam ji bo vekolîna rêveberê hate nîşankirin. Ji bo rakirina alayê dîsa bikirtînin.",
+        "noOneSaid": "Kesî tiştek negotiye",
+        "closeChatButton": "Sohbetê bigire",
+        "closeChatConfirmTitle": "Vê sohbetê bigire?",
+        "closeChatConfirm": "Ma tu bi rastî dixwazî vê sohbetê bigirî?",
+        "Subscribed": "Notifications Enabled",
+        "Unsubscribed": "Notifications Beted",
+        "closeChatConfirmYes": "Erê",
+        "closeChatConfirmNo": "Na",
+        "earlierComments": "şîroveyên berê",
+        "startedConversation": "dest bi sohbetê kir",
+        "RealTimeCall": "Call Time Real",
+        "JoinWebRTC": "Telekonferansê",
+        "SearchByName": "Bi navê lêgerîn",
+        "Notifications": {
+            "Visit": "{{displayName}} serdana chatê dike",
+            "Join": "{{displayName}} tevlî sohbetê bûn",
+            "Leave": "{{displayName}} ji sohbetê derketin",
+            "RelatedTo": "{{displayName}} {{stream.displayType}} dest pê kir"
+        },
+        "placeholders": {
+            "Public": "Şîroveyek lê zêde bike",
+            "Private": "Peyamek taybet binivîse"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "aboneyên e-nameya xwe birêve bibin",
+        "IfUnsubscribe": "Ger tu dixwazî abonetiyê bikî",
+        "changed": {
+            "ChangesIn": "Guhertinên di {{title}} de",
+            "Changed": "guhertin",
+            "HereIsWhatChanged": "Li vir çi guherî ye:"
+        },
+        "joined": {
+            "Joined": "{{subject}} tevlî <em>{{title}}<\/em> bûn"
+        },
+        "*": "Ji {{{message.fields.type}}} heta {{{stream.fields.title}}} re peyam bişînin",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} tevlî bûn",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} maye",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} got: {{{message.content}}}",
+        "Streams\/changed": "Guhertinên di {{stream.fields.title}} de",
+        "Streams\/invite": "Hûn hatin vexwendin {{{stream.fields.title}}}",
+        "Streams\/announcement": "Daxuyaniya di {{{stream.fields.title}}} de",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} di {{{stream.fields.title}}} de gihîştina guhertin",
+        "Streams\/chat\/edit": "Peyama chatê di {{{stream.fields.title}}} de hate guherandin",
+        "Streams\/chat\/remove": "Peyama chatê di {{{stream.fields.title}}} de hate rakirin",
+        "Streams\/closed": "{{stream.fields.title}} hatiye girtin",
+        "Streams\/task\/progress": "Pêşketin di {{stream.fields.title}} de çêbû",
+        "Streams\/task\/complete": "Karê qedandî: {{stream.fields.title}}",
+        "Streams\/task\/error": "Çewtiya di dema: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Peyama Hatî",
+        "Streams\/relatedTo\/Streams\/call": "Banga Nû di {{toTitle}} de dest pê kir",
+        "Streams\/relatedTo\/*": "Nû {{relationDisplayType}} di {{toTitle}} de",
+        "Streams\/relatedFrom\/*": "Li {{toTitle}} wekî {{relationDisplayType}} zêde kirin",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} di şîroveyekê de behsa te kir",
+        "Streams\/call": "{{displayName}} dest bi bangek rastîn kir"
+    },
+    "invite": {
+        "command": "Ezimanden",
+        "Invite": "Ezimanden",
+        "Share": "Par",
+        "Participants": "Mirovan vexwendin",
+        "messageContent": "{{displayName}} hûn vexwendin {{inviteUrl}}",
+        "youCanNowPaste": "Naha hûn dikarin vê lînkê li cîhek bixin da ku mirovan vexwînin",
+        "roles": {
+            "title": "Rolan bidin Bikarhênerên Vexwendine?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Bibore",
+                "alert": "Hûn ne destûr in ku hûn vê rolê bidin"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Bibore",
+                "alert": "Hûn ne destûr in ku hûn vê rolê rakin"
+            }
+        },
+        "labels": {
+            "title": "Têkiliya we çi ye?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Ji Têkiliyên xwe hilbijêrin",
+            "chooseAgainFromContacts": "Dîsa ji Têkilî Hilbijêre",
+            "inviteSelectedContacts": "Têkiliyên Hilbijartî vexwendin",
+            "selectFromContacts": "Ji Têkilî Hilbijêre",
+            "userChooserPlaceholder": "Bi navê lêgerîn",
+            "photo": "Wêneyek bikişînin",
+            "photoOf": "Wêneyek {{name}} bikişînin",
+            "photoInstruction": "Ger kesê ku koda QR-ya we skan kiriye li ber we be, wêneyek ji wan bigirin",
+            "to": "Ji: {{Stream Title}}",
+            "go": "Ajotin",
+            "title": "Ezimanden",
+            "placeholder": "Hejmara mobîl an navnîşana e-nameyê",
+            "orInvite": "An jî bi karanîna mirovan vexwendin:",
+            "copyLink": "{{ClickOrTap}} ji bo kopîkirina girêdana vexwendinê ",
+            "shareOrCopyLink": "{{ClickOrTap}} ji bo parvekirina an kopîkirina girêdana vexwendinê ",
+            "QR": "{{ClickOrTap}} ji bo afirandina koda QR",
+            "QRtitle": "Vê koda QR-ê bişopînin",
+            "QRscanned": "Wan ew scan kir!",
+            "scannedQR": "{{ClickOrTap}} heke kod hate şuştin",
+            "TakeGroupPhoto": "Wêneyek Komê bigirin",
+            "Skip": "Hilperkîn",
+            "byEmail": "Email",
+            "byText": "Nivîstok",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Têlxiram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Mirovan vexwendin",
+            "chooseMethod": "Rêbazek hilbijêrin:",
+            "selectContacts": "Têkilî hilbijêre",
+            "scanQRCode": "Koda QR-ê bişopînin",
+            "shareLink": "Girêdanek parve bikin",
+            "chooseFromRegistered": "Ji bikarhênerên qeydkirî hilbijêrin",
+            "inviteViaEmailOrSms": "Bi e-name an SMS vexwendin",
+            "addRoles": "Rolan zêde bikin",
+            "addPersonalRoles": "Têkiliyên Kesane zêde bikin"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Hûn bi xêr hatin {{communityName}}",
+            "HasInvitedYou": "we vexwendiye:",
+            "HasInvitedYouToTheirProfile": "we vexwendiye ji bo girêdanê.",
+            "prompt": "Bila heval we nas bikin:",
+            "accept": "Vexwendin qebûl bikin"
+        },
+        "email": {
+            "subject": "Hey, vê yekê kontrol bikin",
+            "PleaseVisitLink": "Ji kerema xwe lînka jêrîn biçin:",
+            "InvitingYou": "Ez we vedixwînim {{title}}",
+            "HasInvitedYou": "{{displayName}} we vexwendiye {{title}}",
+            "HasMentionedYou": "{{displayName}} di &quot; {{title}} &quot; de behsa te kiriye",
+            "YOUAREINVITED": "TU DAWOTIN!",
+            "AcceptInvite": "Vexwendin qebûl bikin"
+        },
+        "mobile": {
+            "content": "Hûn ji bo {{title}} hatine vexwendin. Ji kerema xwe {{url}} bikirtînin"
+        },
+        "notice": {
+            "text": "Hûn hatine vexwendin. {{ClickOrTap}} li vir qebûl bikin û tevlî bibin."
+        },
+        "chat": {
+            "prompt": "Hûn ê mirovan vexwînin danûstendinek ku hûn dikarin di têkiliyê de bimînin, wêneyan bi hev re parve bikin, û hêj bêtir. Navekî lê bidin:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "<em>{{message.fields.type}}<\/em> peyamek ji {{stream.fields.title}} re şand"
+        },
+        "text": {
+            "commentedOn": "şîrove kirin",
+            "startedCallIn": "dest bi bangekê kir",
+            "in": "li",
+            "body": "di {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "hatiye şandin",
+                "byAvatar": "bi {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "{{instructions.fromDisplayType}} a nû heye",
+                "byAvatar": "ji hêla {{avatar.displayName}} ve hatî zêdekirin"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Vexwendname ji hejmara me têne şandin, ku hevalên we hîna nas nakin. Bi nivîsek bilez bişopînin da ku ew zanibin ku vexwendname ji we hatî, ji wan bipirsin ku lînkê bikirtînin.",
+            "confirm": "Vexwendname ji hejmara me têne şandin, ku hevalên we hîna nas nakin. Ma hûn dixwazin bi nivîsek bilez bişopînin da ku ew zanibin ku vexwendname ji we hatî, ji wan bipirsin ku lînkê bikirtînin.",
+            "check": "Heye, min ji we re vexwendname şand ser sepana {{app}} . Ji kerema xwe sms-a xwe kontrol bikin û lînkê bikirtînin!",
+            "CheckYourMobile": "Ji kerema xwe SMS-ê kontrol bikin û rêwerzan bişopînin!"
+        },
+        "email": {
+            "alert": "Vexwendname ji domaina me têne şandin, ku hevalên we hîn nas nakin. Bi nivîsek bilez bişopînin da ku ew zanibin ku vexwendname ji we hatî, ji wan bipirsin ku lînkê bikirtînin.",
+            "confirm": "Vexwendname ji domaina me têne şandin, ku hevalên we hîn nas nakin. Ma hûn dixwazin bi nivîsek bilez bişopînin da ku ew zanibin ku vexwendname ji we hatî, ji wan bipirsin ku lînkê bikirtînin.",
+            "subject": "We vexwendinek wergirt?",
+            "body": "Heye, min ji we re vexwendname şand ser sepana {{app}} . Ji kerema xwe e-nameya xwe kontrol bikin û lînka li wir bikirtînin!",
+            "CheckYourEmail": "Ji kerema xwe e-nameya xwe kontrol bikin û rêwerzan bişopînin!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Navê bikarhênerek..."
+    },
+    "identifier": {
+        "privacySettings": "Mîhengên Nepenîtiyê"
+    },
+    "participating": {
+        "Title": "Nav",
+        "Subscribed": "Subscribed",
+        "Participants": "Beşdarên",
+        "AreYouSureRemoveIdentifier": "Ma hûn guman dikin ku hûn vê nasnameyê jêbirin?",
+        "AreYouSureUnsubscribeIdentifier": "Ma hûn guman dikin ku abonetiya vê nasnamê rakin? Ew ê agahiyên li ser vê nasnamê qut bike.",
+        "AreYouSureUnsubscribeDevice": "Ma hûn guman dikin ku abonetiya vê cîhazê betal bikin? Ew ê agahdariya vê cîhazê qut bike.",
+        "AreYouSureRemoveParticipant": "Ma hûn pê bawer in ku hûn dixwazin vî beşdarvanî rakin?",
+        "RemoveParticipant": "Beşdar jêbirin",
+        "Identifiers": "Nasname",
+        "Devices": "Devices",
+        "Streams": "Streams"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Vexwendin",
+            "description": "Inbox ji bo vexwendinê"
+        },
+        "Streams\/resource": {
+            "displayType": "Kanî",
+            "description": "stream ji bo birêvebirina gihîştina çavkaniyek û şandina peyamên li ser nûvekirinan"
+        },
+        "Streams\/task": {
+            "description": "ji bo wergirtina nûvekirinên li ser pêşkeftina li ser karek diyarkirî",
+            "displayType": "Karî"
+        },
+        "Streams\/tasks": {
+            "description": "kategoriya ji bo peywiran",
+            "displayType": "Tasks"
+        },
+        "Streams\/experience": {
+            "description": "ezmûnek hevpar ji bo endamên civakê",
+            "displayType": "Ezmûna hevpar ji bo endamên civakê"
+        },
+        "Streams\/greeting": {
+            "description": "silava ku bi bikarhênerek dikare xwe bide nasîn",
+            "displayType": "Silav"
+        },
+        "Streams\/number": {
+            "displayType": "Jimare",
+            "description": "hejmara matematîkî"
+        },
+        "Streams\/date": {
+            "displayType": "Rojek",
+            "description": "rojek"
+        },
+        "Streams\/text": {
+            "displayType": "Nivîstok",
+            "description": "bedena nivîsê"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Nivîstok",
+            "description": "bedena biçûk ji text"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Nivîstok",
+            "description": "bedena navîn ya nivîsê"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Navnîşana emailê",
+            "description": "navnîşana emailê"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Jimare telefon",
+            "description": "jimare telefon"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "girêdana li ser webê"
+        },
+        "Streams\/image": {
+            "displayType": "Wêne",
+            "description": "wêneyê dîtbarî",
+            "newItem": "Wêne zêde bikin"
+        },
+        "Streams\/images": {
+            "displayType": "Galeriya Wêne",
+            "description": "galeriya wêneyan"
+        },
+        "Streams\/album": {
+            "displayType": "Albûm",
+            "description": "albûmek ku medyayên cihêreng pê re têkildar e"
+        },
+        "Streams\/file": {
+            "displayType": "Dosî",
+            "description": "pelê barkirî",
+            "newItem": "Pelê zêde bikin"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio Clip",
+            "description": "klîba deng",
+            "newItem": "Audio lê zêde bike"
+        },
+        "Streams\/video": {
+            "displayType": "Vîdyo Klîp",
+            "description": "video clip",
+            "newItem": "Vîdyoyê lê zêde bike"
+        },
+        "Streams\/pdf": {
+            "displayType": "Belgeya PDF",
+            "description": "Belgeya PDF",
+            "newItem": "PDF-ê zêde bikin"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "deng an vîdyoyê zindî"
+        },
+        "Streams\/category": {
+            "displayType": "Liq",
+            "description": "kategoriyek ku kaniyên din dikarin pê re têkildar bin",
+            "newItem": "Kategorî lê zêde bike"
+        },
+        "Streams\/participating": {
+            "displayType": "Indeksa beşdarî",
+            "description": "dema ku bikarhênerek tevlî\/derdikeve, herik bi vê ve girêdayî ne"
+        },
+        "Streams\/interest": {
+            "displayType": "Berjewend",
+            "description": "berjewendiya bikarhênerek di mijarek diyar de temsîl dike"
+        },
+        "Streams\/incoming": {
+            "displayType": "Hatin",
+            "description": "cîhê peyamên ku ji hêla bikarhênerên din ve têne şandin"
+        },
+        "Streams\/chat": {
+            "displayType": "Kêfî",
+            "description": "axaftinek di navbera bikarhêneran de, bi dîrokê re"
+        },
+        "Streams\/question": {
+            "displayType": "Pirs",
+            "description": "çema pirsê",
+            "newItem": "Pirs zêde bikin"
+        },
+        "Streams\/answer": {
+            "displayType": "Bersiv",
+            "description": "stream bersiv"
+        },
+        "Streams\/topic": {
+            "displayType": "Mijar",
+            "description": "herikîna mijarê",
+            "newItem": "Mijar lê zêde bike"
+        }
+    },
+    "menu": {
+        "placeholder": "sernavê rûpelê binivîse",
+        "ModTab": "Biguherîne Babetê",
+        "Save": "Rizgarkirin",
+        "Delete": "Jêbirin",
+        "Submenu": "Binmenu"
+    },
+    "audio": {
+        "record": "Rekor",
+        "reset": "Reset",
+        "edit": "Weşandin",
+        "title": "nav",
+        "description": "terîf",
+        "upload": "Upload",
+        "link": "Girêk",
+        "setUrl": "URL-ê saz bikin",
+        "save": "Rizgarkirin",
+        "setClip": "Clip Out Clip",
+        "invalidURL": "URL nederbasdar",
+        "invalidFile": "Pelê nederbasdar",
+        "errorNoSource": "Çavkaniyek deng tune",
+        "uploadLimit": "Mezinahiya pelê ya herî zêde: {{size}}",
+        "errorFileSize": "Bibore, lê pel pir mezin e.<br> Mezinahiya pelê herî zêde {{size}} e",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Vîdyoya Nû",
+        "EditVideo": "Vîdyoyê biguherîne",
+        "reset": "Reset",
+        "edit": "Weşandin",
+        "title": "nav",
+        "description": "terîf",
+        "upload": "Upload",
+        "link": "Girêk",
+        "setUrl": "URL-ê saz bikin",
+        "save": "Rizgarkirin",
+        "createAnimatedThumbnail": "Thumbnail anîmasyon biafirînin",
+        "setClip": "Clip Out Clip",
+        "invalidURL": "URL nederbasdar",
+        "invalidFile": "Pelê nederbasdar",
+        "errorNoSource": "Çavkaniyek vîdyoyê tune",
+        "uploadLimit": "Mezinahiya pelê ya herî zêde: {{size}}",
+        "errorFileSize": "Bibore, lê pel pir mezin e.<br> Mezinahiya pelê herî zêde {{size}} e",
+        "errorNotAvailable": "Bibore, lê vîdyo hîn ne berdest e. Ji kerema xwe paşê dîsa biceribîne.",
+        "TeaserVideo": "Teaser Video"
+    },
+    "pdf": {
+        "reset": "Reset",
+        "edit": "Weşandin",
+        "title": "nav",
+        "description": "terîf",
+        "upload": "Upload",
+        "link": "Girêk",
+        "setUrl": "URL-ê saz bikin",
+        "save": "Rizgarkirin",
+        "setClip": "Clip Out Clip",
+        "invalidURL": "URL nederbasdar",
+        "invalidFile": "Pelê nederbasdar",
+        "errorNoSource": "Çavkaniyek pdf tune",
+        "uploadLimit": "Mezinahiya pelê ya herî zêde: {{size}}",
+        "errorFileSize": "Bibore, lê pel pir mezin e.<br> Mezinahiya pelê herî zêde {{size}} e",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Reset",
+        "edit": "Weşandin",
+        "title": "nav",
+        "description": "terîf",
+        "upload": "Upload",
+        "link": "Girêk",
+        "setUrl": "URL-ê saz bikin",
+        "save": "Rizgarkirin",
+        "uploadedImage": "Wêneyê barkirî",
+        "imageTitle": "Sernavê wêneyê",
+        "setClip": "Clip Out Clip",
+        "invalidURL": "URL nederbasdar",
+        "invalidFile": "Pelê nederbasdar",
+        "errorNoSource": "Çavkaniya wêneyê tune",
+        "uploadLimit": "Mezinahiya pelê ya herî zêde: {{size}}",
+        "errorFileSize": "Mixabin, lê pel pir mezin e.<br> Mezinahiya pelê herî zêde {{size}} e",
+        "TeaserImage": "Wêne Teaser"
+    },
+    "questions": {
+        "Questions": "Pirs",
+        "Answers": "Bersiv",
+        "AnswerQuestion": "Bersiva Pirs",
+        "SetYourAnswer": "Ji kerema xwe bersiva pirsê bidin",
+        "NewQuestion": "Pirsa Nû",
+        "EditQuestion": "Pirs biguherîne",
+        "NewAnswer": "Bersiva Nû",
+        "NewPossibleAnswer": "Bersiva Muhtemel a Nû",
+        "AnswerDetails": "Bersiv Details",
+        "answerOption": "Dibe",
+        "answerOptionExclusive": "Hew",
+        "answerTextarea": "Textarea",
+        "answerText": "Nivîstok",
+        "HideUntilAnswered": "Veşêrin heya ku bersiv bidin",
+        "CantChangeAnswers": "Nikare bersivan biguherîne",
+        "ShortAnswer": "Bersivek kurt binivîse",
+        "FreeAnswer": "Bersiva xwe li vir binivîsin",
+        "SaveQuestion": "Pirs xilas bike",
+        "SaveAnswer": "Bersiv xilas bike",
+        "Save": "Rizgarkirin",
+        "Send": "Şandin",
+        "TitleRequired": "Sernav pêdivî ye!",
+        "AlreadyAnswered": "Jixwe bersiv da",
+        "TitlePlaceholder": "Pirsa xwe binivîse",
+        "ContentPlaceholder": "Agahiyên zêde li vir bixin da ku ji mirovan re bibin alîkar ku bersiv bidin",
+        "ErrorTitle": "Pirs pêwîst",
+        "Placeholder": "Talîmatên binivîse",
+        "AreYouSure": "Piştrastin?",
+        "AnswerCantBeChanged": "Bersiv nayê guhertin"
+    },
+    "experience": {
+        "NewExperience": "Tecrûbeya Nû",
+        "DefineTitle": "Ji kerema xwe sernavek diyar bike",
+        "Create": "Xûliqandin"
+    },
+    "calls": {
+        "SettingsTitle": "Gazî dike",
+        "MaxCalls": "Max bang dike",
+        "Update": "Rojanekirin",
+        "NoCallsYet": "Hîn jî tu telefon tune",
+        "CallReasonTitle": "Ev bang li ser çi ye?",
+        "WaitingRoom": "Odeya bendê",
+        "LiveRoom": "Live Room",
+        "interviewedByAnotherHost": "Niha ji hêla mêvandarek din ve tê hevpeyvîn kirin",
+        "bringToLive": "Bring To Live Show",
+        "putOnHold": "Bihêle",
+        "endCall": "Banga Dawî",
+        "interview": "Hevpeyvîn",
+        "markApproved": "Mark Pejirandin"
+    },
+    "task": {
+        "errorsTitle": "Çewtî çêbûn"
+    },
+    "topic": {
+        "NewTopic": "Mijara Nû",
+        "UpdateTopic": "Mijar nûve bikin",
+        "CreateTopic": "Mijar biafirîne",
+        "AreYouSureDeleteTopic": "Ma hûn guman dikin ku hûn dixwazin vê mijarê jêbirin",
+        "TitlePlaceholder": "sernavê mijarê...",
+        "DescribeTopic": "mijarê şirove bike...",
+        "TopicIcon": "Wêne mijarê",
+        "UploadIcon": "Upload Icon",
+        "Conversation": "Kêfî",
+        "Metrics": "Metrics",
+        "Teaser": "Teaser",
+        "TeaserDescription": "şiroveya teaser ...",
+        "TeaserVideo": "Teaser Video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Thumbnail anîmasyon biafirînin",
+        "Width": "Berî",
+        "Height": "Bilindî",
+        "Start": "Destpêkirin",
+        "End": "Dawî",
+        "Delay": "Derengxistin",
+        "Quality": "Çêwe",
+        "Size": "Mezinayî",
+        "OfFrames": "ya Frames",
+        "Frame": "Çarçove",
+        "UseThis": "Vê bikar bînin",
+        "ResultGIF": "Encama GIF",
+        "VideoElementNotFound": "Hêmana vîdyoyê nehat dîtin"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Li Ser Rûyê Te",
+        "AcceptIcon": "Qada hilbijartî qebûl bikin"
+    }
+}

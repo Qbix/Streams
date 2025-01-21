@@ -469,7 +469,8 @@
         "ErrorTitle": "السؤال مطلوب",
         "Placeholder": "اكتب التعليمات",
         "AreYouSure": "هل أنت متأكد؟",
-        "ShortAnswer": "اكتب إجابة قصيرة"
+        "ShortAnswer": "اكتب إجابة قصيرة",
+        "AnswerCantBeChanged": "لا يمكن تغيير الإجابة"
     },
     "experience": {
         "NewExperience": "تجربة جديدة",

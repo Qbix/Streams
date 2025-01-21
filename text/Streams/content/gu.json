@@ -469,7 +469,8 @@
         "ErrorTitle": "પ્રશ્ન જરૂરી",
         "Placeholder": "સૂચનાઓ લખો",
         "AreYouSure": "શું તમને ખાતરી છે?",
-        "ShortAnswer": "ટૂંકો જવાબ લખો"
+        "ShortAnswer": "ટૂંકો જવાબ લખો",
+        "AnswerCantBeChanged": "જવાબ બદલી શકાતો નથી"
     },
     "experience": {
         "NewExperience": "નવો અનુભવ",

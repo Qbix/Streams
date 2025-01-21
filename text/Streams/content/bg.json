@@ -469,7 +469,8 @@
         "ErrorTitle": "Задължителен въпрос",
         "Placeholder": "Напишете инструкции",
         "AreYouSure": "Сигурен ли си?",
-        "ShortAnswer": "Напишете кратък отговор"
+        "ShortAnswer": "Напишете кратък отговор",
+        "AnswerCantBeChanged": "Отговорът не може да бъде променен"
     },
     "experience": {
         "NewExperience": "Ново преживяване",

@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Lo mxholo ufihliwe kuwe.",
+        "InplaceTypeMustBe": "inplaceType kufuneka &#39;textarea&#39; okanye &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Into entsha",
+        "Teaser": "Umtsalane"
+    },
+    "avatar": {
+        "firstName": "igama lakho",
+        "lastName": "Ifani",
+        "username": "igama lomsebenzisi"
+    },
+    "labels": {
+        "Streams\/invited": "Abantu endibamemile",
+        "Streams\/invitedMe": "Ndimenywe ngubani",
+        "DoYouAgree": "Ingaba uyavumelana?",
+        "JoinItNow": "Yijoyine ngoku?",
+        "Yes": "Ewe",
+        "No": "Hayi"
+    },
+    "login": {
+        "prompt": "Vumela abahlobo bakubone:",
+        "newUser": "okanye wenze iakhawunti entsha ngezantsi",
+        "picTooltip": "Ungawutshintsha lo mfanekiso kamva",
+        "placeholders": {
+            "fullName": "Faka igama lakho elipheleleyo"
+        }
+    },
+    "interests": {
+        "Filter": "Khangela izinto onomdla kuzo",
+        "CanGrant": "Ukuba awukayifumani into oyikhangelayo, unokongeza umdla omtsha ngezantsi:",
+        "TrySynonyms": "Awuyiboni? Zama izithethantonye.",
+        "AddUnderCategory": "Yongeza phantsi koluhlu...",
+        "Other": "Okunye",
+        "Unlisted": "Aludweliswanga"
+    },
+    "relate": {
+        "Add": "Yongeza {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Umyalezo uchotshelwe uqwalaselo lomlawuli. Cofa kwakhona ukuze ukhuphe iflegi.",
+        "noOneSaid": "Akukho mntu uthethe nto",
+        "closeChatButton": "Vala incoko",
+        "closeChatConfirmTitle": "Vala le ncoko?",
+        "closeChatConfirm": "Uqinisekile ufuna ukuyivala le ncoko?",
+        "Subscribed": "Izaziso zinikwe amandla",
+        "Unsubscribed": "Izaziso Zicinyiwe",
+        "closeChatConfirmYes": "Ewe",
+        "closeChatConfirmNo": "Hayi",
+        "earlierComments": "izimvo zangaphambili",
+        "startedConversation": "yaqalisa incoko",
+        "RealTimeCall": "Umnxeba wexesha lokwenyani",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Phendla ngegama",
+        "Notifications": {
+            "Visit": "{{displayName}} undwendwela incoko",
+            "Join": "{{displayName}} ijoyine incoko",
+            "Leave": "{{displayName}} uyishiyile incoko",
+            "RelatedTo": "{{displayName}} iqale i- {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Yongeza uluvo",
+            "Private": "Bhala umyalezo wabucala"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "lawula imirhumo yakho ye-imeyile",
+        "IfUnsubscribe": "Ukuba ufuna ukuyeka ukubhalisa",
+        "changed": {
+            "ChangesIn": "Utshintsho ngo {{title}}",
+            "Changed": "itshintshiwe",
+            "HereIsWhatChanged": "Nantsi into etshintshileyo:"
+        },
+        "joined": {
+            "Joined": "{{subject}} ajoyine <em>{{title}}<\/em>"
+        },
+        "*": "Umyalezo {{{message.fields.type}}} ukuya {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} bazimanya",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} ashiyekileyo",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} uthe: {{{message.content}}}",
+        "Streams\/changed": "Utshintsho ngo {{stream.fields.title}}",
+        "Streams\/invite": "Umenywe kwi {{{stream.fields.title}}}",
+        "Streams\/announcement": "Isibhengezo ngo {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} itshintshe ukufikelela kwi {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Umyalezo weNcoko uhlelwe ngo {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Umyalezo wencoko ususiwe ngo {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} ivaliwe",
+        "Streams\/task\/progress": "Inkqubela phambili eyenziwe ngo {{stream.fields.title}}",
+        "Streams\/task\/complete": "Umsebenzi ogqityiweyo: {{stream.fields.title}}",
+        "Streams\/task\/error": "Impazamo ngexesha: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Umyalezo ongenayo",
+        "Streams\/relatedTo\/Streams\/call": "Umnxeba Omtsha Waqalwa ngo {{toTitle}}",
+        "Streams\/relatedTo\/*": "Entsha {{relationDisplayType}} {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Ifakwe kwi {{toTitle}} njenge {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} ukhankanye wena kwizimvo",
+        "Streams\/call": "{{displayName}} uqalise umnxeba wexesha lokwenyani"
+    },
+    "invite": {
+        "command": "Mema",
+        "Invite": "Mema",
+        "Share": "Yabelana",
+        "Participants": "Mema Abantu",
+        "messageContent": "{{displayName}} ikumemele kwi {{inviteUrl}}",
+        "youCanNowPaste": "Ngoku ungancamathisela eli khonkco kwindawo ethile ukuze umeme abantu",
+        "roles": {
+            "title": "Nika iindima kubasebenzisi abamenyiweyo?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Uxolo",
+                "alert": "Awugunyaziswanga ukuba unikezele le ndima"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Uxolo",
+                "alert": "Awugunyaziswanga ukuba uyisuse le ndima"
+            }
+        },
+        "labels": {
+            "title": "Yintoni uBudlelwane bakho?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Khetha kubafowunelwa bakho",
+            "chooseAgainFromContacts": "Khetha Kwakhona kubafowunelwa",
+            "inviteSelectedContacts": "Mema abafowunelwa abakhethiweyo",
+            "selectFromContacts": "Khetha Kubafowunelwa",
+            "userChooserPlaceholder": "Phendla ngegama",
+            "photo": "Thatha umfanekiso",
+            "photoOf": "Thatha ifoto ka {{name}}",
+            "photoInstruction": "Ukuba umntu oskena ikhowudi yakho ye-QR uphambi kwakho, thatha ifoto yakhe",
+            "to": "Ukuya: {{Stream Title}}",
+            "go": "Hamba",
+            "title": "Mema",
+            "placeholder": "Inombolo yeselula okanye idilesi ye-imeyile",
+            "orInvite": "Okanye umeme abantu ngokusebenzisa:",
+            "copyLink": "{{ClickOrTap}} ukukopa ikhonkco lokumema ",
+            "shareOrCopyLink": "{{ClickOrTap}} ukwabelana okanye ukukopa ikhonkco lokumema ",
+            "QR": "{{ClickOrTap}} ukwenza ikhowudi yeQR",
+            "QRtitle": "Skena le khowudi yeQR",
+            "QRscanned": "Bayiskeni!",
+            "scannedQR": "{{ClickOrTap}} ukuba ikhowudi iskeniwe",
+            "TakeGroupPhoto": "Thatha iFoto yeQela",
+            "Skip": "Tsiba",
+            "byEmail": "I-imeyile",
+            "byText": "Isiqendu",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "ITelegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Mema Abantu",
+            "chooseMethod": "Khetha indlela:",
+            "selectContacts": "Khetha Abafownelwa",
+            "scanQRCode": "Skena iKhowudi yeQR",
+            "shareLink": "Yabelana ngekhonkco",
+            "chooseFromRegistered": "Khetha kubasebenzisi ababhalisiweyo",
+            "inviteViaEmailOrSms": "Mema nge-imeyile okanye ngeSMS",
+            "addRoles": "Yongeza iindima",
+            "addPersonalRoles": "Yongeza uBudlelwane boBuqu"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Wamkelekile ku {{communityName}}",
+            "HasInvitedYou": "ukumemele ukuba:",
+            "HasInvitedYouToTheirProfile": "ukumemile ukuba uqhagamshelane.",
+            "prompt": "Vumela abahlobo bakubone:",
+            "accept": "Yamkela isimemo"
+        },
+        "email": {
+            "subject": "Heyi, jonga oku",
+            "PleaseVisitLink": "Nceda undwendwele ikhonkco elilandelayo:",
+            "InvitingYou": "Ndikumemela ku {{title}}",
+            "HasInvitedYou": "{{displayName}} ukumemele kwi {{title}}",
+            "HasMentionedYou": "{{displayName}} ukukhankanye kwi &quot; {{title}} &quot;",
+            "YOUAREINVITED": "UYAMENYWA!",
+            "AcceptInvite": "Yamkela isimemo"
+        },
+        "mobile": {
+            "content": "Umenyiwe kwi {{title}} . Nceda ucofe {{url}}"
+        },
+        "notice": {
+            "text": "Umenyiwe. {{ClickOrTap}} apha ukwamkela kunye nokuzimanya."
+        },
+        "chat": {
+            "prompt": "Uza kumema abantu kwincoko apho unokuhlala ukunxibelelana, ukwabelana ngeefoto kunye, kunye nokunye. Yinike igama:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "uthumele umyalezo <em>{{message.fields.type}}<\/em> ku- {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "uphawule",
+            "startedCallIn": "kwangena umnxeba",
+            "in": "kwi",
+            "body": "ngo {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "ithunyelwe ku",
+                "byAvatar": "{{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "ine {{instructions.fromDisplayType}} entsha",
+                "byAvatar": "yongezwe ngo {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Izimemo zithunyelwa kwinombolo yethu, abangaziboniyo abahlobo bakho. Landela ngesicatshulwa esikhawulezayo ukubazisa ukuba isimemo sivela kuwe, ubacela ukuba bacofe ikhonkco.",
+            "confirm": "Izimemo zithunyelwa kwinombolo yethu, abangaziboniyo abahlobo bakho. Ngaba ungathanda ukulandela ngesicatshulwa esikhawulezayo ukubazisa ukuba isimemo sivela kuwe, ubacela ukuba bacofe ikhonkco.",
+            "check": "Heyi, ndikuthumelele isimemo kwi- {{app}} app. Nceda ujonge i-sms yakho kwaye ucofe ikhonkco!",
+            "CheckYourMobile": "Nceda ujonge iSMS kwaye ulandele imiyalelo!"
+        },
+        "email": {
+            "alert": "Izimemo zithunyelwa zisuka kwindawo yethu, abangaziboniyo abahlobo bakho. Landela ngesicatshulwa esikhawulezayo ukubazisa ukuba isimemo sivela kuwe, ubacela ukuba bacofe ikhonkco.",
+            "confirm": "Izimemo zithunyelwa zisuka kwindawo yethu, abangaziboniyo abahlobo bakho. Ngaba ungathanda ukulandela ngesicatshulwa esikhawulezayo ukubazisa ukuba isimemo sivela kuwe, ubacela ukuba bacofe ikhonkco.",
+            "subject": "Ngaba usifumene isimemo?",
+            "body": "Heyi, ndikuthumelele isimemo kwi- {{app}} app. Nceda ujonge i-imeyile yakho kwaye ucofe ikhonkco apho!",
+            "CheckYourEmail": "Nceda ujonge i-imeyile yakho kwaye ulandele imiyalelo!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Igama lomsebenzisi..."
+    },
+    "identifier": {
+        "privacySettings": "Iisetingi zabucala"
+    },
+    "participating": {
+        "Title": "Isihloko",
+        "Subscribed": "Ubhalisile",
+        "Participants": "Abathathi-nxaxheba",
+        "AreYouSureRemoveIdentifier": "Uqinisekile ukuba uyasisusa esi sichongi?",
+        "AreYouSureUnsubscribeIdentifier": "Ngaba uqinisekile ukuba uyasikhupha esi sichongi? Izakucima izaziso kwesi sichongi.",
+        "AreYouSureUnsubscribeDevice": "Uqinisekile ukuba uyasikhupha esi sixhobo? Iza kuvala izaziso kwesi sixhobo.",
+        "AreYouSureRemoveParticipant": "Uqinisekile ufuna ukususa lo mthathi-nxaxheba?",
+        "RemoveParticipant": "Susa umthathi-nxaxheba",
+        "Identifiers": "Izazisi",
+        "Devices": "Izixhobo",
+        "Streams": "Imijelo"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "umenyiwe",
+            "description": "I-Inbox yezimemo"
+        },
+        "Streams\/resource": {
+            "displayType": "Umthombo",
+            "description": "umsinga wokulawula ukufikelela kwisixhobo kunye nokuthumela imiyalezo malunga nohlaziyo"
+        },
+        "Streams\/task": {
+            "description": "ukufumana uhlaziyo malunga nenkqubela yomsebenzi othile",
+            "displayType": "Umsebenzi"
+        },
+        "Streams\/tasks": {
+            "description": "udidi lwemisebenzi",
+            "displayType": "Imisebenzi"
+        },
+        "Streams\/experience": {
+            "description": "amava aqhelekileyo kumalungu oluntu",
+            "displayType": "Amava aqhelekileyo kumalungu oluntu"
+        },
+        "Streams\/greeting": {
+            "description": "imibuliso apho umsebenzisi anokuthi azazise ngayo",
+            "displayType": "Umbuliso"
+        },
+        "Streams\/number": {
+            "displayType": "Inani",
+            "description": "inombolo yemathematika"
+        },
+        "Streams\/date": {
+            "displayType": "Umhla",
+            "description": "umhla"
+        },
+        "Streams\/text": {
+            "displayType": "Isiqendu",
+            "description": "umzimba wesicatshulwa"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Isiqendu",
+            "description": "isicatshulwa esincinci"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Isiqendu",
+            "description": "umzimba ophakathi wesicatshulwa"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Idilesi yemeyile",
+            "description": "idilesi yemeyile"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Inombolo yomnxeba",
+            "description": "inombolo yomnxeba"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "ikhonkco kwiwebhu"
+        },
+        "Streams\/image": {
+            "displayType": "Umfanekiso",
+            "description": "umfanekiso obonakalayo",
+            "newItem": "Yongeza uMfanekiso"
+        },
+        "Streams\/images": {
+            "displayType": "Igalari yoMfanekiso",
+            "description": "igalari yemifanekiso"
+        },
+        "Streams\/album": {
+            "displayType": "Icwecwe",
+            "description": "icwecwe apho imidiya eyahlukeneyo inxulumene"
+        },
+        "Streams\/file": {
+            "displayType": "Ifayile",
+            "description": "ifayile elayishiwe",
+            "newItem": "Yongeza iFayile"
+        },
+        "Streams\/audio": {
+            "displayType": "Ikliphu yomsindo",
+            "description": "ikliphu yeaudio",
+            "newItem": "Yongeza iAudio"
+        },
+        "Streams\/video": {
+            "displayType": "Ikliphu yeVidiyo",
+            "description": "ikliphu yevidiyo",
+            "newItem": "Yongeza iVidiyo"
+        },
+        "Streams\/pdf": {
+            "displayType": "Uxwebhu lwePDF",
+            "description": "Uxwebhu lwePDF",
+            "newItem": "Yongeza iPDF"
+        },
+        "Streams\/live": {
+            "displayType": "Umthombo philayo",
+            "description": "iaudio ephilayo okanye ividiyo"
+        },
+        "Streams\/category": {
+            "displayType": "Udidi",
+            "description": "udidi apho eminye imisinga inokunxulunyaniswa nayo",
+            "newItem": "Yongeza udidi"
+        },
+        "Streams\/participating": {
+            "displayType": "Isalathiso Senxaxheba",
+            "description": "imisinga inxulumene\/ayinxulumananga noku xa umsebenzisi ejoyina\/ehamba"
+        },
+        "Streams\/interest": {
+            "displayType": "Umdla",
+            "description": "imele umdla womsebenzisi kwisihloko esithile"
+        },
+        "Streams\/incoming": {
+            "displayType": "Okungenayo",
+            "description": "indawo yokufikela yemiyalezo ethunyelwe ngabanye abasebenzisi"
+        },
+        "Streams\/chat": {
+            "displayType": "Incoko",
+            "description": "incoko phakathi kwabasebenzisi, ngembali"
+        },
+        "Streams\/question": {
+            "displayType": "Umbuzo",
+            "description": "umsinga wombuzo",
+            "newItem": "Yongeza Umbuzo"
+        },
+        "Streams\/answer": {
+            "displayType": "Phendula",
+            "description": "phendula umsinga"
+        },
+        "Streams\/topic": {
+            "displayType": "Umxholo",
+            "description": "isihloko stream",
+            "newItem": "Yongeza isihloko"
+        }
+    },
+    "menu": {
+        "placeholder": "chwetheza isihloko sephepha",
+        "ModTab": "Guqula into",
+        "Save": "Gcina",
+        "Delete": "Cima",
+        "Submenu": "Imenyu engaphantsi"
+    },
+    "audio": {
+        "record": "Rekhoda",
+        "reset": "Lungisa kwakhona",
+        "edit": "Hlela",
+        "title": "isihloko",
+        "description": "inkcazelo",
+        "upload": "Layisha",
+        "link": "Ikhonkco",
+        "setUrl": "Seta i-URL",
+        "save": "Gcina",
+        "setClip": "Sika Ikliphu",
+        "invalidURL": "I-URL engasebenziyo",
+        "invalidFile": "Ifayile engasebenziyo",
+        "errorNoSource": "Akukho mthombo womsindo",
+        "uploadLimit": "Ubukhulu befayile: {{size}}",
+        "errorFileSize": "Uxolo, kodwa ifayile inkulu kakhulu.<br> Ubukhulu befayile bungama- {{size}}",
+        "TeaserAudio": "Umsindo weTeaser"
+    },
+    "video": {
+        "NewVideo": "Ividiyo Entsha",
+        "EditVideo": "Hlela iVidiyo",
+        "reset": "Lungisa kwakhona",
+        "edit": "Hlela",
+        "title": "isihloko",
+        "description": "inkcazelo",
+        "upload": "Layisha",
+        "link": "Ikhonkco",
+        "setUrl": "Seta i-URL",
+        "save": "Gcina",
+        "createAnimatedThumbnail": "Yenza umfanekiso oshukumayo",
+        "setClip": "Sika Ikliphu",
+        "invalidURL": "I-URL engasebenziyo",
+        "invalidFile": "Ifayile engasebenziyo",
+        "errorNoSource": "Akukho mthombo wevidiyo",
+        "uploadLimit": "Ubukhulu befayile: {{size}}",
+        "errorFileSize": "Uxolo, kodwa ifayile inkulu kakhulu.<br> Ubukhulu befayile bungama- {{size}}",
+        "errorNotAvailable": "Uxolo, ividiyo ayikabikho. Nceda uzame kwakhona mva.",
+        "TeaserVideo": "Ividiyo yeTeaser"
+    },
+    "pdf": {
+        "reset": "Lungisa kwakhona",
+        "edit": "Hlela",
+        "title": "isihloko",
+        "description": "inkcazelo",
+        "upload": "Layisha",
+        "link": "Ikhonkco",
+        "setUrl": "Seta i-URL",
+        "save": "Gcina",
+        "setClip": "Sika Ikliphu",
+        "invalidURL": "I-URL engasebenziyo",
+        "invalidFile": "Ifayile engasebenziyo",
+        "errorNoSource": "Akukho mthombo wepdf",
+        "uploadLimit": "Ubukhulu befayile: {{size}}",
+        "errorFileSize": "Uxolo, kodwa ifayile inkulu kakhulu.<br> Ubukhulu befayile bungama- {{size}}",
+        "TeaserPDF": "Incwadi yeTeaser PDF"
+    },
+    "image": {
+        "reset": "Lungisa kwakhona",
+        "edit": "Hlela",
+        "title": "isihloko",
+        "description": "inkcazelo",
+        "upload": "Layisha",
+        "link": "Ikhonkco",
+        "setUrl": "Seta i-URL",
+        "save": "Gcina",
+        "uploadedImage": "Umfanekiso olayishiwe",
+        "imageTitle": "Isihloko somfanekiso",
+        "setClip": "Sika Ikliphu",
+        "invalidURL": "I-URL engasebenziyo",
+        "invalidFile": "Ifayile engasebenziyo",
+        "errorNoSource": "Akukho mthombo womfanekiso",
+        "uploadLimit": "Ubukhulu befayile: {{size}}",
+        "errorFileSize": "Uxolo, kodwa ifayile inkulu kakhulu.<br> Ubukhulu befayile yi {{size}}",
+        "TeaserImage": "Umfanekiso weTeaser"
+    },
+    "questions": {
+        "Questions": "Imibuzo",
+        "Answers": "Iimpendulo",
+        "AnswerQuestion": "Phendula Umbuzo",
+        "SetYourAnswer": "Nceda uphendule umbuzo",
+        "NewQuestion": "Umbuzo omtsha",
+        "EditQuestion": "Hlela umbuzo",
+        "NewAnswer": "Impendulo Entsha",
+        "NewPossibleAnswer": "Entsha Impendulo enokwenzeka",
+        "AnswerDetails": "Phendula Iinkcukacha",
+        "answerOption": "Ukhetho",
+        "answerOptionExclusive": "Kuphela",
+        "answerTextarea": "Textarea",
+        "answerText": "Isiqendu",
+        "HideUntilAnswered": "Fihla de uphendule",
+        "CantChangeAnswers": "Awukwazi ukutshintsha iimpendulo",
+        "ShortAnswer": "Bhala impendulo emfutshane",
+        "FreeAnswer": "Bhala impendulo yakho apha",
+        "SaveQuestion": "Gcina Umbuzo",
+        "SaveAnswer": "Gcina Impendulo",
+        "Save": "Gcina",
+        "Send": "Thumela",
+        "TitleRequired": "Isihloko siyafuneka!",
+        "AlreadyAnswered": "Sele ephenduliwe",
+        "TitlePlaceholder": "Chwetheza umbuzo wakho",
+        "ContentPlaceholder": "Beka naluphi na ulwazi olongezelelweyo apha ukunceda abantu baphendule",
+        "ErrorTitle": "Umbuzo uyafuneka",
+        "Placeholder": "Bhala Imiyalelo",
+        "AreYouSure": "Ingaba uqinisekile?",
+        "AnswerCantBeChanged": "Impendulo ayinakuguqulwa"
+    },
+    "experience": {
+        "NewExperience": "Amava amatsha",
+        "DefineTitle": "Nceda uchaze isihloko",
+        "Create": "Yenza"
+    },
+    "calls": {
+        "SettingsTitle": "Iminxeba",
+        "MaxCalls": "Ubuninzi befowuni",
+        "Update": "Hlaziya",
+        "NoCallsYet": "Akukho minxeba okwangoku",
+        "CallReasonTitle": "Imalunga nantoni lo mnxeba?",
+        "WaitingRoom": "Indlu yokulinda",
+        "LiveRoom": "Igumbi lokuhlala",
+        "interviewedByAnotherHost": "Ngoku udliwano-ndlebe ngomnye umamkeli",
+        "bringToLive": "Yiza kuBonisa oBomi",
+        "putOnHold": "Beka iBamba",
+        "endCall": "Phelisa umnxeba",
+        "interview": "Udliwano-ndlebe",
+        "markApproved": "Phawula ukuba uvunyiwe"
+    },
+    "task": {
+        "errorsTitle": "Iimpazamo zenzekile"
+    },
+    "topic": {
+        "NewTopic": "Umxholo omtsha",
+        "UpdateTopic": "Hlaziya isihloko",
+        "CreateTopic": "Yila isihloko",
+        "AreYouSureDeleteTopic": "Uqinisekile ukuba ufuna ukucima esi sihloko",
+        "TitlePlaceholder": "isihloko sesihloko...",
+        "DescribeTopic": "chaza isihloko...",
+        "TopicIcon": "Umfanekiso wesihloko",
+        "UploadIcon": "Layisha uphawu",
+        "Conversation": "Incoko",
+        "Metrics": "Iimetriki",
+        "Teaser": "Umtsalane",
+        "TeaserDescription": "inkcazo yomqhubi...",
+        "TeaserVideo": "Ividiyo yeTeaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Yenza umfanekiso oshukumayo",
+        "Width": "Ububanzi",
+        "Height": "Ubude",
+        "Start": "Qala",
+        "End": "Isiphelo",
+        "Delay": "Ukulibazisa",
+        "Quality": "Umgangatho",
+        "Size": "Ubungakanani",
+        "OfFrames": "yezakhelo",
+        "Frame": "Isakhelo",
+        "UseThis": "Sebenzisa oku",
+        "ResultGIF": "Isiphumo se-GIF",
+        "VideoElementNotFound": "Into yevidiyo ayifunyenwanga"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Ebusweni Bakho",
+        "AcceptIcon": "Yamkela indawo ekhethiweyo"
+    }
+}

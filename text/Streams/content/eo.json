@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Ĉi tiu enhavo estas kaŝita de vi.",
+        "InplaceTypeMustBe": "inplaceType devas esti &#39;textarea&#39; aŭ &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Nova Ero",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "antaŭnomo",
+        "lastName": "familia nomo",
+        "username": "uzantnomo"
+    },
+    "labels": {
+        "Streams\/invited": "Homoj, kiujn mi invitis",
+        "Streams\/invitedMe": "Kiu invitis min",
+        "DoYouAgree": "Ĉu vi konsentas?",
+        "JoinItNow": "Ĉu aliĝi al ĝi nun?",
+        "Yes": "Jes",
+        "No": "Ne"
+    },
+    "login": {
+        "prompt": "Lasu amikojn rekoni vin:",
+        "newUser": "aŭ kreu novan konton sube",
+        "picTooltip": "Vi povas ŝanĝi ĉi tiun bildon poste",
+        "placeholders": {
+            "fullName": "Enigu vian plenan nomon"
+        }
+    },
+    "interests": {
+        "Filter": "Serĉaj interesoj",
+        "CanGrant": "Se vi ankoraŭ ne povas trovi tion, kion vi serĉas, vi povas aldoni novan intereson sube:",
+        "TrySynonyms": "Ĉu vi ne vidas ĝin? Provu kelkajn sinonimojn.",
+        "AddUnderCategory": "Aldoni sub kategorio...",
+        "Other": "Aliaj",
+        "Unlisted": "Nelistigita"
+    },
+    "relate": {
+        "Add": "Aldonu {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Mesaĝo estis markita por administra revizio. Frapu denove por malmarki.",
+        "noOneSaid": "Neniu diris ion ajn",
+        "closeChatButton": "Fermu babilejon",
+        "closeChatConfirmTitle": "Ĉu fermi ĉi tiun babilejon?",
+        "closeChatConfirm": "Ĉu vi certas, ke vi volas fermi ĉi tiun babilejon?",
+        "Subscribed": "Sciigoj Ebligitaj",
+        "Unsubscribed": "Sciigoj silentigitaj",
+        "closeChatConfirmYes": "Jes",
+        "closeChatConfirmNo": "Ne",
+        "earlierComments": "pli fruaj komentoj",
+        "startedConversation": "komencis konversacion",
+        "RealTimeCall": "Reala Tempo Voko",
+        "JoinWebRTC": "Telekonferenco",
+        "SearchByName": "Serĉu laŭ nomo",
+        "Notifications": {
+            "Visit": "{{displayName}} vizitas la babilejon",
+            "Join": "{{displayName}} aliĝis al la babilejo",
+            "Leave": "{{displayName}} forlasis la babilejon",
+            "RelatedTo": "{{displayName}} komencis {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Aldonu komenton",
+            "Private": "Skribu privatan mesaĝon"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "administru viajn retpoŝtajn abonojn",
+        "IfUnsubscribe": "Se vi volas malaboni",
+        "changed": {
+            "ChangesIn": "Ŝanĝoj en {{title}}",
+            "Changed": "ŝanĝita",
+            "HereIsWhatChanged": "Jen kio ŝanĝiĝis:"
+        },
+        "joined": {
+            "Joined": "{{subject}} aliĝis al <em>{{title}}<\/em>"
+        },
+        "*": "Mesaĝo {{{message.fields.type}}} ĝis {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} aliĝis",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} restis",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} diris: {{{message.content}}}",
+        "Streams\/changed": "Ŝanĝoj en {{stream.fields.title}}",
+        "Streams\/invite": "Vi estis invitita al {{{stream.fields.title}}}",
+        "Streams\/announcement": "Anonco en {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} ŝanĝis aliron en {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Babilmesaĝo redaktita en {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Babilmesaĝo forigita en {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} estis fermita",
+        "Streams\/task\/progress": "Progreso farita sur {{stream.fields.title}}",
+        "Streams\/task\/complete": "Tasko plenumita: {{stream.fields.title}}",
+        "Streams\/task\/error": "Eraro dum: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Envenanta Mesaĝo",
+        "Streams\/relatedTo\/Streams\/call": "Nova Voko Komencita en {{toTitle}}",
+        "Streams\/relatedTo\/*": "Nova {{relationDisplayType}} en {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Aldonita al {{toTitle}} kiel {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} menciis vin en komento",
+        "Streams\/call": "{{displayName}} komencis realtempan vokon"
+    },
+    "invite": {
+        "command": "Invitu",
+        "Invite": "Invitu",
+        "Share": "Kunhavigi",
+        "Participants": "Invitu Homojn",
+        "messageContent": "{{displayName}} invitis vin al {{inviteUrl}}",
+        "youCanNowPaste": "Vi nun povas alglui ĉi tiun ligon ien por inviti homojn",
+        "roles": {
+            "title": "Ĉu Doni Rolojn al Invititaj Uzantoj?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Pardonu",
+                "alert": "Vi ne rajtas doni ĉi tiun rolon"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Pardonu",
+                "alert": "Vi ne rajtas forigi ĉi tiun rolon"
+            }
+        },
+        "labels": {
+            "title": "Kio estas via Rilato?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Elektu el viaj Kontaktoj",
+            "chooseAgainFromContacts": "Elektu Denove el Kontaktoj",
+            "inviteSelectedContacts": "Invitu Elektitajn Kontaktojn",
+            "selectFromContacts": "Elektu El Kontaktoj",
+            "userChooserPlaceholder": "Serĉu laŭ nomo",
+            "photo": "Prenu foton",
+            "photoOf": "Prenu foton de {{name}}",
+            "photoInstruction": "Se la persono kiu skanis vian QR-kodon estas antaŭ vi, prenu foton de ili",
+            "to": "Al: {{Stream Title}}",
+            "go": "Iru",
+            "title": "Invitu",
+            "placeholder": "Poŝtelefona numero aŭ retadreso",
+            "orInvite": "Aŭ invitu homojn uzante:",
+            "copyLink": "{{ClickOrTap}} por kopii invitligon ",
+            "shareOrCopyLink": "{{ClickOrTap}} por dividi aŭ kopii la invitligon ",
+            "QR": "{{ClickOrTap}} por generi QR-kodon",
+            "QRtitle": "Skanu ĉi tiun QR-kodon",
+            "QRscanned": "Ili skanis ĝin!",
+            "scannedQR": "{{ClickOrTap}} se la kodo estis skanita",
+            "TakeGroupPhoto": "Prenu grupan foton",
+            "Skip": "Saltu",
+            "byEmail": "Retpoŝto",
+            "byText": "Teksto",
+            "byFacebook": "Fejsbuko",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegramo",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Invitu Homojn",
+            "chooseMethod": "Elektu metodon:",
+            "selectContacts": "Elektu Kontaktojn",
+            "scanQRCode": "Skanu QR-kodon",
+            "shareLink": "Kunhavigu ligilon",
+            "chooseFromRegistered": "Elektu el registritaj uzantoj",
+            "inviteViaEmailOrSms": "Invitu per retpoŝto aŭ SMS",
+            "addRoles": "Aldonu Rolojn",
+            "addPersonalRoles": "Aldonu Personajn Rilatojn"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Bonvenon al {{communityName}}",
+            "HasInvitedYou": "invitis vin al:",
+            "HasInvitedYouToTheirProfile": "invitis vin konekti.",
+            "prompt": "Lasu amikojn rekoni vin:",
+            "accept": "Akceptu Inviton"
+        },
+        "email": {
+            "subject": "Hej, kontrolu ĉi tion",
+            "PleaseVisitLink": "Bonvolu viziti la sekvan ligilon:",
+            "InvitingYou": "Mi invitas vin al {{title}}",
+            "HasInvitedYou": "{{displayName}} invitis vin al {{title}}",
+            "HasMentionedYou": "{{displayName}} menciis vin en &quot; {{title}} &quot;",
+            "YOUAREINVITED": "VI ESTAS INVITITA!",
+            "AcceptInvite": "Akceptu Inviton"
+        },
+        "mobile": {
+            "content": "Vi estis invitita al {{title}} . Bonvolu frapeti {{url}}"
+        },
+        "notice": {
+            "text": "Vi estis invitita. {{ClickOrTap}} ĉi tie por akcepti kaj aliĝi."
+        },
+        "chat": {
+            "prompt": "Vi invitos homojn al konversacio, kie vi povas resti en kontakto, kunhavi fotojn kaj pli. Donu al ĝi nomon:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "afiŝis <em>{{message.fields.type}}<\/em> mesaĝon al {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "komentis",
+            "startedCallIn": "komencis vokon",
+            "in": "en",
+            "body": "en {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "estis afiŝita al",
+                "byAvatar": "de {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "havas novan {{instructions.fromDisplayType}}",
+                "byAvatar": "aldonita de {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Invitoj estas senditaj de nia numero, kiun viaj amikoj ankoraŭ ne rekonas. Sekvu per rapida teksto por sciigi ilin, ke la invito venis de vi, petante ilin klaki la ligilon.",
+            "confirm": "Invitoj estas senditaj de nia numero, kiun viaj amikoj ankoraŭ ne rekonas. Ĉu vi ŝatus daŭrigi per rapida teksto por sciigi ilin, ke la invito venis de vi, petante ilin klaki la ligilon.",
+            "check": "Hej, mi ĵus sendis al vi inviton al la {{app}} aplikaĵo. Bonvolu kontroli vian sms kaj klaki la ligilon!",
+            "CheckYourMobile": "Bonvolu kontroli SMS kaj sekvi instrukciojn!"
+        },
+        "email": {
+            "alert": "Invitoj estas senditaj de nia domajno, kiun viaj amikoj ankoraŭ ne rekonas. Sekvu per rapida teksto por sciigi ilin, ke la invito venis de vi, petante ilin klaki la ligilon.",
+            "confirm": "Invitoj estas senditaj de nia domajno, kiun viaj amikoj ankoraŭ ne rekonas. Ĉu vi ŝatus daŭrigi per rapida teksto por sciigi ilin, ke la invito venis de vi, petante ilin klaki la ligilon.",
+            "subject": "Ĉu vi ricevis inviton?",
+            "body": "Hej, mi ĵus sendis al vi inviton al la {{app}} aplikaĵo. Bonvolu kontroli vian retpoŝton kaj alklaku la ligilon tie!",
+            "CheckYourEmail": "Bonvolu kontroli vian retpoŝton kaj sekvi instrukciojn!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Nomo de uzanto..."
+    },
+    "identifier": {
+        "privacySettings": "Privatecaj Agordoj"
+    },
+    "participating": {
+        "Title": "Titolo",
+        "Subscribed": "Abonita",
+        "Participants": "Partoprenantoj",
+        "AreYouSureRemoveIdentifier": "Ĉu vi certe forigas ĉi tiun identigilon?",
+        "AreYouSureUnsubscribeIdentifier": "Ĉu vi certe malabonas ĉi tiun identigilon? Ĝi malŝaltos sciigojn al ĉi tiu identigilo.",
+        "AreYouSureUnsubscribeDevice": "Ĉu vi certas malaboni ĉi tiun aparaton? Ĝi malŝaltos sciigojn al ĉi tiu aparato.",
+        "AreYouSureRemoveParticipant": "Ĉu vi certas, ke vi volas forigi ĉi tiun partoprenanton?",
+        "RemoveParticipant": "Forigi partoprenanton",
+        "Identifiers": "Identigiloj",
+        "Devices": "Aparatoj",
+        "Streams": "Rojoj"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Invititaj",
+            "description": "Enirkesto por invitoj"
+        },
+        "Streams\/resource": {
+            "displayType": "Rimedo",
+            "description": "fluo por administri aliron al rimedo kaj afiŝi mesaĝojn pri ĝisdatigoj"
+        },
+        "Streams\/task": {
+            "description": "por ricevi ĝisdatigojn pri progreso pri certa tasko",
+            "displayType": "Tasko"
+        },
+        "Streams\/tasks": {
+            "description": "kategorio por taskoj",
+            "displayType": "Taskoj"
+        },
+        "Streams\/experience": {
+            "description": "komuna sperto por membroj de komunumo",
+            "displayType": "Ofta sperto por membroj de komunumo"
+        },
+        "Streams\/greeting": {
+            "description": "saluton per kiu uzanto povas prezenti sin",
+            "displayType": "Saluton"
+        },
+        "Streams\/number": {
+            "displayType": "Numero",
+            "description": "matematika nombro"
+        },
+        "Streams\/date": {
+            "displayType": "Dato",
+            "description": "dato"
+        },
+        "Streams\/text": {
+            "displayType": "Teksto",
+            "description": "korpo de teksto"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Teksto",
+            "description": "malgranda korpo de teksto"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Teksto",
+            "description": "meza korpo de teksto"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Retpoŝta Adreso",
+            "description": "retpoŝtadreso"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Telefonnumero",
+            "description": "telefonnumero"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "ligilo en la reto"
+        },
+        "Streams\/image": {
+            "displayType": "Bildo",
+            "description": "vida bildo",
+            "newItem": "Aldonu Bildon"
+        },
+        "Streams\/images": {
+            "displayType": "Bildgalerio",
+            "description": "galerio de bildoj"
+        },
+        "Streams\/album": {
+            "displayType": "Albumo",
+            "description": "albumo al kiu rilatas diversaj amaskomunikiloj"
+        },
+        "Streams\/file": {
+            "displayType": "Dosiero",
+            "description": "alŝutita dosiero",
+            "newItem": "Aldonu Dosieron"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio Clip",
+            "description": "aŭdklipo",
+            "newItem": "Aldonu Audion"
+        },
+        "Streams\/video": {
+            "displayType": "Video Clip",
+            "description": "filmeto",
+            "newItem": "Aldonu Videon"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF-dokumento",
+            "description": "PDF-dokumento",
+            "newItem": "Aldonu PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "viva audio aŭ video"
+        },
+        "Streams\/category": {
+            "displayType": "Kategorio",
+            "description": "kategorio al kiu aliaj fluoj povas rilati",
+            "newItem": "Aldonu Kategorion"
+        },
+        "Streams\/participating": {
+            "displayType": "Partoprena Indekso",
+            "description": "fluoj rilatas\/senrilatas al tio kiam uzanto aliĝas\/foriras"
+        },
+        "Streams\/interest": {
+            "displayType": "Intereso",
+            "description": "reprezentas la intereson de uzanto en certa temo"
+        },
+        "Streams\/incoming": {
+            "displayType": "Alvenanta",
+            "description": "celo por mesaĝoj senditaj de aliaj uzantoj"
+        },
+        "Streams\/chat": {
+            "displayType": "Konversacio",
+            "description": "konversacio inter uzantoj, kun historio"
+        },
+        "Streams\/question": {
+            "displayType": "Demando",
+            "description": "demandofluo",
+            "newItem": "Aldonu Demandon"
+        },
+        "Streams\/answer": {
+            "displayType": "Respondu",
+            "description": "respondfluo"
+        },
+        "Streams\/topic": {
+            "displayType": "Temo",
+            "description": "temofluo",
+            "newItem": "Aldonu Temon"
+        }
+    },
+    "menu": {
+        "placeholder": "tajpu paĝotitolon",
+        "ModTab": "Modifi Eron",
+        "Save": "Konservu",
+        "Delete": "Forigi",
+        "Submenu": "Submenuo"
+    },
+    "audio": {
+        "record": "Rekordo",
+        "reset": "Restarigi",
+        "edit": "Redakti",
+        "title": "titolo",
+        "description": "priskribo",
+        "upload": "Alŝutu",
+        "link": "Ligo",
+        "setUrl": "Agordu URL",
+        "save": "Konservu",
+        "setClip": "Eltranĉu Clip",
+        "invalidURL": "Nevalida URL",
+        "invalidFile": "Nevalida Dosiero",
+        "errorNoSource": "Neniu sonfonto",
+        "uploadLimit": "Maksimuma dosiergrandeco: {{size}}",
+        "errorFileSize": "Pardonu, sed dosiero tro granda.<br> Maksimuma dosiergrandeco estas {{size}}",
+        "TeaserAudio": "Teaser Aŭdio"
+    },
+    "video": {
+        "NewVideo": "Nova Video",
+        "EditVideo": "Redakti Videon",
+        "reset": "Restarigi",
+        "edit": "Redakti",
+        "title": "titolo",
+        "description": "priskribo",
+        "upload": "Alŝutu",
+        "link": "Ligo",
+        "setUrl": "Agordu URL",
+        "save": "Konservu",
+        "createAnimatedThumbnail": "Krei viglan bildeton",
+        "setClip": "Eltranĉu Clip",
+        "invalidURL": "Nevalida URL",
+        "invalidFile": "Nevalida Dosiero",
+        "errorNoSource": "Neniu videofonto",
+        "uploadLimit": "Maksimuma dosiergrandeco: {{size}}",
+        "errorFileSize": "Pardonu, sed dosiero tro granda.<br> Maksimuma dosiergrandeco estas {{size}}",
+        "errorNotAvailable": "Pardonu, sed video ankoraŭ ne disponeblas. Bonvolu provi denove poste.",
+        "TeaserVideo": "Teaser Video"
+    },
+    "pdf": {
+        "reset": "Restarigi",
+        "edit": "Redakti",
+        "title": "titolo",
+        "description": "priskribo",
+        "upload": "Alŝutu",
+        "link": "Ligo",
+        "setUrl": "Agordu URL",
+        "save": "Konservu",
+        "setClip": "Eltranĉu Clip",
+        "invalidURL": "Nevalida URL",
+        "invalidFile": "Nevalida Dosiero",
+        "errorNoSource": "Neniu pdf-fonto",
+        "uploadLimit": "Maksimuma dosiergrandeco: {{size}}",
+        "errorFileSize": "Pardonu, sed dosiero tro granda.<br> Maksimuma dosiergrandeco estas {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Restarigi",
+        "edit": "Redakti",
+        "title": "titolo",
+        "description": "priskribo",
+        "upload": "Alŝutu",
+        "link": "Ligo",
+        "setUrl": "Agordu URL",
+        "save": "Konservu",
+        "uploadedImage": "Alŝutita bildo",
+        "imageTitle": "Bilda titolo",
+        "setClip": "Eltranĉu Clip",
+        "invalidURL": "Nevalida URL",
+        "invalidFile": "Nevalida Dosiero",
+        "errorNoSource": "Neniu bildofonto",
+        "uploadLimit": "Maksimuma dosiergrandeco: {{size}}",
+        "errorFileSize": "Pardonu, sed dosiero tro granda.<br> Maksimuma dosiergrandeco estas {{size}}",
+        "TeaserImage": "Teaser Bildo"
+    },
+    "questions": {
+        "Questions": "Demandoj",
+        "Answers": "Respondoj",
+        "AnswerQuestion": "Responda Demando",
+        "SetYourAnswer": "Bonvolu respondi la demandon",
+        "NewQuestion": "Nova Demando",
+        "EditQuestion": "Redakti Demandon",
+        "NewAnswer": "Nova Respondo",
+        "NewPossibleAnswer": "Nova Ebla Respondo",
+        "AnswerDetails": "Respondaj Detaloj",
+        "answerOption": "Opcio",
+        "answerOptionExclusive": "Ekskluziva",
+        "answerTextarea": "Tekstaro",
+        "answerText": "Teksto",
+        "HideUntilAnswered": "Kaŝu ĝis respondo",
+        "CantChangeAnswers": "Ne povas ŝanĝi respondojn",
+        "ShortAnswer": "Skribu mallongan respondon",
+        "FreeAnswer": "Skribu vian respondon ĉi tie",
+        "SaveQuestion": "Konservu Demandon",
+        "SaveAnswer": "Konservu Respondon",
+        "Save": "Konservu",
+        "Send": "Sendu",
+        "TitleRequired": "Titolo bezonata!",
+        "AlreadyAnswered": "Jam respondis",
+        "TitlePlaceholder": "Tajpu vian demandon",
+        "ContentPlaceholder": "Metu ajnajn pliajn informojn ĉi tie por helpi homojn respondi",
+        "ErrorTitle": "Demando bezonata",
+        "Placeholder": "Skribu Instrukciojn",
+        "AreYouSure": "Ĉu vi certas?",
+        "AnswerCantBeChanged": "Respondo ne povas esti ŝanĝita"
+    },
+    "experience": {
+        "NewExperience": "Nova Sperto",
+        "DefineTitle": "Bonvolu difini titolon",
+        "Create": "Krei"
+    },
+    "calls": {
+        "SettingsTitle": "Vokoj",
+        "MaxCalls": "Max vokas",
+        "Update": "Ĝisdatigo",
+        "NoCallsYet": "Ankoraŭ neniuj vokoj",
+        "CallReasonTitle": "Pri kio temas ĉi tiu voko?",
+        "WaitingRoom": "Atendoĉambro",
+        "LiveRoom": "Viva Ĉambro",
+        "interviewedByAnotherHost": "Nuntempe estas intervjuita de alia gastiganto",
+        "bringToLive": "Bring To Live Show",
+        "putOnHold": "Metu En Tenon",
+        "endCall": "Finu Vokon",
+        "interview": "Intervjuo",
+        "markApproved": "Mark Aprobita"
+    },
+    "task": {
+        "errorsTitle": "Eraroj okazis"
+    },
+    "topic": {
+        "NewTopic": "Nova Temo",
+        "UpdateTopic": "Ĝisdatigi Temon",
+        "CreateTopic": "Krei Temon",
+        "AreYouSureDeleteTopic": "Ĉu vi certas, ke vi volas forigi ĉi tiun temon",
+        "TitlePlaceholder": "temo titolo...",
+        "DescribeTopic": "priskribu temon...",
+        "TopicIcon": "Tema bildo",
+        "UploadIcon": "Alŝutu Ikono",
+        "Conversation": "Konversacio",
+        "Metrics": "Metriko",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaserpriskribo...",
+        "TeaserVideo": "Teaser Video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Krei viglan bildeton",
+        "Width": "Larĝo",
+        "Height": "Alteco",
+        "Start": "Komencu",
+        "End": "Fino",
+        "Delay": "Prokrasto",
+        "Quality": "Kvalito",
+        "Size": "Grandeco",
+        "OfFrames": "de Kadroj",
+        "Frame": "Kadro",
+        "UseThis": "Uzu ĉi tion",
+        "ResultGIF": "Rezulta GIF",
+        "VideoElementNotFound": "Videoelemento ne trovita"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Sur Via Vizaĝo",
+        "AcceptIcon": "Akceptu elektitan areon"
+    }
+}

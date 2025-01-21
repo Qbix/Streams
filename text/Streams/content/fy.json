@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Dizze ynhâld is foar jo ferburgen.",
+        "InplaceTypeMustBe": "inplaceType moat &#39;textarea&#39; of &#39;text&#39; wêze"
+    },
+    "preview": {
+        "NewItemTitle": "Nij item",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "foarnamme",
+        "lastName": "efternamme",
+        "username": "brûkersnamme"
+    },
+    "labels": {
+        "Streams\/invited": "Minsken dy&#39;t ik útnoege",
+        "Streams\/invitedMe": "Wa útnoege my",
+        "DoYouAgree": "Binne jo it iens?",
+        "JoinItNow": "No meidwaan?",
+        "Yes": "Ja",
+        "No": "Nee"
+    },
+    "login": {
+        "prompt": "Lit freonen dy werkenne:",
+        "newUser": "of meitsje in nij akkount hjirûnder",
+        "picTooltip": "Jo kinne dizze foto letter feroarje",
+        "placeholders": {
+            "fullName": "Fier jo folsleine namme yn"
+        }
+    },
+    "interests": {
+        "Filter": "Sykje ynteresses",
+        "CanGrant": "As jo noch net kinne fine wat jo sykje, kinne jo hjirûnder in nij ynteresse tafoegje:",
+        "TrySynonyms": "Sjochst it net? Besykje wat synonimen.",
+        "AddUnderCategory": "Taheakje ûnder kategory...",
+        "Other": "Oar",
+        "Unlisted": "Net notearre"
+    },
+    "relate": {
+        "Add": "{{streamDisplayType}} tafoegje"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Berjocht is markearre foar beoardieling troch admin. Tik nochris om de flagge út te skeakeljen.",
+        "noOneSaid": "Nimmen hat wat sein",
+        "closeChatButton": "Chat slute",
+        "closeChatConfirmTitle": "Dit petear slute?",
+        "closeChatConfirm": "Binne jo wis dat jo dit petear slute wolle?",
+        "Subscribed": "Notifikaasjes ynskeakele",
+        "Unsubscribed": "Notifikaasjes Muted",
+        "closeChatConfirmYes": "Ja",
+        "closeChatConfirmNo": "Nee",
+        "earlierComments": "earder comments",
+        "startedConversation": "begûn in petear",
+        "RealTimeCall": "Real Time Call",
+        "JoinWebRTC": "Telekonferinsje",
+        "SearchByName": "Sykje op namme",
+        "Notifications": {
+            "Visit": "{{displayName}} besiket it petear",
+            "Join": "{{displayName}} dogge mei oan it petear",
+            "Leave": "{{displayName}} ferliet it petear",
+            "RelatedTo": "{{displayName}} begûn in {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Foegje in reaksje",
+            "Private": "Skriuw in priveeberjocht"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "beheare jo e-postabonneminten",
+        "IfUnsubscribe": "As jo wolle ôfmelde",
+        "changed": {
+            "ChangesIn": "De wiziging yn {{title}}",
+            "Changed": "feroare",
+            "HereIsWhatChanged": "Hjir is wat feroare:"
+        },
+        "joined": {
+            "Joined": "{{subject}} joegen <em>{{title}}<\/em> oan"
+        },
+        "*": "Berjocht {{{message.fields.type}}} oant {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} joined",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} oer",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} sei: {{{message.content}}}",
+        "Streams\/changed": "De wiziging yn {{stream.fields.title}}",
+        "Streams\/invite": "Jo binne útnoege foar {{{stream.fields.title}}}",
+        "Streams\/announcement": "Oankundiging yn {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} feroare tagong yn {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Petearberjocht bewurke yn {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Petearberjocht fuortsmiten yn {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} is sluten",
+        "Streams\/task\/progress": "Foarútgong makke op {{stream.fields.title}}",
+        "Streams\/task\/complete": "Opdracht foltôge: {{stream.fields.title}}",
+        "Streams\/task\/error": "Flater tidens: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Ynkommende Berjocht",
+        "Streams\/relatedTo\/Streams\/call": "Nije oprop begon yn {{toTitle}}",
+        "Streams\/relatedTo\/*": "Nij {{relationDisplayType}} yn {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Taheakke oan {{toTitle}} as {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} neamde jo yn in reaksje",
+        "Streams\/call": "{{displayName}} begûn in real-time oprop"
+    },
+    "invite": {
+        "command": "Noegje",
+        "Invite": "Noegje",
+        "Share": "Diele",
+        "Participants": "Minsken útnoegje",
+        "messageContent": "{{displayName}} útnoege jo nei {{inviteUrl}}",
+        "youCanNowPaste": "Jo kinne dizze keppeling no earne plakke om minsken út te noegjen",
+        "roles": {
+            "title": "Rollen jaan oan útnoege brûkers?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Sorry",
+                "alert": "Jo binne net autorisearre om dizze rol te jaan"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Sorry",
+                "alert": "Jo binne net autorisearre om dizze rol te ferwiderjen"
+            }
+        },
+        "labels": {
+            "title": "Wat is dyn relaasje?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Kies út jo kontakten",
+            "chooseAgainFromContacts": "Kies nochris út Kontakten",
+            "inviteSelectedContacts": "Noegje selektearre kontakten út",
+            "selectFromContacts": "Selektearje Fan kontakten",
+            "userChooserPlaceholder": "Sykje op namme",
+            "photo": "Nim in foto",
+            "photoOf": "Nim in foto fan {{name}}",
+            "photoInstruction": "As de persoan dy&#39;t jo QR-koade scande foar jo is, nim dan in foto fan har",
+            "to": "oan: {{Stream Title}}",
+            "go": "Gean",
+            "title": "Noegje",
+            "placeholder": "Mobyl nûmer of e-postadres",
+            "orInvite": "Of noegje minsken út troch te brûken:",
+            "copyLink": "{{ClickOrTap}} te kopiearjen útnoeging keppeling ",
+            "shareOrCopyLink": "{{ClickOrTap}} te dielen of kopiearje útnoeging keppeling ",
+            "QR": "{{ClickOrTap}} om QR-koade te generearjen",
+            "QRtitle": "Scan dizze QR-koade",
+            "QRscanned": "Se scanden it!",
+            "scannedQR": "{{ClickOrTap}} as de koade waard skansearre",
+            "TakeGroupPhoto": "Nim in groepsfoto",
+            "Skip": "Oerslaan",
+            "byEmail": "Email",
+            "byText": "Tekst",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Minsken útnoegje",
+            "chooseMethod": "Kies in metoade:",
+            "selectContacts": "Selektearje Kontakten",
+            "scanQRCode": "Scan QR Code",
+            "shareLink": "Diel in keppeling",
+            "chooseFromRegistered": "Kies út registrearre brûkers",
+            "inviteViaEmailOrSms": "Útnoegje fia e-mail of SMS",
+            "addRoles": "Rollen tafoegje",
+            "addPersonalRoles": "Foegje persoanlike relaasjes ta"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Wolkom by {{communityName}}",
+            "HasInvitedYou": "hat jo útnoege om:",
+            "HasInvitedYouToTheirProfile": "hat jo útnoege om te ferbinen.",
+            "prompt": "Lit freonen dy werkenne:",
+            "accept": "Akseptearje útnoeging"
+        },
+        "email": {
+            "subject": "Hey, check dit út",
+            "PleaseVisitLink": "Besykje asjebleaft de folgjende keppeling:",
+            "InvitingYou": "Ik noegje jo út foar {{title}}",
+            "HasInvitedYou": "{{displayName}} hat jo útnoege foar {{title}}",
+            "HasMentionedYou": "{{displayName}} hat dy neamd yn &quot; {{title}} &quot;",
+            "YOUAREINVITED": "JO BINNE ÚTNOED!",
+            "AcceptInvite": "Akseptearje útnoeging"
+        },
+        "mobile": {
+            "content": "Jo binne útnoege foar {{title}} . Tap asjebleaft {{url}}"
+        },
+        "notice": {
+            "text": "Jo binne útnoege. {{ClickOrTap}} hjir om te akseptearjen en mei te dwaan."
+        },
+        "chat": {
+            "prompt": "Jo sille minsken útnoegje foar in petear wêr&#39;t jo yn kontakt bliuwe kinne, foto&#39;s tegearre kinne diele, en mear. Jou it in namme:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "pleatste in <em>{{message.fields.type}}<\/em> berjocht nei {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "kommentearre op",
+            "startedCallIn": "begûn in oprop yn",
+            "in": "yn",
+            "body": "yn {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "is pleatst oan",
+                "byAvatar": "oer {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "hat in nije {{instructions.fromDisplayType}}",
+                "byAvatar": "tafoege troch {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Utnoegings wurde ferstjoerd fan ús nûmer, dat jo freonen noch net werkenne. Folgje op mei in rappe tekst om se te litten witte dat de útnoeging fan jo kaam, en freegje se om op de keppeling te klikken.",
+            "confirm": "Utnoegings wurde ferstjoerd fan ús nûmer, dat jo freonen noch net werkenne. Wolle jo opfolgje mei in flugge tekst om se te litten witte dat de útnoeging fan jo kaam, en freegje se om op de keppeling te klikken.",
+            "check": "Hey, ik haw jo krekt in útnoeging stjoerd nei de {{app}} -app. Kontrolearje asjebleaft jo sms en klik op de keppeling!",
+            "CheckYourMobile": "Kontrolearje asjebleaft SMS en folgje ynstruksjes!"
+        },
+        "email": {
+            "alert": "Utnoegings wurde ferstjoerd fan ús domein, dat jo freonen noch net werkenne. Folgje op mei in rappe tekst om se te litten witte dat de útnoeging fan jo kaam, en freegje har om op de keppeling te klikken.",
+            "confirm": "Utnoegings wurde ferstjoerd fan ús domein, dat jo freonen noch net werkenne. Wolle jo opfolgje mei in flugge tekst om se te litten witte dat de útnoeging fan jo kaam, en freegje se om op de keppeling te klikken.",
+            "subject": "Hawwe jo in útnoeging krigen?",
+            "body": "Hey, ik haw jo krekt in útnoeging stjoerd nei de {{app}} -app. Kontrolearje asjebleaft jo e-post en klikje op de keppeling dêryn!",
+            "CheckYourEmail": "Kontrolearje asjebleaft jo e-post en folgje de ynstruksjes!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Namme fan in brûker..."
+    },
+    "identifier": {
+        "privacySettings": "Privacy ynstellings"
+    },
+    "participating": {
+        "Title": "Titel",
+        "Subscribed": "Ynskreaun",
+        "Participants": "Dielnimmers",
+        "AreYouSureRemoveIdentifier": "Binne jo wis dat jo dizze identifier fuortsmite?",
+        "AreYouSureUnsubscribeIdentifier": "Binne jo wis dat jo dizze identifier ôfskriuwe? It sil notifikaasjes foar dizze identifier útskeakelje.",
+        "AreYouSureUnsubscribeDevice": "Binne jo wis dat jo dit apparaat ôfmelde? It sil notifikaasjes nei dit apparaat útsette.",
+        "AreYouSureRemoveParticipant": "Binne jo wis dat jo dizze dielnimmer fuortsmite wolle?",
+        "RemoveParticipant": "Fuortsmite dielnimmer",
+        "Identifiers": "Identifikaasjes",
+        "Devices": "Apparaten",
+        "Streams": "Streams"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Utnoege",
+            "description": "Postfak foar útnoegings"
+        },
+        "Streams\/resource": {
+            "displayType": "Helpmiddel",
+            "description": "stream foar it behearen fan tagong ta in boarne en it pleatsen fan berjochten oer updates"
+        },
+        "Streams\/task": {
+            "description": "foar it ûntfangen fan updates oer foarútgong op in bepaalde taak",
+            "displayType": "Taak"
+        },
+        "Streams\/tasks": {
+            "description": "kategory foar taken",
+            "displayType": "Taken"
+        },
+        "Streams\/experience": {
+            "description": "in mienskiplike ûnderfining foar leden fan in mienskip",
+            "displayType": "Mienskiplike ûnderfining foar leden fan in mienskip"
+        },
+        "Streams\/greeting": {
+            "description": "groetnis wêrmei in brûker har foarstelle kin",
+            "displayType": "Groet"
+        },
+        "Streams\/number": {
+            "displayType": "Nûmer",
+            "description": "wiskundige getal"
+        },
+        "Streams\/date": {
+            "displayType": "Datum",
+            "description": "datum"
+        },
+        "Streams\/text": {
+            "displayType": "Tekst",
+            "description": "lichem fan tekst"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Tekst",
+            "description": "lyts lichem fan tekst"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Tekst",
+            "description": "medium lichem fan tekst"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "E-postadres",
+            "description": "e-postadres"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Tillefoannûmer",
+            "description": "telefoannûmer"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link op it web"
+        },
+        "Streams\/image": {
+            "displayType": "Byld",
+            "description": "fisuele ôfbylding",
+            "newItem": "Ofbylding tafoegje"
+        },
+        "Streams\/images": {
+            "displayType": "Image Gallery",
+            "description": "galery fan bylden"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "in album dêr&#39;t ferskate media oan besibbe binne"
+        },
+        "Streams\/file": {
+            "displayType": "File",
+            "description": "uploaded triem",
+            "newItem": "Triem taheakje"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio klip",
+            "description": "audio klip",
+            "newItem": "Add Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Videoklip",
+            "description": "fideoklip",
+            "newItem": "Fideo tafoegje"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF dokumint",
+            "description": "PDF dokumint",
+            "newItem": "Add PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "live audio of fideo"
+        },
+        "Streams\/category": {
+            "displayType": "Kategory",
+            "description": "in kategory dêr&#39;t oare streamen mei relatearre wurde kinne",
+            "newItem": "Add Category"
+        },
+        "Streams\/participating": {
+            "displayType": "Dielnimmende Index",
+            "description": "streamen binne besibbe \/ net besibbe oan dit as in brûker meidwaan \/ ferlit"
+        },
+        "Streams\/interest": {
+            "displayType": "Rinte",
+            "description": "fertsjintwurdiget de belangstelling fan in brûker yn in bepaald ûnderwerp"
+        },
+        "Streams\/incoming": {
+            "displayType": "Ynkommende",
+            "description": "bestimming foar berjochten ferstjoerd troch oare brûkers"
+        },
+        "Streams\/chat": {
+            "displayType": "Petear",
+            "description": "in petear tusken brûkers, mei skiednis"
+        },
+        "Streams\/question": {
+            "displayType": "Fraach",
+            "description": "fraach stream",
+            "newItem": "Foegje fraach ta"
+        },
+        "Streams\/answer": {
+            "displayType": "Antwurd",
+            "description": "antwurd stream"
+        },
+        "Streams\/topic": {
+            "displayType": "Ûnderwerp",
+            "description": "ûnderwerp stream",
+            "newItem": "Underwerp taheakje"
+        }
+    },
+    "menu": {
+        "placeholder": "type side titel",
+        "ModTab": "Item wizigje",
+        "Save": "Rêde",
+        "Delete": "Wiskje",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Opnimme",
+        "reset": "Weromsette",
+        "edit": "Bewurkje",
+        "title": "titel",
+        "description": "beskriuwing",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Rêde",
+        "setClip": "Knip út klip",
+        "invalidURL": "Unjildige URL",
+        "invalidFile": "Unjildige triem",
+        "errorNoSource": "Gjin audio boarne",
+        "uploadLimit": "Maksimale triemgrutte: {{size}}",
+        "errorFileSize": "Sorry, mar it bestân is te grut.<br> De maksimale triemgrutte is {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Nije fideo",
+        "EditVideo": "Video bewurkje",
+        "reset": "Weromsette",
+        "edit": "Bewurkje",
+        "title": "titel",
+        "description": "beskriuwing",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Rêde",
+        "createAnimatedThumbnail": "Meitsje animearre thumbnail",
+        "setClip": "Knip út klip",
+        "invalidURL": "Unjildige URL",
+        "invalidFile": "Unjildige triem",
+        "errorNoSource": "Gjin fideo boarne",
+        "uploadLimit": "Maksimale triemgrutte: {{size}}",
+        "errorFileSize": "Sorry, mar it bestân is te grut.<br> De maksimale triemgrutte is {{size}}",
+        "errorNotAvailable": "Sorry, mar fideo is noch net beskikber. Besykje it letter nochris.",
+        "TeaserVideo": "Teaser Video"
+    },
+    "pdf": {
+        "reset": "Weromsette",
+        "edit": "Bewurkje",
+        "title": "titel",
+        "description": "beskriuwing",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Rêde",
+        "setClip": "Knip út klip",
+        "invalidURL": "Unjildige URL",
+        "invalidFile": "Unjildige triem",
+        "errorNoSource": "Gjin pdf boarne",
+        "uploadLimit": "Maksimale triemgrutte: {{size}}",
+        "errorFileSize": "Sorry, mar it bestân is te grut.<br> De maksimale triemgrutte is {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Weromsette",
+        "edit": "Bewurkje",
+        "title": "titel",
+        "description": "beskriuwing",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Rêde",
+        "uploadedImage": "Uploaded ôfbylding",
+        "imageTitle": "Ofbylding titel",
+        "setClip": "Knip út klip",
+        "invalidURL": "Unjildige URL",
+        "invalidFile": "Unjildige triem",
+        "errorNoSource": "Gjin ôfbylding boarne",
+        "uploadLimit": "Maksimale triemgrutte: {{size}}",
+        "errorFileSize": "Sorry, mar it bestân is te grut.<br> De maksimale triemgrutte is {{size}}",
+        "TeaserImage": "Teaser Ofbylding"
+    },
+    "questions": {
+        "Questions": "Fragen",
+        "Answers": "Antwurden",
+        "AnswerQuestion": "Antwurd fraach",
+        "SetYourAnswer": "Antwurdzje asjebleaft de fraach",
+        "NewQuestion": "Nije fraach",
+        "EditQuestion": "Fraach bewurkje",
+        "NewAnswer": "Nij antwurd",
+        "NewPossibleAnswer": "Nije mooglik antwurd",
+        "AnswerDetails": "Antwurd Details",
+        "answerOption": "Opsje",
+        "answerOptionExclusive": "Eksklusyf",
+        "answerTextarea": "Tekstgebiet",
+        "answerText": "Tekst",
+        "HideUntilAnswered": "Ferbergje oant beäntwurde",
+        "CantChangeAnswers": "Kin antwurden net feroarje",
+        "ShortAnswer": "Skriuw in koart antwurd",
+        "FreeAnswer": "Skriuw jo antwurd hjir",
+        "SaveQuestion": "Bewarje fraach",
+        "SaveAnswer": "Bewarje Antwurd",
+        "Save": "Rêde",
+        "Send": "Stjoere",
+        "TitleRequired": "Titel fereaske!",
+        "AlreadyAnswered": "Al beäntwurde",
+        "TitlePlaceholder": "Typ jo fraach",
+        "ContentPlaceholder": "Set hjir alle oanfoljende ynformaasje om minsken te helpen antwurdzje",
+        "ErrorTitle": "Fraach fereaske",
+        "Placeholder": "Skriuw ynstruksjes",
+        "AreYouSure": "Bisto wis?",
+        "AnswerCantBeChanged": "Antwurd kin net feroare wurde"
+    },
+    "experience": {
+        "NewExperience": "Nije ûnderfining",
+        "DefineTitle": "Definiearje asjebleaft in titel",
+        "Create": "Meitsje"
+    },
+    "calls": {
+        "SettingsTitle": "Oproppen",
+        "MaxCalls": "Max ropt",
+        "Update": "Update",
+        "NoCallsYet": "Noch gjin oproppen",
+        "CallReasonTitle": "Wêr giet dizze oprop oer?",
+        "WaitingRoom": "Wachtkeamer",
+        "LiveRoom": "Live Room",
+        "interviewedByAnotherHost": "Op it stuit wurdt ynterviewd troch in oare gasthear",
+        "bringToLive": "Bring nei Live Show",
+        "putOnHold": "Ophâlde sette",
+        "endCall": "Oprop einigje",
+        "interview": "Fraachpetear",
+        "markApproved": "Mark goedkard"
+    },
+    "task": {
+        "errorsTitle": "Der barde flaters"
+    },
+    "topic": {
+        "NewTopic": "Nij ûnderwerp",
+        "UpdateTopic": "Underwerp bywurkje",
+        "CreateTopic": "Underwerp oanmeitsje",
+        "AreYouSureDeleteTopic": "Binne jo wis dat jo dit ûnderwerp wiskje wolle",
+        "TitlePlaceholder": "ûnderwerp titel...",
+        "DescribeTopic": "beskriuw it ûnderwerp ...",
+        "TopicIcon": "Underwerp foto",
+        "UploadIcon": "Upload Ikoan",
+        "Conversation": "Petear",
+        "Metrics": "Metriken",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser beskriuwing...",
+        "TeaserVideo": "Teaser Video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Meitsje animearre thumbnail",
+        "Width": "Breedte",
+        "Height": "Hichte",
+        "Start": "Start",
+        "End": "Ein",
+        "Delay": "Fertraging",
+        "Quality": "Kwaliteit",
+        "Size": "Grutte",
+        "OfFrames": "fan Frames",
+        "Frame": "Frame",
+        "UseThis": "Brûk dit",
+        "ResultGIF": "Resultaat GIF",
+        "VideoElementNotFound": "Fideo-elemint net fûn"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Op dyn gesicht",
+        "AcceptIcon": "Akseptearje selektearre gebiet"
+    }
+}

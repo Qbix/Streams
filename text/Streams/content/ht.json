@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Kontni sa a kache pou ou.",
+        "InplaceTypeMustBe": "inplaceType dwe &#39;textarea&#39; oswa &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Nouvo atik",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "premye non",
+        "lastName": "siyati",
+        "username": "non itilizatè"
+    },
+    "labels": {
+        "Streams\/invited": "Moun mwen envite",
+        "Streams\/invitedMe": "Ki moun ki envite m &#39;",
+        "DoYouAgree": "Ou dakò?",
+        "JoinItNow": "Antre nan li kounye a?",
+        "Yes": "Wi",
+        "No": "Non"
+    },
+    "login": {
+        "prompt": "Kite zanmi yo rekonèt ou:",
+        "newUser": "oswa kreye yon nouvo kont anba a",
+        "picTooltip": "Ou ka chanje foto sa pita",
+        "placeholders": {
+            "fullName": "Antre non konplè ou"
+        }
+    },
+    "interests": {
+        "Filter": "Rechèch enterè yo",
+        "CanGrant": "Si w toujou pa ka jwenn sa w ap chèche a, ou ka ajoute yon nouvo enterè anba a:",
+        "TrySynonyms": "pa wè li? Eseye kèk sinonim.",
+        "AddUnderCategory": "Ajoute anba kategori...",
+        "Other": "Lòt",
+        "Unlisted": "Ki pa nan lis"
+    },
+    "relate": {
+        "Add": "Ajoute {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Mesaj te make pou revize admin. Tape ankò pou retire mak.",
+        "noOneSaid": "Pa gen moun ki di anyen",
+        "closeChatButton": "Fèmen chat",
+        "closeChatConfirmTitle": "Fèmen chat sa a?",
+        "closeChatConfirm": "Èske w sèten ou vle fèmen chat sa a?",
+        "Subscribed": "Notifikasyon Pèmèt",
+        "Unsubscribed": "Notifikasyon yo fèmen",
+        "closeChatConfirmYes": "Wi",
+        "closeChatConfirmNo": "Non",
+        "earlierComments": "kòmantè anvan yo",
+        "startedConversation": "te kòmanse yon konvèsasyon",
+        "RealTimeCall": "Rele an tan reyèl",
+        "JoinWebRTC": "Telekonferans",
+        "SearchByName": "Chèche pa non",
+        "Notifications": {
+            "Visit": "{{displayName}} ap vizite chat la",
+            "Join": "{{displayName}} rantre nan chat la",
+            "Leave": "{{displayName}} kite chat la",
+            "RelatedTo": "{{displayName}} te kòmanse yon {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Ajoute yon kòmantè",
+            "Private": "Ekri yon mesaj prive"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "jere abònman imel ou yo",
+        "IfUnsubscribe": "Si ou vle dezabòne",
+        "changed": {
+            "ChangesIn": "Chanjman nan {{title}}",
+            "Changed": "chanje",
+            "HereIsWhatChanged": "Men sa ki chanje:"
+        },
+        "joined": {
+            "Joined": "{{subject}} rantre nan <em>{{title}}<\/em>"
+        },
+        "*": "Mesaj {{{message.fields.type}}} a {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} rantre",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} kite",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} te di: {{{message.content}}}",
+        "Streams\/changed": "Chanjman nan {{stream.fields.title}}",
+        "Streams\/invite": "Ou te envite nan {{{stream.fields.title}}}",
+        "Streams\/announcement": "Anons nan {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} chanje aksè nan {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Mesaj chat modifye nan {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Mesaj chat retire nan {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} te fèmen",
+        "Streams\/task\/progress": "Pwogrè te fè sou {{stream.fields.title}}",
+        "Streams\/task\/complete": "Travay ranpli: {{stream.fields.title}}",
+        "Streams\/task\/error": "Erè pandan: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Mesaj kap vini",
+        "Streams\/relatedTo\/Streams\/call": "Nouvo apèl te kòmanse an {{toTitle}}",
+        "Streams\/relatedTo\/*": "Nouvo {{relationDisplayType}} nan {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Te ajoute nan {{toTitle}} kòm {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} mansyone ou nan yon kòmantè",
+        "Streams\/call": "{{displayName}} te kòmanse yon apèl an tan reyèl"
+    },
+    "invite": {
+        "command": "Envite",
+        "Invite": "Envite",
+        "Share": "Pataje",
+        "Participants": "Envite Moun",
+        "messageContent": "{{displayName}} envite w nan {{inviteUrl}}",
+        "youCanNowPaste": "Ou kapab kounye a kole lyen sa a yon kote pou envite moun",
+        "roles": {
+            "title": "Bay wòl itilizatè envite yo?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Padon",
+                "alert": "Ou pa otorize pou bay wòl sa a"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Padon",
+                "alert": "Ou pa otorize pou retire wòl sa a"
+            }
+        },
+        "labels": {
+            "title": "Ki relasyon w genyen?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Chwazi nan kontak ou yo",
+            "chooseAgainFromContacts": "Chwazi ankò nan kontak",
+            "inviteSelectedContacts": "Envite Kontak Chwazi yo",
+            "selectFromContacts": "Chwazi nan Kontak",
+            "userChooserPlaceholder": "Chèche pa non",
+            "photo": "Pran yon foto",
+            "photoOf": "Pran yon foto {{name}}",
+            "photoInstruction": "Si moun ki te eskane kòd QR ou a devan ou, pran yon foto ladan l",
+            "to": "Pou: {{Stream Title}}",
+            "go": "Ale",
+            "title": "Envite",
+            "placeholder": "Nimewo mobil oswa adrès imel",
+            "orInvite": "Oswa envite moun lè w itilize:",
+            "copyLink": "{{ClickOrTap}} pou kopye lyen envite ",
+            "shareOrCopyLink": "{{ClickOrTap}} pou pataje oswa kopye lyen envite ",
+            "QR": "{{ClickOrTap}} pou jenere kòd QR",
+            "QRtitle": "Eskane kòd QR sa a",
+            "QRscanned": "Yo tcheke li!",
+            "scannedQR": "{{ClickOrTap}} si yo te tcheke kòd la",
+            "TakeGroupPhoto": "Pran yon Foto Gwoup",
+            "Skip": "Sote",
+            "byEmail": "Imèl",
+            "byText": "Tèks",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Envite Moun",
+            "chooseMethod": "Chwazi yon metòd:",
+            "selectContacts": "Chwazi Kontak",
+            "scanQRCode": "Eskane kòd QR",
+            "shareLink": "Pataje yon lyen",
+            "chooseFromRegistered": "Chwazi nan itilizatè ki anrejistre yo",
+            "inviteViaEmailOrSms": "Envite pa imel oswa SMS",
+            "addRoles": "Ajoute Wòl",
+            "addPersonalRoles": "Ajoute Relasyon Pèsonèl"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Byenveni nan {{communityName}}",
+            "HasInvitedYou": "te envite ou nan:",
+            "HasInvitedYouToTheirProfile": "te envite ou konekte.",
+            "prompt": "Kite zanmi yo rekonèt ou:",
+            "accept": "Aksepte Envitasyon"
+        },
+        "email": {
+            "subject": "Hey, tcheke sa a deyò",
+            "PleaseVisitLink": "Tanpri vizite lyen sa a:",
+            "InvitingYou": "Mwen envite w nan {{title}}",
+            "HasInvitedYou": "{{displayName}} envite ou nan {{title}}",
+            "HasMentionedYou": "{{displayName}} te mansyone ou nan &quot; {{title}} &quot;",
+            "YOUAREINVITED": "NOU ENVITE!",
+            "AcceptInvite": "Aksepte Envitasyon"
+        },
+        "mobile": {
+            "content": "Yo te envite w nan {{title}} . Tanpri tape {{url}}"
+        },
+        "notice": {
+            "text": "Ou te envite. {{ClickOrTap}} isit la pou aksepte ak rantre nan."
+        },
+        "chat": {
+            "prompt": "Ou pral envite moun nan yon konvèsasyon kote ou ka rete an kontak, pataje foto ansanm, ak plis ankò. Bay li yon non:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "poste yon mesaj <em>{{message.fields.type}}<\/em> nan {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "kòmante sou",
+            "startedCallIn": "te kòmanse yon apèl nan",
+            "in": "nan",
+            "body": "nan {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "te afiche nan",
+                "byAvatar": "pa {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "gen yon nouvo {{instructions.fromDisplayType}}",
+                "byAvatar": "te ajoute pa {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Envitasyon yo voye nan nimewo nou an, ke zanmi ou yo poko rekonèt. Swiv ak yon tèks rapid pou fè yo konnen envitasyon an soti nan ou, mande yo klike sou lyen an.",
+            "confirm": "Envitasyon yo voye nan nimewo nou an, ke zanmi ou yo poko rekonèt. Èske ou ta renmen swiv ak yon tèks rapid pou fè yo konnen envitasyon an soti nan ou, mande yo klike sou lyen an.",
+            "check": "Hey, mwen jis voye yon envitasyon pou ou nan aplikasyon {{app}} la. Tanpri tcheke sms ou epi klike sou lyen an!",
+            "CheckYourMobile": "Tanpri tcheke SMS epi swiv enstriksyon yo!"
+        },
+        "email": {
+            "alert": "Envitasyon yo voye soti nan domèn nou an, ke zanmi ou yo poko rekonèt. Swiv ak yon tèks rapid pou fè yo konnen envitasyon an soti nan ou, mande yo klike sou lyen an.",
+            "confirm": "Envitasyon yo voye soti nan domèn nou an, ke zanmi ou yo poko rekonèt. Èske ou ta renmen swiv ak yon tèks rapid pou fè yo konnen envitasyon an soti nan ou, mande yo klike sou lyen an.",
+            "subject": "Èske ou te resevwa yon envite?",
+            "body": "Hey, mwen jis voye yon envitasyon pou ou nan aplikasyon {{app}} la. Tanpri tcheke imel ou epi klike sou lyen ki la!",
+            "CheckYourEmail": "Tanpri tcheke imel ou epi swiv enstriksyon yo!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Non itilizatè..."
+    },
+    "identifier": {
+        "privacySettings": "Anviwònman konfidansyalite"
+    },
+    "participating": {
+        "Title": "Tit",
+        "Subscribed": "Abòne",
+        "Participants": "Patisipan yo",
+        "AreYouSureRemoveIdentifier": "Èske w asire w ke w retire idantifyan sa a?",
+        "AreYouSureUnsubscribeIdentifier": "Èske w sèten dezabònman idantifikasyon sa a? Li pral fèmen notifikasyon nan idantifyan sa a.",
+        "AreYouSureUnsubscribeDevice": "Èske w sèten dezabòne aparèy sa a? Li pral fèmen notifikasyon nan aparèy sa a.",
+        "AreYouSureRemoveParticipant": "Èske w sèten ou vle retire patisipan sa a?",
+        "RemoveParticipant": "Retire patisipan yo",
+        "Identifiers": "Idantifyan",
+        "Devices": "Aparèy",
+        "Streams": "Kouran"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Envite",
+            "description": "Inbox pou envitasyon"
+        },
+        "Streams\/resource": {
+            "displayType": "Resous",
+            "description": "kouran pou jere aksè nan yon resous ak afiche mesaj sou mizajou"
+        },
+        "Streams\/task": {
+            "description": "pou resevwa mizajou sou pwogrè nan yon sèten travay",
+            "displayType": "Travay"
+        },
+        "Streams\/tasks": {
+            "description": "kategori pou travay",
+            "displayType": "Travay"
+        },
+        "Streams\/experience": {
+            "description": "yon eksperyans komen pou manm yon kominote",
+            "displayType": "Eksperyans komen pou manm yon kominote"
+        },
+        "Streams\/greeting": {
+            "description": "bonjou ak yon itilizatè ka prezante tèt yo",
+            "displayType": "Bonjou"
+        },
+        "Streams\/number": {
+            "displayType": "Nimewo",
+            "description": "nimewo matematik"
+        },
+        "Streams\/date": {
+            "displayType": "Dat",
+            "description": "dat"
+        },
+        "Streams\/text": {
+            "displayType": "Tèks",
+            "description": "kò tèks la"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Tèks",
+            "description": "ti kò tèks"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Tèks",
+            "description": "mwayen tèks"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Adrès Imèl",
+            "description": "adrès imel"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Nimewo Telefòn",
+            "description": "nimewo telefòn"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "lyen sou entènèt la"
+        },
+        "Streams\/image": {
+            "displayType": "Imaj",
+            "description": "imaj vizyèl",
+            "newItem": "Ajoute imaj"
+        },
+        "Streams\/images": {
+            "displayType": "Galeri Imaj",
+            "description": "galri imaj yo"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "yon album ki gen rapò ak plizyè medya"
+        },
+        "Streams\/file": {
+            "displayType": "File",
+            "description": "dosye telechaje",
+            "newItem": "Ajoute File"
+        },
+        "Streams\/audio": {
+            "displayType": "Clip Audio",
+            "description": "clip odyo",
+            "newItem": "Ajoute odyo"
+        },
+        "Streams\/video": {
+            "displayType": "Clip Videyo",
+            "description": "clip videyo",
+            "newItem": "Ajoute videyo"
+        },
+        "Streams\/pdf": {
+            "displayType": "Dokiman PDF",
+            "description": "Dokiman PDF",
+            "newItem": "Ajoute PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "viv odyo oswa videyo"
+        },
+        "Streams\/category": {
+            "displayType": "Kategori",
+            "description": "yon kategori ak lòt kouran yo ka gen rapò",
+            "newItem": "Ajoute Kategori"
+        },
+        "Streams\/participating": {
+            "displayType": "Endèks Patisipan",
+            "description": "kouran yo gen rapò\/pa gen rapò ak sa a lè yon itilizatè rantre nan\/kite"
+        },
+        "Streams\/interest": {
+            "displayType": "Enterè",
+            "description": "reprezante enterè yon itilizatè nan yon sèten sijè"
+        },
+        "Streams\/incoming": {
+            "displayType": "Fèk ap rantre",
+            "description": "destinasyon pou mesaj lòt itilizatè yo voye"
+        },
+        "Streams\/chat": {
+            "displayType": "Konvèsasyon",
+            "description": "yon konvèsasyon ant itilizatè yo, ak istwa"
+        },
+        "Streams\/question": {
+            "displayType": "Kesyon",
+            "description": "kouran kesyon",
+            "newItem": "Ajoute Kesyon"
+        },
+        "Streams\/answer": {
+            "displayType": "Repons",
+            "description": "kouran repons"
+        },
+        "Streams\/topic": {
+            "displayType": "Sijè",
+            "description": "kouran sijè",
+            "newItem": "Ajoute Sijè"
+        }
+    },
+    "menu": {
+        "placeholder": "tape tit paj la",
+        "ModTab": "Modifye atik",
+        "Save": "Sove",
+        "Delete": "Efase",
+        "Submenu": "Sou-menu"
+    },
+    "audio": {
+        "record": "Dosye",
+        "reset": "Reyajiste",
+        "edit": "Edit",
+        "title": "tit",
+        "description": "deskripsyon",
+        "upload": "Telechaje",
+        "link": "Link",
+        "setUrl": "Mete URL",
+        "save": "Sove",
+        "setClip": "Koupe Clip",
+        "invalidURL": "URL pa valab",
+        "invalidFile": "Fichye ki pa valab",
+        "errorNoSource": "Pa gen sous odyo",
+        "uploadLimit": "Gwosè maksimòm dosye: {{size}}",
+        "errorFileSize": "Padon, men dosye a twò gwo.<br> Gwosè maksimòm dosye a se {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Nouvo Videyo",
+        "EditVideo": "Edit videyo",
+        "reset": "Reyajiste",
+        "edit": "Edit",
+        "title": "tit",
+        "description": "deskripsyon",
+        "upload": "Telechaje",
+        "link": "Link",
+        "setUrl": "Mete URL",
+        "save": "Sove",
+        "createAnimatedThumbnail": "Kreye miniature anime",
+        "setClip": "Koupe Clip",
+        "invalidURL": "URL pa valab",
+        "invalidFile": "Fichye ki pa valab",
+        "errorNoSource": "Pa gen sous videyo",
+        "uploadLimit": "Gwosè maksimòm dosye: {{size}}",
+        "errorFileSize": "Padon, men dosye a twò gwo.<br> Gwosè maksimòm dosye a se {{size}}",
+        "errorNotAvailable": "Padon, men videyo a poko disponib. Tanpri eseye ankò pita.",
+        "TeaserVideo": "Teaser Videyo"
+    },
+    "pdf": {
+        "reset": "Reyajiste",
+        "edit": "Edit",
+        "title": "tit",
+        "description": "deskripsyon",
+        "upload": "Telechaje",
+        "link": "Link",
+        "setUrl": "Mete URL",
+        "save": "Sove",
+        "setClip": "Koupe Clip",
+        "invalidURL": "URL pa valab",
+        "invalidFile": "Fichye ki pa valab",
+        "errorNoSource": "Pa gen sous pdf",
+        "uploadLimit": "Gwosè maksimòm dosye: {{size}}",
+        "errorFileSize": "Padon, men dosye a twò gwo.<br> Gwosè maksimòm dosye a se {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Reyajiste",
+        "edit": "Edit",
+        "title": "tit",
+        "description": "deskripsyon",
+        "upload": "Telechaje",
+        "link": "Link",
+        "setUrl": "Mete URL",
+        "save": "Sove",
+        "uploadedImage": "Uploaded imaj",
+        "imageTitle": "Tit imaj",
+        "setClip": "Koupe Clip",
+        "invalidURL": "URL pa valab",
+        "invalidFile": "Fichye ki pa valab",
+        "errorNoSource": "Pa gen sous imaj",
+        "uploadLimit": "Gwosè maksimòm dosye: {{size}}",
+        "errorFileSize": "Padon, men dosye a twò gwo.<br> Gwosè maksimòm dosye a se {{size}}",
+        "TeaserImage": "Teaser Imaj"
+    },
+    "questions": {
+        "Questions": "Kesyon",
+        "Answers": "Repons",
+        "AnswerQuestion": "Reponn Kesyon",
+        "SetYourAnswer": "Tanpri reponn kesyon an",
+        "NewQuestion": "Nouvo Kesyon",
+        "EditQuestion": "Edit Kesyon",
+        "NewAnswer": "Nouvo Repons",
+        "NewPossibleAnswer": "Nouvo Repons Posib",
+        "AnswerDetails": "Repons detay",
+        "answerOption": "Opsyon",
+        "answerOptionExclusive": "Eksklizif",
+        "answerTextarea": "Textarea",
+        "answerText": "Tèks",
+        "HideUntilAnswered": "Kache jiskaske yo reponn",
+        "CantChangeAnswers": "Pa ka chanje repons yo",
+        "ShortAnswer": "Ekri yon repons kout",
+        "FreeAnswer": "Ekri repons ou isit la",
+        "SaveQuestion": "Sove Kesyon",
+        "SaveAnswer": "Sove repons",
+        "Save": "Sove",
+        "Send": "Voye",
+        "TitleRequired": "Tit obligatwa!",
+        "AlreadyAnswered": "Deja reponn",
+        "TitlePlaceholder": "Tape kesyon ou a",
+        "ContentPlaceholder": "Mete nenpòt enfòmasyon adisyonèl isit la pou ede moun reponn",
+        "ErrorTitle": "Kesyon obligatwa",
+        "Placeholder": "Ekri Enstriksyon yo",
+        "AreYouSure": "Èske w sèten?",
+        "AnswerCantBeChanged": "Repons pa ka chanje"
+    },
+    "experience": {
+        "NewExperience": "Nouvo Eksperyans",
+        "DefineTitle": "Tanpri defini yon tit",
+        "Create": "Kreye"
+    },
+    "calls": {
+        "SettingsTitle": "Apèl",
+        "MaxCalls": "Max rele",
+        "Update": "Mizajou",
+        "NoCallsYet": "Pa gen apèl ankò",
+        "CallReasonTitle": "Ki sa ki rele sa a?",
+        "WaitingRoom": "Sal datant",
+        "LiveRoom": "Live Room",
+        "interviewedByAnotherHost": "Kounye a se yon lòt lame entèvyouve",
+        "bringToLive": "Bring To Live Show",
+        "putOnHold": "Mete sou kenbe",
+        "endCall": "Fini apèl",
+        "interview": "Entèvyou",
+        "markApproved": "Mak Apwouve"
+    },
+    "task": {
+        "errorsTitle": "Erè ki te fèt"
+    },
+    "topic": {
+        "NewTopic": "Nouvo Sijè",
+        "UpdateTopic": "Mizajou Sijè",
+        "CreateTopic": "Kreye Sijè",
+        "AreYouSureDeleteTopic": "Èske w sèten ou vle efase sijè sa a",
+        "TitlePlaceholder": "tit sijè...",
+        "DescribeTopic": "dekri sijè...",
+        "TopicIcon": "Foto sijè",
+        "UploadIcon": "Telechaje Icône",
+        "Conversation": "Konvèsasyon",
+        "Metrics": "Metrik",
+        "Teaser": "Teaser",
+        "TeaserDescription": "deskripsyon teaser...",
+        "TeaserVideo": "Teaser Videyo"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Kreye miniature anime",
+        "Width": "Lajè",
+        "Height": "Wotè",
+        "Start": "Kòmanse",
+        "End": "Fen",
+        "Delay": "Reta",
+        "Quality": "Kalite",
+        "Size": "Gwosè",
+        "OfFrames": "nan ankadreman",
+        "Frame": "Ankadreman",
+        "UseThis": "Sèvi ak sa a",
+        "ResultGIF": "GIF rezilta",
+        "VideoElementNotFound": "Eleman videyo pa jwenn"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Sou figi ou",
+        "AcceptIcon": "Aksepte zòn chwazi"
+    }
+}

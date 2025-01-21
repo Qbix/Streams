@@ -469,7 +469,8 @@
         "ErrorTitle": "Angen cwestiwn",
         "Placeholder": "Ysgrifennu Cyfarwyddiadau",
         "AreYouSure": "Wyt ti&#39;n siwr?",
-        "ShortAnswer": "Ysgrifennwch ateb byr"
+        "ShortAnswer": "Ysgrifennwch ateb byr",
+        "AnswerCantBeChanged": "Ni ellir newid yr ateb"
     },
     "experience": {
         "NewExperience": "Profiad Newydd",

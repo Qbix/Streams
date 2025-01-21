@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Wannan abun ciki yana ɓoye daga gare ku.",
+        "InplaceTypeMustBe": "InplaceType dole ne ya zama &#39;textarea&#39; ko &#39;rubutu&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Sabon Abu",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "sunan rana",
+        "lastName": "sunan mahaifa",
+        "username": "sunan mai amfani"
+    },
+    "labels": {
+        "Streams\/invited": "Mutanen da na gayyata",
+        "Streams\/invitedMe": "Wanda ya gayyace ni",
+        "DoYouAgree": "Kun yarda?",
+        "JoinItNow": "Shiga yanzu?",
+        "Yes": "Ee",
+        "No": "A&#39;a"
+    },
+    "login": {
+        "prompt": "Bari abokai su gane ku:",
+        "newUser": "ko ƙirƙirar sabon asusu a ƙasa",
+        "picTooltip": "Kuna iya canza wannan hoton daga baya",
+        "placeholders": {
+            "fullName": "Shigar da cikakken sunan ku"
+        }
+    },
+    "interests": {
+        "Filter": "Bincika abubuwan sha&#39;awa",
+        "CanGrant": "Idan har yanzu ba za ku iya samun abin da kuke nema ba, kuna iya ƙara sabon sha&#39;awa a ƙasa:",
+        "TrySynonyms": "Ba gani ba? Gwada wasu ma&#39;ana.",
+        "AddUnderCategory": "Ƙara ƙarƙashin rukuni...",
+        "Other": "Sauran",
+        "Unlisted": "Ba a lissafta ba"
+    },
+    "relate": {
+        "Add": "Ƙara {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "An yi tutar saƙo don duba mai gudanarwa. Matsa sake don cire tuta.",
+        "noOneSaid": "Babu wanda ya ce komai",
+        "closeChatButton": "Rufe hira",
+        "closeChatConfirmTitle": "Rufe wannan hira?",
+        "closeChatConfirm": "Shin kun tabbata kuna son rufe wannan taɗi?",
+        "Subscribed": "An kunna sanarwar",
+        "Unsubscribed": "An kashe sanarwar",
+        "closeChatConfirmYes": "Ee",
+        "closeChatConfirmNo": "A&#39;a",
+        "earlierComments": "comments a baya",
+        "startedConversation": "suka fara zance",
+        "RealTimeCall": "Real Time Call",
+        "JoinWebRTC": "Taron tarho",
+        "SearchByName": "Bincika da suna",
+        "Notifications": {
+            "Visit": "{{displayName}} yana ziyartar hira",
+            "Join": "{{displayName}} sun shiga hira",
+            "Leave": "{{displayName}} ya bar hira",
+            "RelatedTo": "{{displayName}} ya fara {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Ƙara sharhi",
+            "Private": "Rubuta saƙon sirri"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "sarrafa biyan kuɗin imel ɗin ku",
+        "IfUnsubscribe": "Idan kuna son cirewa",
+        "changed": {
+            "ChangesIn": "Canje-canje a cikin {{title}}",
+            "Changed": "canza",
+            "HereIsWhatChanged": "Ga abin da ya canza:"
+        },
+        "joined": {
+            "Joined": "{{subject}} sun shiga <em>{{title}}<\/em>"
+        },
+        "*": "Sako {{{message.fields.type}}} zuwa {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} ya shiga",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} zuwa",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} yace: {{{message.content}}}",
+        "Streams\/changed": "Canje-canje a cikin {{stream.fields.title}}",
+        "Streams\/invite": "An gayyace ku zuwa {{{stream.fields.title}}}",
+        "Streams\/announcement": "Sanarwa a cikin {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} ya canza shiga cikin {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "An gyara saƙon taɗi a cikin {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "An cire sakon taɗi a cikin {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} an rufe",
+        "Streams\/task\/progress": "Ci gaban da aka samu akan {{stream.fields.title}}",
+        "Streams\/task\/complete": "An kammala aikin: {{stream.fields.title}}",
+        "Streams\/task\/error": "Kuskure lokacin: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Saƙo mai shigowa",
+        "Streams\/relatedTo\/Streams\/call": "An Fara Sabon Kira a {{toTitle}}",
+        "Streams\/relatedTo\/*": "Sabbin {{relationDisplayType}} a cikin {{toTitle}}",
+        "Streams\/relatedFrom\/*": "An ƙara zuwa {{toTitle}} kamar {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} sun ambace ku a cikin sharhi",
+        "Streams\/call": "{{displayName}} ya fara kira na ainihi"
+    },
+    "invite": {
+        "command": "Gayyata",
+        "Invite": "Gayyata",
+        "Share": "Raba",
+        "Participants": "Gayyato Mutane",
+        "messageContent": "{{displayName}} ya gayyace ku zuwa {{inviteUrl}}",
+        "youCanNowPaste": "Yanzu zaku iya liƙa wannan hanyar haɗin gwiwa a wani wuri don gayyatar mutane",
+        "roles": {
+            "title": "Bada Matsayin Gayyata Masu Amfani?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Yi hakuri",
+                "alert": "Ba ku da izinin ba da wannan rawar"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Yi hakuri",
+                "alert": "Ba ku da izinin cire wannan rawar"
+            }
+        },
+        "labels": {
+            "title": "Menene Alakar ku?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Zaɓi daga Lambobin sadarwanku",
+            "chooseAgainFromContacts": "Zaɓi Sake daga Lambobin sadarwa",
+            "inviteSelectedContacts": "Gayyatar Zaɓaɓɓun Lambobin",
+            "selectFromContacts": "Zaɓi Daga Lambobi",
+            "userChooserPlaceholder": "Bincika da suna",
+            "photo": "Ɗauki hoto",
+            "photoOf": "Ɗauki hoto na {{name}}",
+            "photoInstruction": "Idan mutumin da ya leka lambar QR ɗinku yana gaban ku, ɗauki hoton su",
+            "to": "ku: {{Stream Title}}",
+            "go": "Tafi",
+            "title": "Gayyata",
+            "placeholder": "Lambar wayar hannu ko adireshin imel",
+            "orInvite": "Ko gayyatar mutane ta amfani da:",
+            "copyLink": "{{ClickOrTap}} don kwafi hanyar haɗin gayyata ",
+            "shareOrCopyLink": "{{ClickOrTap}} don raba ko kwafi hanyar haɗin gayyata ",
+            "QR": "{{ClickOrTap}} don samar da lambar QR",
+            "QRtitle": "Duba wannan lambar QR",
+            "QRscanned": "Sun leka shi!",
+            "scannedQR": "{{ClickOrTap}} idan an duba lambar",
+            "TakeGroupPhoto": "Ɗauki Hoto na rukuni",
+            "Skip": "Tsallake",
+            "byEmail": "Imel",
+            "byText": "Rubutu",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Gayyato Mutane",
+            "chooseMethod": "Zaɓi hanya:",
+            "selectContacts": "Zaɓi Lambobi",
+            "scanQRCode": "Duba lambar QR",
+            "shareLink": "Raba hanyar haɗi",
+            "chooseFromRegistered": "Zaɓi daga masu amfani masu rijista",
+            "inviteViaEmailOrSms": "Gayyata ta imel ko SMS",
+            "addRoles": "Ƙara Matsayi",
+            "addPersonalRoles": "Ƙara Dangantaka na Keɓaɓɓu"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Barka da zuwa {{communityName}}",
+            "HasInvitedYou": "ya gayyace ku zuwa:",
+            "HasInvitedYouToTheirProfile": "ya gayyace ku don haɗawa.",
+            "prompt": "Bari abokai su gane ku:",
+            "accept": "Karɓi Gayyata"
+        },
+        "email": {
+            "subject": "Kai, duba wannan",
+            "PleaseVisitLink": "Da fatan za a ziyarci mahaɗin da ke biyowa:",
+            "InvitingYou": "Ina gayyatar ku zuwa {{title}}",
+            "HasInvitedYou": "{{displayName}} ya gayyace ku zuwa {{title}}",
+            "HasMentionedYou": "{{displayName}} ya ambace ku a cikin &quot; {{title}} &quot;",
+            "YOUAREINVITED": "ANA GAYYATAR KA!",
+            "AcceptInvite": "Karɓi Gayyata"
+        },
+        "mobile": {
+            "content": "An gayyace ku zuwa {{title}} . Da fatan za a danna {{url}}"
+        },
+        "notice": {
+            "text": "An gayyace ku. {{ClickOrTap}} nan don karɓa da shiga."
+        },
+        "chat": {
+            "prompt": "Za ku kasance yana gayyatar mutane zuwa tattaunawa inda zaku iya tuntuɓar ku, raba hotuna tare, da ƙari. Ka ba shi suna:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "ya aika sako <em>{{message.fields.type}}<\/em> zuwa {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "yayi sharhi akan",
+            "startedCallIn": "ya fara kira a ciki",
+            "in": "in",
+            "body": "a cikin {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "an buga zuwa",
+                "byAvatar": "da {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "yana da sabon {{instructions.fromDisplayType}}",
+                "byAvatar": "ya kara da {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Ana aiko da gayyata daga lambar mu, wanda har yanzu abokanka ba su gane ba. Ku biyoni da saurin rubutu don sanar da su gayyata ta fito daga gare ku, kuna neman su danna hanyar haɗin yanar gizon.",
+            "confirm": "Ana aiko da gayyata daga lambar mu, wanda har yanzu abokanka ba su gane ba. Kuna so ku bibiyar rubutu mai sauri don sanar da su gayyatar ta fito daga gare ku, kuna neman su danna hanyar haɗin yanar gizon.",
+            "check": "Hey, na aiko muku da gayyata zuwa ga {{app}} app. Da fatan za a duba sms ɗin ku kuma danna mahaɗin!",
+            "CheckYourMobile": "Da fatan za a duba SMS kuma ku bi umarni!"
+        },
+        "email": {
+            "alert": "Ana aika gayyata daga yankinmu, wanda har yanzu abokanka ba su gane ba. Ku biyoni tare da saurin rubutu don sanar da su gayyatar ta fito daga gare ku, kuna neman su danna hanyar haɗin yanar gizon.",
+            "confirm": "Ana aika gayyata daga yankinmu, wanda har yanzu abokanka ba su gane ba. Kuna so ku bibiyar rubutu mai sauri don sanar da su gayyatar ta fito daga gare ku, kuna neman su danna hanyar haɗin yanar gizon.",
+            "subject": "Shin kun sami gayyatar?",
+            "body": "Hey, na aiko muku da gayyata zuwa ga {{app}} app. Da fatan za a duba imel ɗin ku kuma danna mahaɗin da ke ciki!",
+            "CheckYourEmail": "Da fatan za a duba imel ɗin ku kuma bi umarni!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Sunan mai amfani..."
+    },
+    "identifier": {
+        "privacySettings": "Saitunan Sirri"
+    },
+    "participating": {
+        "Title": "Take",
+        "Subscribed": "An yi rajista",
+        "Participants": "Mahalarta",
+        "AreYouSureRemoveIdentifier": "Shin kuna da tabbacin cire wannan mai ganowa?",
+        "AreYouSureUnsubscribeIdentifier": "Shin kun tabbata cire rajistar wannan mai ganowa? Zai kashe sanarwar wannan mai ganowa.",
+        "AreYouSureUnsubscribeDevice": "Shin kun tabbata cire rajistar wannan na&#39;urar? Zai kashe sanarwar wannan na&#39;urar.",
+        "AreYouSureRemoveParticipant": "Shin kun tabbata kuna son cire wannan ɗan takara?",
+        "RemoveParticipant": "Cire ɗan takara",
+        "Identifiers": "Masu ganowa",
+        "Devices": "Na&#39;urori",
+        "Streams": "Rafukan ruwa"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "An gayyata",
+            "description": "Akwatin saƙo don gayyata"
+        },
+        "Streams\/resource": {
+            "displayType": "Albarkatu",
+            "description": "rafi don sarrafa damar zuwa hanya da aika saƙonni game da sabuntawa"
+        },
+        "Streams\/task": {
+            "description": "don karɓar sabuntawa game da ci gaba akan wani aiki",
+            "displayType": "Aiki"
+        },
+        "Streams\/tasks": {
+            "description": "category don ayyuka",
+            "displayType": "Ayyuka"
+        },
+        "Streams\/experience": {
+            "description": "gwaninta gama gari ga membobin al&#39;umma",
+            "displayType": "Kwarewar gama gari ga membobin al&#39;umma"
+        },
+        "Streams\/greeting": {
+            "description": "gaisuwa wanda mai amfani zai iya gabatar da kansu",
+            "displayType": "Gaisuwa"
+        },
+        "Streams\/number": {
+            "displayType": "Lamba",
+            "description": "lambar lissafi"
+        },
+        "Streams\/date": {
+            "displayType": "Kwanan wata",
+            "description": "kwanan wata"
+        },
+        "Streams\/text": {
+            "displayType": "Rubutu",
+            "description": "jikin rubutu"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Rubutu",
+            "description": "ƙananan rubutun"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Rubutu",
+            "description": "matsakaicin jikin rubutu"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Adireshin i-mel",
+            "description": "adireshin i-mel"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Lambar tarho",
+            "description": "lambar tarho"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "mahada a kan yanar gizo"
+        },
+        "Streams\/image": {
+            "displayType": "Hoto",
+            "description": "hoto na gani",
+            "newItem": "Ƙara Hoto"
+        },
+        "Streams\/images": {
+            "displayType": "Gidan Hoto",
+            "description": "gallery na hotuna"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "kundin da kafofin watsa labarai daban-daban ke da alaƙa da shi"
+        },
+        "Streams\/file": {
+            "displayType": "Fayil",
+            "description": "uploaded fayil",
+            "newItem": "Ƙara Fayil"
+        },
+        "Streams\/audio": {
+            "displayType": "Clip Audio",
+            "description": "shirin audio",
+            "newItem": "Ƙara Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Shirin Bidiyo",
+            "description": "shirin bidiyo",
+            "newItem": "Ƙara Bidiyo"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF daftarin aiki",
+            "description": "PDF daftarin aiki",
+            "newItem": "Ƙara PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "audio ko bidiyo kai tsaye"
+        },
+        "Streams\/category": {
+            "displayType": "Kashi",
+            "description": "wani nau&#39;in da sauran rafukan za su iya danganta su",
+            "newItem": "Ƙara Nau&#39;i"
+        },
+        "Streams\/participating": {
+            "displayType": "Fihirisar shiga",
+            "description": "rafukan suna da alaƙa\/mara alaƙa da wannan lokacin da mai amfani ya shiga\/bari"
+        },
+        "Streams\/interest": {
+            "displayType": "Sha&#39;awa",
+            "description": "yana wakiltar sha&#39;awar mai amfani ga wani batu"
+        },
+        "Streams\/incoming": {
+            "displayType": "Mai shigowa",
+            "description": "wurin saƙon da wasu masu amfani suka aiko"
+        },
+        "Streams\/chat": {
+            "displayType": "Tattaunawa",
+            "description": "tattaunawa tsakanin masu amfani, tare da tarihi"
+        },
+        "Streams\/question": {
+            "displayType": "Tambaya",
+            "description": "rafin tambaya",
+            "newItem": "Ƙara Tambaya"
+        },
+        "Streams\/answer": {
+            "displayType": "Amsa",
+            "description": "rafi amsa"
+        },
+        "Streams\/topic": {
+            "displayType": "Taken",
+            "description": "batun rafi",
+            "newItem": "Ƙara Taken"
+        }
+    },
+    "menu": {
+        "placeholder": "rubuta taken shafi",
+        "ModTab": "Gyara Abu",
+        "Save": "Ajiye",
+        "Delete": "Share",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Yi rikodin",
+        "reset": "Sake saitin",
+        "edit": "Gyara",
+        "title": "take",
+        "description": "bayanin",
+        "upload": "Loda",
+        "link": "mahada",
+        "setUrl": "Saita URL",
+        "save": "Ajiye",
+        "setClip": "Yanke Clip",
+        "invalidURL": "URL mara inganci",
+        "invalidFile": "Fayil mara inganci",
+        "errorNoSource": "Babu tushen sauti",
+        "uploadLimit": "Max girman fayil: {{size}}",
+        "errorFileSize": "Yi haƙuri, amma fayil yayi girma sosai.<br> Mafi girman girman fayil shine {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Sabon Bidiyo",
+        "EditVideo": "Gyara Bidiyo",
+        "reset": "Sake saitin",
+        "edit": "Gyara",
+        "title": "take",
+        "description": "bayanin",
+        "upload": "Loda",
+        "link": "mahada",
+        "setUrl": "Saita URL",
+        "save": "Ajiye",
+        "createAnimatedThumbnail": "Ƙirƙiri ɗan yatsa mai rai",
+        "setClip": "Yanke Clip",
+        "invalidURL": "URL mara inganci",
+        "invalidFile": "Fayil mara inganci",
+        "errorNoSource": "Babu tushen bidiyo",
+        "uploadLimit": "Max girman fayil: {{size}}",
+        "errorFileSize": "Yi haƙuri, amma fayil yayi girma sosai.<br> Matsakaicin girman fayil shine {{size}}",
+        "errorNotAvailable": "Yi haƙuri, amma babu bidiyo har yanzu. Da fatan za a sake gwadawa daga baya.",
+        "TeaserVideo": "Bidiyon Teaser"
+    },
+    "pdf": {
+        "reset": "Sake saitin",
+        "edit": "Gyara",
+        "title": "take",
+        "description": "bayanin",
+        "upload": "Loda",
+        "link": "mahada",
+        "setUrl": "Saita URL",
+        "save": "Ajiye",
+        "setClip": "Yanke Clip",
+        "invalidURL": "URL mara inganci",
+        "invalidFile": "Fayil mara inganci",
+        "errorNoSource": "Babu tushen pdf",
+        "uploadLimit": "Max girman fayil: {{size}}",
+        "errorFileSize": "Yi haƙuri, amma fayil yayi girma sosai.<br> Matsakaicin girman fayil shine {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Sake saitin",
+        "edit": "Gyara",
+        "title": "take",
+        "description": "bayanin",
+        "upload": "Loda",
+        "link": "mahada",
+        "setUrl": "Saita URL",
+        "save": "Ajiye",
+        "uploadedImage": "Hoton da aka ɗora",
+        "imageTitle": "Taken hoto",
+        "setClip": "Yanke Clip",
+        "invalidURL": "URL mara inganci",
+        "invalidFile": "Fayil mara inganci",
+        "errorNoSource": "Babu tushen hoto",
+        "uploadLimit": "Max girman fayil: {{size}}",
+        "errorFileSize": "Yi haƙuri, amma fayil yayi girma sosai.<br> Mafi girman girman fayil shine {{size}}",
+        "TeaserImage": "Hoton Teaser"
+    },
+    "questions": {
+        "Questions": "Tambayoyi",
+        "Answers": "Amsa",
+        "AnswerQuestion": "Amsa Tambaya",
+        "SetYourAnswer": "Da fatan za a amsa tambayar",
+        "NewQuestion": "Sabuwar Tambaya",
+        "EditQuestion": "Gyara Tambaya",
+        "NewAnswer": "Sabuwar Amsa",
+        "NewPossibleAnswer": "Sabuwar Amsa Mai yiwuwa",
+        "AnswerDetails": "Cikakkun Amsa",
+        "answerOption": "Zabin",
+        "answerOptionExclusive": "Keɓaɓɓe",
+        "answerTextarea": "Yankin rubutu",
+        "answerText": "Rubutu",
+        "HideUntilAnswered": "Boye har sai an amsa",
+        "CantChangeAnswers": "Ba za a iya canza amsoshi ba",
+        "ShortAnswer": "Rubuta gajeriyar amsa",
+        "FreeAnswer": "Rubuta amsar ku anan",
+        "SaveQuestion": "Ajiye Tambaya",
+        "SaveAnswer": "Ajiye Amsa",
+        "Save": "Ajiye",
+        "Send": "Aika",
+        "TitleRequired": "Take ake bukata!",
+        "AlreadyAnswered": "Tuni ya amsa",
+        "TitlePlaceholder": "Buga tambayar ku",
+        "ContentPlaceholder": "Saka kowane ƙarin bayani anan don taimakawa mutane amsa",
+        "ErrorTitle": "Tambaya ake bukata",
+        "Placeholder": "Rubuta Umarni",
+        "AreYouSure": "Ka tabbata?",
+        "AnswerCantBeChanged": "Ba za a iya canza amsa ba"
+    },
+    "experience": {
+        "NewExperience": "Sabon Kwarewa",
+        "DefineTitle": "Da fatan za a ayyana take",
+        "Create": "Ƙirƙiri"
+    },
+    "calls": {
+        "SettingsTitle": "Kira",
+        "MaxCalls": "Matsakaicin kira",
+        "Update": "Sabuntawa",
+        "NoCallsYet": "Babu kira tukuna",
+        "CallReasonTitle": "Menene wannan kira akai?",
+        "WaitingRoom": "Dakin Jira",
+        "LiveRoom": "Dakin Rayuwa",
+        "interviewedByAnotherHost": "A halin yanzu an yi hira da wani mai masaukin baki",
+        "bringToLive": "Kawo Zuwa Nunin Rayuwa",
+        "putOnHold": "Saka A Rike",
+        "endCall": "Ƙare Kira",
+        "interview": "Hira",
+        "markApproved": "Alamar Amincewa"
+    },
+    "task": {
+        "errorsTitle": "Kurakurai sun faru"
+    },
+    "topic": {
+        "NewTopic": "Sabon Take",
+        "UpdateTopic": "Sabunta Take",
+        "CreateTopic": "Ƙirƙiri Taken",
+        "AreYouSureDeleteTopic": "Ka tabbata kana son share wannan batu",
+        "TitlePlaceholder": "taken taken...",
+        "DescribeTopic": "bayyana batun...",
+        "TopicIcon": "Hoton batu",
+        "UploadIcon": "Ikon loda",
+        "Conversation": "Tattaunawa",
+        "Metrics": "Ma&#39;auni",
+        "Teaser": "Teaser",
+        "TeaserDescription": "bayanin teaser...",
+        "TeaserVideo": "Bidiyon Teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Ƙirƙiri ɗan yatsa mai rai",
+        "Width": "Nisa",
+        "Height": "Tsayi",
+        "Start": "Fara",
+        "End": "Ƙarshe",
+        "Delay": "Jinkiri",
+        "Quality": "inganci",
+        "Size": "Girman",
+        "OfFrames": "na Frames",
+        "Frame": "Frame",
+        "UseThis": "Yi amfani da wannan",
+        "ResultGIF": "Sakamakon GIF",
+        "VideoElementNotFound": "Ba a samo ɓangaren bidiyo ba"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} A Fuskarka",
+        "AcceptIcon": "Karɓi yanki da aka zaɓa"
+    }
+}

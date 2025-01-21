@@ -469,7 +469,8 @@
         "ErrorTitle": "Soru gerekli",
         "Placeholder": "Talimatları Yaz",
         "AreYouSure": "Emin misin?",
-        "ShortAnswer": "kısa bir cevap yaz"
+        "ShortAnswer": "kısa bir cevap yaz",
+        "AnswerCantBeChanged": "Cevap değiştirilemez"
     },
     "experience": {
         "NewExperience": "Yeni deneyim",

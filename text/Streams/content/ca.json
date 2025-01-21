@@ -469,7 +469,8 @@
         "ErrorTitle": "Pregunta necessària",
         "Placeholder": "Escriu instruccions",
         "AreYouSure": "Estàs segur?",
-        "ShortAnswer": "Escriu una resposta breu"
+        "ShortAnswer": "Escriu una resposta breu",
+        "AnswerCantBeChanged": "La resposta no es pot canviar"
     },
     "experience": {
         "NewExperience": "Nova experiència",

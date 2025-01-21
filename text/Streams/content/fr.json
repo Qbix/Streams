@@ -469,7 +469,8 @@
         "ErrorTitle": "Question requise",
         "Placeholder": "Instructions d&#39;écriture",
         "AreYouSure": "Es-tu sûr?",
-        "ShortAnswer": "Rédigez une courte réponse"
+        "ShortAnswer": "Rédigez une courte réponse",
+        "AnswerCantBeChanged": "La réponse ne peut pas être modifiée"
     },
     "experience": {
         "NewExperience": "Nouvelle expérience",

@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Nuxurkani waa kaa qarsoon yahay.",
+        "InplaceTypeMustBe": "Nooca meesha ku jira waa inuu noqdaa &#39;textarea&#39; ama &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Shay Cusub",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "magaca hore",
+        "lastName": "magaca dambe",
+        "username": "username"
+    },
+    "labels": {
+        "Streams\/invited": "Dadka aan casuumay",
+        "Streams\/invitedMe": "Yaa I casuumay",
+        "DoYouAgree": "Ma ku raacsan tahay?",
+        "JoinItNow": "Hadda ku biir?",
+        "Yes": "Haa",
+        "No": "Maya"
+    },
+    "login": {
+        "prompt": "Asxaabtu ha ku garteen:",
+        "newUser": "ama hoos ka samee akoon cusub",
+        "picTooltip": "Waad bedeli kartaa sawirkan hadhow",
+        "placeholders": {
+            "fullName": "Geli magacaaga oo buuxa"
+        }
+    },
+    "interests": {
+        "Filter": "Raadi danaha",
+        "CanGrant": "Haddii aadan weli helin waxa aad raadineyso, waxaad ku dari kartaa xiiso cusub xagga hoose:",
+        "TrySynonyms": "Ma arkaysid? Isku day qaar la mid ah.",
+        "AddUnderCategory": "Kudar qaybta hoosteeda...",
+        "Other": "Mid kale",
+        "Unlisted": "Aan liiska ku jirin"
+    },
+    "relate": {
+        "Add": "Ku dar {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Fariinta waxaa loo calaamadeeyay dib u eegista maamulka Mar kale taabo si aad calanka u saarto",
+        "noOneSaid": "Qofna waxba ma odhan",
+        "closeChatButton": "Sheekada xidh",
+        "closeChatConfirmTitle": "Xir sheekadan?",
+        "closeChatConfirm": "Ma hubtaa inaad doonayso inaad xidho wada sheekaysigan?",
+        "Subscribed": "Ogeysiinta waa la dajiyay",
+        "Unsubscribed": "Ogeysiisyada waa la damiyay",
+        "closeChatConfirmYes": "Haa",
+        "closeChatConfirmNo": "Maya",
+        "earlierComments": "faallooyin hore",
+        "startedConversation": "ayaa bilaabay sheeko",
+        "RealTimeCall": "Wicista Waqtiga dhabta ah",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Magac ku raadi",
+        "Notifications": {
+            "Visit": "{{displayName}} ayaa soo booqanaya sheekeysiga",
+            "Join": "{{displayName}} ayaa ku biiray sheekada",
+            "Leave": "{{displayName}} ayaa ka baxay sheekada",
+            "RelatedTo": "{{displayName}} wuxuu bilaabay {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Faallo ku dar",
+            "Private": "Qor fariin gaar ah"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "maamul isdiiwaangelintaada iimaylka",
+        "IfUnsubscribe": "Hadii aad rabto in aad iska saarto",
+        "changed": {
+            "ChangesIn": "Isbeddelkii {{title}}",
+            "Changed": "bedelay",
+            "HereIsWhatChanged": "Waa kan waxa isbedelay:"
+        },
+        "joined": {
+            "Joined": "{{subject}} ayaa ku biiray <em>{{title}}<\/em>"
+        },
+        "*": "Fariinta {{{message.fields.type}}} ilaa {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} biiray",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} ka tagay",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} wuxuu yiri: {{{message.content}}}",
+        "Streams\/changed": "Isbeddelkii {{stream.fields.title}}",
+        "Streams\/invite": "Waxaa lagugu martiqaaday {{{stream.fields.title}}}",
+        "Streams\/announcement": "Ogaysiis {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} ayaa beddelay gelitaanka {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Fariinta wada sheekaysiga la tafatiray {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Fariinta wada sheekaysiga ayaa meesha laga saaray {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} waa la xidhay",
+        "Streams\/task\/progress": "Horumarka la sameeyay {{stream.fields.title}}",
+        "Streams\/task\/complete": "Hawshii la dhammaystiray: {{stream.fields.title}}",
+        "Streams\/task\/error": "Khalad intii lagu jiray: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Fariinta soo socota",
+        "Streams\/relatedTo\/Streams\/call": "Wicitaan cusub ayaa bilaabmay {{toTitle}}",
+        "Streams\/relatedTo\/*": "{{relationDisplayType}} cusub {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Waxaa lagu daray {{toTitle}} sida {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} ayaa kugu sheegay faallo",
+        "Streams\/call": "{{displayName}} ayaa bilaabay wacitaanka waqtiga-dhabta ah"
+    },
+    "invite": {
+        "command": "martiqaad",
+        "Invite": "martiqaad",
+        "Share": "La wadaag",
+        "Participants": "Dadka casuun",
+        "messageContent": "{{displayName}} ayaa kugu casuumay {{inviteUrl}}",
+        "youCanNowPaste": "Hadda waxaad ku dhejin kartaa xiriirkan meel si aad dadka ugu casuunto",
+        "roles": {
+            "title": "Sii Doorarka Isticmaalayaasha la Casuumay?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Waan ka xumahay",
+                "alert": "Laguuma oggola inaad bixiso doorkan"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Waan ka xumahay",
+                "alert": "Laguuma oggola inaad ka saarto doorkan"
+            }
+        },
+        "labels": {
+            "title": "Waa maxay Xiriirkaagu?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Ka dooro Xiriiriyahaaga",
+            "chooseAgainFromContacts": "Markale ka dooro Xiriirada",
+            "inviteSelectedContacts": "Ku martiqaad Xiriirada la doortay",
+            "selectFromContacts": "Ka dooro Xiriirada",
+            "userChooserPlaceholder": "Magac ku raadi",
+            "photo": "Sawir qaad",
+            "photoOf": "Sawir ka qaad {{name}}",
+            "photoInstruction": "Haddii qofka sawiray koodka QR-kaaga uu hortaada joogo, sawir ka qaad",
+            "to": "Ku: {{Stream Title}}",
+            "go": "Tag",
+            "title": "martiqaad",
+            "placeholder": "Nambarka gacanta ama cinwaanka emailka",
+            "orInvite": "Ama ku martiqaad dadka addoo isticmaalaya:",
+            "copyLink": "{{ClickOrTap}} si loo koobiyo xidhiidhka martiqaadka ",
+            "shareOrCopyLink": "{{ClickOrTap}} si loo wadaago ama loo koobiyeeyo xidhiidhka martiqaadka ",
+            "QR": "{{ClickOrTap}} si loo soo saaro koodka QR",
+            "QRtitle": "Sawir koodka QR-kan",
+            "QRscanned": "Way iska sawireen!",
+            "scannedQR": "{{ClickOrTap}} haddii koodhka la sawiray",
+            "TakeGroupPhoto": "Sawir kooxeed ka qaad",
+            "Skip": "Ka bood",
+            "byEmail": "iimaylka",
+            "byText": "Qoraal",
+            "byFacebook": "Facebook-ga",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Dadka casuun",
+            "chooseMethod": "Dooro hab:",
+            "selectContacts": "Dooro Xiriirada",
+            "scanQRCode": "Sawir koodka QR",
+            "shareLink": "La wadaag xiriiriye",
+            "chooseFromRegistered": "Ka dooro isticmaalayaasha diiwaangashan",
+            "inviteViaEmailOrSms": "Ku martiqaad email ahaan ama SMS",
+            "addRoles": "Ku dar doorarka",
+            "addPersonalRoles": "Ku dar Xidhiidhka Shakhsi ahaaneed"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Ku soo dhawoow {{communityName}}",
+            "HasInvitedYou": "ayaa kugu casuumay:",
+            "HasInvitedYouToTheirProfile": "ayaa kugu martiqaaday inaad ku xidho.",
+            "prompt": "Asxaabtu ha ku garteen:",
+            "accept": "Aqbal martiqaadka"
+        },
+        "email": {
+            "subject": "Haye, tan iska hubi",
+            "PleaseVisitLink": "Fadlan booqo xiriirka soo socda:",
+            "InvitingYou": "Waxaan kugu martiqaadayaa {{title}}",
+            "HasInvitedYou": "{{displayName}} ayaa kugu casuumay {{title}}",
+            "HasMentionedYou": "{{displayName}} ayaa kugu sheegay &quot; {{title}} &quot;",
+            "YOUAREINVITED": "WAA LAGU Casuumay!",
+            "AcceptInvite": "Aqbal martiqaadka"
+        },
+        "mobile": {
+            "content": "Waxaa lagugu casuumay {{title}} . Fadlan ku dhufo {{url}}"
+        },
+        "notice": {
+            "text": "Waa lagu casuumay. {{ClickOrTap}} halkan si aad u aqbasho oo ugu biirto."
+        },
+        "chat": {
+            "prompt": "Waxaad dadka ku martiqaadi doontaa wada hadal halkaas oo aad kula xidhiidhi karto, wadaagto sawiro, iyo in ka badan. U bixi magac:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "<em>{{message.fields.type}}<\/em> fariin ayuu u diray {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "ka faallooday",
+            "startedCallIn": "ayaa bilaabay wac",
+            "in": "gudaha",
+            "body": "{{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "ayaa lagu dhejiyay",
+                "byAvatar": "{{avatar.displayName}} kii"
+            },
+            "relatedTo": {
+                "hasANew": "wuxuu leeyahay {{instructions.fromDisplayType}} cusub",
+                "byAvatar": "ku daray {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Martiqaadyada waxaa laga soo diray lambarkayaga, kaas oo aanay asxaabtaadu weli aqoonsan. Lasoco qoraal degdeg ah si aad u ogaysiiso in martiqaadku kaa yimid, adigoo waydiinaya inay gujiyaan xidhiidhka.",
+            "confirm": "Martiqaadyada waxaa laga soo diray lambarkayaga, kaas oo aanay asxaabtaadu weli aqoonsan. Ma jeclaan lahayd inaad la socoto qoraal deg-deg ah si aad u ogeysiiso martiqaadka inuu adiga kaa yimid, adigoo waydiinaya inay gujiyaan xidhiidhka.",
+            "check": "Hey, hadda waxaan kuu soo diray casuumaad {{app}} -ka. Fadlan hubi sms-kaaga oo guji xiriirka!",
+            "CheckYourMobile": "Fadlan hubi SMS oo raac tilmaamaha!"
+        },
+        "email": {
+            "alert": "Martiqaadyada waxa laga soo diraa boggayaga, kaas oo aanay asxaabtaadu weli aqoonsan. Lasoco qoraal deg deg ah si aad u ogaysiiso in martiqaadku kaa yimid, adigoo waydiinaya inay gujiyaan xidhiidhka.",
+            "confirm": "Martiqaadyada waxa laga soo diraa boggayaga, kaas oo aanay asxaabtaadu weli aqoonsan. Ma jeclaan lahayd inaad la socoto qoraal deg-deg ah si aad u ogaysiiso martiqaadka inuu adiga kaa yimid, adigoo waydiinaya inay gujiyaan xidhiidhka.",
+            "subject": "Martiqaad ma heshay?",
+            "body": "Hey, hadda waxaan kuu soo diray casuumaad {{app}} -ka. Fadlan hubi iimaylkaaga oo guji xiriirka halkaas ku yaal!",
+            "CheckYourEmail": "Fadlan hubi iimaylkaaga oo raac tilmaamaha!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Magaca isticmaalaha..."
+    },
+    "identifier": {
+        "privacySettings": "Dejinta Qarsoodiga"
+    },
+    "participating": {
+        "Title": "Ciwaanka",
+        "Subscribed": "La diiwaan galiyay",
+        "Participants": "Ka qaybgalayaasha",
+        "AreYouSureRemoveIdentifier": "Ma hubtaa inaad meesha ka saartay aqoonsigan?",
+        "AreYouSureUnsubscribeIdentifier": "Ma hubtaa in aad ka baxayso aqoonsigan? Waxay damin doontaa ogeysiisyada aqoonsigan.",
+        "AreYouSureUnsubscribeDevice": "Ma hubtaa in aad ka baxayso qalabkan? Waxay damin doontaa ogeysiisyada qalabkan.",
+        "AreYouSureRemoveParticipant": "Ma hubtaa inaad doonayso inaad ka saarto ka qaybgalaha?",
+        "RemoveParticipant": "Ka saar ka qaybqaataha",
+        "Identifiers": "Aqoonsiyada",
+        "Devices": "Qalabka",
+        "Streams": "durdurrada"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Lagu casuumay",
+            "description": "Inbox loogu talagalay martiqaadyada"
+        },
+        "Streams\/resource": {
+            "displayType": "Khayraadka",
+            "description": "qulqulka maaraynta marin u helka kheyraadka iyo dhajinta fariimaha ku saabsan cusbooneysiinta"
+        },
+        "Streams\/task": {
+            "description": "Helitaanka wararka ku saabsan horumarka hawl gaar ah",
+            "displayType": "Hawsha"
+        },
+        "Streams\/tasks": {
+            "description": "qaybta hawlaha",
+            "displayType": "Hawlaha"
+        },
+        "Streams\/experience": {
+            "description": "waayo-aragnimo ay wadaagaan xubnaha bulshada",
+            "displayType": "Waayo-aragnimada guud ee xubnaha bulshada"
+        },
+        "Streams\/greeting": {
+            "description": "salaanta uu isticmaaluhu is baro",
+            "displayType": "Salaan"
+        },
+        "Streams\/number": {
+            "displayType": "Tirada",
+            "description": "lambarka xisaabta"
+        },
+        "Streams\/date": {
+            "displayType": "Taariikhda",
+            "description": "taariikhda"
+        },
+        "Streams\/text": {
+            "displayType": "Qoraal",
+            "description": "qoraalka qoraalka"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Qoraal",
+            "description": "qoraal yar"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Qoraal",
+            "description": "qoraalka dhexdhexaadka ah"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Ciwaanka iimaylka",
+            "description": "ciwaanka iimaylka"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Lambarka Taleefanka",
+            "description": "lambarka telefoonka"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "isku xirka shabakada"
+        },
+        "Streams\/image": {
+            "displayType": "Sawirka",
+            "description": "muuqaal muuqaal ah",
+            "newItem": "Kudar Sawir"
+        },
+        "Streams\/images": {
+            "displayType": "Sawirka Sawirka",
+            "description": "gallery ee sawirada"
+        },
+        "Streams\/album": {
+            "displayType": "Albumka",
+            "description": "albam ay warbaahino kala duwani la xidhiidhaan"
+        },
+        "Streams\/file": {
+            "displayType": "Faylka",
+            "description": "faylka la soo geliyay",
+            "newItem": "Kudar Fayl"
+        },
+        "Streams\/audio": {
+            "displayType": "Clip maqal ah",
+            "description": "cajalad maqal ah",
+            "newItem": "Kudar Maqal"
+        },
+        "Streams\/video": {
+            "displayType": "Video clip",
+            "description": "video clip",
+            "newItem": "Kudar Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "dukumeenti PDF",
+            "description": "dukumeenti PDF",
+            "newItem": "Ku dar PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "maqal ama muuqaal toos ah"
+        },
+        "Streams\/category": {
+            "displayType": "Qaybta",
+            "description": "qayb ay durdurrada kale xiriir la yeelan karaan",
+            "newItem": "Kudar Qaybta"
+        },
+        "Streams\/participating": {
+            "displayType": "Tusmada ka qaybgalka",
+            "description": "durdurrada waxay la xiriiraan\/aan la xiriirin tan marka isticmaaluhu ku biiro\/ka tago"
+        },
+        "Streams\/interest": {
+            "displayType": "Xiisaha",
+            "description": "waxay ka dhigan tahay xiisaha isticmaalaha mawduuc gaar ah"
+        },
+        "Streams\/incoming": {
+            "displayType": "Soo galaysa",
+            "description": "meesha fariimaha ay soo diraan isticmaalayaasha kale"
+        },
+        "Streams\/chat": {
+            "displayType": "Wada sheekeysi",
+            "description": "sheeko dhexmarta isticmaalayaasha, oo leh taariikh"
+        },
+        "Streams\/question": {
+            "displayType": "Su&#39;aal",
+            "description": "durdur su&#39;aal",
+            "newItem": "Su&#39;aal ku darso"
+        },
+        "Streams\/answer": {
+            "displayType": "Jawaab",
+            "description": "durdur ka jawaab"
+        },
+        "Streams\/topic": {
+            "displayType": "Mawduuca",
+            "description": "mawduuca durdurrada",
+            "newItem": "Mawduuca ku dar"
+        }
+    },
+    "menu": {
+        "placeholder": "ku qor cinwaanka bogga",
+        "ModTab": "Wax ka beddel Shayga",
+        "Save": "Badbaadin",
+        "Delete": "Tirtir",
+        "Submenu": "Liiska hoose"
+    },
+    "audio": {
+        "record": "Diiwaangeli",
+        "reset": "Dib u dajin",
+        "edit": "Wax ka beddel",
+        "title": "horyaalka",
+        "description": "sharaxaad",
+        "upload": "Soo rar",
+        "link": "Xiriirinta",
+        "setUrl": "Deji URL",
+        "save": "Badbaadin",
+        "setClip": "Iska Jaray Clip",
+        "invalidURL": "URL aan sax ahayn",
+        "invalidFile": "Fayl aan sax ahayn",
+        "errorNoSource": "Ma jiro il maqal",
+        "uploadLimit": "Cabbirka ugu badan ee faylka: {{size}}",
+        "errorFileSize": "Waan ka xunahay, laakiin faylka aad u weyn<br> Cabbirka ugu badan ee faylka waa {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Muuqaal Cusub",
+        "EditVideo": "Wax ka beddel muqaal",
+        "reset": "Dib u dajin",
+        "edit": "Wax ka beddel",
+        "title": "horyaalka",
+        "description": "sharaxaad",
+        "upload": "Soo rar",
+        "link": "Xiriirinta",
+        "setUrl": "Deji URL",
+        "save": "Badbaadin",
+        "createAnimatedThumbnail": "Samee thumbnail firfircoon",
+        "setClip": "Iska Jaray Clip",
+        "invalidURL": "URL aan sax ahayn",
+        "invalidFile": "Fayl aan sax ahayn",
+        "errorNoSource": "Ma jiro il muuqaal ah",
+        "uploadLimit": "Cabbirka ugu badan ee faylka: {{size}}",
+        "errorFileSize": "Waan ka xunahay, laakiin faylka aad u weyn<br> Cabbirka ugu badan ee faylka waa {{size}}",
+        "errorNotAvailable": "Waan ka xunahay, laakiin muuqaalku weli lama heli karo. Fadlan isku day mar kale hadhow",
+        "TeaserVideo": "Muqaal Teaser"
+    },
+    "pdf": {
+        "reset": "Dib u dajin",
+        "edit": "Wax ka beddel",
+        "title": "horyaalka",
+        "description": "sharaxaad",
+        "upload": "Soo rar",
+        "link": "Xiriirinta",
+        "setUrl": "Deji URL",
+        "save": "Badbaadin",
+        "setClip": "Iska Jaray Clip",
+        "invalidURL": "URL aan sax ahayn",
+        "invalidFile": "Fayl aan sax ahayn",
+        "errorNoSource": "Ma jiro il pdf",
+        "uploadLimit": "Cabbirka ugu badan ee faylka: {{size}}",
+        "errorFileSize": "Waan ka xunahay, laakiin faylka aad u weyn<br> Cabbirka ugu badan ee faylka waa {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Dib u dajin",
+        "edit": "Wax ka beddel",
+        "title": "horyaalka",
+        "description": "sharaxaad",
+        "upload": "Soo rar",
+        "link": "Xiriirinta",
+        "setUrl": "Deji URL",
+        "save": "Badbaadin",
+        "uploadedImage": "Sawirka la soo galiyay",
+        "imageTitle": "Cinwaanka sawirka",
+        "setClip": "Iska Jaray Clip",
+        "invalidURL": "URL aan sax ahayn",
+        "invalidFile": "Fayl aan sax ahayn",
+        "errorNoSource": "Isha sawirka ma jirto",
+        "uploadLimit": "Cabbirka ugu badan ee faylka: {{size}}",
+        "errorFileSize": "Waan ka xunahay, laakiin faylka aad u weyn<br> Cabbirka ugu badan ee faylka waa {{size}}",
+        "TeaserImage": "Sawirka Teaser"
+    },
+    "questions": {
+        "Questions": "Su&#39;aalo",
+        "Answers": "Jawaabo",
+        "AnswerQuestion": "Su&#39;aasha ka jawaab",
+        "SetYourAnswer": "Fadlan ka jawaab su&#39;aasha",
+        "NewQuestion": "Su&#39;aal Cusub",
+        "EditQuestion": "Wax ka beddel su&#39;aasha",
+        "NewAnswer": "Jawaab Cusub",
+        "NewPossibleAnswer": "Jawaab Cusub oo Macquul ah",
+        "AnswerDetails": "Faahfaahinta Jawaabta",
+        "answerOption": "Ikhtiyaarka",
+        "answerOptionExclusive": "Gaar ah",
+        "answerTextarea": "Meesha qoraalka",
+        "answerText": "Qoraal",
+        "HideUntilAnswered": "Qari ilaa laga jawaabo",
+        "CantChangeAnswers": "Ma bedeli karo jawaabaha",
+        "ShortAnswer": "Qor jawaab gaaban",
+        "FreeAnswer": "jawaabtaada halkan ku qor",
+        "SaveQuestion": "Keydi su&#39;aasha",
+        "SaveAnswer": "Jawaabta Keydso",
+        "Save": "Badbaadin",
+        "Send": "Dir",
+        "TitleRequired": "Cinwaanka ayaa loo baahan yahay!",
+        "AlreadyAnswered": "Horey ugu jawaabtay",
+        "TitlePlaceholder": "Ku qor su&#39;aashaada",
+        "ContentPlaceholder": "Wixii macluumaad dheeraad ah ku dheji halkan si aad dadka uga caawiso inay ka jawaabaan",
+        "ErrorTitle": "Su&#39;aal ayaa loo baahan yahay",
+        "Placeholder": "Qor Tilmaamaha",
+        "AreYouSure": "Ma hubtaa?",
+        "AnswerCantBeChanged": "Jawaabta lama bedeli karo"
+    },
+    "experience": {
+        "NewExperience": "Khibrad Cusub",
+        "DefineTitle": "Fadlan qeex cinwaan",
+        "Create": "Abuur"
+    },
+    "calls": {
+        "SettingsTitle": "Wicitaannada",
+        "MaxCalls": "Wicitaanada ugu badan",
+        "Update": "Cusbooneysii",
+        "NoCallsYet": "Weli wicitaan ma jiro",
+        "CallReasonTitle": "Waa maxay baaqan ku saabsan?",
+        "WaitingRoom": "Qolka Sugitaanka",
+        "LiveRoom": "Qolka Tooska ah",
+        "interviewedByAnotherHost": "Hadda waxa waraystay martigeliyaha kale",
+        "bringToLive": "Soo Bandhigida Tooska ah",
+        "putOnHold": "Hayso",
+        "endCall": "Jooji Wicitaan",
+        "interview": "Wareysi",
+        "markApproved": "Mark la ansixiyay"
+    },
+    "task": {
+        "errorsTitle": "Khaladaad ayaa dhacay"
+    },
+    "topic": {
+        "NewTopic": "Mowduuc Cusub",
+        "UpdateTopic": "Cusbooneysii Mawduuca",
+        "CreateTopic": "Abuur Mawduuc",
+        "AreYouSureDeleteTopic": "Ma hubtaa inaad rabto inaad tirtirto mawduucan",
+        "TitlePlaceholder": "cinwaanka mawduuca...",
+        "DescribeTopic": "sharax mowduuca...",
+        "TopicIcon": "Sawirka mawduuca",
+        "UploadIcon": "Soo rar summada",
+        "Conversation": "Wada sheekeysi",
+        "Metrics": "Metrics",
+        "Teaser": "Teaser",
+        "TeaserDescription": "Sharaxaada teaser...",
+        "TeaserVideo": "Muqaal Teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Samee thumbnail firfircoon",
+        "Width": "Ballaca",
+        "Height": "Dhererka",
+        "Start": "Bilow",
+        "End": "Dhammaad",
+        "Delay": "Dib u dhac",
+        "Quality": "Tayada",
+        "Size": "Cabbirka",
+        "OfFrames": "ee Frames",
+        "Frame": "Qaabka",
+        "UseThis": "Isticmaal tan",
+        "ResultGIF": "Natiijada GIF",
+        "VideoElementNotFound": "Cunsurka fiidyaha lama helin"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Wajigaaga",
+        "AcceptIcon": "Aqbal aagga la doortay"
+    }
+}

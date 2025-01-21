@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "ဤအကြောင်းအရာကို သင့်ထံမှ ဝှက်ထားသည်။",
+        "InplaceTypeMustBe": "inplaceType သည် &#39;textarea&#39; သို့မဟုတ် &#39;text&#39; ဖြစ်ရမည်။"
+    },
+    "preview": {
+        "NewItemTitle": "ပစ္စည်းအသစ်",
+        "Teaser": "Teaser ပါ။"
+    },
+    "avatar": {
+        "firstName": "နာမည်",
+        "lastName": "မျိုးနွယ်အမည်",
+        "username": "အသုံးပြုသူအမည်"
+    },
+    "labels": {
+        "Streams\/invited": "ဖိတ်ခေါ်တဲ့လူတွေ",
+        "Streams\/invitedMe": "ဘယ်သူက ငါ့ကို ဖိတ်တာလဲ။",
+        "DoYouAgree": "သဘောတူပါသလား?",
+        "JoinItNow": "ယခုပါဝင်လိုက်ပါ။",
+        "Yes": "ဟုတ်ကဲ့",
+        "No": "မရှိ"
+    },
+    "login": {
+        "prompt": "သူငယ်ချင်းများ သင့်အား အသိအမှတ်ပြုပါစေ။",
+        "newUser": "သို့မဟုတ် အောက်တွင် အကောင့်အသစ်တစ်ခု ဖန်တီးပါ။",
+        "picTooltip": "ဤပုံကို နောက်မှ ပြောင်းနိုင်ပါသည်။",
+        "placeholders": {
+            "fullName": "သင့်အမည်အပြည့်အစုံကို ထည့်ပါ။"
+        }
+    },
+    "interests": {
+        "Filter": "အကျိုးစီးပွားရှာပါ။",
+        "CanGrant": "သင်ရှာနေသည့်အရာကို ရှာမတွေ့သေးပါက၊ အောက်ပါ စိတ်ဝင်စားမှုအသစ်ကို သင်ထည့်နိုင်သည်-",
+        "TrySynonyms": "မမြင်ဘူးလား? တူညီသောအသုံးအနှုန်းအချို့ကို စမ်းကြည့်ပါ။",
+        "AddUnderCategory": "အမျိုးအစားအောက်မှာ ထည့်ပါ...",
+        "Other": "တခြား",
+        "Unlisted": "စာရင်းမဝင်"
+    },
+    "relate": {
+        "Add": "{{streamDisplayType}} ထည့်ပါ။"
+    },
+    "chat": {
+        "flaggedForAdminReview": "စီမံခန့်ခွဲသူ ပြန်လည်သုံးသပ်ရန်အတွက် မက်ဆေ့ဂျ်ကို အလံပြထားသည်။ အလံဖြုတ်ရန် ထပ်မံနှိပ်ပါ။",
+        "noOneSaid": "ဘယ်သူမှ ဘာမှ မပြောသေးဘူး။",
+        "closeChatButton": "စကားပြောခန်းကို ပိတ်ပါ။",
+        "closeChatConfirmTitle": "ဤချတ်ကို ပိတ်မလား။",
+        "closeChatConfirm": "ဤချတ်ကို ပိတ်လိုသည်မှာ သေချာပါသလား။",
+        "Subscribed": "အကြောင်းကြားချက်များကို ဖွင့်ထားသည်။",
+        "Unsubscribed": "အကြောင်းကြားချက်များကို အသံတိတ်ထားသည်။",
+        "closeChatConfirmYes": "ဟုတ်ကဲ့",
+        "closeChatConfirmNo": "မရှိ",
+        "earlierComments": "အစောပိုင်းမှတ်ချက်များ",
+        "startedConversation": "စကားဝိုင်းတစ်ခုကို စတင်ခဲ့သည်။",
+        "RealTimeCall": "အချိန်နှင့်တပြေးညီခေါ်ဆိုပါ။",
+        "JoinWebRTC": "တယ်လီကွန်ဖရင့်",
+        "SearchByName": "အမည်ဖြင့်ရှာဖွေပါ။",
+        "Notifications": {
+            "Visit": "{{displayName}} ချက်တင်သို့ ဝင်ရောက်နေသည်။",
+            "Join": "{{displayName}} ချတ်တွင် ပါဝင်ခဲ့သည်။",
+            "Leave": "{{displayName}} ချတ်မှ ထွက်ခွာသွားသည်။",
+            "RelatedTo": "{{displayName}} {{stream.displayType}} တက်လာတယ်။"
+        },
+        "placeholders": {
+            "Public": "မှတ်ချက်တစ်ခုထည့်ပါ။",
+            "Private": "သီးသန့်စာတစ်စောင်ရေးပါ။"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "သင့်အီးမေးလ်စာရင်းသွင်းမှုများကို စီမံပါ။",
+        "IfUnsubscribe": "စာရင်းသွင်းချင်ရင် ဖြုတ်လိုက်ပါ။",
+        "changed": {
+            "ChangesIn": "{{title}} တွင်အပြောင်းအလဲများ",
+            "Changed": "ပြောင်းလဲခဲ့သည်။",
+            "HereIsWhatChanged": "ဤသည်မှာ ပြောင်းလဲသွားသည်-"
+        },
+        "joined": {
+            "Joined": "{{subject}} နဲ့ <em>{{title}}<\/em> ပါ။"
+        },
+        "*": "{{{message.fields.type}}} {{{stream.fields.title}}} သို့ စာတိုပေးပို့ပါ။",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} ပါဝင်ခဲ့သည်။",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} ကျန်တယ်။",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} {{{message.content}}}",
+        "Streams\/changed": "{{stream.fields.title}} တွင်အပြောင်းအလဲများ",
+        "Streams\/invite": "သင့်အား {{{stream.fields.title}}} သို့ ဖိတ်ကြားခဲ့သည်။",
+        "Streams\/announcement": "{{{stream.fields.title}}} တွင်ကြေငြာချက်",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} {{{stream.fields.title}}} တွင် အသုံးပြုခွင့်ကို ပြောင်းလဲခဲ့သည်။",
+        "Streams\/chat\/edit": "ချတ်မက်ဆေ့ချ်ကို {{{stream.fields.title}}} တွင် တည်းဖြတ်ထားသည်။",
+        "Streams\/chat\/remove": "{{{stream.fields.title}}} တွင် ချတ်မက်ဆေ့ချ်ကို ဖယ်ရှားခဲ့သည်။",
+        "Streams\/closed": "{{stream.fields.title}} ဖြင့် ပိတ်ထားပါသည်။",
+        "Streams\/task\/progress": "{{stream.fields.title}} တွင်တိုးတက်မှုရှိသည်။",
+        "Streams\/task\/complete": "လုပ်ဆောင်စရာ ပြီးဆုံးသည်- {{stream.fields.title}}",
+        "Streams\/task\/error": "ကာလအတွင်း အမှားအယွင်း- {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : အဝင်မက်ဆေ့ဂျ်",
+        "Streams\/relatedTo\/Streams\/call": "ခေါ်ဆိုမှုအသစ် {{toTitle}} တွင် စတင်ခဲ့သည်။",
+        "Streams\/relatedTo\/*": "{{toTitle}} တွင် {{relationDisplayType}} အသစ်",
+        "Streams\/relatedFrom\/*": "{{relationDisplayType}} အဖြစ် {{toTitle}} သို့ ပေါင်းထည့်ခဲ့သည်။",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} သင့်အား မှတ်ချက်တစ်ခုတွင် ဖော်ပြခဲ့သည်။",
+        "Streams\/call": "{{displayName}} အချိန်နှင့်တစ်ပြေးညီ ဖုန်းခေါ်ဆိုမှုကို စတင်ခဲ့သည်။"
+    },
+    "invite": {
+        "command": "ဖိတ်ခေါ်ပါတယ်။",
+        "Invite": "ဖိတ်ခေါ်ပါတယ်။",
+        "Share": "မျှဝေပါ။",
+        "Participants": "လူများကို ဖိတ်ကြားပါ။",
+        "messageContent": "{{displayName}} {{inviteUrl}} သို့ ဖိတ်ခေါ်ပါသည်။",
+        "youCanNowPaste": "လူများကို ဖိတ်ကြားရန် ဤလင့်ခ်ကို တစ်နေရာရာသို့ ကူးထည့်နိုင်ပါပြီ။",
+        "roles": {
+            "title": "ဖိတ်ကြားထားသော အသုံးပြုသူများကို အခန်းကဏ္ဍများ ပေးမလား။",
+            "NotAuthorizedToGrantRole": {
+                "title": "ဆောရီး",
+                "alert": "ဤအခန်းကဏ္ဍကို ပေးအပ်ရန် သင့်အား ခွင့်မပြုပါ။"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "ဆောရီး",
+                "alert": "ဤအခန်းကဏ္ဍကို ဖယ်ရှားရန် သင့်အား ခွင့်မပြုပါ။"
+            }
+        },
+        "labels": {
+            "title": "မင်းရဲ့ Relationship ဆိုတာဘာလဲ။"
+        },
+        "dialog": {
+            "chooseFromContacts": "သင့်အဆက်အသွယ်များမှ ရွေးချယ်ပါ။",
+            "chooseAgainFromContacts": "အဆက်အသွယ်များမှ ထပ်မံရွေးချယ်ပါ။",
+            "inviteSelectedContacts": "ရွေးချယ်ထားသော အဆက်အသွယ်များကို ဖိတ်ကြားပါ။",
+            "selectFromContacts": "အဆက်အသွယ်များမှ ရွေးပါ။",
+            "userChooserPlaceholder": "အမည်ဖြင့်ရှာဖွေပါ။",
+            "photo": "ဓာတ်ပုံရိုက်ပါ။",
+            "photoOf": "{{name}} ဓာတ်ပုံရိုက်ပါ။",
+            "photoInstruction": "သင်၏ QR ကုဒ်ကို စကင်ဖတ်သူသည် သင့်ရှေ့တွင် ရှိနေပါက ၎င်းတို့ကို ဓာတ်ပုံရိုက်ပါ။",
+            "to": "သို့ : {{Stream Title}}",
+            "go": "သွားတော့",
+            "title": "ဖိတ်ခေါ်ပါတယ်။",
+            "placeholder": "မိုဘိုင်းနံပါတ် သို့မဟုတ် အီးမေးလ်လိပ်စာ",
+            "orInvite": "သို့မဟုတ် အသုံးပြု၍ လူများကို ဖိတ်ကြားပါ-",
+            "copyLink": "ဖိတ်ကြားချက်လင့်ခ်ကို ကူးယူရန် {{ClickOrTap}} ",
+            "shareOrCopyLink": "ဖိတ်ကြားချက်လင့်ခ်ကို မျှဝေရန် သို့မဟုတ် ကူးယူရန် {{ClickOrTap}} ",
+            "QR": "QR ကုဒ်ထုတ်လုပ်ရန် {{ClickOrTap}}",
+            "QRtitle": "ဤ QR ကုဒ်ကို စကင်ဖတ်ပါ။",
+            "QRscanned": "သူတို့က စကင်န်ဖတ်တယ်။",
+            "scannedQR": "ကုဒ်ကိုစကင်န်ဖတ်လျှင် {{ClickOrTap}}",
+            "TakeGroupPhoto": "Group Photo ရိုက်ပါ။",
+            "Skip": "ကျော်သွားပါ။",
+            "byEmail": "အီးမေးလ်",
+            "byText": "စာသား",
+            "byFacebook": "Facebook",
+            "byTwitter": "တွစ်တာ",
+            "byTelegram": "ကြေးနန်းစာ",
+            "byWhatsapp": "WhatsApp",
+            "title2": "လူများကို ဖိတ်ကြားပါ။",
+            "chooseMethod": "နည်းလမ်းတစ်ခုကို ရွေးပါ-",
+            "selectContacts": "အဆက်အသွယ်များကို ရွေးပါ။",
+            "scanQRCode": "QR ကုဒ်ကို စကင်န်ဖတ်ပါ။",
+            "shareLink": "လင့်ခ်တစ်ခုကို မျှဝေပါ။",
+            "chooseFromRegistered": "စာရင်းသွင်းအသုံးပြုသူများမှ ရွေးချယ်ပါ။",
+            "inviteViaEmailOrSms": "အီးမေးလ် သို့မဟုတ် SMS မှတဆင့် ဖိတ်ကြားပါ။",
+            "addRoles": "ရာထူးများထည့်ပါ။",
+            "addPersonalRoles": "ကိုယ်ရေးကိုယ်တာ ဆက်ဆံရေးများ ထည့်ပါ။"
+        },
+        "complete": {
+            "WelcomeToCommunity": "{{communityName}} မှကြိုဆိုပါတယ်။",
+            "HasInvitedYou": "သင့်အား ဖိတ်ကြားထားသည်-",
+            "HasInvitedYouToTheirProfile": "ဆက်သွယ်ရန် ဖိတ်ခေါ်ထားသည်။",
+            "prompt": "သူငယ်ချင်းများ သင့်အား အသိအမှတ်ပြုပါစေ။",
+            "accept": "ဖိတ်ကြားချက်ကို လက်ခံပါ။"
+        },
+        "email": {
+            "subject": "ဟေး၊ ဒါကို စစ်ဆေးကြည့်ပါ။",
+            "PleaseVisitLink": "အောက်ပါလင့်ခ်တွင် ဝင်ရောက်ကြည့်ရှုပါ-",
+            "InvitingYou": "{{title}} သို့ ဖိတ်ခေါ်ပါသည်။",
+            "HasInvitedYou": "{{displayName}} သင့်အား {{title}} သို့ ဖိတ်ခေါ်ထားသည်။",
+            "HasMentionedYou": "{{displayName}} သင့်အား &quot; {{title}} &quot; တွင် ဖော်ပြထားပါသည်။",
+            "YOUAREINVITED": "သင့်ကို ဖိတ်ကြားထားသည်။",
+            "AcceptInvite": "ဖိတ်ကြားချက်ကို လက်ခံပါ။"
+        },
+        "mobile": {
+            "content": "{{title}} သို့ ဖိတ်ကြားထားသည်။ ကျေးဇူးပြု၍ {{url}} ကိုနှိပ်ပါ။"
+        },
+        "notice": {
+            "text": "မင်းကို ဖိတ်ထားတယ်။ {{ClickOrTap}} လက်ခံပြီးပါဝင်ရန် ဤနေရာတွင်။"
+        },
+        "chat": {
+            "prompt": "သင်အဆက်အသွယ်မပြတ်နိုင်၊ ဓာတ်ပုံများအတူတကွမျှဝေရန်နှင့်အခြားအရာများပြုလုပ်နိုင်သည့်စကားဝိုင်းသို့လူများကိုဖိတ်ခေါ်လိမ့်မည်။ နာမည်တစ်ခုပေးပါ။"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "{{stream.fields.title}} သို့ <em>{{message.fields.type}}<\/em> မက်ဆေ့ချ်တင်ခဲ့သည်။"
+        },
+        "text": {
+            "commentedOn": "မှတ်ချက်ပေးခဲ့သည်။",
+            "startedCallIn": "ခေါ်ဆိုမှုတစ်ခု စတင်ခဲ့သည်။",
+            "in": "၌",
+            "body": "{{{url}}} : {{{message.fields.content}}} တွင်",
+            "relatedFrom": {
+                "hasBeenPostedTo": "သို့ တင်ထားသည်။",
+                "byAvatar": "{{avatar.displayName}} ဖြင့်"
+            },
+            "relatedTo": {
+                "hasANew": "အသစ် {{instructions.fromDisplayType}} ရှိသည်။",
+                "byAvatar": "{{avatar.displayName}} ဖြင့်ထည့်သည်။"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "သင့်သူငယ်ချင်းများ မမှတ်မိသေးသော ကျွန်ုပ်တို့၏နံပါတ်မှ ဖိတ်ကြားချက်များကို ပေးပို့ပါသည်။ လင့်ခ်ကိုနှိပ်ခိုင်းပြီး ဖိတ်ကြားချက်က သင့်ထံမှလာကြောင်း ၎င်းတို့အား အသိပေးရန် အမြန်စာတိုဖြင့် လိုက်နာပါ။",
+            "confirm": "သင့်သူငယ်ချင်းများ မမှတ်မိသေးသော ကျွန်ုပ်တို့၏နံပါတ်မှ ဖိတ်ကြားချက်များကို ပေးပို့ပါသည်။ လင့်ခ်ကိုနှိပ်ခိုင်းပြီး ဖိတ်ခေါ်ချက်က သင့်ထံမှလာကြောင်း ၎င်းတို့အား အသိပေးရန် အမြန်စာတိုတစ်စောင်ကို လိုက်နာလိုပါသလား။",
+            "check": "ဟေး၊ ငါ မင်းကို {{app}} အက်ပ်ထံ ဖိတ်စာတစ်စောင် ပို့လိုက်ပြီ။ သင်၏ sms ကိုစစ်ဆေးပြီး link ကိုနှိပ်ပါ။",
+            "CheckYourMobile": "SMS ကိုစစ်ဆေးပြီး ညွှန်ကြားချက်များကို လိုက်နာပါ။"
+        },
+        "email": {
+            "alert": "သင့်သူငယ်ချင်းများ မမှတ်မိသေးသော ကျွန်ုပ်တို့၏ဒိုမိန်းမှ ဖိတ်ကြားချက်များကို ပေးပို့ပါသည်။ လင့်ခ်ကိုနှိပ်ခိုင်းပြီး သင့်ထံမှ ဖိတ်ကြားချက်လာကြောင်း ၎င်းတို့အား အသိပေးရန် အမြန်စာတိုဖြင့် လိုက်နာပါ။",
+            "confirm": "သင့်သူငယ်ချင်းများ မမှတ်မိသေးသော ကျွန်ုပ်တို့၏ဒိုမိန်းမှ ဖိတ်ကြားချက်များကို ပေးပို့ပါသည်။ လင့်ခ်ကိုနှိပ်ခိုင်းပြီး ဖိတ်ခေါ်ချက်က သင့်ထံမှလာကြောင်း ၎င်းတို့အား အသိပေးရန် အမြန်စာတိုတစ်စောင်ကို လိုက်နာလိုပါသလား။",
+            "subject": "ဖိတ်စာရပါသလား။",
+            "body": "ဟေး၊ ငါမင်းကို {{app}} အက်ပ်ထံ ဖိတ်စာတစ်စောင် ပို့လိုက်ပြီ။ သင့်အီးမေးလ်ကို စစ်ဆေးပြီး ထိုနေရာရှိ လင့်ခ်ကို နှိပ်ပါ။",
+            "CheckYourEmail": "သင့်အီးမေးလ်ကို စစ်ဆေးပြီး ညွှန်ကြားချက်များကို လိုက်နာပါ။"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "အသုံးပြုသူအမည်..."
+    },
+    "identifier": {
+        "privacySettings": "ကိုယ်ရေးကိုယ်တာ ဆက်တင်များ"
+    },
+    "participating": {
+        "Title": "ခေါင်းစဉ်",
+        "Subscribed": "စာရင်းသွင်းထားသည်။",
+        "Participants": "သင်တန်းသား",
+        "AreYouSureRemoveIdentifier": "ဤသတ်မှတ်စနစ်ကို ဖယ်ရှားရန် သေချာပါသလား။",
+        "AreYouSureUnsubscribeIdentifier": "ဤသတ်မှတ်စနစ်ကို စာရင်းသွင်းခြင်းမှ ရပ်ဆိုင်းရန် သေချာပါသလား။ ၎င်းသည် ဤသတ်မှတ်သူထံ အကြောင်းကြားချက်များကို ပိတ်လိုက်ပါမည်။",
+        "AreYouSureUnsubscribeDevice": "ဤစက်ပစ္စည်းကို စာရင်းသွင်းမှု ရပ်ဆိုင်းရန် သေချာပါသလား။ ဤစက်ပစ္စည်းသို့ အကြောင်းကြားချက်များကို ပိတ်ပါမည်။",
+        "AreYouSureRemoveParticipant": "ဤပါဝင်သူကို ဖယ်ရှားလိုသည်မှာ သေချာပါသလား။",
+        "RemoveParticipant": "ပါဝင်သူကို ဖယ်ရှားပါ။",
+        "Identifiers": "ခွဲခြားသတ်မှတ်သည်။",
+        "Devices": "စက်များ",
+        "Streams": "ချောင်းများ"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "ဖိတ်ခေါ်ပါတယ်။",
+            "description": "ဖိတ်စာများအတွက် ဝင်စာ"
+        },
+        "Streams\/resource": {
+            "displayType": "အရင်းအမြစ်",
+            "description": "အရင်းအမြစ်တစ်ခုသို့ဝင်ရောက်ခွင့်ကို စီမံခန့်ခွဲရန်နှင့် အပ်ဒိတ်များအကြောင်း မက်ဆေ့ချ်များတင်ခြင်းအတွက် stream"
+        },
+        "Streams\/task": {
+            "description": "လုပ်ငန်းတစ်ခုအပေါ် တိုးတက်မှုအကြောင်း အပ်ဒိတ်များ လက်ခံရရှိရန်",
+            "displayType": "တာဝန်"
+        },
+        "Streams\/tasks": {
+            "description": "အလုပ်များအတွက် အမျိုးအစား",
+            "displayType": "အလုပ်များ"
+        },
+        "Streams\/experience": {
+            "description": "အသိုင်းအဝိုင်းတစ်ခု၏ အဖွဲ့ဝင်များအတွက် ဘုံအတွေ့အကြုံတစ်ခု",
+            "displayType": "အသိုင်းအ၀ိုင်းအဖွဲ့ဝင်များအတွက် ဘုံအတွေ့အကြုံ"
+        },
+        "Streams\/greeting": {
+            "description": "အသုံးပြုသူကိုယ်တိုင် မိတ်ဆက်ပေးနိုင်သော နှုတ်ဆက်ခြင်း။",
+            "displayType": "နှုတ်ဆက်သည်။"
+        },
+        "Streams\/number": {
+            "displayType": "နံပါတ်",
+            "description": "သင်္ချာနံပါတ်"
+        },
+        "Streams\/date": {
+            "displayType": "ရက်စွဲ",
+            "description": "ရက်စွဲ"
+        },
+        "Streams\/text": {
+            "displayType": "စာသား",
+            "description": "စာသားကိုယ်ထည်"
+        },
+        "Streams\/text\/small": {
+            "displayType": "စာသား",
+            "description": "သေးငယ်သော စာသား"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "စာသား",
+            "description": "အလယ်အလတ် စာသားကိုယ်ထည်"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "အီးမေးလ်လိပ်စာ",
+            "description": "အီးမေးလ်လိပ်စာ"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "ဖုန်းနံပါတ်",
+            "description": "ဖုန်းနံပါတ်"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "ဝဘ်ပေါ်ရှိလင့်ခ်"
+        },
+        "Streams\/image": {
+            "displayType": "ပုံ",
+            "description": "အမြင်အာရုံပုံရိပ်",
+            "newItem": "ပုံထည့်ပါ။"
+        },
+        "Streams\/images": {
+            "displayType": "ရုပ်ပုံပြခန်း",
+            "description": "ပုံများပြခန်း"
+        },
+        "Streams\/album": {
+            "displayType": "အခွေ",
+            "description": "မီဒီယာမျိုးစုံနဲ့ ဆက်စပ်နေတဲ့ အယ်လ်ဘမ်"
+        },
+        "Streams\/file": {
+            "displayType": "ဖို",
+            "description": "တင်ထားသောဖိုင်",
+            "newItem": "ဖိုင်ထည့်ပါ။"
+        },
+        "Streams\/audio": {
+            "displayType": "အသံအပိုင်း",
+            "description": "အသံဖိုင်",
+            "newItem": "အသံထည့်ပါ။"
+        },
+        "Streams\/video": {
+            "displayType": "ဗီဒီယိုအပိုင်း",
+            "description": "ဗီဒီယိုကလစ်",
+            "newItem": "ဗီဒီယိုထည့်ပါ။"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF စာရွက်စာတမ်း",
+            "description": "PDF စာရွက်စာတမ်း",
+            "newItem": "PDF ထည့်ပါ။"
+        },
+        "Streams\/live": {
+            "displayType": "တိုက်ရိုက်ထုတ်လွှင့်မှု",
+            "description": "တိုက်ရိုက်အသံ သို့မဟုတ် ဗီဒီယို"
+        },
+        "Streams\/category": {
+            "displayType": "အမျိုးအစား",
+            "description": "အခြားစီးကြောင်းများနှင့် ဆက်စပ်နိုင်သော အမျိုးအစားတစ်ခု",
+            "newItem": "အမျိုးအစားထည့်ပါ။"
+        },
+        "Streams\/participating": {
+            "displayType": "ပါဝင်ခြင်းအညွှန်း",
+            "description": "အသုံးပြုသူတစ်ဦးက ပါဝင်\/ထွက်ခွာသည့်အခါ ဤအရာနှင့် ဆက်စပ်\/မသက်ဆိုင်ပါ။"
+        },
+        "Streams\/interest": {
+            "displayType": "အတိုး",
+            "description": "အကြောင်းအရာတစ်ခုအတွက် သုံးစွဲသူတစ်ဦး၏ စိတ်ဝင်စားမှုကို ကိုယ်စားပြုသည်။"
+        },
+        "Streams\/incoming": {
+            "displayType": "ဝင်လာ",
+            "description": "အခြားအသုံးပြုသူများပေးပို့သော မက်ဆေ့ချ်များအတွက် ဦးတည်ရာ"
+        },
+        "Streams\/chat": {
+            "displayType": "စကားဝိုင်း",
+            "description": "အသုံးပြုသူများအကြား စကားဝိုင်းတစ်ခု၊ မှတ်တမ်းနှင့်အတူ"
+        },
+        "Streams\/question": {
+            "displayType": "မေးခွန်း",
+            "description": "မေးခွန်းစီးကြောင်း",
+            "newItem": "မေးခွန်းထည့်ပါ။"
+        },
+        "Streams\/answer": {
+            "displayType": "ဖြေ",
+            "description": "အဖြေ stream"
+        },
+        "Streams\/topic": {
+            "displayType": "အကြောင်းအရာ",
+            "description": "ခေါင်းစဉ်စီးကြောင်း",
+            "newItem": "ခေါင်းစဉ်ထည့်ပါ။"
+        }
+    },
+    "menu": {
+        "placeholder": "စာမျက်နှာခေါင်းစဉ်ကိုရိုက်ပါ။",
+        "ModTab": "အကြောင်းအရာကို ပြင်ဆင်ပါ။",
+        "Save": "သိမ်းဆည်းပါ။",
+        "Delete": "ဖျက်ပါ။",
+        "Submenu": "မီနူး"
+    },
+    "audio": {
+        "record": "မှတ်တမ်း",
+        "reset": "ပြန်လည်သတ်မှတ်ပါ။",
+        "edit": "တည်းဖြတ်ပါ။",
+        "title": "ခေါင်းစဉ်",
+        "description": "ဖော်ပြချက်",
+        "upload": "တင်သည်။",
+        "link": "လင့်",
+        "setUrl": "URL သတ်မှတ်ပါ။",
+        "save": "သိမ်းဆည်းပါ။",
+        "setClip": "အပိုင်းဖြတ်ပါ။",
+        "invalidURL": "မမှန်ကန်သော URL",
+        "invalidFile": "မမှန်ကန်သော ဖိုင်",
+        "errorNoSource": "အသံအရင်းအမြစ်မရှိပါ။",
+        "uploadLimit": "အများဆုံးဖိုင်အရွယ်အစား- {{size}}",
+        "errorFileSize": "တောင်းပန်ပါတယ် ဒါပေမယ့် ဖိုင်က အရမ်းကြီးတယ်။<br> အများဆုံးဖိုင်အရွယ်အစားမှာ {{size}} ဖြစ်သည်။",
+        "TeaserAudio": "Teaser အသံ"
+    },
+    "video": {
+        "NewVideo": "ဗီဒီယိုအသစ်",
+        "EditVideo": "ဗီဒီယိုကို တည်းဖြတ်ပါ။",
+        "reset": "ပြန်လည်သတ်မှတ်ပါ။",
+        "edit": "တည်းဖြတ်ပါ။",
+        "title": "ခေါင်းစဉ်",
+        "description": "ဖော်ပြချက်",
+        "upload": "တင်သည်။",
+        "link": "လင့်",
+        "setUrl": "URL သတ်မှတ်ပါ။",
+        "save": "သိမ်းဆည်းပါ။",
+        "createAnimatedThumbnail": "ကာတွန်းပုံသေး ဖန်တီးပါ။",
+        "setClip": "အပိုင်းဖြတ်ပါ။",
+        "invalidURL": "မမှန်ကန်သော URL",
+        "invalidFile": "မမှန်ကန်သော ဖိုင်",
+        "errorNoSource": "ဗီဒီယိုအရင်းအမြစ်မရှိပါ။",
+        "uploadLimit": "အများဆုံးဖိုင်အရွယ်အစား- {{size}}",
+        "errorFileSize": "တောင်းပန်ပါတယ် ဒါပေမယ့် ဖိုင်က အရမ်းကြီးတယ်။<br> အများဆုံးဖိုင်အရွယ်အစားမှာ {{size}} ဖြစ်သည်။",
+        "errorNotAvailable": "ဝမ်းနည်းပါသည်၊ သို့သော် ဗီဒီယိုကို မရရှိနိုင်သေးပါ။ နောက်မှ ထပ်စမ်းကြည့်ပါ။",
+        "TeaserVideo": "Teaser ဗီဒီယို"
+    },
+    "pdf": {
+        "reset": "ပြန်လည်သတ်မှတ်ပါ။",
+        "edit": "တည်းဖြတ်ပါ။",
+        "title": "ခေါင်းစဉ်",
+        "description": "ဖော်ပြချက်",
+        "upload": "တင်သည်။",
+        "link": "လင့်",
+        "setUrl": "URL သတ်မှတ်ပါ။",
+        "save": "သိမ်းဆည်းပါ။",
+        "setClip": "အပိုင်းဖြတ်ပါ။",
+        "invalidURL": "မမှန်ကန်သော URL",
+        "invalidFile": "မမှန်ကန်သော ဖိုင်",
+        "errorNoSource": "pdf အရင်းအမြစ်မရှိပါ။",
+        "uploadLimit": "အများဆုံးဖိုင်အရွယ်အစား- {{size}}",
+        "errorFileSize": "တောင်းပန်ပါတယ် ဒါပေမယ့် ဖိုင်က အရမ်းကြီးတယ်။<br> အများဆုံးဖိုင်အရွယ်အစားမှာ {{size}} ဖြစ်သည်။",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "ပြန်လည်သတ်မှတ်ပါ။",
+        "edit": "တည်းဖြတ်ပါ။",
+        "title": "ခေါင်းစဉ်",
+        "description": "ဖော်ပြချက်",
+        "upload": "တင်သည်။",
+        "link": "လင့်",
+        "setUrl": "URL သတ်မှတ်ပါ။",
+        "save": "သိမ်းဆည်းပါ။",
+        "uploadedImage": "တင်ထားသောပုံ",
+        "imageTitle": "ပုံခေါင်းစဉ်",
+        "setClip": "အပိုင်းဖြတ်ပါ။",
+        "invalidURL": "မမှန်ကန်သော URL",
+        "invalidFile": "မမှန်ကန်သော ဖိုင်",
+        "errorNoSource": "ပုံအရင်းအမြစ်မရှိပါ။",
+        "uploadLimit": "အများဆုံးဖိုင်အရွယ်အစား- {{size}}",
+        "errorFileSize": "တောင်းပန်ပါတယ် ဒါပေမယ့် ဖိုင်က အရမ်းကြီးတယ်။<br> အများဆုံးဖိုင်အရွယ်အစားမှာ {{size}} ဖြစ်သည်။",
+        "TeaserImage": "Teaser ပုံ"
+    },
+    "questions": {
+        "Questions": "မေးခွန်းများ",
+        "Answers": "အဖြေများ",
+        "AnswerQuestion": "မေးခွန်းကိုဖြေပါ။",
+        "SetYourAnswer": "မေးခွန်းကို ဖြေပါ။",
+        "NewQuestion": "မေးခွန်းအသစ်",
+        "EditQuestion": "မေးခွန်းကို တည်းဖြတ်ပါ။",
+        "NewAnswer": "အဖြေအသစ်",
+        "NewPossibleAnswer": "ဖြစ်နိုင်သောအဖြေအသစ်",
+        "AnswerDetails": "အသေးစိတ်ဖြေဆိုပါ။",
+        "answerOption": "ရွေးချယ်မှု",
+        "answerOptionExclusive": "သီးသန့်",
+        "answerTextarea": "Textarea",
+        "answerText": "စာသား",
+        "HideUntilAnswered": "မဖြေမချင်း ဖျောက်ပါ။",
+        "CantChangeAnswers": "အဖြေများကို ပြောင်းလဲ၍မရပါ။",
+        "ShortAnswer": "အဖြေတိုတိုရေးပါ။",
+        "FreeAnswer": "သင့်အဖြေကို ဤနေရာတွင် ရေးပါ။",
+        "SaveQuestion": "မေးခွန်းကို သိမ်းဆည်းပါ။",
+        "SaveAnswer": "အဖြေကိုသိမ်းဆည်းပါ။",
+        "Save": "သိမ်းဆည်းပါ။",
+        "Send": "ပို့ပါ။",
+        "TitleRequired": "ခေါင်းစဉ် လိုအပ်ပါသည်။",
+        "AlreadyAnswered": "ဖြေပြီးပြီ။",
+        "TitlePlaceholder": "သင့်မေးခွန်းကို ရိုက်ထည့်ပါ။",
+        "ContentPlaceholder": "လူများဖြေကြားရာတွင် ကူညီရန် နောက်ထပ်အချက်အလက်များကို ဤနေရာတွင် ထားပါ။",
+        "ErrorTitle": "လိုအပ်သောမေးခွန်း",
+        "Placeholder": "ညွှန်ကြားချက်များရေးပါ။",
+        "AreYouSure": "သေချာလား?",
+        "AnswerCantBeChanged": "အဖြေကို ပြောင်းလဲ၍မရပါ။"
+    },
+    "experience": {
+        "NewExperience": "အတွေ့အကြုံသစ်",
+        "DefineTitle": "ကျေးဇူးပြု၍ ခေါင်းစဉ်တစ်ခု သတ်မှတ်ပါ။",
+        "Create": "ဖန်တီးပါ။"
+    },
+    "calls": {
+        "SettingsTitle": "ခေါ်ဆိုမှုများ",
+        "MaxCalls": "Max ဖုန်းခေါ်ဆိုမှုများ",
+        "Update": "အပ်ဒိတ်",
+        "NoCallsYet": "ဖုန်းခေါ်ဆိုမှုမရှိသေးပါ။",
+        "CallReasonTitle": "ဒီခေါ်ဆိုမှုက ဘာအကြောင်းလဲ။",
+        "WaitingRoom": "စောင့်ဆိုင်းခန်း",
+        "LiveRoom": "ဧည့်ခန်း",
+        "interviewedByAnotherHost": "လောလောဆယ် တခြားအိမ်ရှင်က အင်တာဗျူးထားတယ်။",
+        "bringToLive": "တိုက်ရိုက်ရှိုးသို့ ယူဆောင်လာပါ။",
+        "putOnHold": "ကိုင်ထားပါ။",
+        "endCall": "ခေါ်ဆိုမှုကို အဆုံးသတ်ပါ။",
+        "interview": "အင်တာဗျူး",
+        "markApproved": "ကမာ့ကို အတည်ပြုခဲ့သည်။"
+    },
+    "task": {
+        "errorsTitle": "အမှားအယွင်းများ ဖြစ်ပေါ်ခဲ့သည်။"
+    },
+    "topic": {
+        "NewTopic": "ခေါင်းစဉ်အသစ်",
+        "UpdateTopic": "အကြောင်းအရာကို အပ်ဒိတ်လုပ်ပါ။",
+        "CreateTopic": "ခေါင်းစဉ်ဖန်တီးပါ။",
+        "AreYouSureDeleteTopic": "ဤအကြောင်းအရာကို ဖျက်လိုသည်မှာ သေချာပါသလား။",
+        "TitlePlaceholder": "ခေါင်းစဉ်...",
+        "DescribeTopic": "ခေါင်းစဉ်ဖော်ပြပါ...",
+        "TopicIcon": "အကြောင်းအရာပုံ",
+        "UploadIcon": "အိုင်ကွန်ကို အပ်လုဒ်လုပ်ပါ။",
+        "Conversation": "စကားဝိုင်း",
+        "Metrics": "မက်ထရစ်များ",
+        "Teaser": "Teaser ပါ။",
+        "TeaserDescription": "Teaser ဖော်ပြချက်...",
+        "TeaserVideo": "Teaser ဗီဒီယို"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "ကာတွန်းပုံသေး ဖန်တီးပါ။",
+        "Width": "အကျယ်",
+        "Height": "အရပ်အမြင့်",
+        "Start": "စတင်ပါ။",
+        "End": "အဆုံး",
+        "Delay": "နှောင့်နှေးခြင်း။",
+        "Quality": "အရည်အသွေး",
+        "Size": "အရွယ်အစား",
+        "OfFrames": "ဘောင်များ",
+        "Frame": "ဘောင်",
+        "UseThis": "ဒါကိုသုံးပါ။",
+        "ResultGIF": "ရလဒ် GIF",
+        "VideoElementNotFound": "ဗီဒီယို အစိတ်အပိုင်းကို ရှာမတွေ့ပါ။"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "သင့်မျက်နှာပေါ်တွင် {{ClickOrTap}}",
+        "AcceptIcon": "ရွေးချယ်ထားသောနေရာကို လက်ခံပါ။"
+    }
+}

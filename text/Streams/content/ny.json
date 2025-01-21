@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Izi zabisika kwa inu.",
+        "InplaceTypeMustBe": "inplaceType iyenera kukhala &#39;textarea&#39; kapena &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Chinthu Chatsopano",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "dzina loyamba",
+        "lastName": "dzina lomaliza",
+        "username": "dzina lolowera"
+    },
+    "labels": {
+        "Streams\/invited": "Anthu amene ndinawaitana",
+        "Streams\/invitedMe": "Amene anandiitana",
+        "DoYouAgree": "Kodi mukuvomereza?",
+        "JoinItNow": "Lowani nawo pano?",
+        "Yes": "Inde",
+        "No": "Ayi"
+    },
+    "login": {
+        "prompt": "Lolani anzanu akuzindikireni:",
+        "newUser": "kapena pangani akaunti yatsopano pansipa",
+        "picTooltip": "Mutha kusintha chithunzichi pambuyo pake",
+        "placeholders": {
+            "fullName": "Lowetsani dzina lanu lonse"
+        }
+    },
+    "interests": {
+        "Filter": "Sakani zokonda",
+        "CanGrant": "Ngati simukupezabe zomwe mukuyang&#39;ana, mutha kuwonjezera chidwi chatsopano pansipa:",
+        "TrySynonyms": "Simukuziwona? Yesani mawu ofanana ndi mawu.",
+        "AddUnderCategory": "Onjezani pansi pa gulu...",
+        "Other": "Zina",
+        "Unlisted": "Sanatchulidwe"
+    },
+    "relate": {
+        "Add": "Onjezani {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Mauthenga adanenedwa kuti akawunikiridwa ndi oyang&#39;anira. Dinaninso kuti muchotse chizindikiro.",
+        "noOneSaid": "Palibe amene ananenapo kalikonse",
+        "closeChatButton": "Tsekani macheza",
+        "closeChatConfirmTitle": "Tsekani machezawa?",
+        "closeChatConfirm": "Mukutsimikiza kuti mukufuna kutseka machezawa?",
+        "Subscribed": "Zidziwitso Zayatsidwa",
+        "Unsubscribed": "Zidziwitso Zasinthidwa",
+        "closeChatConfirmYes": "Inde",
+        "closeChatConfirmNo": "Ayi",
+        "earlierComments": "ndemanga zam&#39;mbuyomu",
+        "startedConversation": "anayamba kucheza",
+        "RealTimeCall": "Kuyimba Kwanthawi Yeniyeni",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Sakani ndi dzina",
+        "Notifications": {
+            "Visit": "{{displayName}} akuyendera macheza",
+            "Join": "{{displayName}} adalowa nawo macheza",
+            "Leave": "{{displayName}} adasiya macheza",
+            "RelatedTo": "{{displayName}} idayamba {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Onjezani ndemanga",
+            "Private": "Lembani uthenga wachinsinsi"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "konzani zolembetsa zanu za imelo",
+        "IfUnsubscribe": "Ngati mukufuna kusiya kulemba",
+        "changed": {
+            "ChangesIn": "Zosintha mu {{title}}",
+            "Changed": "zasinthidwa",
+            "HereIsWhatChanged": "Nazi zomwe zidasintha:"
+        },
+        "joined": {
+            "Joined": "{{subject}} adalumikizana ndi <em>{{title}}<\/em>"
+        },
+        "*": "Tumizani uthenga {{{message.fields.type}}} mpaka {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} adagwirizana",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} yatsala",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} adati: {{{message.content}}}",
+        "Streams\/changed": "Zosintha mu {{stream.fields.title}}",
+        "Streams\/invite": "Munaitanidwa ku {{{stream.fields.title}}}",
+        "Streams\/announcement": "Kulengeza mu {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} adasintha mwayi mu {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Mauthenga ochezera osinthidwa mu {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Mauthenga ochezera adachotsedwa mu {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} yatsekedwa",
+        "Streams\/task\/progress": "Kupita patsogolo kwachitika pa {{stream.fields.title}}",
+        "Streams\/task\/complete": "Ntchito yomaliza: {{stream.fields.title}}",
+        "Streams\/task\/error": "Zolakwika pa nthawi: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Uthenga Umene Ukubwera",
+        "Streams\/relatedTo\/Streams\/call": "Kuyimba Kwatsopano Kunayamba mu {{toTitle}}",
+        "Streams\/relatedTo\/*": "Zatsopano {{relationDisplayType}} mu {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Zowonjezeredwa ku {{toTitle}} ngati {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} adakutchulani mu ndemanga",
+        "Streams\/call": "{{displayName}} idayamba kuyimba nthawi yeniyeni"
+    },
+    "invite": {
+        "command": "Itanani",
+        "Invite": "Itanani",
+        "Share": "Gawani",
+        "Participants": "Itanani Anthu",
+        "messageContent": "{{displayName}} adakuitanani ku {{inviteUrl}}",
+        "youCanNowPaste": "Mutha kumata ulalowu penapake kuti muyitanire anthu",
+        "roles": {
+            "title": "Perekani Maudindo kwa Ogwiritsa Ntchito Oyitanidwa?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Pepani",
+                "alert": "Simunaloledwa kupereka udindowu"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Pepani",
+                "alert": "Simunaloledwa kuchotsa udindowu"
+            }
+        },
+        "labels": {
+            "title": "Ubale Wanu Ndi Chiyani?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Sankhani kuchokera pa Ma Contacts anu",
+            "chooseAgainFromContacts": "Sankhani kachiwiri kuchokera Contacts",
+            "inviteSelectedContacts": "Itanani Ma Contacts Osankhidwa",
+            "selectFromContacts": "Sankhani Kuchokera Contacts",
+            "userChooserPlaceholder": "Sakani ndi dzina",
+            "photo": "Jambulani chithunzi",
+            "photoOf": "Tengani chithunzi cha {{name}}",
+            "photoInstruction": "Ngati munthu amene wasanthula nambala yanu ya QR ali patsogolo panu, mujambuleni chithunzi",
+            "to": "ku: {{Stream Title}}",
+            "go": "Pitani",
+            "title": "Itanani",
+            "placeholder": "Nambala yam&#39;manja kapena imelo adilesi",
+            "orInvite": "Kapena kuitanira anthu pogwiritsa ntchito:",
+            "copyLink": "{{ClickOrTap}} kuti mukopere ulalo woitanira ",
+            "shareOrCopyLink": "{{ClickOrTap}} kugawana kapena kukopera ulalo woitanira ",
+            "QR": "{{ClickOrTap}} kuti apange QR code",
+            "QRtitle": "Jambulani nambala ya QR iyi",
+            "QRscanned": "Iwo anajambula izo!",
+            "scannedQR": "{{ClickOrTap}} ngati code idasinthidwa",
+            "TakeGroupPhoto": "Jambulani Gulu Photo",
+            "Skip": "Dumphani",
+            "byEmail": "Imelo",
+            "byText": "Mawu",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegalamu",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Itanani Anthu",
+            "chooseMethod": "Sankhani njira:",
+            "selectContacts": "Sankhani Contacts",
+            "scanQRCode": "Jambulani Khodi ya QR",
+            "shareLink": "Gawani ulalo",
+            "chooseFromRegistered": "Sankhani kuchokera kwa ogwiritsa ntchito olembetsedwa",
+            "inviteViaEmailOrSms": "Itanani kudzera pa imelo kapena SMS",
+            "addRoles": "Onjezani Maudindo",
+            "addPersonalRoles": "Onjezani Maubwenzi Pawekha"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Takulandirani ku {{communityName}}",
+            "HasInvitedYou": "wakuyitanirani ku:",
+            "HasInvitedYouToTheirProfile": "wakuitanani kuti mulumikizane.",
+            "prompt": "Lolani anzanu akuzindikireni:",
+            "accept": "Landirani Kuyitanira"
+        },
+        "email": {
+            "subject": "Hei, fufuzani izi",
+            "PleaseVisitLink": "Chonde pitani ulalo wotsatirawu:",
+            "InvitingYou": "Ndikukuitanani ku {{title}}",
+            "HasInvitedYou": "{{displayName}} wakuyitanirani ku {{title}}",
+            "HasMentionedYou": "{{displayName}} wakutchulani mu &quot; {{title}} &quot;",
+            "YOUAREINVITED": "MUKUYITANIDWA!",
+            "AcceptInvite": "Landirani Kuyitanira"
+        },
+        "mobile": {
+            "content": "Mwaitanidwa ku {{title}} . Chonde dinani {{url}}"
+        },
+        "notice": {
+            "text": "Mwaitanidwa. {{ClickOrTap}} apa kuti muvomereze ndikujowina."
+        },
+        "chat": {
+            "prompt": "Muyitanira anthu kudzacheza komwe mungathe kumalumikizana, kugawana zithunzi limodzi, ndi zina zambiri. Tchulani dzina:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "adatumiza uthenga <em>{{message.fields.type}}<\/em> ku {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "adayankhapo ndemanga",
+            "startedCallIn": "adayamba kuyimba",
+            "in": "mu",
+            "body": "mu {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "yatumizidwa ku",
+                "byAvatar": "pa {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "ali ndi {{instructions.fromDisplayType}} yatsopano",
+                "byAvatar": "onjezedwa ndi {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Kuyitanira kumatumizidwa kuchokera pa nambala yathu, yomwe anzanu sakuzindikirabe. Tsatirani ndi mawu ofulumira kuti adziwe kuti kuyitanidwa kwachokera kwa inu, kuwapempha kuti adina ulalo.",
+            "confirm": "Kuyitanira kumatumizidwa kuchokera pa nambala yathu, yomwe anzanu sakuzindikirabe. Mukufuna kutsatira ndi mawu ofulumira kuti adziwe kuti kuyitanidwa kwachokera kwa inu, kuwafunsa kuti adina ulalo.",
+            "check": "Hei, ndakutumizirani kukuyitanira ku pulogalamu ya {{app}} . Chonde onani ma sms anu ndikudina ulalo!",
+            "CheckYourMobile": "Chonde onani SMS ndikutsatira malangizo!"
+        },
+        "email": {
+            "alert": "Kuyitanira kumatumizidwa kuchokera ku domeni yathu, zomwe anzanu sakuzizindikira. Tsatirani ndi mawu ofulumira kuti adziwe kuti kuyitanidwa kwachokera kwa inu, kuwapempha kuti adina ulalo.",
+            "confirm": "Kuyitanira kumatumizidwa kuchokera ku domeni yathu, zomwe anzanu sakuzizindikira. Mukufuna kutsatira ndi mawu ofulumira kuwadziwitsa kuti kuyitanidwa kwachokera kwa inu, kuwafunsa kuti adina ulalo.",
+            "subject": "Kodi mwalandira kuyitanidwa?",
+            "body": "Hei, ndakutumizirani kukuyitanira ku pulogalamu ya {{app}} . Chonde onani imelo yanu ndikudina ulalo womwe uli pamenepo!",
+            "CheckYourEmail": "Chonde onani imelo yanu ndikutsatira malangizo!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Dzina la wogwiritsa..."
+    },
+    "identifier": {
+        "privacySettings": "Zokonda Zazinsinsi"
+    },
+    "participating": {
+        "Title": "Mutu",
+        "Subscribed": "Olembetsa",
+        "Participants": "Otenga nawo mbali",
+        "AreYouSureRemoveIdentifier": "Kodi mukutsimikiza kuchotsa chozindikiritsa ichi?",
+        "AreYouSureUnsubscribeIdentifier": "Kodi mukutsimikiza kuti simunalembetse chizindikiritsochi? Izimitsa zidziwitso zachizindikiritsochi.",
+        "AreYouSureUnsubscribeDevice": "Kodi mukutsimikiza kusiya kulembetsa chipangizochi? Izimitsa zidziwitso ku chipangizochi.",
+        "AreYouSureRemoveParticipant": "Kodi mukutsimikiza kuti mukufuna kuchotsa otenga nawo gawo?",
+        "RemoveParticipant": "Chotsani wophunzira",
+        "Identifiers": "Zozindikiritsa",
+        "Devices": "Zipangizo",
+        "Streams": "Mitsinje"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Waitanidwa",
+            "description": "Ma inbox oitanira anthu"
+        },
+        "Streams\/resource": {
+            "displayType": "Zothandizira",
+            "description": "mtsinje wowongolera mwayi wofikira kuzinthu ndi kutumiza mauthenga okhudza zosintha"
+        },
+        "Streams\/task": {
+            "description": "kulandira zosintha za momwe ntchito ina ikuyendera",
+            "displayType": "Ntchito"
+        },
+        "Streams\/tasks": {
+            "description": "gulu la ntchito",
+            "displayType": "Ntchito"
+        },
+        "Streams\/experience": {
+            "description": "zochitika zodziwika kwa anthu ammudzi",
+            "displayType": "Zomwe zimachitikira anthu ammudzi"
+        },
+        "Streams\/greeting": {
+            "description": "moni womwe wogwiritsa ntchito angadziwonetse nawo",
+            "displayType": "Moni"
+        },
+        "Streams\/number": {
+            "displayType": "Nambala",
+            "description": "nambala ya masamu"
+        },
+        "Streams\/date": {
+            "displayType": "Tsiku",
+            "description": "tsiku"
+        },
+        "Streams\/text": {
+            "displayType": "Mawu",
+            "description": "thupi la malemba"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Mawu",
+            "description": "kalembedwe kakang&#39;ono"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Mawu",
+            "description": "zolemba zapakati"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Imelo adilesi",
+            "description": "imelo adilesi"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Nambala yafoni",
+            "description": "nambala yafoni"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "ulalo pa intaneti"
+        },
+        "Streams\/image": {
+            "displayType": "Chithunzi",
+            "description": "chithunzi chowoneka",
+            "newItem": "Onjezani Chithunzi"
+        },
+        "Streams\/images": {
+            "displayType": "Zithunzi Zojambula",
+            "description": "zithunzi"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "Album yomwe ili ndi ma media osiyanasiyana"
+        },
+        "Streams\/file": {
+            "displayType": "Fayilo",
+            "description": "fayilo yokwezedwa",
+            "newItem": "Onjezani Fayilo"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio Clip",
+            "description": "chomvera",
+            "newItem": "Onjezani Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Kanema Kanema",
+            "description": "kanema kanema",
+            "newItem": "Onjezani Kanema"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF chikalata",
+            "description": "PDF chikalata",
+            "newItem": "Onjezani PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "audio kapena kanema wamoyo"
+        },
+        "Streams\/category": {
+            "displayType": "Gulu",
+            "description": "gulu lomwe mitsinje ina ingagwirizane nayo",
+            "newItem": "Onjezani Gulu"
+        },
+        "Streams\/participating": {
+            "displayType": "Chilolezo chotenga nawo mbali",
+            "description": "mitsinje ndi yogwirizana\/yosagwirizana ndi izi pamene wogwiritsa ntchito ajowina\/achoka"
+        },
+        "Streams\/interest": {
+            "displayType": "Chidwi",
+            "description": "imayimira chidwi cha wogwiritsa ntchito pamutu wina"
+        },
+        "Streams\/incoming": {
+            "displayType": "Obwera",
+            "description": "kopita mauthenga otumizidwa ndi ogwiritsa ntchito ena"
+        },
+        "Streams\/chat": {
+            "displayType": "Kukambirana",
+            "description": "kukambirana pakati pa ogwiritsa ntchito, ndi mbiri"
+        },
+        "Streams\/question": {
+            "displayType": "Funso",
+            "description": "funso mtsinje",
+            "newItem": "Onjezani Funso"
+        },
+        "Streams\/answer": {
+            "displayType": "Yankhani",
+            "description": "yankho mtsinje"
+        },
+        "Streams\/topic": {
+            "displayType": "Mutu",
+            "description": "mutu wankhani",
+            "newItem": "Onjezani Mutu"
+        }
+    },
+    "menu": {
+        "placeholder": "lembani mutu watsamba",
+        "ModTab": "Sinthani Kanthu",
+        "Save": "Sungani",
+        "Delete": "Chotsani",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Lembani",
+        "reset": "Bwezerani",
+        "edit": "Sinthani",
+        "title": "mutu",
+        "description": "kufotokoza",
+        "upload": "Kwezani",
+        "link": "Lumikizani",
+        "setUrl": "Khazikitsani URL",
+        "save": "Sungani",
+        "setClip": "Dulani Clip",
+        "invalidURL": "URL yolakwika",
+        "invalidFile": "Fayilo yolakwika",
+        "errorNoSource": "Palibe audio source",
+        "uploadLimit": "Kukula kwakukulu kwa fayilo: {{size}}",
+        "errorFileSize": "Pepani, koma fayilo yayikulu kwambiri.<br> Kukula kwakukulu kwa fayilo ndi {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Kanema Watsopano",
+        "EditVideo": "Sinthani Kanema",
+        "reset": "Bwezerani",
+        "edit": "Sinthani",
+        "title": "mutu",
+        "description": "kufotokoza",
+        "upload": "Kwezani",
+        "link": "Lumikizani",
+        "setUrl": "Khazikitsani URL",
+        "save": "Sungani",
+        "createAnimatedThumbnail": "Pangani chithunzithunzi chojambula",
+        "setClip": "Dulani Clip",
+        "invalidURL": "URL yolakwika",
+        "invalidFile": "Fayilo yolakwika",
+        "errorNoSource": "Palibe gwero lamavidiyo",
+        "uploadLimit": "Kukula kwakukulu kwa fayilo: {{size}}",
+        "errorFileSize": "Pepani, koma fayilo yayikulu kwambiri.<br> Kukula kwakukulu kwa fayilo ndi {{size}}",
+        "errorNotAvailable": "Pepani, koma kanema sanapezekebe. Chonde yesaninso nthawi ina.",
+        "TeaserVideo": "Kanema wa Teaser"
+    },
+    "pdf": {
+        "reset": "Bwezerani",
+        "edit": "Sinthani",
+        "title": "mutu",
+        "description": "kufotokoza",
+        "upload": "Kwezani",
+        "link": "Lumikizani",
+        "setUrl": "Khazikitsani URL",
+        "save": "Sungani",
+        "setClip": "Dulani Clip",
+        "invalidURL": "URL yolakwika",
+        "invalidFile": "Fayilo yolakwika",
+        "errorNoSource": "Palibe gwero la pdf",
+        "uploadLimit": "Kukula kwakukulu kwa fayilo: {{size}}",
+        "errorFileSize": "Pepani, koma fayilo yayikulu kwambiri.<br> Kukula kwakukulu kwa fayilo ndi {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Bwezerani",
+        "edit": "Sinthani",
+        "title": "mutu",
+        "description": "kufotokoza",
+        "upload": "Kwezani",
+        "link": "Lumikizani",
+        "setUrl": "Khazikitsani URL",
+        "save": "Sungani",
+        "uploadedImage": "Chithunzi chokwezedwa",
+        "imageTitle": "Mutu wazithunzi",
+        "setClip": "Dulani Clip",
+        "invalidURL": "URL yolakwika",
+        "invalidFile": "Fayilo yolakwika",
+        "errorNoSource": "Palibe gwero lazithunzi",
+        "uploadLimit": "Kukula kwakukulu kwa fayilo: {{size}}",
+        "errorFileSize": "Pepani, koma fayilo yayikulu kwambiri.<br> Kukula kwakukulu kwa fayilo ndi {{size}}",
+        "TeaserImage": "Chithunzi cha Teaser"
+    },
+    "questions": {
+        "Questions": "Mafunso",
+        "Answers": "Mayankho",
+        "AnswerQuestion": "Yankhani Funso",
+        "SetYourAnswer": "Chonde yankhani funsolo",
+        "NewQuestion": "Funso Latsopano",
+        "EditQuestion": "Sinthani Funso",
+        "NewAnswer": "Yankho Latsopano",
+        "NewPossibleAnswer": "Yankho Lotheka Latsopano",
+        "AnswerDetails": "Yankhani Tsatanetsatane",
+        "answerOption": "Njira",
+        "answerOptionExclusive": "Kwapadera",
+        "answerTextarea": "Textarea",
+        "answerText": "Mawu",
+        "HideUntilAnswered": "Bisani mpaka atayankha",
+        "CantChangeAnswers": "Sitingathe kusintha mayankho",
+        "ShortAnswer": "Lembani yankho lalifupi",
+        "FreeAnswer": "Lembani yankho lanu apa",
+        "SaveQuestion": "Sungani Funso",
+        "SaveAnswer": "Sungani Yankho",
+        "Save": "Sungani",
+        "Send": "Tumizani",
+        "TitleRequired": "Mutu ukufunika!",
+        "AlreadyAnswered": "Adayankha kale",
+        "TitlePlaceholder": "Lembani funso lanu",
+        "ContentPlaceholder": "Ikani zina zowonjezera apa kuti muthandize anthu kuyankha",
+        "ErrorTitle": "Funso ndilofunika",
+        "Placeholder": "Lembani Malangizo",
+        "AreYouSure": "Mukutsimikiza?",
+        "AnswerCantBeChanged": "Yankho silingasinthidwe"
+    },
+    "experience": {
+        "NewExperience": "Zatsopano",
+        "DefineTitle": "Chonde tanthauzirani mutu",
+        "Create": "Pangani"
+    },
+    "calls": {
+        "SettingsTitle": "Kuitana",
+        "MaxCalls": "Max akuyimba",
+        "Update": "Kusintha",
+        "NoCallsYet": "Palibe mafoni panobe",
+        "CallReasonTitle": "Kodi kuitana kumeneku ndi chiyani?",
+        "WaitingRoom": "Malo Odikirira",
+        "LiveRoom": "Chipinda Chamoyo",
+        "interviewedByAnotherHost": "Panopa akufunsidwa ndi wolandira wina",
+        "bringToLive": "Bweretsani Ku Live Show",
+        "putOnHold": "Valani Gwirani",
+        "endCall": "Malizitsani Kuyimba",
+        "interview": "Mafunso",
+        "markApproved": "Mark Wavomerezedwa"
+    },
+    "task": {
+        "errorsTitle": "Zolakwika zidachitika"
+    },
+    "topic": {
+        "NewTopic": "Mutu Watsopano",
+        "UpdateTopic": "Sinthani Mutu",
+        "CreateTopic": "Pangani Mutu",
+        "AreYouSureDeleteTopic": "Mukutsimikiza kuti mukufuna kuchotsa mutuwu",
+        "TitlePlaceholder": "mutu wankhani...",
+        "DescribeTopic": "fotokozani mutu...",
+        "TopicIcon": "Chithunzi cha mutu",
+        "UploadIcon": "Kwezani Chizindikiro",
+        "Conversation": "Kukambirana",
+        "Metrics": "Metrics",
+        "Teaser": "Teaser",
+        "TeaserDescription": "kufotokoza kwa teaser...",
+        "TeaserVideo": "Kanema wa Teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Pangani chithunzithunzi chojambula",
+        "Width": "M&#39;lifupi",
+        "Height": "Kutalika",
+        "Start": "Yambani",
+        "End": "TSIRIZA",
+        "Delay": "Kuchedwa",
+        "Quality": "Ubwino",
+        "Size": "Kukula",
+        "OfFrames": "za Frames",
+        "Frame": "Chimango",
+        "UseThis": "Gwiritsani ntchito izi",
+        "ResultGIF": "Zotsatira za GIF",
+        "VideoElementNotFound": "Kanemayo sanapezeke"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Pankhope Panu",
+        "AcceptIcon": "Landirani malo osankhidwa"
+    }
+}

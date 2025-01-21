@@ -469,7 +469,8 @@
         "ErrorTitle": "கேள்வி தேவை",
         "Placeholder": "வழிமுறைகளை எழுதுங்கள்",
         "AreYouSure": "நீ சொல்வது உறுதியா?",
-        "ShortAnswer": "சுருக்கமாக பதில் எழுதவும்"
+        "ShortAnswer": "சுருக்கமாக பதில் எழுதவும்",
+        "AnswerCantBeChanged": "பதிலை மாற்ற முடியாது"
     },
     "experience": {
         "NewExperience": "புதிய அனுபவம்",

@@ -469,7 +469,8 @@
         "ErrorTitle": "Vraag vereis",
         "Placeholder": "Skryf instruksies",
         "AreYouSure": "Is jy seker?",
-        "ShortAnswer": "Skryf &#39;n kort antwoord"
+        "ShortAnswer": "Skryf &#39;n kort antwoord",
+        "AnswerCantBeChanged": "Antwoord kan nie verander word nie"
     },
     "experience": {
         "NewExperience": "Nuwe ervaring",

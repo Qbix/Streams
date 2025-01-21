@@ -469,7 +469,8 @@
         "ErrorTitle": "Требуется вопрос",
         "Placeholder": "Написать инструкции",
         "AreYouSure": "Вы уверены?",
-        "ShortAnswer": "Напишите краткий ответ"
+        "ShortAnswer": "Напишите краткий ответ",
+        "AnswerCantBeChanged": "Ответ не может быть изменен"
     },
     "experience": {
         "NewExperience": "Новый опыт",

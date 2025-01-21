@@ -469,7 +469,8 @@
         "ErrorTitle": "საჭიროა კითხვა",
         "Placeholder": "დაწერეთ ინსტრუქციები",
         "AreYouSure": "Დარწმუნებული ხარ?",
-        "ShortAnswer": "დაწერეთ მოკლე პასუხი"
+        "ShortAnswer": "დაწერეთ მოკლე პასუხი",
+        "AnswerCantBeChanged": "პასუხის შეცვლა შეუძლებელია"
     },
     "experience": {
         "NewExperience": "Ახალი გამოცდილება",

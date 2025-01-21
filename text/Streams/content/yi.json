@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "דער אינהאַלט איז פאַרבאָרגן פון איר.",
+        "InplaceTypeMustBe": "inplaceType מוזן זיין &#39;טעקסטאַרע&#39; אָדער &#39;טעקסט&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "ניו יטעם",
+        "Teaser": "טיזער"
+    },
+    "avatar": {
+        "firstName": "ערשטער נאָמען",
+        "lastName": "לעצטע נאָמען",
+        "username": "נאמען"
+    },
+    "labels": {
+        "Streams\/invited": "מענטשן איך פארבעטן",
+        "Streams\/invitedMe": "ווער האט מיך פארבעטן",
+        "DoYouAgree": "צי איר שטימען?",
+        "JoinItNow": "פאַרבינדן עס איצט?",
+        "Yes": "יא",
+        "No": "ניין"
+    },
+    "login": {
+        "prompt": "לאָזן פריינט דערקענען איר:",
+        "newUser": "אָדער שאַפֿן אַ נייַע חשבון אונטן",
+        "picTooltip": "איר קענען טוישן דעם בילד שפּעטער",
+        "placeholders": {
+            "fullName": "אַרייַן דיין פול נאָמען"
+        }
+    },
+    "interests": {
+        "Filter": "זוכן אינטערעסן",
+        "CanGrant": "אויב איר נאָך קען נישט געפֿינען וואָס איר זוכט פֿאַר, איר קענען לייגן אַ נייַע אינטערעס אונטן:",
+        "TrySynonyms": "צי ניט זען עס? פּרוּווט עטלעכע סינאָנימס.",
+        "AddUnderCategory": "לייג צו אונטער קאַטעגאָריע...",
+        "Other": "אנדערע",
+        "Unlisted": "ונליסטעד"
+    },
+    "relate": {
+        "Add": "לייג {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "אָנזאָג איז פלאַגד פֿאַר אַדמיניסטראַטאָר אָפּשאַצונג. צאַפּן ווידער צו ונפלאַג.",
+        "noOneSaid": "קיינער האט גארנישט געזאגט",
+        "closeChatButton": "נאָענט שמועסן",
+        "closeChatConfirmTitle": "פאַרמאַכן דעם שמועס?",
+        "closeChatConfirm": "זענט איר זיכער אַז איר ווילט צו פאַרמאַכן דעם שמועס?",
+        "Subscribed": "נאָוטאַפאַקיישאַנז ענייבאַלד",
+        "Unsubscribed": "נאָוטאַפאַקיישאַנז מיוטיד",
+        "closeChatConfirmYes": "יא",
+        "closeChatConfirmNo": "ניין",
+        "earlierComments": "פריער באַמערקונגען",
+        "startedConversation": "אנגעהויבן א שמועס",
+        "RealTimeCall": "פאַקטיש צייט רופן",
+        "JoinWebRTC": "טעלעקאָנפערענסע",
+        "SearchByName": "זוכן דורך נאָמען",
+        "Notifications": {
+            "Visit": "{{displayName}} באזוכט די שמועסן",
+            "Join": "{{displayName}} זיך איינגעשריבן די שמועסן",
+            "Leave": "{{displayName}} לינקס דער שמועס",
+            "RelatedTo": "{{displayName}} סטאַרטעד אַ {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "לייג אַ באַמערקונג",
+            "Private": "שרייב אַ פּריוואַט אָנזאָג"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "פירן דיין E- בריוו סאַבסקריפּשאַנז",
+        "IfUnsubscribe": "אויב איר ווילן צו אַבאָנירן",
+        "changed": {
+            "ChangesIn": "די ענדערונגען אין {{title}}",
+            "Changed": "געביטן",
+            "HereIsWhatChanged": "דאָ איז וואָס געביטן:"
+        },
+        "joined": {
+            "Joined": "{{subject}} זיך איינגעשריבן <em>{{title}}<\/em>"
+        },
+        "*": "אָנזאָג {{{message.fields.type}}} צו {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} האבן זיך איינגעשריבן",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} לינקס",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} געזאגט: {{{message.content}}}",
+        "Streams\/changed": "די ענדערונגען אין {{stream.fields.title}}",
+        "Streams\/invite": "איר זענט פארבעטן צו {{{stream.fields.title}}}",
+        "Streams\/announcement": "מעלדן אין {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} טשיינדזשד אַקסעס אין {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "שמועסן אָנזאָג עדיטיד אין {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "שמועסן אָנזאָג אַוועקגענומען אין {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} איז פארמאכט",
+        "Streams\/task\/progress": "פּראָגרעס געמאכט אויף {{stream.fields.title}}",
+        "Streams\/task\/complete": "אַרבעט געענדיקט: {{stream.fields.title}}",
+        "Streams\/task\/error": "טעות בעשאַס: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : ינקאַמינג אָנזאָג",
+        "Streams\/relatedTo\/Streams\/call": "נייַ רופן סטאַרטעד אין {{toTitle}}",
+        "Streams\/relatedTo\/*": "נייַ {{relationDisplayType}} אין {{toTitle}}",
+        "Streams\/relatedFrom\/*": "צוגעגעבן צו {{toTitle}} ווי {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} דערמאנט איר אין אַ באַמערקונג",
+        "Streams\/call": "{{displayName}} סטאַרטעד אַ פאַקטיש-צייט רופן"
+    },
+    "invite": {
+        "command": "לאַדן",
+        "Invite": "לאַדן",
+        "Share": "ייַנטיילן",
+        "Participants": "לאַדן מענטשן",
+        "messageContent": "{{displayName}} פארבעטן איר צו {{inviteUrl}}",
+        "youCanNowPaste": "איר קענט איצט פּאַפּ דעם לינק ערגעץ צו פאַרבעטן מענטשן",
+        "roles": {
+            "title": "געבן ראָלעס צו פארבעטן יוזערז?",
+            "NotAuthorizedToGrantRole": {
+                "title": "אנטשולדיגט",
+                "alert": "איר זענט נישט אָטערייזד צו געבן דעם ראָלע"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "אנטשולדיגט",
+                "alert": "איר זענט נישט אָטערייזד צו באַזייַטיקן דעם ראָלע"
+            }
+        },
+        "labels": {
+            "title": "וואָס איז דיין שייכות?"
+        },
+        "dialog": {
+            "chooseFromContacts": "קלייַבן פון דיין קאָנטאַקטן",
+            "chooseAgainFromContacts": "קלייַבן ווידער פֿון קאָנטאַקטן",
+            "inviteSelectedContacts": "לאַדן סעלעקטעד קאָנטאַקטן",
+            "selectFromContacts": "אויסקלייַבן פֿון קאָנטאַקטן",
+            "userChooserPlaceholder": "זוכן דורך נאָמען",
+            "photo": "נעמען אַ פאָטאָ",
+            "photoOf": "נעמען אַ פאָטאָ פון {{name}}",
+            "photoInstruction": "אויב דער מענטש וואָס סקאַנד דיין QR קאָד איז אין פראָנט פון איר, נעמען אַ פאָטאָ פון זיי",
+            "to": "צו: {{Stream Title}}",
+            "go": "גיי",
+            "title": "לאַדן",
+            "placeholder": "מאָביל נומער אָדער בליצפּאָסט אַדרעס",
+            "orInvite": "אָדער פאַרבעטן מענטשן דורך ניצן:",
+            "copyLink": "{{ClickOrTap}} צו נאָכמאַכן פאַרבעטן לינק ",
+            "shareOrCopyLink": "{{ClickOrTap}} צו טיילן אָדער נאָכמאַכן פאַרבעטן לינק ",
+            "QR": "{{ClickOrTap}} צו דזשענערייט QR קאָד",
+            "QRtitle": "יבערקוקן דעם QR קאָד",
+            "QRscanned": "זיי סקאַנד עס!",
+            "scannedQR": "{{ClickOrTap}} אויב די קאָד איז סקאַנד",
+            "TakeGroupPhoto": "נעמען אַ גרופּע פאָטאָ",
+            "Skip": "האָפּקען",
+            "byEmail": "בליצפּאָסט",
+            "byText": "טעקסט",
+            "byFacebook": "Facebook",
+            "byTwitter": "טוויטער",
+            "byTelegram": "טעלעגראַם",
+            "byWhatsapp": "ווהאַצאַפּפּ",
+            "title2": "לאַדן מענטשן",
+            "chooseMethod": "קלייַבן אַ אופֿן:",
+            "selectContacts": "אויסקלייַבן קאָנטאַקטן",
+            "scanQRCode": "יבערקוקן QR קאָד",
+            "shareLink": "ייַנטיילן אַ לינק",
+            "chooseFromRegistered": "קלייַבן פון רעגיסטרירט ניצערס",
+            "inviteViaEmailOrSms": "פאַרבעטן דורך E- בריוו אָדער SMS",
+            "addRoles": "לייג ראָלעס",
+            "addPersonalRoles": "לייג פערזענלעכע באַציונגען"
+        },
+        "complete": {
+            "WelcomeToCommunity": "ברוכים הבאים צו {{communityName}}",
+            "HasInvitedYou": "האט איר פארבעטן צו:",
+            "HasInvitedYouToTheirProfile": "האט פארבעטן איר צו פאַרבינדן.",
+            "prompt": "לאָזן פריינט דערקענען איר:",
+            "accept": "אָננעמען פאַרבעטן"
+        },
+        "email": {
+            "subject": "היי, טשעק דאָס אויס",
+            "PleaseVisitLink": "ביטע באַזוכן די פאלגענדע לינק:",
+            "InvitingYou": "איך לאַדן איר צו {{title}}",
+            "HasInvitedYou": "{{displayName}} האט פארבעטן איר צו {{title}}",
+            "HasMentionedYou": "{{displayName}} האט דערמאנט איר אין &quot; {{title}} &quot;",
+            "YOUAREINVITED": "איר זענט פארבעטן!",
+            "AcceptInvite": "אָננעמען פאַרבעטן"
+        },
+        "mobile": {
+            "content": "איר האָט שוין פארבעטן צו {{title}} . ביטע צאַפּן {{url}}"
+        },
+        "notice": {
+            "text": "איר האָט שוין פארבעטן. {{ClickOrTap}} דאָ צו אָננעמען און פאַרבינדן."
+        },
+        "chat": {
+            "prompt": "איר וועט פאַרבעטן מענטשן צו אַ שמועס ווו איר קענען בלייבן אין קאָנטאַקט, טיילן פאָטאָס צוזאַמען, און מער. געבן עס אַ נאָמען:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "אַרייַנגעשיקט אַ <em>{{message.fields.type}}<\/em> אָנזאָג צו {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "קאָמענטירט אויף",
+            "startedCallIn": "אנגעהויבן א רוף אריין",
+            "in": "אין",
+            "body": "אין {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "איז אַרייַנגעשיקט צו",
+                "byAvatar": "דורך {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "האט אַ נייַע {{instructions.fromDisplayType}}",
+                "byAvatar": "צוגעגעבן דורך {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "ינווייץ זענען געשיקט פון אונדזער נומער, וואָס דיין פרענדז טאָן ניט דערקענען נאָך. גיי אַרויף מיט אַ שנעל טעקסט צו לאָזן זיי וויסן אַז די פאַרבעטונג געקומען פון איר, אַסקינג זיי צו גיט די לינק.",
+            "confirm": "ינווייץ זענען געשיקט פון אונדזער נומער, וואָס דיין פרענדז טאָן ניט דערקענען נאָך. וואָלט איר ווי צו נאָכפאָלגן אַרויף מיט אַ שנעל טעקסט צו לאָזן זיי וויסן אַז די פאַרבעטונג געקומען פון איר, אַסקינג זיי צו גיט די לינק.",
+            "check": "היי, איך נאָר געשיקט איר אַ פאַרבעטונג צו די {{app}} אַפּ. ביטע טשעק דיין SMS און גיט די לינק!",
+            "CheckYourMobile": "ביטע טשעק SMS און נאָכגיין ינסטראַקשאַנז!"
+        },
+        "email": {
+            "alert": "ינווייץ זענען געשיקט פון אונדזער פעלד, וואָס דיין פרענדז טאָן ניט דערקענען נאָך. גיי אַרויף מיט אַ שנעל טעקסט צו לאָזן זיי וויסן די פאַרבעטונג געקומען פון איר, אַסקינג זיי צו גיט די לינק.",
+            "confirm": "ינווייץ זענען געשיקט פון אונדזער פעלד, וואָס דיין פרענדז טאָן ניט דערקענען נאָך. וואָלט איר ווי צו נאָכפאָלגן אַרויף מיט אַ שנעל טעקסט צו לאָזן זיי וויסן אַז די פאַרבעטונג געקומען פון איר, אַסקינג זיי צו גיט די לינק.",
+            "subject": "האָט איר באַקומען אַ פאַרבעטונג?",
+            "body": "היי, איך נאָר געשיקט איר אַ פאַרבעטונג צו די {{app}} אַפּ. ביטע טשעק דיין אימעיל און גיט די לינק אין עס!",
+            "CheckYourEmail": "ביטע טשעק דיין בליצפּאָסט און נאָכגיין ינסטראַקשאַנז!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "נאָמען פון אַ באַניצער ..."
+    },
+    "identifier": {
+        "privacySettings": "פּריוואַטקייט סעטטינגס"
+    },
+    "participating": {
+        "Title": "טיטל",
+        "Subscribed": "אַבאָנירן",
+        "Participants": "פּאַרטיסאַפּאַנץ",
+        "AreYouSureRemoveIdentifier": "זענט איר זיכער צו באַזייַטיקן דעם אידענטיפיצירן?",
+        "AreYouSureUnsubscribeIdentifier": "זענט איר זיכער אַבאָנירן דעם אידענטיפיצירן? עס וועט קער אַוועק נאָוטאַפאַקיישאַנז צו דעם ידענטיפיער.",
+        "AreYouSureUnsubscribeDevice": "זענט איר זיכער אַבאָנירן דעם מיטל? עס וועט קער אַוועק נאָוטאַפאַקיישאַנז צו דעם מיטל.",
+        "AreYouSureRemoveParticipant": "זענט איר זיכער אַז איר ווילט צונעמען דעם באַטייליקטער?",
+        "RemoveParticipant": "אַראָפּנעמען באַטייליקטער",
+        "Identifiers": "אידענטיפיצירן",
+        "Devices": "דיווייסאַז",
+        "Streams": "סטרימז"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "פארבעטן",
+            "description": "ינבאָקס פֿאַר ינוויטיישאַנז"
+        },
+        "Streams\/resource": {
+            "displayType": "מיטל",
+            "description": "טייַך פֿאַר אָנפירונג אַקסעס צו אַ מיטל און פּאָסטינג אַרטיקלען וועגן דערהייַנטיקונגען"
+        },
+        "Streams\/task": {
+            "description": "פֿאַר ריסיווינג דערהייַנטיקונגען וועגן פּראָגרעס אויף אַ זיכער אַרבעט",
+            "displayType": "אַרבעט"
+        },
+        "Streams\/tasks": {
+            "description": "קאַטעגאָריע פֿאַר טאַסקס",
+            "displayType": "טאַסקס"
+        },
+        "Streams\/experience": {
+            "description": "אַ פּראָסט דערפאַרונג פֿאַר מיטגלידער פון אַ קהל",
+            "displayType": "פּראָסט דערפאַרונג פֿאַר מיטגלידער פון אַ קהל"
+        },
+        "Streams\/greeting": {
+            "description": "גרוס מיט וואָס אַ באַניצער קענען באַקענען זיך",
+            "displayType": "גרוס"
+        },
+        "Streams\/number": {
+            "displayType": "נומער",
+            "description": "מאַטאַמאַטישע נומער"
+        },
+        "Streams\/date": {
+            "displayType": "טאָג",
+            "description": "טאָג"
+        },
+        "Streams\/text": {
+            "displayType": "טעקסט",
+            "description": "גוף פון טעקסט"
+        },
+        "Streams\/text\/small": {
+            "displayType": "טעקסט",
+            "description": "קליין גוף פון טעקסט"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "טעקסט",
+            "description": "מיטל גוף פון טעקסט"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "בליצפּאָסט אַדרעס",
+            "description": "בליצפּאָסט אַדרעס"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "טעלעפאָן נומער",
+            "description": "טעלעפאָן נומער"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "לינק אויף די וועב"
+        },
+        "Streams\/image": {
+            "displayType": "בילד",
+            "description": "וויסואַל בילד",
+            "newItem": "לייג בילד"
+        },
+        "Streams\/images": {
+            "displayType": "בילד גאַלערי",
+            "description": "גאַלעריע פון בילדער"
+        },
+        "Streams\/album": {
+            "displayType": "אלבאם",
+            "description": "אַן אלבאם מיט וועלכע פארשידענע מעדיע זענען שייך"
+        },
+        "Streams\/file": {
+            "displayType": "טעקע",
+            "description": "ופּלאָאַדעד טעקע",
+            "newItem": "לייג טעקע"
+        },
+        "Streams\/audio": {
+            "displayType": "אַודיאָ קליפּ",
+            "description": "אַודיאָ קליפּ",
+            "newItem": "לייג אַודיאָ"
+        },
+        "Streams\/video": {
+            "displayType": "ווידעא קליפּ",
+            "description": "ווידעא קליפּ",
+            "newItem": "לייג ווידעא"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF דאָקומענט",
+            "description": "PDF דאָקומענט",
+            "newItem": "לייג PDF"
+        },
+        "Streams\/live": {
+            "displayType": "לייווסטרים",
+            "description": "לעבן אַודיאָ אָדער ווידעא"
+        },
+        "Streams\/category": {
+            "displayType": "קאַטעגאָריע",
+            "description": "אַ קאַטעגאָריע צו וואָס אנדערע סטרימז קענען זיין שייַכות",
+            "newItem": "לייג קאַטעגאָריע"
+        },
+        "Streams\/participating": {
+            "displayType": "פּאַרטיסאַפּייטינג אינדעקס",
+            "description": "סטרימז זענען שייַכות \/ אַנרילייטיד צו דעם ווען אַ באַניצער דזשוינץ \/ בלעטער"
+        },
+        "Streams\/interest": {
+            "displayType": "אינטערעס",
+            "description": "רעפּראַזענץ אַ באַניצער ס אינטערעס אין אַ זיכער טעמע"
+        },
+        "Streams\/incoming": {
+            "displayType": "ינקאַמינג",
+            "description": "דעסטיניישאַן פֿאַר אַרטיקלען געשיקט דורך אנדערע יוזערז"
+        },
+        "Streams\/chat": {
+            "displayType": "שמועס",
+            "description": "אַ שמועס צווישן וסערס, מיט געשיכטע"
+        },
+        "Streams\/question": {
+            "displayType": "פראגע",
+            "description": "קשיא טייַך",
+            "newItem": "לייג פראגע"
+        },
+        "Streams\/answer": {
+            "displayType": "ענטפער",
+            "description": "ענטפער טייַך"
+        },
+        "Streams\/topic": {
+            "displayType": "טעמע",
+            "description": "טעמע טייַך",
+            "newItem": "לייג טעמע"
+        }
+    },
+    "menu": {
+        "placeholder": "טיפּ בלאַט טיטל",
+        "ModTab": "מאָדיפיצירן נומער",
+        "Save": "היט",
+        "Delete": "ויסמעקן",
+        "Submenu": "סובמעניו"
+    },
+    "audio": {
+        "record": "רעקאָרד",
+        "reset": "באַשטעטיק",
+        "edit": "רעדאַגירן",
+        "title": "טיטל",
+        "description": "באַשרייַבונג",
+        "upload": "צופֿעליקער",
+        "link": "לינק",
+        "setUrl": "שטעלן URL",
+        "save": "היט",
+        "setClip": "שנייַדן אויס קליפּ",
+        "invalidURL": "אומגילטיק URL",
+        "invalidFile": "אומגילטיגע טעקע",
+        "errorNoSource": "קיין אַודיאָ מקור",
+        "uploadLimit": "מאַקסימום טעקע גרייס: {{size}}",
+        "errorFileSize": "אנטשולדיגט, אָבער דער טעקע איז צו גרויס.<br> מאַקסימום טעקע גרייס איז {{size}}",
+        "TeaserAudio": "טיזער אַודיאָ"
+    },
+    "video": {
+        "NewVideo": "ניו ווידעא",
+        "EditVideo": "רעדאַגירן ווידעא",
+        "reset": "באַשטעטיק",
+        "edit": "רעדאַגירן",
+        "title": "טיטל",
+        "description": "באַשרייַבונג",
+        "upload": "צופֿעליקער",
+        "link": "לינק",
+        "setUrl": "שטעלן URL",
+        "save": "היט",
+        "createAnimatedThumbnail": "שאַפֿן אַנימאַטעד טאַמנייל",
+        "setClip": "שנייַדן אויס קליפּ",
+        "invalidURL": "אומגילטיק URL",
+        "invalidFile": "אומגילטיק טעקע",
+        "errorNoSource": "קיין ווידעא מקור",
+        "uploadLimit": "מאַקסימום טעקע גרייס: {{size}}",
+        "errorFileSize": "אנטשולדיגט, אָבער דער טעקע איז צו גרויס.<br> מאַקסימום טעקע גרייס איז {{size}}",
+        "errorNotAvailable": "אנטשולדיגט, אָבער ווידעא איז נאָך ניט בנימצא. ביטע פּרובירן ווידער שפּעטער.",
+        "TeaserVideo": "טיזער ווידעא"
+    },
+    "pdf": {
+        "reset": "באַשטעטיק",
+        "edit": "רעדאַגירן",
+        "title": "טיטל",
+        "description": "באַשרייַבונג",
+        "upload": "צופֿעליקער",
+        "link": "לינק",
+        "setUrl": "שטעלן URL",
+        "save": "היט",
+        "setClip": "שנייַדן אויס קליפּ",
+        "invalidURL": "אומגילטיק URL",
+        "invalidFile": "אומגילטיגע טעקע",
+        "errorNoSource": "קיין פּדף מקור",
+        "uploadLimit": "מאַקסימום טעקע גרייס: {{size}}",
+        "errorFileSize": "אנטשולדיגט, אָבער דער טעקע איז צו גרויס.<br> מאַקסימום טעקע גרייס איז {{size}}",
+        "TeaserPDF": "טיזער פּדף"
+    },
+    "image": {
+        "reset": "באַשטעטיק",
+        "edit": "רעדאַגירן",
+        "title": "טיטל",
+        "description": "באַשרייַבונג",
+        "upload": "צופֿעליקער",
+        "link": "לינק",
+        "setUrl": "שטעלן URL",
+        "save": "היט",
+        "uploadedImage": "ופּלאָאַדעד בילד",
+        "imageTitle": "בילד טיטל",
+        "setClip": "שנייַדן אויס קליפּ",
+        "invalidURL": "אומגילטיק URL",
+        "invalidFile": "אומגילטיגע טעקע",
+        "errorNoSource": "קיין בילד מקור",
+        "uploadLimit": "מאַקסימום טעקע גרייס: {{size}}",
+        "errorFileSize": "אנטשולדיגט, אָבער טעקע איז אויך גרויס.<br> מאַקסימום טעקע גרייס איז {{size}}",
+        "TeaserImage": "טיזער בילד"
+    },
+    "questions": {
+        "Questions": "פראגעס",
+        "Answers": "ענטפֿערס",
+        "AnswerQuestion": "ענטפֿערן קשיא",
+        "SetYourAnswer": "ביטע ענטפֿערן די קשיא",
+        "NewQuestion": "ניו פראגע",
+        "EditQuestion": "רעדאַגירן פראגע",
+        "NewAnswer": "ניו ענטפער",
+        "NewPossibleAnswer": "ניו מעגלעך ענטפֿערן",
+        "AnswerDetails": "ענטפער דעטאַילס",
+        "answerOption": "אָפּציע",
+        "answerOptionExclusive": "ויסשליסיק",
+        "answerTextarea": "טעקסטאַרעאַ",
+        "answerText": "טעקסט",
+        "HideUntilAnswered": "באַהאַלטן ביז געענטפערט",
+        "CantChangeAnswers": "קענען נישט טוישן ענטפֿערס",
+        "ShortAnswer": "שרייב א קורצע ענטפער",
+        "FreeAnswer": "שרייב דיין ענטפער דאָ",
+        "SaveQuestion": "היט פראגע",
+        "SaveAnswer": "היט ענטפער",
+        "Save": "היט",
+        "Send": "שיקן",
+        "TitleRequired": "טיטל פארלאנגט!",
+        "AlreadyAnswered": "שוין געענטפערט",
+        "TitlePlaceholder": "שרייב דיין קשיא",
+        "ContentPlaceholder": "שטעלן קיין נאָך אינפֿאָרמאַציע דאָ צו העלפֿן מענטשן ענטפֿערן",
+        "ErrorTitle": "פראגע פארלאנגט",
+        "Placeholder": "שרייב אינסטרוקציעס",
+        "AreYouSure": "ביסטו זיכער?",
+        "AnswerCantBeChanged": "מען קען נישט טוישן די ענטפער"
+    },
+    "experience": {
+        "NewExperience": "ניו דערפאַרונג",
+        "DefineTitle": "ביטע דעפינירן אַ טיטל",
+        "Create": "שאַפֿן"
+    },
+    "calls": {
+        "SettingsTitle": "רופט",
+        "MaxCalls": "מאַקס רופט",
+        "Update": "דערהייַנטיקן",
+        "NoCallsYet": "נאָך קיין קאַללס",
+        "CallReasonTitle": "וועגן וואָס איז דאָס רופן?",
+        "WaitingRoom": "ווארטן רום",
+        "LiveRoom": "לעבן רום",
+        "interviewedByAnotherHost": "דערווייַל איז ינטערוויוד דורך אן אנדער באַלעבאָס",
+        "bringToLive": "ברענגען צו לעבן ווייַזן",
+        "putOnHold": "שטעלן אויף האַלטן",
+        "endCall": "סוף רופן",
+        "interview": "אינטערוויו",
+        "markApproved": "מארק באוויליקט"
+    },
+    "task": {
+        "errorsTitle": "ערראָרס פארגעקומען"
+    },
+    "topic": {
+        "NewTopic": "ניו טעמע",
+        "UpdateTopic": "דערהייַנטיקן טעמע",
+        "CreateTopic": "שאַפֿן טעמע",
+        "AreYouSureDeleteTopic": "זענט איר זיכער איר ווילן צו ויסמעקן דעם טעמע",
+        "TitlePlaceholder": "טעמע טיטל...",
+        "DescribeTopic": "באַשרייַבן טעמע ...",
+        "TopicIcon": "טעמע בילד",
+        "UploadIcon": "צופֿעליקער יקאָן",
+        "Conversation": "שמועס",
+        "Metrics": "מעטריקס",
+        "Teaser": "טיזער",
+        "TeaserDescription": "טיזער באַשרייַבונג ...",
+        "TeaserVideo": "טיזער ווידעא"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "שאַפֿן אַנימאַטעד טאַמנייל",
+        "Width": "ברייט",
+        "Height": "הייך",
+        "Start": "אָנהייב",
+        "End": "סוף",
+        "Delay": "פאַרהאַלטן",
+        "Quality": "קוואַליטעט",
+        "Size": "גרייס",
+        "OfFrames": "פון ראָמען",
+        "Frame": "ראַם",
+        "UseThis": "ניצן דעם",
+        "ResultGIF": "רעזולטאַט GIF",
+        "VideoElementNotFound": "ווידעא עלעמענט ניט געפֿונען"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} אויף דיין פּנים",
+        "AcceptIcon": "אָננעמען אויסגעקליבן געגנט"
+    }
+}

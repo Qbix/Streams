@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Dësen Inhalt ass vun Iech verstoppt.",
+        "InplaceTypeMustBe": "inplaceType muss &#39;textarea&#39; oder &#39;text&#39; sinn"
+    },
+    "preview": {
+        "NewItemTitle": "Neien Artikel",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "Virnumm",
+        "lastName": "Familljennumm",
+        "username": "Benotzernumm"
+    },
+    "labels": {
+        "Streams\/invited": "Leit ech invitéiert",
+        "Streams\/invitedMe": "Wien huet mech invitéiert",
+        "DoYouAgree": "Sidd Dir d&#39;accord?",
+        "JoinItNow": "Maacht elo mat?",
+        "Yes": "Jo",
+        "No": "Nee"
+    },
+    "login": {
+        "prompt": "Loosst d&#39;Frënn dech erkennen:",
+        "newUser": "oder schafen en neie Kont ënnert",
+        "picTooltip": "Dir kënnt dëst Bild spéider änneren",
+        "placeholders": {
+            "fullName": "Gitt Äre ganzen Numm"
+        }
+    },
+    "interests": {
+        "Filter": "Sich Interessen",
+        "CanGrant": "Wann Dir nach ëmmer net fannt wat Dir sicht, kënnt Dir en neien Interessi hei drënner derbäi:",
+        "TrySynonyms": "Gesinn et net? Probéiert e puer Synonyme.",
+        "AddUnderCategory": "Füügt ënnert Kategorie ...",
+        "Other": "Aner",
+        "Unlisted": "Net opgezielt"
+    },
+    "relate": {
+        "Add": "{{streamDisplayType}} derbäi"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Message gouf markéiert fir Administrator Iwwerpréiwung. Tippen nach eng Kéier fir ze flécken.",
+        "noOneSaid": "Keen huet eppes gesot",
+        "closeChatButton": "Zoumaachen Chat",
+        "closeChatConfirmTitle": "Dëse Chat zoumaachen?",
+        "closeChatConfirm": "Sidd Dir sécher datt Dir dëse Chat zoumaachen wëllt?",
+        "Subscribed": "Notifikatiounen aktivéiert",
+        "Unsubscribed": "Notifikatiounen Muted",
+        "closeChatConfirmYes": "Jo",
+        "closeChatConfirmNo": "Nee",
+        "earlierComments": "virdrun Kommentaren",
+        "startedConversation": "e Gespréich ugefaang",
+        "RealTimeCall": "Echtzäit Call",
+        "JoinWebRTC": "Telekonferenz",
+        "SearchByName": "Sich no Numm",
+        "Notifications": {
+            "Visit": "{{displayName}} besicht de Chat",
+            "Join": "{{displayName}} hu sech am Chat ugeschloss",
+            "Leave": "{{displayName}} hunn de Chat verlooss",
+            "RelatedTo": "{{displayName}} ugefaang eng {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Füügt e Kommentar",
+            "Private": "Schreift eng privat Noriicht"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "verwalten Är E-Mail Abonnementer",
+        "IfUnsubscribe": "Wann Dir wëllt ofzeschreiwen",
+        "changed": {
+            "ChangesIn": "D&#39;Ännerung am {{title}}",
+            "Changed": "geännert",
+            "HereIsWhatChanged": "Hei ass wat geännert huet:"
+        },
+        "joined": {
+            "Joined": "{{subject}} sinn der <em>{{title}}<\/em> ugeschloss"
+        },
+        "*": "Message {{{message.fields.type}}} bis {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} dobäi",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} lénks",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} gesot: {{{message.content}}}",
+        "Streams\/changed": "D&#39;Ännerung am {{stream.fields.title}}",
+        "Streams\/invite": "Dir sidd op {{{stream.fields.title}}} invitéiert",
+        "Streams\/announcement": "Ukënnegung am {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} geännert Zougang zu {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Chat Message geännert an {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Chat Message geläscht an {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} ass zougemaach",
+        "Streams\/task\/progress": "Fortschrëtter gemaach op {{stream.fields.title}}",
+        "Streams\/task\/complete": "Aufgab fäerdeg: {{stream.fields.title}}",
+        "Streams\/task\/error": "Feeler während: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Entréeën Message",
+        "Streams\/relatedTo\/Streams\/call": "Neien Uruff ugefaang am {{toTitle}}",
+        "Streams\/relatedTo\/*": "Nei {{relationDisplayType}} an {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Op {{toTitle}} als {{relationDisplayType}} bäigefüügt",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} ernimmt Iech an engem Kommentar",
+        "Streams\/call": "{{displayName}} huet en Echtzäit Uruff ugefaang"
+    },
+    "invite": {
+        "command": "Invitéieren",
+        "Invite": "Invitéieren",
+        "Share": "Deelen",
+        "Participants": "Leit invitéieren",
+        "messageContent": "{{displayName}} invitéiert Iech op {{inviteUrl}}",
+        "youCanNowPaste": "Dir kënnt elo dëse Link iergendwou pechen fir Leit ze invitéieren",
+        "roles": {
+            "title": "Gitt Rollen un invitéiert Benotzer?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Entschëllegt",
+                "alert": "Dir sidd net autoriséiert dës Roll ze ginn"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Entschëllegt",
+                "alert": "Dir sidd net autoriséiert dës Roll ze läschen"
+            }
+        },
+        "labels": {
+            "title": "Wat ass Är Relatioun?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Wielt aus Äre Kontakter",
+            "chooseAgainFromContacts": "Wielt erëm aus Kontakter",
+            "inviteSelectedContacts": "Invitéiert gewielte Kontakter",
+            "selectFromContacts": "Wielt Vun Kontakter",
+            "userChooserPlaceholder": "Sich no Numm",
+            "photo": "Maacht eng Foto",
+            "photoOf": "Maacht eng Foto vum {{name}}",
+            "photoInstruction": "Wann déi Persoun déi Äre QR Code gescannt huet virun Iech ass, maacht eng Foto vun hinnen",
+            "to": "fir: {{Stream Title}}",
+            "go": "Gitt",
+            "title": "Invitéieren",
+            "placeholder": "Handysnummer oder Email Adress",
+            "orInvite": "Oder Leit invitéieren andeems Dir:",
+            "copyLink": "{{ClickOrTap}} fir Invitatiounslink ze kopéieren ",
+            "shareOrCopyLink": "{{ClickOrTap}} fir ze deelen oder kopéieren Invitatioun Link ",
+            "QR": "{{ClickOrTap}} fir QR Code ze generéieren",
+            "QRtitle": "Scannen dëse QR Code",
+            "QRscanned": "Si hunn et gescannt!",
+            "scannedQR": "{{ClickOrTap}} wann de Code gescannt gouf",
+            "TakeGroupPhoto": "Maacht eng Gruppefoto",
+            "Skip": "Sprangen",
+            "byEmail": "E-Mail",
+            "byText": "Text",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegramm",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Leit invitéieren",
+            "chooseMethod": "Wielt eng Method:",
+            "selectContacts": "Wielt Kontakter",
+            "scanQRCode": "Scan QR Code",
+            "shareLink": "Deelt e Link",
+            "chooseFromRegistered": "Wielt aus registréierte Benotzer",
+            "inviteViaEmailOrSms": "Invitéiere per E-Mail oder SMS",
+            "addRoles": "Rollen dobäisetzen",
+            "addPersonalRoles": "Füügt Perséinlech Bezéiungen"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Wëllkomm op {{communityName}}",
+            "HasInvitedYou": "huet Iech invitéiert op:",
+            "HasInvitedYouToTheirProfile": "huet Iech invitéiert ze konnektéieren.",
+            "prompt": "Loosst d&#39;Frënn dech erkennen:",
+            "accept": "Akzeptéieren Invitatioun"
+        },
+        "email": {
+            "subject": "Hey, kuckt dëst eraus",
+            "PleaseVisitLink": "Besicht w.e.g. de folgende Link:",
+            "InvitingYou": "Ech invitéieren Iech op {{title}}",
+            "HasInvitedYou": "{{displayName}} huet Iech op {{title}} invitéiert",
+            "HasMentionedYou": "{{displayName}} huet dech an &quot; {{title}} &quot; ernimmt",
+            "YOUAREINVITED": "DIR BIS INVUDÉIERT!",
+            "AcceptInvite": "Akzeptéieren Invitatioun"
+        },
+        "mobile": {
+            "content": "Dir sidd op {{title}} invitéiert. Klickt w.e.g. op {{url}}"
+        },
+        "notice": {
+            "text": "Dir sidd invitéiert. {{ClickOrTap}} hei fir ze akzeptéieren a matzemaachen."
+        },
+        "chat": {
+            "prompt": "Dir wäert d&#39;Leit op e Gespréich invitéieren wou Dir a Kontakt bleift, Fotoen zesummen deelen, a méi. Gëff et en Numm:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "huet en <em>{{message.fields.type}}<\/em> Message op {{stream.fields.title}} gepost"
+        },
+        "text": {
+            "commentedOn": "kommentéiert",
+            "startedCallIn": "huet en Uruff ugefaang",
+            "in": "an",
+            "body": "an {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "gepost gouf op",
+                "byAvatar": "vum {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "huet en neien {{instructions.fromDisplayType}}",
+                "byAvatar": "{{avatar.displayName}} bäigefüügt"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Invitatioune gi vun eiser Nummer geschéckt, déi Är Frënn nach net erkennen. Follegt mat engem séieren Text fir hinnen ze wëssen datt d&#39;Invitatioun vun Iech koum, a frot se op de Link ze klicken.",
+            "confirm": "Invitatioune gi vun eiser Nummer geschéckt, déi Är Frënn nach net erkennen. Wëllt Dir mat engem séieren Text verfollegen fir hinnen ze wëssen datt d&#39;Invitatioun vun Iech komm ass, a frot se op de Link ze klicken.",
+            "check": "Hey, ech hunn Iech just eng Invitatioun op d&#39; {{app}} App geschéckt. Kuckt w.e.g. Är SMS a klickt op de Link!",
+            "CheckYourMobile": "Kuckt w.e.g. SMS a befollegt d&#39;Instruktioune!"
+        },
+        "email": {
+            "alert": "Invitatiounen ginn aus eisem Domain geschéckt, wat Är Frënn nach net erkennen. Follegt mat engem séieren Text fir hinnen ze wëssen datt d&#39;Invitatioun vun Iech koum, a frot se op de Link ze klicken.",
+            "confirm": "Invitatiounen ginn aus eisem Domain geschéckt, wat Är Frënn nach net erkennen. Wëllt Dir mat engem séieren Text verfollegen fir hinnen ze wëssen datt d&#39;Invitatioun vun Iech koum, a frot se op de Link ze klicken.",
+            "subject": "Hutt Dir eng Invitatioun kritt?",
+            "body": "Hey, ech hunn Iech just eng Invitatioun op d&#39; {{app}} App geschéckt. Kuckt w.e.g. Är E-Mail a klickt op de Link do!",
+            "CheckYourEmail": "Kuckt w.e.g. Är E-Mail a befollegt d&#39;Instruktioune!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Numm vun engem Benotzer ..."
+    },
+    "identifier": {
+        "privacySettings": "Privatsphär Astellunge"
+    },
+    "participating": {
+        "Title": "Titel",
+        "Subscribed": "Abonnement",
+        "Participants": "Participanten",
+        "AreYouSureRemoveIdentifier": "Sidd Dir sécher dësen Identifizéierer ze läschen?",
+        "AreYouSureUnsubscribeIdentifier": "Sidd Dir sécher dësen Identifizéierer ofzeschreiwen? Et wäert Notifikatiounen op dësen Identifizéierer ausschalten.",
+        "AreYouSureUnsubscribeDevice": "Sidd Dir sécher dësen Apparat ofzeschreiwen? Et wäert Notifikatiounen op dësem Apparat ausschalten.",
+        "AreYouSureRemoveParticipant": "Sidd Dir sécher, datt Dir dëse Participant ewechhuele wëllt?",
+        "RemoveParticipant": "Ewechzehuelen Participant",
+        "Identifiers": "Identifizéierer",
+        "Devices": "Apparater",
+        "Streams": "Streamen"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Invitéiert",
+            "description": "Inbox fir Invitatiounen"
+        },
+        "Streams\/resource": {
+            "displayType": "Ressource",
+            "description": "Stream fir Zougang zu enger Ressource ze managen an Messagen iwwer Updates ze posten"
+        },
+        "Streams\/task": {
+            "description": "fir Updates iwwer Fortschrëtter op enger bestëmmter Aufgab ze kréien",
+            "displayType": "Aufgab"
+        },
+        "Streams\/tasks": {
+            "description": "Kategorie fir Aufgaben",
+            "displayType": "Aufgaben"
+        },
+        "Streams\/experience": {
+            "description": "eng gemeinsam Erfahrung fir Membere vun enger Communautéit",
+            "displayType": "Gemeinsam Erfahrung fir Membere vun enger Communautéit"
+        },
+        "Streams\/greeting": {
+            "description": "Begréissung mat där e Benotzer sech ka virstellen",
+            "displayType": "Begréissung"
+        },
+        "Streams\/number": {
+            "displayType": "Zuel",
+            "description": "mathematesch Zuel"
+        },
+        "Streams\/date": {
+            "displayType": "Datum",
+            "description": "daten"
+        },
+        "Streams\/text": {
+            "displayType": "Text",
+            "description": "Kierper vum Text"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Text",
+            "description": "klenge Kierper vum Text"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Text",
+            "description": "mëttel Kierper vum Text"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Email Adress",
+            "description": "Email Adress"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Telefonsnummer",
+            "description": "Telefonsnummer"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "Link op de Web"
+        },
+        "Streams\/image": {
+            "displayType": "Bild",
+            "description": "visuell Bild",
+            "newItem": "Foto addéieren"
+        },
+        "Streams\/images": {
+            "displayType": "Bildgalerie",
+            "description": "Galerie vu Biller"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "en Album mat deem verschidde Medien Zesummenhang sinn"
+        },
+        "Streams\/file": {
+            "displayType": "Fichier",
+            "description": "eropgeluede Fichier",
+            "newItem": "Datei dobäisetzen"
+        },
+        "Streams\/audio": {
+            "displayType": "Audio Clip",
+            "description": "audio Clip",
+            "newItem": "Add Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Video Clip",
+            "description": "Video Clip",
+            "newItem": "Video addéieren"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF Dokument",
+            "description": "PDF Dokument",
+            "newItem": "PDF addéieren"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "Live Audio oder Video"
+        },
+        "Streams\/category": {
+            "displayType": "Kategorie",
+            "description": "eng Kategorie op déi aner Streame kënne verbonne sinn",
+            "newItem": "Kategorie addéieren"
+        },
+        "Streams\/participating": {
+            "displayType": "Deelhuelende Index",
+            "description": "Stréimunge sinn am Zesummenhang \/ net mat dësem verbonne wann e Benotzer bäitrieden \/ verléisst"
+        },
+        "Streams\/interest": {
+            "displayType": "Interessi",
+            "description": "stellt den Interesse vun engem Benotzer an engem bestëmmten Thema duer"
+        },
+        "Streams\/incoming": {
+            "displayType": "Entréeën",
+            "description": "Destinatioun fir Messagen vun anere Benotzer geschéckt"
+        },
+        "Streams\/chat": {
+            "displayType": "Gespréich",
+            "description": "e Gespréich tëscht Benotzer, mat Geschicht"
+        },
+        "Streams\/question": {
+            "displayType": "Fro",
+            "description": "Fro Stream",
+            "newItem": "Füügt d&#39;Fro"
+        },
+        "Streams\/answer": {
+            "displayType": "Äntwert",
+            "description": "Äntwert Stream"
+        },
+        "Streams\/topic": {
+            "displayType": "Thema",
+            "description": "Thema Stream",
+            "newItem": "Thema dobäisetzen"
+        }
+    },
+    "menu": {
+        "placeholder": "Typ Säit Titel",
+        "ModTab": "Änneren Element",
+        "Save": "Späicheren",
+        "Delete": "Läschen",
+        "Submenu": "Ënnermenü"
+    },
+    "audio": {
+        "record": "Rekord",
+        "reset": "Zerécksetzen",
+        "edit": "Edit",
+        "title": "Titel",
+        "description": "Beschreiwung",
+        "upload": "Eroplueden",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Späicheren",
+        "setClip": "Ausschneiden Clip",
+        "invalidURL": "Invalid URL",
+        "invalidFile": "Invalid Datei",
+        "errorNoSource": "Keng Audioquell",
+        "uploadLimit": "Maximal Dateigréisst: {{size}}",
+        "errorFileSize": "Entschëllegt, mee de Fichier ze grouss.<br> Déi maximal Dateigréisst ass {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Neie Video",
+        "EditVideo": "Edit Video",
+        "reset": "Zerécksetzen",
+        "edit": "Edit",
+        "title": "Titel",
+        "description": "Beschreiwung",
+        "upload": "Eroplueden",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Späicheren",
+        "createAnimatedThumbnail": "Erstellt animéiert Miniatur",
+        "setClip": "Ausschneiden Clip",
+        "invalidURL": "Invalid URL",
+        "invalidFile": "Invalid Datei",
+        "errorNoSource": "Keng Video Quell",
+        "uploadLimit": "Maximal Dateigréisst: {{size}}",
+        "errorFileSize": "Entschëllegt, mee de Fichier ze grouss.<br> Déi maximal Dateigréisst ass {{size}}",
+        "errorNotAvailable": "Entschëllegt, awer de Video ass nach net verfügbar. Probéiert w.e.g. méi spéit nach eng Kéier.",
+        "TeaserVideo": "Teaser Video"
+    },
+    "pdf": {
+        "reset": "Zerécksetzen",
+        "edit": "Edit",
+        "title": "Titel",
+        "description": "Beschreiwung",
+        "upload": "Eroplueden",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Späicheren",
+        "setClip": "Ausschneiden Clip",
+        "invalidURL": "Invalid URL",
+        "invalidFile": "Invalid Datei",
+        "errorNoSource": "Keng pdf Quell",
+        "uploadLimit": "Maximal Dateigréisst: {{size}}",
+        "errorFileSize": "Entschëllegt, mee de Fichier ze grouss.<br> Déi maximal Dateigréisst ass {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Zerécksetzen",
+        "edit": "Edit",
+        "title": "Titel",
+        "description": "Beschreiwung",
+        "upload": "Eroplueden",
+        "link": "Link",
+        "setUrl": "Set URL",
+        "save": "Späicheren",
+        "uploadedImage": "Eropgelueden Bild",
+        "imageTitle": "Bild Titel",
+        "setClip": "Ausschneiden Clip",
+        "invalidURL": "Invalid URL",
+        "invalidFile": "Invalid Datei",
+        "errorNoSource": "Keng Bildquell",
+        "uploadLimit": "Maximal Dateigréisst: {{size}}",
+        "errorFileSize": "Entschëllegt, mee de Fichier ze grouss.<br> Déi maximal Dateigréisst ass {{size}}",
+        "TeaserImage": "Teaser Bild"
+    },
+    "questions": {
+        "Questions": "Froen",
+        "Answers": "Äntwerten",
+        "AnswerQuestion": "Äntwert Fro",
+        "SetYourAnswer": "Äntwert w.e.g. d&#39;Fro",
+        "NewQuestion": "Nei Fro",
+        "EditQuestion": "Edit Fro",
+        "NewAnswer": "Nei Äntwert",
+        "NewPossibleAnswer": "Nei méiglech Äntwert",
+        "AnswerDetails": "Äntwert Detailer",
+        "answerOption": "Optioun",
+        "answerOptionExclusive": "Exklusiv",
+        "answerTextarea": "Textberäich",
+        "answerText": "Text",
+        "HideUntilAnswered": "Verstoppen bis geäntwert",
+        "CantChangeAnswers": "Kann Äntwerten net änneren",
+        "ShortAnswer": "Schreift eng kuerz Äntwert",
+        "FreeAnswer": "Schreift Är Äntwert hei",
+        "SaveQuestion": "Spueren Fro",
+        "SaveAnswer": "Spueren Äntwert",
+        "Save": "Späicheren",
+        "Send": "Schécken",
+        "TitleRequired": "Titel erfuerderlech!",
+        "AlreadyAnswered": "Scho geäntwert",
+        "TitlePlaceholder": "Typ Är Fro",
+        "ContentPlaceholder": "Setzt all zousätzlech Informatioun hei fir d&#39;Leit ze hëllefen äntweren",
+        "ErrorTitle": "Fro néideg",
+        "Placeholder": "Schreiwen Instruktioune",
+        "AreYouSure": "Bass du secher?",
+        "AnswerCantBeChanged": "Äntwert kann net geännert ginn"
+    },
+    "experience": {
+        "NewExperience": "Nei Erfahrung",
+        "DefineTitle": "Definéiert w.e.g. en Titel",
+        "Create": "Schafen"
+    },
+    "calls": {
+        "SettingsTitle": "Appellen",
+        "MaxCalls": "Max rifft",
+        "Update": "Update",
+        "NoCallsYet": "Nach keng Uriff",
+        "CallReasonTitle": "Iwwer wat geet dësen Opruff?",
+        "WaitingRoom": "Waardezëmmer",
+        "LiveRoom": "Liewen Sall",
+        "interviewedByAnotherHost": "De Moment gëtt vun engem anere Host interviewt",
+        "bringToLive": "Bréngt op Live Show",
+        "putOnHold": "Ophalen setzen",
+        "endCall": "Enn Call",
+        "interview": "Interview",
+        "markApproved": "Mark guttgeheescht"
+    },
+    "task": {
+        "errorsTitle": "Feeler geschitt"
+    },
+    "topic": {
+        "NewTopic": "Neit Thema",
+        "UpdateTopic": "Update Thema",
+        "CreateTopic": "Erstellt Thema",
+        "AreYouSureDeleteTopic": "Sidd Dir sécher, datt Dir dëst Thema läschen wëllt",
+        "TitlePlaceholder": "Thema Titel...",
+        "DescribeTopic": "beschreiw thema...",
+        "TopicIcon": "Thema Bild",
+        "UploadIcon": "Eroplueden Ikon",
+        "Conversation": "Gespréich",
+        "Metrics": "Metriken",
+        "Teaser": "Teaser",
+        "TeaserDescription": "Teaser Beschreiwung...",
+        "TeaserVideo": "Teaser Video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Erstellt animéiert Miniatur",
+        "Width": "Breet",
+        "Height": "Héicht",
+        "Start": "Start",
+        "End": "Enn",
+        "Delay": "Verspéidung",
+        "Quality": "Qualitéit",
+        "Size": "Gréisst",
+        "OfFrames": "vun Frames",
+        "Frame": "Kader",
+        "UseThis": "Benotzt dëst",
+        "ResultGIF": "Resultat GIF",
+        "VideoElementNotFound": "Videoelement net fonnt"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Op Ärem Gesiicht",
+        "AcceptIcon": "Akzeptéieren ausgewielt Beräich"
+    }
+}

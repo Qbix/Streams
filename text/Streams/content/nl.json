@@ -469,7 +469,8 @@
         "ErrorTitle": "Vraag vereist",
         "Placeholder": "Schrijf instructies",
         "AreYouSure": "Weet je het zeker?",
-        "ShortAnswer": "Schrijf een kort antwoord"
+        "ShortAnswer": "Schrijf een kort antwoord",
+        "AnswerCantBeChanged": "Antwoord kan niet worden gewijzigd"
     },
     "experience": {
         "NewExperience": "Nieuwe ervaring",

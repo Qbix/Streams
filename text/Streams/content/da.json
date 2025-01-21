@@ -469,7 +469,8 @@
         "ErrorTitle": "Spørgsmål påkrævet",
         "Placeholder": "Skriv instruktioner",
         "AreYouSure": "Er du sikker?",
-        "ShortAnswer": "Skriv et kort svar"
+        "ShortAnswer": "Skriv et kort svar",
+        "AnswerCantBeChanged": "Svaret kan ikke ændres"
     },
     "experience": {
         "NewExperience": "Ny oplevelse",

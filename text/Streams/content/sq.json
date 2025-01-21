@@ -469,7 +469,8 @@
         "ErrorTitle": "Kërkohet pyetje",
         "Placeholder": "Shkruani udhëzime",
         "AreYouSure": "A je i sigurt?",
-        "ShortAnswer": "Shkruani një përgjigje të shkurtër"
+        "ShortAnswer": "Shkruani një përgjigje të shkurtër",
+        "AnswerCantBeChanged": "Përgjigja nuk mund të ndryshohet"
     },
     "experience": {
         "NewExperience": "Përvojë e re",

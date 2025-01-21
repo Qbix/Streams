@@ -469,7 +469,8 @@
         "ErrorTitle": "سوال مورد نیاز",
         "Placeholder": "دستورالعمل ها را بنویسید",
         "AreYouSure": "مطمئنی؟",
-        "ShortAnswer": "یک پاسخ کوتاه بنویسید"
+        "ShortAnswer": "یک پاسخ کوتاه بنویسید",
+        "AnswerCantBeChanged": "پاسخ قابل تغییر نیست"
     },
     "experience": {
         "NewExperience": "تجربه جدید",

@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Eusi ieu disumputkeun ti anjeun.",
+        "InplaceTypeMustBe": "inplaceType kedah janten &#39;textarea&#39; atanapi &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Item Anyar",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "nami payun",
+        "lastName": "nami pengker",
+        "username": "ngaran pamaké"
+    },
+    "labels": {
+        "Streams\/invited": "Jalma-jalma ku kuring diondang",
+        "Streams\/invitedMe": "Anu ngajak kuring",
+        "DoYouAgree": "Anjeun satuju?",
+        "JoinItNow": "Gabung ayeuna?",
+        "Yes": "Sumuhun",
+        "No": "No"
+    },
+    "login": {
+        "prompt": "Hayu babaturan ngakuan anjeun:",
+        "newUser": "atawa jieun akun anyar di handap",
+        "picTooltip": "Anjeun tiasa ngarobah gambar ieu engké",
+        "placeholders": {
+            "fullName": "Lebetkeun nami lengkep anjeun"
+        }
+    },
+    "interests": {
+        "Filter": "Pilarian kapentingan",
+        "CanGrant": "Upami anjeun masih teu tiasa mendakan naon anu anjeun milarian, anjeun tiasa nambihan minat énggal di handap:",
+        "TrySynonyms": "Teu ningali? Coba sababaraha sinonim.",
+        "AddUnderCategory": "Tambahkeun dina kategori ...",
+        "Other": "Lain",
+        "Unlisted": "Teu didaptarkeun"
+    },
+    "relate": {
+        "Add": "Tambahkeun {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Pesen geus flagged pikeun review admin. Ketok deui pikeun ngahapus bandéra.",
+        "noOneSaid": "Teu aya anu nyarios nanaon",
+        "closeChatButton": "Tutup obrolan",
+        "closeChatConfirmTitle": "Tutup obrolan ieu?",
+        "closeChatConfirm": "Naha anjeun yakin hoyong nutup obrolan ieu?",
+        "Subscribed": "Bewara Diaktipkeun",
+        "Unsubscribed": "Bewara Dijempékeun",
+        "closeChatConfirmYes": "Sumuhun",
+        "closeChatConfirmNo": "No",
+        "earlierComments": "komentar saméméhna",
+        "startedConversation": "ngamimitian obrolan",
+        "RealTimeCall": "Telepon Real Time",
+        "JoinWebRTC": "Telekonferensi",
+        "SearchByName": "Pilarian ku ngaran",
+        "Notifications": {
+            "Visit": "{{displayName}} ngadatangan obrolan",
+            "Join": "{{displayName}} ngagabung obrolan",
+            "Leave": "{{displayName}} ninggalkeun obrolan",
+            "RelatedTo": "{{displayName}} dimimitian {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Tambahkeun komentar",
+            "Private": "Tulis pesen pribadi"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "ngatur langganan surélék anjeun",
+        "IfUnsubscribe": "Upami anjeun hoyong unsubscribe",
+        "changed": {
+            "ChangesIn": "Parobahan dina {{title}}",
+            "Changed": "robah",
+            "HereIsWhatChanged": "Ieu naon anu robih:"
+        },
+        "joined": {
+            "Joined": "{{subject}} ngagabung <em>{{title}}<\/em>"
+        },
+        "*": "Pesen {{{message.fields.type}}} nepi ka {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} ngagabung",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} ditinggalkeun",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} ceuk: {{{message.content}}}",
+        "Streams\/changed": "Parobahan dina {{stream.fields.title}}",
+        "Streams\/invite": "Anjeun diondang ka {{{stream.fields.title}}}",
+        "Streams\/announcement": "Pengumuman taun {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} robah aksés dina {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Talatah obrolan diédit dina {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Talatah obrolan dihapus dina {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} parantos ditutup",
+        "Streams\/task\/progress": "Kamajuan dilakukeun dina {{stream.fields.title}}",
+        "Streams\/task\/complete": "Tugas réngsé: {{stream.fields.title}}",
+        "Streams\/task\/error": "Kasalahan salila: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Pesen asup",
+        "Streams\/relatedTo\/Streams\/call": "Telepon Anyar Dimimitian dina {{toTitle}}",
+        "Streams\/relatedTo\/*": "Anyar {{relationDisplayType}} dina {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Ditambahkeun kana {{toTitle}} salaku {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} nyarios anjeun dina koméntar",
+        "Streams\/call": "{{displayName}} ngamimitian telepon sacara real-time"
+    },
+    "invite": {
+        "command": "Ujang",
+        "Invite": "Ujang",
+        "Share": "Bagikeun",
+        "Participants": "Ujang Jalma",
+        "messageContent": "{{displayName}} ngajak anjeun ka {{inviteUrl}}",
+        "youCanNowPaste": "Anjeun ayeuna tiasa nempelkeun tautan ieu dimana waé pikeun ngundang jalma",
+        "roles": {
+            "title": "Pasihan Peran ka Pamaké anu Diondang?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Hapunten",
+                "alert": "Anjeun teu otorisasi pikeun masihan peran ieu"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Hapunten",
+                "alert": "Anjeun teu otorisasi pikeun ngahapus peran ieu"
+            }
+        },
+        "labels": {
+            "title": "Naon Hubungan anjeun?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Pilih tina Kontak anjeun",
+            "chooseAgainFromContacts": "Pilih Deui ti Kontak",
+            "inviteSelectedContacts": "Ujang Kontak Dipilih",
+            "selectFromContacts": "Pilih Tina Kontak",
+            "userChooserPlaceholder": "Pilarian ku ngaran",
+            "photo": "Candak poto",
+            "photoOf": "Candak poto {{name}}",
+            "photoInstruction": "Upami jalma anu nyeken kode QR anjeun aya di payuneun anjeun, cokot potona",
+            "to": "Ka: {{Stream Title}}",
+            "go": "indit",
+            "title": "Ujang",
+            "placeholder": "Nomer sélulér atanapi alamat surélék",
+            "orInvite": "Atawa ngajak jalma ku ngagunakeun:",
+            "copyLink": "{{ClickOrTap}} pikeun nyalin tautan uleman ",
+            "shareOrCopyLink": "{{ClickOrTap}} pikeun ngabagikeun atanapi nyalin tautan uleman ",
+            "QR": "{{ClickOrTap}} pikeun ngahasilkeun kode QR",
+            "QRtitle": "Scan kode QR ieu",
+            "QRscanned": "Aranjeunna discan eta!",
+            "scannedQR": "{{ClickOrTap}} lamun kode ieu discan",
+            "TakeGroupPhoto": "Candak Poto Grup",
+            "Skip": "Skip",
+            "byEmail": "Surélék",
+            "byText": "Téks",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Ujang Jalma",
+            "chooseMethod": "Pilih metodeu:",
+            "selectContacts": "Pilih Kontak",
+            "scanQRCode": "Scan QR Code",
+            "shareLink": "Bagikeun tautan",
+            "chooseFromRegistered": "Milih ti pamaké nu kadaptar",
+            "inviteViaEmailOrSms": "Ujang via email atanapi SMS",
+            "addRoles": "Tambahkeun Peran",
+            "addPersonalRoles": "Tambahkeun Hubungan Pribadi"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Wilujeng sumping di {{communityName}}",
+            "HasInvitedYou": "geus ngajak anjeun:",
+            "HasInvitedYouToTheirProfile": "geus ngajak anjeun nyambung.",
+            "prompt": "Hayu babaturan ngakuan anjeun:",
+            "accept": "Narima Ujang"
+        },
+        "email": {
+            "subject": "Hei, pariksa ieu kaluar",
+            "PleaseVisitLink": "Mangga buka link di handap ieu:",
+            "InvitingYou": "Abdi ngajak anjeun ka {{title}}",
+            "HasInvitedYou": "{{displayName}} parantos ngajak anjeun ka {{title}}",
+            "HasMentionedYou": "{{displayName}} parantos nyebatkeun anjeun dina &quot; {{title}} &quot;",
+            "YOUAREINVITED": "NU DIULANG!",
+            "AcceptInvite": "Narima Ujang"
+        },
+        "mobile": {
+            "content": "Anjeun geus diondang kana {{title}} . Mangga ketok {{url}}"
+        },
+        "notice": {
+            "text": "Anjeun geus diondang. {{ClickOrTap}} dieu pikeun nampa tur gabung."
+        },
+        "chat": {
+            "prompt": "Anjeun bakal ngajak jalma kana paguneman dimana anjeun tiasa tetep komunikasi, ngabagi poto babarengan, sareng seueur deui. Pasihan nami:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "ngeposkeun pesen <em>{{message.fields.type}}<\/em> ka {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "commented on",
+            "startedCallIn": "ngamimitian nelepon",
+            "in": "di",
+            "body": "{{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "geus dipasang ka",
+                "byAvatar": "ku {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "gaduh {{instructions.fromDisplayType}} énggal",
+                "byAvatar": "ditambahkeun ku {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Ujang dikirim ti nomer kami, anu henteu acan dikenal ku babaturan anjeun. Turutan téks gancang pikeun ngabéjaan yén uleman éta asalna ti anjeun, naroskeun aranjeunna pikeun ngaklik tautan.",
+            "confirm": "Ujang dikirim ti nomer kami, anu henteu acan dikenal ku babaturan anjeun. Naha anjeun badé ngiringan téks gancang pikeun ngabéjaan yén uleman éta asalna ti anjeun, naroskeun aranjeunna pikeun ngaklik tautan.",
+            "check": "Héy, kuring nembé ngintun anjeun undangan kana aplikasi {{app}} . Mangga parios sms anjeun sareng klik tautanna!",
+            "CheckYourMobile": "Mangga parios SMS sareng turutan parentah!"
+        },
+        "email": {
+            "alert": "Ujang dikirim ti domain kami, anu teu acan dikenal ku babaturan anjeun. Turutan téks gancang pikeun ngabéjaan yén uleman éta asalna ti anjeun, naroskeun aranjeunna pikeun ngaklik tautan.",
+            "confirm": "Ujang dikirim ti domain kami, anu teu acan dikenal ku babaturan anjeun. Naha anjeun badé ngiringan téks gancang pikeun ngabéjaan yén uleman éta asalna ti anjeun, naroskeun aranjeunna pikeun ngaklik tautan.",
+            "subject": "Dupi anjeun meunang uleman?",
+            "body": "Héy, kuring nembé ngintun anjeun uleman kana aplikasi {{app}} . Mangga parios email anjeun sareng klik tautan di dinya!",
+            "CheckYourEmail": "Mangga parios email anjeun sarta turutan parentah!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Ngaran pamaké..."
+    },
+    "identifier": {
+        "privacySettings": "Setélan Privasi"
+    },
+    "participating": {
+        "Title": "Judul",
+        "Subscribed": "Ngalanggan",
+        "Participants": "Pamilon",
+        "AreYouSureRemoveIdentifier": "Naha anjeun yakin pikeun ngahapus identifier ieu?",
+        "AreYouSureUnsubscribeIdentifier": "Anjeun yakin unsubscribe identifier ieu? Bakal mareuman bewara ka identifier ieu.",
+        "AreYouSureUnsubscribeDevice": "Anjeun yakin unsubscribe alat ieu? Bakal mareuman bewara ka alat ieu.",
+        "AreYouSureRemoveParticipant": "Naha anjeun yakin hoyong ngahapus pamilon ieu?",
+        "RemoveParticipant": "Ngahapus pamilon",
+        "Identifiers": "Identifiers",
+        "Devices": "Paranti",
+        "Streams": "Aliran-aliran"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Diondang",
+            "description": "Koropak pikeun ondangan"
+        },
+        "Streams\/resource": {
+            "displayType": "Sumberdaya",
+            "description": "stream pikeun ngatur aksés ka sumberdaya sarta ngirim pesen ngeunaan apdet"
+        },
+        "Streams\/task": {
+            "description": "pikeun nampa apdet ngeunaan kamajuan dina tugas nu tangtu",
+            "displayType": "Tugas"
+        },
+        "Streams\/tasks": {
+            "description": "kategori pikeun tugas",
+            "displayType": "tugas"
+        },
+        "Streams\/experience": {
+            "description": "pangalaman umum pikeun anggota komunitas",
+            "displayType": "Pangalaman umum pikeun anggota komunitas"
+        },
+        "Streams\/greeting": {
+            "description": "salam anu ku pangguna tiasa ngenalkeun diri",
+            "displayType": "salam"
+        },
+        "Streams\/number": {
+            "displayType": "Jumlah",
+            "description": "angka matematik"
+        },
+        "Streams\/date": {
+            "displayType": "titimangsa",
+            "description": "titimangsa"
+        },
+        "Streams\/text": {
+            "displayType": "Téks",
+            "description": "awak téks"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Téks",
+            "description": "awak leutik téks"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Téks",
+            "description": "awak sedeng téks"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Alamat email",
+            "description": "Alamat email"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Nomer telepon",
+            "description": "nomer telepon"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link dina web"
+        },
+        "Streams\/image": {
+            "displayType": "Gambar",
+            "description": "gambar visual",
+            "newItem": "Tambahkeun Gambar"
+        },
+        "Streams\/images": {
+            "displayType": "Galeri Gambar",
+            "description": "galeri gambar"
+        },
+        "Streams\/album": {
+            "displayType": "albeum",
+            "description": "albeum anu patali jeung rupa-rupa média"
+        },
+        "Streams\/file": {
+            "displayType": "File",
+            "description": "file diunggah",
+            "newItem": "Tambahkeun File"
+        },
+        "Streams\/audio": {
+            "displayType": "Klip Audio",
+            "description": "klip audio",
+            "newItem": "Tambahkeun Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Video Klip",
+            "description": "klip video",
+            "newItem": "Tambahkeun Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "dokumén PDF",
+            "description": "dokumén PDF",
+            "newItem": "Tambahkeun PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "audio hirup atawa video"
+        },
+        "Streams\/category": {
+            "displayType": "Kategori",
+            "description": "kategori nu aliran séjén bisa patali",
+            "newItem": "Tambahkeun Kategori"
+        },
+        "Streams\/participating": {
+            "displayType": "Indéks Partisipasi",
+            "description": "aliran nu patali \/ teu patali jeung ieu lamun pamaké gabung \/ ninggalkeun"
+        },
+        "Streams\/interest": {
+            "displayType": "kapentingan",
+            "description": "ngagambarkeun minat pamaké dina topik nu tangtu"
+        },
+        "Streams\/incoming": {
+            "displayType": "asup",
+            "description": "tujuan pikeun pesen anu dikirim ku pangguna anu sanés"
+        },
+        "Streams\/chat": {
+            "displayType": "Paguneman",
+            "description": "paguneman antara pamaké, kalawan sajarah"
+        },
+        "Streams\/question": {
+            "displayType": "Patarosan",
+            "description": "aliran patarosan",
+            "newItem": "Tambahkeun Patarosan"
+        },
+        "Streams\/answer": {
+            "displayType": "Waleran",
+            "description": "ngajawab stream"
+        },
+        "Streams\/topic": {
+            "displayType": "Jejer",
+            "description": "aliran topik",
+            "newItem": "Tambahkeun Topik"
+        }
+    },
+    "menu": {
+        "placeholder": "ngetik judul halaman",
+        "ModTab": "Modifikasi Item",
+        "Save": "Simpen",
+        "Delete": "Hapus",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Rékam",
+        "reset": "Reset",
+        "edit": "Édit",
+        "title": "judul",
+        "description": "katerangan",
+        "upload": "unggah",
+        "link": "Tumbu",
+        "setUrl": "Setel URL",
+        "save": "Simpen",
+        "setClip": "Potong Klip",
+        "invalidURL": "URL teu valid",
+        "invalidFile": "File teu valid",
+        "errorNoSource": "Taya sumber audio",
+        "uploadLimit": "Ukuran file maksimal: {{size}}",
+        "errorFileSize": "Hampura, tapi file badag teuing.<br> Ukuran file maksimal nyaéta {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Video Anyar",
+        "EditVideo": "Edit Video",
+        "reset": "Reset",
+        "edit": "Édit",
+        "title": "judul",
+        "description": "katerangan",
+        "upload": "unggah",
+        "link": "Tumbu",
+        "setUrl": "Setel URL",
+        "save": "Simpen",
+        "createAnimatedThumbnail": "Jieun gambar leutik animasi",
+        "setClip": "Potong Klip",
+        "invalidURL": "URL teu valid",
+        "invalidFile": "File teu valid",
+        "errorNoSource": "Taya sumber video",
+        "uploadLimit": "Ukuran file maksimal: {{size}}",
+        "errorFileSize": "Hampura, tapi file badag teuing.<br> Ukuran file maksimal nyaéta {{size}}",
+        "errorNotAvailable": "Punten, tapi vidéo teu acan sayogi. Mangga cobian deui engké.",
+        "TeaserVideo": "Video teaser"
+    },
+    "pdf": {
+        "reset": "Reset",
+        "edit": "Édit",
+        "title": "judul",
+        "description": "katerangan",
+        "upload": "unggah",
+        "link": "Tumbu",
+        "setUrl": "Setel URL",
+        "save": "Simpen",
+        "setClip": "Potong Klip",
+        "invalidURL": "URL teu valid",
+        "invalidFile": "File teu valid",
+        "errorNoSource": "Taya sumber pdf",
+        "uploadLimit": "Ukuran file maksimal: {{size}}",
+        "errorFileSize": "Hampura, tapi file badag teuing.<br> Ukuran file maksimal nyaéta {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Reset",
+        "edit": "Édit",
+        "title": "judul",
+        "description": "katerangan",
+        "upload": "unggah",
+        "link": "Tumbu",
+        "setUrl": "Setel URL",
+        "save": "Simpen",
+        "uploadedImage": "Gambar diunggah",
+        "imageTitle": "Judul gambar",
+        "setClip": "Potong Klip",
+        "invalidURL": "URL teu valid",
+        "invalidFile": "File teu valid",
+        "errorNoSource": "Taya sumber gambar",
+        "uploadLimit": "Ukuran file maksimal: {{size}}",
+        "errorFileSize": "Hampura, tapi file badag teuing.<br> Ukuran file maksimal nyaéta {{size}}",
+        "TeaserImage": "Gambar Teaser"
+    },
+    "questions": {
+        "Questions": "Patarosan",
+        "Answers": "Waleran",
+        "AnswerQuestion": "Ngajawab Patarosan",
+        "SetYourAnswer": "Mangga ngajawab patarosan",
+        "NewQuestion": "Patarosan Anyar",
+        "EditQuestion": "Edit Patarosan",
+        "NewAnswer": "Jawaban anyar",
+        "NewPossibleAnswer": "Jawaban Anyar Mungkin",
+        "AnswerDetails": "Ngajawab Rincian",
+        "answerOption": "Pilihan",
+        "answerOptionExclusive": "Eksklusif",
+        "answerTextarea": "Textarea",
+        "answerText": "Téks",
+        "HideUntilAnswered": "Sumputkeun nepi ka dijawab",
+        "CantChangeAnswers": "Teu bisa ngarobah jawaban",
+        "ShortAnswer": "Tulis jawaban pondok",
+        "FreeAnswer": "Tulis jawaban anjeun di dieu",
+        "SaveQuestion": "Simpen Patarosan",
+        "SaveAnswer": "Simpen Jawaban",
+        "Save": "Simpen",
+        "Send": "Ngirimkeun",
+        "TitleRequired": "Judul diperlukeun!",
+        "AlreadyAnswered": "Geus dijawab",
+        "TitlePlaceholder": "Ketik patarosan anjeun",
+        "ContentPlaceholder": "Pasang inpormasi tambahan di dieu pikeun ngabantosan jalma ngajawab",
+        "ErrorTitle": "Patarosan diperlukeun",
+        "Placeholder": "Tulis Parentah",
+        "AreYouSure": "Naha anjeun yakin?",
+        "AnswerCantBeChanged": "Jawaban teu bisa dirobah"
+    },
+    "experience": {
+        "NewExperience": "Pangalaman Anyar",
+        "DefineTitle": "Mangga tangtukeun judul",
+        "Create": "Nyiptakeun"
+    },
+    "calls": {
+        "SettingsTitle": "Telepon",
+        "MaxCalls": "Max nelepon",
+        "Update": "Pembaruan",
+        "NoCallsYet": "Euweuh telepon acan",
+        "CallReasonTitle": "Naon telepon ieu?",
+        "WaitingRoom": "Ruang Tunggu",
+        "LiveRoom": "Live Room",
+        "interviewedByAnotherHost": "Ayeuna diwawancara ku host anu sanés",
+        "bringToLive": "Bawa Pikeun Live Tembongkeun",
+        "putOnHold": "Ditunda",
+        "endCall": "Tungtung Telepon",
+        "interview": "Wawancara",
+        "markApproved": "Tandaan Disatujuan"
+    },
+    "task": {
+        "errorsTitle": "Kasalahan lumangsung"
+    },
+    "topic": {
+        "NewTopic": "Topik Anyar",
+        "UpdateTopic": "Update Topik",
+        "CreateTopic": "Jieun Topik",
+        "AreYouSureDeleteTopic": "Naha anjeun yakin hoyong mupus topik ieu",
+        "TitlePlaceholder": "judul topik...",
+        "DescribeTopic": "ngajelaskeun topik...",
+        "TopicIcon": "Gambar topik",
+        "UploadIcon": "Unggah Ikon",
+        "Conversation": "Paguneman",
+        "Metrics": "Métrik",
+        "Teaser": "Teaser",
+        "TeaserDescription": "katerangan teaser...",
+        "TeaserVideo": "Video teaser"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Jieun gambar leutik animasi",
+        "Width": "Lebar",
+        "Height": "Jangkungna",
+        "Start": "Mimitian",
+        "End": "Tungtung",
+        "Delay": "Reureuh",
+        "Quality": "Kualitas",
+        "Size": "Ukuran",
+        "OfFrames": "tina pigura",
+        "Frame": "Pigura",
+        "UseThis": "Paké ieu",
+        "ResultGIF": "Hasilna GIF",
+        "VideoElementNotFound": "Unsur video teu kapanggih"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Dina raray anjeun",
+        "AcceptIcon": "Tampa wewengkon nu dipilih"
+    }
+}

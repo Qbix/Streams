@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Izvi zvakavanzwa kwauri.",
+        "InplaceTypeMustBe": "inplaceType inofanira kunge iri &#39;textarea&#39; kana &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Chinhu Chitsva",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "zita rokutanga",
+        "lastName": "zita rokupedzisa",
+        "username": "username"
+    },
+    "labels": {
+        "Streams\/invited": "Vanhu vandakakoka",
+        "Streams\/invitedMe": "Ndiani akandikoka",
+        "DoYouAgree": "Unobvumirana nazvo here?",
+        "JoinItNow": "Join it now?",
+        "Yes": "Ehe",
+        "No": "Aihwa"
+    },
+    "login": {
+        "prompt": "Ita kuti shamwari dzikuzive:",
+        "newUser": "kana gadzira account nyowani pazasi",
+        "picTooltip": "Unogona kushandura mufananidzo uyu gare gare",
+        "placeholders": {
+            "fullName": "Isa zita rako rizere"
+        }
+    },
+    "interests": {
+        "Filter": "Tsvaga zvaunofarira",
+        "CanGrant": "Kana uchiri kutadza kuwana zvauri kutsvaga, unogona kuwedzera kufarira pazasi:",
+        "TrySynonyms": "Hausi kuzviona here? Edza mamwe anoreva zvakafanana.",
+        "AddUnderCategory": "Wedzera pasi pechikamu...",
+        "Other": "Zvimwe",
+        "Unlisted": "Vasina kunyorwa"
+    },
+    "relate": {
+        "Add": "Wedzera {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Mharidzo yamaka kuti iongororwe nevakuru. Tokonya zvakare kuti urege mureza.",
+        "noOneSaid": "Hapana ati ataura chinhu",
+        "closeChatButton": "Vhara chat",
+        "closeChatConfirmTitle": "Vhara iyi chat?",
+        "closeChatConfirm": "Une chokwadi chekuti unoda kuvhara chat iyi?",
+        "Subscribed": "Zviziviso Zvakagoneswa",
+        "Unsubscribed": "Zviziviso Zvakanyarara",
+        "closeChatConfirmYes": "Ehe",
+        "closeChatConfirmNo": "Aihwa",
+        "earlierComments": "zvakataurwa kare",
+        "startedConversation": "akatanga hurukuro",
+        "RealTimeCall": "Real Time Call",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Tsvaga nezita",
+        "Notifications": {
+            "Visit": "{{displayName}} ari kushanyira chat",
+            "Join": "{{displayName}} akabatana nechat",
+            "Leave": "{{displayName}} akasiya chat",
+            "RelatedTo": "{{displayName}} yakatanga {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Wedzera mhinduro",
+            "Private": "Nyora meseji yakavanzika"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "gadzirisa zvinyoreso zvako zveemail",
+        "IfUnsubscribe": "Kana uchida kuzvibvisa",
+        "changed": {
+            "ChangesIn": "Shanduko muna {{title}}",
+            "Changed": "zvachinja",
+            "HereIsWhatChanged": "Hezvino zvakachinja:"
+        },
+        "joined": {
+            "Joined": "{{subject}} vakabatana <em>{{title}}<\/em>"
+        },
+        "*": "Mharidzo {{{message.fields.type}}} kusvika {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} vakabatana",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} vasara",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} vakati: {{{message.content}}}",
+        "Streams\/changed": "Shanduko muna {{stream.fields.title}}",
+        "Streams\/invite": "Iwe wakakokwa {{{stream.fields.title}}}",
+        "Streams\/announcement": "Chiziviso muna {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} yakachinja kupinda {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Chat meseji yakagadziriswa muna {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Chat meseji yakabviswa muna {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} yakavharwa",
+        "Streams\/task\/progress": "Kufambira mberi kwakaitwa {{stream.fields.title}}",
+        "Streams\/task\/complete": "Basa rakapedzwa: {{stream.fields.title}}",
+        "Streams\/task\/error": "Kukanganisa panguva: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Mharidzo Inouya",
+        "Streams\/relatedTo\/Streams\/call": "Kufona Kutsva Kwakatanga muna {{toTitle}}",
+        "Streams\/relatedTo\/*": "Nyowani {{relationDisplayType}} {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Yakawedzerwa {{toTitle}} {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} vataura iwe mumhinduro",
+        "Streams\/call": "{{displayName}} yakatanga kufona chaiko"
+    },
+    "invite": {
+        "command": "Koka",
+        "Invite": "Koka",
+        "Share": "Share",
+        "Participants": "Koka Vanhu",
+        "messageContent": "{{displayName}} yakakukoka iwe {{inviteUrl}}",
+        "youCanNowPaste": "Wava kugona kunamira iyi link pane imwe nzvimbo kuti ukoke vanhu",
+        "roles": {
+            "title": "Ipa Mabasa kune Vashandisi Vakakokwa?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Ndine hurombo",
+                "alert": "Hauna mvumo yekupa basa iri"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Ndine hurombo",
+                "alert": "Hauna mvumo yekubvisa basa iri"
+            }
+        },
+        "labels": {
+            "title": "Hukama hwenyu ndehupi?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Sarudza kubva kune vako Contacts",
+            "chooseAgainFromContacts": "Sarudza Zvakare kubva kune Contacts",
+            "inviteSelectedContacts": "Koka Mazita Akasarudzwa",
+            "selectFromContacts": "Sarudza Kubva Mazita",
+            "userChooserPlaceholder": "Tsvaga nezita",
+            "photo": "Tora mufananidzo",
+            "photoOf": "Tora mufananidzo {{name}}",
+            "photoInstruction": "Kana munhu akaongorora kodhi yako yeQR ari pamberi pako, tora mufananidzo wavo",
+            "to": "kusvika: {{Stream Title}}",
+            "go": "Enda",
+            "title": "Koka",
+            "placeholder": "Nharembozha kana kero ye email",
+            "orInvite": "Kana kukoka vanhu nekushandisa:",
+            "copyLink": "{{ClickOrTap}} kukopa kukoka link ",
+            "shareOrCopyLink": "{{ClickOrTap}} yekugovera kana kukopa chinongedzo chekukoka ",
+            "QR": "{{ClickOrTap}} kugadzira QR kodhi",
+            "QRtitle": "Skena iyi QR kodhi",
+            "QRscanned": "Vakaitarisa!",
+            "scannedQR": "{{ClickOrTap}} kana iyo kodhi yakaongororwa",
+            "TakeGroupPhoto": "Tora Mufananidzo Weboka",
+            "Skip": "Skip",
+            "byEmail": "Email",
+            "byText": "Text",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegraph",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Koka Vanhu",
+            "chooseMethod": "Sarudza nzira:",
+            "selectContacts": "Sarudza Mazita",
+            "scanQRCode": "Scan QR Code",
+            "shareLink": "Govera chinongedzo",
+            "chooseFromRegistered": "Sarudza kubva kune vashandisi vakanyoreswa",
+            "inviteViaEmailOrSms": "Koka kuburikidza neemail kana SMS",
+            "addRoles": "Wedzera Mabasa",
+            "addPersonalRoles": "Wedzera Hukama hweMunhu"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Kugamuchirwa {{communityName}}",
+            "HasInvitedYou": "akakukoka ku:",
+            "HasInvitedYouToTheirProfile": "akakukoka kuti ubatane.",
+            "prompt": "Ita kuti shamwari dzikuzive:",
+            "accept": "Gamuchira Kukoka"
+        },
+        "email": {
+            "subject": "Hei, tarisa izvi",
+            "PleaseVisitLink": "Ndokumbira ushanyire iyi link:",
+            "InvitingYou": "Ndiri kukukokai {{title}}",
+            "HasInvitedYou": "{{displayName}} yakakukoka iwe {{title}}",
+            "HasMentionedYou": "{{displayName}} yataura iwe mu &quot; {{title}} &quot;",
+            "YOUAREINVITED": "WAKAKOKWA!",
+            "AcceptInvite": "Gamuchira Kukoka"
+        },
+        "mobile": {
+            "content": "Wakakokwa {{title}} . Ndapota tora {{url}}"
+        },
+        "notice": {
+            "text": "Wakokwa. {{ClickOrTap}} pano kugamuchira nekujoinha."
+        },
+        "chat": {
+            "prompt": "Uchange uchikoka vanhu kunhaurirano yaunogona kugara uchikurukura, kugovera mapikicha pamwe chete, nezvimwe. Ipe zita:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "akaisa meseji <em>{{message.fields.type}}<\/em> {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "commented on",
+            "startedCallIn": "yakatanga kufona",
+            "in": "mu",
+            "body": "{{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "yakatumirwa ku",
+                "byAvatar": "{{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "ine {{instructions.fromDisplayType}} itsva",
+                "byAvatar": "yakawedzerwa {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Kukokwa kunotumirwa kubva kunhamba yedu, iyo shamwari dzako dzisati dzazivikanwa. Tevedzera nerunyoro rwekukurumidza kuti vazive kuti kukokwa kwabva kwauri, uchivakumbira kuti vadzvanye link.",
+            "confirm": "Kukokwa kunotumirwa kubva kunhamba yedu, iyo shamwari dzako dzisati dzazivikanwa. Ungade here kutevera nerunyoro rwekukurumidza kuti vazive kuti kukokwa kwabva kwauri, uchivakumbira kuti vadzvanye link.",
+            "check": "Hei, ndangokutumira kukoka {{app}} app. Ndokumbira utarise sms yako uye tinya iyo link!",
+            "CheckYourMobile": "Ndokumbira utarise SMS uye tevera mirairo!"
+        },
+        "email": {
+            "alert": "Kukokwa kunotumirwa kubva kudura redu, izvo zvisati zvazivikanwa neshamwari dzako. Tevedzera nerunyoro rwekukurumidza kuti vazive kuti kukokwa kwabva kwauri, uchivakumbira kuti vadzvanye link.",
+            "confirm": "Kukokwa kunotumirwa kubva kudura redu, izvo zvisati zvazivikanwa neshamwari dzako. Ungade here kutevera nerunyoro rwekukurumidza kuvazivisa kuti kukokwa kwabva kwauri, uchivakumbira kuti vadzvanye link.",
+            "subject": "Wawana kukokwa here?",
+            "body": "Hei, ndangokutumira kukoka {{app}} app. Ndokumbira utarise email yako uye tinya chinongedzo chirimo!",
+            "CheckYourEmail": "Ndokumbira utarise email yako uye uteedzere mirairo!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Zita remushandisi..."
+    },
+    "identifier": {
+        "privacySettings": "Zvakavanzika Settings"
+    },
+    "participating": {
+        "Title": "Title",
+        "Subscribed": "Subscribed",
+        "Participants": "Vatori vechikamu",
+        "AreYouSureRemoveIdentifier": "Une chokwadi chekubvisa chiziviso ichi?",
+        "AreYouSureUnsubscribeIdentifier": "Une chokwadi here kusanyoresa chiziviso ichi? Ichadzima zviziviso kune ichi chiziviso.",
+        "AreYouSureUnsubscribeDevice": "Une chokwadi here kurega kubhadhara mudziyo uyu? Ichadzima zviziviso kumudziyo uyu.",
+        "AreYouSureRemoveParticipant": "Une chokwadi chekuti unoda kubvisa mutambi uyu?",
+        "RemoveParticipant": "Bvisa mutori wechikamu",
+        "Identifiers": "Identifiers",
+        "Devices": "Devices",
+        "Streams": "Hova"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Wakokwa",
+            "description": "Inbox yekukoka"
+        },
+        "Streams\/resource": {
+            "displayType": "Resource",
+            "description": "rwizi rwekutonga kuwana kune sosi uye kutumira mameseji nezve zvinogadziridzwa"
+        },
+        "Streams\/task": {
+            "description": "yekugamuchira zviziviso pamusoro pekufambira mberi pane rimwe basa",
+            "displayType": "Basa"
+        },
+        "Streams\/tasks": {
+            "description": "chikamu chemabasa",
+            "displayType": "Mabasa"
+        },
+        "Streams\/experience": {
+            "description": "chiitiko chinozivikanwa kunhengo dzenharaunda",
+            "displayType": "Zvakaitika kunhengo dzenharaunda"
+        },
+        "Streams\/greeting": {
+            "description": "kwaziso iyo mushandisi anogona kuzvisuma nayo",
+            "displayType": "Kwaziwai"
+        },
+        "Streams\/number": {
+            "displayType": "Number",
+            "description": "nhamba yemasvomhu"
+        },
+        "Streams\/date": {
+            "displayType": "Date",
+            "description": "date"
+        },
+        "Streams\/text": {
+            "displayType": "Text",
+            "description": "body of text"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Text",
+            "description": "chikamu chiduku chezvinyorwa"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Text",
+            "description": "chikamu chepakati chemavara"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Chikero chetsamba yemumhepo",
+            "description": "chikero chetsamba yemumhepo"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Nhamba yenhare",
+            "description": "nhamba yenhare"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link pawebhu"
+        },
+        "Streams\/image": {
+            "displayType": "Image",
+            "description": "mufananidzo wekuona",
+            "newItem": "Wedzera Mufananidzo"
+        },
+        "Streams\/images": {
+            "displayType": "Image Gallery",
+            "description": "gallery yemifananidzo"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "album iro rakasiyana media rine hukama"
+        },
+        "Streams\/file": {
+            "displayType": "File",
+            "description": "uploaded file",
+            "newItem": "Wedzera Faira"
+        },
+        "Streams\/audio": {
+            "displayType": "Vadivelu Comedy Audio Clip",
+            "description": "Audio clip",
+            "newItem": "Wedzera Audio"
+        },
+        "Streams\/video": {
+            "displayType": "Video Clip",
+            "description": "Video clip",
+            "newItem": "Wedzera Vhidhiyo"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF gwaro",
+            "description": "PDF gwaro",
+            "newItem": "Wedzera PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "rarama odhiyo kana vhidhiyo"
+        },
+        "Streams\/category": {
+            "displayType": "Category",
+            "description": "chikamu icho mamwe mahova anogona kuenderana nawo",
+            "newItem": "Wedzera Category"
+        },
+        "Streams\/participating": {
+            "displayType": "Indexing",
+            "description": "hova dzine hukama\/hadzina hukama neizvi kana mushandisi ajoinha\/kubva"
+        },
+        "Streams\/interest": {
+            "displayType": "Kufarira",
+            "description": "inomiririra kufarira kwemushandisi mune imwe nyaya"
+        },
+        "Streams\/incoming": {
+            "displayType": "Incoming",
+            "description": "nzvimbo yemeseji inotumirwa nevamwe vashandisi"
+        },
+        "Streams\/chat": {
+            "displayType": "Kukurukurirana",
+            "description": "hurukuro pakati pevashandisi, ine nhoroondo"
+        },
+        "Streams\/question": {
+            "displayType": "Mubvunzo",
+            "description": "mubvunzo rwizi",
+            "newItem": "Wedzera Mubvunzo"
+        },
+        "Streams\/answer": {
+            "displayType": "Pindura",
+            "description": "pindura rukova"
+        },
+        "Streams\/topic": {
+            "displayType": "Topic",
+            "description": "topic stream",
+            "newItem": "Add Topic"
+        }
+    },
+    "menu": {
+        "placeholder": "nyora musoro wepeji",
+        "ModTab": "Modify Item",
+        "Save": "Sevha",
+        "Delete": "Delete",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Record",
+        "reset": "Reset",
+        "edit": "Edit",
+        "title": "title",
+        "description": "tsananguro",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Seta URL",
+        "save": "Sevha",
+        "setClip": "Cheka Clip",
+        "invalidURL": "URL haisiriyo",
+        "invalidFile": "Faira isiriyo",
+        "errorNoSource": "Hapana audio source",
+        "uploadLimit": "Yakanyanya faira saizi: {{size}}",
+        "errorFileSize": "Tine urombo, asi faira yakakurisa.<br> Saizi huru yefaira ndeye {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "Vhidhiyo Itsva",
+        "EditVideo": "Rongedza Vhidhiyo",
+        "reset": "Reset",
+        "edit": "Edit",
+        "title": "title",
+        "description": "tsananguro",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Seta URL",
+        "save": "Sevha",
+        "createAnimatedThumbnail": "Gadzira zvigunwe zvine animated",
+        "setClip": "Cheka Clip",
+        "invalidURL": "URL haisiriyo",
+        "invalidFile": "Faira isiriyo",
+        "errorNoSource": "Hapana vhidhiyo source",
+        "uploadLimit": "Yakanyanya faira saizi: {{size}}",
+        "errorFileSize": "Tine urombo, asi faira yakakurisa.<br> Saizi huru yefaira ndeye {{size}}",
+        "errorNotAvailable": "Tine urombo, asi vhidhiyo haisati yavepo. Ndapota edza zvakare gare gare.",
+        "TeaserVideo": "Teaser Vhidhiyo"
+    },
+    "pdf": {
+        "reset": "Reset",
+        "edit": "Edit",
+        "title": "title",
+        "description": "tsananguro",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Seta URL",
+        "save": "Sevha",
+        "setClip": "Cheka Clip",
+        "invalidURL": "URL haisiriyo",
+        "invalidFile": "Faira isiriyo",
+        "errorNoSource": "Hapana pdf source",
+        "uploadLimit": "Yakanyanya faira saizi: {{size}}",
+        "errorFileSize": "Tine urombo, asi faira yakakurisa.<br> Saizi huru yefaira ndeye {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Reset",
+        "edit": "Edit",
+        "title": "title",
+        "description": "tsananguro",
+        "upload": "Upload",
+        "link": "Link",
+        "setUrl": "Seta URL",
+        "save": "Sevha",
+        "uploadedImage": "Mufananidzo wakaiswa",
+        "imageTitle": "Zita remufananidzo",
+        "setClip": "Cheka Clip",
+        "invalidURL": "URL haisiriyo",
+        "invalidFile": "Faira isiriyo",
+        "errorNoSource": "Hapana panobva mufananidzo",
+        "uploadLimit": "Yakanyanya faira saizi: {{size}}",
+        "errorFileSize": "Tine urombo, asi faira yakakurisa.<br> Saizi huru yefaira ndeye {{size}}",
+        "TeaserImage": "Mufananidzo weTeaser"
+    },
+    "questions": {
+        "Questions": "Mibvunzo",
+        "Answers": "Mhinduro",
+        "AnswerQuestion": "Pindura Mubvunzo",
+        "SetYourAnswer": "Ndapota pindura mubvunzo",
+        "NewQuestion": "Mubvunzo Mutsva",
+        "EditQuestion": "Edit Mubvunzo",
+        "NewAnswer": "Mhinduro Itsva",
+        "NewPossibleAnswer": "Mhinduro Itsva Inogoneka",
+        "AnswerDetails": "Mhinduro Details",
+        "answerOption": "Option",
+        "answerOptionExclusive": "Exclusive",
+        "answerTextarea": "Textarea",
+        "answerText": "Text",
+        "HideUntilAnswered": "Viga kusvika wapindura",
+        "CantChangeAnswers": "Haikwanise kushandura mhinduro",
+        "ShortAnswer": "Nyora mhinduro pfupi",
+        "FreeAnswer": "Nyora mhinduro yako pano",
+        "SaveQuestion": "Sevha Mubvunzo",
+        "SaveAnswer": "Sevha Mhinduro",
+        "Save": "Sevha",
+        "Send": "Send",
+        "TitleRequired": "Title inodiwa!",
+        "AlreadyAnswered": "Atopindura",
+        "TitlePlaceholder": "Nyora mubvunzo wako",
+        "ContentPlaceholder": "Isa chero rumwe ruzivo pano kubatsira vanhu kupindura",
+        "ErrorTitle": "Mubvunzo unodiwa",
+        "Placeholder": "Nyora Mirayiridzo",
+        "AreYouSure": "Une chokwadi here?",
+        "AnswerCantBeChanged": "Mhinduro haigoni kuchinjwa"
+    },
+    "experience": {
+        "NewExperience": "Chiitiko Chitsva",
+        "DefineTitle": "Ndapota tsanangura zita",
+        "Create": "Create"
+    },
+    "calls": {
+        "SettingsTitle": "Anofona",
+        "MaxCalls": "Max anofona",
+        "Update": "Update",
+        "NoCallsYet": "Hapana mafoni parizvino",
+        "CallReasonTitle": "Kufona uku ndekwechii?",
+        "WaitingRoom": "Waiting Room",
+        "LiveRoom": "Imba Yekugara",
+        "interviewedByAnotherHost": "Parizvino anobvunzurudzwa nemumwe muenzi",
+        "bringToLive": "Huya Ku Live Show",
+        "putOnHold": "Isa Pakubata",
+        "endCall": "End Call",
+        "interview": "Hurukuro",
+        "markApproved": "Maka Abvumirwa"
+    },
+    "task": {
+        "errorsTitle": "Zvikanganiso zvakaitika"
+    },
+    "topic": {
+        "NewTopic": "New Topic",
+        "UpdateTopic": "Update Topic",
+        "CreateTopic": "Gadzira Nyaya",
+        "AreYouSureDeleteTopic": "Une chokwadi here kuti unoda kudzima nyaya iyi",
+        "TitlePlaceholder": "musoro wenyaya...",
+        "DescribeTopic": "tsanangura nyaya...",
+        "TopicIcon": "Mufananidzo wemusoro",
+        "UploadIcon": "Upload Icon",
+        "Conversation": "Kukurukurirana",
+        "Metrics": "Metrics",
+        "Teaser": "Teaser",
+        "TeaserDescription": "tsananguro yevatambi...",
+        "TeaserVideo": "Teaser Vhidhiyo"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Gadzira zvigunwe zvine animated",
+        "Width": "Upamhi",
+        "Height": "Urefu",
+        "Start": "Tanga",
+        "End": "End",
+        "Delay": "Kunonoka",
+        "Quality": "Hunhu",
+        "Size": "Size",
+        "OfFrames": "yeFremu",
+        "Frame": "Frame",
+        "UseThis": "Shandisa izvi",
+        "ResultGIF": "Mhedzisiro GIF",
+        "VideoElementNotFound": "Video element haina kuwanikwa"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} Pachiso Chenyu",
+        "AcceptIcon": "Bvuma nzvimbo yakasarudzwa"
+    }
+}

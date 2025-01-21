@@ -469,7 +469,8 @@
         "ErrorTitle": "Zahtevano vprašanje",
         "Placeholder": "Napiši navodila",
         "AreYouSure": "Ali si prepričan?",
-        "ShortAnswer": "Napišite kratek odgovor"
+        "ShortAnswer": "Napišite kratek odgovor",
+        "AnswerCantBeChanged": "Odgovora ni mogoče spremeniti"
     },
     "experience": {
         "NewExperience": "Nova izkušnja",

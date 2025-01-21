@@ -469,7 +469,8 @@
         "ErrorTitle": "Απαιτείται ερώτηση",
         "Placeholder": "Γράψτε Οδηγίες",
         "AreYouSure": "Είσαι σίγουρος?",
-        "ShortAnswer": "Γράψε μια σύντομη απάντηση"
+        "ShortAnswer": "Γράψε μια σύντομη απάντηση",
+        "AnswerCantBeChanged": "Η απάντηση δεν μπορεί να αλλάξει"
     },
     "experience": {
         "NewExperience": "Νέα εμπειρία",

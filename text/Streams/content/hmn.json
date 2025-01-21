@@ -1,0 +1,538 @@
+{
+    "errors": {
+        "HiddenFromYou": "Cov ntsiab lus no tau muab zais los ntawm koj.",
+        "InplaceTypeMustBe": "inplaceType yuav tsum yog &#39;textarea&#39; lossis &#39;text&#39;"
+    },
+    "preview": {
+        "NewItemTitle": "Yam khoom tshiab",
+        "Teaser": "Teaser"
+    },
+    "avatar": {
+        "firstName": "npe",
+        "lastName": "npe",
+        "username": "tus neeg siv lub npe"
+    },
+    "labels": {
+        "Streams\/invited": "Cov neeg kuv caw",
+        "Streams\/invitedMe": "Leej twg caw kuv",
+        "DoYouAgree": "Koj puas pom zoo?",
+        "JoinItNow": "Koom nws tam sim no?",
+        "Yes": "Yog lawm",
+        "No": "Tsis muaj"
+    },
+    "login": {
+        "prompt": "Cia cov phooj ywg paub koj:",
+        "newUser": "los yog tsim ib tus account tshiab hauv qab no",
+        "picTooltip": "Koj tuaj yeem hloov daim duab no tom qab",
+        "placeholders": {
+            "fullName": "Sau koj lub npe tag"
+        }
+    },
+    "interests": {
+        "Filter": "Nrhiav kev txaus siab",
+        "CanGrant": "Yog tias koj tseem nrhiav tsis tau qhov koj tab tom nrhiav, koj tuaj yeem ntxiv qhov kev txaus siab tshiab hauv qab no:",
+        "TrySynonyms": "Tsis pom nws? Sim qee cov ntsiab lus.",
+        "AddUnderCategory": "Ntxiv hauv qeb ...",
+        "Other": "Lwm yam",
+        "Unlisted": "Tsis sau npe"
+    },
+    "relate": {
+        "Add": "Ntxiv {{streamDisplayType}}"
+    },
+    "chat": {
+        "flaggedForAdminReview": "Cov lus tau raug chij rau admin tshuaj xyuas. Coj mus rhaub dua kom unflag.",
+        "noOneSaid": "Tsis muaj leej twg hais dab tsi",
+        "closeChatButton": "Kaw kev sib tham",
+        "closeChatConfirmTitle": "Kaw qhov kev sib tham?",
+        "closeChatConfirm": "Koj puas paub tseeb tias koj xav kaw qhov kev sib tham no?",
+        "Subscribed": "Kev ceeb toom Enabled",
+        "Unsubscribed": "Kev ceeb toom kaw",
+        "closeChatConfirmYes": "Yog lawm",
+        "closeChatConfirmNo": "Tsis muaj",
+        "earlierComments": "cov lus ua ntej",
+        "startedConversation": "pib kev sib tham",
+        "RealTimeCall": "Real Time Hu",
+        "JoinWebRTC": "Teleconference",
+        "SearchByName": "Nrhiav lub npe",
+        "Notifications": {
+            "Visit": "{{displayName}} yog mus ntsib kev sib tham",
+            "Join": "{{displayName}} koom nrog kev sib tham",
+            "Leave": "{{displayName}} tawm ntawm kev sib tham",
+            "RelatedTo": "{{displayName}} pib ib {{stream.displayType}}"
+        },
+        "placeholders": {
+            "Public": "Ntxiv lus",
+            "Private": "Sau ib tsab xov xwm ntiag tug"
+        }
+    },
+    "notifications": {
+        "ManageEmailSubscriptions": "tswj koj tus email subscriptions",
+        "IfUnsubscribe": "Yog koj xav unsubscribe",
+        "changed": {
+            "ChangesIn": "Hloov hauv {{title}}",
+            "Changed": "hloov",
+            "HereIsWhatChanged": "Nov yog qhov hloov pauv:"
+        },
+        "joined": {
+            "Joined": "{{subject}} ua <em>{{title}}<\/em>"
+        },
+        "*": "Xov tooj {{{message.fields.type}}} txog {{{stream.fields.title}}}",
+        "Streams\/joined": "{{{call 'avatar.displayName'}}} sib",
+        "Streams\/left": "{{{call 'avatar.displayName'}}} laug",
+        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}}} said: {{{message.content}}}",
+        "Streams\/changed": "Hloov hauv {{stream.fields.title}}",
+        "Streams\/invite": "Koj raug caw tuaj rau {{{stream.fields.title}}}",
+        "Streams\/announcement": "Tshaj tawm hauv {{{stream.fields.title}}}",
+        "Streams\/access": "{{{call 'avatar.displayName'}}} hloov nkag rau hauv {{{stream.fields.title}}}",
+        "Streams\/chat\/edit": "Cov lus sib tham tau hloov kho hauv {{{stream.fields.title}}}",
+        "Streams\/chat\/remove": "Cov lus sib tham raug tshem tawm hauv {{{stream.fields.title}}}",
+        "Streams\/closed": "{{stream.fields.title}} tau kaw",
+        "Streams\/task\/progress": "Kev nce qib tau ua rau {{stream.fields.title}}",
+        "Streams\/task\/complete": "Ua haujlwm tiav: {{stream.fields.title}}",
+        "Streams\/task\/error": "yuam kev thaum lub sij hawm: {{stream.fields.title}}",
+        "Streams\/incoming\/*": "{{app}} : Lus xa tuaj",
+        "Streams\/relatedTo\/Streams\/call": "Kev hu tshiab pib hauv {{toTitle}}",
+        "Streams\/relatedTo\/*": "Tshiab {{relationDisplayType}} hauv {{toTitle}}",
+        "Streams\/relatedFrom\/*": "Ntxiv rau {{toTitle}} as {{relationDisplayType}}",
+        "Streams\/mention": "{{{call 'avatar.displayName'}}} tau hais rau koj hauv kev tawm tswv yim",
+        "Streams\/call": "{{displayName}} pib hu xov tooj rau lub sijhawm"
+    },
+    "invite": {
+        "command": "Caw",
+        "Invite": "Caw",
+        "Share": "Qhia",
+        "Participants": "Caw Neeg",
+        "messageContent": "{{displayName}} caw koj mus rau {{inviteUrl}}",
+        "youCanNowPaste": "Tam sim no koj tuaj yeem muab qhov txuas no mus rau qhov twg los caw tib neeg",
+        "roles": {
+            "title": "Muab Lub luag haujlwm rau cov neeg siv caw?",
+            "NotAuthorizedToGrantRole": {
+                "title": "Thov txim",
+                "alert": "Koj tsis muaj cai tso cai rau lub luag haujlwm no"
+            },
+            "NotAuthorizedToRemoveRole": {
+                "title": "Thov txim",
+                "alert": "Koj tsis raug tso cai tshem tawm txoj haujlwm no"
+            }
+        },
+        "labels": {
+            "title": "Koj txoj kev sib raug zoo yog dab tsi?"
+        },
+        "dialog": {
+            "chooseFromContacts": "Xaiv los ntawm koj Cov Neeg Tiv Thaiv",
+            "chooseAgainFromContacts": "Xaiv dua los ntawm kev sib cuag",
+            "inviteSelectedContacts": "Caw cov neeg xaiv",
+            "selectFromContacts": "Xaiv Los Ntawm Kev Tiv Thaiv",
+            "userChooserPlaceholder": "Nrhiav lub npe",
+            "photo": "thaij duab",
+            "photoOf": "Coj ib daim duab ntawm {{name}}",
+            "photoInstruction": "Yog tias tus neeg uas luam theej koj QR code nyob rau pem hauv ntej ntawm koj, thaij duab rau lawv",
+            "to": "ua: {{Stream Title}}",
+            "go": "Mus",
+            "title": "Caw",
+            "placeholder": "Xov tooj ntawm tes los yog email chaw nyob",
+            "orInvite": "Los yog caw tib neeg los ntawm kev siv:",
+            "copyLink": "{{ClickOrTap}} luam theej caw link ",
+            "shareOrCopyLink": "{{ClickOrTap}} sib koom los yog luam tawm caw txuas ",
+            "QR": "{{ClickOrTap}} los tsim QR code",
+            "QRtitle": "Luam theej duab QR code",
+            "QRscanned": "Lawv tau tshuaj xyuas nws!",
+            "scannedQR": "{{ClickOrTap}} yog tus lej scanned",
+            "TakeGroupPhoto": "Coj ib Pawg Duab",
+            "Skip": "Hla",
+            "byEmail": "Email",
+            "byText": "Ntawv nyeem",
+            "byFacebook": "Facebook",
+            "byTwitter": "Twitter",
+            "byTelegram": "Telegram",
+            "byWhatsapp": "WhatsApp",
+            "title2": "Caw Neeg",
+            "chooseMethod": "Xaiv ib txoj hauv kev:",
+            "selectContacts": "Xaiv Cov Neeg",
+            "scanQRCode": "Luam theej duab QR Code",
+            "shareLink": "Qhia ib qhov txuas",
+            "chooseFromRegistered": "Xaiv los ntawm cov neeg siv sau npe",
+            "inviteViaEmailOrSms": "Caw ntawm email lossis SMS",
+            "addRoles": "Ntxiv Roles",
+            "addPersonalRoles": "Ntxiv kev sib raug zoo ntawm tus kheej"
+        },
+        "complete": {
+            "WelcomeToCommunity": "Zoo siab txais tos rau {{communityName}}",
+            "HasInvitedYou": "tau caw koj mus:",
+            "HasInvitedYouToTheirProfile": "tau caw koj los txuas.",
+            "prompt": "Cia cov phooj ywg paub koj:",
+            "accept": "Txais Caw"
+        },
+        "email": {
+            "subject": "Hav, xyuas qhov no tawm",
+            "PleaseVisitLink": "Thov mus saib qhov link hauv qab no:",
+            "InvitingYou": "Kuv nias rau koj {{title}} lawm",
+            "HasInvitedYou": "{{displayName}} tau caw koj mus rau {{title}}",
+            "HasMentionedYou": "{{displayName}} tau hais rau koj hauv &quot; {{title}} &quot;",
+            "YOUAREINVITED": "KOJ Caw caw!",
+            "AcceptInvite": "Txais Caw"
+        },
+        "mobile": {
+            "content": "Koj raug caw mus rau {{title}} . Thov coj mus rhaub {{url}}"
+        },
+        "notice": {
+            "text": "Koj tau raug caw. {{ClickOrTap}} ntawm no txais thiab koom."
+        },
+        "chat": {
+            "prompt": "Koj yuav tau caw tib neeg los sib tham uas koj tuaj yeem sib tham, sib qhia cov duab ua ke, thiab ntau dua. Muab nws lub npe:"
+        }
+    },
+    "messages": {
+        "html": {
+            "posted": "tso <em>{{message.fields.type}}<\/em> lus rau {{stream.fields.title}}"
+        },
+        "text": {
+            "commentedOn": "commented rau",
+            "startedCallIn": "pib hu rau hauv",
+            "in": "hauv",
+            "body": "ua {{{url}}} : {{{message.fields.content}}}",
+            "relatedFrom": {
+                "hasBeenPostedTo": "tau muab tso rau",
+                "byAvatar": "ua {{avatar.displayName}}"
+            },
+            "relatedTo": {
+                "hasANew": "muaj {{instructions.fromDisplayType}}",
+                "byAvatar": "ua {{avatar.displayName}}"
+            }
+        }
+    },
+    "followup": {
+        "mobile": {
+            "alert": "Cov lus caw raug xa los ntawm peb tus lej, uas koj cov phooj ywg tseem tsis tau paub. Ua raws li cov ntawv ceev kom qhia rau lawv paub qhov kev caw tuaj ntawm koj, nug lawv kom nyem qhov txuas.",
+            "confirm": "Cov lus caw raug xa los ntawm peb tus lej, uas koj cov phooj ywg tseem tsis tau paub. Koj puas xav ua raws li cov ntawv ceev kom qhia rau lawv paub qhov kev caw tuaj ntawm koj, thov kom lawv nyem qhov txuas.",
+            "check": "Hav, kuv nyuam qhuav xa koj mus rau {{app}} app. Thov xyuas koj sms thiab nyem qhov txuas!",
+            "CheckYourMobile": "Thov kos SMS thiab ua raws li cov lus qhia!"
+        },
+        "email": {
+            "alert": "Cov lus caw raug xa los ntawm peb lub npe, uas koj cov phooj ywg tseem tsis tau paub. Ua raws li cov ntawv ceev kom qhia rau lawv paub qhov kev caw tuaj ntawm koj, nug lawv kom nyem qhov txuas.",
+            "confirm": "Cov lus caw raug xa los ntawm peb lub npe, uas koj cov phooj ywg tseem tsis tau paub. Koj puas xav ua raws li cov ntawv ceev kom qhia rau lawv paub tias qhov kev caw tuaj ntawm koj, thov kom lawv nyem qhov txuas.",
+            "subject": "Koj puas tau txais kev caw?",
+            "body": "Hav, kuv nyuam qhuav xa koj mus rau {{app}} app. Thov xyuas koj tus email thiab nyem qhov txuas hauv qhov ntawd!",
+            "CheckYourEmail": "Thov xyuas koj tus email thiab ua raws li cov lus qhia!"
+        }
+    },
+    "userChooser": {
+        "Placeholder": "Lub npe ntawm tus neeg siv ..."
+    },
+    "identifier": {
+        "privacySettings": "Cov chaw ntiag tug"
+    },
+    "participating": {
+        "Title": "Title",
+        "Subscribed": "Subscribed",
+        "Participants": "Cov neeg koom nrog",
+        "AreYouSureRemoveIdentifier": "Koj puas paub tseeb tias yuav tshem tus cim no?",
+        "AreYouSureUnsubscribeIdentifier": "Koj puas paub tseeb tias unsubscribe tus cim no? Nws yuav kaw cov ntawv ceeb toom rau tus cim no.",
+        "AreYouSureUnsubscribeDevice": "Koj puas paub tseeb tias unsubscribe no ntaus ntawv? Nws yuav kaw cov ntawv ceeb toom rau lub cuab yeej no.",
+        "AreYouSureRemoveParticipant": "Koj puas paub tseeb tias koj xav tshem tus neeg koom nrog no?",
+        "RemoveParticipant": "Tshem tawm cov neeg koom nrog",
+        "Identifiers": "Cov cim",
+        "Devices": "Cov khoom siv",
+        "Streams": "Kwj"
+    },
+    "types": {
+        "Streams\/invited": {
+            "displayType": "Caw",
+            "description": "Inbox rau kev caw"
+        },
+        "Streams\/resource": {
+            "displayType": "Cov peev txheej",
+            "description": "kwj los tswj kev nkag mus rau cov peev txheej thiab tshaj tawm cov lus hais txog kev hloov tshiab"
+        },
+        "Streams\/task": {
+            "description": "kom tau txais kev hloov kho tshiab txog kev nce qib ntawm ib txoj haujlwm",
+            "displayType": "Ua haujlwm"
+        },
+        "Streams\/tasks": {
+            "description": "qeb rau cov haujlwm",
+            "displayType": "Cov hauj lwm"
+        },
+        "Streams\/experience": {
+            "description": "ib qho kev paub dhau los rau cov tswv cuab hauv zej zog",
+            "displayType": "Ib qho kev paub dhau los rau cov tswv cuab hauv zej zog"
+        },
+        "Streams\/greeting": {
+            "description": "txais tos uas tus neeg siv tuaj yeem qhia lawv tus kheej",
+            "displayType": "Ua tsaug"
+        },
+        "Streams\/number": {
+            "displayType": "Tus lej",
+            "description": "lej lej"
+        },
+        "Streams\/date": {
+            "displayType": "Hnub tim",
+            "description": "hnub"
+        },
+        "Streams\/text": {
+            "displayType": "Ntawv nyeem",
+            "description": "lub cev ntawv"
+        },
+        "Streams\/text\/small": {
+            "displayType": "Ntawv nyeem",
+            "description": "cov ntawv me me"
+        },
+        "Streams\/text\/medium": {
+            "displayType": "Ntawv nyeem",
+            "description": "nruab nrab lub cev ntawm cov ntawv"
+        },
+        "Streams\/text\/emailAddress": {
+            "displayType": "Email Chaw Nyob",
+            "description": "email chaw nyob"
+        },
+        "Streams\/text\/phoneNumber": {
+            "displayType": "Xov tooj",
+            "description": "tus xov tooj"
+        },
+        "Streams\/text\/url": {
+            "displayType": "URL",
+            "description": "link hauv web"
+        },
+        "Streams\/image": {
+            "displayType": "Duab",
+            "description": "pom duab",
+            "newItem": "Ntxiv Duab"
+        },
+        "Streams\/images": {
+            "displayType": "Duab Gallery",
+            "description": "gallery cov duab"
+        },
+        "Streams\/album": {
+            "displayType": "Album",
+            "description": "ib qho album uas muaj ntau yam xov xwm cuam tshuam"
+        },
+        "Streams\/file": {
+            "displayType": "Cov ntaub ntawv",
+            "description": "upload cov ntaub ntawv",
+            "newItem": "Ntxiv Cov Ntaub Ntawv"
+        },
+        "Streams\/audio": {
+            "displayType": "Suab Clip",
+            "description": "suab clip",
+            "newItem": "Ntxiv Suab"
+        },
+        "Streams\/video": {
+            "displayType": "Video Clip",
+            "description": "video clip",
+            "newItem": "Ntxiv Video"
+        },
+        "Streams\/pdf": {
+            "displayType": "PDF ntaub ntawv",
+            "description": "PDF ntaub ntawv",
+            "newItem": "Ntxiv PDF"
+        },
+        "Streams\/live": {
+            "displayType": "Livestream",
+            "description": "nyob audio or video"
+        },
+        "Streams\/category": {
+            "displayType": "Qeb",
+            "description": "ib qeb uas lwm cov kwj tuaj yeem cuam tshuam",
+            "newItem": "Ntxiv Qeb"
+        },
+        "Streams\/participating": {
+            "displayType": "Kev Koom Tes Index",
+            "description": "Cov kwj deg muaj feem cuam tshuam \/ tsis cuam tshuam rau qhov no thaum tus neeg siv koom \/ tawm"
+        },
+        "Streams\/interest": {
+            "displayType": "Txaus siab",
+            "description": "sawv cev rau tus neeg siv kev txaus siab rau ib lub ntsiab lus"
+        },
+        "Streams\/incoming": {
+            "displayType": "Tuaj",
+            "description": "qhov chaw rau cov lus xa los ntawm lwm tus neeg siv"
+        },
+        "Streams\/chat": {
+            "displayType": "Kev sib tham",
+            "description": "kev sib tham ntawm cov neeg siv, nrog keeb kwm"
+        },
+        "Streams\/question": {
+            "displayType": "Lus nug",
+            "description": "nqe lus nug",
+            "newItem": "Ntxiv Lus Nug"
+        },
+        "Streams\/answer": {
+            "displayType": "Teb",
+            "description": "teb kwj"
+        },
+        "Streams\/topic": {
+            "displayType": "Ntsiab lus",
+            "description": "lub ntsiab lus",
+            "newItem": "Ntxiv Ntsiab Lus"
+        }
+    },
+    "menu": {
+        "placeholder": "hom nplooj ntawv npe",
+        "ModTab": "Hloov kho yam khoom",
+        "Save": "Txuag",
+        "Delete": "Rho tawm",
+        "Submenu": "Submenu"
+    },
+    "audio": {
+        "record": "Cov ntaub ntawv",
+        "reset": "Rov pib dua",
+        "edit": "Kho kom raug",
+        "title": "lub npe",
+        "description": "piav qhia",
+        "upload": "Upload",
+        "link": "Txuas",
+        "setUrl": "Teem URL",
+        "save": "Txuag",
+        "setClip": "Txiav tawm Clip",
+        "invalidURL": "Qhov URL tsis raug",
+        "invalidFile": "Cov ntaub ntawv tsis raug",
+        "errorNoSource": "Tsis muaj lub hauv paus",
+        "uploadLimit": "Max cov ntaub ntawv loj: {{size}}",
+        "errorFileSize": "Thov txim, tab sis cov ntaub ntawv loj heev.<br> Max cov ntaub ntawv loj yog {{size}}",
+        "TeaserAudio": "Teaser Audio"
+    },
+    "video": {
+        "NewVideo": "New Video",
+        "EditVideo": "Kho kom raug Video",
+        "reset": "Rov pib dua",
+        "edit": "Kho kom raug",
+        "title": "lub npe",
+        "description": "piav qhia",
+        "upload": "Upload",
+        "link": "Txuas",
+        "setUrl": "Teem URL",
+        "save": "Txuag",
+        "createAnimatedThumbnail": "Tsim animated thumbnail",
+        "setClip": "Txiav tawm Clip",
+        "invalidURL": "Qhov URL tsis raug",
+        "invalidFile": "Cov ntaub ntawv tsis raug",
+        "errorNoSource": "Tsis muaj qhov video",
+        "uploadLimit": "Max cov ntaub ntawv loj: {{size}}",
+        "errorFileSize": "Thov txim, tab sis cov ntaub ntawv loj heev.<br> Max cov ntaub ntawv loj yog {{size}}",
+        "errorNotAvailable": "Thov txim, tab sis video tseem tsis tau muaj. Thov rov sim dua tom qab.",
+        "TeaserVideo": "Teaser Video"
+    },
+    "pdf": {
+        "reset": "Rov pib dua",
+        "edit": "Kho kom raug",
+        "title": "lub npe",
+        "description": "piav qhia",
+        "upload": "Upload",
+        "link": "Txuas",
+        "setUrl": "Teem URL",
+        "save": "Txuag",
+        "setClip": "Txiav tawm Clip",
+        "invalidURL": "Qhov URL tsis raug",
+        "invalidFile": "Cov ntaub ntawv tsis raug",
+        "errorNoSource": "Tsis muaj pdf qhov chaw",
+        "uploadLimit": "Max cov ntaub ntawv loj: {{size}}",
+        "errorFileSize": "Thov txim, tab sis cov ntaub ntawv loj heev.<br> Max cov ntaub ntawv loj yog {{size}}",
+        "TeaserPDF": "Teaser PDF"
+    },
+    "image": {
+        "reset": "Rov pib dua",
+        "edit": "Kho kom raug",
+        "title": "lub npe",
+        "description": "piav qhia",
+        "upload": "Upload",
+        "link": "Txuas",
+        "setUrl": "Teem URL",
+        "save": "Txuag",
+        "uploadedImage": "Upload duab",
+        "imageTitle": "Duab lub npe",
+        "setClip": "Txiav tawm Clip",
+        "invalidURL": "Qhov URL tsis raug",
+        "invalidFile": "Cov ntaub ntawv tsis raug",
+        "errorNoSource": "Tsis muaj duab qhov chaw",
+        "uploadLimit": "Max cov ntaub ntawv loj: {{size}}",
+        "errorFileSize": "Thov txim, tab sis cov ntaub ntawv loj heev.<br> Max cov ntaub ntawv loj yog {{size}}",
+        "TeaserImage": "Daim duab Teaser"
+    },
+    "questions": {
+        "Questions": "Cov lus nug",
+        "Answers": "Teb",
+        "AnswerQuestion": "Teb cov lus nug",
+        "SetYourAnswer": "Thov teb cov lus nug",
+        "NewQuestion": "Lus nug tshiab",
+        "EditQuestion": "Kho cov lus nug",
+        "NewAnswer": "Teb tshiab",
+        "NewPossibleAnswer": "Tshiab Tau Teb",
+        "AnswerDetails": "Teb Paub meej",
+        "answerOption": "Kev xaiv",
+        "answerOptionExclusive": "Tshwj xeeb",
+        "answerTextarea": "Textarea",
+        "answerText": "Ntawv nyeem",
+        "HideUntilAnswered": "Nkaum mus txog thaum teb",
+        "CantChangeAnswers": "Hloov tsis tau cov lus teb",
+        "ShortAnswer": "Sau cov lus teb luv luv",
+        "FreeAnswer": "Sau koj cov lus teb ntawm no",
+        "SaveQuestion": "Txuag Lus Nug",
+        "SaveAnswer": "Txuag teb",
+        "Save": "Txuag",
+        "Send": "Xa",
+        "TitleRequired": "Title xav tau!",
+        "AlreadyAnswered": "Twb teb lawm",
+        "TitlePlaceholder": "Ntaus koj cov lus nug",
+        "ContentPlaceholder": "Muab cov ntaub ntawv ntxiv ntawm no los pab tib neeg teb",
+        "ErrorTitle": "Cov lus nug xav tau",
+        "Placeholder": "Sau cov lus qhia",
+        "AreYouSure": "Koj puas paub tseeb?",
+        "AnswerCantBeChanged": "Teb tsis tuaj yeem hloov pauv"
+    },
+    "experience": {
+        "NewExperience": "Kev paub tshiab",
+        "DefineTitle": "Thov txhais lub npe",
+        "Create": "Tsim"
+    },
+    "calls": {
+        "SettingsTitle": "Hu",
+        "MaxCalls": "Max hu",
+        "Update": "Hloov tshiab",
+        "NoCallsYet": "Tseem tsis tau hu",
+        "CallReasonTitle": "Qhov no hu li cas?",
+        "WaitingRoom": "Chav nyob tos",
+        "LiveRoom": "Chav nyob",
+        "interviewedByAnotherHost": "Tam sim no yog xam phaj los ntawm lwm tus tswv tsev",
+        "bringToLive": "Coj Mus Ua Yeeb Yam",
+        "putOnHold": "Muab tso rau",
+        "endCall": "Xaus Hu",
+        "interview": "Kev xam phaj",
+        "markApproved": "Mark pom zoo"
+    },
+    "task": {
+        "errorsTitle": "Qhov yuam kev tshwm sim"
+    },
+    "topic": {
+        "NewTopic": "Ntsiab lus tshiab",
+        "UpdateTopic": "Hloov tshiab lub ntsiab lus",
+        "CreateTopic": "Tsim Ntsiab Lus",
+        "AreYouSureDeleteTopic": "Koj puas paub tseeb tias koj xav rho tawm cov ncauj lus no",
+        "TitlePlaceholder": "lub ntsiab lus...",
+        "DescribeTopic": "piav topic...",
+        "TopicIcon": "Daim duab",
+        "UploadIcon": "Upload Icon",
+        "Conversation": "Kev sib tham",
+        "Metrics": "Kev ntsuas",
+        "Teaser": "Teaser",
+        "TeaserDescription": "teaser description...",
+        "TeaserVideo": "Teaser Video"
+    },
+    "animatedThumbnail": {
+        "CreateAnimatedThumbnail": "Tsim animated thumbnail",
+        "Width": "Dav",
+        "Height": "Qhov siab",
+        "Start": "Pib",
+        "End": "Xaus",
+        "Delay": "ncua",
+        "Quality": "Zoo",
+        "Size": "Loj",
+        "OfFrames": "ntawm Frames",
+        "Frame": "Ncej",
+        "UseThis": "Siv qhov no",
+        "ResultGIF": "Cov txiaj ntsig GIF",
+        "VideoElementNotFound": "Tsis pom cov yeeb yaj kiab"
+    },
+    "groupPhoto": {
+        "ClickOnYourFace": "{{ClickOrTap}} rau koj lawm os",
+        "AcceptIcon": "Txais cheeb tsam xaiv"
+    }
+}
