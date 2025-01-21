@@ -1792,7 +1792,11 @@ Streams.setupRegisterForm = function _Streams_setupRegisterForm(identifier, json
 			.attr('maxlength', Q.text.Streams.login.maxlengths.fullName)
 			.attr('placeholder', Q.text.Streams.login.placeholders.fullName)
 			.attr('tabindex', 1010)
-			.val(firstName+(lastName ? ' ' : '')+lastName)
+			.on('input', function () {
+				if (this.selectionEnd == this.value.length) {
+					this.value = this.value.toCapitalized();
+				}
+			}).val(firstName+(lastName ? ' ' : '')+lastName)
 	)
 	var register_form = $('<form method="post" class="Users_register_form" />')
 		.attr('action', Q.action("Streams/register"))
