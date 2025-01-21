@@ -2149,7 +2149,7 @@ class Streams_Stream extends Base_Streams_Stream
 		and $invite->streamName == $this->name
 		and $invite->readLevel >= 0) {
 			// set the readLevel, but not writeLevel or adminLevel
-			$readLevel = max($readLevel, $invite->readLevel);
+			$readLevel = max($this->get('readLevel', $this->readLevel), $invite->readLevel);
 		}
 
 		if ($skip or $this->testReadLevel('fields', $options)) {

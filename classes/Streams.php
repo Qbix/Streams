@@ -5812,7 +5812,7 @@ abstract class Streams extends Base_Streams
 				}
 			}
 		}
-		$params = array_merge(compact(
+		$params = array_merge(@compact(
 			'criteria', 'accumulateErrors', 
 			'fields', 'publisherIdFields'
 		), $options);
