@@ -10,11 +10,12 @@
  * @constructor
  * @param {Object} [options] this object contains function parameters
  *   @param {String} options.publisherId  The publisher's user id.
- *   @param {String} options.field The name of the stream field used to save the html.
  *   @param {String} [options.streamName] If empty, and "creatable" is true, then this can be used to add new related streams.
+ *   @param {String} options.field The name of the stream field used to save the html.
  *   @param {String} [options.placeholder] The placeholder HTML
- *   @param {String} [options.editor="auto"]  Can be "ckeditor", "froala", "basic" or "auto".
+ *   @param {String} [options.editor="htmleditor"]  Can be "htmleditor", "ckeditor", "froala", "basic" or "auto".
  *   @param {Boolean} [options.editable] Set to false to avoid showing even authorized users an interface to replace the contents
+ *   @param {Object} [options.htmleditor] The config, if any, to pass to the htmleditor
  *   @param {Object} [options.ckeditor]  The config, if any, to pass to ckeditor
  *   @param {Object} [options.froala]  The config, if any, to pass to froala
  *   @param {Function} [options.preprocess]  Optional function which takes [callback, tool] and calls callback(objectToExtendAnyStreamFields)
@@ -35,11 +36,6 @@ Q.Tool.define("Streams/html", function (options) {
 	if (!state.field) {
 		throw new Q.Error("Streams/html tool: missing options.field");
 	}
-	
-	var f = state.froala;
-	f.toolbarButtonsXS = f.toolbarButtonsXS || f.toolbarButtons;
-	f.toolbarButtonsSM = f.toolbarButtonsSM || f.toolbarButtons;
-	f.toolbarButtonsMD = f.toolbarButtonsMD || f.toolbarButtons;
 
 	if (state.streamName) {
 		Q.Streams.retainWith(tool)
@@ -68,6 +64,10 @@ Q.Tool.define("Streams/html", function (options) {
 		case 'basic':
 			tool.element.setAttribute('contenteditable', true);
 			break;
+		case 'htmleditor':
+			Q.Tool.prepare(tool.element, 'Q/htmleditor');
+			Q.activate(tool.element);
+			break;
 		case 'ckeditor':
 			tool.element.setAttribute('contenteditable', true);
 			Q.addScript("{{Q}}/js/ckeditor/ckeditor.js", function () {
@@ -76,7 +76,10 @@ Q.Tool.define("Streams/html", function (options) {
 			});
 			break;
 		case 'froala':
-			state.froala = state.froala || {};
+			var f = state.froala = state.froala || {};
+			f.toolbarButtonsXS = f.toolbarButtonsXS || f.toolbarButtons;
+			f.toolbarButtonsSM = f.toolbarButtonsSM || f.toolbarButtons;
+			f.toolbarButtonsMD = f.toolbarButtonsMD || f.toolbarButtons;
 			if (Q.info.isTouchscreen) {
 				state.froala.toolbarInline = false;
 				state.froala.toolbarSticky = true;
@@ -100,8 +103,7 @@ Q.Tool.define("Streams/html", function (options) {
 				"{{Q}}/js/froala/css/plugins/colors.min.css",
 				"{{Q}}/js/froala/css/plugins/image.min.css",
 				"{{Q}}/js/froala/css/plugins/table.min.css",
-				"{{Q}}/js/froala/css/plugins/code_view.min.css",
-				"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+				"{{Q}}/js/froala/css/plugins/code_view.min.css"
 			], { slotName: 'Q' });
 			var scripts = [
 				"{{Q}}/js/froala/js/froala_editor.min.js",
@@ -128,8 +130,8 @@ Q.Tool.define("Streams/html", function (options) {
 				$toolElement.froalaEditor(state.froala)
 				.on('froalaEditor.image.removed', function (e, editor, $img) {
 					var src = $img.attr('src');
-					if (src.substring(0, 5) === 'data:'
-					|| src.substring(0, 5) === 'blob:') {
+					if (src.substr(0, 5) === 'data:'
+					|| src.substr(0, 5) === 'blob:') {
 						return;
 					}
 					var parts = src.split('/');
@@ -263,8 +265,9 @@ Q.Tool.define("Streams/html", function (options) {
 },
 
 {
-	editor: 'auto',
+	editor: 'htmleditor',
 	editable: true,
+	htmleditor: {},
 	ckeditor: {},
 	froala: {
 		toolbarVisibleWithoutSelection: false,
