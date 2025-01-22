@@ -1,5 +1,5 @@
 <?php
-require STREAMS_PLUGIN_DIR.DS.'vendor'.DS.'autoload.php';
+require_once STREAMS_PLUGIN_DIR.DS.'vendor'.DS.'autoload.php';
 
 
 /**
