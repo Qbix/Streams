@@ -708,7 +708,7 @@ Q.Tool.define('Streams/chat', function(options) {
 		var tool = this;
 		var state = tool.state;
 		if (!state.stream) {
-			return callback(false);
+			return callback.call(this, false);
 		}
 		var params = {
 			max  : state.earliest ? state.earliest - 1 : state.stream.fields.messageCount,
