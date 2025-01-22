@@ -1545,12 +1545,12 @@ class Streams_Stream extends Base_Streams_Stream
 	 * that may have been followed
 	 * @method getReadLevel
 	 * @param {array} [$options]
-	 * @param {array} [$options.ignoreInvite] Do not check Streams::$followedInvite
+	 * @param {array} [$options.ignoreInvite] Do not check Streams::$followedInvite or $_SESSION['Streams']['invite']
 	 * @return {integer}
 	 */
 	function getReadLevel($options)
 	{
-		$readLevel = $this->get('readLevel', 0);
+		$readLevel = $this->get('readLevel', $this->readLevel);
 		$fields = Q::ifset($_SESSION, 'Streams', 'invite', array());
 		$invite = $fields ? new Streams_Invite($fields) : Streams::$followedInvite;
 		if (empty($options['ignoreInvite'])
@@ -2139,17 +2139,6 @@ class Streams_Stream extends Base_Streams_Stream
 		} else {
 			$this->calculateAccess($asUserId);
 			$skip = false;
-		}
-
-		$fields = Q::ifset($_SESSION, 'Streams', 'invite', array());
-		$invite = $fields ? new Streams_Invite($fields) : Streams::$followedInvite;
-		if (empty($options['ignoreInvite'])
-		and $invite
-		and $invite->publisherId == $this->publisherId
-		and $invite->streamName == $this->name
-		and $invite->readLevel >= 0) {
-			// set the readLevel, but not writeLevel or adminLevel
-			$readLevel = max($this->get('readLevel', $this->readLevel), $invite->readLevel);
 		}
 
 		if ($skip or $this->testReadLevel('fields', $options)) {
