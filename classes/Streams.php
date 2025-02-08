@@ -2757,7 +2757,6 @@ abstract class Streams extends Base_Streams
 
 		if (empty($options['dontFilterUsers'])) {
 			// filter userIds and manipulate their order as well
-			$userIds = array();
 			foreach ($relations as $r) {
 				$userIds[] = $userId = $r->$col3;
 			}
@@ -2769,6 +2768,10 @@ abstract class Streams extends Base_Streams
 				'from',
 				'asUserId', 'publisherId', 'streamName', 'isCategory', 'options'
 			), 'after', false, $userIdsUniq, $handlersCalled);
+			if (empty($options['alsoFilterOwnStreams'])
+			and !in_array($publisherId, $userIds)) {
+				array_unshirt($userIds, $publisherId);
+			}
 			if ($handlersCalled) {
 				$temp = array();
 				foreach ($userIds as $userId) {
@@ -2780,10 +2783,6 @@ abstract class Streams extends Base_Streams
 				}
 				$relations = $temp;
 			}
-		}
-		if (empty($options['alsoFilterOwnStreams'])
-		and !in_array($publisherId, $userIds)) {
-			$userIds[] = $publisherId;
 		}
 		
 		if (!empty($options['relationsOnly'])) {
