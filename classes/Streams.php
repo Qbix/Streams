@@ -2770,7 +2770,7 @@ abstract class Streams extends Base_Streams
 			), 'after', false, $userIdsUniq, $handlersCalled);
 			if (empty($options['alsoFilterOwnStreams'])
 			and !in_array($publisherId, $userIds)) {
-				array_unshirt($userIds, $publisherId);
+				array_unshift($userIds, $publisherId);
 			}
 			if ($handlersCalled) {
 				$temp = array();
