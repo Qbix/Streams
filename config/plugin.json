@@ -125,6 +125,9 @@
 			"permissions": {
 				"s": "Streams/observe"
 			}
+		},
+		"socket": {
+			"permissions": ["s"]
 		}
 	},
 	"Users": {
@@ -152,9 +155,6 @@
 		"icon": {
 			"labels": "labels/default",
 			"canSetInitialCustom": ["Streams/invitedMe"]
-		},
-		"socket": {
-			"permissions": ["s"]
 		}
 	},
 	"Streams": {
