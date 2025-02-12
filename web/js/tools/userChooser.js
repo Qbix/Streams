@@ -100,7 +100,6 @@ Q.Tool.define("Streams/userChooser", function(o) {
 			return;
 		}
 
-		var cur = $('.Q_selected', tool.$results);
 		var query = tool.$input.val();
 
 		var options = {'public': true};
@@ -124,6 +123,8 @@ Q.Tool.define("Streams/userChooser", function(o) {
 			});
 			lastQuery = query;
 		}
+
+		var cur = $('.Q_selected', tool.$results);
 
 		switch (event.keyCode) {
 			case 38: // up arrow
