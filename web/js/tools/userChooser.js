@@ -13,6 +13,8 @@
  * @param {Object} [options] this object contains function parameters
  *   @param {Q.Event} [options.onChoose] is triggered with (userId, avatar)
  *       parameters when a user is chosen
+ *   @param {Object} [options.showResultsAnyway] Show the results even if the tool itself is hidden,
+ *       this is useful if some external code is driving this tool
  *   @param {Object} [options.initialList] information for showing a list when focus is placed in textbox
  *   @param {Boolean} [options.initialList.hide] set to true to not use the initialList
  *   @param {String} [options.initialList.key=""] the key under which to store this list, by default it's ""
@@ -114,7 +116,7 @@ Q.Tool.define("Streams/userChooser", function(o) {
 			var userIds = JSON.parse(localStorage.getItem(key)) || [];
 			Q.Streams.Avatar.get.all(userIds, function (params, subjects) {
 				Q.Streams.Avatar.byPrefix(tool.$input.val().toLowerCase(), function (err, avatars) {
-					if (!$te.is(':visible')) {
+					if (tool.state.showResultsAnyway || !$te.is(':visible')) {
 						return false;
 					}
 					onResponse(null, Q.extend({}, subjects, avatars));
@@ -302,6 +304,7 @@ Q.Tool.define("Streams/userChooser", function(o) {
 		userId: null,
 		avatar: null
 	},
+	showResultsAnyway: true,
 	delay: 500,
 	placeholder: Q.text.Streams.userChooser.Placeholder,
 	communitiesOnly: false,
