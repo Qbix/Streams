@@ -1949,7 +1949,7 @@ var Stream = Streams.Stream = function (fields) {
 			} else if (k === 'participant') {
 				this.participant = new Q.Streams.Participant(v);
 			}
-			delete fields[k];
+			delete this.fields[k];
 		}
 	}
 };
