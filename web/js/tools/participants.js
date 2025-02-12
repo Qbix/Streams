@@ -159,6 +159,7 @@ function _Streams_participants(options) {
 		tool.$blanks = $('.Streams_participants_blanks', $te);
 		
 		if (tool.element.toolWasRendered) {
+			$te.removeClass('Streams_participants_loading');
 			state.count = tool.element.toolWasRendered.count;
 			_continue(tool, callback);
 			return false;
