@@ -270,9 +270,11 @@ Q.Tool.define("Streams/userChooser", function(o) {
 						top: tool.$input.offset().top - tool.$results.outerHeight() + 'px',
 					});
 				} else {
-					tool.$results.css({
-						top: position + 'px',
-					});
+					setTimeout(function () {
+						tool.$results.css({
+							top: tool.$input.offset().top + tool.$results.outerHeight() + 'px',
+						});
+					})
 				}
 			} else {
 				tool.$results.remove();
