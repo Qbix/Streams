@@ -255,7 +255,8 @@ Q.Tool.define("Streams/userChooser", function(o) {
 				tool.$results.css({
 					left: tool.$input.offset().left + 'px',
 					width: tool.$input.outerWidth()
-				}).appendTo('body').show();
+				}).addClass('Q_floatAboveDocument')
+				.appendTo('body').show();
 
 				var position = tool.$input.offset().top + tool.$input.outerHeight();
 				var height = 300 - tool.$input.outerHeight();
