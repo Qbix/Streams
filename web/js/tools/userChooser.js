@@ -110,7 +110,7 @@ Q.Tool.define("Streams/userChooser", function(o) {
 			options.platform = state.platform;
 		}
 
-		if ([38, 40, 13].indexOf(event.keyCode) < 1)
+		if ([38, 40, 13].indexOf(event.keyCode) < 1
 		&& !query && Date.now() - tool.lastChooseTime > 1000) {
 			var key = Q.Streams.userChooser.lsKey + "\t" + state.initialList.key;
 			var userIds = JSON.parse(localStorage.getItem(key)) || [];
