@@ -272,7 +272,7 @@ Q.Tool.define("Streams/userChooser", function(o) {
 				} else {
 					setTimeout(function () {
 						tool.$results.css({
-							top: tool.$input.offset().top + tool.$results.outerHeight() + 'px',
+							top: tool.$input.offset().top + tool.$input.outerHeight() + 'px',
 						});
 					})
 				}
