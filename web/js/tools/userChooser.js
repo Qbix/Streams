@@ -110,7 +110,8 @@ Q.Tool.define("Streams/userChooser", function(o) {
 			options.platform = state.platform;
 		}
 
-		if (!event.keyCode && !query && Date.now() - tool.lastChooseTime > 1000) {
+		if ([38, 40, 13].indexOf(event.keyCode) < 1)
+		&& !query && Date.now() - tool.lastChooseTime > 1000) {
 			var key = Q.Streams.userChooser.lsKey + "\t" + state.initialList.key;
 			var userIds = JSON.parse(localStorage.getItem(key)) || [];
 			Q.Streams.Avatar.get.all(userIds, function (params, subjects) {
