@@ -180,21 +180,21 @@ function _Streams_participants(options) {
 				alt: "expand"
 			});
 		}
-		if (!tool.$controls.length) {
-			tool.$controls = $("<div class='Streams_participants_controls' />")
-			.append(
-				$("<div class='Streams_participants_expand' />")
-				.append(tool.$pei, tool.$pet)
-			).appendTo($te);
+		if (!tool.$pc.length) {
+			tool.$pc = $("<div class='Streams_participants_container' />")
+			.appendTo($te);
 		}
 		if (!tool.$summary.length) {
 			tool.$summary = $("<div class='Streams_participants_summary' />")
 			.append($('<span />').append(tool.$count, tool.$max))
 			.appendTo($te);
 		}
-		if (!tool.$pc.length) {
-			tool.$pc = $("<div class='Streams_participants_container' />")
-			.appendTo($te);
+		if (!tool.$controls.length) {
+			tool.$controls = $("<div class='Streams_participants_controls' />")
+			.append(
+				$("<div class='Streams_participants_expand' />")
+				.append(tool.$pei, tool.$pet)
+			).appendTo($te);
 		}
 		if (!tool.$avatars.length) {
 			if (state.invite) {

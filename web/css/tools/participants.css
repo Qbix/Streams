@@ -5,6 +5,7 @@
 }
 
 .Streams_participants_tool {
+	display: flex;
 	flex-shrink: 0;
 }
 
@@ -32,7 +33,6 @@
 .Streams_participants_tool .Streams_participants_summary {
 	position: relative;
 	color: white;
-	float: right;
 	text-shadow: rgba(0, 0, 0, 0.5) 0 0 5px;
 	min-width: 40px;
 	max-width: 100px;
@@ -42,7 +42,6 @@
 	font-size: 14px;
 	background: rgba(50, 50, 50, 0.4);
 	font-weight: 700;
-	margin-top: 10px;
 	text-align: center;
 	overflow: hidden;
 	margin-right: 2%;
@@ -51,7 +50,7 @@
 }
 
 .Streams_participants_tool .Streams_participants_controls {
-	float: right; width: 40px; display: none; visibility: hidden; pointer-events: none;
+	width: 40px; display: none; visibility: hidden; pointer-events: none;
 }
 
 .Streams_participants_tool.Q_overflowed .Streams_participants_controls {
@@ -84,6 +83,6 @@
 	margin: 2% auto;
 	max-width: 300px;
 	opacity: 0.97;
-	width: 94%;
+	width: 80%;
 	border: 1px outset rgba(0, 0, 0, 0.5);
 }
