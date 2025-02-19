@@ -121,7 +121,7 @@ function Streams_participants_tool($options)
 		'class' => 'Streams_participants_expand_img'
 	));
 	$control = "<div class='Streams_participants_expand'>$img<span class='Streams_participants_expand_text'>See All</span></div>";
-	$summary = "<div class='Streams_participants_summary'><span>$count$max</span></div>";
 	$controls = "<div class='Streams_participants_controls'>$control</div>";
+	$summary = "<div class='Streams_participants_summary'><span>$count$max</span></div>";
 	return $container.$summary.$controls;
 }
