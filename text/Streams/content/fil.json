@@ -469,7 +469,8 @@
         "ErrorTitle": "Kailangang tanong",
         "Placeholder": "Sumulat ng Mga Tagubilin",
         "AreYouSure": "Sigurado ka ba?",
-        "ShortAnswer": "Sumulat ng maikling sagot"
+        "ShortAnswer": "Sumulat ng maikling sagot",
+        "AnswerCantBeChanged": "Hindi na mababago ang sagot"
     },
     "experience": {
         "NewExperience": "Bagong karanasan",

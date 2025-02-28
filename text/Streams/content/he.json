@@ -469,7 +469,8 @@
         "ErrorTitle": "נדרשת שאלה",
         "Placeholder": "כתוב הוראות",
         "AreYouSure": "האם אתה בטוח?",
-        "ShortAnswer": "כתבו תשובה קצרה"
+        "ShortAnswer": "כתבו תשובה קצרה",
+        "AnswerCantBeChanged": "לא ניתן לשנות את התשובה"
     },
     "experience": {
         "NewExperience": "חוויה חדשה",

@@ -469,7 +469,8 @@
         "ErrorTitle": "Pertanyaan diperlukan",
         "Placeholder": "Tulis Instruksi",
         "AreYouSure": "Apa kamu yakin?",
-        "ShortAnswer": "Tulis jawaban singkat"
+        "ShortAnswer": "Tulis jawaban singkat",
+        "AnswerCantBeChanged": "Jawaban tidak dapat diubah"
     },
     "experience": {
         "NewExperience": "Pengalaman baru",
