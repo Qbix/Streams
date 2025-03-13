@@ -126,10 +126,10 @@ Q.Tool.define("Streams/related/menu", ["Streams/related", "Q/tabs"], function _S
 				defaultHandler: function (item) {
 					Q.handle($(item).attr('data-action'));
 				},
-				onConstruct: function ($contextual) {
-					$("li", $contextual).removeClass('Q_selected');
+				onConstruct: function (contextual) {
+					$("li", contextual).removeClass('Q_selected');
 
-					if ($('li[data-action="' + Q.Page.currentUrl() + '"]', $contextual).addClass('Q_selected').length) {
+					if ($('li[data-action="' + Q.Page.currentUrl() + '"]', contextual).addClass('Q_selected').length) {
 						tool.tabsTool.indicateCurrent(this[0]);
 					}
 				}

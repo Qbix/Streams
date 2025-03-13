@@ -227,8 +227,8 @@ Q.Tool.define('Streams/chat', function(options) {
 			});
 		},
 		beforeRemove: function () {
-			if (this.addonsContextual) {
-				this.addonsContextual.plugin("Q/contextual").remove();
+			if ($(this.addonsContextual).length) {
+				$(this.addonsContextual).plugin("Q/contextual").remove();
 			}
 		}
 	},
@@ -359,7 +359,7 @@ Q.Tool.define('Streams/chat', function(options) {
 						className: "Streams_chat_addons",
 						fadeTime: 300,
 						doubleBlink: true,
-						onConstruct: function (contextual, cid) {
+						onConstruct: function (contextual) {
 							tool.addonsContextual = this;
 							Q.handle(state.onContextualCreated, tool, [contextual]);
 						}

@@ -146,7 +146,7 @@
                         className: "Streams_fileManager_uploadFile",
                         fadeTime: 300,
                         doubleBlink: true,
-                        onConstruct: function (contextual, cid) {
+                        onConstruct: function (contextual) {
                             tool.addonsContextual = contextual;
                             contextualToolLoadHandler();
                         }
