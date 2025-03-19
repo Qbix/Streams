@@ -1,9 +1,9 @@
 {
 	"Streams/experience/main": {
 		"type": "Streams/experience",
-		"title": "Main Experience",
+		"title": "Main Community Experience",
 		"icon": "Streams/experience",
-		"readLevel": 40,
+		"readLevel": 23,
 		"writeLevel": 23,
 		"adminLevel": 20
 	},
