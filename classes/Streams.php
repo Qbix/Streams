@@ -5479,10 +5479,12 @@ abstract class Streams extends Base_Streams
 				}
 				array_pop($keywords);
 			}
+			$subpath = Q_Utils::splitId($publisherId, 3, '/')
+				.$streamName."/icon/".time();
 			if ($data) {
 				$params = array(
 					'data' => $data,
-					'path' => "{{Streams}}/img/icons",
+					'path' => 'Q/uploads/Streams',
 					'subpath' => $subpath,
 					'save' => 'Streams/interest',
 					'skipAccess' => true
