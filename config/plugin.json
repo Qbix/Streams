@@ -682,6 +682,9 @@
 			},
 			"maxPerCall": 100,
 			"canSetToken": ["Streams/inviters"],
+			"canSetIcon": {
+				"within": 300
+			},
 			"baseUrl": "i",
 			"participantReason": "Was invited",
 			"limit": 100,

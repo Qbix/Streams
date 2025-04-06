@@ -281,6 +281,7 @@ Q.exports(function() {
                                                 save: 'Users/icon',
                                                 subpath: subpath,
                                                 saveSizeName: 'Users/icon',
+                                                inviteToken: rsd.invite.token,
                                                 onFinish: function () {
                                                     Q.Dialogs.close(dialog);
                                                 }
