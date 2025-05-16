@@ -7,7 +7,9 @@ Q.exports(function(priv, Streams, Stream){
      *  Publisher's user id
      * @param {String} streamName
      *	Name of the stream to/from which the others are related
-    * @param {String|Array|null} relationType the type of the relation
+    * @param {String|Array|Object|null} relationType the type of the relation.  
+    *  If an object, it is a range using optional `type[min]`, `type[max]`, `type[includeMin]`, `type[includeMax]` (at least one required to use range).
+    *  This allows for prefix-based or range-based filtering of relation types.
     * @param {boolean|String} [isCategory=true]
     *  If false, returns the categories that this stream is related to.
     *  If true, returns all the streams this related to this category.
@@ -78,7 +80,14 @@ Q.exports(function(priv, Streams, Stream){
             fields.withParticipant = true;
         }
         if (relationType != null) {
-            fields.type = relationType;
+            if (typeof relationType === 'object' && !Array.isArray(relationType)) {
+                if ('min' in relationType) fields['type[min]'] = relationType.min;
+                if ('max' in relationType) fields['type[max]'] = relationType.max;
+                if ('includeMin' in relationType) fields['type[includeMin]'] = relationType.includeMin ? 1 : 0;
+                if ('includeMax' in relationType) fields['type[includeMax]'] = relationType.includeMax ? 1 : 0;
+            } else {
+                fields.type = relationType;
+            }
         }
         Q.extend(fields, options);
         fields.omitRedundantInfo = true;

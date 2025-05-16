@@ -382,7 +382,7 @@
 						var clipEnd = tool.stream.getAttribute('clipEnd') || null;
 
 						$pdfElement.tool("Q/pdf", {
-							action: "implement",
+							action: "player",
 							clipStart: clipStart,
 							clipEnd: clipEnd,
 							url: tool.stream.fileUrl()
@@ -488,7 +488,7 @@
 						$clipElement.empty();
 
 						$pdfElement.tool("Q/pdf", {
-							action: "implement",
+							action: "player",
 							url: url
 						}).activate(function () {
 							toolPreview = this;
@@ -534,7 +534,7 @@
 							var result = response.slots.result;
 
 							$pdfElement.tool("Q/pdf", {
-								action: "implement",
+								action: "player",
 								url: result.destinationUrl
 							}).activate(function () {
 								var toolPreview = this;

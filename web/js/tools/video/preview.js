@@ -615,7 +615,7 @@
 						$clipElement.empty();
 
 						$videoElement.tool("Q/video", {
-							action: "implement",
+							action: "player",
 							url: url
 						}).activate(function () {
 							var toolPreview = this;

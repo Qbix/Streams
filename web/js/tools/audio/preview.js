@@ -433,7 +433,7 @@
 							var $clipElement = $(".Q_tabbing_container [data-content=edit] .Streams_audio_composer_clip", mainDialog);
 
 							$audioElement.tool("Q/audio", {
-								action: "implement",
+								action: "player",
 								clipStart: tool.stream.getAttribute('clipStart'),
 								clipEnd: tool.stream.getAttribute('clipEnd'),
 								url: tool.stream.fileUrl()
@@ -617,7 +617,7 @@
 							$clipElement.empty();
 
 							$audioElement.tool("Q/audio", {
-								action: "implement",
+								action: "player",
 								url: url
 							}).activate(function () {
 								toolPreview = this;
@@ -662,7 +662,7 @@
 							$clipElement.empty();
 
 							$audioElement.tool("Q/audio", {
-								action: "implement",
+								action: "player",
 								url: url
 							}).activate(function () {
 								var toolPreview = this;

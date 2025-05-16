@@ -5,21 +5,25 @@
  */
 
 /**
+ * @module Streams
+ */
+/**
  * Used by HTTP clients to fetch relations and related streams
  * @class HTTP Streams related
  * @method get
  * @param {array} [$_REQUEST] Parameters that can come from the request
  *   @param {string} $_REQUEST.publisherId  Required. The user id of the publisher of the stream.
- *   @param {string} $_REQUEST.streamName  Required streamName or name. The name of the stream
- *   @param {string|array} $_REQUEST.type The type of the relation(s)
- *   @param {boolean} [$_REQUEST.isCategory=false] Whether to fetch streams related TO the stream with this publisherId and streamName.
- *   @param {boolean} [$_REQUEST.ascending=false] Whether to sort by ascending instead of descending weight
- *   @param {boolean} [$_REQUEST.omitRedundantInfo=false] Whether to omit redundant publisherId and streamName fields in the output
- *   @param {integer} [$_REQUEST.messages=0] Whether to also return this many latest messages per stream
- *   @param {string} [$_REQUEST.messageType] The type of messages to get
- *   @param {array} [$_REQUEST.dontFilterUsers] Pass true to skip filtering using Users/filter/users event
- *   @param {string|array} $_REQUEST.type The type of the relation(s)
- *   @param {integer} [$_REQUEST.participants=0] Whether to also return this many participants per stream
+ *   @param {string} $_REQUEST.streamName  Required. The name of the stream.
+ *   @param {string|array} $_REQUEST.type  The type of the relation.  Can be a string or an array of strings.
+ *     If passed as a range, use optional `type[min]`, `type[max]`, `type[includeMin]`, `type[includeMax]`. At least one must be present.
+ *     This allows for prefix-based or range-based filtering of relation types.
+ *   @param {boolean} [$_REQUEST.isCategory=true] Whether to fetch streams related TO this stream (as category).
+ *   @param {boolean} [$_REQUEST.ascending=false] Whether to sort by ascending instead of descending weight.
+ *   @param {boolean} [$_REQUEST.omitRedundantInfo=false] Whether to omit redundant publisherId and streamName fields in the output.
+ *   @param {integer} [$_REQUEST.messages=0] Number of recent messages to include.
+ *   @param {string} [$_REQUEST.messageType] Type of messages to include.
+ *   @param {integer} [$_REQUEST.participants=0] Number of participants to include.
+ *   @param {boolean} [$_REQUEST.dontFilterUsers=false] Whether to skip filtering using Users/filter/users event.
  */
 function Streams_related_response()
 {
@@ -28,7 +32,7 @@ function Streams_related_response()
 	$relations_requested = in_array('relations', $slots);
 	$streams_requested = in_array('relatedStreams', $slots);
 	$nodeUrls_requested = in_array('nodeUrls', $slots);
-	
+
 	$user = Users::loggedInUser();
 	$asUserId = $user ? $user->id : '';
 
@@ -49,14 +53,34 @@ function Streams_related_response()
 		}
 	}
 
-	$isCategory = !(empty($_REQUEST['isCategory']) or strtolower($_REQUEST['isCategory']) === 'false');
+	$isCategory = !(empty($_REQUEST['isCategory']) || strtolower($_REQUEST['isCategory']) === 'false');
 	$withParticipant = Q::ifset($_REQUEST, 'withParticipant', true) === "false" ? false : true;
+
 	$options = Q::take($_REQUEST, array(
 		'limit', 'offset', 'min', 'max', 'type', 'prefix', 'filter', 'dontFilterUsers'
 	));
 	$options['relationsOnly'] = !$streams_requested;
 	$options['orderBy'] = filter_var(Q::ifset($_REQUEST, 'ascending', 'false'), FILTER_VALIDATE_BOOLEAN);
 	$options['fetchOptions'] = @compact('withParticipant');
+
+	// Construct type filter as Db_Range if applicable
+	if (
+		is_array($_REQUEST) &&
+		(
+			isset($_REQUEST['type[min]']) ||
+			isset($_REQUEST['type[max]']) ||
+			isset($_REQUEST['type[includeMin]']) ||
+			isset($_REQUEST['type[includeMax]'])
+		)
+	) {
+		$options['type'] = new Db_Range(
+			$_REQUEST['type[min]'] ?? null,
+			isset($_REQUEST['type[includeMin]']) ? !!$_REQUEST['type[includeMin]'] : true,
+			isset($_REQUEST['type[includeMax]']) ? !!$_REQUEST['type[includeMax]'] : true,
+			$_REQUEST['type[max]'] ?? null
+		);
+	}
+
 	$result = Streams::related(
 		$asUserId,
 		$publisherId,
@@ -85,13 +109,11 @@ function Streams_related_response()
 		if (!empty($_REQUEST['omitRedundantInfo'])) {
 			if ($isCategory) {
 				foreach ($rel as &$r) {
-					unset($r['toPublisherId']);
-					unset($r['toStreamName']);
+					unset($r['toPublisherId'], $r['toStreamName']);
 				}
 			} else {
 				foreach ($rel as &$r) {
-					unset($r['fromPublisherId']);
-					unset($r['fromStreamName']);
+					unset($r['fromPublisherId'], $r['fromStreamName']);
 				}
 			}
 		}
@@ -132,23 +154,19 @@ function Streams_related_response()
 
 	if (is_array($stream)) {
 		Q_Response::setSlot('streams', Db::exportArray($stream));
-		return;
 	} else if (is_object($stream)) {
 		Q_Response::setSlot('stream', $stream->exportArray());
 	} else {
 		Q_Response::setSlot('stream', false);
 	}
-	
+
 	if (!empty($_REQUEST['messages'])) {
 		$max = -1;
 		$limit = $_REQUEST['messages'];
 		$messages = false;
-		$type = isset($_REQUEST['messageType']) ? $_REQUEST['messageType'] : null;
+		$type = Q::ifset($_REQUEST, 'messageType', null);
 		if ($stream->testReadLevel('messages')) {
-			$type = Q::ifset($_REQUEST, 'messageType', null);
-			$messages = Db::exportArray($stream->getMessages(
-				@compact('type', 'max', 'limit')
-			));
+			$messages = Db::exportArray($stream->getMessages(compact('type', 'max', 'limit')));
 		}
 		Q_Response::setSlot('messages', $messages);
 	}
@@ -157,9 +175,7 @@ function Streams_related_response()
 		$offset = -1;
 		$participants = false;
 		if ($stream->testReadLevel('participants')) {
-			$participants = Db::exportArray($stream->getParticipants(
-				@compact('limit', 'offset')
-			));
+			$participants = Db::exportArray($stream->getParticipants(compact('limit', 'offset')));
 		}
 		Q_Response::setSlot('participants', $participants);
 	}
