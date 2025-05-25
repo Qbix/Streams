@@ -276,7 +276,7 @@ class Streams_Avatar extends Base_Streams_Avatar
 	/**
 	 * Get the url of the user icon from a Streams.Avatar
 	 * @method
-	 * @param {string|false} [$basename=null] The last part after the slash, such as "50.png" or "50". Setting it to false skips appending "/basename"
+	 * @param {string|integer|boolean} [$basename=null] The last part after the slash, such as "50.png" or "50". Pass true to get the largest size. Setting it to false skips appending "/basename"
 	 * @return {string} the url
 	 */
 	function iconUrl ($basename = null)

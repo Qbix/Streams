@@ -4239,14 +4239,13 @@ Ap.displayName = function _Avatar_prototype_displayName (options, fallback) {
 /**
  * Get the url of the user icon from a Streams.Avatar
  * @method
-  * @param {String|Number|false} [size=40] The last part after the slash, such as "50.png" or "50".
- *  Setting it to false skips appending "/size".
+ * @param {String|Number|Boolean} [basename=40] The last part after the slash, such as "50.png" or "50". Pass true to get the largest size. Setting it to false skips appending "/basename"
  * @return {String} the url
  */
-Ap.iconUrl = function _Avatar_prototype_iconUrl (size) {
+Ap.iconUrl = function _Avatar_prototype_iconUrl (basename) {
 	return Users.iconUrl(this.icon.interpolate({
 		userId: this.publisherId.splitId()
-	}), size);
+	}), basename);
 };
 
 /**
