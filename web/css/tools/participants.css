@@ -7,6 +7,9 @@
 .Streams_participants_tool {
 	display: flex;
 	flex-shrink: 0;
+	height: 60px;
+	overflow: auto;
+	scrollbar-width: none;
 }
 
 .Streams_participants_tool .Streams_invite_label {
