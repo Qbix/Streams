@@ -5440,13 +5440,15 @@ abstract class Streams extends Base_Streams
 				break;
 			}
 		}
-		$stream = Streams::create(null, $publisherId, 'Streams/interest', array(
-			'name' => $streamName,
-			'title' => $title,
-			'icon' => 'Streams/interest/default'
-		), array(
-			'skipAccess' => $skipAccess
-		));
+		if (!$stream) {
+			$stream = Streams::create(null, $publisherId, 'Streams/interest', array(
+				'name' => $streamName,
+				'title' => $title,
+				'icon' => 'Streams/interest/default'
+			), array(
+				'skipAccess' => $skipAccess
+			));
+		}
 		if (is_dir(APP_WEB_DIR.DS."plugins".DS."Streams".DS."img".DS."icons".DS.$streamName)) {
 			$stream->icon = $streamName;
 		} else {
@@ -5480,7 +5482,7 @@ abstract class Streams extends Base_Streams
 				array_pop($keywords);
 			}
 			$subpath = Q_Utils::splitId($publisherId, 3, '/')
-				.$streamName."/icon/".time();
+				.'/'.$streamName."/icon/".time();
 			if ($data) {
 				$params = array(
 					'data' => $data,
@@ -5490,7 +5492,7 @@ abstract class Streams extends Base_Streams
 					'skipAccess' => true
 				);
 				Q_Image::save($params);
-				$stream->icon = $subpath;
+				$stream->icon = '{{baseUrl}}/Q/uploads/Streams/' . $subpath;
 			}
 		}
 		$stream->changed();
