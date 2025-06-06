@@ -30,7 +30,8 @@ function Streams_vcard_response ($params) {
     $vcr .= "item1.URL:$userUrl\n";
     $vcr .= "item1.X-ABLABEL: $communityName Profile\n";
 
-	list($photoUrl, $photoPath, $hash) = Q_Html::themedUrlFilenameAndHash($user->icon.'/400.png');
+    $largestSize = Q_Image::largestSize('Users/icon');
+	list($photoUrl, $photoPath, $hash) = Q_Html::themedUrlFilenameAndHash($user->icon."/$largestSize.png");
     $type = pathinfo($photoPath, PATHINFO_EXTENSION);
     $data = file_get_contents($photoPath);
     $base64 = base64_encode($data);
