@@ -516,8 +516,7 @@
 	opacity: 0.8;
 	font-size: 12px;
 	font-weight: bold;
-	background-color: red;
-	color: black;
+	background-color: rgba(255, 0, 0, 0.5);
 	position: absolute;
 	top: 50%;
 	left: 50%;
