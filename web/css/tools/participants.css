@@ -9,7 +9,8 @@
 	align-items: start;
 	flex-shrink: 0;
 	height: 60px;
-	overflow: auto;
+	overflow: none;
+	overflow-x: auto;
 	scrollbar-width: none;
 }
 
