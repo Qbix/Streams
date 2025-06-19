@@ -171,6 +171,7 @@ Q.Tool.define("Streams/preview", function _Streams_preview(options) {
 		var fem = Q.firstErrorMessage(err);
 		var $te = $(this.element);
 		var position = $te.css('position');
+		$te.slideUp(); // just hide previews with errors, more user friendly, developers can see console
 		var $div = $("<div class='Streams_preview_error' />")
 		.text(fem).animate({opacity: 0.5}, 300);
 		$te.css({
