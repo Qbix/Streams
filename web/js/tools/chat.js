@@ -372,7 +372,8 @@ Q.Tool.define('Streams/chat', function(options) {
 							"data-subscribed": subscribed,
 							"data-hide": false
 						},
-						handler: function ($this) {
+						handler: function (element) {
+							var $this = $(element);
 							var status = $this.attr('data-subscribed');
 							var callback = function (err, participant) {
 								if (err) {

@@ -175,7 +175,7 @@ Q.Tool.define("Streams/preview", function _Streams_preview(options) {
 		var $div = $("<div class='Streams_preview_error' />")
 		.text(fem).animate({opacity: 0.5}, 300);
 		$te.css({
-			'cursor': 'grabbing',
+			'cursor': 'not-allowed',
 			'position': (position === 'static' ? 'relative' : position),
 			'overflow': 'hidden'
 		}).append($div)

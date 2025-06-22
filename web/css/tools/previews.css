@@ -419,3 +419,12 @@ html.Streams_stream .Streams_question_preview_tool .Streams_preview_title {
 .Streams_preview_tool.Streams_image_preview_tool .Streams_preview_container {
 	text-align: center;
 }
+
+@media (prefers-color-scheme: dark) {
+	.Streams_dialog_audio .Streams_audio_composer .Q_tabbing_tabs > .Q_tabbing_tab:not(.Q_current),
+	.Streams_dialog_video .Streams_video_composer .Q_tabbing_tabs > .Q_tabbing_tab:not(.Q_current),
+	.Streams_dialog_image .Streams_image_composer .Q_tabbing_tabs > .Q_tabbing_tab:not(.Q_current) {
+		color: black;
+		filter: invert();
+	}
+}

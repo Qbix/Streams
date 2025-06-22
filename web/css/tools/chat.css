@@ -1,3 +1,18 @@
+:root {
+	--chat-to-me-bg-color: rgba(200, 200, 200, 0.8);
+	--chat-from-me-bg-color: var(--Q-aspect-chats-text-color, #0b94a9);
+	--chat-to-me-text-color: black;
+	--chat-from-me-text-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--chat-to-me-bg-color: rgba(100, 100, 100, 0.8);
+		--chat-to-me-text-color: white;
+		--chat-from-me-text-color: white;
+	}
+}
+
 .Streams_chat_preview_tool[data-mode=title] {
 	margin: 0;
 	box-shadow: none;
@@ -143,7 +158,7 @@
 	font-family: Arial;
 	width: 40px;
 	height: 40px;
-	color: #3f76e6;
+	color: var(--chat-from-me-bg-color);
 	background-color: #fff;
 	font-size: 45px;
 	line-height: 40px;
@@ -324,11 +339,26 @@
 	margin: 0;
 	padding: 0;
 }
-.Streams_chat_composer .Streams_chat_submit {
-	background-image: url("../../img/chat/message-post.png");
-}
+.Streams_chat_composer .Streams_chat_submit,
 .Streams_chat_composer .Streams_chat_call {
-	background-image: url("../../img/chat/call.png");
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'qplatform-streams';
+	color: var(--chat-from-me-bg-color);
+}
+.Streams_chat_composer .Streams_chat_submit::before {
+	font-size: 1.9em;
+	content: "\e902";
+	display: inline-block;
+	line-height: 1;
+	vertical-align: middle;
+	position: relative;
+}
+.Streams_chat_composer .Streams_chat_call::before {
+	font-size: 1.9em;
+	content: "\e943";
 }
 .Streams_chat_prevent {
 	text-align: center;
@@ -465,6 +495,83 @@
 }
 .Q_notMobile .Q_columns_column.Streams_chat_streams_video .Q_video_tool {
 	height: 100%;
+}
+
+.Streams_chat_messages .Streams_chat_from_me .Streams_chat_bubble {
+	border-radius: 6px;
+	background-color: var(--chat-from-me-bg-color);
+	color: var(--chat-from-me-text-color);
+	box-shadow: 0 5px 15px -5px var(--chat-from-me-bg-color);
+	border: none;
+}
+.Streams_chat_messages .Streams_chat_from_me  *,
+.Streams_chat_messages .Streams_chat_from_me  a, .Streams_chat_message a:visited,
+.Streams_chat_messages .Streams_chat_from_me  .Streams_chat_bubble .Users_avatar_name * {
+	color: var(--chat-from-me-text-color);
+}
+.Streams_chat_messages .Streams_chat_from_me input[type="text"] {
+	background-color: white;
+	color: black;
+	box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+}
+.Streams_chat_messages .Streams_chat_from_me button {
+	background-color: var(--chat-from-me-bg-color);
+	box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+}
+.Streams_chat_messages .Streams_chat_to_me .Streams_chat_bubble {
+	border-radius: 6px;
+	background-color: var(--chat-to-me-bg-color);
+	color: var(--chat-to-me-text-color);
+	box-shadow: 0 5px 15px -5px var(--chat-to-me-bg-color);
+	border: none;
+}
+.Streams_chat_messages .Streams_chat_to_me  *,
+.Streams_chat_messages .Streams_chat_to_me  a, .Streams_chat_message a:visited,
+.Streams_chat_messages .Streams_chat_to_me  .Streams_chat_bubble .Users_avatar_name * {
+	color: var(--chat-to-me-text-color);
+}
+.Streams_chat_messages .Streams_chat_timestamp {
+	color: unset;
+}
+.Communities_profile_main .Streams_chat_bubble h3 {
+	color: var(--chat-text-color);
+}
+.Streams_chat_item .Streams_chat_tick {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	background: none;
+}
+.Streams_chat_from_me .Streams_chat_tick {
+	border-width: 6.5px 0 6.5px 9px;
+	border-color: transparent transparent transparent var(--chat-from-me-bg-color);
+}
+.Streams_chat_to_me .Streams_chat_tick {
+	border-width: 6.5px 9px 6.5px 0;
+	border-color: transparent var(--chat-to-me-bg-color) transparent transparent;
+}
+
+body .Q_contextual.Streams_chat_addons {
+	background-color: var(--chat-from-me-bg-color);
+}
+
+body .Q_contextual.Streams_chat_addons .Q_contextual_bottom_arrow {
+	border-top-color: var(--chat-from-me-bg-color);
+}
+
+body .Q_contextual.Streams_chat_addons .Q_contextual_top_arrow {
+	border-bottom-color: var(--chat-from-me-bg-color);
+}
+
+body .Q_contextual.Streams_chat_addons .Q_listing li.Q_selected {
+	background: var(--chat-from-me-bg-color);
+	outline: none;
+	box-shadow: none;
+}
+
+body .Q_contextual.Streams_chat_addons .Q_listing li.Q_selected * {
+	color: var(--chat-from-me-text-color);
+	fill: var(--chat-from-me-text-color);
 }
 
 /* phones */
