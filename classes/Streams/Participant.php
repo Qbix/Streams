@@ -118,7 +118,7 @@ class Streams_Participant extends Base_Streams_Participant
 		} else {
 			$attr[$extraName] = $value;
 		}
-		$this->extra = Q::json_encode($attr);
+		$this->extra = Q::json_encode($attr, Q::JSON_FORCE_OBJECT);
 
 		return $this;
 	}
