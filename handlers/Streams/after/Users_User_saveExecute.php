@@ -45,8 +45,8 @@ function Streams_after_Users_User_saveExecute($params)
 		$firstName = Q::ifset($fullName, 'first', '');
 		$lastName = Q::ifset($fullName, 'last', '');
 	} else {
-		$firstName = null;
-		$lastName = null;
+		$firstName = $user->get('firstName', null);
+		$lastName = $user->get('lastName', null);
 	}
 	$values = array(
 		'Streams/user/firstName' => $firstName,
@@ -108,6 +108,7 @@ function Streams_after_Users_User_saveExecute($params)
 					if (isset($info['platforms'][$platform])) {
 						$n = $info['platforms'][$platform];
 						if (is_array($n)) {
+							// [name, separator, index]
 							$parts = explode($n[1], $v);
 							$v = $parts[$n[2]];
 							$n = $n[0];

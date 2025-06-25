@@ -669,10 +669,14 @@ class Streams_Stream extends Base_Streams_Stream
 		}
 		if (isset($this->attributes)
 		and !is_string($this->attributes)) {
-			throw new Q_Exception_WrongType(array(
-				'field' => 'attributes',
-				'type' => 'string'
-			));
+			if (is_array($this->attributes)) {
+				$this->attributes = Q::json_encode($this->attributes, Q::JSON_FORCE_OBJECT);
+			} else {
+				throw new Q_Exception_WrongType(array(
+					'field' => 'attributes',
+					'type' => 'string'
+				));
+			}
 		}
 
 		/**
@@ -904,9 +908,18 @@ class Streams_Stream extends Base_Streams_Stream
 		and !Q::eventStack('Db/Row/Users_User/saveExecute')) {
 			Streams::$beingSaved[$publicField] = $this;
 			try {
+				// Update the public field in the Users_User table
+				// unless we're already handling saving a user
 				$user = Users_User::fetch($this->publisherId, true);
 				$user->$publicField = $modifiedFields[$field];
-				$user->save(false, false, true);
+				try {
+					// attempt to save user with the username
+					$user->save(false, false, true);
+				} catch (Users_Exception_UsernameExists $e) {
+					// fallback to a null username, but still save the user')
+					$user->username = null;
+					$user->save(false, false, true);
+				}
 			} catch (Exception $e) {
 				Streams::$beingSaved[$publicField] = array();
 				throw $e;
