@@ -1492,7 +1492,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 *  The type of the message.
 	 * @param {array} [$fieldNames=null]
 	 *  The names of the fields to check for changes.
-	 *  By default, checks all the standard stream fields
+	 *  By default, checks all the standard stream fields.
 	 * @return {false|Db_Query}
 	 *  Returns false if nothing changed, otherwise the Db_Query
 	 */
