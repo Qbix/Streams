@@ -61,7 +61,7 @@ Q.mixin(Base, Row);
  * @property readLevel
  * @type Integer
  * @default 0
- * 0=none, 10='see', 20='content', 30='participants', 40='messages'
+ * 0=none, 10='see', 15='teaser', 23='fields', 25='content', 30='participants', 35='messages', 40='receipts'
  */
 /**
  * @property writeLevel
@@ -714,6 +714,18 @@ Base.prototype.beforeSave = function (value) {
 				throw new Error("the field "+table+"."+fields[i]+" needs a value, because it is NOT NULL, not auto_increment, and lacks a default value.");
 			}
 		}
+	}
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["streamName"] == undefined) {
+		this.fields["streamName"] = value["streamName"] = "";
+	}
+	if (this.fields["userId"] == undefined) {
+		this.fields["userId"] = value["userId"] = "";
+	}
+	if (this.fields["state"] == undefined) {
+		this.fields["state"] = value["state"] = "pending";
 	}
 	return value;
 };

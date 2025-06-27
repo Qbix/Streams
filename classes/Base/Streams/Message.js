@@ -697,6 +697,33 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["streamName"] == undefined) {
+		this.fields["streamName"] = value["streamName"] = "";
+	}
+	if (this.fields["ordinal"] == undefined) {
+		this.fields["ordinal"] = value["ordinal"] = "0";
+	}
+	if (this.fields["byUserId"] == undefined) {
+		this.fields["byUserId"] = value["byUserId"] = "";
+	}
+	if (this.fields["byClientId"] == undefined) {
+		this.fields["byClientId"] = value["byClientId"] = "";
+	}
+	if (this.fields["type"] == undefined) {
+		this.fields["type"] = value["type"] = "";
+	}
+	if (this.fields["content"] == undefined) {
+		this.fields["content"] = value["content"] = "";
+	}
+	if (this.fields["instructions"] == undefined) {
+		this.fields["instructions"] = value["instructions"] = "";
+	}
+	if (this.fields["weight"] == undefined) {
+		this.fields["weight"] = value["weight"] = 1;
+	}
 	return value;
 };
 

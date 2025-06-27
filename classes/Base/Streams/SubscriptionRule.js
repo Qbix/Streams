@@ -632,6 +632,27 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
+	if (this.fields["ofUserId"] == undefined) {
+		this.fields["ofUserId"] = value["ofUserId"] = "";
+	}
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["streamName"] == undefined) {
+		this.fields["streamName"] = value["streamName"] = "";
+	}
+	if (this.fields["ordinal"] == undefined) {
+		this.fields["ordinal"] = value["ordinal"] = 0;
+	}
+	if (this.fields["filter"] == undefined) {
+		this.fields["filter"] = value["filter"] = "";
+	}
+	if (this.fields["deliver"] == undefined) {
+		this.fields["deliver"] = value["deliver"] = "";
+	}
+	if (this.fields["relevance"] == undefined) {
+		this.fields["relevance"] = value["relevance"] = 1;
+	}
 	return value;
 };
 

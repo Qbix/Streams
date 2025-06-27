@@ -477,6 +477,15 @@ Base.prototype.beforeSave = function (value) {
 
 	// convention: we'll have updatedTime = insertedTime if just created.
 	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
+	if (this.fields["hash"] == undefined) {
+		this.fields["hash"] = value["hash"] = "";
+	}
+	if (this.fields["algorithm"] == undefined) {
+		this.fields["algorithm"] = value["algorithm"] = "sha256";
+	}
+	if (this.fields["uri"] == undefined) {
+		this.fields["uri"] = value["uri"] = "";
+	}
 	return value;
 };
 

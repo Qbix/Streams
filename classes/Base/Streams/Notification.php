@@ -793,6 +793,18 @@ return array (
 				}
 			}
 		}
+		if (!isset($value["userId"])) {
+			$this->userId = $value["userId"] = "";
+		}
+		if (!isset($value["publisherId"])) {
+			$this->publisherId = $value["publisherId"] = "";
+		}
+		if (!isset($value["streamName"])) {
+			$this->streamName = $value["streamName"] = "";
+		}
+		if (!isset($value["messageOrdinal"])) {
+			$this->messageOrdinal = $value["messageOrdinal"] = 0;
+		}
 		return $value;			
 	}
 

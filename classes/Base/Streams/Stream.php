@@ -99,19 +99,19 @@ abstract class Base_Streams_Stream extends Db_Row
 	 * @property $readLevel
 	 * @type integer
 	 * @default 40
-	 * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 35='messages', 40='receipts'
+	 * 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 40='messages'
 	 */
 	/**
 	 * @property $writeLevel
 	 * @type integer
 	 * @default 10
-	 * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+	 * 0=self, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
 	 */
 	/**
 	 * @property $adminLevel
 	 * @type integer
 	 * @default 20
-	 * 0=none, 10='publish', 20='invite', 30='manage', 40='own'
+	 * 10='publish', 20='invite', 30='manage', 40='own'
 	 */
 	/**
 	 * @property $permissions
@@ -1561,6 +1561,48 @@ return array (
 		}						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
+		if (!isset($value["publisherId"])) {
+			$this->publisherId = $value["publisherId"] = "";
+		}
+		if (!isset($value["name"])) {
+			$this->name = $value["name"] = "";
+		}
+		if (!isset($value["type"])) {
+			$this->type = $value["type"] = "";
+		}
+		if (!isset($value["title"])) {
+			$this->title = $value["title"] = "";
+		}
+		if (!isset($value["icon"])) {
+			$this->icon = $value["icon"] = "0x64656661756C74";
+		}
+		if (!isset($value["content"])) {
+			$this->content = $value["content"] = "";
+		}
+		if (!isset($value["readLevel"])) {
+			$this->readLevel = $value["readLevel"] = 40;
+		}
+		if (!isset($value["writeLevel"])) {
+			$this->writeLevel = $value["writeLevel"] = 10;
+		}
+		if (!isset($value["adminLevel"])) {
+			$this->adminLevel = $value["adminLevel"] = 20;
+		}
+		if (!isset($value["messageCount"])) {
+			$this->messageCount = $value["messageCount"] = 0;
+		}
+		if (!isset($value["invitedCount"])) {
+			$this->invitedCount = $value["invitedCount"] = 0;
+		}
+		if (!isset($value["arrivedCount"])) {
+			$this->arrivedCount = $value["arrivedCount"] = 0;
+		}
+		if (!isset($value["participatingCount"])) {
+			$this->participatingCount = $value["participatingCount"] = 0;
+		}
+		if (!isset($value["leftCount"])) {
+			$this->leftCount = $value["leftCount"] = 0;
+		}
 		return $value;			
 	}
 

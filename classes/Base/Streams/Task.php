@@ -497,6 +497,12 @@ return array (
 				}
 			}
 		}
+		if (!isset($value["publisherId"])) {
+			$this->publisherId = $value["publisherId"] = "";
+		}
+		if (!isset($value["streamName"])) {
+			$this->streamName = $value["streamName"] = "";
+		}
 		return $value;			
 	}
 

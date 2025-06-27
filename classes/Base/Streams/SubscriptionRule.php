@@ -776,6 +776,27 @@ return array (
 				}
 			}
 		}
+		if (!isset($value["ofUserId"])) {
+			$this->ofUserId = $value["ofUserId"] = "";
+		}
+		if (!isset($value["publisherId"])) {
+			$this->publisherId = $value["publisherId"] = "";
+		}
+		if (!isset($value["streamName"])) {
+			$this->streamName = $value["streamName"] = "";
+		}
+		if (!isset($value["ordinal"])) {
+			$this->ordinal = $value["ordinal"] = 0;
+		}
+		if (!isset($value["filter"])) {
+			$this->filter = $value["filter"] = "";
+		}
+		if (!isset($value["deliver"])) {
+			$this->deliver = $value["deliver"] = "";
+		}
+		if (!isset($value["relevance"])) {
+			$this->relevance = $value["relevance"] = 1;
+		}
 		return $value;			
 	}
 

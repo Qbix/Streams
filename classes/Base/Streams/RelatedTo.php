@@ -720,6 +720,27 @@ return array (
 				}
 			}
 		}
+		if (!isset($value["toPublisherId"])) {
+			$this->toPublisherId = $value["toPublisherId"] = "";
+		}
+		if (!isset($value["toStreamName"])) {
+			$this->toStreamName = $value["toStreamName"] = "";
+		}
+		if (!isset($value["type"])) {
+			$this->type = $value["type"] = "";
+		}
+		if (!isset($value["fromPublisherId"])) {
+			$this->fromPublisherId = $value["fromPublisherId"] = "";
+		}
+		if (!isset($value["fromStreamName"])) {
+			$this->fromStreamName = $value["fromStreamName"] = "";
+		}
+		if (!isset($value["weight"])) {
+			$this->weight = $value["weight"] = 1;
+		}
+		if (!isset($value["extra"])) {
+			$this->extra = $value["extra"] = "{}";
+		}
 		return $value;			
 	}
 

@@ -80,13 +80,13 @@ abstract class Base_Streams_Invite extends Db_Row
 	 * @property $readLevel
 	 * @type integer
 	 * @default 0
-	 * 0=none, 10='see', 20='content', 30='participants', 40='messages'
+	 * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 40='messages'
 	 */
 	/**
 	 * @property $writeLevel
 	 * @type integer
 	 * @default 0
-	 * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+	 * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate
 	 */
 	/**
 	 * @property $adminLevel
@@ -1159,6 +1159,30 @@ return array (
 					throw new Exception("the field $table.$name needs a value, because it is NOT NULL, not auto_increment, and lacks a default value.");
 				}
 			}
+		}
+		if (!isset($value["token"])) {
+			$this->token = $value["token"] = "";
+		}
+		if (!isset($value["userId"])) {
+			$this->userId = $value["userId"] = "";
+		}
+		if (!isset($value["publisherId"])) {
+			$this->publisherId = $value["publisherId"] = "";
+		}
+		if (!isset($value["streamName"])) {
+			$this->streamName = $value["streamName"] = "";
+		}
+		if (!isset($value["invitingUserId"])) {
+			$this->invitingUserId = $value["invitingUserId"] = "";
+		}
+		if (!isset($value["displayName"])) {
+			$this->displayName = $value["displayName"] = "";
+		}
+		if (!isset($value["appUrl"])) {
+			$this->appUrl = $value["appUrl"] = "";
+		}
+		if (!isset($value["state"])) {
+			$this->state = $value["state"] = "pending";
 		}
 		return $value;			
 	}

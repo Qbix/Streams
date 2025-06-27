@@ -467,6 +467,15 @@ Base.prototype.beforeSave = function (value) {
 
 	// convention: we'll have updatedTime = insertedTime if just created.
 	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
+	if (this.fields["userId"] == undefined) {
+		this.fields["userId"] = value["userId"] = "";
+	}
+	if (this.fields["token"] == undefined) {
+		this.fields["token"] = value["token"] = "";
+	}
+	if (this.fields["state"] == undefined) {
+		this.fields["state"] = value["state"] = "pending";
+	}
 	return value;
 };
 

@@ -618,6 +618,21 @@ return array (
 				}
 			}
 		}
+		if (!isset($value["fromPublisherId"])) {
+			$this->fromPublisherId = $value["fromPublisherId"] = "";
+		}
+		if (!isset($value["fromStreamName"])) {
+			$this->fromStreamName = $value["fromStreamName"] = "";
+		}
+		if (!isset($value["type"])) {
+			$this->type = $value["type"] = "";
+		}
+		if (!isset($value["toPublisherId"])) {
+			$this->toPublisherId = $value["toPublisherId"] = "";
+		}
+		if (!isset($value["toStreamName"])) {
+			$this->toStreamName = $value["toStreamName"] = "";
+		}
 		return $value;			
 	}
 

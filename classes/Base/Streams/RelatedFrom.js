@@ -524,6 +524,21 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
+	if (this.fields["fromPublisherId"] == undefined) {
+		this.fields["fromPublisherId"] = value["fromPublisherId"] = "";
+	}
+	if (this.fields["fromStreamName"] == undefined) {
+		this.fields["fromStreamName"] = value["fromStreamName"] = "";
+	}
+	if (this.fields["type"] == undefined) {
+		this.fields["type"] = value["type"] = "";
+	}
+	if (this.fields["toPublisherId"] == undefined) {
+		this.fields["toPublisherId"] = value["toPublisherId"] = "";
+	}
+	if (this.fields["toStreamName"] == undefined) {
+		this.fields["toStreamName"] = value["toStreamName"] = "";
+	}
 	return value;
 };
 

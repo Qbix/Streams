@@ -563,6 +563,21 @@ return array (
 				}
 			}
 		}
+		if (!isset($value["toPublisherId"])) {
+			$this->toPublisherId = $value["toPublisherId"] = "";
+		}
+		if (!isset($value["toStreamName"])) {
+			$this->toStreamName = $value["toStreamName"] = "";
+		}
+		if (!isset($value["relationType"])) {
+			$this->relationType = $value["relationType"] = "";
+		}
+		if (!isset($value["fromStreamType"])) {
+			$this->fromStreamType = $value["fromStreamType"] = "";
+		}
+		if (!isset($value["relationCount"])) {
+			$this->relationCount = $value["relationCount"] = 0;
+		}
 		return $value;			
 	}
 

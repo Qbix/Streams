@@ -589,6 +589,21 @@ Base.prototype.beforeSave = function (value) {
 	}
 	// convention: we'll have updatedTime = insertedTime if just created.
 	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["streamName"] == undefined) {
+		this.fields["streamName"] = value["streamName"] = "";
+	}
+	if (this.fields["ofUserId"] == undefined) {
+		this.fields["ofUserId"] = value["ofUserId"] = "";
+	}
+	if (this.fields["filter"] == undefined) {
+		this.fields["filter"] = value["filter"] = "";
+	}
+	if (this.fields["duration"] == undefined) {
+		this.fields["duration"] = value["duration"] = 0;
+	}
 	return value;
 };
 

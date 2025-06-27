@@ -52,7 +52,7 @@ abstract class Base_Streams_Request extends Db_Row
 	 * @property $readLevel
 	 * @type integer
 	 * @default 0
-	 * 0=none, 10='see', 20='content', 30='participants', 40='messages'
+	 * 0=none, 10='see', 15='teaser', 23='fields', 25='content', 30='participants', 35='messages', 40='receipts'
 	 */
 	/**
 	 * @property $writeLevel
@@ -913,6 +913,18 @@ return array (
 					throw new Exception("the field $table.$name needs a value, because it is NOT NULL, not auto_increment, and lacks a default value.");
 				}
 			}
+		}
+		if (!isset($value["publisherId"])) {
+			$this->publisherId = $value["publisherId"] = "";
+		}
+		if (!isset($value["streamName"])) {
+			$this->streamName = $value["streamName"] = "";
+		}
+		if (!isset($value["userId"])) {
+			$this->userId = $value["userId"] = "";
+		}
+		if (!isset($value["state"])) {
+			$this->state = $value["state"] = "pending";
 		}
 		return $value;			
 	}

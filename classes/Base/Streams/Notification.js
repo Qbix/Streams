@@ -630,6 +630,18 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
+	if (this.fields["userId"] == undefined) {
+		this.fields["userId"] = value["userId"] = "";
+	}
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["streamName"] == undefined) {
+		this.fields["streamName"] = value["streamName"] = "";
+	}
+	if (this.fields["messageOrdinal"] == undefined) {
+		this.fields["messageOrdinal"] = value["messageOrdinal"] = 0;
+	}
 	return value;
 };
 

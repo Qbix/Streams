@@ -777,6 +777,30 @@ Base.prototype.beforeSave = function (value) {
 	}
 	// convention: we'll have updatedTime = insertedTime if just created.
 	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["streamName"] == undefined) {
+		this.fields["streamName"] = value["streamName"] = "";
+	}
+	if (this.fields["ofUserId"] == undefined) {
+		this.fields["ofUserId"] = value["ofUserId"] = "";
+	}
+	if (this.fields["ofContactLabel"] == undefined) {
+		this.fields["ofContactLabel"] = value["ofContactLabel"] = "";
+	}
+	if (this.fields["ofParticipantRole"] == undefined) {
+		this.fields["ofParticipantRole"] = value["ofParticipantRole"] = "";
+	}
+	if (this.fields["readLevel"] == undefined) {
+		this.fields["readLevel"] = value["readLevel"] = -1;
+	}
+	if (this.fields["writeLevel"] == undefined) {
+		this.fields["writeLevel"] = value["writeLevel"] = -1;
+	}
+	if (this.fields["adminLevel"] == undefined) {
+		this.fields["adminLevel"] = value["adminLevel"] = -1;
+	}
 	return value;
 };
 

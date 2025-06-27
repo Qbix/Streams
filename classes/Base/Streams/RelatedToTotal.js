@@ -487,6 +487,21 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
+	if (this.fields["toPublisherId"] == undefined) {
+		this.fields["toPublisherId"] = value["toPublisherId"] = "";
+	}
+	if (this.fields["toStreamName"] == undefined) {
+		this.fields["toStreamName"] = value["toStreamName"] = "";
+	}
+	if (this.fields["relationType"] == undefined) {
+		this.fields["relationType"] = value["relationType"] = "";
+	}
+	if (this.fields["fromStreamType"] == undefined) {
+		this.fields["fromStreamType"] = value["fromStreamType"] = "";
+	}
+	if (this.fields["relationCount"] == undefined) {
+		this.fields["relationCount"] = value["relationCount"] = 0;
+	}
 	return value;
 };
 

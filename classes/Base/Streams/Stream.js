@@ -108,19 +108,19 @@ Q.mixin(Base, Row);
  * @property readLevel
  * @type Integer
  * @default 40
- * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 35='messages', 40='receipts'
+ * 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 40='messages'
  */
 /**
  * @property writeLevel
  * @type Integer
  * @default 10
- * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+ * 0=self, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
  */
 /**
  * @property adminLevel
  * @type Integer
  * @default 20
- * 0=none, 10='publish', 20='invite', 30='manage', 40='own'
+ * 10='publish', 20='invite', 30='manage', 40='own'
  */
 /**
  * @property permissions
@@ -1179,6 +1179,48 @@ Base.prototype.beforeSave = function (value) {
 	}
 	// convention: we'll have updatedTime = insertedTime if just created.
 	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["name"] == undefined) {
+		this.fields["name"] = value["name"] = "";
+	}
+	if (this.fields["type"] == undefined) {
+		this.fields["type"] = value["type"] = "";
+	}
+	if (this.fields["title"] == undefined) {
+		this.fields["title"] = value["title"] = "";
+	}
+	if (this.fields["icon"] == undefined) {
+		this.fields["icon"] = value["icon"] = "0x64656661756C74";
+	}
+	if (this.fields["content"] == undefined) {
+		this.fields["content"] = value["content"] = "";
+	}
+	if (this.fields["readLevel"] == undefined) {
+		this.fields["readLevel"] = value["readLevel"] = 40;
+	}
+	if (this.fields["writeLevel"] == undefined) {
+		this.fields["writeLevel"] = value["writeLevel"] = 10;
+	}
+	if (this.fields["adminLevel"] == undefined) {
+		this.fields["adminLevel"] = value["adminLevel"] = 20;
+	}
+	if (this.fields["messageCount"] == undefined) {
+		this.fields["messageCount"] = value["messageCount"] = 0;
+	}
+	if (this.fields["invitedCount"] == undefined) {
+		this.fields["invitedCount"] = value["invitedCount"] = 0;
+	}
+	if (this.fields["arrivedCount"] == undefined) {
+		this.fields["arrivedCount"] = value["arrivedCount"] = 0;
+	}
+	if (this.fields["participatingCount"] == undefined) {
+		this.fields["participatingCount"] = value["participatingCount"] = 0;
+	}
+	if (this.fields["leftCount"] == undefined) {
+		this.fields["leftCount"] = value["leftCount"] = 0;
+	}
 	return value;
 };
 

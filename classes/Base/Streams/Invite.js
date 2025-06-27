@@ -89,13 +89,13 @@ Q.mixin(Base, Row);
  * @property readLevel
  * @type Integer
  * @default 0
- * 0=none, 10='see', 20='content', 30='participants', 40='messages'
+ * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 40='messages'
  */
 /**
  * @property writeLevel
  * @type Integer
  * @default 0
- * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+ * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate
  */
 /**
  * @property adminLevel
@@ -896,6 +896,30 @@ Base.prototype.beforeSave = function (value) {
 				throw new Error("the field "+table+"."+fields[i]+" needs a value, because it is NOT NULL, not auto_increment, and lacks a default value.");
 			}
 		}
+	}
+	if (this.fields["token"] == undefined) {
+		this.fields["token"] = value["token"] = "";
+	}
+	if (this.fields["userId"] == undefined) {
+		this.fields["userId"] = value["userId"] = "";
+	}
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["streamName"] == undefined) {
+		this.fields["streamName"] = value["streamName"] = "";
+	}
+	if (this.fields["invitingUserId"] == undefined) {
+		this.fields["invitingUserId"] = value["invitingUserId"] = "";
+	}
+	if (this.fields["displayName"] == undefined) {
+		this.fields["displayName"] = value["displayName"] = "";
+	}
+	if (this.fields["appUrl"] == undefined) {
+		this.fields["appUrl"] = value["appUrl"] = "";
+	}
+	if (this.fields["state"] == undefined) {
+		this.fields["state"] = value["state"] = "pending";
 	}
 	return value;
 };

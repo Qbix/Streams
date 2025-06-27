@@ -438,6 +438,12 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
+	if (this.fields["publisherId"] == undefined) {
+		this.fields["publisherId"] = value["publisherId"] = "";
+	}
+	if (this.fields["streamName"] == undefined) {
+		this.fields["streamName"] = value["streamName"] = "";
+	}
 	return value;
 };
 

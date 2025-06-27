@@ -987,6 +987,30 @@ return array (
 		}						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
+		if (!isset($value["publisherId"])) {
+			$this->publisherId = $value["publisherId"] = "";
+		}
+		if (!isset($value["streamName"])) {
+			$this->streamName = $value["streamName"] = "";
+		}
+		if (!isset($value["ofUserId"])) {
+			$this->ofUserId = $value["ofUserId"] = "";
+		}
+		if (!isset($value["ofContactLabel"])) {
+			$this->ofContactLabel = $value["ofContactLabel"] = "";
+		}
+		if (!isset($value["ofParticipantRole"])) {
+			$this->ofParticipantRole = $value["ofParticipantRole"] = "";
+		}
+		if (!isset($value["readLevel"])) {
+			$this->readLevel = $value["readLevel"] = -1;
+		}
+		if (!isset($value["writeLevel"])) {
+			$this->writeLevel = $value["writeLevel"] = -1;
+		}
+		if (!isset($value["adminLevel"])) {
+			$this->adminLevel = $value["adminLevel"] = -1;
+		}
 		return $value;			
 	}
 
