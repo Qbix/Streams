@@ -612,19 +612,19 @@ Base.prototype.beforeSave = function (value) {
 	}
 	// convention: we'll have updatedTime = insertedTime if just created.
 	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
-	if (this.fields["toUserId"] == undefined) {
+	if (this.fields["toUserId"] == undefined && value["toUserId"] == undefined) {
 		this.fields["toUserId"] = value["toUserId"] = "";
 	}
-	if (this.fields["publisherId"] == undefined) {
+	if (this.fields["publisherId"] == undefined && value["publisherId"] == undefined) {
 		this.fields["publisherId"] = value["publisherId"] = "";
 	}
-	if (this.fields["username"] == undefined) {
+	if (this.fields["username"] == undefined && value["username"] == undefined) {
 		this.fields["username"] = value["username"] = "";
 	}
-	if (this.fields["firstName"] == undefined) {
+	if (this.fields["firstName"] == undefined && value["firstName"] == undefined) {
 		this.fields["firstName"] = value["firstName"] = "";
 	}
-	if (this.fields["icon"] == undefined) {
+	if (this.fields["icon"] == undefined && value["icon"] == undefined) {
 		this.fields["icon"] = value["icon"] = "";
 	}
 	return value;

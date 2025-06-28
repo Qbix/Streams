@@ -582,13 +582,13 @@ return array (
 						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
-		if (!isset($value["userId"])) {
+		if (!isset($this->fields["userId"]) and !isset($value["userId"])) {
 			$this->userId = $value["userId"] = "";
 		}
-		if (!isset($value["token"])) {
+		if (!isset($this->fields["token"]) and !isset($value["token"])) {
 			$this->token = $value["token"] = "";
 		}
-		if (!isset($value["state"])) {
+		if (!isset($this->fields["state"]) and !isset($value["state"])) {
 			$this->state = $value["state"] = "pending";
 		}
 		return $value;			

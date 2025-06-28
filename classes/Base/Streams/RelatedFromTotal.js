@@ -487,19 +487,19 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
-	if (this.fields["fromPublisherId"] == undefined) {
+	if (this.fields["fromPublisherId"] == undefined && value["fromPublisherId"] == undefined) {
 		this.fields["fromPublisherId"] = value["fromPublisherId"] = "";
 	}
-	if (this.fields["fromStreamName"] == undefined) {
+	if (this.fields["fromStreamName"] == undefined && value["fromStreamName"] == undefined) {
 		this.fields["fromStreamName"] = value["fromStreamName"] = "";
 	}
-	if (this.fields["relationType"] == undefined) {
+	if (this.fields["relationType"] == undefined && value["relationType"] == undefined) {
 		this.fields["relationType"] = value["relationType"] = "";
 	}
-	if (this.fields["toStreamType"] == undefined) {
+	if (this.fields["toStreamType"] == undefined && value["toStreamType"] == undefined) {
 		this.fields["toStreamType"] = value["toStreamType"] = "";
 	}
-	if (this.fields["relationCount"] == undefined) {
+	if (this.fields["relationCount"] == undefined && value["relationCount"] == undefined) {
 		this.fields["relationCount"] = value["relationCount"] = 0;
 	}
 	return value;

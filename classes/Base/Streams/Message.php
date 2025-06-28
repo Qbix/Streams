@@ -865,31 +865,31 @@ return array (
 				}
 			}
 		}
-		if (!isset($value["publisherId"])) {
+		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
 			$this->publisherId = $value["publisherId"] = "";
 		}
-		if (!isset($value["streamName"])) {
+		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
 			$this->streamName = $value["streamName"] = "";
 		}
-		if (!isset($value["ordinal"])) {
+		if (!isset($this->fields["ordinal"]) and !isset($value["ordinal"])) {
 			$this->ordinal = $value["ordinal"] = "0";
 		}
-		if (!isset($value["byUserId"])) {
+		if (!isset($this->fields["byUserId"]) and !isset($value["byUserId"])) {
 			$this->byUserId = $value["byUserId"] = "";
 		}
-		if (!isset($value["byClientId"])) {
+		if (!isset($this->fields["byClientId"]) and !isset($value["byClientId"])) {
 			$this->byClientId = $value["byClientId"] = "";
 		}
-		if (!isset($value["type"])) {
+		if (!isset($this->fields["type"]) and !isset($value["type"])) {
 			$this->type = $value["type"] = "";
 		}
-		if (!isset($value["content"])) {
+		if (!isset($this->fields["content"]) and !isset($value["content"])) {
 			$this->content = $value["content"] = "";
 		}
-		if (!isset($value["instructions"])) {
+		if (!isset($this->fields["instructions"]) and !isset($value["instructions"])) {
 			$this->instructions = $value["instructions"] = "";
 		}
-		if (!isset($value["weight"])) {
+		if (!isset($this->fields["weight"]) and !isset($value["weight"])) {
 			$this->weight = $value["weight"] = 1;
 		}
 		return $value;			

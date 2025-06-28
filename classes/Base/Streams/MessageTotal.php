@@ -500,16 +500,16 @@ return array (
 				}
 			}
 		}
-		if (!isset($value["publisherId"])) {
+		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
 			$this->publisherId = $value["publisherId"] = "";
 		}
-		if (!isset($value["streamName"])) {
+		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
 			$this->streamName = $value["streamName"] = "";
 		}
-		if (!isset($value["messageType"])) {
+		if (!isset($this->fields["messageType"]) and !isset($value["messageType"])) {
 			$this->messageType = $value["messageType"] = "";
 		}
-		if (!isset($value["messageCount"])) {
+		if (!isset($this->fields["messageCount"]) and !isset($value["messageCount"])) {
 			$this->messageCount = $value["messageCount"] = 0;
 		}
 		return $value;			

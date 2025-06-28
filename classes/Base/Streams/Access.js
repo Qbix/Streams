@@ -777,28 +777,28 @@ Base.prototype.beforeSave = function (value) {
 	}
 	// convention: we'll have updatedTime = insertedTime if just created.
 	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
-	if (this.fields["publisherId"] == undefined) {
+	if (this.fields["publisherId"] == undefined && value["publisherId"] == undefined) {
 		this.fields["publisherId"] = value["publisherId"] = "";
 	}
-	if (this.fields["streamName"] == undefined) {
+	if (this.fields["streamName"] == undefined && value["streamName"] == undefined) {
 		this.fields["streamName"] = value["streamName"] = "";
 	}
-	if (this.fields["ofUserId"] == undefined) {
+	if (this.fields["ofUserId"] == undefined && value["ofUserId"] == undefined) {
 		this.fields["ofUserId"] = value["ofUserId"] = "";
 	}
-	if (this.fields["ofContactLabel"] == undefined) {
+	if (this.fields["ofContactLabel"] == undefined && value["ofContactLabel"] == undefined) {
 		this.fields["ofContactLabel"] = value["ofContactLabel"] = "";
 	}
-	if (this.fields["ofParticipantRole"] == undefined) {
+	if (this.fields["ofParticipantRole"] == undefined && value["ofParticipantRole"] == undefined) {
 		this.fields["ofParticipantRole"] = value["ofParticipantRole"] = "";
 	}
-	if (this.fields["readLevel"] == undefined) {
+	if (this.fields["readLevel"] == undefined && value["readLevel"] == undefined) {
 		this.fields["readLevel"] = value["readLevel"] = -1;
 	}
-	if (this.fields["writeLevel"] == undefined) {
+	if (this.fields["writeLevel"] == undefined && value["writeLevel"] == undefined) {
 		this.fields["writeLevel"] = value["writeLevel"] = -1;
 	}
-	if (this.fields["adminLevel"] == undefined) {
+	if (this.fields["adminLevel"] == undefined && value["adminLevel"] == undefined) {
 		this.fields["adminLevel"] = value["adminLevel"] = -1;
 	}
 	return value;

@@ -1561,46 +1561,46 @@ return array (
 		}						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
-		if (!isset($value["publisherId"])) {
+		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
 			$this->publisherId = $value["publisherId"] = "";
 		}
-		if (!isset($value["name"])) {
+		if (!isset($this->fields["name"]) and !isset($value["name"])) {
 			$this->name = $value["name"] = "";
 		}
-		if (!isset($value["type"])) {
+		if (!isset($this->fields["type"]) and !isset($value["type"])) {
 			$this->type = $value["type"] = "";
 		}
-		if (!isset($value["title"])) {
+		if (!isset($this->fields["title"]) and !isset($value["title"])) {
 			$this->title = $value["title"] = "";
 		}
-		if (!isset($value["icon"])) {
+		if (!isset($this->fields["icon"]) and !isset($value["icon"])) {
 			$this->icon = $value["icon"] = "0x64656661756C74";
 		}
-		if (!isset($value["content"])) {
+		if (!isset($this->fields["content"]) and !isset($value["content"])) {
 			$this->content = $value["content"] = "";
 		}
-		if (!isset($value["readLevel"])) {
+		if (!isset($this->fields["readLevel"]) and !isset($value["readLevel"])) {
 			$this->readLevel = $value["readLevel"] = 40;
 		}
-		if (!isset($value["writeLevel"])) {
+		if (!isset($this->fields["writeLevel"]) and !isset($value["writeLevel"])) {
 			$this->writeLevel = $value["writeLevel"] = 10;
 		}
-		if (!isset($value["adminLevel"])) {
+		if (!isset($this->fields["adminLevel"]) and !isset($value["adminLevel"])) {
 			$this->adminLevel = $value["adminLevel"] = 20;
 		}
-		if (!isset($value["messageCount"])) {
+		if (!isset($this->fields["messageCount"]) and !isset($value["messageCount"])) {
 			$this->messageCount = $value["messageCount"] = 0;
 		}
-		if (!isset($value["invitedCount"])) {
+		if (!isset($this->fields["invitedCount"]) and !isset($value["invitedCount"])) {
 			$this->invitedCount = $value["invitedCount"] = 0;
 		}
-		if (!isset($value["arrivedCount"])) {
+		if (!isset($this->fields["arrivedCount"]) and !isset($value["arrivedCount"])) {
 			$this->arrivedCount = $value["arrivedCount"] = 0;
 		}
-		if (!isset($value["participatingCount"])) {
+		if (!isset($this->fields["participatingCount"]) and !isset($value["participatingCount"])) {
 			$this->participatingCount = $value["participatingCount"] = 0;
 		}
-		if (!isset($value["leftCount"])) {
+		if (!isset($this->fields["leftCount"]) and !isset($value["leftCount"])) {
 			$this->leftCount = $value["leftCount"] = 0;
 		}
 		return $value;			

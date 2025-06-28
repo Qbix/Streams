@@ -987,28 +987,28 @@ return array (
 		}						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
-		if (!isset($value["publisherId"])) {
+		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
 			$this->publisherId = $value["publisherId"] = "";
 		}
-		if (!isset($value["streamName"])) {
+		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
 			$this->streamName = $value["streamName"] = "";
 		}
-		if (!isset($value["ofUserId"])) {
+		if (!isset($this->fields["ofUserId"]) and !isset($value["ofUserId"])) {
 			$this->ofUserId = $value["ofUserId"] = "";
 		}
-		if (!isset($value["ofContactLabel"])) {
+		if (!isset($this->fields["ofContactLabel"]) and !isset($value["ofContactLabel"])) {
 			$this->ofContactLabel = $value["ofContactLabel"] = "";
 		}
-		if (!isset($value["ofParticipantRole"])) {
+		if (!isset($this->fields["ofParticipantRole"]) and !isset($value["ofParticipantRole"])) {
 			$this->ofParticipantRole = $value["ofParticipantRole"] = "";
 		}
-		if (!isset($value["readLevel"])) {
+		if (!isset($this->fields["readLevel"]) and !isset($value["readLevel"])) {
 			$this->readLevel = $value["readLevel"] = -1;
 		}
-		if (!isset($value["writeLevel"])) {
+		if (!isset($this->fields["writeLevel"]) and !isset($value["writeLevel"])) {
 			$this->writeLevel = $value["writeLevel"] = -1;
 		}
-		if (!isset($value["adminLevel"])) {
+		if (!isset($this->fields["adminLevel"]) and !isset($value["adminLevel"])) {
 			$this->adminLevel = $value["adminLevel"] = -1;
 		}
 		return $value;			

@@ -744,19 +744,19 @@ return array (
 		}						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
-		if (!isset($value["toUserId"])) {
+		if (!isset($this->fields["toUserId"]) and !isset($value["toUserId"])) {
 			$this->toUserId = $value["toUserId"] = "";
 		}
-		if (!isset($value["publisherId"])) {
+		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
 			$this->publisherId = $value["publisherId"] = "";
 		}
-		if (!isset($value["username"])) {
+		if (!isset($this->fields["username"]) and !isset($value["username"])) {
 			$this->username = $value["username"] = "";
 		}
-		if (!isset($value["firstName"])) {
+		if (!isset($this->fields["firstName"]) and !isset($value["firstName"])) {
 			$this->firstName = $value["firstName"] = "";
 		}
-		if (!isset($value["icon"])) {
+		if (!isset($this->fields["icon"]) and !isset($value["icon"])) {
 			$this->icon = $value["icon"] = "";
 		}
 		return $value;			

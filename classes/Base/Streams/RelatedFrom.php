@@ -618,19 +618,19 @@ return array (
 				}
 			}
 		}
-		if (!isset($value["fromPublisherId"])) {
+		if (!isset($this->fields["fromPublisherId"]) and !isset($value["fromPublisherId"])) {
 			$this->fromPublisherId = $value["fromPublisherId"] = "";
 		}
-		if (!isset($value["fromStreamName"])) {
+		if (!isset($this->fields["fromStreamName"]) and !isset($value["fromStreamName"])) {
 			$this->fromStreamName = $value["fromStreamName"] = "";
 		}
-		if (!isset($value["type"])) {
+		if (!isset($this->fields["type"]) and !isset($value["type"])) {
 			$this->type = $value["type"] = "";
 		}
-		if (!isset($value["toPublisherId"])) {
+		if (!isset($this->fields["toPublisherId"]) and !isset($value["toPublisherId"])) {
 			$this->toPublisherId = $value["toPublisherId"] = "";
 		}
-		if (!isset($value["toStreamName"])) {
+		if (!isset($this->fields["toStreamName"]) and !isset($value["toStreamName"])) {
 			$this->toStreamName = $value["toStreamName"] = "";
 		}
 		return $value;			

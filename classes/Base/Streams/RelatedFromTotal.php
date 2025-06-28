@@ -563,19 +563,19 @@ return array (
 				}
 			}
 		}
-		if (!isset($value["fromPublisherId"])) {
+		if (!isset($this->fields["fromPublisherId"]) and !isset($value["fromPublisherId"])) {
 			$this->fromPublisherId = $value["fromPublisherId"] = "";
 		}
-		if (!isset($value["fromStreamName"])) {
+		if (!isset($this->fields["fromStreamName"]) and !isset($value["fromStreamName"])) {
 			$this->fromStreamName = $value["fromStreamName"] = "";
 		}
-		if (!isset($value["relationType"])) {
+		if (!isset($this->fields["relationType"]) and !isset($value["relationType"])) {
 			$this->relationType = $value["relationType"] = "";
 		}
-		if (!isset($value["toStreamType"])) {
+		if (!isset($this->fields["toStreamType"]) and !isset($value["toStreamType"])) {
 			$this->toStreamType = $value["toStreamType"] = "";
 		}
-		if (!isset($value["relationCount"])) {
+		if (!isset($this->fields["relationCount"]) and !isset($value["relationCount"])) {
 			$this->relationCount = $value["relationCount"] = 0;
 		}
 		return $value;			

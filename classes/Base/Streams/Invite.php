@@ -1160,28 +1160,28 @@ return array (
 				}
 			}
 		}
-		if (!isset($value["token"])) {
+		if (!isset($this->fields["token"]) and !isset($value["token"])) {
 			$this->token = $value["token"] = "";
 		}
-		if (!isset($value["userId"])) {
+		if (!isset($this->fields["userId"]) and !isset($value["userId"])) {
 			$this->userId = $value["userId"] = "";
 		}
-		if (!isset($value["publisherId"])) {
+		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
 			$this->publisherId = $value["publisherId"] = "";
 		}
-		if (!isset($value["streamName"])) {
+		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
 			$this->streamName = $value["streamName"] = "";
 		}
-		if (!isset($value["invitingUserId"])) {
+		if (!isset($this->fields["invitingUserId"]) and !isset($value["invitingUserId"])) {
 			$this->invitingUserId = $value["invitingUserId"] = "";
 		}
-		if (!isset($value["displayName"])) {
+		if (!isset($this->fields["displayName"]) and !isset($value["displayName"])) {
 			$this->displayName = $value["displayName"] = "";
 		}
-		if (!isset($value["appUrl"])) {
+		if (!isset($this->fields["appUrl"]) and !isset($value["appUrl"])) {
 			$this->appUrl = $value["appUrl"] = "";
 		}
-		if (!isset($value["state"])) {
+		if (!isset($this->fields["state"]) and !isset($value["state"])) {
 			$this->state = $value["state"] = "pending";
 		}
 		return $value;			

@@ -897,28 +897,28 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
-	if (this.fields["token"] == undefined) {
+	if (this.fields["token"] == undefined && value["token"] == undefined) {
 		this.fields["token"] = value["token"] = "";
 	}
-	if (this.fields["userId"] == undefined) {
+	if (this.fields["userId"] == undefined && value["userId"] == undefined) {
 		this.fields["userId"] = value["userId"] = "";
 	}
-	if (this.fields["publisherId"] == undefined) {
+	if (this.fields["publisherId"] == undefined && value["publisherId"] == undefined) {
 		this.fields["publisherId"] = value["publisherId"] = "";
 	}
-	if (this.fields["streamName"] == undefined) {
+	if (this.fields["streamName"] == undefined && value["streamName"] == undefined) {
 		this.fields["streamName"] = value["streamName"] = "";
 	}
-	if (this.fields["invitingUserId"] == undefined) {
+	if (this.fields["invitingUserId"] == undefined && value["invitingUserId"] == undefined) {
 		this.fields["invitingUserId"] = value["invitingUserId"] = "";
 	}
-	if (this.fields["displayName"] == undefined) {
+	if (this.fields["displayName"] == undefined && value["displayName"] == undefined) {
 		this.fields["displayName"] = value["displayName"] = "";
 	}
-	if (this.fields["appUrl"] == undefined) {
+	if (this.fields["appUrl"] == undefined && value["appUrl"] == undefined) {
 		this.fields["appUrl"] = value["appUrl"] = "";
 	}
-	if (this.fields["state"] == undefined) {
+	if (this.fields["state"] == undefined && value["state"] == undefined) {
 		this.fields["state"] = value["state"] = "pending";
 	}
 	return value;

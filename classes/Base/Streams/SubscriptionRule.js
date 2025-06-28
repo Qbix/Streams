@@ -632,25 +632,25 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
-	if (this.fields["ofUserId"] == undefined) {
+	if (this.fields["ofUserId"] == undefined && value["ofUserId"] == undefined) {
 		this.fields["ofUserId"] = value["ofUserId"] = "";
 	}
-	if (this.fields["publisherId"] == undefined) {
+	if (this.fields["publisherId"] == undefined && value["publisherId"] == undefined) {
 		this.fields["publisherId"] = value["publisherId"] = "";
 	}
-	if (this.fields["streamName"] == undefined) {
+	if (this.fields["streamName"] == undefined && value["streamName"] == undefined) {
 		this.fields["streamName"] = value["streamName"] = "";
 	}
-	if (this.fields["ordinal"] == undefined) {
+	if (this.fields["ordinal"] == undefined && value["ordinal"] == undefined) {
 		this.fields["ordinal"] = value["ordinal"] = 0;
 	}
-	if (this.fields["filter"] == undefined) {
+	if (this.fields["filter"] == undefined && value["filter"] == undefined) {
 		this.fields["filter"] = value["filter"] = "";
 	}
-	if (this.fields["deliver"] == undefined) {
+	if (this.fields["deliver"] == undefined && value["deliver"] == undefined) {
 		this.fields["deliver"] = value["deliver"] = "";
 	}
-	if (this.fields["relevance"] == undefined) {
+	if (this.fields["relevance"] == undefined && value["relevance"] == undefined) {
 		this.fields["relevance"] = value["relevance"] = 1;
 	}
 	return value;

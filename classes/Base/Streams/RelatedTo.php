@@ -720,25 +720,25 @@ return array (
 				}
 			}
 		}
-		if (!isset($value["toPublisherId"])) {
+		if (!isset($this->fields["toPublisherId"]) and !isset($value["toPublisherId"])) {
 			$this->toPublisherId = $value["toPublisherId"] = "";
 		}
-		if (!isset($value["toStreamName"])) {
+		if (!isset($this->fields["toStreamName"]) and !isset($value["toStreamName"])) {
 			$this->toStreamName = $value["toStreamName"] = "";
 		}
-		if (!isset($value["type"])) {
+		if (!isset($this->fields["type"]) and !isset($value["type"])) {
 			$this->type = $value["type"] = "";
 		}
-		if (!isset($value["fromPublisherId"])) {
+		if (!isset($this->fields["fromPublisherId"]) and !isset($value["fromPublisherId"])) {
 			$this->fromPublisherId = $value["fromPublisherId"] = "";
 		}
-		if (!isset($value["fromStreamName"])) {
+		if (!isset($this->fields["fromStreamName"]) and !isset($value["fromStreamName"])) {
 			$this->fromStreamName = $value["fromStreamName"] = "";
 		}
-		if (!isset($value["weight"])) {
+		if (!isset($this->fields["weight"]) and !isset($value["weight"])) {
 			$this->weight = $value["weight"] = 1;
 		}
-		if (!isset($value["extra"])) {
+		if (!isset($this->fields["extra"]) and !isset($value["extra"])) {
 			$this->extra = $value["extra"] = "{}";
 		}
 		return $value;			
