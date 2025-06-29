@@ -575,9 +575,6 @@ return array (
 		if (!isset($this->fields["toStreamType"]) and !isset($value["toStreamType"])) {
 			$this->toStreamType = $value["toStreamType"] = "";
 		}
-		if (!isset($this->fields["relationCount"]) and !isset($value["relationCount"])) {
-			$this->relationCount = $value["relationCount"] = 0;
-		}
 		return $value;			
 	}
 

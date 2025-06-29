@@ -1179,9 +1179,6 @@ Base.prototype.beforeSave = function (value) {
 	}
 	// convention: we'll have updatedTime = insertedTime if just created.
 	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
-	if (this.fields["publisherId"] == undefined && value["publisherId"] == undefined) {
-		this.fields["publisherId"] = value["publisherId"] = "";
-	}
 	if (this.fields["name"] == undefined && value["name"] == undefined) {
 		this.fields["name"] = value["name"] = "";
 	}
@@ -1191,35 +1188,8 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["title"] == undefined && value["title"] == undefined) {
 		this.fields["title"] = value["title"] = "";
 	}
-	if (this.fields["icon"] == undefined && value["icon"] == undefined) {
-		this.fields["icon"] = value["icon"] = "0x64656661756C74";
-	}
 	if (this.fields["content"] == undefined && value["content"] == undefined) {
 		this.fields["content"] = value["content"] = "";
-	}
-	if (this.fields["readLevel"] == undefined && value["readLevel"] == undefined) {
-		this.fields["readLevel"] = value["readLevel"] = 40;
-	}
-	if (this.fields["writeLevel"] == undefined && value["writeLevel"] == undefined) {
-		this.fields["writeLevel"] = value["writeLevel"] = 10;
-	}
-	if (this.fields["adminLevel"] == undefined && value["adminLevel"] == undefined) {
-		this.fields["adminLevel"] = value["adminLevel"] = 20;
-	}
-	if (this.fields["messageCount"] == undefined && value["messageCount"] == undefined) {
-		this.fields["messageCount"] = value["messageCount"] = 0;
-	}
-	if (this.fields["invitedCount"] == undefined && value["invitedCount"] == undefined) {
-		this.fields["invitedCount"] = value["invitedCount"] = 0;
-	}
-	if (this.fields["arrivedCount"] == undefined && value["arrivedCount"] == undefined) {
-		this.fields["arrivedCount"] = value["arrivedCount"] = 0;
-	}
-	if (this.fields["participatingCount"] == undefined && value["participatingCount"] == undefined) {
-		this.fields["participatingCount"] = value["participatingCount"] = 0;
-	}
-	if (this.fields["leftCount"] == undefined && value["leftCount"] == undefined) {
-		this.fields["leftCount"] = value["leftCount"] = 0;
 	}
 	return value;
 };

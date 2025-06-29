@@ -918,9 +918,6 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["appUrl"] == undefined && value["appUrl"] == undefined) {
 		this.fields["appUrl"] = value["appUrl"] = "";
 	}
-	if (this.fields["state"] == undefined && value["state"] == undefined) {
-		this.fields["state"] = value["state"] = "pending";
-	}
 	return value;
 };
 

@@ -993,24 +993,6 @@ return array (
 		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
 			$this->streamName = $value["streamName"] = "";
 		}
-		if (!isset($this->fields["ofUserId"]) and !isset($value["ofUserId"])) {
-			$this->ofUserId = $value["ofUserId"] = "";
-		}
-		if (!isset($this->fields["ofContactLabel"]) and !isset($value["ofContactLabel"])) {
-			$this->ofContactLabel = $value["ofContactLabel"] = "";
-		}
-		if (!isset($this->fields["ofParticipantRole"]) and !isset($value["ofParticipantRole"])) {
-			$this->ofParticipantRole = $value["ofParticipantRole"] = "";
-		}
-		if (!isset($this->fields["readLevel"]) and !isset($value["readLevel"])) {
-			$this->readLevel = $value["readLevel"] = -1;
-		}
-		if (!isset($this->fields["writeLevel"]) and !isset($value["writeLevel"])) {
-			$this->writeLevel = $value["writeLevel"] = -1;
-		}
-		if (!isset($this->fields["adminLevel"]) and !isset($value["adminLevel"])) {
-			$this->adminLevel = $value["adminLevel"] = -1;
-		}
 		return $value;			
 	}
 

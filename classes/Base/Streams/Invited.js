@@ -481,9 +481,6 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["token"] == undefined && value["token"] == undefined) {
 		this.fields["token"] = value["token"] = "";
 	}
-	if (this.fields["state"] == undefined && value["state"] == undefined) {
-		this.fields["state"] = value["state"] = "pending";
-	}
 	return value;
 };
 

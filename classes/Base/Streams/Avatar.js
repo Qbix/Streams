@@ -615,14 +615,8 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["toUserId"] == undefined && value["toUserId"] == undefined) {
 		this.fields["toUserId"] = value["toUserId"] = "";
 	}
-	if (this.fields["publisherId"] == undefined && value["publisherId"] == undefined) {
-		this.fields["publisherId"] = value["publisherId"] = "";
-	}
 	if (this.fields["username"] == undefined && value["username"] == undefined) {
 		this.fields["username"] = value["username"] = "";
-	}
-	if (this.fields["firstName"] == undefined && value["firstName"] == undefined) {
-		this.fields["firstName"] = value["firstName"] = "";
 	}
 	if (this.fields["icon"] == undefined && value["icon"] == undefined) {
 		this.fields["icon"] = value["icon"] = "";

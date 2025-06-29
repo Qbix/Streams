@@ -624,9 +624,6 @@ return array (
 		if (!isset($this->fields["fromStreamName"]) and !isset($value["fromStreamName"])) {
 			$this->fromStreamName = $value["fromStreamName"] = "";
 		}
-		if (!isset($this->fields["type"]) and !isset($value["type"])) {
-			$this->type = $value["type"] = "";
-		}
 		if (!isset($this->fields["toPublisherId"]) and !isset($value["toPublisherId"])) {
 			$this->toPublisherId = $value["toPublisherId"] = "";
 		}

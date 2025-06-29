@@ -776,26 +776,14 @@ return array (
 				}
 			}
 		}
-		if (!isset($this->fields["ofUserId"]) and !isset($value["ofUserId"])) {
-			$this->ofUserId = $value["ofUserId"] = "";
-		}
-		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
-			$this->publisherId = $value["publisherId"] = "";
-		}
 		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
 			$this->streamName = $value["streamName"] = "";
 		}
 		if (!isset($this->fields["ordinal"]) and !isset($value["ordinal"])) {
 			$this->ordinal = $value["ordinal"] = 0;
 		}
-		if (!isset($this->fields["filter"]) and !isset($value["filter"])) {
-			$this->filter = $value["filter"] = "";
-		}
 		if (!isset($this->fields["deliver"]) and !isset($value["deliver"])) {
 			$this->deliver = $value["deliver"] = "";
-		}
-		if (!isset($this->fields["relevance"]) and !isset($value["relevance"])) {
-			$this->relevance = $value["relevance"] = 1;
 		}
 		return $value;			
 	}

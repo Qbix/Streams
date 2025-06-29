@@ -497,9 +497,6 @@ return array (
 				}
 			}
 		}
-		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
-			$this->publisherId = $value["publisherId"] = "";
-		}
 		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
 			$this->streamName = $value["streamName"] = "";
 		}

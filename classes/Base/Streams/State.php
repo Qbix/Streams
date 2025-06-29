@@ -587,15 +587,6 @@ return array (
 						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
-		if (!isset($this->fields["hash"]) and !isset($value["hash"])) {
-			$this->hash = $value["hash"] = "";
-		}
-		if (!isset($this->fields["algorithm"]) and !isset($value["algorithm"])) {
-			$this->algorithm = $value["algorithm"] = "sha256";
-		}
-		if (!isset($this->fields["uri"]) and !isset($value["uri"])) {
-			$this->uri = $value["uri"] = "";
-		}
 		return $value;			
 	}
 

@@ -923,9 +923,6 @@ return array (
 		if (!isset($this->fields["userId"]) and !isset($value["userId"])) {
 			$this->userId = $value["userId"] = "";
 		}
-		if (!isset($this->fields["state"]) and !isset($value["state"])) {
-			$this->state = $value["state"] = "pending";
-		}
 		return $value;			
 	}
 

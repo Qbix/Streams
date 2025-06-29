@@ -724,9 +724,6 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["userId"] == undefined && value["userId"] == undefined) {
 		this.fields["userId"] = value["userId"] = "";
 	}
-	if (this.fields["state"] == undefined && value["state"] == undefined) {
-		this.fields["state"] = value["state"] = "pending";
-	}
 	return value;
 };
 

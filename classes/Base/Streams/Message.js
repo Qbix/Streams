@@ -697,20 +697,8 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
-	if (this.fields["publisherId"] == undefined && value["publisherId"] == undefined) {
-		this.fields["publisherId"] = value["publisherId"] = "";
-	}
 	if (this.fields["streamName"] == undefined && value["streamName"] == undefined) {
 		this.fields["streamName"] = value["streamName"] = "";
-	}
-	if (this.fields["ordinal"] == undefined && value["ordinal"] == undefined) {
-		this.fields["ordinal"] = value["ordinal"] = "0";
-	}
-	if (this.fields["byUserId"] == undefined && value["byUserId"] == undefined) {
-		this.fields["byUserId"] = value["byUserId"] = "";
-	}
-	if (this.fields["byClientId"] == undefined && value["byClientId"] == undefined) {
-		this.fields["byClientId"] = value["byClientId"] = "";
 	}
 	if (this.fields["type"] == undefined && value["type"] == undefined) {
 		this.fields["type"] = value["type"] = "";
@@ -720,9 +708,6 @@ Base.prototype.beforeSave = function (value) {
 	}
 	if (this.fields["instructions"] == undefined && value["instructions"] == undefined) {
 		this.fields["instructions"] = value["instructions"] = "";
-	}
-	if (this.fields["weight"] == undefined && value["weight"] == undefined) {
-		this.fields["weight"] = value["weight"] = 1;
 	}
 	return value;
 };

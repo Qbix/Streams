@@ -588,9 +588,6 @@ return array (
 		if (!isset($this->fields["token"]) and !isset($value["token"])) {
 			$this->token = $value["token"] = "";
 		}
-		if (!isset($this->fields["state"]) and !isset($value["state"])) {
-			$this->state = $value["state"] = "pending";
-		}
 		return $value;			
 	}
 

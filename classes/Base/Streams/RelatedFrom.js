@@ -530,9 +530,6 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["fromStreamName"] == undefined && value["fromStreamName"] == undefined) {
 		this.fields["fromStreamName"] = value["fromStreamName"] = "";
 	}
-	if (this.fields["type"] == undefined && value["type"] == undefined) {
-		this.fields["type"] = value["type"] = "";
-	}
 	if (this.fields["toPublisherId"] == undefined && value["toPublisherId"] == undefined) {
 		this.fields["toPublisherId"] = value["toPublisherId"] = "";
 	}

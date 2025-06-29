@@ -499,9 +499,6 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["fromStreamType"] == undefined && value["fromStreamType"] == undefined) {
 		this.fields["fromStreamType"] = value["fromStreamType"] = "";
 	}
-	if (this.fields["relationCount"] == undefined && value["relationCount"] == undefined) {
-		this.fields["relationCount"] = value["relationCount"] = 0;
-	}
 	return value;
 };
 

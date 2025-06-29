@@ -449,9 +449,6 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["messageType"] == undefined && value["messageType"] == undefined) {
 		this.fields["messageType"] = value["messageType"] = "";
 	}
-	if (this.fields["messageCount"] == undefined && value["messageCount"] == undefined) {
-		this.fields["messageCount"] = value["messageCount"] = 0;
-	}
 	return value;
 };
 

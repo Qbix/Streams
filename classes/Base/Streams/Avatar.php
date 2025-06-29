@@ -747,14 +747,8 @@ return array (
 		if (!isset($this->fields["toUserId"]) and !isset($value["toUserId"])) {
 			$this->toUserId = $value["toUserId"] = "";
 		}
-		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
-			$this->publisherId = $value["publisherId"] = "";
-		}
 		if (!isset($this->fields["username"]) and !isset($value["username"])) {
 			$this->username = $value["username"] = "";
-		}
-		if (!isset($this->fields["firstName"]) and !isset($value["firstName"])) {
-			$this->firstName = $value["firstName"] = "";
 		}
 		if (!isset($this->fields["icon"]) and !isset($value["icon"])) {
 			$this->icon = $value["icon"] = "";

@@ -509,9 +509,6 @@ return array (
 		if (!isset($this->fields["messageType"]) and !isset($value["messageType"])) {
 			$this->messageType = $value["messageType"] = "";
 		}
-		if (!isset($this->fields["messageCount"]) and !isset($value["messageCount"])) {
-			$this->messageCount = $value["messageCount"] = 0;
-		}
 		return $value;			
 	}
 

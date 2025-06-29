@@ -732,20 +732,11 @@ return array (
 		}						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
-		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
-			$this->publisherId = $value["publisherId"] = "";
-		}
-		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
-			$this->streamName = $value["streamName"] = "";
-		}
 		if (!isset($this->fields["ofUserId"]) and !isset($value["ofUserId"])) {
 			$this->ofUserId = $value["ofUserId"] = "";
 		}
 		if (!isset($this->fields["filter"]) and !isset($value["filter"])) {
 			$this->filter = $value["filter"] = "";
-		}
-		if (!isset($this->fields["duration"]) and !isset($value["duration"])) {
-			$this->duration = $value["duration"] = 0;
 		}
 		return $value;			
 	}

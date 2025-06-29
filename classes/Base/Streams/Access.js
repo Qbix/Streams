@@ -783,24 +783,6 @@ Base.prototype.beforeSave = function (value) {
 	if (this.fields["streamName"] == undefined && value["streamName"] == undefined) {
 		this.fields["streamName"] = value["streamName"] = "";
 	}
-	if (this.fields["ofUserId"] == undefined && value["ofUserId"] == undefined) {
-		this.fields["ofUserId"] = value["ofUserId"] = "";
-	}
-	if (this.fields["ofContactLabel"] == undefined && value["ofContactLabel"] == undefined) {
-		this.fields["ofContactLabel"] = value["ofContactLabel"] = "";
-	}
-	if (this.fields["ofParticipantRole"] == undefined && value["ofParticipantRole"] == undefined) {
-		this.fields["ofParticipantRole"] = value["ofParticipantRole"] = "";
-	}
-	if (this.fields["readLevel"] == undefined && value["readLevel"] == undefined) {
-		this.fields["readLevel"] = value["readLevel"] = -1;
-	}
-	if (this.fields["writeLevel"] == undefined && value["writeLevel"] == undefined) {
-		this.fields["writeLevel"] = value["writeLevel"] = -1;
-	}
-	if (this.fields["adminLevel"] == undefined && value["adminLevel"] == undefined) {
-		this.fields["adminLevel"] = value["adminLevel"] = -1;
-	}
 	return value;
 };
 

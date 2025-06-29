@@ -813,23 +813,8 @@ return array (
 		}						
 		// convention: we'll have updatedTime = insertedTime if just created.
 		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
-		if (!isset($this->fields["publisherId"]) and !isset($value["publisherId"])) {
-			$this->publisherId = $value["publisherId"] = "";
-		}
 		if (!isset($this->fields["streamName"]) and !isset($value["streamName"])) {
 			$this->streamName = $value["streamName"] = "";
-		}
-		if (!isset($this->fields["userId"]) and !isset($value["userId"])) {
-			$this->userId = $value["userId"] = "";
-		}
-		if (!isset($this->fields["subscribed"]) and !isset($value["subscribed"])) {
-			$this->subscribed = $value["subscribed"] = "no";
-		}
-		if (!isset($this->fields["posted"]) and !isset($value["posted"])) {
-			$this->posted = $value["posted"] = "no";
-		}
-		if (!isset($this->fields["extra"]) and !isset($value["extra"])) {
-			$this->extra = $value["extra"] = "{}";
 		}
 		return $value;			
 	}

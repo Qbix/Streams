@@ -630,17 +630,8 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
-	if (this.fields["userId"] == undefined && value["userId"] == undefined) {
-		this.fields["userId"] = value["userId"] = "";
-	}
-	if (this.fields["publisherId"] == undefined && value["publisherId"] == undefined) {
-		this.fields["publisherId"] = value["publisherId"] = "";
-	}
 	if (this.fields["streamName"] == undefined && value["streamName"] == undefined) {
 		this.fields["streamName"] = value["streamName"] = "";
-	}
-	if (this.fields["messageOrdinal"] == undefined && value["messageOrdinal"] == undefined) {
-		this.fields["messageOrdinal"] = value["messageOrdinal"] = 0;
 	}
 	return value;
 };

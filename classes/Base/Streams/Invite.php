@@ -1181,9 +1181,6 @@ return array (
 		if (!isset($this->fields["appUrl"]) and !isset($value["appUrl"])) {
 			$this->appUrl = $value["appUrl"] = "";
 		}
-		if (!isset($this->fields["state"]) and !isset($value["state"])) {
-			$this->state = $value["state"] = "pending";
-		}
 		return $value;			
 	}
 
