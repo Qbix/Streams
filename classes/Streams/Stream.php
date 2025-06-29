@@ -233,17 +233,17 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {string} $publisherId used for fetch and create functions
 	 * @param {string} $name used for fetch and create functions
 	 * @param {array} [$options] to pass to fetch. Also the following options to be used with stream creation:
-	 * @param {boolean|array} [$options.subscribe] pass true to autosubscribe 
-	 *   to the stream right after creating it. You can also pass an array of options 
-	 *   that will be passed to the subscribe function.
+	 * @param {array} [$options.type] to pass to create function, usually required, but
+	 *   not required if the stream is described in Streams::userStreams (streams.json files)
 	 * @param {array} [$options.fields] to pass to create function,
 	 *   if you want to set some fields besides "name".
 	 * @param {array} [$options.relate] to pass to create function,
 	 *   if you want to relate the newly created stream to a category
+	 * @param {boolean|array} [$options.subscribe] pass true to autosubscribe 
+	 *   to the stream right after creating it. You can also pass an array of options 
+	 *   that will be passed to the subscribe function.
 	 * @param {array} [$options.skipAccess] to pass to fetch and create functions,
 	 *   if you want to skip access checks
-	 * @param {array} [$options.type] to pass to create function,
-	 *   not required if the stream is described in Streams::userStreams (streams.json files)
 	 * @param {reference} [$options.&results=array()] pass an array to fill with intermediate results
 	 *   such as "created" => boolean
 	 * @return {Streams_Stream|null} Returns the created stream, if any

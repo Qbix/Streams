@@ -614,18 +614,14 @@
 				"edit": ["icon", "title", "content"],
 				"subscriptions": {
 					"filter": {
-						"types": ["Streams/call"],
+						"types": [],
 						"notifications": 0
 					}
 				},
 				"messages": {
 					"Streams/chat/message": { "post": true },
 					"Streams/chat/edit": { "post": true },
-					"Streams/chat/remove": { "post": true },
-					"Streams/call": {
-						"description": ["Streams/content", ["description", "Streams/call"]],
-						"subject": ["Streams/content", ["notifications", "Streams/call"]]
-					}
+					"Streams/chat/remove": { "post": true }
 				},
 				"defaults": {
 					"title": "Conversation",
