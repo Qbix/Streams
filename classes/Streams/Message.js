@@ -446,9 +446,9 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 			o.destination = 'email';
 			o.emailAddress = emailAddress;
 			var instructions = message.getAllInstructions() || {};
-			var viewPath = (instructions.templateDir || messageType) + '/email.handlebars';
+			var viewPath = 'Streams/email/' + (instructions.templateDir || messageType) + '.handlebars';
 			if (Q.Handlebars.template(viewPath) === null) {
-				viewPath = 'Streams/message/email.handlebars';
+				viewPath = 'Streams/email/Streams/message.handlebars';
 			}
 
 			var _sendMessage = function () {
@@ -482,9 +482,9 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 			o.destination = 'mobile';
 			o.mobileNumber = mobileNumber;
 			var instructions = message.getAllInstructions() || {};
-			var viewPath = (instructions.templateDir || messageType) + '/mobile.handlebars';
+			var viewPath = 'Streams/mobile/' + (instructions.templateDir || messageType) + '.handlebars';
 			if (Q.Handlebars.template(viewPath) === null) {
-				viewPath = 'Streams/message/mobile.handlebars';
+				viewPath = 'Streams/mobile/Streams/message.handlebars';
 			}
 			var _sendMessage = function () {
 				Users.Mobile.sendMessage(mobileNumber, viewPath, o.fields, {
@@ -514,9 +514,9 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 			o.destination = 'devices';
 			o.deviceId = deviceId;
 			var instructions = message.getAllInstructions() || {};
-			var viewPath = (instructions.templateDir || messageType) + '/device.handlebars';
+			var viewPath = 'Streams/device/' + (instructions.templateDir || messageType) + '.handlebars';
 			if (!Q.Handlebars.template(viewPath)) {
-				viewPath = 'Streams/message/device.handlebars';
+				viewPath = 'Streams/device/Streams/message.handlebars';
 			}
 
 			Users.pushNotifications(
