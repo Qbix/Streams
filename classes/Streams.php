@@ -5695,30 +5695,51 @@ abstract class Streams extends Base_Streams
 	 * @param {string} $streamName
 	 * @param {string} $imageURL - URL or path to image
 	 * @param {string} [$save] - name of config under Q/image/sizes
+	 * @param {array} [$options=array]
+	 * @param {boolean} [$options.skipAccess=false]
 	 */
-	static function importIcon($publisherId, $streamName, $imageURL, $save="Streams/image", $skipAccess=false)
+	static function importIcon($publisherId, $streamName, $sources, $save="Streams/icon", $options = array())
 	{
-		if (!Q_Valid::url($imageURL) && !file_exists($imageURL)) {
-			return false;
+		if (is_string($sources)) {
+			$sources = array('' => $sources);
 		}
 
-		$icon = file_get_contents($imageURL);
+		// sort by area if keys are sizes like "80x80"
+		Q_Utils::sortKeysByArea($sources);
+		$sources = array_reverse($sources, true); // biggest first
 
-		// if icon is valid image
-		if (!imagecreatefromstring($icon)) {
-			return false;
+		foreach ($sources as $basename => $imageURL) {
+			if (!Q_Valid::url($imageURL) && !file_exists($imageURL)) {
+				continue;
+			}
+
+			$data = Q_Valid::url($imageURL)
+				? Q_Utils::get($imageURL, null, true)
+				: file_get_contents($imageURL);
+
+			if (!imagecreatefromstring($data)) {
+				continue;
+			}
+
+			$subpath = Q_Utils::splitId($publisherId, 3, '/') . "/{$streamName}/icon/" . time();
+			$result = Q_Image::save(array(
+				'data' => $data,
+				'path' => "Q/uploads/Streams",
+				'subpath' => $subpath,
+				'save' => $save,
+				'skipAccess' => !empty($options['skipAccess'])
+			));
+
+			if (!empty($result)) {
+				$url = $result[''];
+				$stream = Streams::fetchOne($publisherId, $publisherId, $streamName);
+				$stream->icon = Q_Valid::url($url) ? $url : '{{baseUrl}}/' . $url;
+				$stream->save();
+				return $subpath;
+			}
 		}
 
-		// upload image to stream
-		$subpath = Q_Utils::splitId($publisherId, 3, '/')."/".$streamName."/icon/".time();
-		Q_Image::save(array(
-			'data' => $icon, // these frills, with base64 and comma, to format image data for Q/image/post handler.
-			'path' => "Q/uploads/Streams",
-			'subpath' => $subpath,
-			'save' => $save,
-			'skipAccess' => $skipAccess
-		));
-		return true;
+		return null;
 	}
 
 	/**

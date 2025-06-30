@@ -350,6 +350,20 @@ class Streams_Stream extends Base_Streams_Stream
 	}
 
 	/**
+	 * Imports an icon and sets $stream->icon to the new icon's url.
+	 * @method importIcon
+	 * @static
+	 * @param {string} $imageURL - URL or path to image
+	 * @param {string} [$save] - name of config under Q/image/sizes
+	 * @param {array} [$options=array]
+	 * @param {boolean} [$options.skipAccess=false]
+	 */
+	static function importIcon($imageURL, $save="Streams/image", $options)
+	{
+		return Streams::importIcon($this->publisherId, $this->name, $imageURL, $save, $options);
+	}
+
+	/**
 	 * Return whether stream is private, i.e. not to be related to categories in community
 	 * @return {boolean}
 	 */

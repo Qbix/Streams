@@ -81,6 +81,12 @@
 			}
 		},
 		"images": {
+			"Streams/icon": {
+				"sizes": ["40", "50", "80", "1000"],
+				"defaultSize": "40",
+				"defaultCacheBust": 1000,
+				"maxStretch": 5
+			},
 			"Streams/image": {
 				"sizes": ["40", "50", "80", "200x", "x200", "1000x"],
 				"defaultSize": "1000x",
