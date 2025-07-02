@@ -826,7 +826,7 @@ class Streams_Stream extends Base_Streams_Stream
 			}
 		}
 
-		$this->handleUserFields(true);
+		$this->handleUserFields($modifiedFields, true);
 
 		$this->beforeSaveExtended($modifiedFields);
 		return parent::beforeSave($modifiedFields);
@@ -835,10 +835,11 @@ class Streams_Stream extends Base_Streams_Stream
 	/**
 	 * @method handleUserFields
 	 * @private
+	 * @param {array} $modifiedFields
 	 * @param {boolean} $tryUpdatingUser
 	 * @return {boolean} whether you should update avatars
 	 */
-	private function handleUserFields($tryUpdatingUser = true)
+	private function handleUserFields($modifiedFields, $tryUpdatingUser = true)
 	{
 		// Assume that the stream's name is not being changed
 		// The mapping below indicates if a field is public
@@ -863,7 +864,7 @@ class Streams_Stream extends Base_Streams_Stream
 		}
 		$publicField = $fields[$this->name];
 		if (!$publicField) {
-			return false;
+			return true;
 		}
 		if ($publicField and $tryUpdatingUser
 		and !Q::eventStack('Db/Row/Users_User/saveExecute')) {
@@ -887,7 +888,7 @@ class Streams_Stream extends Base_Streams_Stream
 			}
 			Streams::$beingSaved[$publicField] = array();
 		}
-		return true;
+		return false;
 	}
 
 	function afterFetch($result)
@@ -957,7 +958,7 @@ class Streams_Stream extends Base_Streams_Stream
 			$stream->calculateAccess($asUserId);
 		}
 
-		if (!$this->handleUserFields(false)) {
+		if (!$this->handleUserFields($modifiedFields, false)) {
 			return $result;
 		}
 
