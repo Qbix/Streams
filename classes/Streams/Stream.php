@@ -826,8 +826,68 @@ class Streams_Stream extends Base_Streams_Stream
 			}
 		}
 
+		$this->handleUserFields(true);
+
 		$this->beforeSaveExtended($modifiedFields);
 		return parent::beforeSave($modifiedFields);
+	}
+
+	/**
+	 * @method handleUserFields
+	 * @private
+	 * @param {boolean} $tryUpdatingUser
+	 * @return {boolean} whether you should update avatars
+	 */
+	private function handleUserFields($tryUpdatingUser = true)
+	{
+		// Assume that the stream's name is not being changed
+		// The mapping below indicates if a field is public
+		$fields = array(
+			'Streams/user/firstName' => false,
+			'Streams/user/lastName' => false,
+			'Streams/user/gender' => false,
+			'Streams/user/username' => 'username',
+			'Streams/user/icon' => 'icon'
+		);
+		if (!isset($fields[$this->name])) {
+			return false;
+		}
+
+		$field = ($this->name === 'Streams/user/icon')
+			? 'icon'
+			: 'content';
+		$wasModified = !empty($this->fieldsModified[$field])
+			|| !empty($this->fieldsModified['readLevel']);
+		if (!$wasModified) {
+			return false;
+		}
+		$publicField = $fields[$this->name];
+		if (!$publicField) {
+			return false;
+		}
+		if ($publicField and $tryUpdatingUser
+		and !Q::eventStack('Db/Row/Users_User/saveExecute')) {
+			Streams::$beingSaved[$publicField] = $this;
+			try {
+				// Update the public field in the Users_User table
+				// unless we're already handling saving a user
+				$user = Users_User::fetch($this->publisherId, true);
+				$user->$publicField = $modifiedFields[$field];
+				try {
+					// attempt to save user with the username
+					$user->save(false, false, true);
+				} catch (Users_Exception_UsernameExists $e) {
+					// fallback to a null username, but still save the user')
+					$user->username = null;
+					$user->save(false, false, true);
+				}
+			} catch (Exception $e) {
+				Streams::$beingSaved[$publicField] = array();
+				throw $e;
+			}
+			Streams::$beingSaved[$publicField] = array();
+		}
+		return true;
 	}
 
 	function afterFetch($result)
@@ -897,52 +957,11 @@ class Streams_Stream extends Base_Streams_Stream
 			$stream->calculateAccess($asUserId);
 		}
 
-		// Assume that the stream's name is not being changed
-		$fields = array(
-			'Streams/user/firstName' => false,
-			'Streams/user/lastName' => false,
-			'Streams/user/gender' => false,
-			'Streams/user/username' => 'username',
-			'Streams/user/icon' => 'icon'
-		);
-		if (!isset($fields[$this->name])) {
+		if (!$this->handleUserFields(false)) {
 			return $result;
 		}
 
-		$field = ($this->name === 'Streams/user/icon')
-			? 'icon'
-			: 'content';
-		$wasModified = !empty($this->fieldsModified[$field])
-			|| !empty($this->fieldsModified['readLevel']);
-		if (!$wasModified) {
-			return $result;
-		}
-		$publicField = $fields[$this->name];
-		if ($publicField = $fields[$this->name]
-		and !Q::eventStack('Db/Row/Users_User/saveExecute')) {
-			Streams::$beingSaved[$publicField] = $this;
-			try {
-				// Update the public field in the Users_User table
-				// unless we're already handling saving a user
-				$user = Users_User::fetch($this->publisherId, true);
-				$user->$publicField = $modifiedFields[$field];
-				try {
-					// attempt to save user with the username
-					$user->save(false, false, true);
-				} catch (Users_Exception_UsernameExists $e) {
-					// fallback to a null username, but still save the user')
-					$user->username = null;
-					$user->save(false, false, true);
-				}
-			} catch (Exception $e) {
-				Streams::$beingSaved[$publicField] = array();
-				throw $e;
-			}
-			Streams::$beingSaved[$publicField] = array();
-			return Streams::$beingSavedQuery;
-		}
-
-		if ($this->retrieved and !$publicField) {
+		if ($this->retrieved) {
 			// Update all avatars corresponding to access rows for this stream
 			$taintedAccess = Streams_Access::select()
 				->where(array(
