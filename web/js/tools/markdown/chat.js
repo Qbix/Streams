@@ -80,7 +80,7 @@
 
 		sanitizeHtml: function (html) {
 			const tool = this;
-			const whitelist = tool.options.allowedTags;
+			const whitelist = tool.state.allowedTags;
 			const div = document.createElement("div");
 			div.innerHTML = html;
 

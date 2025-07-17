@@ -3,6 +3,7 @@
 function Streams_after_Users_setLoggedInUser($params)
 {
 	$user = $params['user'];
+	$invite = null;
 	if ($token = Q::ifset($_SESSION, 'Streams', 'invite', 'token', null)) {
 		$invite = Streams_Invite::fromToken($token);
 		// accept invite and autosubscribe if first time and possible
@@ -10,8 +11,6 @@ function Streams_after_Users_setLoggedInUser($params)
 			'access' => true,
 			'subscribe' => true
 		))) {
-			unset($_SESSION['Streams']['invite']);
-
 			$splitId = Q_Utils::splitId($invite->invitingUserId, 3, "/");
 			$path = 'Q/uploads/Users';
 			$subpath = $splitId.'/invited/'.$token;
@@ -33,6 +32,5 @@ function Streams_after_Users_setLoggedInUser($params)
 			$stream->subscribe();
 		}
 	}
-	
 
 }

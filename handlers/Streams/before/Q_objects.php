@@ -46,7 +46,7 @@ function Streams_before_Q_objects()
 			$exception = new Streams_Exception_AlreadyForwarded(null, 'token');
 			break;
 		case 'claimed':
-			$exception = new Streams_Exception_AlreadyC(null, 'token');
+			$exception = new Streams_Exception_AlreadyClaimed(null, 'token');
 			break;
 		default:
 			$exception = new Q_Exception("This invite has already been " . $invite->state, 'token');
@@ -63,6 +63,9 @@ function Streams_before_Q_objects()
 			}
 		}
 	}
+
+	// schedule the invite to be accepted after the user logs in
+	$_SESSION['Streams']['invite'] = $invite->fields;
 	
 	$liu = Users::loggedInUser();	
 	if ($invite->userId and (!$liu or $liu->id !== $invite->userId)) {
@@ -79,8 +82,6 @@ function Streams_before_Q_objects()
 	}
 	
 	if (!$liu and !$invite->userId) {
-		// schedule the invite to be accepted after the user logs in
-		$_SESSION['Streams']['invite'] = $invite->fields;
 		// tell Users plugin we have an icon ready for a certain user
 		$splitId = Q_Utils::splitId($invite->invitingUserId, 3, "/");
 		$path = 'Q/uploads/Users';

@@ -362,8 +362,8 @@ class Streams_Invite extends Base_Streams_Invite
 		if (empty($token)) {
 			return null;
 		}
-		if (!empty(self::$cache['getInvite'][$token])) {
-			return self::$cache['getInvite'][$token];
+		if (!empty(self::$cache['fromToken'][$token])) {
+			return self::$cache['fromToken'][$token];
 		}
 		$invite = new Streams_Invite();
 		$invite->token = $token;
@@ -376,7 +376,7 @@ class Streams_Invite extends Base_Streams_Invite
 			}
 			return null;
 		}
-		self::$cache['getInvite'][$token] = $invite;
+		self::$cache['fromToken'][$token] = $invite;
 		return $invite;
 	}
 	

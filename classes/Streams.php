@@ -3767,6 +3767,14 @@ abstract class Streams extends Base_Streams
 		if (empty($options['skipMessage'])) {
 			Streams_Message::postMessages($asUserId, $messages, true);
 		}
+
+		if ($token = Q::ifset($_SESSION, 'Streams', 'invite', 'token', null)) {
+			if ($invite = Streams_Invite::fromToken($token)) {
+				foreach ($streams5 as $s) {
+					Streams_Stream::handleReferral($user->id, $invite->publisherId, $s->type, $invite->invitingUserId);
+				}
+			}
+		}
 		
 		return $participants;
 	}

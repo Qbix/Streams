@@ -3152,6 +3152,40 @@ class Streams_Stream extends Base_Streams_Stream
 		->fetch(PDO::FETCH_NUM);
 	}
 
+	/**
+	 * Inserts or updates Users_Referred
+	 * @param {string} $userId
+	 * @param {string} $publisherId
+	 * @param {string} $streamType
+	 * @param {string} $invitingUserId
+	 * @return {Users_Referred}
+	 */
+	static function handleReferral($userId, $publisherId, $streamType, $invitingUserId)
+	{
+		$points = Q_Config::get('Users', 'referred', $streamType, 'points', 10);
+		if (!$points) {
+			return;
+		}
+		$r = new Users_Referred(array(
+			'userId' => $userId,
+			'toCommunityId' => $publisherId,
+			'byUserId' => $invitingUserId
+		));
+		if ($r->retrieve()) {
+			$prevPoints = $r->points;
+			$r->points = max($r->points, $points);
+		} else {
+			$prevPoints = 0;
+			$r->points = $points;
+		}
+		$threshold = Q_Config::get('Users', 'referred', $streamType, 'qualified', 10);
+		if ($prevPoints < $threshold and $points >= $threshold) {
+			$r->qualifiedTime = new Db_Expression("CURRENT_TIMESTAMP");
+		}
+		$r->save();
+		return $r;
+	}
+
 	const ATTRIBUTE_ATTRIBUTES_LOCKED = 'Streams/attributes/locked';
 
 	/**
