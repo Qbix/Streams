@@ -158,7 +158,14 @@ Streams.READ_LEVEL = {
  * Can post messages, but manager must approve
  * @property WRITE_LEVEL.suggest
  * @type integer
- * @default 14
+ * @default 15
+ * @final
+ */
+/**
+ * Can send ephemeral payloads to the stream to be broadcast
+ * @property WRITE_LEVEL.ephemeral
+ * @type integer
+ * @default 16
  * @final
  */
 /**
@@ -166,13 +173,6 @@ Streams.READ_LEVEL = {
  * @property WRITE_LEVEL.contribute
  * @type integer
  * @default 18
- * @final
- */
-/**
- * Can send ephemeral payloads to the stream to be broadcast
- * @property WRITE_LEVEL.ephemeral
- * @type integer
- * @default 19
  * @final
  */
 /**
@@ -229,9 +229,9 @@ Streams.WRITE_LEVEL = {
 	'none':			0,		// cannot affect stream or participants list
 	'join':			10,		// can become a participant, chat, and leave
 	'vote':         13,		// can vote for a relation message posted to the stream
-	'suggest':	    14,		// can suggest actions, but manage must approve
+	'suggest':	    15,		// can suggest actions, but manage must approve
+	'ephemeral':    16, 	// can send ephemeral payloads to the stream to be broadcast
 	'contribute':   18,		// can contribute to the stream (e.g. "join the stage")
-	'ephemeral':    19, 	// can send ephemeral payloads to the stream to be broadcast
 	'post':			20,		// can post durable messages which take effect immediately
 	'relate':       23,		// can relate other streams to this one
 	'relations':    25,		// can update weights and relations directly
