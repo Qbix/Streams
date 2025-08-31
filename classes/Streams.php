@@ -135,7 +135,7 @@ abstract class Streams extends Base_Streams
 	 * Can privately suggest actions for stream managers to consider
 	 * @property $WRITE_LEVEL['suggest']
 	 * @type integer
-	 * @default 14
+	 * @default 15
 	 * @final
 	 */
 	/**
@@ -206,7 +206,7 @@ abstract class Streams extends Base_Streams
 		'none' => 0,
 		'join' => 10,
 		'vote' => 13,
-		'suggest' => 14,	
+		'suggest' => 15,	
 		'ephemeral' => 16,
 		'contribute' => 18,	
 		'post' => 20,

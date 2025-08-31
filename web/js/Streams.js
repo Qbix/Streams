@@ -212,7 +212,7 @@ Streams.READ_LEVEL = {
  * Can privately suggest actions for stream managers to consider
  * @property WRITE_LEVEL.suggest
  * @type integer
- * @default 14
+ * @default 15
  * @final
  */
 /**
@@ -258,13 +258,6 @@ Streams.READ_LEVEL = {
  * @final
  */
 /**
- * Can post messages requesting edits of stream
- * @property WRITE_LEVEL.suggest
- * @type integer
- * @default 28
- * @final
- */
-/**
  * Can post messages to edit stream content immediately
  * @property WRITE_LEVEL.edit
  * @type integer
@@ -297,7 +290,7 @@ Streams.WRITE_LEVEL = {
 	'none':			0,		// cannot affect stream or participants list
 	'join':			10,		// can become a participant, chat, and leave
 	'vote':		    13,		// can vote for a relation message posted to the stream
-	'suggest':      14, 	// can privately suggest actions for stream admins to consider
+	'suggest':      15, 	// can privately suggest actions for stream admins to consider
 	'ephemeral':    16, 	// can send ephemeral payloads to the stream to be broadcast
 	'contribute':	18,		// can contribute to the stream (e.g. "join the stage")
 	'post':			20,		// can post durable messages which take effect immediately
