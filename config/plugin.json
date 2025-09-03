@@ -80,6 +80,11 @@
 				}
 			}
 		},
+		"models": {
+			"schemas": {
+				
+			}
+		},
 		"images": {
 			"Streams/icon": {
 				"sizes": ["40", "50", "80", "1000"],
@@ -248,9 +253,9 @@
 						"description": "Fields or attributes of the stream have changed",
 						"subject": ["Streams/content", ["notifications", "Streams/changed"]]
 					},
-					"Streams/invite": {
+					"Streams/invited": {
 						"description": "You were invited",
-						"subject": ["Streams/content", ["notifications", "Streams/invite"]],
+						"subject": ["Streams/content", ["notifications", "Streams/invited"]],
 						"evenIfOnline": true,
 						"fetchAvatar": true
 					},
@@ -328,7 +333,7 @@
 				"create": false,
 				"subscriptions": {
 					"filter": {
-						"types": ["Streams/invite"],
+						"types": ["Streams/invited"],
 						"notifications": 0
 					}
 				}
@@ -774,7 +779,7 @@
 				"Streams/chat/message": {
 					"timeout": 10
 				},
-				"Streams/invite": true
+				"Streams/invited": true
 			}
 		},
 		"import": {

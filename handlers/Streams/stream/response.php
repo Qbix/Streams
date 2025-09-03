@@ -66,7 +66,8 @@ function Streams_stream_response()
 		$stream->join(); // NOTE: one of the rare times we may change state in a response handler
 	}
 	if (Q_Request::slotName('stream')) {
-		Q_Response::setSlot('stream', $stream->exportArray());
+		$temp = Db::exportArray(array($stream));
+		Q_Response::setSlot('stream', $temp[0]);
 	}
 	if (!empty($_REQUEST['messages'])) {
 		$max = -1;

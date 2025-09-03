@@ -139,11 +139,15 @@ function Streams_related_response()
 
 	if ($streams_requested) {
 		$streams = $result[1];
-		$arr = Db::exportArray($streams, array('numeric' => true));
+		$arr = Db::exportArray($streams, array('numeric' => true,));
 		foreach ($arr as $k => $v) {
 			if (!$v) continue;
-			$s = $streams[$v['name']];
-			$arr[$k]['access'] = array(
+			$s = $streams[$v[Q_Models::fieldKey('Streams_Stream', 'name')]];
+			if (!$s and isset($streams[$v[1]])) {
+				$s = $streams[$v[1]];
+			}
+			$fn = Q_Models::fieldKey('Streams_Stream', 'access');
+!			$arr[$k][$fn] = array(
 				'readLevel' => $s->get('readLevel', $s->readLevel),
 				'writeLevel' => $s->get('writeLevel', $s->writeLevel),
 				'adminLevel' => $s->get('adminLevel', $s->adminLevel)

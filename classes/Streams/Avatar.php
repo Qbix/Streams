@@ -172,18 +172,6 @@ class Streams_Avatar extends Base_Streams_Avatar
 		}
 		return $avatars;
 	}
-
-	/**
-	 * Returns the fields and values we can export to clients.
-	 * Can also contain "messageTotals", "relatedToTotals" and "relatedFromTotals".
-	 * @method exportArray
-	 * @return {array}
-	 */
-	function exportArray($options = null)
-	{
-		$fields = $this->toArray();
-		return $fields;
-	}
 	
 	/**
 	 * Calculate diplay name from avatar

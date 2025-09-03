@@ -5107,13 +5107,17 @@ abstract class Streams extends Base_Streams
 	
 	/**
 	 * Use this function to merge all the files under Streams/userStreams config,
-	 * and get a descriptions of all potential user streams, indexed by their name
+	 * and get descriptions of all potential user streams, indexed by their name
 	 * @method userStreamsTree
 	 * @static
 	 * 
 	 */
 	static function userStreamsTree()
 	{
+		static $p = null;
+		if ($p) {
+			return $p;
+		}
 		$p = new Q_Tree();
 		$arr = Q_Config::get('Streams', 'userStreams', array());
 		$app = Q::app();

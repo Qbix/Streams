@@ -33,6 +33,8 @@ Q.exports(function(priv, Streams, Stream){
 			return false;
 		}
 
+		this.typename = 'Q.Streams.Stream';
+		fields = Q.Models.fields(this.typename, fields);
 		var type = Q.normalize(fields.type);
 		var streamFunc = Q.Streams.defined[type];
 		if (!streamFunc) {
