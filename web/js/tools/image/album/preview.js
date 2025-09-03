@@ -10,7 +10,7 @@
 	 */
 
 	/**
-	 * Renders a preview for a Streams/album stream
+	 * Renders a preview for a Streams/image/album stream
 	 * @class Streams album preview
 	 * @constructor
 	 * @param {Object} [options] any options for the tool
@@ -22,28 +22,28 @@
 	 *   @param {Boolean} [options.dontSetSize=false] If true, shows the album in its natural size instead of using preview.state.imagepicker.showSize
 	 *   @param {Object} [options.templates] Under the keys "views", "edit" and "create" you can override options for Q.Template.render .
 	 *     @param {Object} [options.templates.view]
-	 *       @param {String} [options.templates.view.name='Streams/album/preview/view']
+	 *       @param {String} [options.templates.view.name='Streams/image/album/preview/view']
 	 *       @param {Object} [options.templates.view.fields]
 	 *         @param {String} [options.templates.view.fields.alt]
 	 *         @param {String} [options.templates.view.fields.showTitle]
 	 *         @param {String} [options.templates.view.fields.titleClass]
 	 *         @param {String} [options.templates.view.fields.titleTag]
 	 *     @param {Object} [options.templates.edit]
-	 *       @param {String} [options.templates.edit.name='Streams/album/preview/edit']
+	 *       @param {String} [options.templates.edit.name='Streams/image/album/preview/edit']
 	 *       @param {Object} [options.templates.edit.fields]
 	 *         @param {String} [options.templates.edit.fields.alt]
 	 *         @param {String} [options.templates.view.fields.showTitle]
 	 *         @param {String} [options.templates.edit.fields.titleClass]
 	 *         @param {String} [options.templates.edit.fields.titleTag]
 	 *     @param {Object} [options.templates.create]
-	 *       @param {String} [options.templates.create.name='Streams/album/preview/create']
+	 *       @param {String} [options.templates.create.name='Streams/image/album/preview/create']
 	 *       @param {Object} [options.templates.create.fields]
 	 *         @param {String} [options.templates.create.fields.alt]
 	 *         @param {String} [options.templates.create.fields.showTitle]
 	 *         @param {String} [options.templates.create.fields.titleClass]
 	 *         @param {String} [options.templates.create.fields.titleTag]
 	 */
-	Q.Tool.define("Streams/album/preview", "Streams/preview", function (options, preview) {
+	Q.Tool.define("Streams/image/album/preview", "Streams/preview", function (options, preview) {
 		var tool = this;
 		var state = tool.state;
 		var ps = preview.state;
@@ -63,10 +63,10 @@
 
 		});
 
-		ps.templates.create.name = 'Streams/album/preview/create';
+		ps.templates.create.name = 'Streams/image/album/preview/create';
 		ps.templates.create.showTitle = (state.showTitle !== false);
 		if (ps.creatable) {
-			ps.creatable.streamType = ps.creatable.streamType || 'Streams/album';
+			ps.creatable.streamType = ps.creatable.streamType || 'Streams/image/album';
 			ps.creatable.title = ps.creatable.title || 'New Image';
 
 			// rewrite Streams/preview composer
@@ -74,7 +74,7 @@
 				Dialogs.push({
 					title: toolText.DialogTitle,
 					template: {
-						name: "Streams/album/preview/select",
+						name: "Streams/image/album/preview/select",
 						fields: {
 							dialogtext: toolText.DialogText
 						}
@@ -171,15 +171,15 @@
 			updateTitle: false,
 			templates: {
 				view: {
-					name: 'Streams/album/preview/view',
+					name: 'Streams/image/album/preview/view',
 					fields: { alt: 'icon', titleClass: '', titleTag: 'h3' }
 				},
 				edit: {
-					name: 'Streams/album/preview/edit',
+					name: 'Streams/image/album/preview/edit',
 					fields: { alt: 'icon', titleClass: '', titleTag: 'h3' }
 				},
 				create: {
-					name: 'Streams/album/preview/edit',
+					name: 'Streams/image/album/preview/edit',
 					fields: { alt: 'icon', titleClass: '', titleTag: 'h3' }
 				}
 			}
@@ -224,7 +224,7 @@
 					? 'edit'
 					: 'view';
 				Q.Template.render(
-					'Streams/album/preview/' + tpl,
+					'Streams/image/album/preview/' + tpl,
 					fields,
 					function (err, html) {
 						if (err) return;
@@ -232,7 +232,7 @@
 						Q.activate(tool, function () {
 							// load the icon
 							Q.extend(ps.imagepicker.onSuccess, {
-								"Streams/album/preview": function (data, key, file) {
+								"Streams/image/album/preview": function (data, key, file) {
 									if (state.updateTitle && file && file.name) {
 										ps.stream.fields.title = file.name;
 										ps.stream.save({
@@ -266,7 +266,7 @@
 
 	);
 
-	Q.Template.set('Streams/album/preview/view',
+	Q.Template.set('Streams/image/album/preview/view',
 		'<div class="Streams_preview_container Streams_preview_view Q_clearfix">'
 		+ '<img alt="{{alt}}" class="Streams_album_preview_icon">'
 		+ '<div class="Streams_album_preview_title {{titleClass}}">'
@@ -276,7 +276,7 @@
 		+ '</div></div>'
 	);
 
-	Q.Template.set('Streams/album/preview/edit',
+	Q.Template.set('Streams/image/album/preview/edit',
 		'<div class="Streams_preview_container Streams_preview_edit Q_clearfix">'
 		+ '<img alt="{{alt}}" class="Streams_album_preview_icon">'
 		+ '<div class="Streams_album_preview_title {{titleClass}}">'
@@ -286,7 +286,7 @@
 		+ '</div></div>'
 	);
 
-	Q.Template.set('Streams/album/preview/create',
+	Q.Template.set('Streams/image/album/preview/create',
 		'<div class="Streams_preview_container Streams_preview_create Q_clearfix">'
 		+ '<img alt="{{alt}}" class="Streams_preview_add">'
 		+ '<div class="Streams_album_preview_title {{titleClass}}">'
@@ -294,7 +294,7 @@
 		+ '</div></div>'
 	);
 
-	Q.Template.set('Streams/album/preview/select',
+	Q.Template.set('Streams/image/album/preview/select',
 		'<div class="Q_messagebox Q_big_prompt">' +
 		'<p>{{dialogtext}}</p>' +
 		'<div class="Q_buttons">' +

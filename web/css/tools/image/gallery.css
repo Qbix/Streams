@@ -1,0 +1,89 @@
+/* Streams/image/gallery main container */
+.Streams_image_gallery_container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* Gallery editor dialog */
+.Q_gallery_image_editor {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	padding: 1em;
+}
+
+.Q_gallery_image_editor h3 {
+	margin: 0;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.Q_gallery_image_editor label {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	font-size: 0.9em;
+}
+
+.Q_gallery_image_editor input[type="number"] {
+	width: 120px;
+	padding: 0.3em;
+	font-size: 0.9em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+/* Ken Burns sections */
+.Q_gallery_kenburns_start,
+.Q_gallery_kenburns_end {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	overflow: hidden;
+	min-height: 200px;
+	background: #f9f9f9;
+}
+
+.Q_gallery_kenburns_start::before,
+.Q_gallery_kenburns_end::before {
+	content: attr(class);
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	font-size: 0.75em;
+	font-weight: bold;
+	color: #555;
+	opacity: 0.7;
+}
+
+.Q_gallery_kenburns_start img,
+.Q_gallery_kenburns_end img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+	cursor: move;
+	transition: transform 0.2s ease;
+}
+
+/* Dialog button styles (apply/close) */
+.Q_dialog .Q_overlay_apply button {
+	margin-top: 1em;
+	padding: 0.5em 1em;
+	font-size: 0.9em;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	background: #0077cc;
+	color: white;
+	transition: background 0.2s ease;
+}
+
+.Q_dialog .Q_overlay_apply button:hover {
+	background: #005fa3;
+}

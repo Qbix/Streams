@@ -1,7 +1,8 @@
 {
     "errors": {
         "HiddenFromYou": "This content is hidden from you.",
-        "InplaceTypeMustBe": "inplaceType must be 'textarea' or 'text'"
+        "InplaceTypeMustBe": "inplaceType must be 'textarea' or 'text'",
+        "AmountInvalid": "Please enter a valid number of milliseconds."
     },
     "preview": {
         "NewItemTitle": "New Item",
@@ -534,5 +535,12 @@
     "groupPhoto": {
         "ClickOnYourFace": "{{ClickOrTap}} On Your Face",
         "AcceptIcon": "Accept selected area"
+    },
+    "gallery": {
+        "DialogTitle": "Edit Gallery Image",
+        "EditImageTitle": "Edit Image Parameters",
+        "IntervalLabel": "Interval (ms): ",
+        "IntervalPlaceholder": "e.g. 3000",
+        "KenburnsInstruction": "Set Ken Burns start and end by dragging and zooming."
     }
 }
