@@ -32,7 +32,7 @@
 		"adminLevel": 0,
 		"subscribe": {
 			"filter": {
-				"types": ["Streams/invite"],
+				"types": ["Streams/invited"],
 				"notifications": 0
 			},
 			"rule": {

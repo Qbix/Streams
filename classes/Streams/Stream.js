@@ -1426,14 +1426,14 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 						displayName: avatar && avatar.displayName()
 					}, logfile);
 				}
-				if (message.fields.type !== "Streams/invite") {
+				if (message.fields.type !== "Streams/invited") {
 					return deliveries.forEach(function(delivery) {
 						message.deliver(stream, userId, delivery, avatar,
 							p.fill(JSON.stringify(delivery))
 						);
 					});
 				}
-				// This is only for "Streams/invite"
+				// This is only for "Streams/invited"
 				var instructions = JSON.parse(message.fields.instructions);
 				new Streams.Invite({
 					token: instructions.token

@@ -847,6 +847,10 @@ Q.Tool.define({
 	"Streams/activity"	 : "{{Streams}}/js/tools/activity.js",
 	"Streams/fileManager"  : "{{Streams}}/js/tools/fileManager.js",
 	"Streams/image/album": "{{Streams}}/js/tools/album/tool.js",
+	"Streams/image/gallery": {
+		js: "{{Streams}}/js/tools/gallery/tool.js",
+		css: "{{Streams}}/css/tools/gallery/tool.css"
+	},
 	"Streams/default/preview": "{{Streams}}/js/tools/default/preview.js",
 	"Streams/question/preview": "{{Streams}}/js/tools/question/preview.js",
 	"Streams/answer/preview": "{{Streams}}/js/tools/answer/preview.js",
@@ -876,7 +880,7 @@ Q.Tool.define({
 		js: "{{Streams}}/js/tools/pdf/chat.js",
 		css: "{{Streams}}/css/tools/previews.css"
 	},
-	"Streams/album/preview": "{{Streams}}/js/tools/album/preview.js",
+	"Streams/image/album/preview": "{{Streams}}/js/tools/album/preview.js",
 	"Streams/chat/preview": "{{Streams}}/js/tools/chat/preview.js",
 	"Streams/topic/preview": {
 		js: "{{Streams}}/js/tools/topic/preview.js",
@@ -952,10 +956,16 @@ Streams.arePublic = function _Streams_Stream_isPublic (
 priv._publicStreams = Streams.arePublic.collection = {};
 
 Streams.retainedStreams = function (key) {
+	if (key === undefined) {
+		return priv._retainedStreams;
+	}
 	return priv._retainedByKey[key];
 };
 
 Streams.retainingKeys = function (publisherId, streamName) {
+	if (publisherId === undefined) {
+		return priv._retainedByStream;
+	}
 	var ps = Streams.key(publisherId, streamName);
 	return priv._retainedByStream[ps];
 };
@@ -1927,6 +1937,7 @@ Streams.setupRegisterForm = function _Streams_setupRegisterForm(identifier, json
  * @constructor
  * @param {Object} fields
  */
+
 var Stream = Streams.Stream = function (fields) {
 	if (this.constructed) {
 		return;
@@ -1934,6 +1945,7 @@ var Stream = Streams.Stream = function (fields) {
 	this.constructed = true;
 	this.fields = Q.copy(fields, Streams.Stream.fieldNames);
 	this.typename = 'Q.Streams.Stream';
+	fields = Q.Models.fields(this.typename, fields);
 	priv.prepareStream(this, fields);
 	for (var k in Streams.Stream.properties) {
 		if (k in fields) {
@@ -1946,7 +1958,7 @@ var Stream = Streams.Stream = function (fields) {
 			delete this.fields[k];
 		}
 	}
-};
+}
 
 Stream.fieldNames = [
 	'publisherId',
@@ -4070,11 +4082,12 @@ Pp.testRoles = function _Participant_prototype_testRoles (roles) {
  * Constructs an avatar from fields, which are typically returned from the server.
  * @class Streams.Avatar
  * @constructor
- * @param {Array} fields
+ * @param {Array|Object} fields
  */
-var Avatar = Streams.Avatar = function Streams_Avatar (fields) {
-	Q.extend(this, fields);
+var Avatar = Streams.Avatar = function (fields) {
 	this.typename = 'Q.Streams.Avatar';
+	fields = Q.Models.fields(this.typename, fields);
+	Q.extend(this, fields);
 };
 
 /**
@@ -4600,7 +4613,7 @@ Q.onInit.add(function _Streams_onInit() {
 						}
 
 						// special behavior for Streams/invite
-						if (messageType === "Streams/invite") {
+						if (messageType === "Streams/invited") {
 							var label = message.getInstruction('label');
 							var inviteUrl = message.getInstruction('inviteUrl');
 							var template = Q.Template.compile(text, 'handlebars');
