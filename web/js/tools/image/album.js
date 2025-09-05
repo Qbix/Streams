@@ -36,6 +36,7 @@ Q.Tool.define("Streams/image/album", function (options) {
 			realtime: state.realtime,
 			editable: state.editable,
 			closeable: state.closeable,
+			sortable: state.sortable,
 			creatable: {
 				'Streams/image': {
 					title: tool.text && tool.text.image && tool.text.image.newImage || "New Image"
@@ -58,6 +59,7 @@ Q.Tool.define("Streams/image/album", function (options) {
 	realtime: false,
 	editable: true,
 	closeable: true,
+	sortable: true,
 	previewOptions: {}
 }, {
 	// methods
