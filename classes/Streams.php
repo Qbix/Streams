@@ -3360,7 +3360,11 @@ abstract class Streams extends Base_Streams
 				if (!Streams_Stream::fetch($asUserId, $asUserId, $pn, '*', array(
 					'skipAccess' => true
 				))) {
-					Streams::create($asUserId, $asUserId, 'Streams/participating', array('name' => $pn));
+					Streams::create(
+						$asUserId, $asUserId, 'Streams/participating',
+						array('name' => $pn),
+						array('skipAccess' => true)
+					);
 				}
 				$extraArray = array();
 				foreach ($streamNames as $sn) {
