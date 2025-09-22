@@ -941,7 +941,7 @@ class Streams_Stream extends Base_Streams_Stream
 				@compact('stream', 'asUserId'), 'after', false, $stream);
 		}
 
-		$stream->updateRelations($asUserId);
+		$stream->syncRelations($asUserId);
 
 		/**
 		 * @event Streams/Stream/save/$streamType {after}
