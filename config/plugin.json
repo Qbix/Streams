@@ -303,7 +303,7 @@
 						"description": ["Streams/content", ["notifications", "Streams/relatedFrom/*"]]
 					}
 				},
-				"updateRelations": false,
+				"syncRelations": false,
 				"defaults": {
 					"type": "Streams/text",
 					"title": "Untitled",

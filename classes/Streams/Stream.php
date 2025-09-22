@@ -2335,8 +2335,8 @@ class Streams_Stream extends Base_Streams_Stream
 	 *   - Stream-specific: fromStreamName = "{$this->name}"
 	 * For each (toPublisherId, toStreamName, type), the more specific template wins.
 	 *
-	 * For each attribute that changed, it may unrelate / relate relations of the type "attribute/$attr=$value",
-	 * and update weights for "attribute/$attr" if the value is scalar (for range queries).
+	 * For each attribute that changed or was added, this will unrelate / relate relations
+	 * of the type "attribute/$attr=$value". Scalars are treated exactly like arrays of one.
 	 *
 	 * @param {array} [$options=array()]
 	 * @param {array} [$firstTimeAddingAttributes=false] pass an array with keys = attribute names
@@ -2347,7 +2347,7 @@ class Streams_Stream extends Base_Streams_Stream
 	function syncRelations($options = array())
 	{
 		$changes = $this->changedFields();
-		$updateRelations = self::getConfigField($this->type, 'updateRelations', array());
+		$updateRelations = self::getConfigField($this->type, 'syncRelations', array());
 		if (!$updateRelations or (
 			empty($changes['attributes']) and empty($options['firstTimeAddingAttributes'])
 		)) {
@@ -2355,7 +2355,8 @@ class Streams_Stream extends Base_Streams_Stream
 		}
 
 		$relationTypes = array();
-		$attributesChanged = $attributesAdded = array();
+		$attributesChanged = array();
+		$attributesAdded   = array();
 
 		// Original vs new attributes
 		$orig = $this->getAllAttributes(true);
@@ -2367,12 +2368,18 @@ class Streams_Stream extends Base_Streams_Stream
 			|| ($attr[$k] !== $v)) { // was removed or changed
 				$attributesChanged[$k] = $v;
 				$relationTypes[] = "attribute/$k";
+
+				// If it was removed entirely, drop from firstTimeAddingAttributes
+				if (!isset($attr[$k]) && isset($options['firstTimeAddingAttributes'][$k])) {
+					unset($options['firstTimeAddingAttributes'][$k]);
+				}
 			}
 		}
+
 		// See what attributes have been newly added
 		foreach ($attr as $k => $v) {
 			if (!empty($options['firstTimeAddingAttributes'][$k])
-			or (!isset($orig[$k]) && isset($attr[$k]))) {
+			|| (!isset($orig[$k]) && isset($attr[$k]))) {
 				$attributesAdded[$k] = $v;
 				if (!in_array("attribute/$k", $relationTypes)) {
 					$relationTypes[] = "attribute/$k";
@@ -2386,6 +2393,8 @@ class Streams_Stream extends Base_Streams_Stream
 		if (!is_array($updateRelations)) {
 			throw new Q_Exception_WrongType(array('field' => 'updateRelations', 'type' => 'array'));
 		}
+
+		$toStreams = array();
 
 		foreach ($updateRelations as $direction) {
 			if ($direction !== 'from') {
@@ -2409,10 +2418,9 @@ class Streams_Stream extends Base_Streams_Stream
 			}
 			$rfroms = array_values($rfroms);
 
-			$weight = 1.0; // insertedTime is for timestamping, weight can be used for relevance calculations
+			$weight = 1.0; // constant weight for all added relations
 			$removeRelationTypes = array();
-			$addRelationTypes = array();
-			$weightRelationTypes = array();
+			$addRelationTypes    = array();
 
 			// Process changed attributes
 			foreach ($attributesChanged as $ak => $av) {
@@ -2426,28 +2434,24 @@ class Streams_Stream extends Base_Streams_Stream
 					continue; // nothing to remove or update for this attribute
 				}
 
-				// Handle removals if old value was array
-				if (is_array($av)) {
-					$toRemove = array_diff((array)$av, (array)$attr[$ak]);
-					foreach ($toRemove as $r) {
-						if (is_numeric($r)) $r = sprintf("%015.2f", $r);
+				// Treat both scalar and array as arrays, deduplicate
+				$oldVals = array_unique((array)$av);
+				$newVals = array_unique((array)(isset($attr[$ak]) ? $attr[$ak] : array()));
+
+				$toRemove = array_diff($oldVals, $newVals);
+				foreach ($toRemove as $r) {
+					if (is_numeric($r)) $r = sprintf("%015.2f", $r);
+					if ($r !== '' && $r !== null) {
 						$removeRelationTypes[] = "attribute/$ak=$r";
 					}
 				}
 
-				// Handle additions if new value is array
-				$av_new = $attr[$ak];
-				if (is_array($av_new)) {
-					$toAdd = array_diff((array)$av_new, (array)$av);
-					foreach ($toAdd as $a) {
-						if (is_numeric($a)) $a = sprintf("%015.2f", $a);
+				$toAdd = array_diff($newVals, $oldVals);
+				foreach ($toAdd as $a) {
+					if (is_numeric($a)) $a = sprintf("%015.2f", $a);
+					if ($a !== '' && $a !== null) {
 						$addRelationTypes[] = "attribute/$ak=$a";
 					}
-				} else {
-					// Scalar value → update weight
-					$val = $av_new;
-					if (is_numeric($val)) $val = floatval($val);
-					$weightRelationTypes["attribute/$ak"] = $val;
 				}
 			}
 
@@ -2463,31 +2467,34 @@ class Streams_Stream extends Base_Streams_Stream
 					continue; // nothing to add for this attribute
 				}
 
-				if (is_array($av)) {
-					$toAdd = array_diff((array)$av, (array)$orig[$ak]);
-					foreach ($toAdd as $a) {
-						if (is_numeric($a)) $a = sprintf("%015.2f", $a);
+				// Treat both scalar and array as arrays, deduplicate
+				$newVals = array_unique((array)$av);
+				$oldVals = array_unique((array)(isset($orig[$ak]) ? $orig[$ak] : array()));
+
+				$toAdd = array_diff($newVals, $oldVals);
+				foreach ($toAdd as $a) {
+					if (is_numeric($a)) $a = sprintf("%015.2f", $a);
+					if ($a !== '' && $a !== null) {
 						$addRelationTypes[] = "attribute/$ak=$a";
 					}
-				} else {
-					// Scalar value → update weight
-					$val = $av;
-					if (is_numeric($val)) $val = floatval($val);
-					$weightRelationTypes["attribute/$ak"] = $val;
 				}
 			}
 
 			// Organize to-streams by relation type
-			$toStreams = array();
 			foreach ($rfroms as $rf) {
+				if (!isset($toStreams[$rf->type])) {
+					$toStreams[$rf->type] = array();
+				}
+				if (!isset($toStreams[$rf->type][$rf->toPublisherId])) {
+					$toStreams[$rf->type][$rf->toPublisherId] = array();
+				}
 				$toStreams[$rf->type][$rf->toPublisherId][] = $rf->toStreamName;
 			}
 
-			// Apply unrelate, relate, updateRelations
+			// Apply unrelate, relate
 			foreach ($toStreams as $relationType => $info) {
 				$unrelateRelationTypes = array();
-				$relateRelationTypes = array();
-				$updateRelationTypes = array();
+				$relateRelationTypes   = array();
 
 				foreach ($removeRelationTypes as $rrt) {
 					if (Q::startsWith($rrt, $relationType.'=')) {
@@ -2499,18 +2506,15 @@ class Streams_Stream extends Base_Streams_Stream
 						$relateRelationTypes[] = $art;
 					}
 				}
-				foreach ($weightRelationTypes as $wrt => $w) {
-					if ($wrt == $relationType) {
-						$updateRelationTypes[$wrt] = $w;
-					}
-				}
 
 				// Save what was done for introspection / return value
 				$toStreams[$relationType]['@unrelateTypes'] = $unrelateRelationTypes;
 				$toStreams[$relationType]['@relateTypes']   = $relateRelationTypes;
-				$toStreams[$relationType]['@updateTypes']   = $updateRelationTypes;
 
 				foreach ($info as $toPublisherId => $toStreamNames) {
+					if ($toPublisherId === '@unrelateTypes' || $toPublisherId === '@relateTypes') {
+						continue;
+					}
 					if ($unrelateRelationTypes) {
 						Streams::unrelate(
 							Q::app(),
@@ -2529,20 +2533,11 @@ class Streams_Stream extends Base_Streams_Stream
 							array('skipAccess' => true, 'weight' => $weight, 'skipMessageTo' => true)
 						);
 					}
-					if ($updateRelationTypes) {
-						Streams::updateRelations(
-							Q::app(),
-							$toPublisherId, $toStreamNames,
-							$this->publisherId, $this->name,
-							$updateRelationTypes,
-							array('skipAccess' => true, 'skipMessageTo' => true)
-						);
-					}
 				}
 			}
 		}
 
-		return isset($toStreams) ? $toStreams : array();
+		return $toStreams;
 	}
 	
 	/**
