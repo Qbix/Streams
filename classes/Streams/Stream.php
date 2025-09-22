@@ -2411,7 +2411,8 @@ class Streams_Stream extends Base_Streams_Stream
 			// Deduplicate per (toPublisherId,toStreamName,type), prefer stream-specific
 			$rfroms = array();
 			foreach ($candidates as $rf) {
-				$key = $rf->toPublisherId . '|' . $rf->toStreamName . '|' . $rf->type;
+				$tp = $rf->toPublisherId ? $rf->toPublisherId : $this->publisherId;
+				$key = $tp . '|' . $rf->toStreamName . '|' . $rf->type;
 				if (!isset($rfroms[$key]) || $rf->fromStreamName === $this->name) {
 					$rfroms[$key] = $rf;
 				}
@@ -2485,10 +2486,11 @@ class Streams_Stream extends Base_Streams_Stream
 				if (!isset($toStreams[$rf->type])) {
 					$toStreams[$rf->type] = array();
 				}
-				if (!isset($toStreams[$rf->type][$rf->toPublisherId])) {
-					$toStreams[$rf->type][$rf->toPublisherId] = array();
+				$tp = $rf->toPublisherId ? $rf->toPublisherId : $this->publisherId;
+				if (!isset($toStreams[$rf->type][$tp])) {
+					$toStreams[$rf->type][$tp] = array();
 				}
-				$toStreams[$rf->type][$rf->toPublisherId][] = $rf->toStreamName;
+				$toStreams[$rf->type][$tp][] = $rf->toStreamName;
 			}
 
 			// Apply unrelate, relate
