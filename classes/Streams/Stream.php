@@ -2213,6 +2213,16 @@ class Streams_Stream extends Base_Streams_Stream
 				$fields = array_merge($fields, Q_Config::get(
 					'Streams', 'types', $this->type, 'see', array()
 				));
+				if ($this->testReadLevel('relations')) {
+					$fields = array_merge($fields, Q_Config::get(
+						'Streams', 'types', $this->type, 'relations', array()
+					));
+				}
+				if ($this->testReadLevel('content')) {
+					$fields = array_merge($fields, Q_Config::get(
+						'Streams', 'types', $this->type, 'content', array()
+					));
+				}
 			}
 			foreach ($fields as $field) {
 				$result[$field] = $this->$field;
