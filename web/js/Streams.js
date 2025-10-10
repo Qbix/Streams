@@ -2269,7 +2269,7 @@ Stream.refresh = function _Stream_refresh (publisherId, streamName, callback, op
 	// If we didn't send request to get the latest messages,
 	// then force-get the stream, to trigger any handlers
 	// set for the stream's onRefresh event.
-	Streams.get.force(publisherId, streamName, function (err, stream) {
+	Streams.get.force(publisherId, streamName, function (err, stream, extra) {
 		if (!err) {
 			var ps = Streams.key(publisherId, streamName);
 			if (priv._retainedStreams[ps]) {
@@ -2281,7 +2281,7 @@ Stream.refresh = function _Stream_refresh (publisherId, streamName, callback, op
 		if (callback) {
 			var params = [err, stream];
 			if (o.extra) {
-				params.concat(extra);
+				params = params.concat(extra);
 			}
 
 			if (!callbackCalled) {
