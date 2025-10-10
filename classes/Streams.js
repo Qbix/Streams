@@ -941,7 +941,7 @@ function Streams_request_handler (req, res, next) {
 					publisherId: invited.fields.publisherId,
 					streamName: invited.fields.name,
 					byUserId: invitingUserId,
-					type: 'Streams/invite',
+					type: 'Streams/invited',
 					sentTime: new Db.Expression("CURRENT_TIMESTAMP"),
 					state: 'posted',
 					content: text.invite.messageContent.interpolate({
