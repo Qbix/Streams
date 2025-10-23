@@ -2143,6 +2143,9 @@ Stream.url = function(publisherId, streamName, streamType, messageOrdinal, baseU
  * @return {Object} returns Streams object for chaining with .get() or .related()
  */
 Stream.retain = function _Stream_retain (publisherId, streamName, key, callback) {
+	if (key === undefined) {
+		return Streams;
+	}
 	if (Q.isArrayLike(streamName)) {
 		var p = Q.pipe();
 		var waitFor = [];
@@ -2727,6 +2730,9 @@ Sp.reopen = function _Stream_remove () {
  * @return {Q.Streams.Stream}
  */
 Sp.retain = function _Stream_prototype_retain (key, options) {
+	if (key === undefined) {
+		return this;
+	}
 	options = options || {};
 	var publisherId = this.fields.publisherId;
 	var streamName = this.fields.name;
