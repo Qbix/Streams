@@ -4292,8 +4292,8 @@ abstract class Streams extends Base_Streams
 				$params['template'] = $template;
 				$params['batchName'] = $batchName;
 			}
-			if (!empty($templateName)) {
-				$params['templateName'] = $templateName;
+			if (!empty($options['templateName'])) {
+				$params['templateName'] = $options['templateName'];
 			}
 			try {
 				$result = Q_Utils::queryInternal('Q/node', $params);
