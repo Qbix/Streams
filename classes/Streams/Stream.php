@@ -1170,7 +1170,7 @@ class Streams_Stream extends Base_Streams_Stream
 		foreach ($attributeName as $k => $v) {
 			$attr[$k] = $v;
 		}
-		$this->attributes = Q::json_encode($attr);
+		$this->attributes = Q::json_encode($attr, Q::JSON_FORCE_OBJECT);
 		return $this;
 	}
 

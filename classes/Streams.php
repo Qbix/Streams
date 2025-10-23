@@ -4026,7 +4026,7 @@ abstract class Streams extends Base_Streams
 		$options = Q::take($options, array(
 			'readLevel', 'writeLevel', 'adminLevel', 'permissions', 'expires', 'asUserId', 'html',
 			'addLabel', 'addMyLabel', 'displayName', 'appUrl', 'alwaysSend', 'skipAccess',
-			'templateDir', 'userId', 'assign'
+			'templateName', 'userId', 'assign'
 		));
 		
 		if (isset($options['asUserId'])) {
@@ -4049,13 +4049,6 @@ abstract class Streams extends Base_Streams
 			throw new Streams_Exception_InviteExpired();
 		}
 
-		if (isset($options['templateDir'])) {
-			$templateDir = $options['templateDir'];
-			$dirname = APP_VIEWS_DIR.DS.$templateDir;
-			if (!is_dir($dirname)) {
-				throw new Q_Exception_MissingDir(@compact('dirname'));
-			}
-		}
 		if (isset($options['html'])) {
 			$html = $options['html'];
 			if (!is_array($html) or count($html) < 2) {
@@ -4299,8 +4292,8 @@ abstract class Streams extends Base_Streams
 				$params['template'] = $template;
 				$params['batchName'] = $batchName;
 			}
-			if (!empty($templateDir)) {
-				$params['templateDir'] = $templateDir;
+			if (!empty($templateName)) {
+				$params['templateName'] = $templateName;
 			}
 			try {
 				$result = Q_Utils::queryInternal('Q/node', $params);
