@@ -365,7 +365,7 @@ class Streams_Avatar extends Base_Streams_Avatar
 			}
 			if (count($streamAccesses) > 1) {
 				foreach ($streamAccesses as $k => $v) {
-					Streams_Avatar::update($publisherId, $v, $k);
+					Streams_Avatar::updateAvatars($publisherId, $v, $k);
 				}
 				return false;
 			}
@@ -384,6 +384,28 @@ class Streams_Avatar extends Base_Streams_Avatar
 			return false;
 		}
 		$showToUserIds = array();
+		
+		if ($publisherId === '') {
+			// Handle the case where publisherId is empty, meaning we are updating
+			// all public avatars (visible to everyone) for a particular streamName.
+			
+			$avatars = Streams_Avatar::select()
+				->where(array('toUserId' => ''))
+				->andWhere(array('streamName' => $streamName))
+				->fetchDbRows('Streams_Avatar');
+
+			// Distinct publishers at the app level (avoid redundant recalculations)
+			$seen = array();
+			foreach ($avatars as $a) {
+				if (isset($seen[$a->publisherId])) {
+					continue;
+				}
+				$seen[$a->publisherId] = true;
+				self::updateAvatar('', $a->publisherId);
+			}
+			return true;
+		}
+
 
 		// Select the user corresponding to this publisher
 		$user = new Users_User();
