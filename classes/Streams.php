@@ -855,6 +855,25 @@ abstract class Streams extends Base_Streams
 				'ofUserId' => array('', $asUserId)
 			))->ignoreCache()->fetchDbRows();
 
+		foreach ($accesses as $access) {
+			// If all three of ofUserId, ofContactLabel and ofParticipantRole are empty,
+			// then apply to all users regardless of labels or participant roles,
+			// but this may be overridden by more specific mutables below.
+			if ($access->ofUserId === ''
+			&& empty($access->ofContactLabel)
+			&& empty($access->ofParticipantRole)) {
+				$tail = substr($access->streamName, -1);
+				if ($tail === '*') {
+					$head = substr($access->streamName, 0, -1);
+					foreach ($streams3 as $stream) {
+						if ($stream->type === $head) {
+							self::_setStreamAccess($stream, $access, $public_source);
+						}
+					}
+				}
+			}
+		}
+
 		$labels = array();
 		$proles = array();
 		foreach ($accesses as $access) {
@@ -882,10 +901,11 @@ abstract class Streams extends Base_Streams
 			}
 		}
 		if (!empty($proles)) {
+			$proles = array_unique($proles);
 			$participants = Streams_Participant::select()
 			->where(array(
 				'publisherId' => $publisherId,
-				'streamName' => array_keys($streams3),
+				'streamName' => array_keys($streams3), // can't filter by participant role because it's inside extras
 				'userId' => $asUserId,
 				'state' => 'participating'
 			))->fetchDbRows();
@@ -5112,11 +5132,13 @@ abstract class Streams extends Base_Streams
 	static function userStreamsTree()
 	{
 		static $p = null;
-		if ($p) {
+		static $previousArr = null;
+		$arr = Q_Config::get('Streams', 'userStreams', array());
+		if ($p && $previousArr === $arr) {
 			return $p;
 		}
+		$previousArr = $arr;
 		$p = new Q_Tree();
-		$arr = Q_Config::get('Streams', 'userStreams', array());
 		$app = Q::app();
 		foreach ($arr as $k => $v) {
 			$PREFIX = ($k === $app ? 'APP' : strtoupper($k).'_PLUGIN');

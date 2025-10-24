@@ -185,12 +185,6 @@ class Streams_Access extends Base_Streams_Access
 	 */
 	function beforeSave($value)
 	{
-		if (!$this->retrieved) {
-			$table = $this->getTable();
-			if (empty($value['ofUserId']) && empty($value['ofContactLabel']) && empty($value['ofParticipantRole'])) {
-				throw new Exception("exactly one of fields 'ofUserId' and 'ofContactLabel' can be set in table $table.");
-			}
-		}
 		// set safe defaults
 		foreach (array('readLevel', 'writeLevel',  'adminLevel') as $f) {
 			if (!isset($value[$f])) {

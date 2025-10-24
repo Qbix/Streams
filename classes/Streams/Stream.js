@@ -541,6 +541,19 @@ Sp.calculateAccess = function(asUserId, callback) {
 		}
 		var rows1 = res.rows1[1];
 		var rows2 = res.rows2[1];
+		for (i = 0; i < rows2.length; ++i) {
+			var access = rows2[i].fields;
+			if (
+				access.ofUserId === '' &&
+				!access.ofContactLabel &&
+				!access.ofParticipantRole
+			) {
+				var head = access.streamName.slice(0, -1);
+				if (subj.fields.type === head) {
+					_setStreamAccess(subj, rows2[i], Streams.ACCESS_SOURCES['public']);
+				}
+			}
+		}
 		var rows = rows1.concat([]);
 		theloop:
 		for (i=0; i<rows2.length; ++i) {
