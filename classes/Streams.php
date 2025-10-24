@@ -871,6 +871,12 @@ abstract class Streams extends Base_Streams
 						}
 					}
 				}
+				// Concrete universal rule: exact stream name
+				foreach ($streams3 as $stream) {
+					if ($stream->name === $access->streamName) {
+						self::_setStreamAccess($stream, $access, $public_source);
+					}
+				}
 			}
 		}
 
@@ -964,12 +970,12 @@ abstract class Streams extends Base_Streams
 				if (empty($s->inheritAccess)) {
 					continue;
 				}
-				$inheritAccess = json_decode($s->inheritAccess, true);
-				if (!$inheritAccess or !is_array($inheritAccess)) {
+				$inheritAccess2 = json_decode($s->inheritAccess, true);
+				if (!$inheritAccess2 or !is_array($inheritAccess2)) {
 					continue;
 				}
 				$streams4[] = $s;
-				foreach ($inheritAccess as $ia) {
+				foreach ($inheritAccess2 as $ia) {
 					$toFetch[reset($ia)][] = next($ia);
 				}
 			}

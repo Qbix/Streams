@@ -358,7 +358,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {array} [$options=array]
 	 * @param {boolean} [$options.skipAccess=false]
 	 */
-	static function importIcon($imageURL, $save="Streams/image", $options)
+	function importIcon($imageURL, $save="Streams/image", $options)
 	{
 		return Streams::importIcon($this->publisherId, $this->name, $imageURL, $save, $options);
 	}
