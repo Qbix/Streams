@@ -1217,6 +1217,12 @@ abstract class Streams extends Base_Streams
 				}
 			}
 		}
+		if (isset($stream->title)) {
+			$stream->title = Q::interpolate($stream->title, array(
+				'communityName' => Users::communityName(),
+				'communitySuffix' => Users::communitySuffix()
+			));
+		}
 		if (!isset($stream->type)) {
 			if (empty($type)) {
 				throw new Q_Exception_RequiredField(array('field' => 'type'));
