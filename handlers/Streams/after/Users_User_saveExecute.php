@@ -170,6 +170,7 @@ function Streams_after_Users_User_saveExecute($params)
 			continue;
 		}
 		if ($name === 'Streams/user/icon') {
+			$s['icon'] = $user->icon;
 			$sizes = Q_Image::getSizes('Users/icon');
 			$s['attributes']['sizes'] = $sizes;
 			$s['attributes']['icon'] = $user->icon;
