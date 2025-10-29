@@ -831,7 +831,7 @@ abstract class Streams extends Base_Streams
 			$s->set('writeLevel_source', $public_source);
 			$s->set('adminLevel_source', $public_source);
 			$s->set('permissions_source', $public_source);
-			if (empty($asUserId) and !Streams::getConfigField(
+			if (empty($asUserId) and !Streams_Stream::getConfigField(
 				$s->type, array('access', 'checkMutableForPublic'), false
 			)) {
 				continue; // No need to fetch further access info.
