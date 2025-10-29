@@ -831,10 +831,6 @@ abstract class Streams extends Base_Streams
 			$s->set('writeLevel_source', $public_source);
 			$s->set('adminLevel_source', $public_source);
 			$s->set('permissions_source', $public_source);
-			if (empty($asUserId)) {
-				continue; // No need to fetch further access info.
-			}
-
 			$names[] = $s->name;
 			$names[] = $s->type."*";
 			$streams3[$s->name] = $s;
@@ -878,6 +874,10 @@ abstract class Streams extends Base_Streams
 					}
 				}
 			}
+		}
+
+		if (empty($asUserId)) {
+			return count($streams2); // No need to fetch further access info.
 		}
 
 		$labels = array();

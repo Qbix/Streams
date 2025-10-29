@@ -90,6 +90,8 @@ class Streams_Access extends Base_Streams_Access
 	/**
 	 * Keeps Access table consistent on row insert/update and update avatar
 	 * @method beforeSaveExecute
+	 * @param {Db_Result} $result
+	 *  The result of executing the query
 	 * @param {Db_Query} $query
 	 *	The query being excecuted
 	 * @param {array} $modifiedFields
@@ -98,13 +100,13 @@ class Streams_Access extends Base_Streams_Access
 	 *	Primary key value for existing row
 	 * @return {Db_Query}
 	 */
-	function beforeSaveExecute($query, $modifiedFields, $where)
+	function afterSaveExecute($result, $query, $modifiedFields, $where, $inserted)
 	{
 		$tainted_access = array($this);
 		if ($this->get('removed', false)) {
 			$this->set('removed', false);
 		}
-		if (!empty($this->publisherId) and !empty($this->streamName)) {
+		if (!empty($this->streamName)) {
 			Streams_Avatar::updateAvatars($this->publisherId, $tainted_access, $this->streamName);
 			if (!in_array(substr($this->streamName, -1), array('/', '*'))) {
 				$asUserId = isset($this->grantedByUserId) ? $this->grantedByUserId : Q::app();
