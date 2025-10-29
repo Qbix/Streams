@@ -2776,7 +2776,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @method getConfigField
 	 * @static
 	 * @param {string} $type The type of the stream
-	 * @param {string|array} $field The name of the field
+	 * @param {string|array} $field The name of the field, can be a path inside the config
 	 * @param {mixed} [$default=null] The value to return if the config field isn't specified
 	 * @param {boolean} [$merge=true] if arrays are found in both places, merge them
 	 * @return mixed
