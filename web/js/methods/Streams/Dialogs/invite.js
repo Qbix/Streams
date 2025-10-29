@@ -18,7 +18,9 @@ Q.exports(function(Users, Streams) {
 		var text = null;
 		options = Q.extend({}, Streams.Dialogs.invite.options, options);
 	
-		var suggestion = null, data = null;
+		var suggestion = null;
+		var data = null;
+		var dialog = null;
 		var fields = {
 			publisherId: publisherId,
 			streamName: streamName
@@ -47,8 +49,13 @@ Q.exports(function(Users, Streams) {
 					data: data,
 					appUrl: options.appUrl
 				};
-				Q.Dialogs.pop(); // close the Dialog
-				Q.handle(callback, Streams, [result]);
+				if (dialog) {
+					Q.Dialogs.close(dialog); // close the Dialog
+				};
+				Q.addStylesheet('{{Streams}}/css/Streams/modern_invite.css');
+				setTimeout(function () {
+					Q.handle(callback, Streams, [result]);
+				}, 0);
 			}
 		}, {
 			fields: fields
@@ -127,9 +134,13 @@ Q.exports(function(Users, Streams) {
 					});
 				});
 			};
+
+			if (options.sendBy) {
+				return; // already handled above
+			}
 	
 			if(options.templateName == 'Streams/templates/invite/classicDialog'){
-				Q.Dialogs.push({
+				dialog = Q.Dialogs.push({
 					title: options.title || text.title,
 					template: {
 						name: 'Streams/templates/invite/dialog',
@@ -302,7 +313,7 @@ Q.exports(function(Users, Streams) {
 					}
 				});
 			} else {
-				Q.Dialogs.push({
+				dialog = Q.Dialogs.push({
 					title: options.title || text.title2,
 					template: {
 						name: 'Streams/templates/invite/modernDialog',
