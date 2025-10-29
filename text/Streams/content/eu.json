@@ -135,7 +135,7 @@
             "QRscanned": "Eskaneatu dute!",
             "scannedQR": "{{ClickOrTap}} kodea eskaneatu bada",
             "byEmail": "Posta elektronikoa",
-            "byText": "Testua",
+            "bySms": "Testua",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Gonbidatu jendea",

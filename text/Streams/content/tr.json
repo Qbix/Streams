@@ -135,7 +135,7 @@
             "QRscanned": "Taradılar!",
             "scannedQR": "Kod tarandıysa {{ClickOrTap}}",
             "byEmail": "E-posta",
-            "byText": "Metin",
+            "bySms": "Metin",
             "byFacebook": "Facebook",
             "byTwitter": "twitter",
             "title2": "İnsanları davet et",

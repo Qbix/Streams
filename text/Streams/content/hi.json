@@ -135,7 +135,7 @@
             "QRscanned": "उन्होंने इसे स्कैन किया!",
             "scannedQR": "{{ClickOrTap}} अगर कोड स्कैन किया गया था",
             "byEmail": "ईमेल",
-            "byText": "मूलपाठ",
+            "bySms": "मूलपाठ",
             "byFacebook": "फेसबुक",
             "byTwitter": "ट्विटर",
             "title2": "लोगो को निमंत्रण भेजो",

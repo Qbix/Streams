@@ -135,7 +135,7 @@
             "QRscanned": "Hulle het dit geskandeer!",
             "scannedQR": "{{ClickOrTap}} as die kode geskandeer is",
             "byEmail": "E-pos",
-            "byText": "Teks",
+            "bySms": "Teks",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Nooi mense",

@@ -135,7 +135,7 @@
             "QRscanned": "L&#39;han escanejat!",
             "scannedQR": "{{ClickOrTap}} si el codi s&#39;ha escanejat",
             "byEmail": "Correu electrònic",
-            "byText": "Text",
+            "bySms": "Text",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Convida gent",

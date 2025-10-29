@@ -135,7 +135,7 @@
             "QRscanned": "ಅವರು ಅದನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿದರು!",
             "scannedQR": "ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿದರೆ {{ClickOrTap}}",
             "byEmail": "ಇಮೇಲ್",
-            "byText": "ಪಠ್ಯ",
+            "bySms": "ಪಠ್ಯ",
             "byFacebook": "ಫೇಸ್ಬುಕ್",
             "byTwitter": "Twitter",
             "title2": "ಜನರನ್ನು ಆಹ್ವಾನಿಸಿ",

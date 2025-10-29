@@ -135,7 +135,7 @@
             "QRscanned": "Þeir skannaðu það!",
             "scannedQR": "{{ClickOrTap}} ef kóðinn var skannaður",
             "byEmail": "Tölvupóstur",
-            "byText": "Texti",
+            "bySms": "Texti",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Bjóddu fólki",

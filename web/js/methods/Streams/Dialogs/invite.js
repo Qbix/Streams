@@ -11,6 +11,7 @@ Q.exports(function(Users, Streams) {
 	 * @param {string} [options.title] Custom dialog title
 	 * @param {string} [options.token] Use to set the invite token, if you have enough permissions
 	 * @param {String} [options.userChooser=false] If true allow to invite registered users with Streams/userChooser tool.
+	 * @param {String} [options.sendBy] Set this to immediately invoke a specific method for the invite as soon as the dialog appears (e.g., 'contactPicker', 'sms', 'email', 'copyLink', 'QR')
 	 */
     return function Streams_Dialogs_invite(publisherId, streamName, callback, options) {
 		var stream = null;
@@ -35,6 +36,19 @@ Q.exports(function(Users, Streams) {
 				suggestion = slots.suggestion;
 				data = slots.data;
 				$('.Streams_invite_dialog').addClass('Streams_suggestion_ready');
+			}
+			if (options.sendBy) {
+				// invoke method as soon as suggestion is ready
+				var result = {
+					token: suggestion,
+					identifier: null,
+					sendBy: options.sendBy,
+					stream: stream,
+					data: data,
+					appUrl: options.appUrl
+				};
+				Q.Dialogs.pop(); // close the Dialog
+				Q.handle(callback, Streams, [result]);
 			}
 		}, {
 			fields: fields
@@ -444,7 +458,7 @@ Q.exports(function(Users, Streams) {
 							}
 						});
 	
-						$('.Streams_invite_scan_qr', dialog).on(Q.Pointer.fastclick, function () {
+						$('.Streams_invite_scan_qr', dialog).on(Q.Pointer.fastclick, function scanQR () {
 							var sendBy = $(this).data('sendby');
 							var result = {
 								token: suggestion,
@@ -497,8 +511,7 @@ Q.exports(function(Users, Streams) {
 							.on(Q.Pointer.fastclick, function () {
 								Q.Dialogs.pop();
 								options.showGiveRelationshipLabelDialog();
-							});
-	
+							});	
 					}
 				});
 			}

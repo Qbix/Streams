@@ -135,7 +135,7 @@
             "QRscanned": "Naskenovali to!",
             "scannedQR": "{{ClickOrTap}} , pokud byl kód naskenován",
             "byEmail": "E-mailem",
-            "byText": "Text",
+            "bySms": "Text",
             "byFacebook": "Facebook",
             "byTwitter": "Cvrlikání",
             "title2": "Pozvat lidi",
