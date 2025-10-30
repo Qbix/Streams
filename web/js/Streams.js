@@ -1895,7 +1895,7 @@ Streams.setupRegisterForm = function _Streams_setupRegisterForm(identifier, json
 			for (var k in authResponse) {
 				register_form.append(
 					$('<input type="hidden" />')
-						.attr('name', 'Q.Users.facebook.authResponse[' + k + ']')
+						.attr('name', 'Q.Users.authPayload.facebook[' + k + ']')
 						.attr('value', authResponse[k])
 				);
 			}
@@ -1918,7 +1918,7 @@ Streams.setupRegisterForm = function _Streams_setupRegisterForm(identifier, json
 				for (k in authResponse) {
 					register_form.append(
 						$('<input type="hidden" />')
-							.attr('name', 'Q.Users.facebook.authResponse[' + k + ']')
+							.attr('name', 'Q.Users.authPayload.facebook[' + k + ']')
 							.attr('value', authResponse[k])
 					);
 				}
