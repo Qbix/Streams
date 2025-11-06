@@ -195,7 +195,8 @@
 							"adminLevel": 0,
 							"permissions": []
 						}
-					}
+					},
+					"checkMutableForPublic": true
 				},
 				"admins": ["Users/owners", "Users/admins"],
 				"canCreate": ["Users/owners", "Users/admins"],
