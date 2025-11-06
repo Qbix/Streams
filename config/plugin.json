@@ -201,7 +201,7 @@
 				"canCreate": ["Users/owners", "Users/admins"],
 				"invite": {
 					"dialog": {
-						"templateName": "Streams/invite"
+						"templateName": "Streams/invited"
 					}
 				},
 				"restricted": {
