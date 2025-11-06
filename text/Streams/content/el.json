@@ -135,7 +135,7 @@
             "QRscanned": "Το σκάναραν!",
             "scannedQR": "{{ClickOrTap}} εάν ο κωδικός σαρώθηκε",
             "byEmail": "ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ",
-            "byText": "Κείμενο",
+            "bySms": "Κείμενο",
             "byFacebook": "Facebook",
             "byTwitter": "Κελάδημα",
             "title2": "Προσκαλέστε ανθρώπους",

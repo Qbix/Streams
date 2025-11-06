@@ -135,7 +135,7 @@
             "QRscanned": "He skannasivat sen!",
             "scannedQR": "{{ClickOrTap}} , jos koodi skannattu",
             "byEmail": "Sähköposti",
-            "byText": "Teksti",
+            "bySms": "Teksti",
             "byFacebook": "Facebook",
             "byTwitter": "Viserrys",
             "title2": "Kutsu ihmisiä",

@@ -135,7 +135,7 @@
             "QRscanned": "قاموا بمسحها ضوئيًا!",
             "scannedQR": "{{ClickOrTap}} إذا تم مسح الرمز ضوئيًا",
             "byEmail": "بريد إلكتروني",
-            "byText": "نص",
+            "bySms": "نص",
             "byFacebook": "فيسبوك",
             "byTwitter": "تويتر",
             "title2": "ادعو الناس",

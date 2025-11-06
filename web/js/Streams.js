@@ -846,10 +846,10 @@ Q.Tool.define({
 	"Streams/import"	   : "{{Streams}}/js/tools/import.js",
 	"Streams/activity"	 : "{{Streams}}/js/tools/activity.js",
 	"Streams/fileManager"  : "{{Streams}}/js/tools/fileManager.js",
-	"Streams/image/album": "{{Streams}}/js/tools/album/tool.js",
+	"Streams/image/album": "{{Streams}}/js/tools/image/album.js",
 	"Streams/image/gallery": {
-		js: "{{Streams}}/js/tools/gallery/tool.js",
-		css: "{{Streams}}/css/tools/gallery/tool.css"
+		js: "{{Streams}}/js/tools/image/gallery.js",
+		css: "{{Streams}}/css/tools/image/gallery.css"
 	},
 	"Streams/default/preview": "{{Streams}}/js/tools/default/preview.js",
 	"Streams/question/preview": "{{Streams}}/js/tools/question/preview.js",
@@ -887,10 +887,10 @@ Q.Tool.define({
 		css: "{{Streams}}/css/tools/previewTopic.css"
 	},
 	"Streams/topic": {
-		js: "{{Streams}}/js/tools/topic/tool.js",
+		js: "{{Streams}}/js/tools/topic.js",
 		css: "{{Streams}}/css/tools/topic.css"
 	},
-	"Streams/experience": "{{Streams}}/js/tools/experience/tool.js",
+	"Streams/experience": "{{Streams}}/js/tools/experience.js",
 	"Streams/groupPhoto" : {
 		js: ["{{Streams}}/js/tools/groupPhoto.js"],
 		css: "{{Streams}}/css/tools/groupPhoto.css",
@@ -901,12 +901,12 @@ Q.Tool.define({
 		css: "{{Streams}}/css/tools/previewTask.css"
 	},
 	"Streams/metrics": {
-		js: ["{{Streams}}/js/jquery.canvasjs.min.js", "{{Streams}}/js/tools/metrics/tool.js"],
+		js: ["{{Streams}}/js/jquery.canvasjs.min.js", "{{Streams}}/js/tools/metrics.js"],
 		css: "{{Streams}}/css/tools/metrics.css"
 	},
 	"Streams/video/animatedThumbnail": {
-		js: "{{Streams}}/js/tools/video/animatedThumbnail/tool.js",
-		css: "{{Streams}}/css/tools/animatedThumbnail.css"
+		js: "{{Streams}}/js/tools/video/animatedThumbnail.js",
+		css: "{{Streams}}/css/tools/video/animatedThumbnail.css"
 	},
 });
 
@@ -1895,7 +1895,7 @@ Streams.setupRegisterForm = function _Streams_setupRegisterForm(identifier, json
 			for (var k in authResponse) {
 				register_form.append(
 					$('<input type="hidden" />')
-						.attr('name', 'Q.Users.facebook.authResponse[' + k + ']')
+						.attr('name', 'Q.Users.authPayload.facebook[' + k + ']')
 						.attr('value', authResponse[k])
 				);
 			}
@@ -1918,7 +1918,7 @@ Streams.setupRegisterForm = function _Streams_setupRegisterForm(identifier, json
 				for (k in authResponse) {
 					register_form.append(
 						$('<input type="hidden" />')
-							.attr('name', 'Q.Users.facebook.authResponse[' + k + ']')
+							.attr('name', 'Q.Users.authPayload.facebook[' + k + ']')
 							.attr('value', authResponse[k])
 					);
 				}
@@ -2143,6 +2143,9 @@ Stream.url = function(publisherId, streamName, streamType, messageOrdinal, baseU
  * @return {Object} returns Streams object for chaining with .get() or .related()
  */
 Stream.retain = function _Stream_retain (publisherId, streamName, key, callback) {
+	if (key === undefined) {
+		return Streams;
+	}
 	if (Q.isArrayLike(streamName)) {
 		var p = Q.pipe();
 		var waitFor = [];
@@ -2727,6 +2730,9 @@ Sp.reopen = function _Stream_remove () {
  * @return {Q.Streams.Stream}
  */
 Sp.retain = function _Stream_prototype_retain (key, options) {
+	if (key === undefined) {
+		return this;
+	}
 	options = options || {};
 	var publisherId = this.fields.publisherId;
 	var streamName = this.fields.name;

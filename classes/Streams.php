@@ -831,10 +831,11 @@ abstract class Streams extends Base_Streams
 			$s->set('writeLevel_source', $public_source);
 			$s->set('adminLevel_source', $public_source);
 			$s->set('permissions_source', $public_source);
-			if (empty($asUserId)) {
+			if (empty($asUserId) and !Streams_Stream::getConfigField(
+				$s->type, array('access', 'checkMutableForPublic'), false
+			)) {
 				continue; // No need to fetch further access info.
 			}
-
 			$names[] = $s->name;
 			$names[] = $s->type."*";
 			$streams3[$s->name] = $s;
@@ -854,6 +855,35 @@ abstract class Streams extends Base_Streams
 				'streamName' => $names,
 				'ofUserId' => array('', $asUserId)
 			))->ignoreCache()->fetchDbRows();
+
+		foreach ($accesses as $access) {
+			// If all three of ofUserId, ofContactLabel and ofParticipantRole are empty,
+			// then apply to all users regardless of labels or participant roles,
+			// but this may be overridden by more specific mutables below.
+			if ($access->ofUserId === ''
+			&& empty($access->ofContactLabel)
+			&& empty($access->ofParticipantRole)) {
+				$tail = substr($access->streamName, -1);
+				if ($tail === '*') {
+					$head = substr($access->streamName, 0, -1);
+					foreach ($streams3 as $stream) {
+						if ($stream->type === $head) {
+							self::_setStreamAccess($stream, $access, $public_source);
+						}
+					}
+				}
+				// Concrete universal rule: exact stream name
+				foreach ($streams3 as $stream) {
+					if ($stream->name === $access->streamName) {
+						self::_setStreamAccess($stream, $access, $public_source);
+					}
+				}
+			}
+		}
+
+		if (empty($asUserId)) {
+			return count($streams2); // No need to fetch further access info.
+		}
 
 		$labels = array();
 		$proles = array();
@@ -882,10 +912,11 @@ abstract class Streams extends Base_Streams
 			}
 		}
 		if (!empty($proles)) {
+			$proles = array_unique($proles);
 			$participants = Streams_Participant::select()
 			->where(array(
 				'publisherId' => $publisherId,
-				'streamName' => array_keys($streams3),
+				'streamName' => array_keys($streams3), // can't filter by participant role because it's inside extras
 				'userId' => $asUserId,
 				'state' => 'participating'
 			))->fetchDbRows();
@@ -944,12 +975,12 @@ abstract class Streams extends Base_Streams
 				if (empty($s->inheritAccess)) {
 					continue;
 				}
-				$inheritAccess = json_decode($s->inheritAccess, true);
-				if (!$inheritAccess or !is_array($inheritAccess)) {
+				$inheritAccess2 = json_decode($s->inheritAccess, true);
+				if (!$inheritAccess2 or !is_array($inheritAccess2)) {
 					continue;
 				}
 				$streams4[] = $s;
-				foreach ($inheritAccess as $ia) {
+				foreach ($inheritAccess2 as $ia) {
 					$toFetch[reset($ia)][] = next($ia);
 				}
 			}
@@ -1190,6 +1221,12 @@ abstract class Streams extends Base_Streams
 					));
 				}
 			}
+		}
+		if (isset($stream->title)) {
+			$stream->title = Q::interpolate($stream->title, array(
+				'communityName' => Users::communityName(),
+				'communitySuffix' => Users::communitySuffix()
+			));
 		}
 		if (!isset($stream->type)) {
 			if (empty($type)) {
@@ -3360,7 +3397,11 @@ abstract class Streams extends Base_Streams
 				if (!Streams_Stream::fetch($asUserId, $asUserId, $pn, '*', array(
 					'skipAccess' => true
 				))) {
-					Streams::create($asUserId, $asUserId, 'Streams/participating', array('name' => $pn));
+					Streams::create(
+						$asUserId, $asUserId, 'Streams/participating',
+						array('name' => $pn),
+						array('skipAccess' => true)
+					);
 				}
 				$extraArray = array();
 				foreach ($streamNames as $sn) {
@@ -4022,7 +4063,7 @@ abstract class Streams extends Base_Streams
 		$options = Q::take($options, array(
 			'readLevel', 'writeLevel', 'adminLevel', 'permissions', 'expires', 'asUserId', 'html',
 			'addLabel', 'addMyLabel', 'displayName', 'appUrl', 'alwaysSend', 'skipAccess',
-			'templateDir', 'userId', 'assign'
+			'templateName', 'userId', 'assign'
 		));
 		
 		if (isset($options['asUserId'])) {
@@ -4045,13 +4086,6 @@ abstract class Streams extends Base_Streams
 			throw new Streams_Exception_InviteExpired();
 		}
 
-		if (isset($options['templateDir'])) {
-			$templateDir = $options['templateDir'];
-			$dirname = APP_VIEWS_DIR.DS.$templateDir;
-			if (!is_dir($dirname)) {
-				throw new Q_Exception_MissingDir(@compact('dirname'));
-			}
-		}
 		if (isset($options['html'])) {
 			$html = $options['html'];
 			if (!is_array($html) or count($html) < 2) {
@@ -4295,8 +4329,8 @@ abstract class Streams extends Base_Streams
 				$params['template'] = $template;
 				$params['batchName'] = $batchName;
 			}
-			if (!empty($templateDir)) {
-				$params['templateDir'] = $templateDir;
+			if (!empty($options['templateName'])) {
+				$params['templateName'] = $options['templateName'];
 			}
 			try {
 				$result = Q_Utils::queryInternal('Q/node', $params);
@@ -5115,11 +5149,13 @@ abstract class Streams extends Base_Streams
 	static function userStreamsTree()
 	{
 		static $p = null;
-		if ($p) {
+		static $previousArr = null;
+		$arr = Q_Config::get('Streams', 'userStreams', array());
+		if ($p && $previousArr === $arr) {
 			return $p;
 		}
+		$previousArr = $arr;
 		$p = new Q_Tree();
-		$arr = Q_Config::get('Streams', 'userStreams', array());
 		$app = Q::app();
 		foreach ($arr as $k => $v) {
 			$PREFIX = ($k === $app ? 'APP' : strtoupper($k).'_PLUGIN');

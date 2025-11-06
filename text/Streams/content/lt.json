@@ -135,7 +135,7 @@
             "QRscanned": "Jie nuskaitė!",
             "scannedQR": "{{ClickOrTap}} , jei kodas buvo nuskaitytas",
             "byEmail": "El. paštas",
-            "byText": "Tekstas",
+            "bySms": "Tekstas",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Pakvieskite žmones",

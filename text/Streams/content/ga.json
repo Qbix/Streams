@@ -135,7 +135,7 @@
             "QRscanned": "Scanadh siad é!",
             "scannedQR": "{{ClickOrTap}} má scanadh an cód",
             "byEmail": "Ríomhphost",
-            "byText": "Téacs",
+            "bySms": "Téacs",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Tabhair cuireadh do Dhaoine",

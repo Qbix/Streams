@@ -135,7 +135,7 @@
             "QRscanned": "Сканираха го!",
             "scannedQR": "{{ClickOrTap}} , ако кодът е сканиран",
             "byEmail": "електронна поща",
-            "byText": "Текст",
+            "bySms": "Текст",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Поканете хора",

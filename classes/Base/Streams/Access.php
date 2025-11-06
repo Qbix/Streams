@@ -188,7 +188,6 @@ abstract class Base_Streams_Access extends Db_Row
 			}
 			$fields = implode(',', $fieldNames);
 		}
-		$alias = isset($alias) ? ' '.$alias : '';
 		$q = self::db()->select($fields, self::table(true, $alias));
 		$q->className = 'Streams_Access';
 		return $q;

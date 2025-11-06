@@ -135,7 +135,7 @@
             "QRscanned": "Mereka memindainya!",
             "scannedQR": "{{ClickOrTap}} jika kode dipindai",
             "byEmail": "Surel",
-            "byText": "Teks",
+            "bySms": "Teks",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Mengundang orang",

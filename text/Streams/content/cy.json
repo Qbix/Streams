@@ -135,7 +135,7 @@
             "QRscanned": "Fe wnaethon nhw ei sganio!",
             "scannedQR": "{{ClickOrTap}} os cafodd y cod ei sganio",
             "byEmail": "Ebost",
-            "byText": "Testun",
+            "bySms": "Testun",
             "byFacebook": "Facebook",
             "byTwitter": "Trydar",
             "title2": "Gwahodd Pobl",

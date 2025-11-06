@@ -135,7 +135,7 @@
             "QRscanned": "De skannade det!",
             "scannedQR": "{{ClickOrTap}} om koden skannades",
             "byEmail": "E-post",
-            "byText": "Text",
+            "bySms": "Text",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Bjuda folk",

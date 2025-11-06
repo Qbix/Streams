@@ -1,0 +1,2 @@
+INSERT INTO {{prefix}}stream (publisherId, name, type, title, icon, content, attributes, readLevel, writeLevel, adminLevel, permissions, inheritAccess)  
+VALUES ("Streams", "Streams/search/all", "Streams/search", "Global Search Index", "Streams/search", "", "", 23, 0, 0, "", NULL);

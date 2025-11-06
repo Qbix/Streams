@@ -135,7 +135,7 @@
             "QRscanned": "Beszkennelték!",
             "scannedQR": "{{ClickOrTap}} , ha a kód beolvasásra került",
             "byEmail": "Email",
-            "byText": "Szöveg",
+            "bySms": "Szöveg",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Emberek meghívása",

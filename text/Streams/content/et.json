@@ -135,7 +135,7 @@
             "QRscanned": "Nad skaneerisid selle!",
             "scannedQR": "{{ClickOrTap}} , kui kood skanniti",
             "byEmail": "Meil",
-            "byText": "Tekst",
+            "bySms": "Tekst",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Kutsuge inimesi",

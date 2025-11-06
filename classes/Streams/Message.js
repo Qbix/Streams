@@ -446,7 +446,7 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 			o.destination = 'email';
 			o.emailAddress = emailAddress;
 			var instructions = message.getAllInstructions() || {};
-			var viewPath = 'Streams/email/' + (instructions.templateDir || messageType) + '.handlebars';
+			var viewPath = 'Streams/email/' + (instructions.templateName || messageType) + '.handlebars';
 			if (Q.Handlebars.template(viewPath) === null) {
 				viewPath = 'Streams/email/Streams/message.handlebars';
 			}
@@ -482,7 +482,7 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 			o.destination = 'mobile';
 			o.mobileNumber = mobileNumber;
 			var instructions = message.getAllInstructions() || {};
-			var viewPath = 'Streams/mobile/' + (instructions.templateDir || messageType) + '.handlebars';
+			var viewPath = 'Streams/mobile/' + (instructions.templateName || messageType) + '.handlebars';
 			if (Q.Handlebars.template(viewPath) === null) {
 				viewPath = 'Streams/mobile/Streams/message.handlebars';
 			}
@@ -514,7 +514,7 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 			o.destination = 'devices';
 			o.deviceId = deviceId;
 			var instructions = message.getAllInstructions() || {};
-			var viewPath = 'Streams/device/' + (instructions.templateDir || messageType) + '.handlebars';
+			var viewPath = 'Streams/device/' + (instructions.templateName || messageType) + '.handlebars';
 			if (!Q.Handlebars.template(viewPath)) {
 				viewPath = 'Streams/device/Streams/message.handlebars';
 			}

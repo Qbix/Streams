@@ -301,9 +301,19 @@ class Streams_Avatar extends Base_Streams_Avatar
 		$streams = Streams::fetch($toUserId, $publisherId, array(
 			'Streams/user/firstName', 'Streams/user/lastName', 'Streams/user/gender'
 		));
-		$firstName = Streams::take($streams, 'Streams/user/firstName', 'content');
-		$lastName = Streams::take($streams, 'Streams/user/lastName', 'content');
-		$gender = Streams::take($streams, 'Streams/user/gender', 'content');
+		$found = false;
+		foreach ($streams as $s) {
+			if ($s) {
+				$found = true;
+				break;
+			}
+		}
+		if (!$found) {
+			return false;
+		}
+		$firstName = Streams::take($streams, 'Streams/user/firstName', 20, 'content');
+		$lastName = Streams::take($streams, 'Streams/user/lastName', 20, 'content');
+		$gender = Streams::take($streams, 'Streams/user/gender', 20, 'content');
 
 		// Update the Streams_avatar table
 		Streams_Avatar::update()->set(array(
@@ -365,7 +375,7 @@ class Streams_Avatar extends Base_Streams_Avatar
 			}
 			if (count($streamAccesses) > 1) {
 				foreach ($streamAccesses as $k => $v) {
-					Streams_Avatar::update($publisherId, $v, $k);
+					Streams_Avatar::updateAvatars($publisherId, $v, $k);
 				}
 				return false;
 			}
@@ -384,6 +394,42 @@ class Streams_Avatar extends Base_Streams_Avatar
 			return false;
 		}
 		$showToUserIds = array();
+		
+		if ($publisherId === '') {
+			// Handle the case where publisherId is empty, meaning we are updating
+			// all public avatars (visible to everyone)
+
+			$offset = 0;
+			$limit  = 20;
+			$seen   = array();
+
+			do {
+				// Fetch next batch of 20 avatars
+				$avatars = Streams_Avatar::select()
+					->where(array('toUserId' => ''))
+					->limit($limit, $offset)
+					->fetchDbRows('Streams_Avatar');
+
+				// If no more results, stop
+				if (!$avatars) {
+					break;
+				}
+
+				// Process each avatar, skipping duplicate publishers
+				foreach ($avatars as $a) {
+					if (isset($seen[$a->publisherId])) {
+						continue;
+					}
+					$seen[$a->publisherId] = true;
+					self::updateAvatar('', $a->publisherId);
+				}
+
+				$offset += $limit;
+			} while (count($avatars) === $limit);
+
+			return true;
+		}
+
 
 		// Select the user corresponding to this publisher
 		$user = new Users_User();

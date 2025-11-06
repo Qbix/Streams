@@ -959,7 +959,7 @@ function Streams_request_handler (req, res, next) {
 						title: stream.fields.title,
 						content: stream.fields.content,
 						template: parsed.template,
-						templateDir: parsed.templateDir
+						templateName: parsed.templateName
 					})
 				};
 				invited.post(msg, function (err) {

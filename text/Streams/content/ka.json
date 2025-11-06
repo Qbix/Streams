@@ -135,7 +135,7 @@
             "QRscanned": "მათ დაასკანერეს!",
             "scannedQR": "{{ClickOrTap}} თუ კოდი დასკანირებული იყო",
             "byEmail": "ელფოსტა",
-            "byText": "ტექსტი",
+            "bySms": "ტექსტი",
             "byFacebook": "ფეისბუქი",
             "byTwitter": "Twitter",
             "title2": "მოიწვიე ხალხი",

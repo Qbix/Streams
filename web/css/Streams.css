@@ -849,3 +849,7 @@
 div[style="position: absolute; bottom: 0px; left: 0px; z-index: 9999;"] {
 	display: none; /* workaround for now, you should license froala editor */
 }
+
+.Streams_login_explanation .Streams_complete_invitingUser img {
+	height: 50px;
+}

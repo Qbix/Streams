@@ -135,7 +135,7 @@
             "QRscanned": "Viņi to skenēja!",
             "scannedQR": "{{ClickOrTap}} , ja kods tika skenēts",
             "byEmail": "E-pasts",
-            "byText": "Teksts",
+            "bySms": "Teksts",
             "byFacebook": "Facebook",
             "byTwitter": "Twitter",
             "title2": "Uzaiciniet cilvēkus",
