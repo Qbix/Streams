@@ -1278,7 +1278,7 @@ Q.Tool.define('Streams/chat', function(options) {
 					setTimeout(function () {
 						stopScrollingToComposer = false;
 						_stayAtComposer();
-						Q.handle(callback, null, [s]);
+						Q.handle(callback, $(s), [s]);
 					}, 500);
 				}
 			}
