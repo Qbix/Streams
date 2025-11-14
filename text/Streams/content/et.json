@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "See sisu on teie eest peidetud.",
-        "InplaceTypeMustBe": "inplaceType peab olema tekstiala või tekst"
-    },
-    "preview": {
-        "NewItemTitle": "Uus üksus",
-        "Teaser": "Teaser"
-    },
-    "avatar": {
-        "firstName": "eesnimi",
-        "lastName": "perekonnanimi",
-        "username": "kasutajanimi"
-    },
-    "labels": {
-        "Streams\/invited": "Inimesed, keda kutsusin",
-        "Streams\/invitedMe": "Kes mind kutsus",
-        "DoYouAgree": "Kas sa nõustud?",
-        "Yes": "Jah",
-        "No": "Ei",
-        "JoinItNow": "Kas liituda sellega kohe?"
-    },
-    "login": {
-        "prompt": "Laske sõpradel teid ära tunda:",
-        "newUser": "või looge allpool uus konto",
-        "picTooltip": "Saate seda pilti hiljem muuta",
-        "placeholders": {
-            "fullName": "Sisestage oma täisnimi"
-        }
-    },
-    "interests": {
-        "Filter": "Otsinguhuvid",
-        "CanGrant": "Kui te ikka ei leia seda, mida otsite, saate allpool lisada uue huvi.",
-        "TrySynonyms": "Kas te ei näe seda? Proovige sünonüüme.",
-        "AddUnderCategory": "Lisa kategooria alla...",
-        "Other": "muud",
-        "Unlisted": "Registreerimata"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Sõnum on märgistatud administraatori ülevaatamiseks. Lipu tühistamiseks puudutage uuesti.",
-        "noOneSaid": "Keegi pole midagi öelnud",
-        "closeChatButton": "Sule vestlus",
-        "closeChatConfirmTitle": "Kas sulgeda see vestlus?",
-        "closeChatConfirm": "Kas olete kindel, et soovite selle vestluse sulgeda?",
-        "Subscribed": "Märguanded lubatud",
-        "Unsubscribed": "Märguanded vaigistatud",
-        "closeChatConfirmYes": "Jah",
-        "closeChatConfirmNo": "Ei",
-        "earlierComments": "varasemad kommentaarid",
-        "startedConversation": "alustas vestlust",
-        "RealTimeCall": "Reaalajas kõne",
-        "JoinWebRTC": "Telekonverents",
-        "SearchByName": "Otsi nime järgi",
-        "Notifications": {
-            "Visit": "{{displayName}} külastab vestlust",
-            "Join": "{{displayName}} liitus vestlusega",
-            "Leave": "{{displayName}} lahkus vestlusest",
-            "RelatedTo": "{{displayName}} alustas {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "Lisa kommentaar",
-            "Private": "Kirjutage privaatsõnum"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "hallata oma e-posti tellimusi",
-        "IfUnsubscribe": "Kui soovite tellimusest loobuda",
-        "*": "Sõnum {{{ message.fields.type}} kuni {{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} liitus",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} jäänud",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} ütles: {{& message.content}}}",
-        "Streams\/changed": "Muudatused {{stream.fields.title}} aastal",
-        "Streams\/invite": "Teid kutsuti numbrile {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Teadaanne aastal {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} muutis juurdepääsu {{& stream.fields.title}}} aastal",
-        "Streams\/chat\/edit": "Vestlussõnumit on muudetud aastal {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "Vestlussõnum eemaldati aastal {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} on suletud",
-        "Streams\/task\/progress": "Edusammud {{stream.fields.title}} puhul",
-        "Streams\/task\/complete": "Ülesanne täidetud: {{stream.fields.title}}",
-        "Streams\/task\/error": "Viga ajal: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : sissetulev sõnum",
-        "Streams\/relatedTo\/Streams\/call": "Uus kõne algas aastal {{toTitle}}",
-        "Streams\/relatedTo\/*": "Uus {{relationDisplayType}} {{toTitle}} st",
-        "Streams\/relatedFrom\/*": "Lisati {{toTitle}} kui {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} mainis teid kommentaaris",
-        "Streams\/call": "{{displayName}} alustas reaalajas kõnet",
-        "changed": {
-            "ChangesIn": "Muudatused {{title}}",
-            "Changed": "muutunud",
-            "HereIsWhatChanged": "Siin on see, mis muutus:"
-        },
-        "joined": {
-            "Joined": "{{subject}} liitus <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Kutsu",
-        "Invite": "Kutsu",
-        "Share": "Jaga",
-        "messageContent": "{{displayName}} kutsus teid {{inviteUrl}} le",
-        "youCanNowPaste": "Nüüd saate selle lingi inimeste kutsumiseks kuhugi kleepida",
-        "roles": {
-            "title": "Kas anda kutsutud kasutajatele rolle?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Vabandust",
-                "alert": "Teil pole õigust seda rolli anda"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Vabandust",
-                "alert": "Teil pole õigust seda rolli eemaldada"
-            }
-        },
-        "labels": {
-            "title": "Mis on teie suhe?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Valige oma kontaktide hulgast",
-            "chooseAgainFromContacts": "Valige uuesti kontaktidest",
-            "inviteSelectedContacts": "Kutsuge valitud kontaktid",
-            "selectFromContacts": "Valige Kontaktidest",
-            "userChooserPlaceholder": "Otsi nime järgi",
-            "photo": "Pildista",
-            "photoOf": "Pildistage {{name}}",
-            "photoInstruction": "Kui teie ees on QR-koodi skaneerinud inimene, tehke temast foto",
-            "to": "Kellele: {{Stream Title}}",
-            "go": "Mine",
-            "title": "Kutsu",
-            "placeholder": "Mobiili number või e-posti aadress",
-            "orInvite": "Või kutsuge inimesi, kasutades:",
-            "copyLink": "{{ClickOrTap}} kutselingi kopeerimiseks",
-            "shareOrCopyLink": "{{ClickOrTap}} kutselingi jagamiseks või kopeerimiseks",
-            "QR": "{{ClickOrTap}} QR-koodi genereerimiseks",
-            "QRtitle": "Skannige see QR-kood",
-            "QRscanned": "Nad skaneerisid selle!",
-            "scannedQR": "{{ClickOrTap}} , kui kood skanniti",
-            "byEmail": "Meil",
-            "bySms": "Tekst",
-            "byFacebook": "Facebook",
-            "byTwitter": "Twitter",
-            "title2": "Kutsuge inimesi",
-            "chooseMethod": "Valige meetod:",
-            "selectContacts": "Valige Kontaktid",
-            "scanQRCode": "QR-koodi skannimine",
-            "shareLink": "Jaga linki",
-            "chooseFromRegistered": "Valige registreeritud kasutajate hulgast",
-            "inviteViaEmailOrSms": "Kutsuge e-posti või SMS-i teel",
-            "TakeGroupPhoto": "Tehke grupifoto",
-            "Skip": "Vahele jätma",
-            "byTelegram": "Telegramm",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Lisa rollid",
-            "addPersonalRoles": "Lisage isiklikud suhted"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Tere tulemast numbrile {{communityName}}",
-            "HasInvitedYou": "on kutsunud teid:",
-            "HasInvitedYouToTheirProfile": "kutsus teid ühendust võtma.",
-            "prompt": "Laske sõpradel teid ära tunda:",
-            "accept": "Nõustu kutsega"
-        },
-        "email": {
-            "subject": "Hei, vaata seda",
-            "PleaseVisitLink": "Külastage järgmist linki:",
-            "InvitingYou": "Kutsun teid numbrile {{title}}",
-            "HasInvitedYou": "{{displayName}} kutsus teid {{title}} le",
-            "HasMentionedYou": "{{displayName}} on teid &quot; {{title}} &quot; hulgas maininud",
-            "YOUAREINVITED": "TE OLETE KUTSUTUD!",
-            "AcceptInvite": "Nõustu kutsega"
-        },
-        "mobile": {
-            "content": "Teid on kutsutud numbrile {{title}} . Puudutage {{url}}"
-        },
-        "notice": {
-            "text": "Sind on kutsutud. {{ClickOrTap}} siin, et nõustuda ja liituda."
-        },
-        "chat": {
-            "prompt": "Kutsute inimesi vestlusele, kus saate ühendust hoida, koos fotosid jagada ja palju muud. Andke sellele nimi:"
-        },
-        "Participants": "Kutsuge inimesi"
-    },
-    "messages": {
-        "html": {
-            "posted": "postitas <em>{{message.fields.type}}<\/em> sõnumi numbrile {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "kommenteeris",
-            "startedCallIn": "alustas kõnet",
-            "in": "sisse",
-            "body": "aastal {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "on postitatud aadressile",
-                "byAvatar": "{{avatar.displayName}} võrra"
-            },
-            "relatedTo": {
-                "hasANew": "on uus {{instructions.fromDisplayType}}",
-                "byAvatar": "lisas {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Meie numbrilt saadetakse kutsed, mida teie sõbrad veel ära ei tunne. Seejärel saatke neile kiire tekst, et anda neile teada, et kutse tuli teilt, paludes neil lingil klõpsata.",
-            "confirm": "Meie numbrilt saadetakse kutsed, mida teie sõbrad veel ära ei tunne. Kas soovite järgneda kiirele tekstile, et anda neile teada, et kutse tuli teilt, paludes neil lingil klõpsata.",
-            "check": "Hei, saatsin teile just kutse rakendusse {{app}} . Palun kontrolli oma SMS-i ja kliki lingile!",
-            "CheckYourMobile": "Kontrollige SMS-i ja järgige juhiseid!"
-        },
-        "email": {
-            "alert": "Meie domeenist saadetakse kutsed, mida teie sõbrad veel ära ei tunne. Seejärel saatke neile kiire tekst, et anda neile teada, et kutse tuli teilt, paludes neil lingil klõpsata.",
-            "confirm": "Meie domeenist saadetakse kutsed, mida teie sõbrad veel ära ei tunne. Kas soovite järgneda kiirele tekstile, et anda neile teada, et kutse tuli teilt, paludes neil lingil klõpsata.",
-            "subject": "Kas said kutse?",
-            "body": "Hei, saatsin teile just kutse rakendusse {{app}} . Kontrollige oma e-posti ja klõpsake seal olevat linki!",
-            "CheckYourEmail": "Palun kontrolli oma meili ja järgi juhiseid!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Privaatsusseaded"
-    },
-    "participating": {
-        "Title": "Pealkiri",
-        "Subscribed": "Tellitud",
-        "Participants": "Osalejad",
-        "AreYouSureRemoveIdentifier": "Kas olete kindel, et eemaldate selle identifikaatori?",
-        "AreYouSureUnsubscribeIdentifier": "Kas olete kindel, et loobute selle identifikaatori tellimusest? See lülitab selle identifikaatori märguanded välja.",
-        "AreYouSureUnsubscribeDevice": "Kas olete kindel, et loobute selle seadme tellimusest? See lülitab selle seadme märguanded välja.",
-        "AreYouSureRemoveParticipant": "Kas olete kindel, et soovite selle osaleja eemaldada?",
-        "RemoveParticipant": "Eemalda osaleja",
-        "Identifiers": "Identifikaatorid",
-        "Devices": "Seadmed",
-        "Streams": "Vood"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Kutsutud",
-            "description": "Kutsete postkast"
-        },
-        "Streams\/resource": {
-            "displayType": "Ressurss",
-            "description": "voog ressursile juurdepääsu haldamiseks ja värskenduste kohta teadete postitamiseks"
-        },
-        "Streams\/task": {
-            "description": "teatud ülesande edenemise kohta värskenduste saamiseks",
-            "displayType": "Ülesanne"
-        },
-        "Streams\/tasks": {
-            "description": "kategooria ülesannete jaoks",
-            "displayType": "Ülesanded"
-        },
-        "Streams\/experience": {
-            "description": "kogukonna liikmete ühine kogemus",
-            "displayType": "Ühine kogemus kogukonna liikmetele"
-        },
-        "Streams\/greeting": {
-            "description": "tervitus, millega kasutaja saab end tutvustada",
-            "displayType": "Tervitus"
-        },
-        "Streams\/number": {
-            "displayType": "Number",
-            "description": "matemaatiline arv"
-        },
-        "Streams\/date": {
-            "displayType": "Kuupäev",
-            "description": "kuupäeva"
-        },
-        "Streams\/text": {
-            "displayType": "Tekst",
-            "description": "tekstiosa"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Tekst",
-            "description": "väike tekstiosa"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Tekst",
-            "description": "keskmine tekstiosa"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "E-posti aadress",
-            "description": "e-posti aadress"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Telefoninumber",
-            "description": "telefoninumber"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "link veebis"
-        },
-        "Streams\/image": {
-            "displayType": "Pilt",
-            "description": "visuaalne pilt",
-            "newItem": "Lisa pilt"
-        },
-        "Streams\/images": {
-            "displayType": "Pildigalerii",
-            "description": "piltide galerii"
-        },
-        "Streams\/album": {
-            "displayType": "Album",
-            "description": "album, millega on seotud erinevad meediakanalid"
-        },
-        "Streams\/file": {
-            "displayType": "Fail",
-            "description": "üles laaditud fail",
-            "newItem": "Lisa fail"
-        },
-        "Streams\/audio": {
-            "displayType": "Heliklipp",
-            "description": "heliklipp",
-            "newItem": "Lisa heli"
-        },
-        "Streams\/video": {
-            "displayType": "Videoklipp",
-            "description": "videoklipp",
-            "newItem": "Lisa video"
-        },
-        "Streams\/pdf": {
-            "displayType": "PDF dokument",
-            "description": "PDF dokument",
-            "newItem": "Lisage PDF"
-        },
-        "Streams\/live": {
-            "displayType": "Otseülekanne",
-            "description": "reaalajas heli või video"
-        },
-        "Streams\/category": {
-            "displayType": "Kategooria",
-            "description": "kategooria, millega saab seostada teisi vooge",
-            "newItem": "Lisa kategooria"
-        },
-        "Streams\/participating": {
-            "displayType": "Osalemise indeks",
-            "description": "vood on sellega seotud\/ei ole seotud, kui kasutaja liitub\/lahkub"
-        },
-        "Streams\/interest": {
-            "displayType": "Huvi",
-            "description": "esindab kasutaja huvi teatud teema vastu"
-        },
-        "Streams\/incoming": {
-            "displayType": "Sissetulevad",
-            "description": "teiste kasutajate saadetud sõnumite sihtkoht"
-        },
-        "Streams\/chat": {
-            "displayType": "Vestlus",
-            "description": "vestlus kasutajate vahel ajalooga"
-        },
-        "Streams\/question": {
-            "displayType": "küsimus",
-            "description": "küsimuste voog",
-            "newItem": "Lisa küsimus"
-        },
-        "Streams\/answer": {
-            "displayType": "Vastus",
-            "description": "vastuste voog"
-        },
-        "Streams\/topic": {
-            "displayType": "Teema",
-            "description": "teemavoog",
-            "newItem": "Lisa teema"
-        }
-    },
-    "menu": {
-        "placeholder": "tippige lehe pealkiri",
-        "ModTab": "Muuda üksust",
-        "Save": "Salvesta",
-        "Delete": "Kustuta",
-        "Submenu": "Alammenüü"
-    },
-    "audio": {
-        "record": "Salvestus",
-        "reset": "Lähtesta",
-        "edit": "Muuda",
-        "title": "pealkiri",
-        "description": "kirjeldus",
-        "upload": "Laadi üles",
-        "link": "Link",
-        "setUrl": "Määra URL",
-        "save": "Salvesta",
-        "setClip": "Lõika välja klipp",
-        "invalidURL": "vigane URL",
-        "invalidFile": "Vigane fail",
-        "errorNoSource": "Heliallikat pole",
-        "uploadLimit": "Max faili suurus: {{size}}",
-        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
-        "TeaserAudio": "Teaser Audio"
-    },
-    "video": {
-        "reset": "Lähtesta",
-        "edit": "Muuda",
-        "title": "pealkiri",
-        "description": "kirjeldus",
-        "upload": "Laadi üles",
-        "link": "Link",
-        "setUrl": "Määra URL",
-        "save": "Salvesta",
-        "setClip": "Lõika välja klipp",
-        "invalidURL": "vigane URL",
-        "invalidFile": "Vigane fail",
-        "errorNoSource": "Videoallikat pole",
-        "uploadLimit": "Max faili suurus: {{size}}",
-        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
-        "createAnimatedThumbnail": "Looge animeeritud pisipilt",
-        "errorNotAvailable": "Kahjuks pole video veel saadaval. Palun proovi hiljem uuesti.",
-        "NewVideo": "Uus Video",
-        "EditVideo": "Redigeeri videot",
-        "TeaserVideo": "Teaser Video"
-    },
-    "pdf": {
-        "reset": "Lähtesta",
-        "edit": "Muuda",
-        "title": "pealkiri",
-        "description": "kirjeldus",
-        "upload": "Laadi üles",
-        "link": "Link",
-        "setUrl": "Määra URL",
-        "save": "Salvesta",
-        "setClip": "Lõika välja klipp",
-        "invalidURL": "vigane URL",
-        "invalidFile": "Vigane fail",
-        "errorNoSource": "Pdf-allikat pole",
-        "uploadLimit": "Max faili suurus: {{size}}",
-        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
-        "TeaserPDF": "Teaser PDF"
-    },
-    "image": {
-        "reset": "Lähtesta",
-        "edit": "Muuda",
-        "title": "pealkiri",
-        "description": "kirjeldus",
-        "upload": "Laadi üles",
-        "link": "Link",
-        "setUrl": "Määra URL",
-        "save": "Salvesta",
-        "uploadedImage": "Üles laaditud pilt",
-        "imageTitle": "Pildi pealkiri",
-        "setClip": "Lõika välja klipp",
-        "invalidURL": "vigane URL",
-        "invalidFile": "Vigane fail",
-        "errorNoSource": "Pildiallikas puudub",
-        "uploadLimit": "Max faili suurus: {{size}}",
-        "errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
-        "TeaserImage": "Teaseri pilt"
-    },
-    "questions": {
-        "Questions": "Küsimused",
-        "Answers": "Vastused",
-        "AnswerQuestion": "Vasta küsimusele",
-        "SetYourAnswer": "Palun vastake küsimusele",
-        "NewQuestion": "Uus küsimus",
-        "EditQuestion": "Muuda küsimust",
-        "NewAnswer": "Uus vastus",
-        "NewPossibleAnswer": "Uus võimalik vastus",
-        "AnswerDetails": "Vastuse üksikasjad",
-        "answerOption": "Võimalus",
-        "answerOptionExclusive": "Eksklusiivne",
-        "answerTextarea": "Tekstiala",
-        "answerText": "Tekst",
-        "HideUntilAnswered": "Peida, kuni vastatakse",
-        "CantChangeAnswers": "Vastuseid ei saa muuta",
-        "FreeAnswer": "Kirjuta oma vastus siia",
-        "SaveQuestion": "Salvesta küsimus",
-        "SaveAnswer": "Salvesta vastus",
-        "Save": "Salvesta",
-        "Send": "Saada",
-        "TitleRequired": "Pealkiri nõutav!",
-        "AlreadyAnswered": "Juba vastatud",
-        "TitlePlaceholder": "Sisestage oma küsimus",
-        "ContentPlaceholder": "Pange siia lisateavet, et aidata inimestel vastata",
-        "ErrorTitle": "Vajalik küsimus",
-        "Placeholder": "Kirjutage juhised",
-        "AreYouSure": "Oled sa kindel?",
-        "ShortAnswer": "Kirjutage lühike vastus",
-        "AnswerCantBeChanged": "Vastust ei saa muuta"
-    },
-    "experience": {
-        "NewExperience": "Uus kogemus",
-        "DefineTitle": "Palun määrake pealkiri",
-        "Create": "Loo"
-    },
-    "calls": {
-        "SettingsTitle": "Kõned",
-        "MaxCalls": "Max kõned",
-        "Update": "Värskenda",
-        "NoCallsYet": "Kõnesid veel pole",
-        "CallReasonTitle": "Millest see kõne räägib?",
-        "WaitingRoom": "Ooteruum",
-        "LiveRoom": "Live Room",
-        "interviewedByAnotherHost": "Hetkel intervjueerib teine saatejuht",
-        "bringToLive": "Bring To Live Show",
-        "putOnHold": "Pane ootele",
-        "endCall": "Lõpeta kõne",
-        "interview": "Intervjuu",
-        "markApproved": "Märgi heaks kiidetud"
-    },
-    "relate": {
-        "Add": "Lisage {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "Kasutaja nimi..."
-    },
-    "task": {
-        "errorsTitle": "Tekkisid vead"
-    },
-    "topic": {
-        "NewTopic": "Uus teema",
-        "UpdateTopic": "Värskenda teemat",
-        "CreateTopic": "Loo teema",
-        "AreYouSureDeleteTopic": "Kas olete kindel, et soovite selle teema kustutada?",
-        "TitlePlaceholder": "teema pealkiri...",
-        "DescribeTopic": "kirjelda teemat...",
-        "TopicIcon": "Teema pilt",
-        "UploadIcon": "Üleslaadimise ikoon",
-        "Conversation": "Vestlus",
-        "Metrics": "Mõõdikud",
-        "Teaser": "Teaser",
-        "TeaserDescription": "teaseri kirjeldus...",
-        "TeaserVideo": "Teaser Video"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Looge animeeritud pisipilt",
-        "Width": "Laius",
-        "Height": "Kõrgus",
-        "Start": "Alusta",
-        "End": "Lõpp",
-        "Delay": "Viivitus",
-        "Quality": "Kvaliteet",
-        "Size": "Suurus",
-        "OfFrames": "raamidest",
-        "Frame": "Raam",
-        "UseThis": "Kasuta seda",
-        "ResultGIF": "Tulemus GIF",
-        "VideoElementNotFound": "Videoelementi ei leitud"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} Sinu näol",
-        "AcceptIcon": "Nõustu valitud alaga"
-    }
+	"errors": {
+		"HiddenFromYou": "See sisu on teie eest peidetud.",
+		"InplaceTypeMustBe": "inplaceType peab olema tekstiala v\u00f5i tekst",
+		"AmountInvalid": "Palun sisesta kehtiv millisekundite arv."
+	},
+	"preview": {
+		"NewItemTitle": "Uus \u00fcksus",
+		"Teaser": "Teaser"
+	},
+	"avatar": {
+		"firstName": "eesnimi",
+		"lastName": "perekonnanimi",
+		"username": "kasutajanimi"
+	},
+	"labels": {
+		"Streams/invited": "Inimesed, keda kutsusin",
+		"Streams/invitedMe": "Kes mind kutsus",
+		"DoYouAgree": "Kas sa n\u00f5ustud?",
+		"Yes": "Jah",
+		"No": "Ei",
+		"JoinItNow": "Kas liituda sellega kohe?"
+	},
+	"login": {
+		"prompt": "Laske s\u00f5pradel teid \u00e4ra tunda:",
+		"newUser": "v\u00f5i looge allpool uus konto",
+		"picTooltip": "Saate seda pilti hiljem muuta",
+		"placeholders": {
+			"fullName": "Sisestage oma t\u00e4isnimi"
+		}
+	},
+	"interests": {
+		"Filter": "Otsinguhuvid",
+		"CanGrant": "Kui te ikka ei leia seda, mida otsite, saate allpool lisada uue huvi.",
+		"TrySynonyms": "Kas te ei n\u00e4e seda? Proovige s\u00fcnon\u00fc\u00fcme.",
+		"AddUnderCategory": "Lisa kategooria alla...",
+		"Other": "muud",
+		"Unlisted": "Registreerimata"
+	},
+	"chat": {
+		"flaggedForAdminReview": "S\u00f5num on m\u00e4rgistatud administraatori \u00fclevaatamiseks. Lipu t\u00fchistamiseks puudutage uuesti.",
+		"noOneSaid": "Keegi pole midagi \u00f6elnud",
+		"closeChatButton": "Sule vestlus",
+		"closeChatConfirmTitle": "Kas sulgeda see vestlus?",
+		"closeChatConfirm": "Kas olete kindel, et soovite selle vestluse sulgeda?",
+		"Subscribed": "M\u00e4rguanded lubatud",
+		"Unsubscribed": "M\u00e4rguanded vaigistatud",
+		"closeChatConfirmYes": "Jah",
+		"closeChatConfirmNo": "Ei",
+		"earlierComments": "varasemad kommentaarid",
+		"startedConversation": "alustas vestlust",
+		"RealTimeCall": "Reaalajas k\u00f5ne",
+		"JoinWebRTC": "Telekonverents",
+		"SearchByName": "Otsi nime j\u00e4rgi",
+		"Notifications": {
+			"Visit": "{{displayName}} k\u00fclastab vestlust",
+			"Join": "{{displayName}} liitus vestlusega",
+			"Leave": "{{displayName}} lahkus vestlusest",
+			"RelatedTo": "{{displayName}} alustas {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "Lisa kommentaar",
+			"Private": "Kirjutage privaats\u00f5num"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "hallata oma e-posti tellimusi",
+		"IfUnsubscribe": "Kui soovite tellimusest loobuda",
+		"*": "S\u00f5num {{{ message.fields.type}} kuni {{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} liitus",
+		"Streams/left": "{{{call 'avatar.displayName'}}} j\u00e4\u00e4nud",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} \u00fctles: {{& message.content}}}",
+		"Streams/changed": "Muudatused {{stream.fields.title}} aastal",
+		"Streams/invite": "Teid kutsuti numbrile {{{ stream.fields.title}}}",
+		"Streams/announcement": "Teadaanne aastal {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} muutis juurdep\u00e4\u00e4su {{& stream.fields.title}}} aastal",
+		"Streams/chat/edit": "Vestluss\u00f5numit on muudetud aastal {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "Vestluss\u00f5num eemaldati aastal {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} on suletud",
+		"Streams/task/progress": "Edusammud {{stream.fields.title}} puhul",
+		"Streams/task/complete": "\u00dclesanne t\u00e4idetud: {{stream.fields.title}}",
+		"Streams/task/error": "Viga ajal: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : sissetulev s\u00f5num",
+		"Streams/relatedTo/Streams/call": "Uus k\u00f5ne algas aastal {{toTitle}}",
+		"Streams/relatedTo/*": "Uus {{relationDisplayType}} {{toTitle}} st",
+		"Streams/relatedFrom/*": "Lisati {{toTitle}} kui {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} mainis teid kommentaaris",
+		"Streams/call": "{{displayName}} alustas reaalajas k\u00f5net",
+		"changed": {
+			"ChangesIn": "Muudatused {{title}}",
+			"Changed": "muutunud",
+			"HereIsWhatChanged": "Siin on see, mis muutus:"
+		},
+		"joined": {
+			"Joined": "{{subject}} liitus <em>{{title}}</em>"
+		},
+		"Streams/invited": "Sind kutsuti {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "Kutsu",
+		"Invite": "Kutsu",
+		"Share": "Jaga",
+		"messageContent": "{{displayName}} kutsus teid {{inviteUrl}} le",
+		"youCanNowPaste": "N\u00fc\u00fcd saate selle lingi inimeste kutsumiseks kuhugi kleepida",
+		"roles": {
+			"title": "Kas anda kutsutud kasutajatele rolle?",
+			"NotAuthorizedToGrantRole": {
+				"title": "Vabandust",
+				"alert": "Teil pole \u00f5igust seda rolli anda"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "Vabandust",
+				"alert": "Teil pole \u00f5igust seda rolli eemaldada"
+			}
+		},
+		"labels": {
+			"title": "Mis on teie suhe?"
+		},
+		"dialog": {
+			"chooseFromContacts": "Valige oma kontaktide hulgast",
+			"chooseAgainFromContacts": "Valige uuesti kontaktidest",
+			"inviteSelectedContacts": "Kutsuge valitud kontaktid",
+			"selectFromContacts": "Valige Kontaktidest",
+			"userChooserPlaceholder": "Otsi nime j\u00e4rgi",
+			"photo": "Pildista",
+			"photoOf": "Pildistage {{name}}",
+			"photoInstruction": "Kui teie ees on QR-koodi skaneerinud inimene, tehke temast foto",
+			"to": "Kellele: {{Stream Title}}",
+			"go": "Mine",
+			"title": "Kutsu",
+			"placeholder": "Mobiili number v\u00f5i e-posti aadress",
+			"orInvite": "V\u00f5i kutsuge inimesi, kasutades:",
+			"copyLink": "{{ClickOrTap}} kutselingi kopeerimiseks",
+			"shareOrCopyLink": "{{ClickOrTap}} kutselingi jagamiseks v\u00f5i kopeerimiseks",
+			"QR": "{{ClickOrTap}} QR-koodi genereerimiseks",
+			"QRtitle": "Skannige see QR-kood",
+			"QRscanned": "Nad skaneerisid selle!",
+			"scannedQR": "{{ClickOrTap}} , kui kood skanniti",
+			"byEmail": "Meil",
+			"bySms": "Tekst",
+			"byFacebook": "Facebook",
+			"byTwitter": "Twitter",
+			"title2": "Kutsuge inimesi",
+			"chooseMethod": "Valige meetod:",
+			"selectContacts": "Valige Kontaktid",
+			"scanQRCode": "QR-koodi skannimine",
+			"shareLink": "Jaga linki",
+			"chooseFromRegistered": "Valige registreeritud kasutajate hulgast",
+			"inviteViaEmailOrSms": "Kutsuge e-posti v\u00f5i SMS-i teel",
+			"TakeGroupPhoto": "Tehke grupifoto",
+			"Skip": "Vahele j\u00e4tma",
+			"byTelegram": "Telegramm",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "Lisa rollid",
+			"addPersonalRoles": "Lisage isiklikud suhted"
+		},
+		"complete": {
+			"WelcomeToCommunity": "Tere tulemast numbrile {{communityName}}",
+			"HasInvitedYou": "on kutsunud teid:",
+			"HasInvitedYouToTheirProfile": "kutsus teid \u00fchendust v\u00f5tma.",
+			"prompt": "Laske s\u00f5pradel teid \u00e4ra tunda:",
+			"accept": "N\u00f5ustu kutsega"
+		},
+		"email": {
+			"subject": "Hei, vaata seda",
+			"PleaseVisitLink": "K\u00fclastage j\u00e4rgmist linki:",
+			"InvitingYou": "Kutsun teid numbrile {{title}}",
+			"HasInvitedYou": "{{displayName}} kutsus teid {{title}} le",
+			"HasMentionedYou": "{{displayName}} on teid &quot; {{title}} &quot; hulgas maininud",
+			"YOUAREINVITED": "TE OLETE KUTSUTUD!",
+			"AcceptInvite": "N\u00f5ustu kutsega"
+		},
+		"mobile": {
+			"content": "Teid on kutsutud numbrile {{title}} . Puudutage {{url}}"
+		},
+		"notice": {
+			"text": "Sind on kutsutud. {{ClickOrTap}} siin, et n\u00f5ustuda ja liituda."
+		},
+		"chat": {
+			"prompt": "Kutsute inimesi vestlusele, kus saate \u00fchendust hoida, koos fotosid jagada ja palju muud. Andke sellele nimi:"
+		},
+		"Participants": "Kutsuge inimesi"
+	},
+	"messages": {
+		"html": {
+			"posted": "postitas <em>{{message.fields.type}}</em> s\u00f5numi numbrile {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "kommenteeris",
+			"startedCallIn": "alustas k\u00f5net",
+			"in": "sisse",
+			"body": "aastal {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "on postitatud aadressile",
+				"byAvatar": "{{avatar.displayName}} v\u00f5rra"
+			},
+			"relatedTo": {
+				"hasANew": "on uus {{instructions.fromDisplayType}}",
+				"byAvatar": "lisas {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "Meie numbrilt saadetakse kutsed, mida teie s\u00f5brad veel \u00e4ra ei tunne. Seej\u00e4rel saatke neile kiire tekst, et anda neile teada, et kutse tuli teilt, paludes neil lingil kl\u00f5psata.",
+			"confirm": "Meie numbrilt saadetakse kutsed, mida teie s\u00f5brad veel \u00e4ra ei tunne. Kas soovite j\u00e4rgneda kiirele tekstile, et anda neile teada, et kutse tuli teilt, paludes neil lingil kl\u00f5psata.",
+			"check": "Hei, saatsin teile just kutse rakendusse {{app}} . Palun kontrolli oma SMS-i ja kliki lingile!",
+			"CheckYourMobile": "Kontrollige SMS-i ja j\u00e4rgige juhiseid!"
+		},
+		"email": {
+			"alert": "Meie domeenist saadetakse kutsed, mida teie s\u00f5brad veel \u00e4ra ei tunne. Seej\u00e4rel saatke neile kiire tekst, et anda neile teada, et kutse tuli teilt, paludes neil lingil kl\u00f5psata.",
+			"confirm": "Meie domeenist saadetakse kutsed, mida teie s\u00f5brad veel \u00e4ra ei tunne. Kas soovite j\u00e4rgneda kiirele tekstile, et anda neile teada, et kutse tuli teilt, paludes neil lingil kl\u00f5psata.",
+			"subject": "Kas said kutse?",
+			"body": "Hei, saatsin teile just kutse rakendusse {{app}} . Kontrollige oma e-posti ja kl\u00f5psake seal olevat linki!",
+			"CheckYourEmail": "Palun kontrolli oma meili ja j\u00e4rgi juhiseid!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Privaatsusseaded"
+	},
+	"participating": {
+		"Title": "Pealkiri",
+		"Subscribed": "Tellitud",
+		"Participants": "Osalejad",
+		"AreYouSureRemoveIdentifier": "Kas olete kindel, et eemaldate selle identifikaatori?",
+		"AreYouSureUnsubscribeIdentifier": "Kas olete kindel, et loobute selle identifikaatori tellimusest? See l\u00fclitab selle identifikaatori m\u00e4rguanded v\u00e4lja.",
+		"AreYouSureUnsubscribeDevice": "Kas olete kindel, et loobute selle seadme tellimusest? See l\u00fclitab selle seadme m\u00e4rguanded v\u00e4lja.",
+		"AreYouSureRemoveParticipant": "Kas olete kindel, et soovite selle osaleja eemaldada?",
+		"RemoveParticipant": "Eemalda osaleja",
+		"Identifiers": "Identifikaatorid",
+		"Devices": "Seadmed",
+		"Streams": "Vood"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "Kutsutud",
+			"description": "Kutsete postkast"
+		},
+		"Streams/resource": {
+			"displayType": "Ressurss",
+			"description": "voog ressursile juurdep\u00e4\u00e4su haldamiseks ja v\u00e4rskenduste kohta teadete postitamiseks"
+		},
+		"Streams/task": {
+			"description": "teatud \u00fclesande edenemise kohta v\u00e4rskenduste saamiseks",
+			"displayType": "\u00dclesanne"
+		},
+		"Streams/tasks": {
+			"description": "kategooria \u00fclesannete jaoks",
+			"displayType": "\u00dclesanded"
+		},
+		"Streams/experience": {
+			"description": "kogukonna liikmete \u00fchine kogemus",
+			"displayType": "\u00dchine kogemus kogukonna liikmetele"
+		},
+		"Streams/greeting": {
+			"description": "tervitus, millega kasutaja saab end tutvustada",
+			"displayType": "Tervitus"
+		},
+		"Streams/number": {
+			"displayType": "Number",
+			"description": "matemaatiline arv"
+		},
+		"Streams/date": {
+			"displayType": "Kuup\u00e4ev",
+			"description": "kuup\u00e4eva"
+		},
+		"Streams/text": {
+			"displayType": "Tekst",
+			"description": "tekstiosa"
+		},
+		"Streams/text/small": {
+			"displayType": "Tekst",
+			"description": "v\u00e4ike tekstiosa"
+		},
+		"Streams/text/medium": {
+			"displayType": "Tekst",
+			"description": "keskmine tekstiosa"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "E-posti aadress",
+			"description": "e-posti aadress"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Telefoninumber",
+			"description": "telefoninumber"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "link veebis"
+		},
+		"Streams/image": {
+			"displayType": "Pilt",
+			"description": "visuaalne pilt",
+			"newItem": "Lisa pilt"
+		},
+		"Streams/images": {
+			"displayType": "Pildigalerii",
+			"description": "piltide galerii"
+		},
+		"Streams/album": {
+			"displayType": "Album",
+			"description": "album, millega on seotud erinevad meediakanalid"
+		},
+		"Streams/file": {
+			"displayType": "Fail",
+			"description": "\u00fcles laaditud fail",
+			"newItem": "Lisa fail"
+		},
+		"Streams/audio": {
+			"displayType": "Heliklipp",
+			"description": "heliklipp",
+			"newItem": "Lisa heli"
+		},
+		"Streams/video": {
+			"displayType": "Videoklipp",
+			"description": "videoklipp",
+			"newItem": "Lisa video"
+		},
+		"Streams/pdf": {
+			"displayType": "PDF dokument",
+			"description": "PDF dokument",
+			"newItem": "Lisage PDF"
+		},
+		"Streams/live": {
+			"displayType": "Otse\u00fclekanne",
+			"description": "reaalajas heli v\u00f5i video"
+		},
+		"Streams/category": {
+			"displayType": "Kategooria",
+			"description": "kategooria, millega saab seostada teisi vooge",
+			"newItem": "Lisa kategooria"
+		},
+		"Streams/participating": {
+			"displayType": "Osalemise indeks",
+			"description": "vood on sellega seotud/ei ole seotud, kui kasutaja liitub/lahkub"
+		},
+		"Streams/interest": {
+			"displayType": "Huvi",
+			"description": "esindab kasutaja huvi teatud teema vastu"
+		},
+		"Streams/incoming": {
+			"displayType": "Sissetulevad",
+			"description": "teiste kasutajate saadetud s\u00f5numite sihtkoht"
+		},
+		"Streams/chat": {
+			"displayType": "Vestlus",
+			"description": "vestlus kasutajate vahel ajalooga"
+		},
+		"Streams/question": {
+			"displayType": "k\u00fcsimus",
+			"description": "k\u00fcsimuste voog",
+			"newItem": "Lisa k\u00fcsimus"
+		},
+		"Streams/answer": {
+			"displayType": "Vastus",
+			"description": "vastuste voog"
+		},
+		"Streams/topic": {
+			"displayType": "Teema",
+			"description": "teemavoog",
+			"newItem": "Lisa teema"
+		}
+	},
+	"menu": {
+		"placeholder": "tippige lehe pealkiri",
+		"ModTab": "Muuda \u00fcksust",
+		"Save": "Salvesta",
+		"Delete": "Kustuta",
+		"Submenu": "Alammen\u00fc\u00fc"
+	},
+	"audio": {
+		"record": "Salvestus",
+		"reset": "L\u00e4htesta",
+		"edit": "Muuda",
+		"title": "pealkiri",
+		"description": "kirjeldus",
+		"upload": "Laadi \u00fcles",
+		"link": "Link",
+		"setUrl": "M\u00e4\u00e4ra URL",
+		"save": "Salvesta",
+		"setClip": "L\u00f5ika v\u00e4lja klipp",
+		"invalidURL": "vigane URL",
+		"invalidFile": "Vigane fail",
+		"errorNoSource": "Heliallikat pole",
+		"uploadLimit": "Max faili suurus: {{size}}",
+		"errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
+		"TeaserAudio": "Teaser Audio"
+	},
+	"video": {
+		"reset": "L\u00e4htesta",
+		"edit": "Muuda",
+		"title": "pealkiri",
+		"description": "kirjeldus",
+		"upload": "Laadi \u00fcles",
+		"link": "Link",
+		"setUrl": "M\u00e4\u00e4ra URL",
+		"save": "Salvesta",
+		"setClip": "L\u00f5ika v\u00e4lja klipp",
+		"invalidURL": "vigane URL",
+		"invalidFile": "Vigane fail",
+		"errorNoSource": "Videoallikat pole",
+		"uploadLimit": "Max faili suurus: {{size}}",
+		"errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
+		"createAnimatedThumbnail": "Looge animeeritud pisipilt",
+		"errorNotAvailable": "Kahjuks pole video veel saadaval. Palun proovi hiljem uuesti.",
+		"NewVideo": "Uus Video",
+		"EditVideo": "Redigeeri videot",
+		"TeaserVideo": "Teaser Video"
+	},
+	"pdf": {
+		"reset": "L\u00e4htesta",
+		"edit": "Muuda",
+		"title": "pealkiri",
+		"description": "kirjeldus",
+		"upload": "Laadi \u00fcles",
+		"link": "Link",
+		"setUrl": "M\u00e4\u00e4ra URL",
+		"save": "Salvesta",
+		"setClip": "L\u00f5ika v\u00e4lja klipp",
+		"invalidURL": "vigane URL",
+		"invalidFile": "Vigane fail",
+		"errorNoSource": "Pdf-allikat pole",
+		"uploadLimit": "Max faili suurus: {{size}}",
+		"errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
+		"TeaserPDF": "Teaser PDF"
+	},
+	"image": {
+		"reset": "L\u00e4htesta",
+		"edit": "Muuda",
+		"title": "pealkiri",
+		"description": "kirjeldus",
+		"upload": "Laadi \u00fcles",
+		"link": "Link",
+		"setUrl": "M\u00e4\u00e4ra URL",
+		"save": "Salvesta",
+		"uploadedImage": "\u00dcles laaditud pilt",
+		"imageTitle": "Pildi pealkiri",
+		"setClip": "L\u00f5ika v\u00e4lja klipp",
+		"invalidURL": "vigane URL",
+		"invalidFile": "Vigane fail",
+		"errorNoSource": "Pildiallikas puudub",
+		"uploadLimit": "Max faili suurus: {{size}}",
+		"errorFileSize": "Vabandust, kuid fail on liiga suur.<br> Maksimaalne faili suurus on {{size}}",
+		"TeaserImage": "Teaseri pilt"
+	},
+	"questions": {
+		"Questions": "K\u00fcsimused",
+		"Answers": "Vastused",
+		"AnswerQuestion": "Vasta k\u00fcsimusele",
+		"SetYourAnswer": "Palun vastake k\u00fcsimusele",
+		"NewQuestion": "Uus k\u00fcsimus",
+		"EditQuestion": "Muuda k\u00fcsimust",
+		"NewAnswer": "Uus vastus",
+		"NewPossibleAnswer": "Uus v\u00f5imalik vastus",
+		"AnswerDetails": "Vastuse \u00fcksikasjad",
+		"answerOption": "V\u00f5imalus",
+		"answerOptionExclusive": "Eksklusiivne",
+		"answerTextarea": "Tekstiala",
+		"answerText": "Tekst",
+		"HideUntilAnswered": "Peida, kuni vastatakse",
+		"CantChangeAnswers": "Vastuseid ei saa muuta",
+		"FreeAnswer": "Kirjuta oma vastus siia",
+		"SaveQuestion": "Salvesta k\u00fcsimus",
+		"SaveAnswer": "Salvesta vastus",
+		"Save": "Salvesta",
+		"Send": "Saada",
+		"TitleRequired": "Pealkiri n\u00f5utav!",
+		"AlreadyAnswered": "Juba vastatud",
+		"TitlePlaceholder": "Sisestage oma k\u00fcsimus",
+		"ContentPlaceholder": "Pange siia lisateavet, et aidata inimestel vastata",
+		"ErrorTitle": "Vajalik k\u00fcsimus",
+		"Placeholder": "Kirjutage juhised",
+		"AreYouSure": "Oled sa kindel?",
+		"ShortAnswer": "Kirjutage l\u00fchike vastus",
+		"AnswerCantBeChanged": "Vastust ei saa muuta"
+	},
+	"experience": {
+		"NewExperience": "Uus kogemus",
+		"DefineTitle": "Palun m\u00e4\u00e4rake pealkiri",
+		"Create": "Loo"
+	},
+	"calls": {
+		"SettingsTitle": "K\u00f5ned",
+		"MaxCalls": "Max k\u00f5ned",
+		"Update": "V\u00e4rskenda",
+		"NoCallsYet": "K\u00f5nesid veel pole",
+		"CallReasonTitle": "Millest see k\u00f5ne r\u00e4\u00e4gib?",
+		"WaitingRoom": "Ooteruum",
+		"LiveRoom": "Live Room",
+		"interviewedByAnotherHost": "Hetkel intervjueerib teine saatejuht",
+		"bringToLive": "Bring To Live Show",
+		"putOnHold": "Pane ootele",
+		"endCall": "L\u00f5peta k\u00f5ne",
+		"interview": "Intervjuu",
+		"markApproved": "M\u00e4rgi heaks kiidetud"
+	},
+	"relate": {
+		"Add": "Lisage {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "Kasutaja nimi..."
+	},
+	"task": {
+		"errorsTitle": "Tekkisid vead"
+	},
+	"topic": {
+		"NewTopic": "Uus teema",
+		"UpdateTopic": "V\u00e4rskenda teemat",
+		"CreateTopic": "Loo teema",
+		"AreYouSureDeleteTopic": "Kas olete kindel, et soovite selle teema kustutada?",
+		"TitlePlaceholder": "teema pealkiri...",
+		"DescribeTopic": "kirjelda teemat...",
+		"TopicIcon": "Teema pilt",
+		"UploadIcon": "\u00dcleslaadimise ikoon",
+		"Conversation": "Vestlus",
+		"Metrics": "M\u00f5\u00f5dikud",
+		"Teaser": "Teaser",
+		"TeaserDescription": "teaseri kirjeldus...",
+		"TeaserVideo": "Teaser Video"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Looge animeeritud pisipilt",
+		"Width": "Laius",
+		"Height": "K\u00f5rgus",
+		"Start": "Alusta",
+		"End": "L\u00f5pp",
+		"Delay": "Viivitus",
+		"Quality": "Kvaliteet",
+		"Size": "Suurus",
+		"OfFrames": "raamidest",
+		"Frame": "Raam",
+		"UseThis": "Kasuta seda",
+		"ResultGIF": "Tulemus GIF",
+		"VideoElementNotFound": "Videoelementi ei leitud"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} Sinu n\u00e4ol",
+		"AcceptIcon": "N\u00f5ustu valitud alaga"
+	},
+	"gallery": {
+		"DialogTitle": "Galerii pildi muutmine",
+		"EditImageTitle": "Pildi parameetrite muutmine",
+		"IntervalLabel": "Intervall (ms): ",
+		"IntervalPlaceholder": "nt 3000",
+		"KenburnsInstruction": "Ken Burnsi algus- ja l\u00f5pp-punkti m\u00e4\u00e4ramiseks lohista ja suumi."
+	}
 }

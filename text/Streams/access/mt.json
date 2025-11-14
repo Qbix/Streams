@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "xejn dwarha",
+		"10": "li xi \u0127a\u0121a hemm",
+		"20": "il-kontenut attwali tieg\u0127u",
+		"30": "min qed jipparte\u010bipa fih",
+		"40": "l-attivit\u00e0 so\u010bjali \u0121ewwa"
+	},
+	"writeLevelOptions": {
+		"0": "tag\u0127mel xejn g\u0127aliha",
+		"10": "jipparte\u010bipa fih",
+		"20": "ibg\u0127at messa\u0121\u0121i fuqha",
+		"30": "editja l-kontenut tieg\u0127u"
+	},
+	"adminLevelOptions": {
+		"0": "ma tag\u0127mel xejn spe\u010bjali",
+		"10": "aqsam messa\u0121\u0121i mill-istreaming",
+		"20": "stieden lil o\u0127rajn g\u0127all-istreaming",
+		"30": "immani\u0121\u0121ja l-istreaming",
+		"40": "is-sid tag\u0127ha u ja\u0127tar mani\u0121ers"
+	},
+	"tabs": {
+		"read": "vi\u017cibbli g\u0127al",
+		"write": "editjabbli minn",
+		"admin": "membri"
+	}
+}

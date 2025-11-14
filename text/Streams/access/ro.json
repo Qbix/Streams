@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "nimic despre asta",
+		"10": "c\u0103 ceva este acolo",
+		"20": "con\u021binutul s\u0103u actual",
+		"30": "cine particip\u0103 la ea",
+		"40": "activitatea social\u0103 din interior"
+	},
+	"writeLevelOptions": {
+		"0": "nu face nimic la asta",
+		"10": "particip\u0103 la ea",
+		"20": "posteaz\u0103 mesaje c\u0103tre acesta",
+		"30": "edita\u021bi con\u021binutul acestuia"
+	},
+	"adminLevelOptions": {
+		"0": "s\u0103 nu fac nimic special",
+		"10": "distribui\u021bi mesaje din flux",
+		"20": "invit\u0103 \u0219i alte persoane la flux",
+		"30": "gestioneaz\u0103 fluxul",
+		"40": "de\u021bine-l \u0219i nume\u0219te manageri"
+	},
+	"tabs": {
+		"read": "vizibil pentru",
+		"write": "editabil de",
+		"admin": "membri"
+	}
+}

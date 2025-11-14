@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "wala tungkol dito",
+		"10": "na mayroong isang bagay",
+		"20": "kasalukuyang nilalaman nito",
+		"30": "kung sino ang nakikilahok dito",
+		"40": "ang panlipunang aktibidad sa loob"
+	},
+	"writeLevelOptions": {
+		"0": "walang gawin dito",
+		"10": "lumahok dito",
+		"20": "mag-post ng mga mensahe dito",
+		"30": "i-edit ang nilalaman nito"
+	},
+	"adminLevelOptions": {
+		"0": "hindi gumawa ng anumang espesyal",
+		"10": "magbahagi ng mga mensahe mula sa stream",
+		"20": "mag-imbita ng iba sa stream",
+		"30": "pamahalaan ang stream",
+		"40": "pagmamay-ari ito at humirang ng mga tagapamahala"
+	},
+	"tabs": {
+		"read": "nakikita ng",
+		"write": "nae-edit ni",
+		"admin": "mga miyembro"
+	}
+}

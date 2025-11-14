@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "nekas par to",
+		"10": "ka tur kaut kas ir",
+		"20": "t\u0101 pa\u0161reiz\u0113jais saturs",
+		"30": "kas taj\u0101 piedal\u0101s",
+		"40": "soci\u0101l\u0101 aktivit\u0101te iek\u0161pus\u0113"
+	},
+	"writeLevelOptions": {
+		"0": "neko tam nedar\u012bt",
+		"10": "piedal\u012bties taj\u0101",
+		"20": "public\u0113t taj\u0101 zi\u0146ojumus",
+		"30": "redi\u0123\u0113t t\u0101 saturu"
+	},
+	"adminLevelOptions": {
+		"0": "nedar\u012bt neko \u012bpa\u0161u",
+		"10": "kop\u012bgot zi\u0146ojumus no straumes",
+		"20": "uzaicin\u0101t citus uz straumi",
+		"30": "p\u0101rvald\u012bt straumi",
+		"40": "pieder\u0113t tam un iecelt vad\u012bt\u0101jus"
+	},
+	"tabs": {
+		"read": "redzams",
+		"write": "redi\u0123\u0113jams ar",
+		"admin": "biedri"
+	}
+}

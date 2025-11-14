@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "ingenting om det",
+		"10": "att n\u00e5got finns d\u00e4r",
+		"20": "dess nuvarande inneh\u00e5ll",
+		"30": "vem deltar i det",
+		"40": "den sociala aktiviteten inuti"
+	},
+	"writeLevelOptions": {
+		"0": "g\u00f6r ingenting \u00e5t det",
+		"10": "delta i det",
+		"20": "skicka meddelanden till den",
+		"30": "redigera dess inneh\u00e5ll"
+	},
+	"adminLevelOptions": {
+		"0": "inte g\u00f6ra n\u00e5got speciellt",
+		"10": "dela meddelanden fr\u00e5n str\u00f6mmen",
+		"20": "bjud in andra till str\u00f6mmen",
+		"30": "hantera str\u00f6mmen",
+		"40": "\u00e4ga det och utse chefer"
+	},
+	"tabs": {
+		"read": "synlig f\u00f6r",
+		"write": "redigerbar av",
+		"admin": "medlemmar"
+	}
+}

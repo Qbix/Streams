@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "tidak ada apa-apa tentang itu",
+		"10": "bahwa ada sesuatu di sana",
+		"20": "kontennya saat ini",
+		"30": "siapa yang berpartisipasi di dalamnya",
+		"40": "aktivitas sosial di dalam"
+	},
+	"writeLevelOptions": {
+		"0": "tidak melakukan apa pun terhadapnya",
+		"10": "berpartisipasi di dalamnya",
+		"20": "mengirim pesan ke sana",
+		"30": "edit kontennya"
+	},
+	"adminLevelOptions": {
+		"0": "tidak melakukan sesuatu yang istimewa",
+		"10": "berbagi pesan dari aliran",
+		"20": "mengundang orang lain ke aliran",
+		"30": "mengelola aliran",
+		"40": "memilikinya dan menunjuk manajer"
+	},
+	"tabs": {
+		"read": "terlihat oleh",
+		"write": "dapat diedit oleh",
+		"admin": "anggota"
+	}
+}

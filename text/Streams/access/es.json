@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "Nada al respecto.",
+		"10": "que algo est\u00e1 ah\u00ed",
+		"20": "su contenido actual",
+		"30": "qui\u00e9n participa en ello",
+		"40": "la actividad social dentro"
+	},
+	"writeLevelOptions": {
+		"0": "No le hagas nada.",
+		"10": "participar en ello",
+		"20": "publicar mensajes en \u00e9l",
+		"30": "editar su contenido"
+	},
+	"adminLevelOptions": {
+		"0": "no hacer nada especial",
+		"10": "compartir mensajes de la transmisi\u00f3n",
+		"20": "Invita a otros a la transmisi\u00f3n",
+		"30": "gestionar la transmisi\u00f3n",
+		"40": "ser due\u00f1os de ello y nombrar gerentes"
+	},
+	"tabs": {
+		"read": "visible a",
+		"write": "editable por",
+		"admin": "miembros"
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "ekkert um \u00fea\u00f0",
+		"10": "a\u00f0 eitthva\u00f0 s\u00e9 \u00fearna",
+		"20": "n\u00faverandi efni \u00feess",
+		"30": "hver tekur \u00fe\u00e1tt \u00ed \u00fev\u00ed",
+		"40": "f\u00e9lagslega virknin inni"
+	},
+	"writeLevelOptions": {
+		"0": "gera ekkert vi\u00f0 \u00fea\u00f0",
+		"10": "taka \u00fe\u00e1tt \u00ed \u00fev\u00ed",
+		"20": "senda skilabo\u00f0 til \u00feess",
+		"30": "breyta efni \u00feess"
+	},
+	"adminLevelOptions": {
+		"0": "ekki gera neitt s\u00e9rstakt",
+		"10": "deila skilabo\u00f0um \u00far straumnum",
+		"20": "bj\u00f3\u00f0a \u00f6\u00f0rum \u00ed strauminn",
+		"30": "stj\u00f3rna straumnum",
+		"40": "eiga \u00fea\u00f0 og skipa stj\u00f3rnendur"
+	},
+	"tabs": {
+		"read": "s\u00fdnilegt fyrir",
+		"write": "breytanlegt af",
+		"admin": "me\u00f0limir"
+	}
+}

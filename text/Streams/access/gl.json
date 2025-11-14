@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "nada diso",
+		"10": "que algo est\u00e1 a\u00ed",
+		"20": "o seu contido actual",
+		"30": "quen participa nel",
+		"40": "a actividade social no interior"
+	},
+	"writeLevelOptions": {
+		"0": "non facer nada a iso",
+		"10": "participar nel",
+		"20": "publicar mensaxes nel",
+		"30": "editar o seu contido"
+	},
+	"adminLevelOptions": {
+		"0": "non facer nada especial",
+		"10": "compartir mensaxes da transmisi\u00f3n",
+		"20": "convidar a outras persoas \u00e1 transmisi\u00f3n",
+		"30": "xestionar a transmisi\u00f3n",
+		"40": "pos\u00faeo e nomea xerentes"
+	},
+	"tabs": {
+		"read": "visible para",
+		"write": "editable por",
+		"admin": "membros"
+	}
+}

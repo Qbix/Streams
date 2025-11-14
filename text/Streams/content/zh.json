@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "此内容对您隐藏。",
-        "InplaceTypeMustBe": "inplaceType 必须是 &#39;textarea&#39; 或 &#39;text&#39;"
-    },
-    "preview": {
-        "NewItemTitle": "新物品",
-        "Teaser": "预告片"
-    },
-    "avatar": {
-        "firstName": "名",
-        "lastName": "姓",
-        "username": "用户名"
-    },
-    "labels": {
-        "Streams\/invited": "我邀请的人",
-        "Streams\/invitedMe": "谁邀请我",
-        "DoYouAgree": "你同意？",
-        "Yes": "是的",
-        "No": "不",
-        "JoinItNow": "现在加入吗？"
-    },
-    "login": {
-        "prompt": "让朋友认出你：",
-        "newUser": "或在下面创建一个新帐户",
-        "picTooltip": "您可以稍后更改此图片",
-        "placeholders": {
-            "fullName": "输入您的全名"
-        }
-    },
-    "interests": {
-        "Filter": "搜索兴趣",
-        "CanGrant": "如果你仍然找不到你要找的东西，你可以在下面添加一个新的兴趣：",
-        "TrySynonyms": "没看到吗？尝试一些同义词。",
-        "AddUnderCategory": "在类别下添加...",
-        "Other": "其他",
-        "Unlisted": "未上市"
-    },
-    "chat": {
-        "flaggedForAdminReview": "邮件已被标记以供管理员审核。再次点击取消标记。",
-        "noOneSaid": "没有人说什么",
-        "closeChatButton": "关闭聊天",
-        "closeChatConfirmTitle": "关闭此聊天？",
-        "closeChatConfirm": "您确定要关闭此聊天吗？",
-        "Subscribed": "已启用通知",
-        "Unsubscribed": "通知静音",
-        "closeChatConfirmYes": "是的",
-        "closeChatConfirmNo": "不",
-        "earlierComments": "较早的评论",
-        "startedConversation": "开始对话",
-        "RealTimeCall": "实时通话",
-        "JoinWebRTC": "电话会议",
-        "SearchByName": "按名称搜索",
-        "Notifications": {
-            "Visit": "{{displayName}}正在访问聊天",
-            "Join": "{{displayName}}加入聊天",
-            "Leave": "{{displayName}}离开了聊天室",
-            "RelatedTo": "{{displayName}}开始{{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "添加评论",
-            "Private": "写私信"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "管理您的电子邮件订阅",
-        "IfUnsubscribe": "如果你想退订",
-        "*": "留言{{{ message.fields.type}}至{{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}}加入",
-        "Streams\/left": "还剩{{{call 'avatar.displayName'}}}",
-        "Streams\/chat\/message": "{{{call 'avatar.displayName'}}说： {{& message.content}}}",
-        "Streams\/changed": "{{stream.fields.title}}的变化",
-        "Streams\/invite": "你被邀请到{{{ stream.fields.title}}}",
-        "Streams\/announcement": "{{{ stream.fields.title}}}公告",
-        "Streams\/access": "{{{call 'avatar.displayName'}}在{{& stream.fields.title}}}中更改了访问权限",
-        "Streams\/chat\/edit": "{{{ stream.fields.title}}}编辑的聊天信息",
-        "Streams\/chat\/remove": "聊天消息在{{{ stream.fields.title}}}中删除",
-        "Streams\/closed": "{{stream.fields.title}}已关闭",
-        "Streams\/task\/progress": "{{stream.fields.title}}取得进展",
-        "Streams\/task\/complete": "任务完成： {{stream.fields.title}}",
-        "Streams\/task\/error": "期间出错： {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} ：传入消息",
-        "Streams\/relatedTo\/Streams\/call": "{{toTitle}}开始的新呼叫",
-        "Streams\/relatedTo\/*": "新品{{toTitle}}中的{{relationDisplayType}}",
-        "Streams\/relatedFrom\/*": "添加到{{toTitle}}为{{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}}在评论中提到了你",
-        "Streams\/call": "{{displayName}}开始实时通话",
-        "changed": {
-            "ChangesIn": "{{title}}的变化",
-            "Changed": "已更改",
-            "HereIsWhatChanged": "变化如下："
-        },
-        "joined": {
-            "Joined": "{{subject}}已加入<em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "邀请",
-        "Invite": "邀请",
-        "Share": "分享",
-        "messageContent": "{{displayName}}邀请你到{{inviteUrl}}",
-        "youCanNowPaste": "您现在可以将此链接粘贴到某处以邀请其他人",
-        "roles": {
-            "title": "向受邀用户授予角色？",
-            "NotAuthorizedToGrantRole": {
-                "title": "对不起",
-                "alert": "您无权授予此角色"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "对不起",
-                "alert": "您无权删除此角色"
-            }
-        },
-        "labels": {
-            "title": "你是什么关系？"
-        },
-        "dialog": {
-            "chooseFromContacts": "从您的联系人中选择",
-            "chooseAgainFromContacts": "从联系人中重新选择",
-            "inviteSelectedContacts": "邀请选定的联系人",
-            "selectFromContacts": "从联系人中选择",
-            "userChooserPlaceholder": "按名称搜索",
-            "photo": "拍个照",
-            "photoOf": "拍照{{name}}",
-            "photoInstruction": "如果扫描您二维码的人在您面前，请拍下他们的照片",
-            "to": "至： {{Stream Title}}",
-            "go": "去",
-            "title": "邀请",
-            "placeholder": "手机号码或电子邮件地址",
-            "orInvite": "或使用以下方式邀请他人：",
-            "copyLink": "{{ClickOrTap}}复制邀请链接",
-            "shareOrCopyLink": "{{ClickOrTap}}分享或复制邀请链接",
-            "QR": "{{ClickOrTap}}生成二维码",
-            "QRtitle": "扫描此二维码",
-            "QRscanned": "他们扫描了它！",
-            "scannedQR": "{{ClickOrTap}}如果代码被扫描",
-            "byEmail": "电子邮件",
-            "bySms": "文本",
-            "byFacebook": "Facebook",
-            "byTwitter": "推特",
-            "title2": "邀请人",
-            "chooseMethod": "选择一种方法：",
-            "selectContacts": "选择联系人",
-            "scanQRCode": "扫描二维码",
-            "shareLink": "分享链接",
-            "chooseFromRegistered": "从注册用户中选择",
-            "inviteViaEmailOrSms": "通过电子邮件或短信邀请",
-            "TakeGroupPhoto": "拍摄合影",
-            "Skip": "跳过",
-            "byTelegram": "电报",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "添加角色",
-            "addPersonalRoles": "添加个人关系"
-        },
-        "complete": {
-            "WelcomeToCommunity": "欢迎来到{{communityName}}",
-            "HasInvitedYou": "已邀请您：",
-            "HasInvitedYouToTheirProfile": "已邀请您连接。",
-            "prompt": "让朋友认出你：",
-            "accept": "接受邀请"
-        },
-        "email": {
-            "subject": "嘿，看看这个",
-            "PleaseVisitLink": "请访问以下链接：",
-            "InvitingYou": "我邀请你{{title}}",
-            "HasInvitedYou": "{{displayName}}邀请你到{{title}}",
-            "HasMentionedYou": "“ {{title}} ”里有{{displayName}}提到过你",
-            "YOUAREINVITED": "你被邀请了！",
-            "AcceptInvite": "接受邀请"
-        },
-        "mobile": {
-            "content": "您已被邀请加入{{title}} 。请点击{{url}}"
-        },
-        "notice": {
-            "text": "你被邀请了。 {{ClickOrTap}}在这里接受并加入。"
-        },
-        "chat": {
-            "prompt": "您将邀请人们加入对话，在对话中您可以保持联系、一起分享照片等等。为其命名："
-        },
-        "Participants": "邀请人"
-    },
-    "messages": {
-        "html": {
-            "posted": "向{{stream.fields.title}}发送了<em>{{message.fields.type}}<\/em>消息"
-        },
-        "text": {
-            "commentedOn": "评论了",
-            "startedCallIn": "开始通话",
-            "in": "在",
-            "body": "在{{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "已发布到",
-                "byAvatar": "通过{{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "有了新的{{instructions.fromDisplayType}}",
-                "byAvatar": "添加了{{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "邀请是从我们的号码发送的，您的朋友还不知道。跟进快速文本，让他们知道邀请来自您，要求他们单击链接。",
-            "confirm": "邀请是从我们的号码发送的，您的朋友还不知道。你想跟进一个快速的文本，让他们知道邀请来自你，要求他们点击链接。",
-            "check": "嘿，我刚刚向你发送了{{app}}应用程序的邀请。请检查您的短信并点击链接！",
-            "CheckYourMobile": "请查看短信并按照说明操作！"
-        },
-        "email": {
-            "alert": "邀请是从我们的域发送的，您的朋友还不认识它。跟进快速文本，让他们知道邀请来自您，要求他们单击链接。",
-            "confirm": "邀请是从我们的域发送的，您的朋友还不认识它。你想跟进一个快速的文本，让他们知道邀请来自你，要求他们点击链接。",
-            "subject": "你收到邀请了吗？",
-            "body": "嘿，我刚刚向你发送了{{app}}应用程序的邀请。请检查您的电子邮件并单击其中的链接！",
-            "CheckYourEmail": "请检查您的电子邮件并按照说明进行操作！"
-        }
-    },
-    "identifier": {
-        "privacySettings": "隐私设置"
-    },
-    "participating": {
-        "Title": "标题",
-        "Subscribed": "已订阅",
-        "Participants": "参加者",
-        "AreYouSureRemoveIdentifier": "您确定要删除此标识符吗？",
-        "AreYouSureUnsubscribeIdentifier": "您确定取消订阅此标识符吗？它将关闭对此标识符的通知。",
-        "AreYouSureUnsubscribeDevice": "您确定取消订阅此设备吗？它将关闭对此设备的通知。",
-        "AreYouSureRemoveParticipant": "您确定要删除此参与者吗？",
-        "RemoveParticipant": "删除参与者",
-        "Identifiers": "身份标识",
-        "Devices": "设备",
-        "Streams": "溪流"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "受邀",
-            "description": "邀请收件箱"
-        },
-        "Streams\/resource": {
-            "displayType": "资源",
-            "description": "用于管理对资源的访问和发布有关更新的消息的流"
-        },
-        "Streams\/task": {
-            "description": "用于接收有关特定任务进度的更新",
-            "displayType": "任务"
-        },
-        "Streams\/tasks": {
-            "description": "任务类别",
-            "displayType": "任务"
-        },
-        "Streams\/experience": {
-            "description": "社区成员的共同经历",
-            "displayType": "社区成员的共同经历"
-        },
-        "Streams\/greeting": {
-            "description": "用户可以用来自我介绍的问候语",
-            "displayType": "问候语"
-        },
-        "Streams\/number": {
-            "displayType": "数字",
-            "description": "数学数字"
-        },
-        "Streams\/date": {
-            "displayType": "日期",
-            "description": "日期"
-        },
-        "Streams\/text": {
-            "displayType": "文本",
-            "description": "正文"
-        },
-        "Streams\/text\/small": {
-            "displayType": "文本",
-            "description": "小文本"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "文本",
-            "description": "中等正文"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "电子邮件地址",
-            "description": "电子邮件地址"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "电话号码",
-            "description": "电话号码"
-        },
-        "Streams\/text\/url": {
-            "displayType": "网址",
-            "description": "网络上的链接"
-        },
-        "Streams\/image": {
-            "displayType": "图像",
-            "description": "视觉形象",
-            "newItem": "添加图片"
-        },
-        "Streams\/images": {
-            "displayType": "图片库",
-            "description": "图片库"
-        },
-        "Streams\/album": {
-            "displayType": "相册",
-            "description": "各种媒体相关的专辑"
-        },
-        "Streams\/file": {
-            "displayType": "文件",
-            "description": "上传文件",
-            "newItem": "添加文件"
-        },
-        "Streams\/audio": {
-            "displayType": "音频剪辑",
-            "description": "音频剪辑",
-            "newItem": "添加音频"
-        },
-        "Streams\/video": {
-            "displayType": "录像片段",
-            "description": "录像片段",
-            "newItem": "添加视频"
-        },
-        "Streams\/pdf": {
-            "displayType": "PDF文件",
-            "description": "PDF文档",
-            "newItem": "添加PDF"
-        },
-        "Streams\/live": {
-            "displayType": "现场直播",
-            "description": "现场音频或视频"
-        },
-        "Streams\/category": {
-            "displayType": "类别",
-            "description": "与其他流相关的类别",
-            "newItem": "添加类别"
-        },
-        "Streams\/participating": {
-            "displayType": "参与指数",
-            "description": "当用户加入\/离开时，流与此相关\/无关"
-        },
-        "Streams\/interest": {
-            "displayType": "兴趣",
-            "description": "代表用户对某个话题的兴趣"
-        },
-        "Streams\/incoming": {
-            "displayType": "传入",
-            "description": "其他用户发送的消息的目的地"
-        },
-        "Streams\/chat": {
-            "displayType": "对话",
-            "description": "用户之间的对话，具有历史记录"
-        },
-        "Streams\/question": {
-            "displayType": "问题",
-            "description": "问题流",
-            "newItem": "添加问题"
-        },
-        "Streams\/answer": {
-            "displayType": "回答",
-            "description": "答案流"
-        },
-        "Streams\/topic": {
-            "displayType": "话题",
-            "description": "主题流",
-            "newItem": "添加主题"
-        }
-    },
-    "menu": {
-        "placeholder": "输入页面标题",
-        "ModTab": "修改项目",
-        "Save": "节省",
-        "Delete": "删除",
-        "Submenu": "子菜单"
-    },
-    "audio": {
-        "record": "记录",
-        "reset": "重置",
-        "edit": "编辑",
-        "title": "标题",
-        "description": "描述",
-        "upload": "上传",
-        "link": "关联",
-        "setUrl": "设置网址",
-        "save": "节省",
-        "setClip": "切出剪辑",
-        "invalidURL": "无效的网址",
-        "invalidFile": "无效文件",
-        "errorNoSource": "无音源",
-        "uploadLimit": "最大文件大小： {{size}}",
-        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
-        "TeaserAudio": "预告音频"
-    },
-    "video": {
-        "reset": "重置",
-        "edit": "编辑",
-        "title": "标题",
-        "description": "描述",
-        "upload": "上传",
-        "link": "关联",
-        "setUrl": "设置网址",
-        "save": "节省",
-        "setClip": "切出剪辑",
-        "invalidURL": "无效的网址",
-        "invalidFile": "无效文件",
-        "errorNoSource": "没有视频源",
-        "uploadLimit": "最大文件大小： {{size}}",
-        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
-        "createAnimatedThumbnail": "创建动画缩略图",
-        "errorNotAvailable": "抱歉，视频暂时不可用。请稍后重试。",
-        "NewVideo": "新视频",
-        "EditVideo": "編輯影片",
-        "TeaserVideo": "预告视频"
-    },
-    "pdf": {
-        "reset": "重置",
-        "edit": "编辑",
-        "title": "标题",
-        "description": "描述",
-        "upload": "上传",
-        "link": "关联",
-        "setUrl": "设置网址",
-        "save": "节省",
-        "setClip": "切出剪辑",
-        "invalidURL": "无效的网址",
-        "invalidFile": "无效文件",
-        "errorNoSource": "没有pdf源",
-        "uploadLimit": "最大文件大小： {{size}}",
-        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
-        "TeaserPDF": "预告 PDF"
-    },
-    "image": {
-        "reset": "重置",
-        "edit": "编辑",
-        "title": "标题",
-        "description": "描述",
-        "upload": "上传",
-        "link": "关联",
-        "setUrl": "设置网址",
-        "save": "节省",
-        "uploadedImage": "上传的图片",
-        "imageTitle": "图片标题",
-        "setClip": "切出剪辑",
-        "invalidURL": "无效的网址",
-        "invalidFile": "无效文件",
-        "errorNoSource": "没有图片来源",
-        "uploadLimit": "最大文件大小： {{size}}",
-        "errorFileSize": "抱歉，文件太大。<br>最大文件大小为{{size}}",
-        "TeaserImage": "预告图片"
-    },
-    "questions": {
-        "Questions": "问题",
-        "Answers": "答案",
-        "AnswerQuestion": "回答问题",
-        "SetYourAnswer": "请回答问题",
-        "NewQuestion": "新问题",
-        "EditQuestion": "编辑问题",
-        "NewAnswer": "新答案",
-        "NewPossibleAnswer": "新的可能答案",
-        "AnswerDetails": "答案详情",
-        "answerOption": "选项",
-        "answerOptionExclusive": "独家的",
-        "answerTextarea": "文本区域",
-        "answerText": "文本",
-        "HideUntilAnswered": "隐藏直到回答",
-        "CantChangeAnswers": "无法更改答案",
-        "FreeAnswer": "在这里写下你的答案",
-        "SaveQuestion": "保存问题",
-        "SaveAnswer": "保存答案",
-        "Save": "节省",
-        "Send": "发送",
-        "TitleRequired": "标题必填！",
-        "AlreadyAnswered": "已经回答",
-        "TitlePlaceholder": "输入您的问题",
-        "ContentPlaceholder": "将任何其他信息放在这里以帮助人们回答",
-        "ErrorTitle": "需要提问",
-        "Placeholder": "写指令",
-        "AreYouSure": "你确定吗？",
-        "ShortAnswer": "写一个简短的答案",
-        "AnswerCantBeChanged": "答案无法更改"
-    },
-    "experience": {
-        "NewExperience": "新体验",
-        "DefineTitle": "请定义标题",
-        "Create": "创造"
-    },
-    "calls": {
-        "SettingsTitle": "来电",
-        "MaxCalls": "最大调用",
-        "Update": "更新",
-        "NoCallsYet": "还没有来电",
-        "CallReasonTitle": "这个电话是关于什么的？",
-        "WaitingRoom": "等候室",
-        "LiveRoom": "直播间",
-        "interviewedByAnotherHost": "目前正在接受另一位主持人的采访",
-        "bringToLive": "带来现场表演",
-        "putOnHold": "搁置",
-        "endCall": "结束通话",
-        "interview": "面试",
-        "markApproved": "标记已批准"
-    },
-    "relate": {
-        "Add": "加{{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "用户名..."
-    },
-    "task": {
-        "errorsTitle": "发生错误"
-    },
-    "topic": {
-        "NewTopic": "新话题",
-        "UpdateTopic": "更新主题",
-        "CreateTopic": "创建主题",
-        "AreYouSureDeleteTopic": "您确定要删除此主题吗",
-        "TitlePlaceholder": "主题标题...",
-        "DescribeTopic": "描述主题...",
-        "TopicIcon": "主题图片",
-        "UploadIcon": "上传图标",
-        "Conversation": "对话",
-        "Metrics": "指标",
-        "Teaser": "预告片",
-        "TeaserDescription": "预告描述...",
-        "TeaserVideo": "预告视频"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "创建动画缩略图",
-        "Width": "宽度",
-        "Height": "高度",
-        "Start": "开始",
-        "End": "结尾",
-        "Delay": "延迟",
-        "Quality": "质量",
-        "Size": "尺寸",
-        "OfFrames": "帧数",
-        "Frame": "框架",
-        "UseThis": "用这个",
-        "ResultGIF": "结果 GIF",
-        "VideoElementNotFound": "未找到视频元素"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}}在你的脸上",
-        "AcceptIcon": "接受选定区域"
-    }
+	"errors": {
+		"HiddenFromYou": "\u6b64\u5185\u5bb9\u5bf9\u60a8\u9690\u85cf\u3002",
+		"InplaceTypeMustBe": "inplaceType \u5fc5\u987b\u662f &#39;textarea&#39; \u6216 &#39;text&#39;",
+		"AmountInvalid": "\u8bf7\u8f93\u5165\u6709\u6548\u7684\u6beb\u79d2\u6570\u3002"
+	},
+	"preview": {
+		"NewItemTitle": "\u65b0\u7269\u54c1",
+		"Teaser": "\u9884\u544a\u7247"
+	},
+	"avatar": {
+		"firstName": "\u540d",
+		"lastName": "\u59d3",
+		"username": "\u7528\u6237\u540d"
+	},
+	"labels": {
+		"Streams/invited": "\u6211\u9080\u8bf7\u7684\u4eba",
+		"Streams/invitedMe": "\u8c01\u9080\u8bf7\u6211",
+		"DoYouAgree": "\u4f60\u540c\u610f\uff1f",
+		"Yes": "\u662f\u7684",
+		"No": "\u4e0d",
+		"JoinItNow": "\u73b0\u5728\u52a0\u5165\u5417\uff1f"
+	},
+	"login": {
+		"prompt": "\u8ba9\u670b\u53cb\u8ba4\u51fa\u4f60\uff1a",
+		"newUser": "\u6216\u5728\u4e0b\u9762\u521b\u5efa\u4e00\u4e2a\u65b0\u5e10\u6237",
+		"picTooltip": "\u60a8\u53ef\u4ee5\u7a0d\u540e\u66f4\u6539\u6b64\u56fe\u7247",
+		"placeholders": {
+			"fullName": "\u8f93\u5165\u60a8\u7684\u5168\u540d"
+		}
+	},
+	"interests": {
+		"Filter": "\u641c\u7d22\u5174\u8da3",
+		"CanGrant": "\u5982\u679c\u4f60\u4ecd\u7136\u627e\u4e0d\u5230\u4f60\u8981\u627e\u7684\u4e1c\u897f\uff0c\u4f60\u53ef\u4ee5\u5728\u4e0b\u9762\u6dfb\u52a0\u4e00\u4e2a\u65b0\u7684\u5174\u8da3\uff1a",
+		"TrySynonyms": "\u6ca1\u770b\u5230\u5417\uff1f\u5c1d\u8bd5\u4e00\u4e9b\u540c\u4e49\u8bcd\u3002",
+		"AddUnderCategory": "\u5728\u7c7b\u522b\u4e0b\u6dfb\u52a0...",
+		"Other": "\u5176\u4ed6",
+		"Unlisted": "\u672a\u4e0a\u5e02"
+	},
+	"chat": {
+		"flaggedForAdminReview": "\u90ae\u4ef6\u5df2\u88ab\u6807\u8bb0\u4ee5\u4f9b\u7ba1\u7406\u5458\u5ba1\u6838\u3002\u518d\u6b21\u70b9\u51fb\u53d6\u6d88\u6807\u8bb0\u3002",
+		"noOneSaid": "\u6ca1\u6709\u4eba\u8bf4\u4ec0\u4e48",
+		"closeChatButton": "\u5173\u95ed\u804a\u5929",
+		"closeChatConfirmTitle": "\u5173\u95ed\u6b64\u804a\u5929\uff1f",
+		"closeChatConfirm": "\u60a8\u786e\u5b9a\u8981\u5173\u95ed\u6b64\u804a\u5929\u5417\uff1f",
+		"Subscribed": "\u5df2\u542f\u7528\u901a\u77e5",
+		"Unsubscribed": "\u901a\u77e5\u9759\u97f3",
+		"closeChatConfirmYes": "\u662f\u7684",
+		"closeChatConfirmNo": "\u4e0d",
+		"earlierComments": "\u8f83\u65e9\u7684\u8bc4\u8bba",
+		"startedConversation": "\u5f00\u59cb\u5bf9\u8bdd",
+		"RealTimeCall": "\u5b9e\u65f6\u901a\u8bdd",
+		"JoinWebRTC": "\u7535\u8bdd\u4f1a\u8bae",
+		"SearchByName": "\u6309\u540d\u79f0\u641c\u7d22",
+		"Notifications": {
+			"Visit": "{{displayName}}\u6b63\u5728\u8bbf\u95ee\u804a\u5929",
+			"Join": "{{displayName}}\u52a0\u5165\u804a\u5929",
+			"Leave": "{{displayName}}\u79bb\u5f00\u4e86\u804a\u5929\u5ba4",
+			"RelatedTo": "{{displayName}}\u5f00\u59cb{{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "\u6dfb\u52a0\u8bc4\u8bba",
+			"Private": "\u5199\u79c1\u4fe1"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "\u7ba1\u7406\u60a8\u7684\u7535\u5b50\u90ae\u4ef6\u8ba2\u9605",
+		"IfUnsubscribe": "\u5982\u679c\u4f60\u60f3\u9000\u8ba2",
+		"*": "\u7559\u8a00{{{ message.fields.type}}\u81f3{{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}}\u52a0\u5165",
+		"Streams/left": "\u8fd8\u5269{{{call 'avatar.displayName'}}}",
+		"Streams/chat/message": "{{{call 'avatar.displayName'}}\u8bf4\uff1a {{& message.content}}}",
+		"Streams/changed": "{{stream.fields.title}}\u7684\u53d8\u5316",
+		"Streams/invite": "\u4f60\u88ab\u9080\u8bf7\u5230{{{ stream.fields.title}}}",
+		"Streams/announcement": "{{{ stream.fields.title}}}\u516c\u544a",
+		"Streams/access": "{{{call 'avatar.displayName'}}\u5728{{& stream.fields.title}}}\u4e2d\u66f4\u6539\u4e86\u8bbf\u95ee\u6743\u9650",
+		"Streams/chat/edit": "{{{ stream.fields.title}}}\u7f16\u8f91\u7684\u804a\u5929\u4fe1\u606f",
+		"Streams/chat/remove": "\u804a\u5929\u6d88\u606f\u5728{{{ stream.fields.title}}}\u4e2d\u5220\u9664",
+		"Streams/closed": "{{stream.fields.title}}\u5df2\u5173\u95ed",
+		"Streams/task/progress": "{{stream.fields.title}}\u53d6\u5f97\u8fdb\u5c55",
+		"Streams/task/complete": "\u4efb\u52a1\u5b8c\u6210\uff1a {{stream.fields.title}}",
+		"Streams/task/error": "\u671f\u95f4\u51fa\u9519\uff1a {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} \uff1a\u4f20\u5165\u6d88\u606f",
+		"Streams/relatedTo/Streams/call": "{{toTitle}}\u5f00\u59cb\u7684\u65b0\u547c\u53eb",
+		"Streams/relatedTo/*": "\u65b0\u54c1{{toTitle}}\u4e2d\u7684{{relationDisplayType}}",
+		"Streams/relatedFrom/*": "\u6dfb\u52a0\u5230{{toTitle}}\u4e3a{{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}}\u5728\u8bc4\u8bba\u4e2d\u63d0\u5230\u4e86\u4f60",
+		"Streams/call": "{{displayName}}\u5f00\u59cb\u5b9e\u65f6\u901a\u8bdd",
+		"changed": {
+			"ChangesIn": "{{title}}\u7684\u53d8\u5316",
+			"Changed": "\u5df2\u66f4\u6539",
+			"HereIsWhatChanged": "\u53d8\u5316\u5982\u4e0b\uff1a"
+		},
+		"joined": {
+			"Joined": "{{subject}}\u5df2\u52a0\u5165<em>{{title}}</em>"
+		},
+		"Streams/invited": "\u60a8\u53d7\u9080\u53c2\u52a0{{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "\u9080\u8bf7",
+		"Invite": "\u9080\u8bf7",
+		"Share": "\u5206\u4eab",
+		"messageContent": "{{displayName}}\u9080\u8bf7\u4f60\u5230{{inviteUrl}}",
+		"youCanNowPaste": "\u60a8\u73b0\u5728\u53ef\u4ee5\u5c06\u6b64\u94fe\u63a5\u7c98\u8d34\u5230\u67d0\u5904\u4ee5\u9080\u8bf7\u5176\u4ed6\u4eba",
+		"roles": {
+			"title": "\u5411\u53d7\u9080\u7528\u6237\u6388\u4e88\u89d2\u8272\uff1f",
+			"NotAuthorizedToGrantRole": {
+				"title": "\u5bf9\u4e0d\u8d77",
+				"alert": "\u60a8\u65e0\u6743\u6388\u4e88\u6b64\u89d2\u8272"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "\u5bf9\u4e0d\u8d77",
+				"alert": "\u60a8\u65e0\u6743\u5220\u9664\u6b64\u89d2\u8272"
+			}
+		},
+		"labels": {
+			"title": "\u4f60\u662f\u4ec0\u4e48\u5173\u7cfb\uff1f"
+		},
+		"dialog": {
+			"chooseFromContacts": "\u4ece\u60a8\u7684\u8054\u7cfb\u4eba\u4e2d\u9009\u62e9",
+			"chooseAgainFromContacts": "\u4ece\u8054\u7cfb\u4eba\u4e2d\u91cd\u65b0\u9009\u62e9",
+			"inviteSelectedContacts": "\u9080\u8bf7\u9009\u5b9a\u7684\u8054\u7cfb\u4eba",
+			"selectFromContacts": "\u4ece\u8054\u7cfb\u4eba\u4e2d\u9009\u62e9",
+			"userChooserPlaceholder": "\u6309\u540d\u79f0\u641c\u7d22",
+			"photo": "\u62cd\u4e2a\u7167",
+			"photoOf": "\u62cd\u7167{{name}}",
+			"photoInstruction": "\u5982\u679c\u626b\u63cf\u60a8\u4e8c\u7ef4\u7801\u7684\u4eba\u5728\u60a8\u9762\u524d\uff0c\u8bf7\u62cd\u4e0b\u4ed6\u4eec\u7684\u7167\u7247",
+			"to": "\u81f3\uff1a {{Stream Title}}",
+			"go": "\u53bb",
+			"title": "\u9080\u8bf7",
+			"placeholder": "\u624b\u673a\u53f7\u7801\u6216\u7535\u5b50\u90ae\u4ef6\u5730\u5740",
+			"orInvite": "\u6216\u4f7f\u7528\u4ee5\u4e0b\u65b9\u5f0f\u9080\u8bf7\u4ed6\u4eba\uff1a",
+			"copyLink": "{{ClickOrTap}}\u590d\u5236\u9080\u8bf7\u94fe\u63a5",
+			"shareOrCopyLink": "{{ClickOrTap}}\u5206\u4eab\u6216\u590d\u5236\u9080\u8bf7\u94fe\u63a5",
+			"QR": "{{ClickOrTap}}\u751f\u6210\u4e8c\u7ef4\u7801",
+			"QRtitle": "\u626b\u63cf\u6b64\u4e8c\u7ef4\u7801",
+			"QRscanned": "\u4ed6\u4eec\u626b\u63cf\u4e86\u5b83\uff01",
+			"scannedQR": "{{ClickOrTap}}\u5982\u679c\u4ee3\u7801\u88ab\u626b\u63cf",
+			"byEmail": "\u7535\u5b50\u90ae\u4ef6",
+			"bySms": "\u6587\u672c",
+			"byFacebook": "Facebook",
+			"byTwitter": "\u63a8\u7279",
+			"title2": "\u9080\u8bf7\u4eba",
+			"chooseMethod": "\u9009\u62e9\u4e00\u79cd\u65b9\u6cd5\uff1a",
+			"selectContacts": "\u9009\u62e9\u8054\u7cfb\u4eba",
+			"scanQRCode": "\u626b\u63cf\u4e8c\u7ef4\u7801",
+			"shareLink": "\u5206\u4eab\u94fe\u63a5",
+			"chooseFromRegistered": "\u4ece\u6ce8\u518c\u7528\u6237\u4e2d\u9009\u62e9",
+			"inviteViaEmailOrSms": "\u901a\u8fc7\u7535\u5b50\u90ae\u4ef6\u6216\u77ed\u4fe1\u9080\u8bf7",
+			"TakeGroupPhoto": "\u62cd\u6444\u5408\u5f71",
+			"Skip": "\u8df3\u8fc7",
+			"byTelegram": "\u7535\u62a5",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "\u6dfb\u52a0\u89d2\u8272",
+			"addPersonalRoles": "\u6dfb\u52a0\u4e2a\u4eba\u5173\u7cfb"
+		},
+		"complete": {
+			"WelcomeToCommunity": "\u6b22\u8fce\u6765\u5230{{communityName}}",
+			"HasInvitedYou": "\u5df2\u9080\u8bf7\u60a8\uff1a",
+			"HasInvitedYouToTheirProfile": "\u5df2\u9080\u8bf7\u60a8\u8fde\u63a5\u3002",
+			"prompt": "\u8ba9\u670b\u53cb\u8ba4\u51fa\u4f60\uff1a",
+			"accept": "\u63a5\u53d7\u9080\u8bf7"
+		},
+		"email": {
+			"subject": "\u563f\uff0c\u770b\u770b\u8fd9\u4e2a",
+			"PleaseVisitLink": "\u8bf7\u8bbf\u95ee\u4ee5\u4e0b\u94fe\u63a5\uff1a",
+			"InvitingYou": "\u6211\u9080\u8bf7\u4f60{{title}}",
+			"HasInvitedYou": "{{displayName}}\u9080\u8bf7\u4f60\u5230{{title}}",
+			"HasMentionedYou": "\u201c {{title}} \u201d\u91cc\u6709{{displayName}}\u63d0\u5230\u8fc7\u4f60",
+			"YOUAREINVITED": "\u4f60\u88ab\u9080\u8bf7\u4e86\uff01",
+			"AcceptInvite": "\u63a5\u53d7\u9080\u8bf7"
+		},
+		"mobile": {
+			"content": "\u60a8\u5df2\u88ab\u9080\u8bf7\u52a0\u5165{{title}} \u3002\u8bf7\u70b9\u51fb{{url}}"
+		},
+		"notice": {
+			"text": "\u4f60\u88ab\u9080\u8bf7\u4e86\u3002 {{ClickOrTap}}\u5728\u8fd9\u91cc\u63a5\u53d7\u5e76\u52a0\u5165\u3002"
+		},
+		"chat": {
+			"prompt": "\u60a8\u5c06\u9080\u8bf7\u4eba\u4eec\u52a0\u5165\u5bf9\u8bdd\uff0c\u5728\u5bf9\u8bdd\u4e2d\u60a8\u53ef\u4ee5\u4fdd\u6301\u8054\u7cfb\u3001\u4e00\u8d77\u5206\u4eab\u7167\u7247\u7b49\u7b49\u3002\u4e3a\u5176\u547d\u540d\uff1a"
+		},
+		"Participants": "\u9080\u8bf7\u4eba"
+	},
+	"messages": {
+		"html": {
+			"posted": "\u5411{{stream.fields.title}}\u53d1\u9001\u4e86<em>{{message.fields.type}}</em>\u6d88\u606f"
+		},
+		"text": {
+			"commentedOn": "\u8bc4\u8bba\u4e86",
+			"startedCallIn": "\u5f00\u59cb\u901a\u8bdd",
+			"in": "\u5728",
+			"body": "\u5728{{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "\u5df2\u53d1\u5e03\u5230",
+				"byAvatar": "\u901a\u8fc7{{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "\u6709\u4e86\u65b0\u7684{{instructions.fromDisplayType}}",
+				"byAvatar": "\u6dfb\u52a0\u4e86{{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "\u9080\u8bf7\u662f\u4ece\u6211\u4eec\u7684\u53f7\u7801\u53d1\u9001\u7684\uff0c\u60a8\u7684\u670b\u53cb\u8fd8\u4e0d\u77e5\u9053\u3002\u8ddf\u8fdb\u5feb\u901f\u6587\u672c\uff0c\u8ba9\u4ed6\u4eec\u77e5\u9053\u9080\u8bf7\u6765\u81ea\u60a8\uff0c\u8981\u6c42\u4ed6\u4eec\u5355\u51fb\u94fe\u63a5\u3002",
+			"confirm": "\u9080\u8bf7\u662f\u4ece\u6211\u4eec\u7684\u53f7\u7801\u53d1\u9001\u7684\uff0c\u60a8\u7684\u670b\u53cb\u8fd8\u4e0d\u77e5\u9053\u3002\u4f60\u60f3\u8ddf\u8fdb\u4e00\u4e2a\u5feb\u901f\u7684\u6587\u672c\uff0c\u8ba9\u4ed6\u4eec\u77e5\u9053\u9080\u8bf7\u6765\u81ea\u4f60\uff0c\u8981\u6c42\u4ed6\u4eec\u70b9\u51fb\u94fe\u63a5\u3002",
+			"check": "\u563f\uff0c\u6211\u521a\u521a\u5411\u4f60\u53d1\u9001\u4e86{{app}}\u5e94\u7528\u7a0b\u5e8f\u7684\u9080\u8bf7\u3002\u8bf7\u68c0\u67e5\u60a8\u7684\u77ed\u4fe1\u5e76\u70b9\u51fb\u94fe\u63a5\uff01",
+			"CheckYourMobile": "\u8bf7\u67e5\u770b\u77ed\u4fe1\u5e76\u6309\u7167\u8bf4\u660e\u64cd\u4f5c\uff01"
+		},
+		"email": {
+			"alert": "\u9080\u8bf7\u662f\u4ece\u6211\u4eec\u7684\u57df\u53d1\u9001\u7684\uff0c\u60a8\u7684\u670b\u53cb\u8fd8\u4e0d\u8ba4\u8bc6\u5b83\u3002\u8ddf\u8fdb\u5feb\u901f\u6587\u672c\uff0c\u8ba9\u4ed6\u4eec\u77e5\u9053\u9080\u8bf7\u6765\u81ea\u60a8\uff0c\u8981\u6c42\u4ed6\u4eec\u5355\u51fb\u94fe\u63a5\u3002",
+			"confirm": "\u9080\u8bf7\u662f\u4ece\u6211\u4eec\u7684\u57df\u53d1\u9001\u7684\uff0c\u60a8\u7684\u670b\u53cb\u8fd8\u4e0d\u8ba4\u8bc6\u5b83\u3002\u4f60\u60f3\u8ddf\u8fdb\u4e00\u4e2a\u5feb\u901f\u7684\u6587\u672c\uff0c\u8ba9\u4ed6\u4eec\u77e5\u9053\u9080\u8bf7\u6765\u81ea\u4f60\uff0c\u8981\u6c42\u4ed6\u4eec\u70b9\u51fb\u94fe\u63a5\u3002",
+			"subject": "\u4f60\u6536\u5230\u9080\u8bf7\u4e86\u5417\uff1f",
+			"body": "\u563f\uff0c\u6211\u521a\u521a\u5411\u4f60\u53d1\u9001\u4e86{{app}}\u5e94\u7528\u7a0b\u5e8f\u7684\u9080\u8bf7\u3002\u8bf7\u68c0\u67e5\u60a8\u7684\u7535\u5b50\u90ae\u4ef6\u5e76\u5355\u51fb\u5176\u4e2d\u7684\u94fe\u63a5\uff01",
+			"CheckYourEmail": "\u8bf7\u68c0\u67e5\u60a8\u7684\u7535\u5b50\u90ae\u4ef6\u5e76\u6309\u7167\u8bf4\u660e\u8fdb\u884c\u64cd\u4f5c\uff01"
+		}
+	},
+	"identifier": {
+		"privacySettings": "\u9690\u79c1\u8bbe\u7f6e"
+	},
+	"participating": {
+		"Title": "\u6807\u9898",
+		"Subscribed": "\u5df2\u8ba2\u9605",
+		"Participants": "\u53c2\u52a0\u8005",
+		"AreYouSureRemoveIdentifier": "\u60a8\u786e\u5b9a\u8981\u5220\u9664\u6b64\u6807\u8bc6\u7b26\u5417\uff1f",
+		"AreYouSureUnsubscribeIdentifier": "\u60a8\u786e\u5b9a\u53d6\u6d88\u8ba2\u9605\u6b64\u6807\u8bc6\u7b26\u5417\uff1f\u5b83\u5c06\u5173\u95ed\u5bf9\u6b64\u6807\u8bc6\u7b26\u7684\u901a\u77e5\u3002",
+		"AreYouSureUnsubscribeDevice": "\u60a8\u786e\u5b9a\u53d6\u6d88\u8ba2\u9605\u6b64\u8bbe\u5907\u5417\uff1f\u5b83\u5c06\u5173\u95ed\u5bf9\u6b64\u8bbe\u5907\u7684\u901a\u77e5\u3002",
+		"AreYouSureRemoveParticipant": "\u60a8\u786e\u5b9a\u8981\u5220\u9664\u6b64\u53c2\u4e0e\u8005\u5417\uff1f",
+		"RemoveParticipant": "\u5220\u9664\u53c2\u4e0e\u8005",
+		"Identifiers": "\u8eab\u4efd\u6807\u8bc6",
+		"Devices": "\u8bbe\u5907",
+		"Streams": "\u6eaa\u6d41"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "\u53d7\u9080",
+			"description": "\u9080\u8bf7\u6536\u4ef6\u7bb1"
+		},
+		"Streams/resource": {
+			"displayType": "\u8d44\u6e90",
+			"description": "\u7528\u4e8e\u7ba1\u7406\u5bf9\u8d44\u6e90\u7684\u8bbf\u95ee\u548c\u53d1\u5e03\u6709\u5173\u66f4\u65b0\u7684\u6d88\u606f\u7684\u6d41"
+		},
+		"Streams/task": {
+			"description": "\u7528\u4e8e\u63a5\u6536\u6709\u5173\u7279\u5b9a\u4efb\u52a1\u8fdb\u5ea6\u7684\u66f4\u65b0",
+			"displayType": "\u4efb\u52a1"
+		},
+		"Streams/tasks": {
+			"description": "\u4efb\u52a1\u7c7b\u522b",
+			"displayType": "\u4efb\u52a1"
+		},
+		"Streams/experience": {
+			"description": "\u793e\u533a\u6210\u5458\u7684\u5171\u540c\u7ecf\u5386",
+			"displayType": "\u793e\u533a\u6210\u5458\u7684\u5171\u540c\u7ecf\u5386"
+		},
+		"Streams/greeting": {
+			"description": "\u7528\u6237\u53ef\u4ee5\u7528\u6765\u81ea\u6211\u4ecb\u7ecd\u7684\u95ee\u5019\u8bed",
+			"displayType": "\u95ee\u5019\u8bed"
+		},
+		"Streams/number": {
+			"displayType": "\u6570\u5b57",
+			"description": "\u6570\u5b66\u6570\u5b57"
+		},
+		"Streams/date": {
+			"displayType": "\u65e5\u671f",
+			"description": "\u65e5\u671f"
+		},
+		"Streams/text": {
+			"displayType": "\u6587\u672c",
+			"description": "\u6b63\u6587"
+		},
+		"Streams/text/small": {
+			"displayType": "\u6587\u672c",
+			"description": "\u5c0f\u6587\u672c"
+		},
+		"Streams/text/medium": {
+			"displayType": "\u6587\u672c",
+			"description": "\u4e2d\u7b49\u6b63\u6587"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "\u7535\u5b50\u90ae\u4ef6\u5730\u5740",
+			"description": "\u7535\u5b50\u90ae\u4ef6\u5730\u5740"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "\u7535\u8bdd\u53f7\u7801",
+			"description": "\u7535\u8bdd\u53f7\u7801"
+		},
+		"Streams/text/url": {
+			"displayType": "\u7f51\u5740",
+			"description": "\u7f51\u7edc\u4e0a\u7684\u94fe\u63a5"
+		},
+		"Streams/image": {
+			"displayType": "\u56fe\u50cf",
+			"description": "\u89c6\u89c9\u5f62\u8c61",
+			"newItem": "\u6dfb\u52a0\u56fe\u7247"
+		},
+		"Streams/images": {
+			"displayType": "\u56fe\u7247\u5e93",
+			"description": "\u56fe\u7247\u5e93"
+		},
+		"Streams/album": {
+			"displayType": "\u76f8\u518c",
+			"description": "\u5404\u79cd\u5a92\u4f53\u76f8\u5173\u7684\u4e13\u8f91"
+		},
+		"Streams/file": {
+			"displayType": "\u6587\u4ef6",
+			"description": "\u4e0a\u4f20\u6587\u4ef6",
+			"newItem": "\u6dfb\u52a0\u6587\u4ef6"
+		},
+		"Streams/audio": {
+			"displayType": "\u97f3\u9891\u526a\u8f91",
+			"description": "\u97f3\u9891\u526a\u8f91",
+			"newItem": "\u6dfb\u52a0\u97f3\u9891"
+		},
+		"Streams/video": {
+			"displayType": "\u5f55\u50cf\u7247\u6bb5",
+			"description": "\u5f55\u50cf\u7247\u6bb5",
+			"newItem": "\u6dfb\u52a0\u89c6\u9891"
+		},
+		"Streams/pdf": {
+			"displayType": "PDF\u6587\u4ef6",
+			"description": "PDF\u6587\u6863",
+			"newItem": "\u6dfb\u52a0PDF"
+		},
+		"Streams/live": {
+			"displayType": "\u73b0\u573a\u76f4\u64ad",
+			"description": "\u73b0\u573a\u97f3\u9891\u6216\u89c6\u9891"
+		},
+		"Streams/category": {
+			"displayType": "\u7c7b\u522b",
+			"description": "\u4e0e\u5176\u4ed6\u6d41\u76f8\u5173\u7684\u7c7b\u522b",
+			"newItem": "\u6dfb\u52a0\u7c7b\u522b"
+		},
+		"Streams/participating": {
+			"displayType": "\u53c2\u4e0e\u6307\u6570",
+			"description": "\u5f53\u7528\u6237\u52a0\u5165/\u79bb\u5f00\u65f6\uff0c\u6d41\u4e0e\u6b64\u76f8\u5173/\u65e0\u5173"
+		},
+		"Streams/interest": {
+			"displayType": "\u5174\u8da3",
+			"description": "\u4ee3\u8868\u7528\u6237\u5bf9\u67d0\u4e2a\u8bdd\u9898\u7684\u5174\u8da3"
+		},
+		"Streams/incoming": {
+			"displayType": "\u4f20\u5165",
+			"description": "\u5176\u4ed6\u7528\u6237\u53d1\u9001\u7684\u6d88\u606f\u7684\u76ee\u7684\u5730"
+		},
+		"Streams/chat": {
+			"displayType": "\u5bf9\u8bdd",
+			"description": "\u7528\u6237\u4e4b\u95f4\u7684\u5bf9\u8bdd\uff0c\u5177\u6709\u5386\u53f2\u8bb0\u5f55"
+		},
+		"Streams/question": {
+			"displayType": "\u95ee\u9898",
+			"description": "\u95ee\u9898\u6d41",
+			"newItem": "\u6dfb\u52a0\u95ee\u9898"
+		},
+		"Streams/answer": {
+			"displayType": "\u56de\u7b54",
+			"description": "\u7b54\u6848\u6d41"
+		},
+		"Streams/topic": {
+			"displayType": "\u8bdd\u9898",
+			"description": "\u4e3b\u9898\u6d41",
+			"newItem": "\u6dfb\u52a0\u4e3b\u9898"
+		}
+	},
+	"menu": {
+		"placeholder": "\u8f93\u5165\u9875\u9762\u6807\u9898",
+		"ModTab": "\u4fee\u6539\u9879\u76ee",
+		"Save": "\u8282\u7701",
+		"Delete": "\u5220\u9664",
+		"Submenu": "\u5b50\u83dc\u5355"
+	},
+	"audio": {
+		"record": "\u8bb0\u5f55",
+		"reset": "\u91cd\u7f6e",
+		"edit": "\u7f16\u8f91",
+		"title": "\u6807\u9898",
+		"description": "\u63cf\u8ff0",
+		"upload": "\u4e0a\u4f20",
+		"link": "\u5173\u8054",
+		"setUrl": "\u8bbe\u7f6e\u7f51\u5740",
+		"save": "\u8282\u7701",
+		"setClip": "\u5207\u51fa\u526a\u8f91",
+		"invalidURL": "\u65e0\u6548\u7684\u7f51\u5740",
+		"invalidFile": "\u65e0\u6548\u6587\u4ef6",
+		"errorNoSource": "\u65e0\u97f3\u6e90",
+		"uploadLimit": "\u6700\u5927\u6587\u4ef6\u5927\u5c0f\uff1a {{size}}",
+		"errorFileSize": "\u62b1\u6b49\uff0c\u6587\u4ef6\u592a\u5927\u3002<br>\u6700\u5927\u6587\u4ef6\u5927\u5c0f\u4e3a{{size}}",
+		"TeaserAudio": "\u9884\u544a\u97f3\u9891"
+	},
+	"video": {
+		"reset": "\u91cd\u7f6e",
+		"edit": "\u7f16\u8f91",
+		"title": "\u6807\u9898",
+		"description": "\u63cf\u8ff0",
+		"upload": "\u4e0a\u4f20",
+		"link": "\u5173\u8054",
+		"setUrl": "\u8bbe\u7f6e\u7f51\u5740",
+		"save": "\u8282\u7701",
+		"setClip": "\u5207\u51fa\u526a\u8f91",
+		"invalidURL": "\u65e0\u6548\u7684\u7f51\u5740",
+		"invalidFile": "\u65e0\u6548\u6587\u4ef6",
+		"errorNoSource": "\u6ca1\u6709\u89c6\u9891\u6e90",
+		"uploadLimit": "\u6700\u5927\u6587\u4ef6\u5927\u5c0f\uff1a {{size}}",
+		"errorFileSize": "\u62b1\u6b49\uff0c\u6587\u4ef6\u592a\u5927\u3002<br>\u6700\u5927\u6587\u4ef6\u5927\u5c0f\u4e3a{{size}}",
+		"createAnimatedThumbnail": "\u521b\u5efa\u52a8\u753b\u7f29\u7565\u56fe",
+		"errorNotAvailable": "\u62b1\u6b49\uff0c\u89c6\u9891\u6682\u65f6\u4e0d\u53ef\u7528\u3002\u8bf7\u7a0d\u540e\u91cd\u8bd5\u3002",
+		"NewVideo": "\u65b0\u89c6\u9891",
+		"EditVideo": "\u7de8\u8f2f\u5f71\u7247",
+		"TeaserVideo": "\u9884\u544a\u89c6\u9891"
+	},
+	"pdf": {
+		"reset": "\u91cd\u7f6e",
+		"edit": "\u7f16\u8f91",
+		"title": "\u6807\u9898",
+		"description": "\u63cf\u8ff0",
+		"upload": "\u4e0a\u4f20",
+		"link": "\u5173\u8054",
+		"setUrl": "\u8bbe\u7f6e\u7f51\u5740",
+		"save": "\u8282\u7701",
+		"setClip": "\u5207\u51fa\u526a\u8f91",
+		"invalidURL": "\u65e0\u6548\u7684\u7f51\u5740",
+		"invalidFile": "\u65e0\u6548\u6587\u4ef6",
+		"errorNoSource": "\u6ca1\u6709pdf\u6e90",
+		"uploadLimit": "\u6700\u5927\u6587\u4ef6\u5927\u5c0f\uff1a {{size}}",
+		"errorFileSize": "\u62b1\u6b49\uff0c\u6587\u4ef6\u592a\u5927\u3002<br>\u6700\u5927\u6587\u4ef6\u5927\u5c0f\u4e3a{{size}}",
+		"TeaserPDF": "\u9884\u544a PDF"
+	},
+	"image": {
+		"reset": "\u91cd\u7f6e",
+		"edit": "\u7f16\u8f91",
+		"title": "\u6807\u9898",
+		"description": "\u63cf\u8ff0",
+		"upload": "\u4e0a\u4f20",
+		"link": "\u5173\u8054",
+		"setUrl": "\u8bbe\u7f6e\u7f51\u5740",
+		"save": "\u8282\u7701",
+		"uploadedImage": "\u4e0a\u4f20\u7684\u56fe\u7247",
+		"imageTitle": "\u56fe\u7247\u6807\u9898",
+		"setClip": "\u5207\u51fa\u526a\u8f91",
+		"invalidURL": "\u65e0\u6548\u7684\u7f51\u5740",
+		"invalidFile": "\u65e0\u6548\u6587\u4ef6",
+		"errorNoSource": "\u6ca1\u6709\u56fe\u7247\u6765\u6e90",
+		"uploadLimit": "\u6700\u5927\u6587\u4ef6\u5927\u5c0f\uff1a {{size}}",
+		"errorFileSize": "\u62b1\u6b49\uff0c\u6587\u4ef6\u592a\u5927\u3002<br>\u6700\u5927\u6587\u4ef6\u5927\u5c0f\u4e3a{{size}}",
+		"TeaserImage": "\u9884\u544a\u56fe\u7247"
+	},
+	"questions": {
+		"Questions": "\u95ee\u9898",
+		"Answers": "\u7b54\u6848",
+		"AnswerQuestion": "\u56de\u7b54\u95ee\u9898",
+		"SetYourAnswer": "\u8bf7\u56de\u7b54\u95ee\u9898",
+		"NewQuestion": "\u65b0\u95ee\u9898",
+		"EditQuestion": "\u7f16\u8f91\u95ee\u9898",
+		"NewAnswer": "\u65b0\u7b54\u6848",
+		"NewPossibleAnswer": "\u65b0\u7684\u53ef\u80fd\u7b54\u6848",
+		"AnswerDetails": "\u7b54\u6848\u8be6\u60c5",
+		"answerOption": "\u9009\u9879",
+		"answerOptionExclusive": "\u72ec\u5bb6\u7684",
+		"answerTextarea": "\u6587\u672c\u533a\u57df",
+		"answerText": "\u6587\u672c",
+		"HideUntilAnswered": "\u9690\u85cf\u76f4\u5230\u56de\u7b54",
+		"CantChangeAnswers": "\u65e0\u6cd5\u66f4\u6539\u7b54\u6848",
+		"FreeAnswer": "\u5728\u8fd9\u91cc\u5199\u4e0b\u4f60\u7684\u7b54\u6848",
+		"SaveQuestion": "\u4fdd\u5b58\u95ee\u9898",
+		"SaveAnswer": "\u4fdd\u5b58\u7b54\u6848",
+		"Save": "\u8282\u7701",
+		"Send": "\u53d1\u9001",
+		"TitleRequired": "\u6807\u9898\u5fc5\u586b\uff01",
+		"AlreadyAnswered": "\u5df2\u7ecf\u56de\u7b54",
+		"TitlePlaceholder": "\u8f93\u5165\u60a8\u7684\u95ee\u9898",
+		"ContentPlaceholder": "\u5c06\u4efb\u4f55\u5176\u4ed6\u4fe1\u606f\u653e\u5728\u8fd9\u91cc\u4ee5\u5e2e\u52a9\u4eba\u4eec\u56de\u7b54",
+		"ErrorTitle": "\u9700\u8981\u63d0\u95ee",
+		"Placeholder": "\u5199\u6307\u4ee4",
+		"AreYouSure": "\u4f60\u786e\u5b9a\u5417\uff1f",
+		"ShortAnswer": "\u5199\u4e00\u4e2a\u7b80\u77ed\u7684\u7b54\u6848",
+		"AnswerCantBeChanged": "\u7b54\u6848\u65e0\u6cd5\u66f4\u6539"
+	},
+	"experience": {
+		"NewExperience": "\u65b0\u4f53\u9a8c",
+		"DefineTitle": "\u8bf7\u5b9a\u4e49\u6807\u9898",
+		"Create": "\u521b\u9020"
+	},
+	"calls": {
+		"SettingsTitle": "\u6765\u7535",
+		"MaxCalls": "\u6700\u5927\u8c03\u7528",
+		"Update": "\u66f4\u65b0",
+		"NoCallsYet": "\u8fd8\u6ca1\u6709\u6765\u7535",
+		"CallReasonTitle": "\u8fd9\u4e2a\u7535\u8bdd\u662f\u5173\u4e8e\u4ec0\u4e48\u7684\uff1f",
+		"WaitingRoom": "\u7b49\u5019\u5ba4",
+		"LiveRoom": "\u76f4\u64ad\u95f4",
+		"interviewedByAnotherHost": "\u76ee\u524d\u6b63\u5728\u63a5\u53d7\u53e6\u4e00\u4f4d\u4e3b\u6301\u4eba\u7684\u91c7\u8bbf",
+		"bringToLive": "\u5e26\u6765\u73b0\u573a\u8868\u6f14",
+		"putOnHold": "\u6401\u7f6e",
+		"endCall": "\u7ed3\u675f\u901a\u8bdd",
+		"interview": "\u9762\u8bd5",
+		"markApproved": "\u6807\u8bb0\u5df2\u6279\u51c6"
+	},
+	"relate": {
+		"Add": "\u52a0{{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "\u7528\u6237\u540d..."
+	},
+	"task": {
+		"errorsTitle": "\u53d1\u751f\u9519\u8bef"
+	},
+	"topic": {
+		"NewTopic": "\u65b0\u8bdd\u9898",
+		"UpdateTopic": "\u66f4\u65b0\u4e3b\u9898",
+		"CreateTopic": "\u521b\u5efa\u4e3b\u9898",
+		"AreYouSureDeleteTopic": "\u60a8\u786e\u5b9a\u8981\u5220\u9664\u6b64\u4e3b\u9898\u5417",
+		"TitlePlaceholder": "\u4e3b\u9898\u6807\u9898...",
+		"DescribeTopic": "\u63cf\u8ff0\u4e3b\u9898...",
+		"TopicIcon": "\u4e3b\u9898\u56fe\u7247",
+		"UploadIcon": "\u4e0a\u4f20\u56fe\u6807",
+		"Conversation": "\u5bf9\u8bdd",
+		"Metrics": "\u6307\u6807",
+		"Teaser": "\u9884\u544a\u7247",
+		"TeaserDescription": "\u9884\u544a\u63cf\u8ff0...",
+		"TeaserVideo": "\u9884\u544a\u89c6\u9891"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "\u521b\u5efa\u52a8\u753b\u7f29\u7565\u56fe",
+		"Width": "\u5bbd\u5ea6",
+		"Height": "\u9ad8\u5ea6",
+		"Start": "\u5f00\u59cb",
+		"End": "\u7ed3\u5c3e",
+		"Delay": "\u5ef6\u8fdf",
+		"Quality": "\u8d28\u91cf",
+		"Size": "\u5c3a\u5bf8",
+		"OfFrames": "\u5e27\u6570",
+		"Frame": "\u6846\u67b6",
+		"UseThis": "\u7528\u8fd9\u4e2a",
+		"ResultGIF": "\u7ed3\u679c GIF",
+		"VideoElementNotFound": "\u672a\u627e\u5230\u89c6\u9891\u5143\u7d20"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}}\u5728\u4f60\u7684\u8138\u4e0a",
+		"AcceptIcon": "\u63a5\u53d7\u9009\u5b9a\u533a\u57df"
+	},
+	"gallery": {
+		"DialogTitle": "\u7f16\u8f91\u56fe\u5e93\u56fe\u7247",
+		"EditImageTitle": "\u7f16\u8f91\u56fe\u50cf\u53c2\u6570",
+		"IntervalLabel": "\u95f4\u9694\uff08\u6beb\u79d2\uff09\uff1a ",
+		"IntervalPlaceholder": "\u4f8b\u5982 3000",
+		"KenburnsInstruction": "\u901a\u8fc7\u62d6\u52a8\u548c\u7f29\u653e\u6765\u8bbe\u7f6e Ken Burns \u5f71\u7247\u7684\u5f00\u59cb\u548c\u7ed3\u675f\u65f6\u95f4\u3002"
+	}
 }

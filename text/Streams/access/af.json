@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "niks daaroor nie",
+		"10": "dat iets daar is",
+		"20": "die huidige inhoud daarvan",
+		"30": "wie neem daaraan deel",
+		"40": "die sosiale aktiwiteit binne"
+	},
+	"writeLevelOptions": {
+		"0": "doen niks daaraan nie",
+		"10": "deelneem daaraan",
+		"20": "plaas boodskappe daaraan",
+		"30": "wysig die inhoud daarvan"
+	},
+	"adminLevelOptions": {
+		"0": "niks spesiaals doen nie",
+		"10": "deel boodskappe vanaf die stroom",
+		"20": "nooi ander na die stroom",
+		"30": "bestuur die stroom",
+		"40": "besit dit en stel bestuurders aan"
+	},
+	"tabs": {
+		"read": "sigbaar vir",
+		"write": "wysigbaar deur",
+		"admin": "lede"
+	}
+}

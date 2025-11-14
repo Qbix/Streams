@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Mae&#39;r cynnwys hwn wedi&#39;i guddio oddi wrthych.",
-        "InplaceTypeMustBe": "inplaceRhaid i&#39;r math fod yn &#39;textarea&#39; neu &#39;testun&#39;"
-    },
-    "preview": {
-        "NewItemTitle": "Eitem Newydd",
-        "Teaser": "Ymlidiwr"
-    },
-    "avatar": {
-        "firstName": "enw cyntaf",
-        "lastName": "enw olaf",
-        "username": "enw defnyddiwr"
-    },
-    "labels": {
-        "Streams\/invited": "Pobl wnes i wahodd",
-        "Streams\/invitedMe": "Pwy a&#39;m gwahoddodd",
-        "DoYouAgree": "Wyt ti&#39;n cytuno?",
-        "Yes": "Oes",
-        "No": "Nac ydw",
-        "JoinItNow": "Ymunwch ag ef nawr?"
-    },
-    "login": {
-        "prompt": "Gadewch i ffrindiau eich adnabod:",
-        "newUser": "neu greu cyfrif newydd isod",
-        "picTooltip": "Gallwch newid y llun hwn yn ddiweddarach",
-        "placeholders": {
-            "fullName": "Rhowch eich enw llawn"
-        }
-    },
-    "interests": {
-        "Filter": "Chwilio diddordebau",
-        "CanGrant": "Os na allwch ddod o hyd i&#39;r hyn yr ydych yn chwilio amdano o hyd, gallwch ychwanegu diddordeb newydd isod:",
-        "TrySynonyms": "Ddim yn ei weld? Rhowch gynnig ar rai cyfystyron.",
-        "AddUnderCategory": "Ychwanegu o dan y categori...",
-        "Other": "Arall",
-        "Unlisted": "Heb ei restru"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Neges wedi&#39;i fflagio ar gyfer adolygiad gweinyddol. Tapiwch eto i ddad-fflamio.",
-        "noOneSaid": "Does neb wedi dweud dim byd",
-        "closeChatButton": "Sgwrs agos",
-        "closeChatConfirmTitle": "Cau&#39;r sgwrs hon?",
-        "closeChatConfirm": "Ydych chi&#39;n siŵr eich bod am gau&#39;r sgwrs hon?",
-        "Subscribed": "Hysbysiadau wedi&#39;u Galluogi",
-        "Unsubscribed": "Hysbysiadau wedi&#39;u Tewi",
-        "closeChatConfirmYes": "Oes",
-        "closeChatConfirmNo": "Nac ydw",
-        "earlierComments": "sylwadau cynharach",
-        "startedConversation": "dechrau sgwrs",
-        "RealTimeCall": "Galwad Amser Real",
-        "JoinWebRTC": "Telegynhadledd",
-        "SearchByName": "Chwilio yn ôl enw",
-        "Notifications": {
-            "Visit": "Mae {{displayName}} yn ymweld â&#39;r sgwrs",
-            "Join": "Ymunodd {{displayName}} â&#39;r sgwrs",
-            "Leave": "Gadawodd {{displayName}} y sgwrs",
-            "RelatedTo": "Dechreuodd {{displayName}} {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "Ychwanegu sylw",
-            "Private": "Ysgrifennwch neges breifat"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "rheoli eich tanysgrifiadau e-bost",
-        "IfUnsubscribe": "Os ydych am ddad-danysgrifio",
-        "*": "Anfon neges at {{{ message.fields.type}} i {{& stream.fields.title}}}",
-        "Streams\/joined": "Ymunodd {{{call 'avatar.displayName'}}}",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} ar ôl",
-        "Streams\/chat\/message": "Dywedodd 💬 {{{call 'avatar.displayName'}} : {{& message.content}}}",
-        "Streams\/changed": "Newidiadau yn {{stream.fields.title}}",
-        "Streams\/invite": "Fe&#39;ch gwahoddwyd i {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Cyhoeddiad yn {{{ stream.fields.title}}}",
-        "Streams\/access": "Newidiodd {{{call 'avatar.displayName'}} fynediad yn {{& stream.fields.title}}}",
-        "Streams\/chat\/edit": "Neges sgwrsio wedi&#39;i golygu yn {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "Neges sgwrsio wedi&#39;i thynnu yn {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} wedi cau",
-        "Streams\/task\/progress": "Cynnydd a wnaed ar {{stream.fields.title}}",
-        "Streams\/task\/complete": "Tasg a gwblhawyd: {{stream.fields.title}}",
-        "Streams\/task\/error": "Gwall yn ystod: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Neges sy&#39;n Dod",
-        "Streams\/relatedTo\/Streams\/call": "Dechreuwyd Galwad Newydd yn {{toTitle}}",
-        "Streams\/relatedTo\/*": "{{relationDisplayType}} newydd mewn {{toTitle}}",
-        "Streams\/relatedFrom\/*": "Wedi&#39;i ychwanegu at {{toTitle}} fel {{relationDisplayType}}",
-        "Streams\/mention": "Soniodd {{{call 'avatar.displayName'}}} amdanoch chi mewn sylw",
-        "Streams\/call": "Dechreuodd {{displayName}} alwad amser real",
-        "changed": {
-            "ChangesIn": "Newidiadau yn {{title}}",
-            "Changed": "wedi newid",
-            "HereIsWhatChanged": "Dyma beth newidiodd:"
-        },
-        "joined": {
-            "Joined": "Ymunodd {{subject}} â <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Gwahodd",
-        "Invite": "Gwahodd",
-        "Share": "Rhannu",
-        "messageContent": "Gwnaeth {{displayName}} eich gwahodd i {{inviteUrl}}",
-        "youCanNowPaste": "Gallwch nawr gludo&#39;r ddolen hon yn rhywle i wahodd pobl",
-        "roles": {
-            "title": "Rolau Grant i Ddefnyddwyr a Wahoddwyd?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Mae&#39;n ddrwg gennyf",
-                "alert": "Nid ydych wedi&#39;ch awdurdodi i ganiatáu&#39;r rôl hon"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Mae&#39;n ddrwg gennyf",
-                "alert": "Nid ydych wedi&#39;ch awdurdodi i ddileu&#39;r rôl hon"
-            }
-        },
-        "labels": {
-            "title": "Beth yw eich Perthynas?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Dewiswch o&#39;ch Cysylltiadau",
-            "chooseAgainFromContacts": "Dewiswch Eto o Gysylltiadau",
-            "inviteSelectedContacts": "Gwahodd Cysylltiadau Dethol",
-            "selectFromContacts": "Dewiswch O Gysylltiadau",
-            "userChooserPlaceholder": "Chwilio yn ôl enw",
-            "photo": "Tynnu llun",
-            "photoOf": "Tynnwch lun o {{name}}",
-            "photoInstruction": "Os yw&#39;r person a sganiodd eich cod QR o&#39;ch blaen, tynnwch lun ohonynt",
-            "to": "I: {{Stream Title}}",
-            "go": "Ewch",
-            "title": "Gwahodd",
-            "placeholder": "Rhif ffôn symudol neu gyfeiriad e-bost",
-            "orInvite": "Neu gwahodd pobl drwy ddefnyddio:",
-            "copyLink": "{{ClickOrTap}} i gopïo dolen wahoddiad",
-            "shareOrCopyLink": "{{ClickOrTap}} i rannu neu gopïo dolen gwahoddiad",
-            "QR": "{{ClickOrTap}} i gynhyrchu cod QR",
-            "QRtitle": "Sganiwch y cod QR hwn",
-            "QRscanned": "Fe wnaethon nhw ei sganio!",
-            "scannedQR": "{{ClickOrTap}} os cafodd y cod ei sganio",
-            "byEmail": "Ebost",
-            "bySms": "Testun",
-            "byFacebook": "Facebook",
-            "byTwitter": "Trydar",
-            "title2": "Gwahodd Pobl",
-            "chooseMethod": "Dewiswch ddull:",
-            "selectContacts": "Dewiswch Cysylltiadau",
-            "scanQRCode": "Sganiwch y Cod QR",
-            "shareLink": "Rhannwch ddolen",
-            "chooseFromRegistered": "Dewiswch o blith defnyddwyr cofrestredig",
-            "inviteViaEmailOrSms": "Gwahodd trwy e-bost neu SMS",
-            "TakeGroupPhoto": "Tynnwch lun grŵp",
-            "Skip": "Sgipio",
-            "byTelegram": "Telegram",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Ychwanegu Rolau",
-            "addPersonalRoles": "Ychwanegu Perthnasoedd Personol"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Croeso i {{communityName}}",
-            "HasInvitedYou": "wedi eich gwahodd i:",
-            "HasInvitedYouToTheirProfile": "wedi eich gwahodd i gysylltu.",
-            "prompt": "Gadewch i ffrindiau eich adnabod:",
-            "accept": "Derbyn Gwahoddiad"
-        },
-        "email": {
-            "subject": "Hei, edrychwch ar hyn",
-            "PleaseVisitLink": "Os gwelwch yn dda ewch i&#39;r ddolen ganlynol:",
-            "InvitingYou": "Rwy&#39;n eich gwahodd i {{title}}",
-            "HasInvitedYou": "Mae {{displayName}} wedi eich gwahodd i {{title}}",
-            "HasMentionedYou": "Mae {{displayName}} wedi eich crybwyll yn &quot; {{title}} &quot;",
-            "YOUAREINVITED": "MAE GWAHODDIAD I CHI!",
-            "AcceptInvite": "Derbyn Gwahoddiad"
-        },
-        "mobile": {
-            "content": "Rydych wedi cael gwahoddiad i {{title}} . Tapiwch {{url}} os gwelwch yn dda"
-        },
-        "notice": {
-            "text": "Rydych chi wedi cael gwahoddiad. {{ClickOrTap}} yma i dderbyn ac ymuno."
-        },
-        "chat": {
-            "prompt": "Byddwch yn gwahodd pobl i sgwrs lle gallwch gadw mewn cysylltiad, rhannu lluniau gyda&#39;ch gilydd, a mwy. Rhowch enw iddo:"
-        },
-        "Participants": "Gwahodd Pobl"
-    },
-    "messages": {
-        "html": {
-            "posted": "postio neges <em>{{message.fields.type}}<\/em> i {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "sylwadau ar",
-            "startedCallIn": "dechrau galwad i mewn",
-            "in": "mewn",
-            "body": "yn {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "wedi ei bostio i",
-                "byAvatar": "erbyn {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "Mae ganddo {{instructions.fromDisplayType}} newydd",
-                "byAvatar": "wedi&#39;i ychwanegu gan {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Anfonir gwahoddiadau o&#39;n rhif, nad yw eich ffrindiau yn ei adnabod eto. Dilynwch â thestun cyflym i roi gwybod iddynt fod y gwahoddiad wedi dod oddi wrthych, gan ofyn iddynt glicio ar y ddolen.",
-            "confirm": "Anfonir gwahoddiadau o&#39;n rhif, nad yw eich ffrindiau yn ei adnabod eto. A hoffech chi ddilyn i fyny gyda neges destun cyflym i roi gwybod iddynt y daeth y gwahoddiad oddi wrthych, yn gofyn iddynt glicio ar y ddolen.",
-            "check": "Hei, dwi newydd anfon gwahoddiad i chi i&#39;r app {{app}} . Gwiriwch eich sms a chliciwch ar y ddolen!",
-            "CheckYourMobile": "Gwiriwch SMS a dilynwch gyfarwyddiadau!"
-        },
-        "email": {
-            "alert": "Anfonir gwahoddiadau o&#39;n parth, nad yw eich ffrindiau yn eu hadnabod eto. Dilynwch â thestun cyflym i roi gwybod iddynt fod y gwahoddiad wedi dod oddi wrthych, gan ofyn iddynt glicio ar y ddolen.",
-            "confirm": "Anfonir gwahoddiadau o&#39;n parth, nad yw eich ffrindiau yn eu hadnabod eto. A hoffech chi ddilyn i fyny gyda neges destun cyflym i roi gwybod iddynt y daeth y gwahoddiad oddi wrthych, yn gofyn iddynt glicio ar y ddolen.",
-            "subject": "Gawsoch chi wahoddiad?",
-            "body": "Hei, dwi newydd anfon gwahoddiad i chi i&#39;r app {{app}} . Gwiriwch eich e-bost a chliciwch ar y ddolen yno!",
-            "CheckYourEmail": "Gwiriwch eich e-bost a dilynwch y cyfarwyddiadau!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Gosodiadau Preifatrwydd"
-    },
-    "participating": {
-        "Title": "Teitl",
-        "Subscribed": "Tanysgrifio",
-        "Participants": "Cyfranogwyr",
-        "AreYouSureRemoveIdentifier": "A ydych yn sicr o gael gwared ar y dynodwr hwn?",
-        "AreYouSureUnsubscribeIdentifier": "A ydych yn sicr yn dad-danysgrifio&#39;r dynodwr hwn? Bydd yn diffodd hysbysiadau i&#39;r dynodwr hwn.",
-        "AreYouSureUnsubscribeDevice": "A ydych yn sicr yn dad-danysgrifio&#39;r ddyfais hon? Bydd yn diffodd hysbysiadau i&#39;r ddyfais hon.",
-        "AreYouSureRemoveParticipant": "Ydych chi&#39;n siŵr eich bod am ddileu&#39;r cyfranogwr hwn?",
-        "RemoveParticipant": "Dileu cyfranogwr",
-        "Identifiers": "Dynodwyr",
-        "Devices": "Dyfeisiau",
-        "Streams": "Nentydd"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Gwahoddwyd",
-            "description": "Mewnflwch ar gyfer gwahoddiadau"
-        },
-        "Streams\/resource": {
-            "displayType": "Adnodd",
-            "description": "ffrwd ar gyfer rheoli mynediad i adnodd a phostio negeseuon am ddiweddariadau"
-        },
-        "Streams\/task": {
-            "description": "am dderbyn diweddariadau am gynnydd ar dasg benodol",
-            "displayType": "Tasg"
-        },
-        "Streams\/tasks": {
-            "description": "categori ar gyfer tasgau",
-            "displayType": "Tasgau"
-        },
-        "Streams\/experience": {
-            "description": "profiad cyffredin i aelodau cymuned",
-            "displayType": "Profiad cyffredin i aelodau cymuned"
-        },
-        "Streams\/greeting": {
-            "description": "cyfarchiad y gall defnyddiwr gyflwyno ei hun ag ef",
-            "displayType": "Cyfarch"
-        },
-        "Streams\/number": {
-            "displayType": "Rhif",
-            "description": "rhif mathemategol"
-        },
-        "Streams\/date": {
-            "displayType": "Dyddiad",
-            "description": "dyddiad"
-        },
-        "Streams\/text": {
-            "displayType": "Testun",
-            "description": "corff testun"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Testun",
-            "description": "corff bach o destun"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Testun",
-            "description": "corff canolig o destun"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "Cyfeiriad ebost",
-            "description": "cyfeiriad ebost"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Rhif ffôn",
-            "description": "rhif ffôn"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "dolen ar y we"
-        },
-        "Streams\/image": {
-            "displayType": "Delwedd",
-            "description": "delwedd weledol",
-            "newItem": "Ychwanegu Delwedd"
-        },
-        "Streams\/images": {
-            "displayType": "Oriel Delweddau",
-            "description": "oriel o luniau"
-        },
-        "Streams\/album": {
-            "displayType": "Albwm",
-            "description": "albwm y mae cyfryngau amrywiol yn perthyn iddo"
-        },
-        "Streams\/file": {
-            "displayType": "Ffeil",
-            "description": "ffeil wedi&#39;i huwchlwytho",
-            "newItem": "Ychwanegu Ffeil"
-        },
-        "Streams\/audio": {
-            "displayType": "Clip Sain",
-            "description": "clip sain",
-            "newItem": "Ychwanegu Sain"
-        },
-        "Streams\/video": {
-            "displayType": "Clip Fideo",
-            "description": "clip fideo",
-            "newItem": "Ychwanegu Fideo"
-        },
-        "Streams\/pdf": {
-            "displayType": "dogfen PDF",
-            "description": "dogfen PDF",
-            "newItem": "Ychwanegu PDF"
-        },
-        "Streams\/live": {
-            "displayType": "Livestream",
-            "description": "sain neu fideo byw"
-        },
-        "Streams\/category": {
-            "displayType": "Categori",
-            "description": "categori y gall ffrydiau eraill fod yn berthnasol iddo",
-            "newItem": "Ychwanegu Categori"
-        },
-        "Streams\/participating": {
-            "displayType": "Mynegai Cyfranogi",
-            "description": "mae ffrydiau yn gysylltiedig\/ddim yn gysylltiedig â hyn pan fydd defnyddiwr yn ymuno\/gadael"
-        },
-        "Streams\/interest": {
-            "displayType": "Llog",
-            "description": "cynrychioli diddordeb defnyddiwr mewn pwnc penodol"
-        },
-        "Streams\/incoming": {
-            "displayType": "Yn dod i mewn",
-            "description": "cyrchfan ar gyfer negeseuon a anfonwyd gan ddefnyddwyr eraill"
-        },
-        "Streams\/chat": {
-            "displayType": "Sgwrs",
-            "description": "sgwrs rhwng defnyddwyr, gyda hanes"
-        },
-        "Streams\/question": {
-            "displayType": "Cwestiwn",
-            "description": "ffrwd cwestiwn",
-            "newItem": "Ychwanegu Cwestiwn"
-        },
-        "Streams\/answer": {
-            "displayType": "Ateb",
-            "description": "ffrwd ateb"
-        },
-        "Streams\/topic": {
-            "displayType": "Testun",
-            "description": "ffrwd pwnc",
-            "newItem": "Ychwanegu Pwnc"
-        }
-    },
-    "menu": {
-        "placeholder": "teipiwch deitl tudalen",
-        "ModTab": "Addasu Eitem",
-        "Save": "Arbed",
-        "Delete": "Dileu",
-        "Submenu": "Isddewislen"
-    },
-    "audio": {
-        "record": "Cofnod",
-        "reset": "Ail gychwyn",
-        "edit": "Golygu",
-        "title": "teitl",
-        "description": "disgrifiad",
-        "upload": "Llwytho i fyny",
-        "link": "Dolen",
-        "setUrl": "Gosod URL",
-        "save": "Arbed",
-        "setClip": "Clip Torri Allan",
-        "invalidURL": "URL annilys",
-        "invalidFile": "Ffeil Annilys",
-        "errorNoSource": "Dim ffynhonnell sain",
-        "uploadLimit": "Maint ffeil mwyaf: {{size}}",
-        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
-        "TeaserAudio": "Sain ymlid"
-    },
-    "video": {
-        "reset": "Ail gychwyn",
-        "edit": "Golygu",
-        "title": "teitl",
-        "description": "disgrifiad",
-        "upload": "Llwytho i fyny",
-        "link": "Dolen",
-        "setUrl": "Gosod URL",
-        "save": "Arbed",
-        "setClip": "Clip Torri Allan",
-        "invalidURL": "URL annilys",
-        "invalidFile": "Ffeil Annilys",
-        "errorNoSource": "Dim ffynhonnell fideo",
-        "uploadLimit": "Maint ffeil mwyaf: {{size}}",
-        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
-        "createAnimatedThumbnail": "Creu bawd animeiddiedig",
-        "errorNotAvailable": "Mae&#39;n ddrwg gennym, ond nid yw fideo ar gael eto. Rho gynnig Arni eto&#39;n hwyrach.",
-        "NewVideo": "Fideo Newydd",
-        "EditVideo": "Golygu Fideo",
-        "TeaserVideo": "Fideo ymlid"
-    },
-    "pdf": {
-        "reset": "Ail gychwyn",
-        "edit": "Golygu",
-        "title": "teitl",
-        "description": "disgrifiad",
-        "upload": "Llwytho i fyny",
-        "link": "Dolen",
-        "setUrl": "Gosod URL",
-        "save": "Arbed",
-        "setClip": "Clip Torri Allan",
-        "invalidURL": "URL annilys",
-        "invalidFile": "Ffeil Annilys",
-        "errorNoSource": "Dim ffynhonnell pdf",
-        "uploadLimit": "Maint ffeil mwyaf: {{size}}",
-        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
-        "TeaserPDF": "PDF ymlidiwr"
-    },
-    "image": {
-        "reset": "Ail gychwyn",
-        "edit": "Golygu",
-        "title": "teitl",
-        "description": "disgrifiad",
-        "upload": "Llwytho i fyny",
-        "link": "Dolen",
-        "setUrl": "Gosod URL",
-        "save": "Arbed",
-        "uploadedImage": "Delwedd wedi&#39;i uwchlwytho",
-        "imageTitle": "Teitl delwedd",
-        "setClip": "Clip Torri Allan",
-        "invalidURL": "URL annilys",
-        "invalidFile": "Ffeil Annilys",
-        "errorNoSource": "Dim ffynhonnell delwedd",
-        "uploadLimit": "Maint ffeil mwyaf: {{size}}",
-        "errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
-        "TeaserImage": "Delwedd ymlid"
-    },
-    "questions": {
-        "Questions": "Cwestiynau",
-        "Answers": "Atebion",
-        "AnswerQuestion": "Ateb cwestiwn",
-        "SetYourAnswer": "Atebwch y cwestiwn",
-        "NewQuestion": "Cwestiwn Newydd",
-        "EditQuestion": "Golygu Cwestiwn",
-        "NewAnswer": "Ateb Newydd",
-        "NewPossibleAnswer": "Ateb Newydd Posibl",
-        "AnswerDetails": "Manylion Ateb",
-        "answerOption": "Opsiwn",
-        "answerOptionExclusive": "Unigryw",
-        "answerTextarea": "Ardal destun",
-        "answerText": "Testun",
-        "HideUntilAnswered": "Cuddio nes ateb",
-        "CantChangeAnswers": "Methu newid atebion",
-        "FreeAnswer": "Ysgrifennwch eich ateb yma",
-        "SaveQuestion": "Cadw Cwestiwn",
-        "SaveAnswer": "Arbed Ateb",
-        "Save": "Arbed",
-        "Send": "Anfon",
-        "TitleRequired": "Angen teitl!",
-        "AlreadyAnswered": "Atebwyd eisoes",
-        "TitlePlaceholder": "Teipiwch eich cwestiwn",
-        "ContentPlaceholder": "Rhowch unrhyw wybodaeth ychwanegol yma i helpu pobl i ateb",
-        "ErrorTitle": "Angen cwestiwn",
-        "Placeholder": "Ysgrifennu Cyfarwyddiadau",
-        "AreYouSure": "Wyt ti&#39;n siwr?",
-        "ShortAnswer": "Ysgrifennwch ateb byr",
-        "AnswerCantBeChanged": "Ni ellir newid yr ateb"
-    },
-    "experience": {
-        "NewExperience": "Profiad Newydd",
-        "DefineTitle": "Diffiniwch deitl",
-        "Create": "Creu"
-    },
-    "calls": {
-        "SettingsTitle": "Galwadau",
-        "MaxCalls": "Mae Max yn galw",
-        "Update": "Diweddariad",
-        "NoCallsYet": "Dim galwadau eto",
-        "CallReasonTitle": "Am beth mae&#39;r alwad hon?",
-        "WaitingRoom": "Ystafell aros",
-        "LiveRoom": "Ystafell Fyw",
-        "interviewedByAnotherHost": "Ar hyn o bryd yn cael ei gyfweld gan westeiwr arall",
-        "bringToLive": "Sioe Dewch I Fyw",
-        "putOnHold": "Rhoi Ar Dal",
-        "endCall": "Galwad Diwedd",
-        "interview": "Cyfweliad",
-        "markApproved": "Marc wedi&#39;i Gymeradwyo"
-    },
-    "relate": {
-        "Add": "Ychwanegu {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "Enw defnyddiwr..."
-    },
-    "task": {
-        "errorsTitle": "Digwyddodd gwallau"
-    },
-    "topic": {
-        "NewTopic": "Pwnc Newydd",
-        "UpdateTopic": "Pwnc Diweddaru",
-        "CreateTopic": "Creu Pwnc",
-        "AreYouSureDeleteTopic": "Ydych chi&#39;n siŵr eich bod am ddileu&#39;r pwnc hwn",
-        "TitlePlaceholder": "teitl y pwnc...",
-        "DescribeTopic": "disgrifiwch y pwnc...",
-        "TopicIcon": "Llun pwnc",
-        "UploadIcon": "Uwchlwytho Eicon",
-        "Conversation": "Sgwrs",
-        "Metrics": "Metrigau",
-        "Teaser": "Ymlidiwr",
-        "TeaserDescription": "disgrifiad teaser...",
-        "TeaserVideo": "Fideo ymlid"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Creu bawd animeiddiedig",
-        "Width": "Lled",
-        "Height": "Uchder",
-        "Start": "Dechrau",
-        "End": "Diwedd",
-        "Delay": "Oedi",
-        "Quality": "Ansawdd",
-        "Size": "Maint",
-        "OfFrames": "o Fframiau",
-        "Frame": "Ffrâm",
-        "UseThis": "Defnyddiwch hwn",
-        "ResultGIF": "Canlyniad GIF",
-        "VideoElementNotFound": "Elfen fideo heb ei chanfod"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} Ar Dy Wyneb",
-        "AcceptIcon": "Derbyn yr ardal a ddewiswyd"
-    }
+	"errors": {
+		"HiddenFromYou": "Mae&#39;r cynnwys hwn wedi&#39;i guddio oddi wrthych.",
+		"InplaceTypeMustBe": "inplaceRhaid i&#39;r math fod yn &#39;textarea&#39; neu &#39;testun&#39;",
+		"AmountInvalid": "Rhowch nifer dilys o filieiliadau."
+	},
+	"preview": {
+		"NewItemTitle": "Eitem Newydd",
+		"Teaser": "Ymlidiwr"
+	},
+	"avatar": {
+		"firstName": "enw cyntaf",
+		"lastName": "enw olaf",
+		"username": "enw defnyddiwr"
+	},
+	"labels": {
+		"Streams/invited": "Pobl wnes i wahodd",
+		"Streams/invitedMe": "Pwy a&#39;m gwahoddodd",
+		"DoYouAgree": "Wyt ti&#39;n cytuno?",
+		"Yes": "Oes",
+		"No": "Nac ydw",
+		"JoinItNow": "Ymunwch ag ef nawr?"
+	},
+	"login": {
+		"prompt": "Gadewch i ffrindiau eich adnabod:",
+		"newUser": "neu greu cyfrif newydd isod",
+		"picTooltip": "Gallwch newid y llun hwn yn ddiweddarach",
+		"placeholders": {
+			"fullName": "Rhowch eich enw llawn"
+		}
+	},
+	"interests": {
+		"Filter": "Chwilio diddordebau",
+		"CanGrant": "Os na allwch ddod o hyd i&#39;r hyn yr ydych yn chwilio amdano o hyd, gallwch ychwanegu diddordeb newydd isod:",
+		"TrySynonyms": "Ddim yn ei weld? Rhowch gynnig ar rai cyfystyron.",
+		"AddUnderCategory": "Ychwanegu o dan y categori...",
+		"Other": "Arall",
+		"Unlisted": "Heb ei restru"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Neges wedi&#39;i fflagio ar gyfer adolygiad gweinyddol. Tapiwch eto i ddad-fflamio.",
+		"noOneSaid": "Does neb wedi dweud dim byd",
+		"closeChatButton": "Sgwrs agos",
+		"closeChatConfirmTitle": "Cau&#39;r sgwrs hon?",
+		"closeChatConfirm": "Ydych chi&#39;n si\u0175r eich bod am gau&#39;r sgwrs hon?",
+		"Subscribed": "Hysbysiadau wedi&#39;u Galluogi",
+		"Unsubscribed": "Hysbysiadau wedi&#39;u Tewi",
+		"closeChatConfirmYes": "Oes",
+		"closeChatConfirmNo": "Nac ydw",
+		"earlierComments": "sylwadau cynharach",
+		"startedConversation": "dechrau sgwrs",
+		"RealTimeCall": "Galwad Amser Real",
+		"JoinWebRTC": "Telegynhadledd",
+		"SearchByName": "Chwilio yn \u00f4l enw",
+		"Notifications": {
+			"Visit": "Mae {{displayName}} yn ymweld \u00e2&#39;r sgwrs",
+			"Join": "Ymunodd {{displayName}} \u00e2&#39;r sgwrs",
+			"Leave": "Gadawodd {{displayName}} y sgwrs",
+			"RelatedTo": "Dechreuodd {{displayName}} {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "Ychwanegu sylw",
+			"Private": "Ysgrifennwch neges breifat"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "rheoli eich tanysgrifiadau e-bost",
+		"IfUnsubscribe": "Os ydych am ddad-danysgrifio",
+		"*": "Anfon neges at {{{ message.fields.type}} i {{& stream.fields.title}}}",
+		"Streams/joined": "Ymunodd {{{call 'avatar.displayName'}}}",
+		"Streams/left": "{{{call 'avatar.displayName'}}} ar \u00f4l",
+		"Streams/chat/message": "Dywedodd \ud83d\udcac {{{call 'avatar.displayName'}} : {{& message.content}}}",
+		"Streams/changed": "Newidiadau yn {{stream.fields.title}}",
+		"Streams/invite": "Fe&#39;ch gwahoddwyd i {{{ stream.fields.title}}}",
+		"Streams/announcement": "Cyhoeddiad yn {{{ stream.fields.title}}}",
+		"Streams/access": "Newidiodd {{{call 'avatar.displayName'}} fynediad yn {{& stream.fields.title}}}",
+		"Streams/chat/edit": "Neges sgwrsio wedi&#39;i golygu yn {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "Neges sgwrsio wedi&#39;i thynnu yn {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} wedi cau",
+		"Streams/task/progress": "Cynnydd a wnaed ar {{stream.fields.title}}",
+		"Streams/task/complete": "Tasg a gwblhawyd: {{stream.fields.title}}",
+		"Streams/task/error": "Gwall yn ystod: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : Neges sy&#39;n Dod",
+		"Streams/relatedTo/Streams/call": "Dechreuwyd Galwad Newydd yn {{toTitle}}",
+		"Streams/relatedTo/*": "{{relationDisplayType}} newydd mewn {{toTitle}}",
+		"Streams/relatedFrom/*": "Wedi&#39;i ychwanegu at {{toTitle}} fel {{relationDisplayType}}",
+		"Streams/mention": "Soniodd {{{call 'avatar.displayName'}}} amdanoch chi mewn sylw",
+		"Streams/call": "Dechreuodd {{displayName}} alwad amser real",
+		"changed": {
+			"ChangesIn": "Newidiadau yn {{title}}",
+			"Changed": "wedi newid",
+			"HereIsWhatChanged": "Dyma beth newidiodd:"
+		},
+		"joined": {
+			"Joined": "Ymunodd {{subject}} \u00e2 <em>{{title}}</em>"
+		},
+		"Streams/invited": "Cawsoch eich gwahodd i {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "Gwahodd",
+		"Invite": "Gwahodd",
+		"Share": "Rhannu",
+		"messageContent": "Gwnaeth {{displayName}} eich gwahodd i {{inviteUrl}}",
+		"youCanNowPaste": "Gallwch nawr gludo&#39;r ddolen hon yn rhywle i wahodd pobl",
+		"roles": {
+			"title": "Rolau Grant i Ddefnyddwyr a Wahoddwyd?",
+			"NotAuthorizedToGrantRole": {
+				"title": "Mae&#39;n ddrwg gennyf",
+				"alert": "Nid ydych wedi&#39;ch awdurdodi i ganiat\u00e1u&#39;r r\u00f4l hon"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "Mae&#39;n ddrwg gennyf",
+				"alert": "Nid ydych wedi&#39;ch awdurdodi i ddileu&#39;r r\u00f4l hon"
+			}
+		},
+		"labels": {
+			"title": "Beth yw eich Perthynas?"
+		},
+		"dialog": {
+			"chooseFromContacts": "Dewiswch o&#39;ch Cysylltiadau",
+			"chooseAgainFromContacts": "Dewiswch Eto o Gysylltiadau",
+			"inviteSelectedContacts": "Gwahodd Cysylltiadau Dethol",
+			"selectFromContacts": "Dewiswch O Gysylltiadau",
+			"userChooserPlaceholder": "Chwilio yn \u00f4l enw",
+			"photo": "Tynnu llun",
+			"photoOf": "Tynnwch lun o {{name}}",
+			"photoInstruction": "Os yw&#39;r person a sganiodd eich cod QR o&#39;ch blaen, tynnwch lun ohonynt",
+			"to": "I: {{Stream Title}}",
+			"go": "Ewch",
+			"title": "Gwahodd",
+			"placeholder": "Rhif ff\u00f4n symudol neu gyfeiriad e-bost",
+			"orInvite": "Neu gwahodd pobl drwy ddefnyddio:",
+			"copyLink": "{{ClickOrTap}} i gop\u00efo dolen wahoddiad",
+			"shareOrCopyLink": "{{ClickOrTap}} i rannu neu gop\u00efo dolen gwahoddiad",
+			"QR": "{{ClickOrTap}} i gynhyrchu cod QR",
+			"QRtitle": "Sganiwch y cod QR hwn",
+			"QRscanned": "Fe wnaethon nhw ei sganio!",
+			"scannedQR": "{{ClickOrTap}} os cafodd y cod ei sganio",
+			"byEmail": "Ebost",
+			"bySms": "Testun",
+			"byFacebook": "Facebook",
+			"byTwitter": "Trydar",
+			"title2": "Gwahodd Pobl",
+			"chooseMethod": "Dewiswch ddull:",
+			"selectContacts": "Dewiswch Cysylltiadau",
+			"scanQRCode": "Sganiwch y Cod QR",
+			"shareLink": "Rhannwch ddolen",
+			"chooseFromRegistered": "Dewiswch o blith defnyddwyr cofrestredig",
+			"inviteViaEmailOrSms": "Gwahodd trwy e-bost neu SMS",
+			"TakeGroupPhoto": "Tynnwch lun gr\u0175p",
+			"Skip": "Sgipio",
+			"byTelegram": "Telegram",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "Ychwanegu Rolau",
+			"addPersonalRoles": "Ychwanegu Perthnasoedd Personol"
+		},
+		"complete": {
+			"WelcomeToCommunity": "Croeso i {{communityName}}",
+			"HasInvitedYou": "wedi eich gwahodd i:",
+			"HasInvitedYouToTheirProfile": "wedi eich gwahodd i gysylltu.",
+			"prompt": "Gadewch i ffrindiau eich adnabod:",
+			"accept": "Derbyn Gwahoddiad"
+		},
+		"email": {
+			"subject": "Hei, edrychwch ar hyn",
+			"PleaseVisitLink": "Os gwelwch yn dda ewch i&#39;r ddolen ganlynol:",
+			"InvitingYou": "Rwy&#39;n eich gwahodd i {{title}}",
+			"HasInvitedYou": "Mae {{displayName}} wedi eich gwahodd i {{title}}",
+			"HasMentionedYou": "Mae {{displayName}} wedi eich crybwyll yn &quot; {{title}} &quot;",
+			"YOUAREINVITED": "MAE GWAHODDIAD I CHI!",
+			"AcceptInvite": "Derbyn Gwahoddiad"
+		},
+		"mobile": {
+			"content": "Rydych wedi cael gwahoddiad i {{title}} . Tapiwch {{url}} os gwelwch yn dda"
+		},
+		"notice": {
+			"text": "Rydych chi wedi cael gwahoddiad. {{ClickOrTap}} yma i dderbyn ac ymuno."
+		},
+		"chat": {
+			"prompt": "Byddwch yn gwahodd pobl i sgwrs lle gallwch gadw mewn cysylltiad, rhannu lluniau gyda&#39;ch gilydd, a mwy. Rhowch enw iddo:"
+		},
+		"Participants": "Gwahodd Pobl"
+	},
+	"messages": {
+		"html": {
+			"posted": "postio neges <em>{{message.fields.type}}</em> i {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "sylwadau ar",
+			"startedCallIn": "dechrau galwad i mewn",
+			"in": "mewn",
+			"body": "yn {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "wedi ei bostio i",
+				"byAvatar": "erbyn {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "Mae ganddo {{instructions.fromDisplayType}} newydd",
+				"byAvatar": "wedi&#39;i ychwanegu gan {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "Anfonir gwahoddiadau o&#39;n rhif, nad yw eich ffrindiau yn ei adnabod eto. Dilynwch \u00e2 thestun cyflym i roi gwybod iddynt fod y gwahoddiad wedi dod oddi wrthych, gan ofyn iddynt glicio ar y ddolen.",
+			"confirm": "Anfonir gwahoddiadau o&#39;n rhif, nad yw eich ffrindiau yn ei adnabod eto. A hoffech chi ddilyn i fyny gyda neges destun cyflym i roi gwybod iddynt y daeth y gwahoddiad oddi wrthych, yn gofyn iddynt glicio ar y ddolen.",
+			"check": "Hei, dwi newydd anfon gwahoddiad i chi i&#39;r app {{app}} . Gwiriwch eich sms a chliciwch ar y ddolen!",
+			"CheckYourMobile": "Gwiriwch SMS a dilynwch gyfarwyddiadau!"
+		},
+		"email": {
+			"alert": "Anfonir gwahoddiadau o&#39;n parth, nad yw eich ffrindiau yn eu hadnabod eto. Dilynwch \u00e2 thestun cyflym i roi gwybod iddynt fod y gwahoddiad wedi dod oddi wrthych, gan ofyn iddynt glicio ar y ddolen.",
+			"confirm": "Anfonir gwahoddiadau o&#39;n parth, nad yw eich ffrindiau yn eu hadnabod eto. A hoffech chi ddilyn i fyny gyda neges destun cyflym i roi gwybod iddynt y daeth y gwahoddiad oddi wrthych, yn gofyn iddynt glicio ar y ddolen.",
+			"subject": "Gawsoch chi wahoddiad?",
+			"body": "Hei, dwi newydd anfon gwahoddiad i chi i&#39;r app {{app}} . Gwiriwch eich e-bost a chliciwch ar y ddolen yno!",
+			"CheckYourEmail": "Gwiriwch eich e-bost a dilynwch y cyfarwyddiadau!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Gosodiadau Preifatrwydd"
+	},
+	"participating": {
+		"Title": "Teitl",
+		"Subscribed": "Tanysgrifio",
+		"Participants": "Cyfranogwyr",
+		"AreYouSureRemoveIdentifier": "A ydych yn sicr o gael gwared ar y dynodwr hwn?",
+		"AreYouSureUnsubscribeIdentifier": "A ydych yn sicr yn dad-danysgrifio&#39;r dynodwr hwn? Bydd yn diffodd hysbysiadau i&#39;r dynodwr hwn.",
+		"AreYouSureUnsubscribeDevice": "A ydych yn sicr yn dad-danysgrifio&#39;r ddyfais hon? Bydd yn diffodd hysbysiadau i&#39;r ddyfais hon.",
+		"AreYouSureRemoveParticipant": "Ydych chi&#39;n si\u0175r eich bod am ddileu&#39;r cyfranogwr hwn?",
+		"RemoveParticipant": "Dileu cyfranogwr",
+		"Identifiers": "Dynodwyr",
+		"Devices": "Dyfeisiau",
+		"Streams": "Nentydd"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "Gwahoddwyd",
+			"description": "Mewnflwch ar gyfer gwahoddiadau"
+		},
+		"Streams/resource": {
+			"displayType": "Adnodd",
+			"description": "ffrwd ar gyfer rheoli mynediad i adnodd a phostio negeseuon am ddiweddariadau"
+		},
+		"Streams/task": {
+			"description": "am dderbyn diweddariadau am gynnydd ar dasg benodol",
+			"displayType": "Tasg"
+		},
+		"Streams/tasks": {
+			"description": "categori ar gyfer tasgau",
+			"displayType": "Tasgau"
+		},
+		"Streams/experience": {
+			"description": "profiad cyffredin i aelodau cymuned",
+			"displayType": "Profiad cyffredin i aelodau cymuned"
+		},
+		"Streams/greeting": {
+			"description": "cyfarchiad y gall defnyddiwr gyflwyno ei hun ag ef",
+			"displayType": "Cyfarch"
+		},
+		"Streams/number": {
+			"displayType": "Rhif",
+			"description": "rhif mathemategol"
+		},
+		"Streams/date": {
+			"displayType": "Dyddiad",
+			"description": "dyddiad"
+		},
+		"Streams/text": {
+			"displayType": "Testun",
+			"description": "corff testun"
+		},
+		"Streams/text/small": {
+			"displayType": "Testun",
+			"description": "corff bach o destun"
+		},
+		"Streams/text/medium": {
+			"displayType": "Testun",
+			"description": "corff canolig o destun"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "Cyfeiriad ebost",
+			"description": "cyfeiriad ebost"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Rhif ff\u00f4n",
+			"description": "rhif ff\u00f4n"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "dolen ar y we"
+		},
+		"Streams/image": {
+			"displayType": "Delwedd",
+			"description": "delwedd weledol",
+			"newItem": "Ychwanegu Delwedd"
+		},
+		"Streams/images": {
+			"displayType": "Oriel Delweddau",
+			"description": "oriel o luniau"
+		},
+		"Streams/album": {
+			"displayType": "Albwm",
+			"description": "albwm y mae cyfryngau amrywiol yn perthyn iddo"
+		},
+		"Streams/file": {
+			"displayType": "Ffeil",
+			"description": "ffeil wedi&#39;i huwchlwytho",
+			"newItem": "Ychwanegu Ffeil"
+		},
+		"Streams/audio": {
+			"displayType": "Clip Sain",
+			"description": "clip sain",
+			"newItem": "Ychwanegu Sain"
+		},
+		"Streams/video": {
+			"displayType": "Clip Fideo",
+			"description": "clip fideo",
+			"newItem": "Ychwanegu Fideo"
+		},
+		"Streams/pdf": {
+			"displayType": "dogfen PDF",
+			"description": "dogfen PDF",
+			"newItem": "Ychwanegu PDF"
+		},
+		"Streams/live": {
+			"displayType": "Livestream",
+			"description": "sain neu fideo byw"
+		},
+		"Streams/category": {
+			"displayType": "Categori",
+			"description": "categori y gall ffrydiau eraill fod yn berthnasol iddo",
+			"newItem": "Ychwanegu Categori"
+		},
+		"Streams/participating": {
+			"displayType": "Mynegai Cyfranogi",
+			"description": "mae ffrydiau yn gysylltiedig/ddim yn gysylltiedig \u00e2 hyn pan fydd defnyddiwr yn ymuno/gadael"
+		},
+		"Streams/interest": {
+			"displayType": "Llog",
+			"description": "cynrychioli diddordeb defnyddiwr mewn pwnc penodol"
+		},
+		"Streams/incoming": {
+			"displayType": "Yn dod i mewn",
+			"description": "cyrchfan ar gyfer negeseuon a anfonwyd gan ddefnyddwyr eraill"
+		},
+		"Streams/chat": {
+			"displayType": "Sgwrs",
+			"description": "sgwrs rhwng defnyddwyr, gyda hanes"
+		},
+		"Streams/question": {
+			"displayType": "Cwestiwn",
+			"description": "ffrwd cwestiwn",
+			"newItem": "Ychwanegu Cwestiwn"
+		},
+		"Streams/answer": {
+			"displayType": "Ateb",
+			"description": "ffrwd ateb"
+		},
+		"Streams/topic": {
+			"displayType": "Testun",
+			"description": "ffrwd pwnc",
+			"newItem": "Ychwanegu Pwnc"
+		}
+	},
+	"menu": {
+		"placeholder": "teipiwch deitl tudalen",
+		"ModTab": "Addasu Eitem",
+		"Save": "Arbed",
+		"Delete": "Dileu",
+		"Submenu": "Isddewislen"
+	},
+	"audio": {
+		"record": "Cofnod",
+		"reset": "Ail gychwyn",
+		"edit": "Golygu",
+		"title": "teitl",
+		"description": "disgrifiad",
+		"upload": "Llwytho i fyny",
+		"link": "Dolen",
+		"setUrl": "Gosod URL",
+		"save": "Arbed",
+		"setClip": "Clip Torri Allan",
+		"invalidURL": "URL annilys",
+		"invalidFile": "Ffeil Annilys",
+		"errorNoSource": "Dim ffynhonnell sain",
+		"uploadLimit": "Maint ffeil mwyaf: {{size}}",
+		"errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
+		"TeaserAudio": "Sain ymlid"
+	},
+	"video": {
+		"reset": "Ail gychwyn",
+		"edit": "Golygu",
+		"title": "teitl",
+		"description": "disgrifiad",
+		"upload": "Llwytho i fyny",
+		"link": "Dolen",
+		"setUrl": "Gosod URL",
+		"save": "Arbed",
+		"setClip": "Clip Torri Allan",
+		"invalidURL": "URL annilys",
+		"invalidFile": "Ffeil Annilys",
+		"errorNoSource": "Dim ffynhonnell fideo",
+		"uploadLimit": "Maint ffeil mwyaf: {{size}}",
+		"errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
+		"createAnimatedThumbnail": "Creu bawd animeiddiedig",
+		"errorNotAvailable": "Mae&#39;n ddrwg gennym, ond nid yw fideo ar gael eto. Rho gynnig Arni eto&#39;n hwyrach.",
+		"NewVideo": "Fideo Newydd",
+		"EditVideo": "Golygu Fideo",
+		"TeaserVideo": "Fideo ymlid"
+	},
+	"pdf": {
+		"reset": "Ail gychwyn",
+		"edit": "Golygu",
+		"title": "teitl",
+		"description": "disgrifiad",
+		"upload": "Llwytho i fyny",
+		"link": "Dolen",
+		"setUrl": "Gosod URL",
+		"save": "Arbed",
+		"setClip": "Clip Torri Allan",
+		"invalidURL": "URL annilys",
+		"invalidFile": "Ffeil Annilys",
+		"errorNoSource": "Dim ffynhonnell pdf",
+		"uploadLimit": "Maint ffeil mwyaf: {{size}}",
+		"errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
+		"TeaserPDF": "PDF ymlidiwr"
+	},
+	"image": {
+		"reset": "Ail gychwyn",
+		"edit": "Golygu",
+		"title": "teitl",
+		"description": "disgrifiad",
+		"upload": "Llwytho i fyny",
+		"link": "Dolen",
+		"setUrl": "Gosod URL",
+		"save": "Arbed",
+		"uploadedImage": "Delwedd wedi&#39;i uwchlwytho",
+		"imageTitle": "Teitl delwedd",
+		"setClip": "Clip Torri Allan",
+		"invalidURL": "URL annilys",
+		"invalidFile": "Ffeil Annilys",
+		"errorNoSource": "Dim ffynhonnell delwedd",
+		"uploadLimit": "Maint ffeil mwyaf: {{size}}",
+		"errorFileSize": "Mae&#39;n ddrwg gennym, ond mae&#39;r ffeil yn rhy fawr.<br> Maint ffeil mwyaf yw {{size}}",
+		"TeaserImage": "Delwedd ymlid"
+	},
+	"questions": {
+		"Questions": "Cwestiynau",
+		"Answers": "Atebion",
+		"AnswerQuestion": "Ateb cwestiwn",
+		"SetYourAnswer": "Atebwch y cwestiwn",
+		"NewQuestion": "Cwestiwn Newydd",
+		"EditQuestion": "Golygu Cwestiwn",
+		"NewAnswer": "Ateb Newydd",
+		"NewPossibleAnswer": "Ateb Newydd Posibl",
+		"AnswerDetails": "Manylion Ateb",
+		"answerOption": "Opsiwn",
+		"answerOptionExclusive": "Unigryw",
+		"answerTextarea": "Ardal destun",
+		"answerText": "Testun",
+		"HideUntilAnswered": "Cuddio nes ateb",
+		"CantChangeAnswers": "Methu newid atebion",
+		"FreeAnswer": "Ysgrifennwch eich ateb yma",
+		"SaveQuestion": "Cadw Cwestiwn",
+		"SaveAnswer": "Arbed Ateb",
+		"Save": "Arbed",
+		"Send": "Anfon",
+		"TitleRequired": "Angen teitl!",
+		"AlreadyAnswered": "Atebwyd eisoes",
+		"TitlePlaceholder": "Teipiwch eich cwestiwn",
+		"ContentPlaceholder": "Rhowch unrhyw wybodaeth ychwanegol yma i helpu pobl i ateb",
+		"ErrorTitle": "Angen cwestiwn",
+		"Placeholder": "Ysgrifennu Cyfarwyddiadau",
+		"AreYouSure": "Wyt ti&#39;n siwr?",
+		"ShortAnswer": "Ysgrifennwch ateb byr",
+		"AnswerCantBeChanged": "Ni ellir newid yr ateb"
+	},
+	"experience": {
+		"NewExperience": "Profiad Newydd",
+		"DefineTitle": "Diffiniwch deitl",
+		"Create": "Creu"
+	},
+	"calls": {
+		"SettingsTitle": "Galwadau",
+		"MaxCalls": "Mae Max yn galw",
+		"Update": "Diweddariad",
+		"NoCallsYet": "Dim galwadau eto",
+		"CallReasonTitle": "Am beth mae&#39;r alwad hon?",
+		"WaitingRoom": "Ystafell aros",
+		"LiveRoom": "Ystafell Fyw",
+		"interviewedByAnotherHost": "Ar hyn o bryd yn cael ei gyfweld gan westeiwr arall",
+		"bringToLive": "Sioe Dewch I Fyw",
+		"putOnHold": "Rhoi Ar Dal",
+		"endCall": "Galwad Diwedd",
+		"interview": "Cyfweliad",
+		"markApproved": "Marc wedi&#39;i Gymeradwyo"
+	},
+	"relate": {
+		"Add": "Ychwanegu {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "Enw defnyddiwr..."
+	},
+	"task": {
+		"errorsTitle": "Digwyddodd gwallau"
+	},
+	"topic": {
+		"NewTopic": "Pwnc Newydd",
+		"UpdateTopic": "Pwnc Diweddaru",
+		"CreateTopic": "Creu Pwnc",
+		"AreYouSureDeleteTopic": "Ydych chi&#39;n si\u0175r eich bod am ddileu&#39;r pwnc hwn",
+		"TitlePlaceholder": "teitl y pwnc...",
+		"DescribeTopic": "disgrifiwch y pwnc...",
+		"TopicIcon": "Llun pwnc",
+		"UploadIcon": "Uwchlwytho Eicon",
+		"Conversation": "Sgwrs",
+		"Metrics": "Metrigau",
+		"Teaser": "Ymlidiwr",
+		"TeaserDescription": "disgrifiad teaser...",
+		"TeaserVideo": "Fideo ymlid"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Creu bawd animeiddiedig",
+		"Width": "Lled",
+		"Height": "Uchder",
+		"Start": "Dechrau",
+		"End": "Diwedd",
+		"Delay": "Oedi",
+		"Quality": "Ansawdd",
+		"Size": "Maint",
+		"OfFrames": "o Fframiau",
+		"Frame": "Ffr\u00e2m",
+		"UseThis": "Defnyddiwch hwn",
+		"ResultGIF": "Canlyniad GIF",
+		"VideoElementNotFound": "Elfen fideo heb ei chanfod"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} Ar Dy Wyneb",
+		"AcceptIcon": "Derbyn yr ardal a ddewiswyd"
+	},
+	"gallery": {
+		"DialogTitle": "Golygu Delwedd yr Oriel",
+		"EditImageTitle": "Golygu Paramedrau Delwedd",
+		"IntervalLabel": "Cyfnod (ms): ",
+		"IntervalPlaceholder": "e.e. 3000",
+		"KenburnsInstruction": "Gosodwch ddechrau a diwedd Ken Burns trwy lusgo a chwyddo."
+	}
 }

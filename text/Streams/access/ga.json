@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "rud ar bith faoi",
+		"10": "go bhfuil rud \u00e9igin ann",
+		"20": "a \u00e1bhar reatha",
+		"30": "c\u00e9 at\u00e1 p\u00e1irteach ann",
+		"40": "an ghn\u00edomha\u00edocht sh\u00f3isialta istigh"
+	},
+	"writeLevelOptions": {
+		"0": "n\u00e1 d\u00e9an aon rud leis",
+		"10": "p\u00e1irt a ghlacadh ann",
+		"20": "teachtaireachta\u00ed a phost\u00e1il chuige",
+		"30": "a \u00e1bhar a chur in eagar"
+	},
+	"adminLevelOptions": {
+		"0": "gan aon rud speisialta a dh\u00e9anamh",
+		"10": "teachtaireachta\u00ed a roinnt \u00f3n sruth",
+		"20": "tabhair cuireadh do dhaoine eile chuig an sruth",
+		"30": "bainistigh an sruth",
+		"40": "\u00fain\u00e9ireacht a fh\u00e1il air agus bainisteoir\u00ed a cheapadh"
+	},
+	"tabs": {
+		"read": "le feice\u00e1il ag",
+		"write": "in-eagarth\u00f3ireacht d\u00e9anta ag",
+		"admin": "baill"
+	}
+}

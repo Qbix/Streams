@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "ni\u0161ta o tome",
+		"10": "da ne\u0161to postoji",
+		"20": "njegov trenutni sadr\u017eaj",
+		"30": "tko u tome sudjeluje",
+		"40": "dru\u0161tvena aktivnost unutra"
+	},
+	"writeLevelOptions": {
+		"0": "ne \u010dini ni\u0161ta tome",
+		"10": "sudjelovati u tome",
+		"20": "\u0161aljite poruke na njega",
+		"30": "urediti njegov sadr\u017eaj"
+	},
+	"adminLevelOptions": {
+		"0": "ne raditi ni\u0161ta posebno",
+		"10": "dijeljenje poruka iz streama",
+		"20": "pozovite druge u stream",
+		"30": "upravljaj streamom",
+		"40": "posjedujte ga i imenujte upravitelje"
+	},
+	"tabs": {
+		"read": "vidljivo",
+		"write": "mo\u017ee ure\u0111ivati",
+		"admin": "\u010dlanovi"
+	}
+}

@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Eduki hau ezkutatuta dago.",
-        "InplaceTypeMustBe": "inplaceType-k &#39;textarea&#39; edo &#39;text&#39; izan behar du"
-    },
-    "preview": {
-        "NewItemTitle": "Elementu berria",
-        "Teaser": "Teaser"
-    },
-    "avatar": {
-        "firstName": "izena",
-        "lastName": "abizena",
-        "username": "erabiltzaile-izena"
-    },
-    "labels": {
-        "Streams\/invited": "Gonbidatu nuen jendea",
-        "Streams\/invitedMe": "Nork gonbidatu nau",
-        "DoYouAgree": "Ados zaude?",
-        "Yes": "Bai",
-        "No": "Ez",
-        "JoinItNow": "Bat egin orain?"
-    },
-    "login": {
-        "prompt": "Utzi lagunei ezagutarazten:",
-        "newUser": "edo sortu kontu berri bat behean",
-        "picTooltip": "Irudi hau geroago alda dezakezu",
-        "placeholders": {
-            "fullName": "Sartu zure izen-abizenak"
-        }
-    },
-    "interests": {
-        "Filter": "Bilatu interesak",
-        "CanGrant": "Oraindik ez baduzu aurkitzen bilatzen ari zarena, behean interes berri bat gehi dezakezu:",
-        "TrySynonyms": "Ez al duzu ikusten? Saiatu sinonimo batzuk.",
-        "AddUnderCategory": "Gehitu kategorian...",
-        "Other": "Bestela",
-        "Unlisted": "Zerrendatu gabea"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Mezua markatu da administratzaileak berrikusteko. Sakatu berriro marka kentzeko.",
-        "noOneSaid": "Inork ez du ezer esan",
-        "closeChatButton": "Itxi txata",
-        "closeChatConfirmTitle": "Txat hau itxi?",
-        "closeChatConfirm": "Ziur txat hau itxi nahi duzula?",
-        "Subscribed": "Jakinarazpenak gaituta",
-        "Unsubscribed": "Jakinarazpenak ezkutatuta",
-        "closeChatConfirmYes": "Bai",
-        "closeChatConfirmNo": "Ez",
-        "earlierComments": "lehenagoko iruzkinak",
-        "startedConversation": "elkarrizketa bat hasi zuen",
-        "RealTimeCall": "Denbora errealeko deia",
-        "JoinWebRTC": "Telekonferentzia",
-        "SearchByName": "Bilatu izenaren arabera",
-        "Notifications": {
-            "Visit": "{{displayName}} txata bisitatzen ari da",
-            "Join": "{{displayName}} txatean sartu da",
-            "Leave": "{{displayName}} txata utzi zuen",
-            "RelatedTo": "{{displayName}} {{stream.displayType}} bat hasi zuen"
-        },
-        "placeholders": {
-            "Public": "Gehitu iruzkin bat",
-            "Private": "Idatzi mezu pribatu bat"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "kudeatu zure posta elektronikoko harpidetzak",
-        "IfUnsubscribe": "Harpidetza kendu nahi baduzu",
-        "*": "{{{ message.fields.type}} {{& stream.fields.title}}} bitarteko mezua",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} batu ziren",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} geratzen dira",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} esan zuen: {{& message.content}}}",
-        "Streams\/changed": "{{stream.fields.title}} aldaketak",
-        "Streams\/invite": "{{{ stream.fields.title}}} gonbidatu zaituzte",
-        "Streams\/announcement": "{{{ stream.fields.title}}} iragarkia",
-        "Streams\/access": "{{{call 'avatar.displayName'}} sarbidea aldatu zuen {{& stream.fields.title}}} urtean",
-        "Streams\/chat\/edit": "{{{ stream.fields.title}}} urtean editatutako txat-mezua",
-        "Streams\/chat\/remove": "Txat-mezua kendu zen {{{ stream.fields.title}}} urtean",
-        "Streams\/closed": "{{stream.fields.title}} itxi egin da",
-        "Streams\/task\/progress": "{{stream.fields.title}} egindako aurrerapena",
-        "Streams\/task\/complete": "Egindako zeregina: {{stream.fields.title}}",
-        "Streams\/task\/error": "Errorea zehar: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Sarrerako mezua",
-        "Streams\/relatedTo\/Streams\/call": "Deialdi berria {{toTitle}} hasi zen",
-        "Streams\/relatedTo\/*": "{{relationDisplayType}} berria {{toTitle}} urtean",
-        "Streams\/relatedFrom\/*": "{{toTitle}} {{relationDisplayType}} gisa gehitu da",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} iruzkin batean aipatu zaitu",
-        "Streams\/call": "{{displayName}} telefonoak denbora errealeko dei bat hasi zuen",
-        "changed": {
-            "ChangesIn": "{{title}} aldaketak",
-            "Changed": "aldatu",
-            "HereIsWhatChanged": "Hona hemen zer aldatu den:"
-        },
-        "joined": {
-            "Joined": "{{subject}} batu <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Gonbidatu",
-        "Invite": "Gonbidatu",
-        "Share": "Partekatu",
-        "messageContent": "{{displayName}} {{inviteUrl}} gonbidatu zaitu",
-        "youCanNowPaste": "Orain esteka hau nonbait itsats dezakezu jendea gonbidatzeko",
-        "roles": {
-            "title": "Gonbidatutako erabiltzaileei rolak eman?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Barkatu",
-                "alert": "Ez duzu baimenik eginkizun hau emateko"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Barkatu",
-                "alert": "Ez duzu baimenik eginkizun hau kentzeko"
-            }
-        },
-        "labels": {
-            "title": "Zein da zure Harremana?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Aukeratu zure kontaktuetatik",
-            "chooseAgainFromContacts": "Aukeratu Berriro Kontaktuetatik",
-            "inviteSelectedContacts": "Gonbidatu Hautatutako Kontaktuak",
-            "selectFromContacts": "Hautatu Kontaktuetatik",
-            "userChooserPlaceholder": "Bilatu izenaren arabera",
-            "photo": "Argazkia atera",
-            "photoOf": "Atera argazki bat {{name}}",
-            "photoInstruction": "Zure QR kodea eskaneatu duen pertsona zure aurrean badago, atera argazki bat",
-            "to": "Nora: {{Stream Title}}",
-            "go": "Zoaz",
-            "title": "Gonbidatu",
-            "placeholder": "Mugikor-zenbakia edo helbide elektronikoa",
-            "orInvite": "Edo gonbidatu jendea erabilita:",
-            "copyLink": "{{ClickOrTap}} gonbidapen-esteka kopiatzeko",
-            "shareOrCopyLink": "{{ClickOrTap}} gonbidapen-esteka partekatzeko edo kopiatzeko",
-            "QR": "{{ClickOrTap}} QR kodea sortzeko",
-            "QRtitle": "Eskaneatu QR kode hau",
-            "QRscanned": "Eskaneatu dute!",
-            "scannedQR": "{{ClickOrTap}} kodea eskaneatu bada",
-            "byEmail": "Posta elektronikoa",
-            "bySms": "Testua",
-            "byFacebook": "Facebook",
-            "byTwitter": "Twitter",
-            "title2": "Gonbidatu jendea",
-            "chooseMethod": "Aukeratu metodo bat:",
-            "selectContacts": "Hautatu Kontaktuak",
-            "scanQRCode": "Eskaneatu QR kodea",
-            "shareLink": "Partekatu esteka bat",
-            "chooseFromRegistered": "Aukeratu erregistratutako erabiltzaileen artean",
-            "inviteViaEmailOrSms": "Gonbidatu posta elektroniko bidez edo SMS bidez",
-            "TakeGroupPhoto": "Taldeko argazkia atera",
-            "Skip": "Saltatu",
-            "byTelegram": "Telegrama",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Gehitu rolak",
-            "addPersonalRoles": "Gehitu harreman pertsonalak"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Ongi etorri {{communityName}}",
-            "HasInvitedYou": "honetara gonbidatu zaitu:",
-            "HasInvitedYouToTheirProfile": "konektatzera gonbidatu zaitu.",
-            "prompt": "Utzi lagunei ezagutarazten:",
-            "accept": "Onartu Gonbidapena"
-        },
-        "email": {
-            "subject": "Aizu, begiratu hau",
-            "PleaseVisitLink": "Mesedez, bisitatu hurrengo esteka:",
-            "InvitingYou": "{{title}} gonbidatzen zaitut",
-            "HasInvitedYou": "{{displayName}} {{title}} gonbidatu zaitu",
-            "HasMentionedYou": "{{displayName}} &quot; {{title}} &quot;-n aipatu zaitu",
-            "YOUAREINVITED": "GONBIDATUTA ZAUDE!",
-            "AcceptInvite": "Onartu Gonbidapena"
-        },
-        "mobile": {
-            "content": "{{title}} gonbidatu zaituzte. Mesedez, sakatu {{url}}"
-        },
-        "notice": {
-            "text": "Gonbidatu zaituzte. {{ClickOrTap}} hona onartzeko eta sartzeko."
-        },
-        "chat": {
-            "prompt": "Jendea elkarrizketa batera gonbidatuko duzu, non harremanetan egoteko, argazkiak elkarrekin partekatzeko eta abar. Eman izena:"
-        },
-        "Participants": "Gonbidatu jendea"
-    },
-    "messages": {
-        "html": {
-            "posted": "<em>{{message.fields.type}}<\/em> mezu bat argitaratu du {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "komentatu zuen",
-            "startedCallIn": "dei bat hasi zen",
-            "in": "urtean",
-            "body": "{{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "helbidean argitaratu da",
-                "byAvatar": "{{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "{{instructions.fromDisplayType}} berria du",
-                "byAvatar": "{{avatar.displayName}} gehitua"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Gonbidapenak gure zenbakitik bidaltzen dira, zure lagunek oraindik ezagutzen ez dutena. Jarraitu testu azkar batekin gonbidapena zuregandik etorri dela jakinarazteko, estekan klik egiteko eskatuz.",
-            "confirm": "Gonbidapenak gure zenbakitik bidaltzen dira, zure lagunek oraindik ezagutzen ez dutena. Testu azkar batekin jarraitu nahi al duzu gonbidapena zuregandik etorri dela jakinarazteko, estekan klik egiteko eskatuz.",
-            "check": "Aizu, gonbidapena bidali berri dizut {{app}} aplikaziora. Mesedez, egiaztatu zure sms eta egin klik estekan!",
-            "CheckYourMobile": "Mesedez, egiaztatu SMSak eta jarraitu argibideak!"
-        },
-        "email": {
-            "alert": "Gonbidapenak gure domeinutik bidaltzen dira, zure lagunek oraindik ezagutzen ez dituztenak. Jarraitu testu azkar batekin gonbidapena zuregandik etorri dela jakinarazteko, estekan klik egiteko eskatuz.",
-            "confirm": "Gonbidapenak gure domeinutik bidaltzen dira, zure lagunek oraindik ezagutzen ez dituztenak. Testu azkar batekin jarraitu nahi al duzu gonbidapena zuregandik etorri dela jakinarazteko, estekan klik egiteko eskatuz.",
-            "subject": "Gonbidapena jaso al duzu?",
-            "body": "Aizu, gonbidapen bat bidali dizut {{app}} aplikaziora. Mesedez, begiratu zure posta elektronikoa eta egin klik hemen dagoen estekan!",
-            "CheckYourEmail": "Mesedez, egiaztatu zure posta elektronikoa eta jarraitu argibideak!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Pribatutasun ezarpenak"
-    },
-    "participating": {
-        "Title": "Izenburua",
-        "Subscribed": "Harpidetuta",
-        "Participants": "Parte hartzaileak",
-        "AreYouSureRemoveIdentifier": "Ziur identifikatzaile hau kenduko duzula?",
-        "AreYouSureUnsubscribeIdentifier": "Ziur identifikatzaile honi harpidetza kentzea? Identifikatzaile honen jakinarazpenak desaktibatu egingo ditu.",
-        "AreYouSureUnsubscribeDevice": "Ziur gailu hau kentzen duzula? Gailu honetarako jakinarazpenak desaktibatu egingo ditu.",
-        "AreYouSureRemoveParticipant": "Ziur parte-hartzaile hau kendu nahi duzula?",
-        "RemoveParticipant": "Kendu parte-hartzailea",
-        "Identifiers": "Identifikatzaileak",
-        "Devices": "Gailuak",
-        "Streams": "Errekak"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Gonbidatua",
-            "description": "Gonbidapenetarako sarrera-ontzia"
-        },
-        "Streams\/resource": {
-            "displayType": "Baliabidea",
-            "description": "baliabide baterako sarbidea kudeatzeko eta eguneratzeei buruzko mezuak bidaltzeko korrontea"
-        },
-        "Streams\/task": {
-            "description": "ataza jakin baten aurrerapenari buruzko eguneraketak jasotzeko",
-            "displayType": "Zeregin"
-        },
-        "Streams\/tasks": {
-            "description": "zereginetarako kategoria",
-            "displayType": "Zereginak"
-        },
-        "Streams\/experience": {
-            "description": "komunitate bateko kideentzako esperientzia komuna",
-            "displayType": "Komunitate bateko kideentzako esperientzia komuna"
-        },
-        "Streams\/greeting": {
-            "description": "erabiltzaile batek bere burua aurkez dezakeen agurra",
-            "displayType": "Agurra"
-        },
-        "Streams\/number": {
-            "displayType": "Zenbakia",
-            "description": "zenbaki matematikoa"
-        },
-        "Streams\/date": {
-            "displayType": "Data",
-            "description": "data"
-        },
-        "Streams\/text": {
-            "displayType": "Testua",
-            "description": "testuaren gorputza"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Testua",
-            "description": "testuaren gorputz txikia"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Testua",
-            "description": "testuaren gorputz ertaina"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "Posta elektroniko helbidea",
-            "description": "posta elektroniko helbidea"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Telefono zenbakia",
-            "description": "telefono zenbakia"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URLa",
-            "description": "esteka webean"
-        },
-        "Streams\/image": {
-            "displayType": "Irudia",
-            "description": "irudi bisuala",
-            "newItem": "Gehitu irudia"
-        },
-        "Streams\/images": {
-            "displayType": "Irudi Galeria",
-            "description": "irudien galeria"
-        },
-        "Streams\/album": {
-            "displayType": "Albuma",
-            "description": "hainbat euskarrirekin erlazionatuta dagoen albuma"
-        },
-        "Streams\/file": {
-            "displayType": "Fitxategia",
-            "description": "kargatutako fitxategia",
-            "newItem": "Gehitu fitxategia"
-        },
-        "Streams\/audio": {
-            "displayType": "Audio Clip",
-            "description": "audio-klipa",
-            "newItem": "Gehitu audioa"
-        },
-        "Streams\/video": {
-            "displayType": "Bideoklipa",
-            "description": "bideoklipa",
-            "newItem": "Gehitu bideoa"
-        },
-        "Streams\/pdf": {
-            "displayType": "PDF dokumentua",
-            "description": "PDF dokumentua",
-            "newItem": "Gehitu PDFa"
-        },
-        "Streams\/live": {
-            "displayType": "Zuzeneko igorpena",
-            "description": "zuzeneko audioa edo bideoa"
-        },
-        "Streams\/category": {
-            "displayType": "Kategoria",
-            "description": "beste korronte batzuekin erlazionatu daitezkeen kategoria",
-            "newItem": "Gehitu Kategoria"
-        },
-        "Streams\/participating": {
-            "displayType": "Parte hartzeko indizea",
-            "description": "korronteak honekin erlazionatuta\/ez dute zerikusirik erabiltzaile bat sartzen denean\/irteten denean"
-        },
-        "Streams\/interest": {
-            "displayType": "Interesa",
-            "description": "erabiltzaile batek gai jakin batean duen interesa adierazten du"
-        },
-        "Streams\/incoming": {
-            "displayType": "Sarrera",
-            "description": "beste erabiltzaileek bidalitako mezuen helmuga"
-        },
-        "Streams\/chat": {
-            "displayType": "Elkarrizketa",
-            "description": "erabiltzaileen arteko elkarrizketa, historiarekin"
-        },
-        "Streams\/question": {
-            "displayType": "Galdera",
-            "description": "galdera-jarioa",
-            "newItem": "Gehitu galdera"
-        },
-        "Streams\/answer": {
-            "displayType": "Erantzun",
-            "description": "erantzun korrontea"
-        },
-        "Streams\/topic": {
-            "displayType": "Gaia",
-            "description": "gaiaren korrontea",
-            "newItem": "Gehitu gaia"
-        }
-    },
-    "menu": {
-        "placeholder": "idatzi orriaren izenburua",
-        "ModTab": "Aldatu elementua",
-        "Save": "Gorde",
-        "Delete": "Ezabatu",
-        "Submenu": "Azpimenua"
-    },
-    "audio": {
-        "record": "Grabatu",
-        "reset": "Berrezarri",
-        "edit": "Editatu",
-        "title": "Izenburua",
-        "description": "deskribapena",
-        "upload": "Kargatu",
-        "link": "Esteka",
-        "setUrl": "Ezarri URLa",
-        "save": "Gorde",
-        "setClip": "Moztu Clip",
-        "invalidURL": "URL baliogabea",
-        "invalidFile": "Fitxategi baliogabea",
-        "errorNoSource": "Ez dago audio iturririk",
-        "uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
-        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
-        "TeaserAudio": "Teaser Audioa"
-    },
-    "video": {
-        "reset": "Berrezarri",
-        "edit": "Editatu",
-        "title": "Izenburua",
-        "description": "deskribapena",
-        "upload": "Kargatu",
-        "link": "Esteka",
-        "setUrl": "Ezarri URLa",
-        "save": "Gorde",
-        "setClip": "Moztu Clip",
-        "invalidURL": "URL baliogabea",
-        "invalidFile": "Fitxategi baliogabea",
-        "errorNoSource": "Ez dago bideo iturririk",
-        "uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
-        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
-        "createAnimatedThumbnail": "Sortu miniatura animatua",
-        "errorNotAvailable": "Barkatu, baina bideoa ez dago erabilgarri oraindik. Saiatu berriro geroago.",
-        "NewVideo": "Bideo berria",
-        "EditVideo": "Editatu bideoa",
-        "TeaserVideo": "Teaser Bideoa"
-    },
-    "pdf": {
-        "reset": "Berrezarri",
-        "edit": "Editatu",
-        "title": "Izenburua",
-        "description": "deskribapena",
-        "upload": "Kargatu",
-        "link": "Esteka",
-        "setUrl": "Ezarri URLa",
-        "save": "Gorde",
-        "setClip": "Moztu Clip",
-        "invalidURL": "URL baliogabea",
-        "invalidFile": "Fitxategi baliogabea",
-        "errorNoSource": "Ez dago pdf iturririk",
-        "uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
-        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
-        "TeaserPDF": "Teaser PDF"
-    },
-    "image": {
-        "reset": "Berrezarri",
-        "edit": "Editatu",
-        "title": "Izenburua",
-        "description": "deskribapena",
-        "upload": "Kargatu",
-        "link": "Esteka",
-        "setUrl": "Ezarri URLa",
-        "save": "Gorde",
-        "uploadedImage": "Igotako irudia",
-        "imageTitle": "Irudiaren izenburua",
-        "setClip": "Moztu Clip",
-        "invalidURL": "URL baliogabea",
-        "invalidFile": "Fitxategi baliogabea",
-        "errorNoSource": "Ez dago irudi iturririk",
-        "uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
-        "errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
-        "TeaserImage": "Teaser Irudia"
-    },
-    "questions": {
-        "Questions": "Galderak",
-        "Answers": "Erantzunak",
-        "AnswerQuestion": "Erantzun galdera",
-        "SetYourAnswer": "Mesedez, erantzun galderari",
-        "NewQuestion": "Galdera berria",
-        "EditQuestion": "Editatu galdera",
-        "NewAnswer": "Erantzun berria",
-        "NewPossibleAnswer": "Erantzun posible berria",
-        "AnswerDetails": "Erantzun xehetasunak",
-        "answerOption": "Aukera",
-        "answerOptionExclusive": "Esklusiboa",
-        "answerTextarea": "Testu-eremua",
-        "answerText": "Testua",
-        "HideUntilAnswered": "Ezkutatu erantzun arte",
-        "CantChangeAnswers": "Ezin dira erantzunak aldatu",
-        "FreeAnswer": "Idatzi hemen zure erantzuna",
-        "SaveQuestion": "Gorde galdera",
-        "SaveAnswer": "Gorde erantzuna",
-        "Save": "Gorde",
-        "Send": "Bidali",
-        "TitleRequired": "Izenburua beharrezkoa!",
-        "AlreadyAnswered": "Dagoeneko erantzuna",
-        "TitlePlaceholder": "Idatzi zure galdera",
-        "ContentPlaceholder": "Jarri hemen informazio gehigarria jendeari erantzuten laguntzeko",
-        "ErrorTitle": "Galdera behar da",
-        "Placeholder": "Idatzi Jarraibideak",
-        "AreYouSure": "Ziur zaude?",
-        "ShortAnswer": "Idatzi erantzun labur bat",
-        "AnswerCantBeChanged": "Erantzuna ezin da aldatu"
-    },
-    "experience": {
-        "NewExperience": "Esperientzia Berria",
-        "DefineTitle": "Mesedez, zehaztu izenburu bat",
-        "Create": "Sortu"
-    },
-    "calls": {
-        "SettingsTitle": "Deiak",
-        "MaxCalls": "Gehienezko deiak",
-        "Update": "Eguneratu",
-        "NoCallsYet": "Oraindik ez dago deirik",
-        "CallReasonTitle": "Zertan datza deialdi hau?",
-        "WaitingRoom": "Itxarongela",
-        "LiveRoom": "Zuzeneko Aretoa",
-        "interviewedByAnotherHost": "Une honetan beste ostalari batek elkarrizketatzen du",
-        "bringToLive": "Bring To Live Show",
-        "putOnHold": "Eutsi",
-        "endCall": "Amaitu deia",
-        "interview": "Elkarrizketa",
-        "markApproved": "Markatu Onartuta"
-    },
-    "relate": {
-        "Add": "Gehitu {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "Erabiltzaile baten izena..."
-    },
-    "task": {
-        "errorsTitle": "Erroreak gertatu dira"
-    },
-    "topic": {
-        "NewTopic": "Gai berria",
-        "UpdateTopic": "Eguneratu gaia",
-        "CreateTopic": "Sortu gaia",
-        "AreYouSureDeleteTopic": "Ziur gai hau ezabatu nahi duzula",
-        "TitlePlaceholder": "gaiaren izenburua...",
-        "DescribeTopic": "deskribatu gaia...",
-        "TopicIcon": "Gaiaren irudia",
-        "UploadIcon": "Kargatu ikonoa",
-        "Conversation": "Elkarrizketa",
-        "Metrics": "Metrikak",
-        "Teaser": "Teaser",
-        "TeaserDescription": "teaser deskribapena...",
-        "TeaserVideo": "Teaser Bideoa"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Sortu miniatura animatua",
-        "Width": "Zabalera",
-        "Height": "Altuera",
-        "Start": "Hasi",
-        "End": "Amaiera",
-        "Delay": "Atzerapena",
-        "Quality": "Kalitatea",
-        "Size": "Tamaina",
-        "OfFrames": "Markoen",
-        "Frame": "Markoa",
-        "UseThis": "Erabili hau",
-        "ResultGIF": "Emaitza GIF",
-        "VideoElementNotFound": "Ez da aurkitu bideo-elementua"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} Zure Aurpegian",
-        "AcceptIcon": "Onartu hautatutako eremua"
-    }
+	"errors": {
+		"HiddenFromYou": "Eduki hau ezkutatuta dago.",
+		"InplaceTypeMustBe": "inplaceType-k &#39;textarea&#39; edo &#39;text&#39; izan behar du",
+		"AmountInvalid": "Mesedez, sartu milisegundo kopuru baliodun bat."
+	},
+	"preview": {
+		"NewItemTitle": "Elementu berria",
+		"Teaser": "Teaser"
+	},
+	"avatar": {
+		"firstName": "izena",
+		"lastName": "abizena",
+		"username": "erabiltzaile-izena"
+	},
+	"labels": {
+		"Streams/invited": "Gonbidatu nuen jendea",
+		"Streams/invitedMe": "Nork gonbidatu nau",
+		"DoYouAgree": "Ados zaude?",
+		"Yes": "Bai",
+		"No": "Ez",
+		"JoinItNow": "Bat egin orain?"
+	},
+	"login": {
+		"prompt": "Utzi lagunei ezagutarazten:",
+		"newUser": "edo sortu kontu berri bat behean",
+		"picTooltip": "Irudi hau geroago alda dezakezu",
+		"placeholders": {
+			"fullName": "Sartu zure izen-abizenak"
+		}
+	},
+	"interests": {
+		"Filter": "Bilatu interesak",
+		"CanGrant": "Oraindik ez baduzu aurkitzen bilatzen ari zarena, behean interes berri bat gehi dezakezu:",
+		"TrySynonyms": "Ez al duzu ikusten? Saiatu sinonimo batzuk.",
+		"AddUnderCategory": "Gehitu kategorian...",
+		"Other": "Bestela",
+		"Unlisted": "Zerrendatu gabea"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Mezua markatu da administratzaileak berrikusteko. Sakatu berriro marka kentzeko.",
+		"noOneSaid": "Inork ez du ezer esan",
+		"closeChatButton": "Itxi txata",
+		"closeChatConfirmTitle": "Txat hau itxi?",
+		"closeChatConfirm": "Ziur txat hau itxi nahi duzula?",
+		"Subscribed": "Jakinarazpenak gaituta",
+		"Unsubscribed": "Jakinarazpenak ezkutatuta",
+		"closeChatConfirmYes": "Bai",
+		"closeChatConfirmNo": "Ez",
+		"earlierComments": "lehenagoko iruzkinak",
+		"startedConversation": "elkarrizketa bat hasi zuen",
+		"RealTimeCall": "Denbora errealeko deia",
+		"JoinWebRTC": "Telekonferentzia",
+		"SearchByName": "Bilatu izenaren arabera",
+		"Notifications": {
+			"Visit": "{{displayName}} txata bisitatzen ari da",
+			"Join": "{{displayName}} txatean sartu da",
+			"Leave": "{{displayName}} txata utzi zuen",
+			"RelatedTo": "{{displayName}} {{stream.displayType}} bat hasi zuen"
+		},
+		"placeholders": {
+			"Public": "Gehitu iruzkin bat",
+			"Private": "Idatzi mezu pribatu bat"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "kudeatu zure posta elektronikoko harpidetzak",
+		"IfUnsubscribe": "Harpidetza kendu nahi baduzu",
+		"*": "{{{ message.fields.type}} {{& stream.fields.title}}} bitarteko mezua",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} batu ziren",
+		"Streams/left": "{{{call 'avatar.displayName'}}} geratzen dira",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} esan zuen: {{& message.content}}}",
+		"Streams/changed": "{{stream.fields.title}} aldaketak",
+		"Streams/invite": "{{{ stream.fields.title}}} gonbidatu zaituzte",
+		"Streams/announcement": "{{{ stream.fields.title}}} iragarkia",
+		"Streams/access": "{{{call 'avatar.displayName'}} sarbidea aldatu zuen {{& stream.fields.title}}} urtean",
+		"Streams/chat/edit": "{{{ stream.fields.title}}} urtean editatutako txat-mezua",
+		"Streams/chat/remove": "Txat-mezua kendu zen {{{ stream.fields.title}}} urtean",
+		"Streams/closed": "{{stream.fields.title}} itxi egin da",
+		"Streams/task/progress": "{{stream.fields.title}} egindako aurrerapena",
+		"Streams/task/complete": "Egindako zeregina: {{stream.fields.title}}",
+		"Streams/task/error": "Errorea zehar: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : Sarrerako mezua",
+		"Streams/relatedTo/Streams/call": "Deialdi berria {{toTitle}} hasi zen",
+		"Streams/relatedTo/*": "{{relationDisplayType}} berria {{toTitle}} urtean",
+		"Streams/relatedFrom/*": "{{toTitle}} {{relationDisplayType}} gisa gehitu da",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} iruzkin batean aipatu zaitu",
+		"Streams/call": "{{displayName}} telefonoak denbora errealeko dei bat hasi zuen",
+		"changed": {
+			"ChangesIn": "{{title}} aldaketak",
+			"Changed": "aldatu",
+			"HereIsWhatChanged": "Hona hemen zer aldatu den:"
+		},
+		"joined": {
+			"Joined": "{{subject}} batu <em>{{title}}</em>"
+		},
+		"Streams/invited": "{{{stream.fields.title}}} gonbidatu zaituzte"
+	},
+	"invite": {
+		"command": "Gonbidatu",
+		"Invite": "Gonbidatu",
+		"Share": "Partekatu",
+		"messageContent": "{{displayName}} {{inviteUrl}} gonbidatu zaitu",
+		"youCanNowPaste": "Orain esteka hau nonbait itsats dezakezu jendea gonbidatzeko",
+		"roles": {
+			"title": "Gonbidatutako erabiltzaileei rolak eman?",
+			"NotAuthorizedToGrantRole": {
+				"title": "Barkatu",
+				"alert": "Ez duzu baimenik eginkizun hau emateko"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "Barkatu",
+				"alert": "Ez duzu baimenik eginkizun hau kentzeko"
+			}
+		},
+		"labels": {
+			"title": "Zein da zure Harremana?"
+		},
+		"dialog": {
+			"chooseFromContacts": "Aukeratu zure kontaktuetatik",
+			"chooseAgainFromContacts": "Aukeratu Berriro Kontaktuetatik",
+			"inviteSelectedContacts": "Gonbidatu Hautatutako Kontaktuak",
+			"selectFromContacts": "Hautatu Kontaktuetatik",
+			"userChooserPlaceholder": "Bilatu izenaren arabera",
+			"photo": "Argazkia atera",
+			"photoOf": "Atera argazki bat {{name}}",
+			"photoInstruction": "Zure QR kodea eskaneatu duen pertsona zure aurrean badago, atera argazki bat",
+			"to": "Nora: {{Stream Title}}",
+			"go": "Zoaz",
+			"title": "Gonbidatu",
+			"placeholder": "Mugikor-zenbakia edo helbide elektronikoa",
+			"orInvite": "Edo gonbidatu jendea erabilita:",
+			"copyLink": "{{ClickOrTap}} gonbidapen-esteka kopiatzeko",
+			"shareOrCopyLink": "{{ClickOrTap}} gonbidapen-esteka partekatzeko edo kopiatzeko",
+			"QR": "{{ClickOrTap}} QR kodea sortzeko",
+			"QRtitle": "Eskaneatu QR kode hau",
+			"QRscanned": "Eskaneatu dute!",
+			"scannedQR": "{{ClickOrTap}} kodea eskaneatu bada",
+			"byEmail": "Posta elektronikoa",
+			"bySms": "Testua",
+			"byFacebook": "Facebook",
+			"byTwitter": "Twitter",
+			"title2": "Gonbidatu jendea",
+			"chooseMethod": "Aukeratu metodo bat:",
+			"selectContacts": "Hautatu Kontaktuak",
+			"scanQRCode": "Eskaneatu QR kodea",
+			"shareLink": "Partekatu esteka bat",
+			"chooseFromRegistered": "Aukeratu erregistratutako erabiltzaileen artean",
+			"inviteViaEmailOrSms": "Gonbidatu posta elektroniko bidez edo SMS bidez",
+			"TakeGroupPhoto": "Taldeko argazkia atera",
+			"Skip": "Saltatu",
+			"byTelegram": "Telegrama",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "Gehitu rolak",
+			"addPersonalRoles": "Gehitu harreman pertsonalak"
+		},
+		"complete": {
+			"WelcomeToCommunity": "Ongi etorri {{communityName}}",
+			"HasInvitedYou": "honetara gonbidatu zaitu:",
+			"HasInvitedYouToTheirProfile": "konektatzera gonbidatu zaitu.",
+			"prompt": "Utzi lagunei ezagutarazten:",
+			"accept": "Onartu Gonbidapena"
+		},
+		"email": {
+			"subject": "Aizu, begiratu hau",
+			"PleaseVisitLink": "Mesedez, bisitatu hurrengo esteka:",
+			"InvitingYou": "{{title}} gonbidatzen zaitut",
+			"HasInvitedYou": "{{displayName}} {{title}} gonbidatu zaitu",
+			"HasMentionedYou": "{{displayName}} &quot; {{title}} &quot;-n aipatu zaitu",
+			"YOUAREINVITED": "GONBIDATUTA ZAUDE!",
+			"AcceptInvite": "Onartu Gonbidapena"
+		},
+		"mobile": {
+			"content": "{{title}} gonbidatu zaituzte. Mesedez, sakatu {{url}}"
+		},
+		"notice": {
+			"text": "Gonbidatu zaituzte. {{ClickOrTap}} hona onartzeko eta sartzeko."
+		},
+		"chat": {
+			"prompt": "Jendea elkarrizketa batera gonbidatuko duzu, non harremanetan egoteko, argazkiak elkarrekin partekatzeko eta abar. Eman izena:"
+		},
+		"Participants": "Gonbidatu jendea"
+	},
+	"messages": {
+		"html": {
+			"posted": "<em>{{message.fields.type}}</em> mezu bat argitaratu du {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "komentatu zuen",
+			"startedCallIn": "dei bat hasi zen",
+			"in": "urtean",
+			"body": "{{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "helbidean argitaratu da",
+				"byAvatar": "{{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "{{instructions.fromDisplayType}} berria du",
+				"byAvatar": "{{avatar.displayName}} gehitua"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "Gonbidapenak gure zenbakitik bidaltzen dira, zure lagunek oraindik ezagutzen ez dutena. Jarraitu testu azkar batekin gonbidapena zuregandik etorri dela jakinarazteko, estekan klik egiteko eskatuz.",
+			"confirm": "Gonbidapenak gure zenbakitik bidaltzen dira, zure lagunek oraindik ezagutzen ez dutena. Testu azkar batekin jarraitu nahi al duzu gonbidapena zuregandik etorri dela jakinarazteko, estekan klik egiteko eskatuz.",
+			"check": "Aizu, gonbidapena bidali berri dizut {{app}} aplikaziora. Mesedez, egiaztatu zure sms eta egin klik estekan!",
+			"CheckYourMobile": "Mesedez, egiaztatu SMSak eta jarraitu argibideak!"
+		},
+		"email": {
+			"alert": "Gonbidapenak gure domeinutik bidaltzen dira, zure lagunek oraindik ezagutzen ez dituztenak. Jarraitu testu azkar batekin gonbidapena zuregandik etorri dela jakinarazteko, estekan klik egiteko eskatuz.",
+			"confirm": "Gonbidapenak gure domeinutik bidaltzen dira, zure lagunek oraindik ezagutzen ez dituztenak. Testu azkar batekin jarraitu nahi al duzu gonbidapena zuregandik etorri dela jakinarazteko, estekan klik egiteko eskatuz.",
+			"subject": "Gonbidapena jaso al duzu?",
+			"body": "Aizu, gonbidapen bat bidali dizut {{app}} aplikaziora. Mesedez, begiratu zure posta elektronikoa eta egin klik hemen dagoen estekan!",
+			"CheckYourEmail": "Mesedez, egiaztatu zure posta elektronikoa eta jarraitu argibideak!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Pribatutasun ezarpenak"
+	},
+	"participating": {
+		"Title": "Izenburua",
+		"Subscribed": "Harpidetuta",
+		"Participants": "Parte hartzaileak",
+		"AreYouSureRemoveIdentifier": "Ziur identifikatzaile hau kenduko duzula?",
+		"AreYouSureUnsubscribeIdentifier": "Ziur identifikatzaile honi harpidetza kentzea? Identifikatzaile honen jakinarazpenak desaktibatu egingo ditu.",
+		"AreYouSureUnsubscribeDevice": "Ziur gailu hau kentzen duzula? Gailu honetarako jakinarazpenak desaktibatu egingo ditu.",
+		"AreYouSureRemoveParticipant": "Ziur parte-hartzaile hau kendu nahi duzula?",
+		"RemoveParticipant": "Kendu parte-hartzailea",
+		"Identifiers": "Identifikatzaileak",
+		"Devices": "Gailuak",
+		"Streams": "Errekak"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "Gonbidatua",
+			"description": "Gonbidapenetarako sarrera-ontzia"
+		},
+		"Streams/resource": {
+			"displayType": "Baliabidea",
+			"description": "baliabide baterako sarbidea kudeatzeko eta eguneratzeei buruzko mezuak bidaltzeko korrontea"
+		},
+		"Streams/task": {
+			"description": "ataza jakin baten aurrerapenari buruzko eguneraketak jasotzeko",
+			"displayType": "Zeregin"
+		},
+		"Streams/tasks": {
+			"description": "zereginetarako kategoria",
+			"displayType": "Zereginak"
+		},
+		"Streams/experience": {
+			"description": "komunitate bateko kideentzako esperientzia komuna",
+			"displayType": "Komunitate bateko kideentzako esperientzia komuna"
+		},
+		"Streams/greeting": {
+			"description": "erabiltzaile batek bere burua aurkez dezakeen agurra",
+			"displayType": "Agurra"
+		},
+		"Streams/number": {
+			"displayType": "Zenbakia",
+			"description": "zenbaki matematikoa"
+		},
+		"Streams/date": {
+			"displayType": "Data",
+			"description": "data"
+		},
+		"Streams/text": {
+			"displayType": "Testua",
+			"description": "testuaren gorputza"
+		},
+		"Streams/text/small": {
+			"displayType": "Testua",
+			"description": "testuaren gorputz txikia"
+		},
+		"Streams/text/medium": {
+			"displayType": "Testua",
+			"description": "testuaren gorputz ertaina"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "Posta elektroniko helbidea",
+			"description": "posta elektroniko helbidea"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Telefono zenbakia",
+			"description": "telefono zenbakia"
+		},
+		"Streams/text/url": {
+			"displayType": "URLa",
+			"description": "esteka webean"
+		},
+		"Streams/image": {
+			"displayType": "Irudia",
+			"description": "irudi bisuala",
+			"newItem": "Gehitu irudia"
+		},
+		"Streams/images": {
+			"displayType": "Irudi Galeria",
+			"description": "irudien galeria"
+		},
+		"Streams/album": {
+			"displayType": "Albuma",
+			"description": "hainbat euskarrirekin erlazionatuta dagoen albuma"
+		},
+		"Streams/file": {
+			"displayType": "Fitxategia",
+			"description": "kargatutako fitxategia",
+			"newItem": "Gehitu fitxategia"
+		},
+		"Streams/audio": {
+			"displayType": "Audio Clip",
+			"description": "audio-klipa",
+			"newItem": "Gehitu audioa"
+		},
+		"Streams/video": {
+			"displayType": "Bideoklipa",
+			"description": "bideoklipa",
+			"newItem": "Gehitu bideoa"
+		},
+		"Streams/pdf": {
+			"displayType": "PDF dokumentua",
+			"description": "PDF dokumentua",
+			"newItem": "Gehitu PDFa"
+		},
+		"Streams/live": {
+			"displayType": "Zuzeneko igorpena",
+			"description": "zuzeneko audioa edo bideoa"
+		},
+		"Streams/category": {
+			"displayType": "Kategoria",
+			"description": "beste korronte batzuekin erlazionatu daitezkeen kategoria",
+			"newItem": "Gehitu Kategoria"
+		},
+		"Streams/participating": {
+			"displayType": "Parte hartzeko indizea",
+			"description": "korronteak honekin erlazionatuta/ez dute zerikusirik erabiltzaile bat sartzen denean/irteten denean"
+		},
+		"Streams/interest": {
+			"displayType": "Interesa",
+			"description": "erabiltzaile batek gai jakin batean duen interesa adierazten du"
+		},
+		"Streams/incoming": {
+			"displayType": "Sarrera",
+			"description": "beste erabiltzaileek bidalitako mezuen helmuga"
+		},
+		"Streams/chat": {
+			"displayType": "Elkarrizketa",
+			"description": "erabiltzaileen arteko elkarrizketa, historiarekin"
+		},
+		"Streams/question": {
+			"displayType": "Galdera",
+			"description": "galdera-jarioa",
+			"newItem": "Gehitu galdera"
+		},
+		"Streams/answer": {
+			"displayType": "Erantzun",
+			"description": "erantzun korrontea"
+		},
+		"Streams/topic": {
+			"displayType": "Gaia",
+			"description": "gaiaren korrontea",
+			"newItem": "Gehitu gaia"
+		}
+	},
+	"menu": {
+		"placeholder": "idatzi orriaren izenburua",
+		"ModTab": "Aldatu elementua",
+		"Save": "Gorde",
+		"Delete": "Ezabatu",
+		"Submenu": "Azpimenua"
+	},
+	"audio": {
+		"record": "Grabatu",
+		"reset": "Berrezarri",
+		"edit": "Editatu",
+		"title": "Izenburua",
+		"description": "deskribapena",
+		"upload": "Kargatu",
+		"link": "Esteka",
+		"setUrl": "Ezarri URLa",
+		"save": "Gorde",
+		"setClip": "Moztu Clip",
+		"invalidURL": "URL baliogabea",
+		"invalidFile": "Fitxategi baliogabea",
+		"errorNoSource": "Ez dago audio iturririk",
+		"uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
+		"errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
+		"TeaserAudio": "Teaser Audioa"
+	},
+	"video": {
+		"reset": "Berrezarri",
+		"edit": "Editatu",
+		"title": "Izenburua",
+		"description": "deskribapena",
+		"upload": "Kargatu",
+		"link": "Esteka",
+		"setUrl": "Ezarri URLa",
+		"save": "Gorde",
+		"setClip": "Moztu Clip",
+		"invalidURL": "URL baliogabea",
+		"invalidFile": "Fitxategi baliogabea",
+		"errorNoSource": "Ez dago bideo iturririk",
+		"uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
+		"errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
+		"createAnimatedThumbnail": "Sortu miniatura animatua",
+		"errorNotAvailable": "Barkatu, baina bideoa ez dago erabilgarri oraindik. Saiatu berriro geroago.",
+		"NewVideo": "Bideo berria",
+		"EditVideo": "Editatu bideoa",
+		"TeaserVideo": "Teaser Bideoa"
+	},
+	"pdf": {
+		"reset": "Berrezarri",
+		"edit": "Editatu",
+		"title": "Izenburua",
+		"description": "deskribapena",
+		"upload": "Kargatu",
+		"link": "Esteka",
+		"setUrl": "Ezarri URLa",
+		"save": "Gorde",
+		"setClip": "Moztu Clip",
+		"invalidURL": "URL baliogabea",
+		"invalidFile": "Fitxategi baliogabea",
+		"errorNoSource": "Ez dago pdf iturririk",
+		"uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
+		"errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
+		"TeaserPDF": "Teaser PDF"
+	},
+	"image": {
+		"reset": "Berrezarri",
+		"edit": "Editatu",
+		"title": "Izenburua",
+		"description": "deskribapena",
+		"upload": "Kargatu",
+		"link": "Esteka",
+		"setUrl": "Ezarri URLa",
+		"save": "Gorde",
+		"uploadedImage": "Igotako irudia",
+		"imageTitle": "Irudiaren izenburua",
+		"setClip": "Moztu Clip",
+		"invalidURL": "URL baliogabea",
+		"invalidFile": "Fitxategi baliogabea",
+		"errorNoSource": "Ez dago irudi iturririk",
+		"uploadLimit": "Fitxategiaren gehienezko tamaina: {{size}}",
+		"errorFileSize": "Barkatu, baina fitxategia handiegia da.<br> Fitxategiaren gehienezko tamaina {{size}} da",
+		"TeaserImage": "Teaser Irudia"
+	},
+	"questions": {
+		"Questions": "Galderak",
+		"Answers": "Erantzunak",
+		"AnswerQuestion": "Erantzun galdera",
+		"SetYourAnswer": "Mesedez, erantzun galderari",
+		"NewQuestion": "Galdera berria",
+		"EditQuestion": "Editatu galdera",
+		"NewAnswer": "Erantzun berria",
+		"NewPossibleAnswer": "Erantzun posible berria",
+		"AnswerDetails": "Erantzun xehetasunak",
+		"answerOption": "Aukera",
+		"answerOptionExclusive": "Esklusiboa",
+		"answerTextarea": "Testu-eremua",
+		"answerText": "Testua",
+		"HideUntilAnswered": "Ezkutatu erantzun arte",
+		"CantChangeAnswers": "Ezin dira erantzunak aldatu",
+		"FreeAnswer": "Idatzi hemen zure erantzuna",
+		"SaveQuestion": "Gorde galdera",
+		"SaveAnswer": "Gorde erantzuna",
+		"Save": "Gorde",
+		"Send": "Bidali",
+		"TitleRequired": "Izenburua beharrezkoa!",
+		"AlreadyAnswered": "Dagoeneko erantzuna",
+		"TitlePlaceholder": "Idatzi zure galdera",
+		"ContentPlaceholder": "Jarri hemen informazio gehigarria jendeari erantzuten laguntzeko",
+		"ErrorTitle": "Galdera behar da",
+		"Placeholder": "Idatzi Jarraibideak",
+		"AreYouSure": "Ziur zaude?",
+		"ShortAnswer": "Idatzi erantzun labur bat",
+		"AnswerCantBeChanged": "Erantzuna ezin da aldatu"
+	},
+	"experience": {
+		"NewExperience": "Esperientzia Berria",
+		"DefineTitle": "Mesedez, zehaztu izenburu bat",
+		"Create": "Sortu"
+	},
+	"calls": {
+		"SettingsTitle": "Deiak",
+		"MaxCalls": "Gehienezko deiak",
+		"Update": "Eguneratu",
+		"NoCallsYet": "Oraindik ez dago deirik",
+		"CallReasonTitle": "Zertan datza deialdi hau?",
+		"WaitingRoom": "Itxarongela",
+		"LiveRoom": "Zuzeneko Aretoa",
+		"interviewedByAnotherHost": "Une honetan beste ostalari batek elkarrizketatzen du",
+		"bringToLive": "Bring To Live Show",
+		"putOnHold": "Eutsi",
+		"endCall": "Amaitu deia",
+		"interview": "Elkarrizketa",
+		"markApproved": "Markatu Onartuta"
+	},
+	"relate": {
+		"Add": "Gehitu {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "Erabiltzaile baten izena..."
+	},
+	"task": {
+		"errorsTitle": "Erroreak gertatu dira"
+	},
+	"topic": {
+		"NewTopic": "Gai berria",
+		"UpdateTopic": "Eguneratu gaia",
+		"CreateTopic": "Sortu gaia",
+		"AreYouSureDeleteTopic": "Ziur gai hau ezabatu nahi duzula",
+		"TitlePlaceholder": "gaiaren izenburua...",
+		"DescribeTopic": "deskribatu gaia...",
+		"TopicIcon": "Gaiaren irudia",
+		"UploadIcon": "Kargatu ikonoa",
+		"Conversation": "Elkarrizketa",
+		"Metrics": "Metrikak",
+		"Teaser": "Teaser",
+		"TeaserDescription": "teaser deskribapena...",
+		"TeaserVideo": "Teaser Bideoa"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Sortu miniatura animatua",
+		"Width": "Zabalera",
+		"Height": "Altuera",
+		"Start": "Hasi",
+		"End": "Amaiera",
+		"Delay": "Atzerapena",
+		"Quality": "Kalitatea",
+		"Size": "Tamaina",
+		"OfFrames": "Markoen",
+		"Frame": "Markoa",
+		"UseThis": "Erabili hau",
+		"ResultGIF": "Emaitza GIF",
+		"VideoElementNotFound": "Ez da aurkitu bideo-elementua"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} Zure Aurpegian",
+		"AcceptIcon": "Onartu hautatutako eremua"
+	},
+	"gallery": {
+		"DialogTitle": "Editatu galeriaren irudia",
+		"EditImageTitle": "Editatu irudiaren parametroak",
+		"IntervalLabel": "Tartea (ms): ",
+		"IntervalPlaceholder": "adibidez, 3000",
+		"KenburnsInstruction": "Arrastatu eta zooma eginez, ezarri Ken Burns-en hasiera eta amaiera."
+	}
 }

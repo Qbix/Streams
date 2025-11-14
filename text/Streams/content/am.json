@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "ይህ ይዘት ከእርስዎ ተደብቋል።",
-        "InplaceTypeMustBe": "InplaceType &#39;textarea&#39; ወይም &#39;text&#39; መሆን አለበት"
-    },
-    "preview": {
-        "NewItemTitle": "አዲስ ነገር",
-        "Teaser": "ቲዘር"
-    },
-    "avatar": {
-        "firstName": "የመጀመሪያ ስም",
-        "lastName": "የአያት ስም",
-        "username": "የተጠቃሚ ስም"
-    },
-    "labels": {
-        "Streams\/invited": "የጋበዝኳቸው ሰዎች",
-        "Streams\/invitedMe": "ማን ጋበዘኝ።",
-        "DoYouAgree": "ትስማማለህ?",
-        "Yes": "አዎ",
-        "No": "አይ",
-        "JoinItNow": "አሁን ተቀላቀል?"
-    },
-    "login": {
-        "prompt": "ጓደኞች እንዲያውቁዎት ያድርጉ፡-",
-        "newUser": "ወይም ከዚህ በታች አዲስ መለያ ይፍጠሩ",
-        "picTooltip": "ይህን ምስል በኋላ መቀየር ትችላለህ",
-        "placeholders": {
-            "fullName": "ሙሉ ስምህን አስገባ"
-        }
-    },
-    "interests": {
-        "Filter": "ፍላጎቶችን ይፈልጉ",
-        "CanGrant": "አሁንም የሚፈልጉትን ማግኘት ካልቻሉ፣ ከዚህ በታች አዲስ ፍላጎት ማከል ይችላሉ፡",
-        "TrySynonyms": "አታይም? አንዳንድ ተመሳሳይ ቃላትን ይሞክሩ።",
-        "AddUnderCategory": "ከምድብ ስር አክል...",
-        "Other": "ሌላ",
-        "Unlisted": "ያልተዘረዘረ"
-    },
-    "chat": {
-        "flaggedForAdminReview": "መልእክት ለአስተዳዳሪ ግምገማ ተጠቁሟል። ባንዲራ ለማንሳት እንደገና ይንኩ።",
-        "noOneSaid": "ማንም ምንም የተናገረው የለም።",
-        "closeChatButton": "ውይይት ዝጋ",
-        "closeChatConfirmTitle": "ይህን ውይይት ዝጋ?",
-        "closeChatConfirm": "እርግጠኛ ነዎት ይህን ውይይት መዝጋት ይፈልጋሉ?",
-        "Subscribed": "ማሳወቂያዎች ነቅተዋል።",
-        "Unsubscribed": "ማሳወቂያዎች ድምጸ-ከል ተደርገዋል።",
-        "closeChatConfirmYes": "አዎ",
-        "closeChatConfirmNo": "አይ",
-        "earlierComments": "ቀደም አስተያየቶች",
-        "startedConversation": "ውይይት ጀመረ",
-        "RealTimeCall": "የእውነተኛ ጊዜ ጥሪ",
-        "JoinWebRTC": "ቴሌ ኮንፈረንስ",
-        "SearchByName": "በስም ፈልግ",
-        "Notifications": {
-            "Visit": "{{displayName}} ቻቱን እየጎበኘ ነው።",
-            "Join": "{{displayName}} ቻቱን ተቀላቀለ",
-            "Leave": "{{displayName}} ውይይቱን ለቋል",
-            "RelatedTo": "{{displayName}} {{stream.displayType}} ጀምሯል።"
-        },
-        "placeholders": {
-            "Public": "አስተያየት ጨምር",
-            "Private": "የግል መልእክት ይጻፉ"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "የኢሜል ምዝገባዎችዎን ያስተዳድሩ",
-        "IfUnsubscribe": "ከደንበኝነት ምዝገባ መውጣት ከፈለጉ",
-        "*": "መልእክት {{{ message.fields.type}} እስከ {{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} ተቀላቅሏል።",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} ቀርቷል።",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} አለ {{& message.content}}}",
-        "Streams\/changed": "በ {{stream.fields.title}} ለውጦች",
-        "Streams\/invite": "ወደ {{{ stream.fields.title}}} ተጋብዘዋል",
-        "Streams\/announcement": "ማስታወቂያ በ {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} መዳረሻን በ {{& stream.fields.title}}} ቀይሯል።",
-        "Streams\/chat\/edit": "የውይይት መልእክት በ {{{ stream.fields.title}}} ተስተካክሏል።",
-        "Streams\/chat\/remove": "የውይይት መልእክት በ {{{ stream.fields.title}}} ተወግዷል",
-        "Streams\/closed": "{{stream.fields.title}} ተዘግቷል።",
-        "Streams\/task\/progress": "በ {{stream.fields.title}} እድገት",
-        "Streams\/task\/complete": "የተጠናቀቀው ተግባር {{stream.fields.title}}",
-        "Streams\/task\/error": "ስህተት በ {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : ገቢ መልእክት",
-        "Streams\/relatedTo\/Streams\/call": "አዲስ ጥሪ በ {{toTitle}} ተጀመረ",
-        "Streams\/relatedTo\/*": "አዲስ {{relationDisplayType}} በ {{toTitle}}",
-        "Streams\/relatedFrom\/*": "ወደ {{toTitle}} {{relationDisplayType}} ተጨምሯል።",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} በአስተያየት ውስጥ ጠቅሶሃል",
-        "Streams\/call": "{{displayName}} የእውነተኛ ጊዜ ጥሪ ጀምሯል።",
-        "changed": {
-            "ChangesIn": "በ {{title}} ለውጦች",
-            "Changed": "ተለውጧል",
-            "HereIsWhatChanged": "የተለወጠው እነሆ፡-"
-        },
-        "joined": {
-            "Joined": "{{subject}} <em>{{title}}<\/em> ተቀላቅለዋል።"
-        }
-    },
-    "invite": {
-        "command": "ጋብዝ",
-        "Invite": "ጋብዝ",
-        "Share": "አጋራ",
-        "messageContent": "{{displayName}} ወደ {{inviteUrl}} ጋብዞዎታል",
-        "youCanNowPaste": "አሁን ሰዎችን ለመጋበዝ ይህን ሊንክ የሆነ ቦታ መለጠፍ ይችላሉ።",
-        "roles": {
-            "title": "ለተጋበዙ ተጠቃሚዎች ሚናዎችን ይስጡ?",
-            "NotAuthorizedToGrantRole": {
-                "title": "አዝናለሁ",
-                "alert": "ይህን ሚና የመስጠት ስልጣን የለዎትም።"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "አዝናለሁ",
-                "alert": "ይህን ሚና ለማስወገድ ስልጣን የለዎትም።"
-            }
-        },
-        "labels": {
-            "title": "የእርስዎ ግንኙነት ምንድን ነው?"
-        },
-        "dialog": {
-            "chooseFromContacts": "ከእውቂያዎችዎ ውስጥ ይምረጡ",
-            "chooseAgainFromContacts": "ከእውቂያዎች ውስጥ እንደገና ይምረጡ",
-            "inviteSelectedContacts": "የተመረጡ እውቂያዎችን ይጋብዙ",
-            "selectFromContacts": "ከእውቂያዎች ይምረጡ",
-            "userChooserPlaceholder": "በስም ፈልግ",
-            "photo": "ፎቶ አንሳ",
-            "photoOf": "የ {{name}} ፎቶ አንሳ",
-            "photoInstruction": "የQR ኮድህን የቃኘው ሰው ከፊትህ ካለ ፎቶግራፍ አንሳ",
-            "to": "ለ {{Stream Title}}",
-            "go": "ሂድ",
-            "title": "ጋብዝ",
-            "placeholder": "የሞባይል ቁጥር ወይም የኢሜል አድራሻ",
-            "orInvite": "ወይም የሚከተሉትን በመጠቀም ሰዎችን ጋብዝ",
-            "copyLink": "የግብዣ አገናኝ ለመቅዳት {{ClickOrTap}}",
-            "shareOrCopyLink": "የግብዣ ማገናኛን ለማጋራት ወይም ለመቅዳት {{ClickOrTap}}",
-            "QR": "QR ኮድ ለመፍጠር {{ClickOrTap}}",
-            "QRtitle": "ይህን የQR ኮድ ይቃኙ",
-            "QRscanned": "እነሱ ቃኙት!",
-            "scannedQR": "ኮዱ ከተቃኘ {{ClickOrTap}}",
-            "byEmail": "ኢሜይል",
-            "bySms": "ጽሑፍ",
-            "byFacebook": "ፌስቡክ",
-            "byTwitter": "ትዊተር",
-            "title2": "ሰዎችን ይጋብዙ",
-            "chooseMethod": "ዘዴ ይምረጡ፡-",
-            "selectContacts": "እውቂያዎችን ይምረጡ",
-            "scanQRCode": "የQR ኮድን ይቃኙ",
-            "shareLink": "አገናኝ አጋራ",
-            "chooseFromRegistered": "ከተመዘገቡ ተጠቃሚዎች ይምረጡ",
-            "inviteViaEmailOrSms": "በኢሜል ወይም በኤስኤምኤስ ይጋብዙ",
-            "TakeGroupPhoto": "የቡድን ፎቶ አንሳ",
-            "Skip": "ዝለል",
-            "byTelegram": "ቴሌግራም",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "ሚናዎችን ያክሉ",
-            "addPersonalRoles": "ግላዊ ግንኙነቶችን ያክሉ"
-        },
-        "complete": {
-            "WelcomeToCommunity": "እንኳን ወደ {{communityName}} በደህና መጡ",
-            "HasInvitedYou": "ወደዚህ ጋብዞዎታል፡-",
-            "HasInvitedYouToTheirProfile": "እንዲገናኙ ጋብዞዎታል።",
-            "prompt": "ጓደኞች እንዲያውቁዎት ያድርጉ፡-",
-            "accept": "ግብዣ ተቀበል"
-        },
-        "email": {
-            "subject": "ሄይ፣ ይህንን ተመልከት",
-            "PleaseVisitLink": "እባክዎ የሚከተለውን ሊንክ ይጎብኙ፡-",
-            "InvitingYou": "ወደ {{title}} እጋብዛችኋለሁ",
-            "HasInvitedYou": "{{displayName}} ወደ {{title}} ጋብዞዎታል",
-            "HasMentionedYou": "{{displayName}} በ &quot; {{title}} &quot; ውስጥ ጠቅሶሃል",
-            "YOUAREINVITED": "ተጋብዘዋል!",
-            "AcceptInvite": "ግብዣ ተቀበል"
-        },
-        "mobile": {
-            "content": "ወደ {{title}} ተጋብዘዋል. እባክህ {{url}} ንካ"
-        },
-        "notice": {
-            "text": "ተጋብዘዋል። ለመቀበል እና ለመቀላቀል {{ClickOrTap}} እዚህ።"
-        },
-        "chat": {
-            "prompt": "እንደተገናኙ መቆየት፣ ፎቶዎችን በጋራ ማጋራት እና ሌሎችም ወደሚችሉበት ውይይት ሰዎችን እየጋበዙ ነው። ስም ስጠው፡-"
-        },
-        "Participants": "ሰዎችን ይጋብዙ"
-    },
-    "messages": {
-        "html": {
-            "posted": "<em>{{message.fields.type}}<\/em> መልእክት ለ {{stream.fields.title}} አስተላለፈ"
-        },
-        "text": {
-            "commentedOn": "ላይ አስተያየት ሰጥቷል",
-            "startedCallIn": "ጥሪ ጀመረ",
-            "in": "ውስጥ",
-            "body": "በ {{{ url}} {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "ላይ ተለጠፈ",
-                "byAvatar": "በ {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "አዲስ {{instructions.fromDisplayType}} አለው",
-                "byAvatar": "በ {{avatar.displayName}} ተጨምሯል።"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "ግብዣዎች ከኛ ቁጥር ተልከዋል፣ ይህም ጓደኞችዎ እስካሁን ያላወቁት። ግብዣው ከእርስዎ እንደመጣ ለማሳወቅ አገናኙን ጠቅ እንዲያደርጉ በመጠየቅ ፈጣን ጽሑፍ ይከታተሉ።",
-            "confirm": "ግብዣዎች ከኛ ቁጥር ተልከዋል፣ ይህም ጓደኞችዎ እስካሁን ያላወቁት። ግብዣው ከእርስዎ እንደመጣ ለማሳወቅ አገናኙን ጠቅ እንዲያደርጉ በመጠየቅ ፈጣን ጽሁፍ በመከተል መከታተል ይፈልጋሉ።",
-            "check": "ሄይ፣ አሁን የ {{app}} መተግበሪያ ግብዣ ልኬልዎታል። እባክዎን ኤስኤምኤስዎን ያረጋግጡ እና ሊንኩን ይጫኑ!",
-            "CheckYourMobile": "እባክዎን ኤስኤምኤስ ይመልከቱ እና መመሪያዎችን ይከተሉ!"
-        },
-        "email": {
-            "alert": "ግብዣዎች ከኛ ጎራ ተልከዋል፣ ጓደኛዎችዎ እስካሁን የማያውቁት። ግብዣው ከእርስዎ እንደመጣ ለማሳወቅ አገናኙን ጠቅ እንዲያደርጉ በመጠየቅ ፈጣን ጽሑፍ ይከታተሉ።",
-            "confirm": "ግብዣዎች ከኛ ጎራ ተልከዋል፣ ጓደኛዎችዎ እስካሁን የማያውቁት። ግብዣው ከእርስዎ እንደመጣ ለማሳወቅ አገናኙን ጠቅ እንዲያደርጉ በመጠየቅ ፈጣን ጽሁፍ በመከተል መከታተል ይፈልጋሉ።",
-            "subject": "ግብዣ አግኝተዋል?",
-            "body": "ሄይ፣ አሁን የ {{app}} መተግበሪያ ግብዣ ልኬልዎታል። እባክዎን ኢሜልዎን ያረጋግጡ እና እዚያ ያለውን ሊንክ ይጫኑ!",
-            "CheckYourEmail": "እባክዎ ኢሜልዎን ያረጋግጡ እና መመሪያዎችን ይከተሉ!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "የግላዊነት ቅንብሮች"
-    },
-    "participating": {
-        "Title": "ርዕስ",
-        "Subscribed": "ተመዝግቧል",
-        "Participants": "ተሳታፊዎች",
-        "AreYouSureRemoveIdentifier": "እርግጠኛ ነዎት ይህን መለያ ማስወገድ?",
-        "AreYouSureUnsubscribeIdentifier": "እርግጠኛ ነዎት ይህን መለያ ከደንበኝነት ምዝገባ መውጣታቸው? ለዚህ መለያ ማሳወቂያዎችን ያጠፋል።",
-        "AreYouSureUnsubscribeDevice": "እርግጠኛ ነዎት ይህን መሣሪያ ከደንበኝነት ምዝገባ መውጣታቸው? ለዚህ መሣሪያ ማሳወቂያዎችን ያጠፋል.",
-        "AreYouSureRemoveParticipant": "እርግጠኛ ነዎት ይህን ተሳታፊ ማስወገድ ይፈልጋሉ?",
-        "RemoveParticipant": "ተሳታፊን ያስወግዱ",
-        "Identifiers": "መለያዎች",
-        "Devices": "መሳሪያዎች",
-        "Streams": "ዥረቶች"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "ተጋብዘዋል",
-            "description": "የግብዣ ሳጥን"
-        },
-        "Streams\/resource": {
-            "displayType": "ምንጭ",
-            "description": "የንብረት መዳረሻን ለማስተዳደር እና ስለ ዝመናዎች መልዕክቶችን ለመለጠፍ ዥረት"
-        },
-        "Streams\/task": {
-            "description": "በአንድ የተወሰነ ተግባር ላይ ስለ መሻሻል ዝማኔዎችን ለመቀበል",
-            "displayType": "ተግባር"
-        },
-        "Streams\/tasks": {
-            "description": "ለተግባሮች ምድብ",
-            "displayType": "ተግባራት"
-        },
-        "Streams\/experience": {
-            "description": "ለአንድ ማህበረሰብ አባላት የተለመደ ልምድ",
-            "displayType": "የጋራ ልምድ ለአንድ ማህበረሰብ አባላት"
-        },
-        "Streams\/greeting": {
-            "description": "ተጠቃሚው እራሱን ማስተዋወቅ የሚችልበት ሰላምታ",
-            "displayType": "ሰላምታ"
-        },
-        "Streams\/number": {
-            "displayType": "ቁጥር",
-            "description": "የሂሳብ ቁጥር"
-        },
-        "Streams\/date": {
-            "displayType": "ቀን",
-            "description": "ቀን"
-        },
-        "Streams\/text": {
-            "displayType": "ጽሑፍ",
-            "description": "የጽሑፍ አካል"
-        },
-        "Streams\/text\/small": {
-            "displayType": "ጽሑፍ",
-            "description": "ትንሽ የጽሑፍ አካል"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "ጽሑፍ",
-            "description": "መካከለኛ የጽሑፍ አካል"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "የ ኢሜል አድራሻ",
-            "description": "የ ኢሜል አድራሻ"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "ስልክ ቁጥር",
-            "description": "ስልክ ቁጥር"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "በድር ላይ አገናኝ"
-        },
-        "Streams\/image": {
-            "displayType": "ምስል",
-            "description": "ምስላዊ ምስል",
-            "newItem": "ምስል አክል"
-        },
-        "Streams\/images": {
-            "displayType": "የምስል ጋለሪ",
-            "description": "የምስሎች ማዕከለ-ስዕላት"
-        },
-        "Streams\/album": {
-            "displayType": "አልበም",
-            "description": "የተለያዩ ሚዲያዎች የሚዛመዱበት አልበም"
-        },
-        "Streams\/file": {
-            "displayType": "ፋይል",
-            "description": "የተሰቀለ ፋይል",
-            "newItem": "ፋይል አክል"
-        },
-        "Streams\/audio": {
-            "displayType": "የድምጽ ቅንጥብ",
-            "description": "የድምጽ ቅንጥብ",
-            "newItem": "ኦዲዮ ያክሉ"
-        },
-        "Streams\/video": {
-            "displayType": "የቪዲዮ ቅንጥብ",
-            "description": "ቪዲዮ ክሊፕ",
-            "newItem": "ቪዲዮ ያክሉ"
-        },
-        "Streams\/pdf": {
-            "displayType": "ፒዲኤፍ ሰነድ",
-            "description": "ፒዲኤፍ ሰነድ",
-            "newItem": "ፒዲኤፍ አክል"
-        },
-        "Streams\/live": {
-            "displayType": "የቀጥታ ስርጭት",
-            "description": "የቀጥታ ድምጽ ወይም ቪዲዮ"
-        },
-        "Streams\/category": {
-            "displayType": "ምድብ",
-            "description": "ሌሎች ዥረቶች ሊዛመዱ የሚችሉበት ምድብ",
-            "newItem": "ምድብ ጨምር"
-        },
-        "Streams\/participating": {
-            "displayType": "ተሳታፊ ኢንዴክስ",
-            "description": "ተጠቃሚው ሲቀላቀል\/ሲወጣ ዥረቶች ከዚህ ጋር የተያያዙ\/ያልሆኑ ናቸው።"
-        },
-        "Streams\/interest": {
-            "displayType": "ፍላጎት",
-            "description": "ለተወሰነ ርዕስ የተጠቃሚውን ፍላጎት ይወክላል"
-        },
-        "Streams\/incoming": {
-            "displayType": "ገቢ",
-            "description": "በሌሎች ተጠቃሚዎች የተላኩ መልዕክቶች መድረሻ"
-        },
-        "Streams\/chat": {
-            "displayType": "ውይይት",
-            "description": "በተጠቃሚዎች መካከል የሚደረግ ውይይት ከታሪክ ጋር"
-        },
-        "Streams\/question": {
-            "displayType": "ጥያቄ",
-            "description": "የጥያቄ ዥረት",
-            "newItem": "ጥያቄ ጨምር"
-        },
-        "Streams\/answer": {
-            "displayType": "መልስ",
-            "description": "መልስ ዥረት"
-        },
-        "Streams\/topic": {
-            "displayType": "ርዕስ",
-            "description": "ርዕስ ዥረት",
-            "newItem": "ርዕስ ጨምር"
-        }
-    },
-    "menu": {
-        "placeholder": "የገጽ ርዕስ ይተይቡ",
-        "ModTab": "ንጥልን አስተካክል።",
-        "Save": "አስቀምጥ",
-        "Delete": "ሰርዝ",
-        "Submenu": "ንዑስ ምናሌ"
-    },
-    "audio": {
-        "record": "መዝገብ",
-        "reset": "ዳግም አስጀምር",
-        "edit": "አርትዕ",
-        "title": "ርዕስ",
-        "description": "መግለጫ",
-        "upload": "ስቀል",
-        "link": "አገናኝ",
-        "setUrl": "URL አዘጋጅ",
-        "save": "አስቀምጥ",
-        "setClip": "ቁረጥ ክሊፕ",
-        "invalidURL": "ልክ ያልሆነ URL",
-        "invalidFile": "ልክ ያልሆነ ፋይል",
-        "errorNoSource": "ምንም የድምጽ ምንጭ የለም።",
-        "uploadLimit": "ከፍተኛው የፋይል መጠን {{size}}",
-        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።",
-        "TeaserAudio": "Teaser Audio"
-    },
-    "video": {
-        "reset": "ዳግም አስጀምር",
-        "edit": "አርትዕ",
-        "title": "ርዕስ",
-        "description": "መግለጫ",
-        "upload": "ስቀል",
-        "link": "አገናኝ",
-        "setUrl": "URL አዘጋጅ",
-        "save": "አስቀምጥ",
-        "setClip": "ቁረጥ ክሊፕ",
-        "invalidURL": "ልክ ያልሆነ URL",
-        "invalidFile": "ልክ ያልሆነ ፋይል",
-        "errorNoSource": "ምንም የቪዲዮ ምንጭ የለም።",
-        "uploadLimit": "ከፍተኛው የፋይል መጠን {{size}}",
-        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።",
-        "createAnimatedThumbnail": "የታነመ ድንክዬ ይፍጠሩ",
-        "errorNotAvailable": "ይቅርታ፣ ግን ቪዲዮው እስካሁን የለም። እባክዎ ቆየት ብለው ይሞክሩ.",
-        "NewVideo": "አዲስ ቪዲዮ",
-        "EditVideo": "ቪዲዮ አርትዕ",
-        "TeaserVideo": "Teaser ቪዲዮ"
-    },
-    "pdf": {
-        "reset": "ዳግም አስጀምር",
-        "edit": "አርትዕ",
-        "title": "ርዕስ",
-        "description": "መግለጫ",
-        "upload": "ስቀል",
-        "link": "አገናኝ",
-        "setUrl": "URL አዘጋጅ",
-        "save": "አስቀምጥ",
-        "setClip": "ቁረጥ ክሊፕ",
-        "invalidURL": "ልክ ያልሆነ URL",
-        "invalidFile": "ልክ ያልሆነ ፋይል",
-        "errorNoSource": "የፒዲኤፍ ምንጭ የለም።",
-        "uploadLimit": "ከፍተኛው የፋይል መጠን {{size}}",
-        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።",
-        "TeaserPDF": "Teaser PDF"
-    },
-    "image": {
-        "reset": "ዳግም አስጀምር",
-        "edit": "አርትዕ",
-        "title": "ርዕስ",
-        "description": "መግለጫ",
-        "upload": "ስቀል",
-        "link": "አገናኝ",
-        "setUrl": "URL አዘጋጅ",
-        "save": "አስቀምጥ",
-        "uploadedImage": "የተሰቀለ ምስል",
-        "imageTitle": "የምስል ርዕስ",
-        "setClip": "ቁረጥ ክሊፕ",
-        "invalidURL": "ልክ ያልሆነ URL",
-        "invalidFile": "ልክ ያልሆነ ፋይል",
-        "errorNoSource": "ምንም የምስል ምንጭ የለም።",
-        "uploadLimit": "ከፍተኛው የፋይል መጠን {{size}}",
-        "errorFileSize": "ይቅርታ፣ ግን ፋይል በጣም ትልቅ ነው።<br> ከፍተኛው የፋይል መጠን {{size}} ነው።",
-        "TeaserImage": "Teaser ምስል"
-    },
-    "questions": {
-        "Questions": "ጥያቄዎች",
-        "Answers": "መልሶች",
-        "AnswerQuestion": "ጥያቄ መልሱ",
-        "SetYourAnswer": "እባክዎን ጥያቄውን ይመልሱ",
-        "NewQuestion": "አዲስ ጥያቄ",
-        "EditQuestion": "ጥያቄን ያርትዑ",
-        "NewAnswer": "አዲስ መልስ",
-        "NewPossibleAnswer": "አዲስ ሊሆን የሚችል መልስ",
-        "AnswerDetails": "ዝርዝር መልስ",
-        "answerOption": "አማራጭ",
-        "answerOptionExclusive": "ብቸኛ",
-        "answerTextarea": "ጽሑፍ አካባቢ",
-        "answerText": "ጽሑፍ",
-        "HideUntilAnswered": "መልስ እስኪሰጥ ድረስ ደብቅ",
-        "CantChangeAnswers": "መልሶችን መቀየር አይቻልም",
-        "FreeAnswer": "መልስህን እዚህ ጻፍ",
-        "SaveQuestion": "ጥያቄ አስቀምጥ",
-        "SaveAnswer": "መልሱን አስቀምጥ",
-        "Save": "አስቀምጥ",
-        "Send": "ላክ",
-        "TitleRequired": "ርዕስ ያስፈልጋል!",
-        "AlreadyAnswered": "አስቀድሞ መልስ ሰጥተዋል",
-        "TitlePlaceholder": "ጥያቄዎን ይተይቡ",
-        "ContentPlaceholder": "ሰዎች እንዲመልሱ ለመርዳት ማንኛውንም ተጨማሪ መረጃ እዚህ ያስቀምጡ",
-        "ErrorTitle": "ጥያቄ ያስፈልጋል",
-        "Placeholder": "መመሪያዎችን ጻፍ",
-        "AreYouSure": "ኧረ",
-        "ShortAnswer": "አጭር መልስ ጻፍ",
-        "AnswerCantBeChanged": "መልሱ ሊቀየር አይችልም።"
-    },
-    "experience": {
-        "NewExperience": "አዲስ ልምድ",
-        "DefineTitle": "እባክዎን ርዕስ ይግለጹ",
-        "Create": "ፍጠር"
-    },
-    "calls": {
-        "SettingsTitle": "ጥሪዎች",
-        "MaxCalls": "ከፍተኛ ጥሪዎች",
-        "Update": "አዘምን",
-        "NoCallsYet": "እስካሁን ምንም ጥሪዎች የሉም",
-        "CallReasonTitle": "ይህ ጥሪ ስለ ምንድን ነው?",
-        "WaitingRoom": "መቆያ ክፍል",
-        "LiveRoom": "የቀጥታ ክፍል",
-        "interviewedByAnotherHost": "በአሁኑ ጊዜ በሌላ አስተናጋጅ ቃለ መጠይቅ ተደርጓል",
-        "bringToLive": "የቀጥታ ትዕይንት አምጣ",
-        "putOnHold": "ጠብቅ",
-        "endCall": "ጥሪን ጨርስ",
-        "interview": "ቃለ መጠይቅ",
-        "markApproved": "ማርክ ጸድቋል"
-    },
-    "relate": {
-        "Add": "{{streamDisplayType}} ጨምር"
-    },
-    "userChooser": {
-        "Placeholder": "የተጠቃሚ ስም..."
-    },
-    "task": {
-        "errorsTitle": "ስህተቶች ተከስተዋል።"
-    },
-    "topic": {
-        "NewTopic": "አዲስ ርዕስ",
-        "UpdateTopic": "ርዕስ አዘምን",
-        "CreateTopic": "ርዕስ ፍጠር",
-        "AreYouSureDeleteTopic": "እርግጠኛ ነዎት ይህን ርዕስ መሰረዝ ይፈልጋሉ",
-        "TitlePlaceholder": "ርዕስ ርዕስ...",
-        "DescribeTopic": "ርዕስ ግለጽ...",
-        "TopicIcon": "የርዕስ ምስል",
-        "UploadIcon": "የመስቀል አዶ",
-        "Conversation": "ውይይት",
-        "Metrics": "መለኪያዎች",
-        "Teaser": "ቲሴር",
-        "TeaserDescription": "የቲዘር መግለጫ...",
-        "TeaserVideo": "Teaser ቪዲዮ"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "የታነመ ድንክዬ ይፍጠሩ",
-        "Width": "ስፋት",
-        "Height": "ቁመት",
-        "Start": "ጀምር",
-        "End": "መጨረሻ",
-        "Delay": "መዘግየት",
-        "Quality": "ጥራት",
-        "Size": "መጠን",
-        "OfFrames": "የክፈፎች",
-        "Frame": "ፍሬም",
-        "UseThis": "ይህንን ተጠቀም",
-        "ResultGIF": "ውጤት GIF",
-        "VideoElementNotFound": "የቪዲዮ ክፍል አልተገኘም።"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} በፊትዎ ላይ",
-        "AcceptIcon": "የተመረጠውን አካባቢ ተቀበል"
-    }
+	"errors": {
+		"HiddenFromYou": "\u12ed\u1205 \u12ed\u12d8\u1275 \u12a8\u12a5\u122d\u1235\u12ce \u1270\u12f0\u1265\u124b\u120d\u1362",
+		"InplaceTypeMustBe": "InplaceType &#39;textarea&#39; \u12c8\u12ed\u121d &#39;text&#39; \u1218\u1206\u1295 \u12a0\u1208\u1260\u1275",
+		"AmountInvalid": "\u12a5\u1263\u12ad\u12ce \u1275\u12ad\u12ad\u1208\u129b \u12e8\u121a\u120a\u1230\u12a8\u1295\u12f6\u127d \u1241\u1325\u122d \u12eb\u1235\u1308\u1261\u1362"
+	},
+	"preview": {
+		"NewItemTitle": "\u12a0\u12f2\u1235 \u1290\u1308\u122d",
+		"Teaser": "\u1272\u12d8\u122d"
+	},
+	"avatar": {
+		"firstName": "\u12e8\u1218\u1300\u1218\u122a\u12eb \u1235\u121d",
+		"lastName": "\u12e8\u12a0\u12eb\u1275 \u1235\u121d",
+		"username": "\u12e8\u1270\u1320\u1243\u121a \u1235\u121d"
+	},
+	"labels": {
+		"Streams/invited": "\u12e8\u130b\u1260\u12dd\u12b3\u1278\u12cd \u1230\u12ce\u127d",
+		"Streams/invitedMe": "\u121b\u1295 \u130b\u1260\u12d8\u129d\u1362",
+		"DoYouAgree": "\u1275\u1235\u121b\u121b\u1208\u1205?",
+		"Yes": "\u12a0\u12ce",
+		"No": "\u12a0\u12ed",
+		"JoinItNow": "\u12a0\u1201\u1295 \u1270\u1240\u120b\u1240\u120d?"
+	},
+	"login": {
+		"prompt": "\u1313\u12f0\u129e\u127d \u12a5\u1295\u12f2\u12eb\u12cd\u1241\u12ce\u1275 \u12eb\u12f5\u122d\u1309\u1361-",
+		"newUser": "\u12c8\u12ed\u121d \u12a8\u12da\u1205 \u1260\u1273\u127d \u12a0\u12f2\u1235 \u1218\u1208\u12eb \u12ed\u134d\u1320\u1229",
+		"picTooltip": "\u12ed\u1205\u1295 \u121d\u1235\u120d \u1260\u128b\u120b \u1218\u1240\u12e8\u122d \u1275\u127d\u120b\u1208\u1205",
+		"placeholders": {
+			"fullName": "\u1219\u1209 \u1235\u121d\u1205\u1295 \u12a0\u1235\u1308\u1263"
+		}
+	},
+	"interests": {
+		"Filter": "\u134d\u120b\u130e\u1276\u127d\u1295 \u12ed\u1348\u120d\u1309",
+		"CanGrant": "\u12a0\u1201\u1295\u121d \u12e8\u121a\u1348\u120d\u1309\u1275\u1295 \u121b\u130d\u1298\u1275 \u12ab\u120d\u127b\u1209\u1363 \u12a8\u12da\u1205 \u1260\u1273\u127d \u12a0\u12f2\u1235 \u134d\u120b\u130e\u1275 \u121b\u12a8\u120d \u12ed\u127d\u120b\u1209\u1361",
+		"TrySynonyms": "\u12a0\u1273\u12ed\u121d? \u12a0\u1295\u12f3\u1295\u12f5 \u1270\u1218\u1233\u1233\u12ed \u1243\u120b\u1275\u1295 \u12ed\u121e\u12ad\u1229\u1362",
+		"AddUnderCategory": "\u12a8\u121d\u12f5\u1265 \u1235\u122d \u12a0\u12ad\u120d...",
+		"Other": "\u120c\u120b",
+		"Unlisted": "\u12eb\u120d\u1270\u12d8\u1228\u12d8\u1228"
+	},
+	"chat": {
+		"flaggedForAdminReview": "\u1218\u120d\u12a5\u12ad\u1275 \u1208\u12a0\u1235\u1270\u12f3\u12f3\u122a \u130d\u121d\u1308\u121b \u1270\u1320\u1241\u121f\u120d\u1362 \u1263\u1295\u12f2\u122b \u1208\u121b\u1295\u1233\u1275 \u12a5\u1295\u12f0\u1308\u1293 \u12ed\u1295\u12a9\u1362",
+		"noOneSaid": "\u121b\u1295\u121d \u121d\u1295\u121d \u12e8\u1270\u1293\u1308\u1228\u12cd \u12e8\u1208\u121d\u1362",
+		"closeChatButton": "\u12cd\u12ed\u12ed\u1275 \u12dd\u130b",
+		"closeChatConfirmTitle": "\u12ed\u1205\u1295 \u12cd\u12ed\u12ed\u1275 \u12dd\u130b?",
+		"closeChatConfirm": "\u12a5\u122d\u130d\u1320\u129b \u1290\u12ce\u1275 \u12ed\u1205\u1295 \u12cd\u12ed\u12ed\u1275 \u1218\u12dd\u130b\u1275 \u12ed\u1348\u120d\u130b\u1209?",
+		"Subscribed": "\u121b\u1233\u12c8\u1242\u12eb\u12ce\u127d \u1290\u1245\u1270\u12cb\u120d\u1362",
+		"Unsubscribed": "\u121b\u1233\u12c8\u1242\u12eb\u12ce\u127d \u12f5\u121d\u1338-\u12a8\u120d \u1270\u12f0\u122d\u1308\u12cb\u120d\u1362",
+		"closeChatConfirmYes": "\u12a0\u12ce",
+		"closeChatConfirmNo": "\u12a0\u12ed",
+		"earlierComments": "\u1240\u12f0\u121d \u12a0\u1235\u1270\u12eb\u12e8\u1276\u127d",
+		"startedConversation": "\u12cd\u12ed\u12ed\u1275 \u1300\u1218\u1228",
+		"RealTimeCall": "\u12e8\u12a5\u12cd\u1290\u1270\u129b \u130a\u12dc \u1325\u122a",
+		"JoinWebRTC": "\u1274\u120c \u12ae\u1295\u1348\u1228\u1295\u1235",
+		"SearchByName": "\u1260\u1235\u121d \u1348\u120d\u130d",
+		"Notifications": {
+			"Visit": "{{displayName}} \u127b\u1271\u1295 \u12a5\u12e8\u130e\u1260\u1298 \u1290\u12cd\u1362",
+			"Join": "{{displayName}} \u127b\u1271\u1295 \u1270\u1240\u120b\u1240\u1208",
+			"Leave": "{{displayName}} \u12cd\u12ed\u12ed\u1271\u1295 \u1208\u124b\u120d",
+			"RelatedTo": "{{displayName}} {{stream.displayType}} \u1300\u121d\u122f\u120d\u1362"
+		},
+		"placeholders": {
+			"Public": "\u12a0\u1235\u1270\u12eb\u12e8\u1275 \u1328\u121d\u122d",
+			"Private": "\u12e8\u130d\u120d \u1218\u120d\u12a5\u12ad\u1275 \u12ed\u133b\u1349"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "\u12e8\u12a2\u121c\u120d \u121d\u12dd\u1308\u1263\u12ce\u127d\u12ce\u1295 \u12eb\u1235\u1270\u12f3\u12f5\u1229",
+		"IfUnsubscribe": "\u12a8\u12f0\u1295\u1260\u129d\u1290\u1275 \u121d\u12dd\u1308\u1263 \u1218\u12cd\u1323\u1275 \u12a8\u1348\u1208\u1309",
+		"*": "\u1218\u120d\u12a5\u12ad\u1275 {{{ message.fields.type}} \u12a5\u1235\u12a8 {{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} \u1270\u1240\u120b\u1245\u120f\u120d\u1362",
+		"Streams/left": "{{{call 'avatar.displayName'}}} \u1240\u122d\u1277\u120d\u1362",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} \u12a0\u1208 {{& message.content}}}",
+		"Streams/changed": "\u1260 {{stream.fields.title}} \u1208\u12cd\u1326\u127d",
+		"Streams/invite": "\u12c8\u12f0 {{{ stream.fields.title}}} \u1270\u130b\u1265\u12d8\u12cb\u120d",
+		"Streams/announcement": "\u121b\u1235\u1273\u12c8\u1242\u12eb \u1260 {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} \u1218\u12f3\u1228\u123b\u1295 \u1260 {{& stream.fields.title}}} \u1240\u12ed\u122f\u120d\u1362",
+		"Streams/chat/edit": "\u12e8\u12cd\u12ed\u12ed\u1275 \u1218\u120d\u12a5\u12ad\u1275 \u1260 {{{ stream.fields.title}}} \u1270\u1235\u1270\u12ab\u12ad\u120f\u120d\u1362",
+		"Streams/chat/remove": "\u12e8\u12cd\u12ed\u12ed\u1275 \u1218\u120d\u12a5\u12ad\u1275 \u1260 {{{ stream.fields.title}}} \u1270\u12c8\u130d\u12f7\u120d",
+		"Streams/closed": "{{stream.fields.title}} \u1270\u12d8\u130d\u1277\u120d\u1362",
+		"Streams/task/progress": "\u1260 {{stream.fields.title}} \u12a5\u12f5\u1308\u1275",
+		"Streams/task/complete": "\u12e8\u1270\u1320\u1293\u1240\u1240\u12cd \u1270\u130d\u1263\u122d {{stream.fields.title}}",
+		"Streams/task/error": "\u1235\u1205\u1270\u1275 \u1260 {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : \u1308\u1262 \u1218\u120d\u12a5\u12ad\u1275",
+		"Streams/relatedTo/Streams/call": "\u12a0\u12f2\u1235 \u1325\u122a \u1260 {{toTitle}} \u1270\u1300\u1218\u1228",
+		"Streams/relatedTo/*": "\u12a0\u12f2\u1235 {{relationDisplayType}} \u1260 {{toTitle}}",
+		"Streams/relatedFrom/*": "\u12c8\u12f0 {{toTitle}} {{relationDisplayType}} \u1270\u1328\u121d\u122f\u120d\u1362",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} \u1260\u12a0\u1235\u1270\u12eb\u12e8\u1275 \u12cd\u1235\u1325 \u1320\u1245\u1236\u1203\u120d",
+		"Streams/call": "{{displayName}} \u12e8\u12a5\u12cd\u1290\u1270\u129b \u130a\u12dc \u1325\u122a \u1300\u121d\u122f\u120d\u1362",
+		"changed": {
+			"ChangesIn": "\u1260 {{title}} \u1208\u12cd\u1326\u127d",
+			"Changed": "\u1270\u1208\u12cd\u1327\u120d",
+			"HereIsWhatChanged": "\u12e8\u1270\u1208\u12c8\u1320\u12cd \u12a5\u1290\u1206\u1361-"
+		},
+		"joined": {
+			"Joined": "{{subject}} <em>{{title}}</em> \u1270\u1240\u120b\u1245\u1208\u12cb\u120d\u1362"
+		},
+		"Streams/invited": "\u12c8\u12f0 {{{stream.fields.title}}} \u1270\u130b\u1265\u12d8\u12cb\u120d"
+	},
+	"invite": {
+		"command": "\u130b\u1265\u12dd",
+		"Invite": "\u130b\u1265\u12dd",
+		"Share": "\u12a0\u130b\u122b",
+		"messageContent": "{{displayName}} \u12c8\u12f0 {{inviteUrl}} \u130b\u1265\u12de\u12ce\u1273\u120d",
+		"youCanNowPaste": "\u12a0\u1201\u1295 \u1230\u12ce\u127d\u1295 \u1208\u1218\u130b\u1260\u12dd \u12ed\u1205\u1295 \u120a\u1295\u12ad \u12e8\u1206\u1290 \u1266\u1273 \u1218\u1208\u1320\u134d \u12ed\u127d\u120b\u1209\u1362",
+		"roles": {
+			"title": "\u1208\u1270\u130b\u1260\u12d9 \u1270\u1320\u1243\u121a\u12ce\u127d \u121a\u1293\u12ce\u127d\u1295 \u12ed\u1235\u1321?",
+			"NotAuthorizedToGrantRole": {
+				"title": "\u12a0\u12dd\u1293\u1208\u1201",
+				"alert": "\u12ed\u1205\u1295 \u121a\u1293 \u12e8\u1218\u1235\u1320\u1275 \u1235\u120d\u1323\u1295 \u12e8\u1208\u12ce\u1275\u121d\u1362"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "\u12a0\u12dd\u1293\u1208\u1201",
+				"alert": "\u12ed\u1205\u1295 \u121a\u1293 \u1208\u121b\u1235\u12c8\u1308\u12f5 \u1235\u120d\u1323\u1295 \u12e8\u1208\u12ce\u1275\u121d\u1362"
+			}
+		},
+		"labels": {
+			"title": "\u12e8\u12a5\u122d\u1235\u12ce \u130d\u1295\u1299\u1290\u1275 \u121d\u1295\u12f5\u1295 \u1290\u12cd?"
+		},
+		"dialog": {
+			"chooseFromContacts": "\u12a8\u12a5\u12cd\u1242\u12eb\u12ce\u127d\u12ce \u12cd\u1235\u1325 \u12ed\u121d\u1228\u1321",
+			"chooseAgainFromContacts": "\u12a8\u12a5\u12cd\u1242\u12eb\u12ce\u127d \u12cd\u1235\u1325 \u12a5\u1295\u12f0\u1308\u1293 \u12ed\u121d\u1228\u1321",
+			"inviteSelectedContacts": "\u12e8\u1270\u1218\u1228\u1321 \u12a5\u12cd\u1242\u12eb\u12ce\u127d\u1295 \u12ed\u130b\u1265\u12d9",
+			"selectFromContacts": "\u12a8\u12a5\u12cd\u1242\u12eb\u12ce\u127d \u12ed\u121d\u1228\u1321",
+			"userChooserPlaceholder": "\u1260\u1235\u121d \u1348\u120d\u130d",
+			"photo": "\u134e\u1276 \u12a0\u1295\u1233",
+			"photoOf": "\u12e8 {{name}} \u134e\u1276 \u12a0\u1295\u1233",
+			"photoInstruction": "\u12e8QR \u12ae\u12f5\u1205\u1295 \u12e8\u1243\u1298\u12cd \u1230\u12cd \u12a8\u134a\u1275\u1205 \u12ab\u1208 \u134e\u1276\u130d\u122b\u134d \u12a0\u1295\u1233",
+			"to": "\u1208 {{Stream Title}}",
+			"go": "\u1202\u12f5",
+			"title": "\u130b\u1265\u12dd",
+			"placeholder": "\u12e8\u121e\u1263\u12ed\u120d \u1241\u1325\u122d \u12c8\u12ed\u121d \u12e8\u12a2\u121c\u120d \u12a0\u12f5\u122b\u123b",
+			"orInvite": "\u12c8\u12ed\u121d \u12e8\u121a\u12a8\u1270\u1209\u1275\u1295 \u1260\u1218\u1320\u1240\u121d \u1230\u12ce\u127d\u1295 \u130b\u1265\u12dd",
+			"copyLink": "\u12e8\u130d\u1265\u12e3 \u12a0\u1308\u1293\u129d \u1208\u1218\u1245\u12f3\u1275 {{ClickOrTap}}",
+			"shareOrCopyLink": "\u12e8\u130d\u1265\u12e3 \u121b\u1308\u1293\u129b\u1295 \u1208\u121b\u130b\u122b\u1275 \u12c8\u12ed\u121d \u1208\u1218\u1245\u12f3\u1275 {{ClickOrTap}}",
+			"QR": "QR \u12ae\u12f5 \u1208\u1218\u134d\u1320\u122d {{ClickOrTap}}",
+			"QRtitle": "\u12ed\u1205\u1295 \u12e8QR \u12ae\u12f5 \u12ed\u1243\u1299",
+			"QRscanned": "\u12a5\u1290\u1231 \u1243\u1299\u1275!",
+			"scannedQR": "\u12ae\u12f1 \u12a8\u1270\u1243\u1298 {{ClickOrTap}}",
+			"byEmail": "\u12a2\u121c\u12ed\u120d",
+			"bySms": "\u133d\u1211\u134d",
+			"byFacebook": "\u134c\u1235\u1261\u12ad",
+			"byTwitter": "\u1275\u12ca\u1270\u122d",
+			"title2": "\u1230\u12ce\u127d\u1295 \u12ed\u130b\u1265\u12d9",
+			"chooseMethod": "\u12d8\u12f4 \u12ed\u121d\u1228\u1321\u1361-",
+			"selectContacts": "\u12a5\u12cd\u1242\u12eb\u12ce\u127d\u1295 \u12ed\u121d\u1228\u1321",
+			"scanQRCode": "\u12e8QR \u12ae\u12f5\u1295 \u12ed\u1243\u1299",
+			"shareLink": "\u12a0\u1308\u1293\u129d \u12a0\u130b\u122b",
+			"chooseFromRegistered": "\u12a8\u1270\u1218\u12d8\u1308\u1261 \u1270\u1320\u1243\u121a\u12ce\u127d \u12ed\u121d\u1228\u1321",
+			"inviteViaEmailOrSms": "\u1260\u12a2\u121c\u120d \u12c8\u12ed\u121d \u1260\u12a4\u1235\u12a4\u121d\u12a4\u1235 \u12ed\u130b\u1265\u12d9",
+			"TakeGroupPhoto": "\u12e8\u1261\u12f5\u1295 \u134e\u1276 \u12a0\u1295\u1233",
+			"Skip": "\u12dd\u1208\u120d",
+			"byTelegram": "\u1274\u120c\u130d\u122b\u121d",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "\u121a\u1293\u12ce\u127d\u1295 \u12eb\u12ad\u1209",
+			"addPersonalRoles": "\u130d\u120b\u12ca \u130d\u1295\u1299\u1290\u1276\u127d\u1295 \u12eb\u12ad\u1209"
+		},
+		"complete": {
+			"WelcomeToCommunity": "\u12a5\u1295\u12b3\u1295 \u12c8\u12f0 {{communityName}} \u1260\u12f0\u1205\u1293 \u1218\u1321",
+			"HasInvitedYou": "\u12c8\u12f0\u12da\u1205 \u130b\u1265\u12de\u12ce\u1273\u120d\u1361-",
+			"HasInvitedYouToTheirProfile": "\u12a5\u1295\u12f2\u1308\u1293\u1299 \u130b\u1265\u12de\u12ce\u1273\u120d\u1362",
+			"prompt": "\u1313\u12f0\u129e\u127d \u12a5\u1295\u12f2\u12eb\u12cd\u1241\u12ce\u1275 \u12eb\u12f5\u122d\u1309\u1361-",
+			"accept": "\u130d\u1265\u12e3 \u1270\u1240\u1260\u120d"
+		},
+		"email": {
+			"subject": "\u1204\u12ed\u1363 \u12ed\u1205\u1295\u1295 \u1270\u1218\u120d\u12a8\u1275",
+			"PleaseVisitLink": "\u12a5\u1263\u12ad\u12ce \u12e8\u121a\u12a8\u1270\u1208\u12cd\u1295 \u120a\u1295\u12ad \u12ed\u130e\u1265\u1299\u1361-",
+			"InvitingYou": "\u12c8\u12f0 {{title}} \u12a5\u130b\u1265\u12db\u127d\u128b\u1208\u1201",
+			"HasInvitedYou": "{{displayName}} \u12c8\u12f0 {{title}} \u130b\u1265\u12de\u12ce\u1273\u120d",
+			"HasMentionedYou": "{{displayName}} \u1260 &quot; {{title}} &quot; \u12cd\u1235\u1325 \u1320\u1245\u1236\u1203\u120d",
+			"YOUAREINVITED": "\u1270\u130b\u1265\u12d8\u12cb\u120d!",
+			"AcceptInvite": "\u130d\u1265\u12e3 \u1270\u1240\u1260\u120d"
+		},
+		"mobile": {
+			"content": "\u12c8\u12f0 {{title}} \u1270\u130b\u1265\u12d8\u12cb\u120d. \u12a5\u1263\u12ad\u1205 {{url}} \u1295\u12ab"
+		},
+		"notice": {
+			"text": "\u1270\u130b\u1265\u12d8\u12cb\u120d\u1362 \u1208\u1218\u1240\u1260\u120d \u12a5\u1293 \u1208\u1218\u1240\u120b\u1240\u120d {{ClickOrTap}} \u12a5\u12da\u1205\u1362"
+		},
+		"chat": {
+			"prompt": "\u12a5\u1295\u12f0\u1270\u1308\u1293\u1299 \u1218\u1246\u12e8\u1275\u1363 \u134e\u1276\u12ce\u127d\u1295 \u1260\u130b\u122b \u121b\u130b\u122b\u1275 \u12a5\u1293 \u120c\u120e\u127d\u121d \u12c8\u12f0\u121a\u127d\u1209\u1260\u1275 \u12cd\u12ed\u12ed\u1275 \u1230\u12ce\u127d\u1295 \u12a5\u12e8\u130b\u1260\u12d9 \u1290\u12cd\u1362 \u1235\u121d \u1235\u1320\u12cd\u1361-"
+		},
+		"Participants": "\u1230\u12ce\u127d\u1295 \u12ed\u130b\u1265\u12d9"
+	},
+	"messages": {
+		"html": {
+			"posted": "<em>{{message.fields.type}}</em> \u1218\u120d\u12a5\u12ad\u1275 \u1208 {{stream.fields.title}} \u12a0\u1235\u1270\u120b\u1208\u1348"
+		},
+		"text": {
+			"commentedOn": "\u120b\u12ed \u12a0\u1235\u1270\u12eb\u12e8\u1275 \u1230\u1325\u1277\u120d",
+			"startedCallIn": "\u1325\u122a \u1300\u1218\u1228",
+			"in": "\u12cd\u1235\u1325",
+			"body": "\u1260 {{{ url}} {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "\u120b\u12ed \u1270\u1208\u1320\u1348",
+				"byAvatar": "\u1260 {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "\u12a0\u12f2\u1235 {{instructions.fromDisplayType}} \u12a0\u1208\u12cd",
+				"byAvatar": "\u1260 {{avatar.displayName}} \u1270\u1328\u121d\u122f\u120d\u1362"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "\u130d\u1265\u12e3\u12ce\u127d \u12a8\u129b \u1241\u1325\u122d \u1270\u120d\u12a8\u12cb\u120d\u1363 \u12ed\u1205\u121d \u1313\u12f0\u129e\u127d\u12ce \u12a5\u1235\u12ab\u1201\u1295 \u12eb\u120b\u12c8\u1241\u1275\u1362 \u130d\u1265\u12e3\u12cd \u12a8\u12a5\u122d\u1235\u12ce \u12a5\u1295\u12f0\u1218\u1323 \u1208\u121b\u1233\u12c8\u1245 \u12a0\u1308\u1293\u1299\u1295 \u1320\u1245 \u12a5\u1295\u12f2\u12eb\u12f0\u122d\u1309 \u1260\u1218\u1320\u12e8\u1245 \u1348\u1323\u1295 \u133d\u1211\u134d \u12ed\u12a8\u1273\u1270\u1209\u1362",
+			"confirm": "\u130d\u1265\u12e3\u12ce\u127d \u12a8\u129b \u1241\u1325\u122d \u1270\u120d\u12a8\u12cb\u120d\u1363 \u12ed\u1205\u121d \u1313\u12f0\u129e\u127d\u12ce \u12a5\u1235\u12ab\u1201\u1295 \u12eb\u120b\u12c8\u1241\u1275\u1362 \u130d\u1265\u12e3\u12cd \u12a8\u12a5\u122d\u1235\u12ce \u12a5\u1295\u12f0\u1218\u1323 \u1208\u121b\u1233\u12c8\u1245 \u12a0\u1308\u1293\u1299\u1295 \u1320\u1245 \u12a5\u1295\u12f2\u12eb\u12f0\u122d\u1309 \u1260\u1218\u1320\u12e8\u1245 \u1348\u1323\u1295 \u133d\u1201\u134d \u1260\u1218\u12a8\u1270\u120d \u1218\u12a8\u1273\u1270\u120d \u12ed\u1348\u120d\u130b\u1209\u1362",
+			"check": "\u1204\u12ed\u1363 \u12a0\u1201\u1295 \u12e8 {{app}} \u1218\u1270\u130d\u1260\u122a\u12eb \u130d\u1265\u12e3 \u120d\u12ac\u120d\u12ce\u1273\u120d\u1362 \u12a5\u1263\u12ad\u12ce\u1295 \u12a4\u1235\u12a4\u121d\u12a4\u1235\u12ce\u1295 \u12eb\u1228\u130b\u130d\u1321 \u12a5\u1293 \u120a\u1295\u12a9\u1295 \u12ed\u132b\u1291!",
+			"CheckYourMobile": "\u12a5\u1263\u12ad\u12ce\u1295 \u12a4\u1235\u12a4\u121d\u12a4\u1235 \u12ed\u1218\u120d\u12a8\u1271 \u12a5\u1293 \u1218\u1218\u122a\u12eb\u12ce\u127d\u1295 \u12ed\u12a8\u1270\u1209!"
+		},
+		"email": {
+			"alert": "\u130d\u1265\u12e3\u12ce\u127d \u12a8\u129b \u130e\u122b \u1270\u120d\u12a8\u12cb\u120d\u1363 \u1313\u12f0\u129b\u12ce\u127d\u12ce \u12a5\u1235\u12ab\u1201\u1295 \u12e8\u121b\u12eb\u12cd\u1241\u1275\u1362 \u130d\u1265\u12e3\u12cd \u12a8\u12a5\u122d\u1235\u12ce \u12a5\u1295\u12f0\u1218\u1323 \u1208\u121b\u1233\u12c8\u1245 \u12a0\u1308\u1293\u1299\u1295 \u1320\u1245 \u12a5\u1295\u12f2\u12eb\u12f0\u122d\u1309 \u1260\u1218\u1320\u12e8\u1245 \u1348\u1323\u1295 \u133d\u1211\u134d \u12ed\u12a8\u1273\u1270\u1209\u1362",
+			"confirm": "\u130d\u1265\u12e3\u12ce\u127d \u12a8\u129b \u130e\u122b \u1270\u120d\u12a8\u12cb\u120d\u1363 \u1313\u12f0\u129b\u12ce\u127d\u12ce \u12a5\u1235\u12ab\u1201\u1295 \u12e8\u121b\u12eb\u12cd\u1241\u1275\u1362 \u130d\u1265\u12e3\u12cd \u12a8\u12a5\u122d\u1235\u12ce \u12a5\u1295\u12f0\u1218\u1323 \u1208\u121b\u1233\u12c8\u1245 \u12a0\u1308\u1293\u1299\u1295 \u1320\u1245 \u12a5\u1295\u12f2\u12eb\u12f0\u122d\u1309 \u1260\u1218\u1320\u12e8\u1245 \u1348\u1323\u1295 \u133d\u1201\u134d \u1260\u1218\u12a8\u1270\u120d \u1218\u12a8\u1273\u1270\u120d \u12ed\u1348\u120d\u130b\u1209\u1362",
+			"subject": "\u130d\u1265\u12e3 \u12a0\u130d\u129d\u1270\u12cb\u120d?",
+			"body": "\u1204\u12ed\u1363 \u12a0\u1201\u1295 \u12e8 {{app}} \u1218\u1270\u130d\u1260\u122a\u12eb \u130d\u1265\u12e3 \u120d\u12ac\u120d\u12ce\u1273\u120d\u1362 \u12a5\u1263\u12ad\u12ce\u1295 \u12a2\u121c\u120d\u12ce\u1295 \u12eb\u1228\u130b\u130d\u1321 \u12a5\u1293 \u12a5\u12da\u12eb \u12eb\u1208\u12cd\u1295 \u120a\u1295\u12ad \u12ed\u132b\u1291!",
+			"CheckYourEmail": "\u12a5\u1263\u12ad\u12ce \u12a2\u121c\u120d\u12ce\u1295 \u12eb\u1228\u130b\u130d\u1321 \u12a5\u1293 \u1218\u1218\u122a\u12eb\u12ce\u127d\u1295 \u12ed\u12a8\u1270\u1209!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "\u12e8\u130d\u120b\u12ca\u1290\u1275 \u1245\u1295\u1265\u122e\u127d"
+	},
+	"participating": {
+		"Title": "\u122d\u12d5\u1235",
+		"Subscribed": "\u1270\u1218\u12dd\u130d\u1267\u120d",
+		"Participants": "\u1270\u1233\u1273\u134a\u12ce\u127d",
+		"AreYouSureRemoveIdentifier": "\u12a5\u122d\u130d\u1320\u129b \u1290\u12ce\u1275 \u12ed\u1205\u1295 \u1218\u1208\u12eb \u121b\u1235\u12c8\u1308\u12f5?",
+		"AreYouSureUnsubscribeIdentifier": "\u12a5\u122d\u130d\u1320\u129b \u1290\u12ce\u1275 \u12ed\u1205\u1295 \u1218\u1208\u12eb \u12a8\u12f0\u1295\u1260\u129d\u1290\u1275 \u121d\u12dd\u1308\u1263 \u1218\u12cd\u1323\u1273\u1278\u12cd? \u1208\u12da\u1205 \u1218\u1208\u12eb \u121b\u1233\u12c8\u1242\u12eb\u12ce\u127d\u1295 \u12eb\u1320\u134b\u120d\u1362",
+		"AreYouSureUnsubscribeDevice": "\u12a5\u122d\u130d\u1320\u129b \u1290\u12ce\u1275 \u12ed\u1205\u1295 \u1218\u1223\u122a\u12eb \u12a8\u12f0\u1295\u1260\u129d\u1290\u1275 \u121d\u12dd\u1308\u1263 \u1218\u12cd\u1323\u1273\u1278\u12cd? \u1208\u12da\u1205 \u1218\u1223\u122a\u12eb \u121b\u1233\u12c8\u1242\u12eb\u12ce\u127d\u1295 \u12eb\u1320\u134b\u120d.",
+		"AreYouSureRemoveParticipant": "\u12a5\u122d\u130d\u1320\u129b \u1290\u12ce\u1275 \u12ed\u1205\u1295 \u1270\u1233\u1273\u134a \u121b\u1235\u12c8\u1308\u12f5 \u12ed\u1348\u120d\u130b\u1209?",
+		"RemoveParticipant": "\u1270\u1233\u1273\u134a\u1295 \u12eb\u1235\u12c8\u130d\u12f1",
+		"Identifiers": "\u1218\u1208\u12eb\u12ce\u127d",
+		"Devices": "\u1218\u1233\u122a\u12eb\u12ce\u127d",
+		"Streams": "\u12e5\u1228\u1276\u127d"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "\u1270\u130b\u1265\u12d8\u12cb\u120d",
+			"description": "\u12e8\u130d\u1265\u12e3 \u1233\u1325\u1295"
+		},
+		"Streams/resource": {
+			"displayType": "\u121d\u1295\u132d",
+			"description": "\u12e8\u1295\u1265\u1228\u1275 \u1218\u12f3\u1228\u123b\u1295 \u1208\u121b\u1235\u1270\u12f3\u12f0\u122d \u12a5\u1293 \u1235\u1208 \u12dd\u1218\u1293\u12ce\u127d \u1218\u120d\u12d5\u12ad\u1276\u127d\u1295 \u1208\u1218\u1208\u1320\u134d \u12e5\u1228\u1275"
+		},
+		"Streams/task": {
+			"description": "\u1260\u12a0\u1295\u12f5 \u12e8\u1270\u12c8\u1230\u1290 \u1270\u130d\u1263\u122d \u120b\u12ed \u1235\u1208 \u1218\u123b\u123b\u120d \u12dd\u121b\u1294\u12ce\u127d\u1295 \u1208\u1218\u1240\u1260\u120d",
+			"displayType": "\u1270\u130d\u1263\u122d"
+		},
+		"Streams/tasks": {
+			"description": "\u1208\u1270\u130d\u1263\u122e\u127d \u121d\u12f5\u1265",
+			"displayType": "\u1270\u130d\u1263\u122b\u1275"
+		},
+		"Streams/experience": {
+			"description": "\u1208\u12a0\u1295\u12f5 \u121b\u1205\u1260\u1228\u1230\u1265 \u12a0\u1263\u120b\u1275 \u12e8\u1270\u1208\u1218\u12f0 \u120d\u121d\u12f5",
+			"displayType": "\u12e8\u130b\u122b \u120d\u121d\u12f5 \u1208\u12a0\u1295\u12f5 \u121b\u1205\u1260\u1228\u1230\u1265 \u12a0\u1263\u120b\u1275"
+		},
+		"Streams/greeting": {
+			"description": "\u1270\u1320\u1243\u121a\u12cd \u12a5\u122b\u1231\u1295 \u121b\u1235\u1270\u12cb\u12c8\u1245 \u12e8\u121a\u127d\u120d\u1260\u1275 \u1230\u120b\u121d\u1273",
+			"displayType": "\u1230\u120b\u121d\u1273"
+		},
+		"Streams/number": {
+			"displayType": "\u1241\u1325\u122d",
+			"description": "\u12e8\u1202\u1233\u1265 \u1241\u1325\u122d"
+		},
+		"Streams/date": {
+			"displayType": "\u1240\u1295",
+			"description": "\u1240\u1295"
+		},
+		"Streams/text": {
+			"displayType": "\u133d\u1211\u134d",
+			"description": "\u12e8\u133d\u1211\u134d \u12a0\u12ab\u120d"
+		},
+		"Streams/text/small": {
+			"displayType": "\u133d\u1211\u134d",
+			"description": "\u1275\u1295\u123d \u12e8\u133d\u1211\u134d \u12a0\u12ab\u120d"
+		},
+		"Streams/text/medium": {
+			"displayType": "\u133d\u1211\u134d",
+			"description": "\u1218\u12ab\u12a8\u1208\u129b \u12e8\u133d\u1211\u134d \u12a0\u12ab\u120d"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "\u12e8 \u12a2\u121c\u120d \u12a0\u12f5\u122b\u123b",
+			"description": "\u12e8 \u12a2\u121c\u120d \u12a0\u12f5\u122b\u123b"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "\u1235\u120d\u12ad \u1241\u1325\u122d",
+			"description": "\u1235\u120d\u12ad \u1241\u1325\u122d"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "\u1260\u12f5\u122d \u120b\u12ed \u12a0\u1308\u1293\u129d"
+		},
+		"Streams/image": {
+			"displayType": "\u121d\u1235\u120d",
+			"description": "\u121d\u1235\u120b\u12ca \u121d\u1235\u120d",
+			"newItem": "\u121d\u1235\u120d \u12a0\u12ad\u120d"
+		},
+		"Streams/images": {
+			"displayType": "\u12e8\u121d\u1235\u120d \u130b\u1208\u122a",
+			"description": "\u12e8\u121d\u1235\u120e\u127d \u121b\u12d5\u12a8\u1208-\u1235\u12d5\u120b\u1275"
+		},
+		"Streams/album": {
+			"displayType": "\u12a0\u120d\u1260\u121d",
+			"description": "\u12e8\u1270\u1208\u12eb\u12e9 \u121a\u12f2\u12eb\u12ce\u127d \u12e8\u121a\u12db\u1218\u12f1\u1260\u1275 \u12a0\u120d\u1260\u121d"
+		},
+		"Streams/file": {
+			"displayType": "\u134b\u12ed\u120d",
+			"description": "\u12e8\u1270\u1230\u1240\u1208 \u134b\u12ed\u120d",
+			"newItem": "\u134b\u12ed\u120d \u12a0\u12ad\u120d"
+		},
+		"Streams/audio": {
+			"displayType": "\u12e8\u12f5\u121d\u133d \u1245\u1295\u1325\u1265",
+			"description": "\u12e8\u12f5\u121d\u133d \u1245\u1295\u1325\u1265",
+			"newItem": "\u12a6\u12f2\u12ee \u12eb\u12ad\u1209"
+		},
+		"Streams/video": {
+			"displayType": "\u12e8\u126a\u12f2\u12ee \u1245\u1295\u1325\u1265",
+			"description": "\u126a\u12f2\u12ee \u12ad\u120a\u1355",
+			"newItem": "\u126a\u12f2\u12ee \u12eb\u12ad\u1209"
+		},
+		"Streams/pdf": {
+			"displayType": "\u1352\u12f2\u12a4\u134d \u1230\u1290\u12f5",
+			"description": "\u1352\u12f2\u12a4\u134d \u1230\u1290\u12f5",
+			"newItem": "\u1352\u12f2\u12a4\u134d \u12a0\u12ad\u120d"
+		},
+		"Streams/live": {
+			"displayType": "\u12e8\u1240\u1325\u1273 \u1235\u122d\u132d\u1275",
+			"description": "\u12e8\u1240\u1325\u1273 \u12f5\u121d\u133d \u12c8\u12ed\u121d \u126a\u12f2\u12ee"
+		},
+		"Streams/category": {
+			"displayType": "\u121d\u12f5\u1265",
+			"description": "\u120c\u120e\u127d \u12e5\u1228\u1276\u127d \u120a\u12db\u1218\u12f1 \u12e8\u121a\u127d\u1209\u1260\u1275 \u121d\u12f5\u1265",
+			"newItem": "\u121d\u12f5\u1265 \u1328\u121d\u122d"
+		},
+		"Streams/participating": {
+			"displayType": "\u1270\u1233\u1273\u134a \u12a2\u1295\u12f4\u12ad\u1235",
+			"description": "\u1270\u1320\u1243\u121a\u12cd \u1232\u1240\u120b\u1240\u120d/\u1232\u12c8\u1323 \u12e5\u1228\u1276\u127d \u12a8\u12da\u1205 \u130b\u122d \u12e8\u1270\u12eb\u12eb\u12d9/\u12eb\u120d\u1206\u1291 \u1293\u1278\u12cd\u1362"
+		},
+		"Streams/interest": {
+			"displayType": "\u134d\u120b\u130e\u1275",
+			"description": "\u1208\u1270\u12c8\u1230\u1290 \u122d\u12d5\u1235 \u12e8\u1270\u1320\u1243\u121a\u12cd\u1295 \u134d\u120b\u130e\u1275 \u12ed\u12c8\u12ad\u120b\u120d"
+		},
+		"Streams/incoming": {
+			"displayType": "\u1308\u1262",
+			"description": "\u1260\u120c\u120e\u127d \u1270\u1320\u1243\u121a\u12ce\u127d \u12e8\u1270\u120b\u12a9 \u1218\u120d\u12d5\u12ad\u1276\u127d \u1218\u12f5\u1228\u123b"
+		},
+		"Streams/chat": {
+			"displayType": "\u12cd\u12ed\u12ed\u1275",
+			"description": "\u1260\u1270\u1320\u1243\u121a\u12ce\u127d \u1218\u12ab\u12a8\u120d \u12e8\u121a\u12f0\u1228\u130d \u12cd\u12ed\u12ed\u1275 \u12a8\u1273\u122a\u12ad \u130b\u122d"
+		},
+		"Streams/question": {
+			"displayType": "\u1325\u12eb\u1244",
+			"description": "\u12e8\u1325\u12eb\u1244 \u12e5\u1228\u1275",
+			"newItem": "\u1325\u12eb\u1244 \u1328\u121d\u122d"
+		},
+		"Streams/answer": {
+			"displayType": "\u1218\u120d\u1235",
+			"description": "\u1218\u120d\u1235 \u12e5\u1228\u1275"
+		},
+		"Streams/topic": {
+			"displayType": "\u122d\u12d5\u1235",
+			"description": "\u122d\u12d5\u1235 \u12e5\u1228\u1275",
+			"newItem": "\u122d\u12d5\u1235 \u1328\u121d\u122d"
+		}
+	},
+	"menu": {
+		"placeholder": "\u12e8\u1308\u133d \u122d\u12d5\u1235 \u12ed\u1270\u12ed\u1261",
+		"ModTab": "\u1295\u1325\u120d\u1295 \u12a0\u1235\u1270\u12ab\u12ad\u120d\u1362",
+		"Save": "\u12a0\u1235\u1240\u121d\u1325",
+		"Delete": "\u1230\u122d\u12dd",
+		"Submenu": "\u1295\u12d1\u1235 \u121d\u1293\u120c"
+	},
+	"audio": {
+		"record": "\u1218\u12dd\u1308\u1265",
+		"reset": "\u12f3\u130d\u121d \u12a0\u1235\u1300\u121d\u122d",
+		"edit": "\u12a0\u122d\u1275\u12d5",
+		"title": "\u122d\u12d5\u1235",
+		"description": "\u1218\u130d\u1208\u132b",
+		"upload": "\u1235\u1240\u120d",
+		"link": "\u12a0\u1308\u1293\u129d",
+		"setUrl": "URL \u12a0\u12d8\u130b\u1305",
+		"save": "\u12a0\u1235\u1240\u121d\u1325",
+		"setClip": "\u1241\u1228\u1325 \u12ad\u120a\u1355",
+		"invalidURL": "\u120d\u12ad \u12eb\u120d\u1206\u1290 URL",
+		"invalidFile": "\u120d\u12ad \u12eb\u120d\u1206\u1290 \u134b\u12ed\u120d",
+		"errorNoSource": "\u121d\u1295\u121d \u12e8\u12f5\u121d\u133d \u121d\u1295\u132d \u12e8\u1208\u121d\u1362",
+		"uploadLimit": "\u12a8\u134d\u1270\u129b\u12cd \u12e8\u134b\u12ed\u120d \u1218\u1320\u1295 {{size}}",
+		"errorFileSize": "\u12ed\u1245\u122d\u1273\u1363 \u130d\u1295 \u134b\u12ed\u120d \u1260\u1323\u121d \u1275\u120d\u1245 \u1290\u12cd\u1362<br> \u12a8\u134d\u1270\u129b\u12cd \u12e8\u134b\u12ed\u120d \u1218\u1320\u1295 {{size}} \u1290\u12cd\u1362",
+		"TeaserAudio": "Teaser Audio"
+	},
+	"video": {
+		"reset": "\u12f3\u130d\u121d \u12a0\u1235\u1300\u121d\u122d",
+		"edit": "\u12a0\u122d\u1275\u12d5",
+		"title": "\u122d\u12d5\u1235",
+		"description": "\u1218\u130d\u1208\u132b",
+		"upload": "\u1235\u1240\u120d",
+		"link": "\u12a0\u1308\u1293\u129d",
+		"setUrl": "URL \u12a0\u12d8\u130b\u1305",
+		"save": "\u12a0\u1235\u1240\u121d\u1325",
+		"setClip": "\u1241\u1228\u1325 \u12ad\u120a\u1355",
+		"invalidURL": "\u120d\u12ad \u12eb\u120d\u1206\u1290 URL",
+		"invalidFile": "\u120d\u12ad \u12eb\u120d\u1206\u1290 \u134b\u12ed\u120d",
+		"errorNoSource": "\u121d\u1295\u121d \u12e8\u126a\u12f2\u12ee \u121d\u1295\u132d \u12e8\u1208\u121d\u1362",
+		"uploadLimit": "\u12a8\u134d\u1270\u129b\u12cd \u12e8\u134b\u12ed\u120d \u1218\u1320\u1295 {{size}}",
+		"errorFileSize": "\u12ed\u1245\u122d\u1273\u1363 \u130d\u1295 \u134b\u12ed\u120d \u1260\u1323\u121d \u1275\u120d\u1245 \u1290\u12cd\u1362<br> \u12a8\u134d\u1270\u129b\u12cd \u12e8\u134b\u12ed\u120d \u1218\u1320\u1295 {{size}} \u1290\u12cd\u1362",
+		"createAnimatedThumbnail": "\u12e8\u1273\u1290\u1218 \u12f5\u1295\u12ad\u12ec \u12ed\u134d\u1320\u1229",
+		"errorNotAvailable": "\u12ed\u1245\u122d\u1273\u1363 \u130d\u1295 \u126a\u12f2\u12ee\u12cd \u12a5\u1235\u12ab\u1201\u1295 \u12e8\u1208\u121d\u1362 \u12a5\u1263\u12ad\u12ce \u1246\u12e8\u1275 \u1265\u1208\u12cd \u12ed\u121e\u12ad\u1229.",
+		"NewVideo": "\u12a0\u12f2\u1235 \u126a\u12f2\u12ee",
+		"EditVideo": "\u126a\u12f2\u12ee \u12a0\u122d\u1275\u12d5",
+		"TeaserVideo": "Teaser \u126a\u12f2\u12ee"
+	},
+	"pdf": {
+		"reset": "\u12f3\u130d\u121d \u12a0\u1235\u1300\u121d\u122d",
+		"edit": "\u12a0\u122d\u1275\u12d5",
+		"title": "\u122d\u12d5\u1235",
+		"description": "\u1218\u130d\u1208\u132b",
+		"upload": "\u1235\u1240\u120d",
+		"link": "\u12a0\u1308\u1293\u129d",
+		"setUrl": "URL \u12a0\u12d8\u130b\u1305",
+		"save": "\u12a0\u1235\u1240\u121d\u1325",
+		"setClip": "\u1241\u1228\u1325 \u12ad\u120a\u1355",
+		"invalidURL": "\u120d\u12ad \u12eb\u120d\u1206\u1290 URL",
+		"invalidFile": "\u120d\u12ad \u12eb\u120d\u1206\u1290 \u134b\u12ed\u120d",
+		"errorNoSource": "\u12e8\u1352\u12f2\u12a4\u134d \u121d\u1295\u132d \u12e8\u1208\u121d\u1362",
+		"uploadLimit": "\u12a8\u134d\u1270\u129b\u12cd \u12e8\u134b\u12ed\u120d \u1218\u1320\u1295 {{size}}",
+		"errorFileSize": "\u12ed\u1245\u122d\u1273\u1363 \u130d\u1295 \u134b\u12ed\u120d \u1260\u1323\u121d \u1275\u120d\u1245 \u1290\u12cd\u1362<br> \u12a8\u134d\u1270\u129b\u12cd \u12e8\u134b\u12ed\u120d \u1218\u1320\u1295 {{size}} \u1290\u12cd\u1362",
+		"TeaserPDF": "Teaser PDF"
+	},
+	"image": {
+		"reset": "\u12f3\u130d\u121d \u12a0\u1235\u1300\u121d\u122d",
+		"edit": "\u12a0\u122d\u1275\u12d5",
+		"title": "\u122d\u12d5\u1235",
+		"description": "\u1218\u130d\u1208\u132b",
+		"upload": "\u1235\u1240\u120d",
+		"link": "\u12a0\u1308\u1293\u129d",
+		"setUrl": "URL \u12a0\u12d8\u130b\u1305",
+		"save": "\u12a0\u1235\u1240\u121d\u1325",
+		"uploadedImage": "\u12e8\u1270\u1230\u1240\u1208 \u121d\u1235\u120d",
+		"imageTitle": "\u12e8\u121d\u1235\u120d \u122d\u12d5\u1235",
+		"setClip": "\u1241\u1228\u1325 \u12ad\u120a\u1355",
+		"invalidURL": "\u120d\u12ad \u12eb\u120d\u1206\u1290 URL",
+		"invalidFile": "\u120d\u12ad \u12eb\u120d\u1206\u1290 \u134b\u12ed\u120d",
+		"errorNoSource": "\u121d\u1295\u121d \u12e8\u121d\u1235\u120d \u121d\u1295\u132d \u12e8\u1208\u121d\u1362",
+		"uploadLimit": "\u12a8\u134d\u1270\u129b\u12cd \u12e8\u134b\u12ed\u120d \u1218\u1320\u1295 {{size}}",
+		"errorFileSize": "\u12ed\u1245\u122d\u1273\u1363 \u130d\u1295 \u134b\u12ed\u120d \u1260\u1323\u121d \u1275\u120d\u1245 \u1290\u12cd\u1362<br> \u12a8\u134d\u1270\u129b\u12cd \u12e8\u134b\u12ed\u120d \u1218\u1320\u1295 {{size}} \u1290\u12cd\u1362",
+		"TeaserImage": "Teaser \u121d\u1235\u120d"
+	},
+	"questions": {
+		"Questions": "\u1325\u12eb\u1244\u12ce\u127d",
+		"Answers": "\u1218\u120d\u1236\u127d",
+		"AnswerQuestion": "\u1325\u12eb\u1244 \u1218\u120d\u1231",
+		"SetYourAnswer": "\u12a5\u1263\u12ad\u12ce\u1295 \u1325\u12eb\u1244\u12cd\u1295 \u12ed\u1218\u120d\u1231",
+		"NewQuestion": "\u12a0\u12f2\u1235 \u1325\u12eb\u1244",
+		"EditQuestion": "\u1325\u12eb\u1244\u1295 \u12eb\u122d\u1275\u12d1",
+		"NewAnswer": "\u12a0\u12f2\u1235 \u1218\u120d\u1235",
+		"NewPossibleAnswer": "\u12a0\u12f2\u1235 \u120a\u1206\u1295 \u12e8\u121a\u127d\u120d \u1218\u120d\u1235",
+		"AnswerDetails": "\u12dd\u122d\u12dd\u122d \u1218\u120d\u1235",
+		"answerOption": "\u12a0\u121b\u122b\u132d",
+		"answerOptionExclusive": "\u1265\u1278\u129b",
+		"answerTextarea": "\u133d\u1211\u134d \u12a0\u12ab\u1263\u1262",
+		"answerText": "\u133d\u1211\u134d",
+		"HideUntilAnswered": "\u1218\u120d\u1235 \u12a5\u1235\u12aa\u1230\u1325 \u12f5\u1228\u1235 \u12f0\u1265\u1245",
+		"CantChangeAnswers": "\u1218\u120d\u1236\u127d\u1295 \u1218\u1240\u12e8\u122d \u12a0\u12ed\u127b\u120d\u121d",
+		"FreeAnswer": "\u1218\u120d\u1235\u1205\u1295 \u12a5\u12da\u1205 \u133b\u134d",
+		"SaveQuestion": "\u1325\u12eb\u1244 \u12a0\u1235\u1240\u121d\u1325",
+		"SaveAnswer": "\u1218\u120d\u1231\u1295 \u12a0\u1235\u1240\u121d\u1325",
+		"Save": "\u12a0\u1235\u1240\u121d\u1325",
+		"Send": "\u120b\u12ad",
+		"TitleRequired": "\u122d\u12d5\u1235 \u12eb\u1235\u1348\u120d\u130b\u120d!",
+		"AlreadyAnswered": "\u12a0\u1235\u1240\u12f5\u121e \u1218\u120d\u1235 \u1230\u1325\u1270\u12cb\u120d",
+		"TitlePlaceholder": "\u1325\u12eb\u1244\u12ce\u1295 \u12ed\u1270\u12ed\u1261",
+		"ContentPlaceholder": "\u1230\u12ce\u127d \u12a5\u1295\u12f2\u1218\u120d\u1231 \u1208\u1218\u122d\u12f3\u1275 \u121b\u1295\u129b\u12cd\u1295\u121d \u1270\u1328\u121b\u122a \u1218\u1228\u1303 \u12a5\u12da\u1205 \u12eb\u1235\u1240\u121d\u1321",
+		"ErrorTitle": "\u1325\u12eb\u1244 \u12eb\u1235\u1348\u120d\u130b\u120d",
+		"Placeholder": "\u1218\u1218\u122a\u12eb\u12ce\u127d\u1295 \u133b\u134d",
+		"AreYouSure": "\u12a7\u1228",
+		"ShortAnswer": "\u12a0\u132d\u122d \u1218\u120d\u1235 \u133b\u134d",
+		"AnswerCantBeChanged": "\u1218\u120d\u1231 \u120a\u1240\u12e8\u122d \u12a0\u12ed\u127d\u120d\u121d\u1362"
+	},
+	"experience": {
+		"NewExperience": "\u12a0\u12f2\u1235 \u120d\u121d\u12f5",
+		"DefineTitle": "\u12a5\u1263\u12ad\u12ce\u1295 \u122d\u12d5\u1235 \u12ed\u130d\u1208\u1339",
+		"Create": "\u134d\u1320\u122d"
+	},
+	"calls": {
+		"SettingsTitle": "\u1325\u122a\u12ce\u127d",
+		"MaxCalls": "\u12a8\u134d\u1270\u129b \u1325\u122a\u12ce\u127d",
+		"Update": "\u12a0\u12d8\u121d\u1295",
+		"NoCallsYet": "\u12a5\u1235\u12ab\u1201\u1295 \u121d\u1295\u121d \u1325\u122a\u12ce\u127d \u12e8\u1209\u121d",
+		"CallReasonTitle": "\u12ed\u1205 \u1325\u122a \u1235\u1208 \u121d\u1295\u12f5\u1295 \u1290\u12cd?",
+		"WaitingRoom": "\u1218\u1246\u12eb \u12ad\u134d\u120d",
+		"LiveRoom": "\u12e8\u1240\u1325\u1273 \u12ad\u134d\u120d",
+		"interviewedByAnotherHost": "\u1260\u12a0\u1201\u1291 \u130a\u12dc \u1260\u120c\u120b \u12a0\u1235\u1270\u1293\u130b\u1305 \u1243\u1208 \u1218\u1320\u12ed\u1245 \u1270\u12f0\u122d\u1313\u120d",
+		"bringToLive": "\u12e8\u1240\u1325\u1273 \u1275\u12d5\u12ed\u1295\u1275 \u12a0\u121d\u1323",
+		"putOnHold": "\u1320\u1265\u1245",
+		"endCall": "\u1325\u122a\u1295 \u1328\u122d\u1235",
+		"interview": "\u1243\u1208 \u1218\u1320\u12ed\u1245",
+		"markApproved": "\u121b\u122d\u12ad \u1338\u12f5\u124b\u120d"
+	},
+	"relate": {
+		"Add": "{{streamDisplayType}} \u1328\u121d\u122d"
+	},
+	"userChooser": {
+		"Placeholder": "\u12e8\u1270\u1320\u1243\u121a \u1235\u121d..."
+	},
+	"task": {
+		"errorsTitle": "\u1235\u1205\u1270\u1276\u127d \u1270\u12a8\u1235\u1270\u12cb\u120d\u1362"
+	},
+	"topic": {
+		"NewTopic": "\u12a0\u12f2\u1235 \u122d\u12d5\u1235",
+		"UpdateTopic": "\u122d\u12d5\u1235 \u12a0\u12d8\u121d\u1295",
+		"CreateTopic": "\u122d\u12d5\u1235 \u134d\u1320\u122d",
+		"AreYouSureDeleteTopic": "\u12a5\u122d\u130d\u1320\u129b \u1290\u12ce\u1275 \u12ed\u1205\u1295 \u122d\u12d5\u1235 \u1218\u1230\u1228\u12dd \u12ed\u1348\u120d\u130b\u1209",
+		"TitlePlaceholder": "\u122d\u12d5\u1235 \u122d\u12d5\u1235...",
+		"DescribeTopic": "\u122d\u12d5\u1235 \u130d\u1208\u133d...",
+		"TopicIcon": "\u12e8\u122d\u12d5\u1235 \u121d\u1235\u120d",
+		"UploadIcon": "\u12e8\u1218\u1235\u1240\u120d \u12a0\u12f6",
+		"Conversation": "\u12cd\u12ed\u12ed\u1275",
+		"Metrics": "\u1218\u1208\u12aa\u12eb\u12ce\u127d",
+		"Teaser": "\u1272\u1234\u122d",
+		"TeaserDescription": "\u12e8\u1272\u12d8\u122d \u1218\u130d\u1208\u132b...",
+		"TeaserVideo": "Teaser \u126a\u12f2\u12ee"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "\u12e8\u1273\u1290\u1218 \u12f5\u1295\u12ad\u12ec \u12ed\u134d\u1320\u1229",
+		"Width": "\u1235\u134b\u1275",
+		"Height": "\u1241\u1218\u1275",
+		"Start": "\u1300\u121d\u122d",
+		"End": "\u1218\u1328\u1228\u123b",
+		"Delay": "\u1218\u12d8\u130d\u12e8\u1275",
+		"Quality": "\u1325\u122b\u1275",
+		"Size": "\u1218\u1320\u1295",
+		"OfFrames": "\u12e8\u12ad\u1348\u134e\u127d",
+		"Frame": "\u134d\u122c\u121d",
+		"UseThis": "\u12ed\u1205\u1295\u1295 \u1270\u1320\u1240\u121d",
+		"ResultGIF": "\u12cd\u1324\u1275 GIF",
+		"VideoElementNotFound": "\u12e8\u126a\u12f2\u12ee \u12ad\u134d\u120d \u12a0\u120d\u1270\u1308\u1298\u121d\u1362"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} \u1260\u134a\u1275\u12ce \u120b\u12ed",
+		"AcceptIcon": "\u12e8\u1270\u1218\u1228\u1320\u12cd\u1295 \u12a0\u12ab\u1263\u1262 \u1270\u1240\u1260\u120d"
+	},
+	"gallery": {
+		"DialogTitle": "\u12e8\u130b\u1208\u122a \u121d\u1235\u120d\u1295 \u12eb\u122d\u1275\u12d1",
+		"EditImageTitle": "\u12e8\u121d\u1235\u120d \u1218\u1208\u12aa\u12eb\u12ce\u127d\u1295 \u12eb\u122d\u1275\u12d1",
+		"IntervalLabel": "\u12ad\u134d\u1270\u1275 (\u121a\u1234)\u1366 ",
+		"IntervalPlaceholder": "\u1208\u121d\u1233\u120c 3000",
+		"KenburnsInstruction": "\u12ac\u1295 \u1260\u122d\u1295\u1235 \u1260\u1218\u130e\u1270\u1275 \u12a5\u1293 \u1260\u121b\u1309\u120b\u1275 \u12ed\u1300\u121d\u122d \u12a5\u1293 \u12eb\u1320\u1293\u1245\u1245\u1362"
+	}
 }

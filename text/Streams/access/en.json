@@ -1,0 +1,27 @@
+{
+	"tabs": {
+		"read": "visible to",
+		"write": "editable by",
+		"admin": "members"
+	},
+	"readLevelOptions": {
+		"0": "nothing about it",
+		"10": "that something is there",
+		"20": "its current content",
+		"30": "who is participating in it",
+		"40": "the social activity inside"
+	},
+	"writeLevelOptions": {
+		"0": "do nothing to it",
+		"10": "participate in it",
+		"20": "post messages to it",
+		"30": "edit its content"
+	},
+	"adminLevelOptions": {
+		"0": "not do anything special",
+		"10": "share messages from the stream",
+		"20": "invite others to the stream",
+		"30": "manage the stream",
+		"40": "own it and appoint managers"
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "asgj\u00eb p\u00ebr k\u00ebt\u00eb",
+		"10": "se di\u00e7ka \u00ebsht\u00eb aty",
+		"20": "p\u00ebrmbajtja e saj aktuale",
+		"30": "kush merr pjes\u00eb n\u00eb t\u00eb",
+		"40": "aktiviteti shoq\u00ebror brenda"
+	},
+	"writeLevelOptions": {
+		"0": "mos i b\u00ebj asgj\u00eb",
+		"10": "marrin pjes\u00eb n\u00eb t\u00eb",
+		"20": "posto mesazhe tek ai",
+		"30": "modifikoni p\u00ebrmbajtjen e saj"
+	},
+	"adminLevelOptions": {
+		"0": "mos b\u00ebj asgj\u00eb t\u00eb ve\u00e7ant\u00eb",
+		"10": "ndani mesazhe nga transmetimi",
+		"20": "ftoni t\u00eb tjer\u00ebt n\u00eb transmetim",
+		"30": "menaxho transmetimin",
+		"40": "zot\u00ebrojeni at\u00eb dhe em\u00ebroni menaxher\u00eb"
+	},
+	"tabs": {
+		"read": "i duksh\u00ebm p\u00ebr",
+		"write": "i modifikuesh\u00ebm nga",
+		"admin": "an\u00ebtar\u00eb"
+	}
+}

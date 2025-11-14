@@ -743,9 +743,9 @@
 		"adminLevelOptions": {
 			"0": "not do anything special",
 			"10": "share messages from the stream",
-			"30": "invite others to the stream",
-			"40": "manage the stream",
-			"50": "own it and appoint managers"
+			"20": "invite others to the stream",
+			"30": "manage the stream",
+			"40": "own it and appoint managers"
 		},
 		"onInsert": { /* streams to insert when a row is inserted */
 			"user": [

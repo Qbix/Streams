@@ -28,13 +28,23 @@ function Streams_access_response_content($options)
 		}
 	}
 	
-	$controls = !empty($options['controls']);
+	$options = Streams_Stream::getConfigField(
+		$streamType, array('access'), array()
+	);
+	foreach (array('tabs', 'levels', 'ranges') as $k) {
+		if (isset($options[$k])) {
+			$$k = $options[$k];
+		}
+	}
 	
 	Q_Response::setSlot('title', "Access to: " . $stream->title);
 	return Q::tool('Streams/access', @compact(
 		'publisherId',
 		'streamName',
 		'ajax',
-		'controls'
+		'controls',
+		'tabs',
+		'levels',
+		'ranges'
 	), $controls ? array('tag' => null) : array());
 }

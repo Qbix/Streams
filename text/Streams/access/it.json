@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "niente a riguardo",
+		"10": "che qualcosa c&#39;\u00e8",
+		"20": "il suo contenuto attuale",
+		"30": "chi vi partecipa",
+		"40": "l&#39;attivit\u00e0 sociale all&#39;interno"
+	},
+	"writeLevelOptions": {
+		"0": "non fargli niente",
+		"10": "parteciparvi",
+		"20": "postare messaggi su di esso",
+		"30": "modificarne il contenuto"
+	},
+	"adminLevelOptions": {
+		"0": "non fare niente di speciale",
+		"10": "condividere messaggi dal flusso",
+		"20": "invitare altri allo streaming",
+		"30": "gestire il flusso",
+		"40": "possederlo e nominare i manager"
+	},
+	"tabs": {
+		"read": "visibile a",
+		"write": "modificabile da",
+		"admin": "membri"
+	}
+}

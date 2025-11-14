@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "semmi r\u00f3la",
+		"10": "hogy valami van ott",
+		"20": "jelenlegi tartalma",
+		"30": "aki r\u00e9szt vesz benne",
+		"40": "a benti t\u00e1rsas\u00e1gi tev\u00e9kenys\u00e9g"
+	},
+	"writeLevelOptions": {
+		"0": "ne csin\u00e1lj semmit ellene",
+		"10": "r\u00e9szt venni benne",
+		"20": "\u00fczeneteket k\u00fcldeni r\u00e1",
+		"30": "szerkeszteni a tartalm\u00e1t"
+	},
+	"adminLevelOptions": {
+		"0": "ne csin\u00e1lj semmi k\u00fcl\u00f6nlegeset",
+		"10": "\u00fczenetek megoszt\u00e1sa a streamb\u0151l",
+		"20": "m\u00e1sokat is megh\u00edvhatsz a streamre",
+		"30": "kezelje a streamet",
+		"40": "birtokolja \u00e9s nevezzen ki vezet\u0151ket"
+	},
+	"tabs": {
+		"read": "l\u00e1that\u00f3",
+		"write": "szerkeszthet\u0151 \u00e1ltal",
+		"admin": "tagok"
+	}
+}

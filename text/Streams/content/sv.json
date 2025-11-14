@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Detta innehåll är dolt för dig.",
-        "InplaceTypeMustBe": "inplaceType måste vara &#39;textarea&#39; eller &#39;text&#39;"
-    },
-    "preview": {
-        "NewItemTitle": "Nytt föremål",
-        "Teaser": "Teaser"
-    },
-    "avatar": {
-        "firstName": "förnamn",
-        "lastName": "efternamn",
-        "username": "Användarnamn"
-    },
-    "labels": {
-        "Streams\/invited": "Människor jag bjudit in",
-        "Streams\/invitedMe": "Vem bjöd in mig",
-        "DoYouAgree": "Håller du med?",
-        "Yes": "Ja",
-        "No": "Nej",
-        "JoinItNow": "Gå med nu?"
-    },
-    "login": {
-        "prompt": "Låt vänner känna igen dig:",
-        "newUser": "eller skapa ett nytt konto nedan",
-        "picTooltip": "Du kan ändra den här bilden senare",
-        "placeholders": {
-            "fullName": "Ange ditt fullständiga namn"
-        }
-    },
-    "interests": {
-        "Filter": "Sökintressen",
-        "CanGrant": "Om du fortfarande inte hittar det du letar efter kan du lägga till ett nytt intresse nedan:",
-        "TrySynonyms": "Ser du det inte? Prova några synonymer.",
-        "AddUnderCategory": "Lägg till under kategori...",
-        "Other": "Övrig",
-        "Unlisted": "Onoterat"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Meddelandet har flaggats för administratörsgranskning. Tryck igen för att ta bort flaggan.",
-        "noOneSaid": "Ingen har sagt något",
-        "closeChatButton": "Stäng chatten",
-        "closeChatConfirmTitle": "Stäng den här chatten?",
-        "closeChatConfirm": "Är du säker på att du vill stänga den här chatten?",
-        "Subscribed": "Aviseringar aktiverade",
-        "Unsubscribed": "Aviseringar avstängda",
-        "closeChatConfirmYes": "Ja",
-        "closeChatConfirmNo": "Nej",
-        "earlierComments": "tidigare kommentarer",
-        "startedConversation": "startade en konversation",
-        "RealTimeCall": "Realtidssamtal",
-        "JoinWebRTC": "Telefonkonferens",
-        "SearchByName": "Sök på namn",
-        "Notifications": {
-            "Visit": "{{displayName}} besöker chatten",
-            "Join": "{{displayName}} gick med i chatten",
-            "Leave": "{{displayName}} lämnade chatten",
-            "RelatedTo": "{{displayName}} började en {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "Lägg till en kommentar",
-            "Private": "Skriv ett privat meddelande"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "hantera dina e-postprenumerationer",
-        "IfUnsubscribe": "Om du vill avsluta prenumerationen",
-        "*": "Meddelande {{{ message.fields.type}} till {{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} anslöt sig",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} kvar",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} sa: {{& message.content}}}",
-        "Streams\/changed": "Ändringar i {{stream.fields.title}}",
-        "Streams\/invite": "Du blev inbjuden till {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Tillkännagivande {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} ändrade åtkomst i {{& stream.fields.title}}}",
-        "Streams\/chat\/edit": "Chattmeddelande redigerat {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "Chattmeddelandet togs bort {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} har stängts",
-        "Streams\/task\/progress": "Framsteg gjordes på {{stream.fields.title}}",
-        "Streams\/task\/complete": "Uppgift genomförd: {{stream.fields.title}}",
-        "Streams\/task\/error": "Fel under: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Inkommande meddelande",
-        "Streams\/relatedTo\/Streams\/call": "Nytt samtal startade {{toTitle}}",
-        "Streams\/relatedTo\/*": "Ny {{relationDisplayType}} i {{toTitle}}",
-        "Streams\/relatedFrom\/*": "Lades till {{toTitle}} som {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} nämnde dig i en kommentar",
-        "Streams\/call": "{{displayName}} startade ett realtidssamtal",
-        "changed": {
-            "ChangesIn": "Ändringar i {{title}}",
-            "Changed": "ändrats",
-            "HereIsWhatChanged": "Här är vad som ändrades:"
-        },
-        "joined": {
-            "Joined": "{{subject}} gick med i <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Bjuda",
-        "Invite": "Bjuda",
-        "Share": "Dela med sig",
-        "messageContent": "{{displayName}} bjöd in dig till {{inviteUrl}}",
-        "youCanNowPaste": "Du kan nu klistra in den här länken någonstans för att bjuda in personer",
-        "roles": {
-            "title": "Bevilja roller till inbjudna användare?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Förlåt",
-                "alert": "Du är inte behörig att bevilja den här rollen"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Förlåt",
-                "alert": "Du är inte behörig att ta bort den här rollen"
-            }
-        },
-        "labels": {
-            "title": "Vad är ditt förhållande?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Välj bland dina kontakter",
-            "chooseAgainFromContacts": "Välj igen från Kontakter",
-            "inviteSelectedContacts": "Bjud in valda kontakter",
-            "selectFromContacts": "Välj Från kontakter",
-            "userChooserPlaceholder": "Sök på namn",
-            "photo": "Ta ett foto",
-            "photoOf": "Ta ett foto av {{name}}",
-            "photoInstruction": "Om personen som skannade din QR-kod är framför dig, ta ett foto på dem",
-            "to": "Till: {{Stream Title}}",
-            "go": "Gå",
-            "title": "Bjuda",
-            "placeholder": "Mobilnummer eller e-postadress",
-            "orInvite": "Eller bjud in personer genom att använda:",
-            "copyLink": "{{ClickOrTap}} för att kopiera inbjudningslänken",
-            "shareOrCopyLink": "{{ClickOrTap}} för att dela eller kopiera inbjudningslänken",
-            "QR": "{{ClickOrTap}} för att generera QR-kod",
-            "QRtitle": "Skanna den här QR-koden",
-            "QRscanned": "De skannade det!",
-            "scannedQR": "{{ClickOrTap}} om koden skannades",
-            "byEmail": "E-post",
-            "bySms": "Text",
-            "byFacebook": "Facebook",
-            "byTwitter": "Twitter",
-            "title2": "Bjuda folk",
-            "chooseMethod": "Välj en metod:",
-            "selectContacts": "Välj Kontakter",
-            "scanQRCode": "Skanna QR kod",
-            "shareLink": "Dela en länk",
-            "chooseFromRegistered": "Välj bland registrerade användare",
-            "inviteViaEmailOrSms": "Bjud in via e-post eller SMS",
-            "TakeGroupPhoto": "Ta ett gruppfoto",
-            "Skip": "Hoppa",
-            "byTelegram": "Telegram",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Lägg till roller",
-            "addPersonalRoles": "Lägg till personliga relationer"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Välkommen till {{communityName}}",
-            "HasInvitedYou": "har bjudit in dig till:",
-            "HasInvitedYouToTheirProfile": "har bjudit in dig att ansluta.",
-            "prompt": "Låt vänner känna igen dig:",
-            "accept": "Acceptera inbjudan"
-        },
-        "email": {
-            "subject": "Hej, kolla in det här",
-            "PleaseVisitLink": "Besök gärna följande länk:",
-            "InvitingYou": "Jag bjuder in dig till {{title}}",
-            "HasInvitedYou": "{{displayName}} har bjudit in dig till {{title}}",
-            "HasMentionedYou": "{{displayName}} har nämnt dig i &quot; {{title}} &quot;",
-            "YOUAREINVITED": "DU ÄR INBJUDEN!",
-            "AcceptInvite": "Acceptera inbjudan"
-        },
-        "mobile": {
-            "content": "Du har blivit inbjuden till {{title}} . Vänligen tryck på {{url}}"
-        },
-        "notice": {
-            "text": "Du har blivit inbjuden. {{ClickOrTap}} här för att acceptera och gå med."
-        },
-        "chat": {
-            "prompt": "Du kommer att bjuda in människor till en konversation där ni kan hålla kontakten, dela foton tillsammans och mer. Ge det ett namn:"
-        },
-        "Participants": "Bjuda folk"
-    },
-    "messages": {
-        "html": {
-            "posted": "skrev ett <em>{{message.fields.type}}<\/em> -meddelande till {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "kommenterade",
-            "startedCallIn": "startade ett samtal",
-            "in": "i",
-            "body": "i {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "har postats till",
-                "byAvatar": "med {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "har en ny {{instructions.fromDisplayType}}",
-                "byAvatar": "tillagd av {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Inbjudningar skickas från vårt nummer, som dina vänner ännu inte känner igen. Följ upp med en snabb text för att låta dem veta att inbjudan kom från dig, och be dem klicka på länken.",
-            "confirm": "Inbjudningar skickas från vårt nummer, som dina vänner ännu inte känner igen. Vill du följa upp med en snabb text för att låta dem veta att inbjudan kom från dig och be dem klicka på länken.",
-            "check": "Hej, jag har precis skickat en inbjudan till {{app}} -appen. Kontrollera ditt sms och klicka på länken!",
-            "CheckYourMobile": "Kontrollera SMS och följ instruktionerna!"
-        },
-        "email": {
-            "alert": "Inbjudningar skickas från vår domän, som dina vänner ännu inte känner igen. Följ upp med en snabb text för att låta dem veta att inbjudan kom från dig, och be dem klicka på länken.",
-            "confirm": "Inbjudningar skickas från vår domän, som dina vänner ännu inte känner igen. Vill du följa upp med en snabb text för att låta dem veta att inbjudan kom från dig och be dem klicka på länken.",
-            "subject": "Fick du en inbjudan?",
-            "body": "Hej, jag har precis skickat en inbjudan till {{app}} -appen. Kontrollera din e-post och klicka på länken där!",
-            "CheckYourEmail": "Kontrollera din e-post och följ instruktionerna!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Sekretessinställningar"
-    },
-    "participating": {
-        "Title": "Titel",
-        "Subscribed": "Prenumererade",
-        "Participants": "Deltagare",
-        "AreYouSureRemoveIdentifier": "Är du säker på att ta bort denna identifierare?",
-        "AreYouSureUnsubscribeIdentifier": "Är du säker på att avregistrera denna identifierare? Det kommer att stänga av meddelanden till denna identifierare.",
-        "AreYouSureUnsubscribeDevice": "Är du säker på att avsluta prenumerationen på den här enheten? Det kommer att stänga av aviseringar till den här enheten.",
-        "AreYouSureRemoveParticipant": "Är du säker på att du vill ta bort denna deltagare?",
-        "RemoveParticipant": "Ta bort deltagare",
-        "Identifiers": "Identifierare",
-        "Devices": "Enheter",
-        "Streams": "Strömmar"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Inbjudna",
-            "description": "Inkorg för inbjudningar"
-        },
-        "Streams\/resource": {
-            "displayType": "Resurs",
-            "description": "ström för att hantera åtkomst till en resurs och skicka meddelanden om uppdateringar"
-        },
-        "Streams\/task": {
-            "description": "för att ta emot uppdateringar om framsteg på en viss uppgift",
-            "displayType": "Uppgift"
-        },
-        "Streams\/tasks": {
-            "description": "kategori för uppgifter",
-            "displayType": "Uppgifter"
-        },
-        "Streams\/experience": {
-            "description": "en gemensam upplevelse för medlemmar i en gemenskap",
-            "displayType": "Gemensam erfarenhet för medlemmar i en gemenskap"
-        },
-        "Streams\/greeting": {
-            "description": "hälsning som en användare kan presentera sig med",
-            "displayType": "Hälsning"
-        },
-        "Streams\/number": {
-            "displayType": "siffra",
-            "description": "matematiskt tal"
-        },
-        "Streams\/date": {
-            "displayType": "Datum",
-            "description": "datum"
-        },
-        "Streams\/text": {
-            "displayType": "Text",
-            "description": "texten"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Text",
-            "description": "liten textdel"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Text",
-            "description": "medelstor textdel"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "E-postadress",
-            "description": "e-postadress"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Telefonnummer",
-            "description": "telefonnummer"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "länk på webben"
-        },
-        "Streams\/image": {
-            "displayType": "Bild",
-            "description": "visuell bild",
-            "newItem": "Lägg till bild"
-        },
-        "Streams\/images": {
-            "displayType": "Bildgalleri",
-            "description": "galleri med bilder"
-        },
-        "Streams\/album": {
-            "displayType": "Album",
-            "description": "ett album som olika medier är relaterade till"
-        },
-        "Streams\/file": {
-            "displayType": "Fil",
-            "description": "uppladdad fil",
-            "newItem": "Lägg till fil"
-        },
-        "Streams\/audio": {
-            "displayType": "Ljudklipp",
-            "description": "ljudklipp",
-            "newItem": "Lägg till ljud"
-        },
-        "Streams\/video": {
-            "displayType": "Videoklipp",
-            "description": "videoklipp",
-            "newItem": "Lägg till video"
-        },
-        "Streams\/pdf": {
-            "displayType": "PDF-dokument",
-            "description": "PDF-dokument",
-            "newItem": "Lägg till PDF"
-        },
-        "Streams\/live": {
-            "displayType": "Direktsändning",
-            "description": "liveljud eller video"
-        },
-        "Streams\/category": {
-            "displayType": "Kategori",
-            "description": "en kategori som andra strömmar kan relateras till",
-            "newItem": "Lägg till Kategori"
-        },
-        "Streams\/participating": {
-            "displayType": "Deltagande Index",
-            "description": "strömmar är relaterade\/inte relaterade till detta när en användare går med\/går ur"
-        },
-        "Streams\/interest": {
-            "displayType": "Intressera",
-            "description": "representerar en användares intresse för ett visst ämne"
-        },
-        "Streams\/incoming": {
-            "displayType": "Inkommande",
-            "description": "destination för meddelanden som skickas av andra användare"
-        },
-        "Streams\/chat": {
-            "displayType": "Konversation",
-            "description": "en konversation mellan användare, med historik"
-        },
-        "Streams\/question": {
-            "displayType": "Fråga",
-            "description": "frågeström",
-            "newItem": "Lägg till fråga"
-        },
-        "Streams\/answer": {
-            "displayType": "Svar",
-            "description": "svarsström"
-        },
-        "Streams\/topic": {
-            "displayType": "Ämne",
-            "description": "ämnesström",
-            "newItem": "Lägg till ämne"
-        }
-    },
-    "menu": {
-        "placeholder": "skriv sidtitel",
-        "ModTab": "Ändra objekt",
-        "Save": "Spara",
-        "Delete": "Radera",
-        "Submenu": "Undermeny"
-    },
-    "audio": {
-        "record": "Spela in",
-        "reset": "Återställa",
-        "edit": "Redigera",
-        "title": "titel",
-        "description": "beskrivning",
-        "upload": "Ladda upp",
-        "link": "Länk",
-        "setUrl": "Ange URL",
-        "save": "Spara",
-        "setClip": "Klipp ut klipp",
-        "invalidURL": "Ogiltig URL",
-        "invalidFile": "Felaktig fil",
-        "errorNoSource": "Ingen ljudkälla",
-        "uploadLimit": "Max filstorlek: {{size}}",
-        "errorFileSize": "Tyvärr, men filen är för stor.<br> Max filstorlek är {{size}}",
-        "TeaserAudio": "Teaser ljud"
-    },
-    "video": {
-        "reset": "Återställa",
-        "edit": "Redigera",
-        "title": "titel",
-        "description": "beskrivning",
-        "upload": "Ladda upp",
-        "link": "Länk",
-        "setUrl": "Ange URL",
-        "save": "Spara",
-        "setClip": "Klipp ut klipp",
-        "invalidURL": "Ogiltig URL",
-        "invalidFile": "Felaktig fil",
-        "errorNoSource": "Ingen videokälla",
-        "uploadLimit": "Max filstorlek: {{size}}",
-        "errorFileSize": "Tyvärr, men filen är för stor.<br> Max filstorlek är {{size}}",
-        "createAnimatedThumbnail": "Skapa animerad miniatyrbild",
-        "errorNotAvailable": "Tyvärr, men videon är inte tillgänglig ännu. Vänligen försök igen senare.",
-        "NewVideo": "Ny video",
-        "EditVideo": "Redigera video",
-        "TeaserVideo": "Teaser-video"
-    },
-    "pdf": {
-        "reset": "Återställa",
-        "edit": "Redigera",
-        "title": "titel",
-        "description": "beskrivning",
-        "upload": "Ladda upp",
-        "link": "Länk",
-        "setUrl": "Ange URL",
-        "save": "Spara",
-        "setClip": "Klipp ut klipp",
-        "invalidURL": "Ogiltig URL",
-        "invalidFile": "Felaktig fil",
-        "errorNoSource": "Ingen pdf-källa",
-        "uploadLimit": "Max filstorlek: {{size}}",
-        "errorFileSize": "Tyvärr, men filen är för stor.<br> Max filstorlek är {{size}}",
-        "TeaserPDF": "Teaser pdf"
-    },
-    "image": {
-        "reset": "Återställa",
-        "edit": "Redigera",
-        "title": "titel",
-        "description": "beskrivning",
-        "upload": "Ladda upp",
-        "link": "Länk",
-        "setUrl": "Ange URL",
-        "save": "Spara",
-        "uploadedImage": "Uppladdad bild",
-        "imageTitle": "Bildens titel",
-        "setClip": "Klipp ut klipp",
-        "invalidURL": "Ogiltig URL",
-        "invalidFile": "Felaktig fil",
-        "errorNoSource": "Ingen bildkälla",
-        "uploadLimit": "Max filstorlek: {{size}}",
-        "errorFileSize": "Tyvärr, men filen är för stor.<br> Max filstorlek är {{size}}",
-        "TeaserImage": "Teaser bild"
-    },
-    "questions": {
-        "Questions": "Frågor",
-        "Answers": "Svar",
-        "AnswerQuestion": "Svar fråga",
-        "SetYourAnswer": "Vänligen svara på frågan",
-        "NewQuestion": "Ny fråga",
-        "EditQuestion": "Redigera fråga",
-        "NewAnswer": "Nytt svar",
-        "NewPossibleAnswer": "Nytt möjligt svar",
-        "AnswerDetails": "Svarsdetaljer",
-        "answerOption": "Alternativ",
-        "answerOptionExclusive": "Exklusiv",
-        "answerTextarea": "Textområde",
-        "answerText": "Text",
-        "HideUntilAnswered": "Göm tills du svarar",
-        "CantChangeAnswers": "Kan inte ändra svar",
-        "FreeAnswer": "Skriv ditt svar här",
-        "SaveQuestion": "Spara fråga",
-        "SaveAnswer": "Spara svar",
-        "Save": "Spara",
-        "Send": "Skicka",
-        "TitleRequired": "Titel krävs!",
-        "AlreadyAnswered": "Redan svarat",
-        "TitlePlaceholder": "Skriv din fråga",
-        "ContentPlaceholder": "Lägg in ytterligare information här för att hjälpa andra att svara",
-        "ErrorTitle": "Fråga krävs",
-        "Placeholder": "Skriv instruktioner",
-        "AreYouSure": "Är du säker?",
-        "ShortAnswer": "Skriv ett kort svar",
-        "AnswerCantBeChanged": "Svaret kan inte ändras"
-    },
-    "experience": {
-        "NewExperience": "Ny upplevelse",
-        "DefineTitle": "Vänligen definiera en titel",
-        "Create": "Skapa"
-    },
-    "calls": {
-        "SettingsTitle": "Samtal",
-        "MaxCalls": "Max ringer",
-        "Update": "Uppdatering",
-        "NoCallsYet": "Inga samtal än",
-        "CallReasonTitle": "Vad handlar det här samtalet om?",
-        "WaitingRoom": "Väntrum",
-        "LiveRoom": "Live Room",
-        "interviewedByAnotherHost": "Är för närvarande intervjuad av en annan värd",
-        "bringToLive": "Ta med till Live Show",
-        "putOnHold": "Sätt på is",
-        "endCall": "Avsluta samtal",
-        "interview": "Intervju",
-        "markApproved": "Markera godkänd"
-    },
-    "relate": {
-        "Add": "Lägg till {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "Namn på en användare..."
-    },
-    "task": {
-        "errorsTitle": "Fel uppstod"
-    },
-    "topic": {
-        "NewTopic": "Nytt ämne",
-        "UpdateTopic": "Uppdatera ämne",
-        "CreateTopic": "Skapa ämne",
-        "AreYouSureDeleteTopic": "Är du säker på att du vill ta bort det här ämnet",
-        "TitlePlaceholder": "Ämnestitel...",
-        "DescribeTopic": "beskriv ämne...",
-        "TopicIcon": "Ämnesbild",
-        "UploadIcon": "Ladda upp ikon",
-        "Conversation": "Konversation",
-        "Metrics": "Metrik",
-        "Teaser": "Teaser",
-        "TeaserDescription": "teaser beskrivning...",
-        "TeaserVideo": "Teaser-video"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Skapa animerad miniatyrbild",
-        "Width": "Bredd",
-        "Height": "Höjd",
-        "Start": "Start",
-        "End": "Slutet",
-        "Delay": "Dröjsmål",
-        "Quality": "Kvalitet",
-        "Size": "Storlek",
-        "OfFrames": "av ramar",
-        "Frame": "Ram",
-        "UseThis": "Använd detta",
-        "ResultGIF": "Resultat GIF",
-        "VideoElementNotFound": "Videoelementet hittades inte"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} On Your Face",
-        "AcceptIcon": "Acceptera valt område"
-    }
+	"errors": {
+		"HiddenFromYou": "Detta inneh\u00e5ll \u00e4r dolt f\u00f6r dig.",
+		"InplaceTypeMustBe": "inplaceType m\u00e5ste vara &#39;textarea&#39; eller &#39;text&#39;",
+		"AmountInvalid": "Ange ett giltigt antal millisekunder."
+	},
+	"preview": {
+		"NewItemTitle": "Nytt f\u00f6rem\u00e5l",
+		"Teaser": "Teaser"
+	},
+	"avatar": {
+		"firstName": "f\u00f6rnamn",
+		"lastName": "efternamn",
+		"username": "Anv\u00e4ndarnamn"
+	},
+	"labels": {
+		"Streams/invited": "M\u00e4nniskor jag bjudit in",
+		"Streams/invitedMe": "Vem bj\u00f6d in mig",
+		"DoYouAgree": "H\u00e5ller du med?",
+		"Yes": "Ja",
+		"No": "Nej",
+		"JoinItNow": "G\u00e5 med nu?"
+	},
+	"login": {
+		"prompt": "L\u00e5t v\u00e4nner k\u00e4nna igen dig:",
+		"newUser": "eller skapa ett nytt konto nedan",
+		"picTooltip": "Du kan \u00e4ndra den h\u00e4r bilden senare",
+		"placeholders": {
+			"fullName": "Ange ditt fullst\u00e4ndiga namn"
+		}
+	},
+	"interests": {
+		"Filter": "S\u00f6kintressen",
+		"CanGrant": "Om du fortfarande inte hittar det du letar efter kan du l\u00e4gga till ett nytt intresse nedan:",
+		"TrySynonyms": "Ser du det inte? Prova n\u00e5gra synonymer.",
+		"AddUnderCategory": "L\u00e4gg till under kategori...",
+		"Other": "\u00d6vrig",
+		"Unlisted": "Onoterat"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Meddelandet har flaggats f\u00f6r administrat\u00f6rsgranskning. Tryck igen f\u00f6r att ta bort flaggan.",
+		"noOneSaid": "Ingen har sagt n\u00e5got",
+		"closeChatButton": "St\u00e4ng chatten",
+		"closeChatConfirmTitle": "St\u00e4ng den h\u00e4r chatten?",
+		"closeChatConfirm": "\u00c4r du s\u00e4ker p\u00e5 att du vill st\u00e4nga den h\u00e4r chatten?",
+		"Subscribed": "Aviseringar aktiverade",
+		"Unsubscribed": "Aviseringar avst\u00e4ngda",
+		"closeChatConfirmYes": "Ja",
+		"closeChatConfirmNo": "Nej",
+		"earlierComments": "tidigare kommentarer",
+		"startedConversation": "startade en konversation",
+		"RealTimeCall": "Realtidssamtal",
+		"JoinWebRTC": "Telefonkonferens",
+		"SearchByName": "S\u00f6k p\u00e5 namn",
+		"Notifications": {
+			"Visit": "{{displayName}} bes\u00f6ker chatten",
+			"Join": "{{displayName}} gick med i chatten",
+			"Leave": "{{displayName}} l\u00e4mnade chatten",
+			"RelatedTo": "{{displayName}} b\u00f6rjade en {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "L\u00e4gg till en kommentar",
+			"Private": "Skriv ett privat meddelande"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "hantera dina e-postprenumerationer",
+		"IfUnsubscribe": "Om du vill avsluta prenumerationen",
+		"*": "Meddelande {{{ message.fields.type}} till {{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} ansl\u00f6t sig",
+		"Streams/left": "{{{call 'avatar.displayName'}}} kvar",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} sa: {{& message.content}}}",
+		"Streams/changed": "\u00c4ndringar i {{stream.fields.title}}",
+		"Streams/invite": "Du blev inbjuden till {{{ stream.fields.title}}}",
+		"Streams/announcement": "Tillk\u00e4nnagivande {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} \u00e4ndrade \u00e5tkomst i {{& stream.fields.title}}}",
+		"Streams/chat/edit": "Chattmeddelande redigerat {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "Chattmeddelandet togs bort {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} har st\u00e4ngts",
+		"Streams/task/progress": "Framsteg gjordes p\u00e5 {{stream.fields.title}}",
+		"Streams/task/complete": "Uppgift genomf\u00f6rd: {{stream.fields.title}}",
+		"Streams/task/error": "Fel under: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : Inkommande meddelande",
+		"Streams/relatedTo/Streams/call": "Nytt samtal startade {{toTitle}}",
+		"Streams/relatedTo/*": "Ny {{relationDisplayType}} i {{toTitle}}",
+		"Streams/relatedFrom/*": "Lades till {{toTitle}} som {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} n\u00e4mnde dig i en kommentar",
+		"Streams/call": "{{displayName}} startade ett realtidssamtal",
+		"changed": {
+			"ChangesIn": "\u00c4ndringar i {{title}}",
+			"Changed": "\u00e4ndrats",
+			"HereIsWhatChanged": "H\u00e4r \u00e4r vad som \u00e4ndrades:"
+		},
+		"joined": {
+			"Joined": "{{subject}} gick med i <em>{{title}}</em>"
+		},
+		"Streams/invited": "Du blev inbjuden till {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "Bjuda",
+		"Invite": "Bjuda",
+		"Share": "Dela med sig",
+		"messageContent": "{{displayName}} bj\u00f6d in dig till {{inviteUrl}}",
+		"youCanNowPaste": "Du kan nu klistra in den h\u00e4r l\u00e4nken n\u00e5gonstans f\u00f6r att bjuda in personer",
+		"roles": {
+			"title": "Bevilja roller till inbjudna anv\u00e4ndare?",
+			"NotAuthorizedToGrantRole": {
+				"title": "F\u00f6rl\u00e5t",
+				"alert": "Du \u00e4r inte beh\u00f6rig att bevilja den h\u00e4r rollen"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "F\u00f6rl\u00e5t",
+				"alert": "Du \u00e4r inte beh\u00f6rig att ta bort den h\u00e4r rollen"
+			}
+		},
+		"labels": {
+			"title": "Vad \u00e4r ditt f\u00f6rh\u00e5llande?"
+		},
+		"dialog": {
+			"chooseFromContacts": "V\u00e4lj bland dina kontakter",
+			"chooseAgainFromContacts": "V\u00e4lj igen fr\u00e5n Kontakter",
+			"inviteSelectedContacts": "Bjud in valda kontakter",
+			"selectFromContacts": "V\u00e4lj Fr\u00e5n kontakter",
+			"userChooserPlaceholder": "S\u00f6k p\u00e5 namn",
+			"photo": "Ta ett foto",
+			"photoOf": "Ta ett foto av {{name}}",
+			"photoInstruction": "Om personen som skannade din QR-kod \u00e4r framf\u00f6r dig, ta ett foto p\u00e5 dem",
+			"to": "Till: {{Stream Title}}",
+			"go": "G\u00e5",
+			"title": "Bjuda",
+			"placeholder": "Mobilnummer eller e-postadress",
+			"orInvite": "Eller bjud in personer genom att anv\u00e4nda:",
+			"copyLink": "{{ClickOrTap}} f\u00f6r att kopiera inbjudningsl\u00e4nken",
+			"shareOrCopyLink": "{{ClickOrTap}} f\u00f6r att dela eller kopiera inbjudningsl\u00e4nken",
+			"QR": "{{ClickOrTap}} f\u00f6r att generera QR-kod",
+			"QRtitle": "Skanna den h\u00e4r QR-koden",
+			"QRscanned": "De skannade det!",
+			"scannedQR": "{{ClickOrTap}} om koden skannades",
+			"byEmail": "E-post",
+			"bySms": "Text",
+			"byFacebook": "Facebook",
+			"byTwitter": "Twitter",
+			"title2": "Bjuda folk",
+			"chooseMethod": "V\u00e4lj en metod:",
+			"selectContacts": "V\u00e4lj Kontakter",
+			"scanQRCode": "Skanna QR kod",
+			"shareLink": "Dela en l\u00e4nk",
+			"chooseFromRegistered": "V\u00e4lj bland registrerade anv\u00e4ndare",
+			"inviteViaEmailOrSms": "Bjud in via e-post eller SMS",
+			"TakeGroupPhoto": "Ta ett gruppfoto",
+			"Skip": "Hoppa",
+			"byTelegram": "Telegram",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "L\u00e4gg till roller",
+			"addPersonalRoles": "L\u00e4gg till personliga relationer"
+		},
+		"complete": {
+			"WelcomeToCommunity": "V\u00e4lkommen till {{communityName}}",
+			"HasInvitedYou": "har bjudit in dig till:",
+			"HasInvitedYouToTheirProfile": "har bjudit in dig att ansluta.",
+			"prompt": "L\u00e5t v\u00e4nner k\u00e4nna igen dig:",
+			"accept": "Acceptera inbjudan"
+		},
+		"email": {
+			"subject": "Hej, kolla in det h\u00e4r",
+			"PleaseVisitLink": "Bes\u00f6k g\u00e4rna f\u00f6ljande l\u00e4nk:",
+			"InvitingYou": "Jag bjuder in dig till {{title}}",
+			"HasInvitedYou": "{{displayName}} har bjudit in dig till {{title}}",
+			"HasMentionedYou": "{{displayName}} har n\u00e4mnt dig i &quot; {{title}} &quot;",
+			"YOUAREINVITED": "DU \u00c4R INBJUDEN!",
+			"AcceptInvite": "Acceptera inbjudan"
+		},
+		"mobile": {
+			"content": "Du har blivit inbjuden till {{title}} . V\u00e4nligen tryck p\u00e5 {{url}}"
+		},
+		"notice": {
+			"text": "Du har blivit inbjuden. {{ClickOrTap}} h\u00e4r f\u00f6r att acceptera och g\u00e5 med."
+		},
+		"chat": {
+			"prompt": "Du kommer att bjuda in m\u00e4nniskor till en konversation d\u00e4r ni kan h\u00e5lla kontakten, dela foton tillsammans och mer. Ge det ett namn:"
+		},
+		"Participants": "Bjuda folk"
+	},
+	"messages": {
+		"html": {
+			"posted": "skrev ett <em>{{message.fields.type}}</em> -meddelande till {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "kommenterade",
+			"startedCallIn": "startade ett samtal",
+			"in": "i",
+			"body": "i {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "har postats till",
+				"byAvatar": "med {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "har en ny {{instructions.fromDisplayType}}",
+				"byAvatar": "tillagd av {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "Inbjudningar skickas fr\u00e5n v\u00e5rt nummer, som dina v\u00e4nner \u00e4nnu inte k\u00e4nner igen. F\u00f6lj upp med en snabb text f\u00f6r att l\u00e5ta dem veta att inbjudan kom fr\u00e5n dig, och be dem klicka p\u00e5 l\u00e4nken.",
+			"confirm": "Inbjudningar skickas fr\u00e5n v\u00e5rt nummer, som dina v\u00e4nner \u00e4nnu inte k\u00e4nner igen. Vill du f\u00f6lja upp med en snabb text f\u00f6r att l\u00e5ta dem veta att inbjudan kom fr\u00e5n dig och be dem klicka p\u00e5 l\u00e4nken.",
+			"check": "Hej, jag har precis skickat en inbjudan till {{app}} -appen. Kontrollera ditt sms och klicka p\u00e5 l\u00e4nken!",
+			"CheckYourMobile": "Kontrollera SMS och f\u00f6lj instruktionerna!"
+		},
+		"email": {
+			"alert": "Inbjudningar skickas fr\u00e5n v\u00e5r dom\u00e4n, som dina v\u00e4nner \u00e4nnu inte k\u00e4nner igen. F\u00f6lj upp med en snabb text f\u00f6r att l\u00e5ta dem veta att inbjudan kom fr\u00e5n dig, och be dem klicka p\u00e5 l\u00e4nken.",
+			"confirm": "Inbjudningar skickas fr\u00e5n v\u00e5r dom\u00e4n, som dina v\u00e4nner \u00e4nnu inte k\u00e4nner igen. Vill du f\u00f6lja upp med en snabb text f\u00f6r att l\u00e5ta dem veta att inbjudan kom fr\u00e5n dig och be dem klicka p\u00e5 l\u00e4nken.",
+			"subject": "Fick du en inbjudan?",
+			"body": "Hej, jag har precis skickat en inbjudan till {{app}} -appen. Kontrollera din e-post och klicka p\u00e5 l\u00e4nken d\u00e4r!",
+			"CheckYourEmail": "Kontrollera din e-post och f\u00f6lj instruktionerna!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Sekretessinst\u00e4llningar"
+	},
+	"participating": {
+		"Title": "Titel",
+		"Subscribed": "Prenumererade",
+		"Participants": "Deltagare",
+		"AreYouSureRemoveIdentifier": "\u00c4r du s\u00e4ker p\u00e5 att ta bort denna identifierare?",
+		"AreYouSureUnsubscribeIdentifier": "\u00c4r du s\u00e4ker p\u00e5 att avregistrera denna identifierare? Det kommer att st\u00e4nga av meddelanden till denna identifierare.",
+		"AreYouSureUnsubscribeDevice": "\u00c4r du s\u00e4ker p\u00e5 att avsluta prenumerationen p\u00e5 den h\u00e4r enheten? Det kommer att st\u00e4nga av aviseringar till den h\u00e4r enheten.",
+		"AreYouSureRemoveParticipant": "\u00c4r du s\u00e4ker p\u00e5 att du vill ta bort denna deltagare?",
+		"RemoveParticipant": "Ta bort deltagare",
+		"Identifiers": "Identifierare",
+		"Devices": "Enheter",
+		"Streams": "Str\u00f6mmar"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "Inbjudna",
+			"description": "Inkorg f\u00f6r inbjudningar"
+		},
+		"Streams/resource": {
+			"displayType": "Resurs",
+			"description": "str\u00f6m f\u00f6r att hantera \u00e5tkomst till en resurs och skicka meddelanden om uppdateringar"
+		},
+		"Streams/task": {
+			"description": "f\u00f6r att ta emot uppdateringar om framsteg p\u00e5 en viss uppgift",
+			"displayType": "Uppgift"
+		},
+		"Streams/tasks": {
+			"description": "kategori f\u00f6r uppgifter",
+			"displayType": "Uppgifter"
+		},
+		"Streams/experience": {
+			"description": "en gemensam upplevelse f\u00f6r medlemmar i en gemenskap",
+			"displayType": "Gemensam erfarenhet f\u00f6r medlemmar i en gemenskap"
+		},
+		"Streams/greeting": {
+			"description": "h\u00e4lsning som en anv\u00e4ndare kan presentera sig med",
+			"displayType": "H\u00e4lsning"
+		},
+		"Streams/number": {
+			"displayType": "siffra",
+			"description": "matematiskt tal"
+		},
+		"Streams/date": {
+			"displayType": "Datum",
+			"description": "datum"
+		},
+		"Streams/text": {
+			"displayType": "Text",
+			"description": "texten"
+		},
+		"Streams/text/small": {
+			"displayType": "Text",
+			"description": "liten textdel"
+		},
+		"Streams/text/medium": {
+			"displayType": "Text",
+			"description": "medelstor textdel"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "E-postadress",
+			"description": "e-postadress"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Telefonnummer",
+			"description": "telefonnummer"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "l\u00e4nk p\u00e5 webben"
+		},
+		"Streams/image": {
+			"displayType": "Bild",
+			"description": "visuell bild",
+			"newItem": "L\u00e4gg till bild"
+		},
+		"Streams/images": {
+			"displayType": "Bildgalleri",
+			"description": "galleri med bilder"
+		},
+		"Streams/album": {
+			"displayType": "Album",
+			"description": "ett album som olika medier \u00e4r relaterade till"
+		},
+		"Streams/file": {
+			"displayType": "Fil",
+			"description": "uppladdad fil",
+			"newItem": "L\u00e4gg till fil"
+		},
+		"Streams/audio": {
+			"displayType": "Ljudklipp",
+			"description": "ljudklipp",
+			"newItem": "L\u00e4gg till ljud"
+		},
+		"Streams/video": {
+			"displayType": "Videoklipp",
+			"description": "videoklipp",
+			"newItem": "L\u00e4gg till video"
+		},
+		"Streams/pdf": {
+			"displayType": "PDF-dokument",
+			"description": "PDF-dokument",
+			"newItem": "L\u00e4gg till PDF"
+		},
+		"Streams/live": {
+			"displayType": "Direkts\u00e4ndning",
+			"description": "liveljud eller video"
+		},
+		"Streams/category": {
+			"displayType": "Kategori",
+			"description": "en kategori som andra str\u00f6mmar kan relateras till",
+			"newItem": "L\u00e4gg till Kategori"
+		},
+		"Streams/participating": {
+			"displayType": "Deltagande Index",
+			"description": "str\u00f6mmar \u00e4r relaterade/inte relaterade till detta n\u00e4r en anv\u00e4ndare g\u00e5r med/g\u00e5r ur"
+		},
+		"Streams/interest": {
+			"displayType": "Intressera",
+			"description": "representerar en anv\u00e4ndares intresse f\u00f6r ett visst \u00e4mne"
+		},
+		"Streams/incoming": {
+			"displayType": "Inkommande",
+			"description": "destination f\u00f6r meddelanden som skickas av andra anv\u00e4ndare"
+		},
+		"Streams/chat": {
+			"displayType": "Konversation",
+			"description": "en konversation mellan anv\u00e4ndare, med historik"
+		},
+		"Streams/question": {
+			"displayType": "Fr\u00e5ga",
+			"description": "fr\u00e5gestr\u00f6m",
+			"newItem": "L\u00e4gg till fr\u00e5ga"
+		},
+		"Streams/answer": {
+			"displayType": "Svar",
+			"description": "svarsstr\u00f6m"
+		},
+		"Streams/topic": {
+			"displayType": "\u00c4mne",
+			"description": "\u00e4mnesstr\u00f6m",
+			"newItem": "L\u00e4gg till \u00e4mne"
+		}
+	},
+	"menu": {
+		"placeholder": "skriv sidtitel",
+		"ModTab": "\u00c4ndra objekt",
+		"Save": "Spara",
+		"Delete": "Radera",
+		"Submenu": "Undermeny"
+	},
+	"audio": {
+		"record": "Spela in",
+		"reset": "\u00c5terst\u00e4lla",
+		"edit": "Redigera",
+		"title": "titel",
+		"description": "beskrivning",
+		"upload": "Ladda upp",
+		"link": "L\u00e4nk",
+		"setUrl": "Ange URL",
+		"save": "Spara",
+		"setClip": "Klipp ut klipp",
+		"invalidURL": "Ogiltig URL",
+		"invalidFile": "Felaktig fil",
+		"errorNoSource": "Ingen ljudk\u00e4lla",
+		"uploadLimit": "Max filstorlek: {{size}}",
+		"errorFileSize": "Tyv\u00e4rr, men filen \u00e4r f\u00f6r stor.<br> Max filstorlek \u00e4r {{size}}",
+		"TeaserAudio": "Teaser ljud"
+	},
+	"video": {
+		"reset": "\u00c5terst\u00e4lla",
+		"edit": "Redigera",
+		"title": "titel",
+		"description": "beskrivning",
+		"upload": "Ladda upp",
+		"link": "L\u00e4nk",
+		"setUrl": "Ange URL",
+		"save": "Spara",
+		"setClip": "Klipp ut klipp",
+		"invalidURL": "Ogiltig URL",
+		"invalidFile": "Felaktig fil",
+		"errorNoSource": "Ingen videok\u00e4lla",
+		"uploadLimit": "Max filstorlek: {{size}}",
+		"errorFileSize": "Tyv\u00e4rr, men filen \u00e4r f\u00f6r stor.<br> Max filstorlek \u00e4r {{size}}",
+		"createAnimatedThumbnail": "Skapa animerad miniatyrbild",
+		"errorNotAvailable": "Tyv\u00e4rr, men videon \u00e4r inte tillg\u00e4nglig \u00e4nnu. V\u00e4nligen f\u00f6rs\u00f6k igen senare.",
+		"NewVideo": "Ny video",
+		"EditVideo": "Redigera video",
+		"TeaserVideo": "Teaser-video"
+	},
+	"pdf": {
+		"reset": "\u00c5terst\u00e4lla",
+		"edit": "Redigera",
+		"title": "titel",
+		"description": "beskrivning",
+		"upload": "Ladda upp",
+		"link": "L\u00e4nk",
+		"setUrl": "Ange URL",
+		"save": "Spara",
+		"setClip": "Klipp ut klipp",
+		"invalidURL": "Ogiltig URL",
+		"invalidFile": "Felaktig fil",
+		"errorNoSource": "Ingen pdf-k\u00e4lla",
+		"uploadLimit": "Max filstorlek: {{size}}",
+		"errorFileSize": "Tyv\u00e4rr, men filen \u00e4r f\u00f6r stor.<br> Max filstorlek \u00e4r {{size}}",
+		"TeaserPDF": "Teaser pdf"
+	},
+	"image": {
+		"reset": "\u00c5terst\u00e4lla",
+		"edit": "Redigera",
+		"title": "titel",
+		"description": "beskrivning",
+		"upload": "Ladda upp",
+		"link": "L\u00e4nk",
+		"setUrl": "Ange URL",
+		"save": "Spara",
+		"uploadedImage": "Uppladdad bild",
+		"imageTitle": "Bildens titel",
+		"setClip": "Klipp ut klipp",
+		"invalidURL": "Ogiltig URL",
+		"invalidFile": "Felaktig fil",
+		"errorNoSource": "Ingen bildk\u00e4lla",
+		"uploadLimit": "Max filstorlek: {{size}}",
+		"errorFileSize": "Tyv\u00e4rr, men filen \u00e4r f\u00f6r stor.<br> Max filstorlek \u00e4r {{size}}",
+		"TeaserImage": "Teaser bild"
+	},
+	"questions": {
+		"Questions": "Fr\u00e5gor",
+		"Answers": "Svar",
+		"AnswerQuestion": "Svar fr\u00e5ga",
+		"SetYourAnswer": "V\u00e4nligen svara p\u00e5 fr\u00e5gan",
+		"NewQuestion": "Ny fr\u00e5ga",
+		"EditQuestion": "Redigera fr\u00e5ga",
+		"NewAnswer": "Nytt svar",
+		"NewPossibleAnswer": "Nytt m\u00f6jligt svar",
+		"AnswerDetails": "Svarsdetaljer",
+		"answerOption": "Alternativ",
+		"answerOptionExclusive": "Exklusiv",
+		"answerTextarea": "Textomr\u00e5de",
+		"answerText": "Text",
+		"HideUntilAnswered": "G\u00f6m tills du svarar",
+		"CantChangeAnswers": "Kan inte \u00e4ndra svar",
+		"FreeAnswer": "Skriv ditt svar h\u00e4r",
+		"SaveQuestion": "Spara fr\u00e5ga",
+		"SaveAnswer": "Spara svar",
+		"Save": "Spara",
+		"Send": "Skicka",
+		"TitleRequired": "Titel kr\u00e4vs!",
+		"AlreadyAnswered": "Redan svarat",
+		"TitlePlaceholder": "Skriv din fr\u00e5ga",
+		"ContentPlaceholder": "L\u00e4gg in ytterligare information h\u00e4r f\u00f6r att hj\u00e4lpa andra att svara",
+		"ErrorTitle": "Fr\u00e5ga kr\u00e4vs",
+		"Placeholder": "Skriv instruktioner",
+		"AreYouSure": "\u00c4r du s\u00e4ker?",
+		"ShortAnswer": "Skriv ett kort svar",
+		"AnswerCantBeChanged": "Svaret kan inte \u00e4ndras"
+	},
+	"experience": {
+		"NewExperience": "Ny upplevelse",
+		"DefineTitle": "V\u00e4nligen definiera en titel",
+		"Create": "Skapa"
+	},
+	"calls": {
+		"SettingsTitle": "Samtal",
+		"MaxCalls": "Max ringer",
+		"Update": "Uppdatering",
+		"NoCallsYet": "Inga samtal \u00e4n",
+		"CallReasonTitle": "Vad handlar det h\u00e4r samtalet om?",
+		"WaitingRoom": "V\u00e4ntrum",
+		"LiveRoom": "Live Room",
+		"interviewedByAnotherHost": "\u00c4r f\u00f6r n\u00e4rvarande intervjuad av en annan v\u00e4rd",
+		"bringToLive": "Ta med till Live Show",
+		"putOnHold": "S\u00e4tt p\u00e5 is",
+		"endCall": "Avsluta samtal",
+		"interview": "Intervju",
+		"markApproved": "Markera godk\u00e4nd"
+	},
+	"relate": {
+		"Add": "L\u00e4gg till {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "Namn p\u00e5 en anv\u00e4ndare..."
+	},
+	"task": {
+		"errorsTitle": "Fel uppstod"
+	},
+	"topic": {
+		"NewTopic": "Nytt \u00e4mne",
+		"UpdateTopic": "Uppdatera \u00e4mne",
+		"CreateTopic": "Skapa \u00e4mne",
+		"AreYouSureDeleteTopic": "\u00c4r du s\u00e4ker p\u00e5 att du vill ta bort det h\u00e4r \u00e4mnet",
+		"TitlePlaceholder": "\u00c4mnestitel...",
+		"DescribeTopic": "beskriv \u00e4mne...",
+		"TopicIcon": "\u00c4mnesbild",
+		"UploadIcon": "Ladda upp ikon",
+		"Conversation": "Konversation",
+		"Metrics": "Metrik",
+		"Teaser": "Teaser",
+		"TeaserDescription": "teaser beskrivning...",
+		"TeaserVideo": "Teaser-video"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Skapa animerad miniatyrbild",
+		"Width": "Bredd",
+		"Height": "H\u00f6jd",
+		"Start": "Start",
+		"End": "Slutet",
+		"Delay": "Dr\u00f6jsm\u00e5l",
+		"Quality": "Kvalitet",
+		"Size": "Storlek",
+		"OfFrames": "av ramar",
+		"Frame": "Ram",
+		"UseThis": "Anv\u00e4nd detta",
+		"ResultGIF": "Resultat GIF",
+		"VideoElementNotFound": "Videoelementet hittades inte"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} On Your Face",
+		"AcceptIcon": "Acceptera valt omr\u00e5de"
+	},
+	"gallery": {
+		"DialogTitle": "Redigera galleribild",
+		"EditImageTitle": "Redigera bildparametrar",
+		"IntervalLabel": "Intervall (ms): ",
+		"IntervalPlaceholder": "t.ex. 3000",
+		"KenburnsInstruction": "St\u00e4ll in b\u00f6rjan och slut f\u00f6r Ken Burns genom att dra och zooma."
+	}
 }

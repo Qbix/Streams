@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Tento obsah je před vámi skrytý.",
-        "InplaceTypeMustBe": "inplaceType musí být &#39;textarea&#39; nebo &#39;text&#39;"
-    },
-    "preview": {
-        "NewItemTitle": "Nový předmět",
-        "Teaser": "Teaser"
-    },
-    "avatar": {
-        "firstName": "jméno",
-        "lastName": "příjmení",
-        "username": "uživatelské jméno"
-    },
-    "labels": {
-        "Streams\/invited": "Lidé, které jsem pozval",
-        "Streams\/invitedMe": "Kdo mě pozval",
-        "DoYouAgree": "Souhlasíš?",
-        "Yes": "Ano",
-        "No": "Ne",
-        "JoinItNow": "Připojit se nyní?"
-    },
-    "login": {
-        "prompt": "Umožněte přátelům, aby vás poznali:",
-        "newUser": "nebo si níže vytvořte nový účet",
-        "picTooltip": "Tento obrázek můžete později změnit",
-        "placeholders": {
-            "fullName": "Zadejte své celé jméno"
-        }
-    },
-    "interests": {
-        "Filter": "Hledat zájmy",
-        "CanGrant": "Pokud stále nemůžete najít, co hledáte, můžete níže přidat nový zájem:",
-        "TrySynonyms": "Nevidíš to? Zkuste nějaká synonyma.",
-        "AddUnderCategory": "Přidat do kategorie...",
-        "Other": "jiný",
-        "Unlisted": "Neuvedeno"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Zpráva byla označena ke kontrole administrátorem. Dalším klepnutím označení zrušíte.",
-        "noOneSaid": "Nikdo nic neřekl",
-        "closeChatButton": "Zavřít chat",
-        "closeChatConfirmTitle": "Zavřít tento chat?",
-        "closeChatConfirm": "Opravdu chcete tento chat zavřít?",
-        "Subscribed": "Upozornění povolena",
-        "Unsubscribed": "Oznámení jsou ztlumena",
-        "closeChatConfirmYes": "Ano",
-        "closeChatConfirmNo": "Ne",
-        "earlierComments": "dřívější komentáře",
-        "startedConversation": "zahájil konverzaci",
-        "RealTimeCall": "Volání v reálném čase",
-        "JoinWebRTC": "Telekonference",
-        "SearchByName": "Hledat podle jména",
-        "Notifications": {
-            "Visit": "{{displayName}} navštěvuje chat",
-            "Join": "{{displayName}} se připojilo k chatu",
-            "Leave": "{{displayName}} opustil chat",
-            "RelatedTo": "{{displayName}} začal {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "Přidat komentář",
-            "Private": "Napište soukromou zprávu"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "spravovat své odběry e-mailů",
-        "IfUnsubscribe": "Pokud se chcete odhlásit",
-        "*": "Zpráva {{{ message.fields.type}} až {{& stream.fields.title}}}",
-        "Streams\/joined": "Připojilo se {{{call 'avatar.displayName'}}}",
-        "Streams\/left": "Zbývá {{{call 'avatar.displayName'}}}",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} řekl: {{& message.content}}}",
-        "Streams\/changed": "Změny v {{stream.fields.title}}",
-        "Streams\/invite": "Byli jste pozváni na {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Oznámení v {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} změnil přístup v {{& stream.fields.title}}}",
-        "Streams\/chat\/edit": "Chatová zpráva upravena v {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "Chatová zpráva odstraněna v {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} byla uzavřena",
-        "Streams\/task\/progress": "Pokrok dosažen na {{stream.fields.title}}",
-        "Streams\/task\/complete": "Úkol dokončen: {{stream.fields.title}}",
-        "Streams\/task\/error": "Chyba během: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Příchozí zpráva",
-        "Streams\/relatedTo\/Streams\/call": "Nový hovor byl zahájen v {{toTitle}}",
-        "Streams\/relatedTo\/*": "Nové {{relationDisplayType}} z {{toTitle}}",
-        "Streams\/relatedFrom\/*": "Přidáno k {{toTitle}} jako {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} vás zmínil v komentáři",
-        "Streams\/call": "{{displayName}} zahájilo hovor v reálném čase",
-        "changed": {
-            "ChangesIn": "Změny v {{title}}",
-            "Changed": "změněno",
-            "HereIsWhatChanged": "Zde je to, co se změnilo:"
-        },
-        "joined": {
-            "Joined": "{{subject}} se připojilo <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Pozvat",
-        "Invite": "Pozvat",
-        "Share": "Podíl",
-        "messageContent": "{{displayName}} vás pozvalo do {{inviteUrl}}",
-        "youCanNowPaste": "Nyní můžete tento odkaz někam vložit a pozvat lidi",
-        "roles": {
-            "title": "Udělit role pozvaným uživatelům?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Promiňte",
-                "alert": "Nemáte oprávnění udělit tuto roli"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Promiňte",
-                "alert": "K odebrání této role nemáte oprávnění"
-            }
-        },
-        "labels": {
-            "title": "Jaký je váš vztah?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Vyberte si ze svých kontaktů",
-            "chooseAgainFromContacts": "Vyberte Znovu z Kontaktů",
-            "inviteSelectedContacts": "Pozvat vybrané kontakty",
-            "selectFromContacts": "Vyberte Z kontaktů",
-            "userChooserPlaceholder": "Hledat podle jména",
-            "photo": "Vyfoť",
-            "photoOf": "Vyfoťte {{name}}",
-            "photoInstruction": "Pokud je před vámi osoba, která naskenovala váš QR kód, vyfoťte ji",
-            "to": "Komu: {{Stream Title}}",
-            "go": "Jít",
-            "title": "Pozvat",
-            "placeholder": "Mobilní číslo nebo e-mailová adresa",
-            "orInvite": "Nebo pozvěte lidi pomocí:",
-            "copyLink": "{{ClickOrTap}} zkopírujte odkaz na pozvánku",
-            "shareOrCopyLink": "{{ClickOrTap}} pro sdílení nebo zkopírování odkazu na pozvánku",
-            "QR": "{{ClickOrTap}} pro vygenerování QR kódu",
-            "QRtitle": "Naskenujte tento QR kód",
-            "QRscanned": "Naskenovali to!",
-            "scannedQR": "{{ClickOrTap}} , pokud byl kód naskenován",
-            "byEmail": "E-mailem",
-            "bySms": "Text",
-            "byFacebook": "Facebook",
-            "byTwitter": "Cvrlikání",
-            "title2": "Pozvat lidi",
-            "chooseMethod": "Vyberte metodu:",
-            "selectContacts": "Vyberte Kontakty",
-            "scanQRCode": "Naskenujte QR kód",
-            "shareLink": "Sdílejte odkaz",
-            "chooseFromRegistered": "Vyberte si z registrovaných uživatelů",
-            "inviteViaEmailOrSms": "Pozvěte e-mailem nebo SMS",
-            "TakeGroupPhoto": "Pořiďte skupinovou fotografii",
-            "Skip": "Přeskočit",
-            "byTelegram": "Telegram",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Přidat role",
-            "addPersonalRoles": "Přidejte osobní vztahy"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Vítejte na {{communityName}}",
-            "HasInvitedYou": "vás pozval na:",
-            "HasInvitedYouToTheirProfile": "vás pozval k připojení.",
-            "prompt": "Umožněte přátelům, aby vás poznali:",
-            "accept": "Přijměte pozvání"
-        },
-        "email": {
-            "subject": "Hej, podívej se na tohle",
-            "PleaseVisitLink": "Navštivte prosím následující odkaz:",
-            "InvitingYou": "Zvu vás na {{title}}",
-            "HasInvitedYou": "{{displayName}} vás pozval do {{title}}",
-            "HasMentionedYou": "{{displayName}} vás zmínil v &quot; {{title}} &quot;",
-            "YOUAREINVITED": "JSTE ZVÁNI!",
-            "AcceptInvite": "Přijměte pozvání"
-        },
-        "mobile": {
-            "content": "Byli jste pozváni na {{title}} . Klepněte na {{url}}"
-        },
-        "notice": {
-            "text": "Byli jste pozváni. {{ClickOrTap}} zde pro přijetí a připojení."
-        },
-        "chat": {
-            "prompt": "Budete zvát lidi ke konverzaci, kde můžete zůstat v kontaktu, sdílet společné fotky a mnoho dalšího. Pojmenujte to:"
-        },
-        "Participants": "Pozvat lidi"
-    },
-    "messages": {
-        "html": {
-            "posted": "odeslal zprávu <em>{{message.fields.type}}<\/em> pro {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "komentoval",
-            "startedCallIn": "zahájil hovor",
-            "in": "v",
-            "body": "v {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "byl odeslán do",
-                "byAvatar": "o {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "má novou {{instructions.fromDisplayType}}",
-                "byAvatar": "přidáno {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Pozvánky jsou odesílány z našeho čísla, které vaši přátelé ještě neznají. Poté jim pošlete rychlou textovou zprávu, abyste věděli, že pozvánka přišla od vás, a požádejte je, aby klikli na odkaz.",
-            "confirm": "Pozvánky jsou odesílány z našeho čísla, které vaši přátelé ještě neznají. Chtěli byste jim dát rychlou textovou zprávu, abyste věděli, že pozvánka přišla od vás, a požádejte je, aby klikli na odkaz.",
-            "check": "Ahoj, právě jsem ti poslal pozvánku do aplikace {{app}} . Zkontrolujte prosím svou sms a klikněte na odkaz!",
-            "CheckYourMobile": "Zkontrolujte prosím SMS a postupujte podle pokynů!"
-        },
-        "email": {
-            "alert": "Pozvánky jsou odesílány z naší domény, kterou vaši přátelé ještě neznají. Poté jim pošlete rychlou textovou zprávu, abyste věděli, že pozvánka přišla od vás, a požádejte je, aby klikli na odkaz.",
-            "confirm": "Pozvánky jsou odesílány z naší domény, kterou vaši přátelé ještě neznají. Chtěli byste jim dát rychlou textovou zprávu, abyste věděli, že pozvánka přišla od vás, a požádejte je, aby klikli na odkaz.",
-            "subject": "Dostali jste pozvánku?",
-            "body": "Ahoj, právě jsem ti poslal pozvánku do aplikace {{app}} . Zkontrolujte prosím svůj e-mail a klikněte na odkaz v něm!",
-            "CheckYourEmail": "Zkontrolujte prosím svůj e-mail a postupujte podle pokynů!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Nastavení ochrany osobních údajů"
-    },
-    "participating": {
-        "Title": "Titul",
-        "Subscribed": "Předplaceno",
-        "Participants": "Účastníci",
-        "AreYouSureRemoveIdentifier": "Opravdu chcete tento identifikátor odstranit?",
-        "AreYouSureUnsubscribeIdentifier": "Opravdu odhlásit odběr tohoto identifikátoru? Vypne upozornění na tento identifikátor.",
-        "AreYouSureUnsubscribeDevice": "Opravdu odhlásit odběr tohoto zařízení? Vypne upozornění na toto zařízení.",
-        "AreYouSureRemoveParticipant": "Opravdu chcete tohoto účastníka odebrat?",
-        "RemoveParticipant": "Odebrat účastníka",
-        "Identifiers": "Identifikátory",
-        "Devices": "Zařízení",
-        "Streams": "Proudy"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Pozván",
-            "description": "Doručená pošta pro pozvánky"
-        },
-        "Streams\/resource": {
-            "displayType": "Zdroj",
-            "description": "stream pro správu přístupu ke zdroji a odesílání zpráv o aktualizacích"
-        },
-        "Streams\/task": {
-            "description": "pro příjem aktualizací o postupu na určitém úkolu",
-            "displayType": "Úkol"
-        },
-        "Streams\/tasks": {
-            "description": "kategorie pro úkoly",
-            "displayType": "Úkoly"
-        },
-        "Streams\/experience": {
-            "description": "společný zážitek pro členy komunity",
-            "displayType": "Společná zkušenost pro členy komunity"
-        },
-        "Streams\/greeting": {
-            "description": "pozdrav, kterým se uživatel může představit",
-            "displayType": "Pozdrav"
-        },
-        "Streams\/number": {
-            "displayType": "Číslo",
-            "description": "matematické číslo"
-        },
-        "Streams\/date": {
-            "displayType": "datum",
-            "description": "datum"
-        },
-        "Streams\/text": {
-            "displayType": "Text",
-            "description": "tělo textu"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Text",
-            "description": "malá část textu"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Text",
-            "description": "střední část textu"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "Emailová adresa",
-            "description": "emailová adresa"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Telefonní číslo",
-            "description": "telefonní číslo"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "odkaz na webu"
-        },
-        "Streams\/image": {
-            "displayType": "obraz",
-            "description": "vizuální obraz",
-            "newItem": "Přidat obrázek"
-        },
-        "Streams\/images": {
-            "displayType": "Galerie Obrázků",
-            "description": "galerie obrázků"
-        },
-        "Streams\/album": {
-            "displayType": "Album",
-            "description": "album, ke kterému se vztahují různá média"
-        },
-        "Streams\/file": {
-            "displayType": "Soubor",
-            "description": "nahraný soubor",
-            "newItem": "Přidat soubor"
-        },
-        "Streams\/audio": {
-            "displayType": "Zvukový klip",
-            "description": "zvukový klip",
-            "newItem": "Přidat zvuk"
-        },
-        "Streams\/video": {
-            "displayType": "Videoklip",
-            "description": "videoklip",
-            "newItem": "Přidat video"
-        },
-        "Streams\/pdf": {
-            "displayType": "PDF dokument",
-            "description": "PDF dokument",
-            "newItem": "Přidat PDF"
-        },
-        "Streams\/live": {
-            "displayType": "Živý přenos",
-            "description": "živé audio nebo video"
-        },
-        "Streams\/category": {
-            "displayType": "Kategorie",
-            "description": "kategorie, ke které lze přiřadit další proudy",
-            "newItem": "Přidat kategorii"
-        },
-        "Streams\/participating": {
-            "displayType": "Zúčastněný index",
-            "description": "streamy s tím souvisí\/nesouvisí, když se uživatel připojí\/odchází"
-        },
-        "Streams\/interest": {
-            "displayType": "Zájem",
-            "description": "představuje zájem uživatele o určité téma"
-        },
-        "Streams\/incoming": {
-            "displayType": "Přicházející",
-            "description": "cíl pro zprávy odeslané jinými uživateli"
-        },
-        "Streams\/chat": {
-            "displayType": "Konverzace",
-            "description": "konverzace mezi uživateli s historií"
-        },
-        "Streams\/question": {
-            "displayType": "Otázka",
-            "description": "stream otázek",
-            "newItem": "Přidat otázku"
-        },
-        "Streams\/answer": {
-            "displayType": "Odpovědět",
-            "description": "stream odpovědí"
-        },
-        "Streams\/topic": {
-            "displayType": "Téma",
-            "description": "tématický proud",
-            "newItem": "Přidat téma"
-        }
-    },
-    "menu": {
-        "placeholder": "zadejte název stránky",
-        "ModTab": "Upravit položku",
-        "Save": "Uložit",
-        "Delete": "Vymazat",
-        "Submenu": "Podnabídka"
-    },
-    "audio": {
-        "record": "Záznam",
-        "reset": "Resetovat",
-        "edit": "Upravit",
-        "title": "titul",
-        "description": "popis",
-        "upload": "nahrát",
-        "link": "Odkaz",
-        "setUrl": "Nastavit URL",
-        "save": "Uložit",
-        "setClip": "Vystřihnout klip",
-        "invalidURL": "neplatná URL",
-        "invalidFile": "Neplatný soubor",
-        "errorNoSource": "Žádný zdroj zvuku",
-        "uploadLimit": "Maximální velikost souboru: {{size}}",
-        "errorFileSize": "Omlouváme se, ale soubor je příliš velký.<br> Maximální velikost souboru je {{size}}",
-        "TeaserAudio": "Teaser Audio"
-    },
-    "video": {
-        "reset": "Resetovat",
-        "edit": "Upravit",
-        "title": "titul",
-        "description": "popis",
-        "upload": "nahrát",
-        "link": "Odkaz",
-        "setUrl": "Nastavit URL",
-        "save": "Uložit",
-        "setClip": "Vystřihnout klip",
-        "invalidURL": "neplatná URL",
-        "invalidFile": "Neplatný soubor",
-        "errorNoSource": "Žádný zdroj videa",
-        "uploadLimit": "Maximální velikost souboru: {{size}}",
-        "errorFileSize": "Omlouváme se, ale soubor je příliš velký.<br> Maximální velikost souboru je {{size}}",
-        "createAnimatedThumbnail": "Vytvořte animovanou miniaturu",
-        "errorNotAvailable": "Omlouváme se, ale video zatím není k dispozici. Prosím zkuste to znovu později.",
-        "NewVideo": "Nové video",
-        "EditVideo": "Upravit video",
-        "TeaserVideo": "Video s upoutávkou"
-    },
-    "pdf": {
-        "reset": "Resetovat",
-        "edit": "Upravit",
-        "title": "titul",
-        "description": "popis",
-        "upload": "nahrát",
-        "link": "Odkaz",
-        "setUrl": "Nastavit URL",
-        "save": "Uložit",
-        "setClip": "Vystřihnout klip",
-        "invalidURL": "neplatná URL",
-        "invalidFile": "Neplatný soubor",
-        "errorNoSource": "Žádný zdroj pdf",
-        "uploadLimit": "Maximální velikost souboru: {{size}}",
-        "errorFileSize": "Omlouváme se, ale soubor je příliš velký.<br> Maximální velikost souboru je {{size}}",
-        "TeaserPDF": "Teaser PDF"
-    },
-    "image": {
-        "reset": "Resetovat",
-        "edit": "Upravit",
-        "title": "titul",
-        "description": "popis",
-        "upload": "nahrát",
-        "link": "Odkaz",
-        "setUrl": "Nastavit URL",
-        "save": "Uložit",
-        "uploadedImage": "Nahraný obrázek",
-        "imageTitle": "Název obrázku",
-        "setClip": "Vystřihnout klip",
-        "invalidURL": "neplatná URL",
-        "invalidFile": "Neplatný soubor",
-        "errorNoSource": "Žádný zdroj obrázku",
-        "uploadLimit": "Maximální velikost souboru: {{size}}",
-        "errorFileSize": "Omlouváme se, ale soubor je příliš velký.<br> Maximální velikost souboru je {{size}}",
-        "TeaserImage": "Obrázek upoutávky"
-    },
-    "questions": {
-        "Questions": "Otázky",
-        "Answers": "Odpovědi",
-        "AnswerQuestion": "Odpovědět na otázku",
-        "SetYourAnswer": "Odpovězte prosím na otázku",
-        "NewQuestion": "Nová otázka",
-        "EditQuestion": "Upravit otázku",
-        "NewAnswer": "Nová odpověď",
-        "NewPossibleAnswer": "Nová možná odpověď",
-        "AnswerDetails": "Podrobnosti odpovědi",
-        "answerOption": "Volba",
-        "answerOptionExclusive": "Výhradní",
-        "answerTextarea": "Textarea",
-        "answerText": "Text",
-        "HideUntilAnswered": "Skrýt, dokud neodpoví",
-        "CantChangeAnswers": "Odpovědi nelze změnit",
-        "FreeAnswer": "Zde napište svou odpověď",
-        "SaveQuestion": "Uložit otázku",
-        "SaveAnswer": "Uložit odpověď",
-        "Save": "Uložit",
-        "Send": "Poslat",
-        "TitleRequired": "Titul je povinný!",
-        "AlreadyAnswered": "Již zodpovězeno",
-        "TitlePlaceholder": "Napište svou otázku",
-        "ContentPlaceholder": "Sem zadejte další informace, které lidem pomohou odpovědět",
-        "ErrorTitle": "Vyžaduje se otázka",
-        "Placeholder": "Napište Pokyny",
-        "AreYouSure": "Jsi si jistá?",
-        "ShortAnswer": "Napište krátkou odpověď",
-        "AnswerCantBeChanged": "Odpověď nelze změnit"
-    },
-    "experience": {
-        "NewExperience": "Nový zážitek",
-        "DefineTitle": "Definujte prosím název",
-        "Create": "Vytvořit"
-    },
-    "calls": {
-        "SettingsTitle": "hovory",
-        "MaxCalls": "Max volání",
-        "Update": "Aktualizace",
-        "NoCallsYet": "Zatím žádné hovory",
-        "CallReasonTitle": "O čem je tento hovor?",
-        "WaitingRoom": "Čekárna",
-        "LiveRoom": "Obývací pokoj",
-        "interviewedByAnotherHost": "V současné době je dotazován jiným hostitelem",
-        "bringToLive": "Bring To Live Show",
-        "putOnHold": "Podržte",
-        "endCall": "Ukončit hovor",
-        "interview": "Rozhovor",
-        "markApproved": "Označit schváleno"
-    },
-    "relate": {
-        "Add": "Přidejte {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "Jméno uživatele..."
-    },
-    "task": {
-        "errorsTitle": "Došlo k chybám"
-    },
-    "topic": {
-        "NewTopic": "Nové téma",
-        "UpdateTopic": "Aktualizovat téma",
-        "CreateTopic": "Vytvořit téma",
-        "AreYouSureDeleteTopic": "Opravdu chcete toto téma smazat?",
-        "TitlePlaceholder": "Název tématu...",
-        "DescribeTopic": "popsat téma...",
-        "TopicIcon": "Tématický obrázek",
-        "UploadIcon": "Ikona nahrávání",
-        "Conversation": "Konverzace",
-        "Metrics": "Metriky",
-        "Teaser": "Teaser",
-        "TeaserDescription": "popis teaseru...",
-        "TeaserVideo": "Video s upoutávkou"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Vytvořte animovanou miniaturu",
-        "Width": "Šířka",
-        "Height": "Výška",
-        "Start": "Start",
-        "End": "Konec",
-        "Delay": "Zpoždění",
-        "Quality": "Kvalitní",
-        "Size": "Velikost",
-        "OfFrames": "snímků",
-        "Frame": "Rám",
-        "UseThis": "Použij toto",
-        "ResultGIF": "Výsledek GIF",
-        "VideoElementNotFound": "Prvek videa nebyl nalezen"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} na vaší tváři",
-        "AcceptIcon": "Přijmout vybranou oblast"
-    }
+	"errors": {
+		"HiddenFromYou": "Tento obsah je p\u0159ed v\u00e1mi skryt\u00fd.",
+		"InplaceTypeMustBe": "inplaceType mus\u00ed b\u00fdt &#39;textarea&#39; nebo &#39;text&#39;",
+		"AmountInvalid": "Zadejte platn\u00fd po\u010det milisekund."
+	},
+	"preview": {
+		"NewItemTitle": "Nov\u00fd p\u0159edm\u011bt",
+		"Teaser": "Teaser"
+	},
+	"avatar": {
+		"firstName": "jm\u00e9no",
+		"lastName": "p\u0159\u00edjmen\u00ed",
+		"username": "u\u017eivatelsk\u00e9 jm\u00e9no"
+	},
+	"labels": {
+		"Streams/invited": "Lid\u00e9, kter\u00e9 jsem pozval",
+		"Streams/invitedMe": "Kdo m\u011b pozval",
+		"DoYouAgree": "Souhlas\u00ed\u0161?",
+		"Yes": "Ano",
+		"No": "Ne",
+		"JoinItNow": "P\u0159ipojit se nyn\u00ed?"
+	},
+	"login": {
+		"prompt": "Umo\u017en\u011bte p\u0159\u00e1tel\u016fm, aby v\u00e1s poznali:",
+		"newUser": "nebo si n\u00ed\u017ee vytvo\u0159te nov\u00fd \u00fa\u010det",
+		"picTooltip": "Tento obr\u00e1zek m\u016f\u017eete pozd\u011bji zm\u011bnit",
+		"placeholders": {
+			"fullName": "Zadejte sv\u00e9 cel\u00e9 jm\u00e9no"
+		}
+	},
+	"interests": {
+		"Filter": "Hledat z\u00e1jmy",
+		"CanGrant": "Pokud st\u00e1le nem\u016f\u017eete naj\u00edt, co hled\u00e1te, m\u016f\u017eete n\u00ed\u017ee p\u0159idat nov\u00fd z\u00e1jem:",
+		"TrySynonyms": "Nevid\u00ed\u0161 to? Zkuste n\u011bjak\u00e1 synonyma.",
+		"AddUnderCategory": "P\u0159idat do kategorie...",
+		"Other": "jin\u00fd",
+		"Unlisted": "Neuvedeno"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Zpr\u00e1va byla ozna\u010dena ke kontrole administr\u00e1torem. Dal\u0161\u00edm klepnut\u00edm ozna\u010den\u00ed zru\u0161\u00edte.",
+		"noOneSaid": "Nikdo nic ne\u0159ekl",
+		"closeChatButton": "Zav\u0159\u00edt chat",
+		"closeChatConfirmTitle": "Zav\u0159\u00edt tento chat?",
+		"closeChatConfirm": "Opravdu chcete tento chat zav\u0159\u00edt?",
+		"Subscribed": "Upozorn\u011bn\u00ed povolena",
+		"Unsubscribed": "Ozn\u00e1men\u00ed jsou ztlumena",
+		"closeChatConfirmYes": "Ano",
+		"closeChatConfirmNo": "Ne",
+		"earlierComments": "d\u0159\u00edv\u011bj\u0161\u00ed koment\u00e1\u0159e",
+		"startedConversation": "zah\u00e1jil konverzaci",
+		"RealTimeCall": "Vol\u00e1n\u00ed v re\u00e1ln\u00e9m \u010dase",
+		"JoinWebRTC": "Telekonference",
+		"SearchByName": "Hledat podle jm\u00e9na",
+		"Notifications": {
+			"Visit": "{{displayName}} nav\u0161t\u011bvuje chat",
+			"Join": "{{displayName}} se p\u0159ipojilo k chatu",
+			"Leave": "{{displayName}} opustil chat",
+			"RelatedTo": "{{displayName}} za\u010dal {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "P\u0159idat koment\u00e1\u0159",
+			"Private": "Napi\u0161te soukromou zpr\u00e1vu"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "spravovat sv\u00e9 odb\u011bry e-mail\u016f",
+		"IfUnsubscribe": "Pokud se chcete odhl\u00e1sit",
+		"*": "Zpr\u00e1va {{{ message.fields.type}} a\u017e {{& stream.fields.title}}}",
+		"Streams/joined": "P\u0159ipojilo se {{{call 'avatar.displayName'}}}",
+		"Streams/left": "Zb\u00fdv\u00e1 {{{call 'avatar.displayName'}}}",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} \u0159ekl: {{& message.content}}}",
+		"Streams/changed": "Zm\u011bny v {{stream.fields.title}}",
+		"Streams/invite": "Byli jste pozv\u00e1ni na {{{ stream.fields.title}}}",
+		"Streams/announcement": "Ozn\u00e1men\u00ed v {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} zm\u011bnil p\u0159\u00edstup v {{& stream.fields.title}}}",
+		"Streams/chat/edit": "Chatov\u00e1 zpr\u00e1va upravena v {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "Chatov\u00e1 zpr\u00e1va odstran\u011bna v {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} byla uzav\u0159ena",
+		"Streams/task/progress": "Pokrok dosa\u017een na {{stream.fields.title}}",
+		"Streams/task/complete": "\u00dakol dokon\u010den: {{stream.fields.title}}",
+		"Streams/task/error": "Chyba b\u011bhem: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : P\u0159\u00edchoz\u00ed zpr\u00e1va",
+		"Streams/relatedTo/Streams/call": "Nov\u00fd hovor byl zah\u00e1jen v {{toTitle}}",
+		"Streams/relatedTo/*": "Nov\u00e9 {{relationDisplayType}} z {{toTitle}}",
+		"Streams/relatedFrom/*": "P\u0159id\u00e1no k {{toTitle}} jako {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} v\u00e1s zm\u00ednil v koment\u00e1\u0159i",
+		"Streams/call": "{{displayName}} zah\u00e1jilo hovor v re\u00e1ln\u00e9m \u010dase",
+		"changed": {
+			"ChangesIn": "Zm\u011bny v {{title}}",
+			"Changed": "zm\u011bn\u011bno",
+			"HereIsWhatChanged": "Zde je to, co se zm\u011bnilo:"
+		},
+		"joined": {
+			"Joined": "{{subject}} se p\u0159ipojilo <em>{{title}}</em>"
+		},
+		"Streams/invited": "Byli jste pozv\u00e1ni na {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "Pozvat",
+		"Invite": "Pozvat",
+		"Share": "Pod\u00edl",
+		"messageContent": "{{displayName}} v\u00e1s pozvalo do {{inviteUrl}}",
+		"youCanNowPaste": "Nyn\u00ed m\u016f\u017eete tento odkaz n\u011bkam vlo\u017eit a pozvat lidi",
+		"roles": {
+			"title": "Ud\u011blit role pozvan\u00fdm u\u017eivatel\u016fm?",
+			"NotAuthorizedToGrantRole": {
+				"title": "Promi\u0148te",
+				"alert": "Nem\u00e1te opr\u00e1vn\u011bn\u00ed ud\u011blit tuto roli"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "Promi\u0148te",
+				"alert": "K odebr\u00e1n\u00ed t\u00e9to role nem\u00e1te opr\u00e1vn\u011bn\u00ed"
+			}
+		},
+		"labels": {
+			"title": "Jak\u00fd je v\u00e1\u0161 vztah?"
+		},
+		"dialog": {
+			"chooseFromContacts": "Vyberte si ze sv\u00fdch kontakt\u016f",
+			"chooseAgainFromContacts": "Vyberte Znovu z Kontakt\u016f",
+			"inviteSelectedContacts": "Pozvat vybran\u00e9 kontakty",
+			"selectFromContacts": "Vyberte Z kontakt\u016f",
+			"userChooserPlaceholder": "Hledat podle jm\u00e9na",
+			"photo": "Vyfo\u0165",
+			"photoOf": "Vyfo\u0165te {{name}}",
+			"photoInstruction": "Pokud je p\u0159ed v\u00e1mi osoba, kter\u00e1 naskenovala v\u00e1\u0161 QR k\u00f3d, vyfo\u0165te ji",
+			"to": "Komu: {{Stream Title}}",
+			"go": "J\u00edt",
+			"title": "Pozvat",
+			"placeholder": "Mobiln\u00ed \u010d\u00edslo nebo e-mailov\u00e1 adresa",
+			"orInvite": "Nebo pozv\u011bte lidi pomoc\u00ed:",
+			"copyLink": "{{ClickOrTap}} zkop\u00edrujte odkaz na pozv\u00e1nku",
+			"shareOrCopyLink": "{{ClickOrTap}} pro sd\u00edlen\u00ed nebo zkop\u00edrov\u00e1n\u00ed odkazu na pozv\u00e1nku",
+			"QR": "{{ClickOrTap}} pro vygenerov\u00e1n\u00ed QR k\u00f3du",
+			"QRtitle": "Naskenujte tento QR k\u00f3d",
+			"QRscanned": "Naskenovali to!",
+			"scannedQR": "{{ClickOrTap}} , pokud byl k\u00f3d naskenov\u00e1n",
+			"byEmail": "E-mailem",
+			"bySms": "Text",
+			"byFacebook": "Facebook",
+			"byTwitter": "Cvrlik\u00e1n\u00ed",
+			"title2": "Pozvat lidi",
+			"chooseMethod": "Vyberte metodu:",
+			"selectContacts": "Vyberte Kontakty",
+			"scanQRCode": "Naskenujte QR k\u00f3d",
+			"shareLink": "Sd\u00edlejte odkaz",
+			"chooseFromRegistered": "Vyberte si z registrovan\u00fdch u\u017eivatel\u016f",
+			"inviteViaEmailOrSms": "Pozv\u011bte e-mailem nebo SMS",
+			"TakeGroupPhoto": "Po\u0159i\u010fte skupinovou fotografii",
+			"Skip": "P\u0159esko\u010dit",
+			"byTelegram": "Telegram",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "P\u0159idat role",
+			"addPersonalRoles": "P\u0159idejte osobn\u00ed vztahy"
+		},
+		"complete": {
+			"WelcomeToCommunity": "V\u00edtejte na {{communityName}}",
+			"HasInvitedYou": "v\u00e1s pozval na:",
+			"HasInvitedYouToTheirProfile": "v\u00e1s pozval k p\u0159ipojen\u00ed.",
+			"prompt": "Umo\u017en\u011bte p\u0159\u00e1tel\u016fm, aby v\u00e1s poznali:",
+			"accept": "P\u0159ijm\u011bte pozv\u00e1n\u00ed"
+		},
+		"email": {
+			"subject": "Hej, pod\u00edvej se na tohle",
+			"PleaseVisitLink": "Nav\u0161tivte pros\u00edm n\u00e1sleduj\u00edc\u00ed odkaz:",
+			"InvitingYou": "Zvu v\u00e1s na {{title}}",
+			"HasInvitedYou": "{{displayName}} v\u00e1s pozval do {{title}}",
+			"HasMentionedYou": "{{displayName}} v\u00e1s zm\u00ednil v &quot; {{title}} &quot;",
+			"YOUAREINVITED": "JSTE ZV\u00c1NI!",
+			"AcceptInvite": "P\u0159ijm\u011bte pozv\u00e1n\u00ed"
+		},
+		"mobile": {
+			"content": "Byli jste pozv\u00e1ni na {{title}} . Klepn\u011bte na {{url}}"
+		},
+		"notice": {
+			"text": "Byli jste pozv\u00e1ni. {{ClickOrTap}} zde pro p\u0159ijet\u00ed a p\u0159ipojen\u00ed."
+		},
+		"chat": {
+			"prompt": "Budete zv\u00e1t lidi ke konverzaci, kde m\u016f\u017eete z\u016fstat v kontaktu, sd\u00edlet spole\u010dn\u00e9 fotky a mnoho dal\u0161\u00edho. Pojmenujte to:"
+		},
+		"Participants": "Pozvat lidi"
+	},
+	"messages": {
+		"html": {
+			"posted": "odeslal zpr\u00e1vu <em>{{message.fields.type}}</em> pro {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "komentoval",
+			"startedCallIn": "zah\u00e1jil hovor",
+			"in": "v",
+			"body": "v {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "byl odesl\u00e1n do",
+				"byAvatar": "o {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "m\u00e1 novou {{instructions.fromDisplayType}}",
+				"byAvatar": "p\u0159id\u00e1no {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "Pozv\u00e1nky jsou odes\u00edl\u00e1ny z na\u0161eho \u010d\u00edsla, kter\u00e9 va\u0161i p\u0159\u00e1tel\u00e9 je\u0161t\u011b neznaj\u00ed. Pot\u00e9 jim po\u0161lete rychlou textovou zpr\u00e1vu, abyste v\u011bd\u011bli, \u017ee pozv\u00e1nka p\u0159i\u0161la od v\u00e1s, a po\u017e\u00e1dejte je, aby klikli na odkaz.",
+			"confirm": "Pozv\u00e1nky jsou odes\u00edl\u00e1ny z na\u0161eho \u010d\u00edsla, kter\u00e9 va\u0161i p\u0159\u00e1tel\u00e9 je\u0161t\u011b neznaj\u00ed. Cht\u011bli byste jim d\u00e1t rychlou textovou zpr\u00e1vu, abyste v\u011bd\u011bli, \u017ee pozv\u00e1nka p\u0159i\u0161la od v\u00e1s, a po\u017e\u00e1dejte je, aby klikli na odkaz.",
+			"check": "Ahoj, pr\u00e1v\u011b jsem ti poslal pozv\u00e1nku do aplikace {{app}} . Zkontrolujte pros\u00edm svou sms a klikn\u011bte na odkaz!",
+			"CheckYourMobile": "Zkontrolujte pros\u00edm SMS a postupujte podle pokyn\u016f!"
+		},
+		"email": {
+			"alert": "Pozv\u00e1nky jsou odes\u00edl\u00e1ny z na\u0161\u00ed dom\u00e9ny, kterou va\u0161i p\u0159\u00e1tel\u00e9 je\u0161t\u011b neznaj\u00ed. Pot\u00e9 jim po\u0161lete rychlou textovou zpr\u00e1vu, abyste v\u011bd\u011bli, \u017ee pozv\u00e1nka p\u0159i\u0161la od v\u00e1s, a po\u017e\u00e1dejte je, aby klikli na odkaz.",
+			"confirm": "Pozv\u00e1nky jsou odes\u00edl\u00e1ny z na\u0161\u00ed dom\u00e9ny, kterou va\u0161i p\u0159\u00e1tel\u00e9 je\u0161t\u011b neznaj\u00ed. Cht\u011bli byste jim d\u00e1t rychlou textovou zpr\u00e1vu, abyste v\u011bd\u011bli, \u017ee pozv\u00e1nka p\u0159i\u0161la od v\u00e1s, a po\u017e\u00e1dejte je, aby klikli na odkaz.",
+			"subject": "Dostali jste pozv\u00e1nku?",
+			"body": "Ahoj, pr\u00e1v\u011b jsem ti poslal pozv\u00e1nku do aplikace {{app}} . Zkontrolujte pros\u00edm sv\u016fj e-mail a klikn\u011bte na odkaz v n\u011bm!",
+			"CheckYourEmail": "Zkontrolujte pros\u00edm sv\u016fj e-mail a postupujte podle pokyn\u016f!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Nastaven\u00ed ochrany osobn\u00edch \u00fadaj\u016f"
+	},
+	"participating": {
+		"Title": "Titul",
+		"Subscribed": "P\u0159edplaceno",
+		"Participants": "\u00da\u010dastn\u00edci",
+		"AreYouSureRemoveIdentifier": "Opravdu chcete tento identifik\u00e1tor odstranit?",
+		"AreYouSureUnsubscribeIdentifier": "Opravdu odhl\u00e1sit odb\u011br tohoto identifik\u00e1toru? Vypne upozorn\u011bn\u00ed na tento identifik\u00e1tor.",
+		"AreYouSureUnsubscribeDevice": "Opravdu odhl\u00e1sit odb\u011br tohoto za\u0159\u00edzen\u00ed? Vypne upozorn\u011bn\u00ed na toto za\u0159\u00edzen\u00ed.",
+		"AreYouSureRemoveParticipant": "Opravdu chcete tohoto \u00fa\u010dastn\u00edka odebrat?",
+		"RemoveParticipant": "Odebrat \u00fa\u010dastn\u00edka",
+		"Identifiers": "Identifik\u00e1tory",
+		"Devices": "Za\u0159\u00edzen\u00ed",
+		"Streams": "Proudy"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "Pozv\u00e1n",
+			"description": "Doru\u010den\u00e1 po\u0161ta pro pozv\u00e1nky"
+		},
+		"Streams/resource": {
+			"displayType": "Zdroj",
+			"description": "stream pro spr\u00e1vu p\u0159\u00edstupu ke zdroji a odes\u00edl\u00e1n\u00ed zpr\u00e1v o aktualizac\u00edch"
+		},
+		"Streams/task": {
+			"description": "pro p\u0159\u00edjem aktualizac\u00ed o postupu na ur\u010dit\u00e9m \u00fakolu",
+			"displayType": "\u00dakol"
+		},
+		"Streams/tasks": {
+			"description": "kategorie pro \u00fakoly",
+			"displayType": "\u00dakoly"
+		},
+		"Streams/experience": {
+			"description": "spole\u010dn\u00fd z\u00e1\u017eitek pro \u010dleny komunity",
+			"displayType": "Spole\u010dn\u00e1 zku\u0161enost pro \u010dleny komunity"
+		},
+		"Streams/greeting": {
+			"description": "pozdrav, kter\u00fdm se u\u017eivatel m\u016f\u017ee p\u0159edstavit",
+			"displayType": "Pozdrav"
+		},
+		"Streams/number": {
+			"displayType": "\u010c\u00edslo",
+			"description": "matematick\u00e9 \u010d\u00edslo"
+		},
+		"Streams/date": {
+			"displayType": "datum",
+			"description": "datum"
+		},
+		"Streams/text": {
+			"displayType": "Text",
+			"description": "t\u011blo textu"
+		},
+		"Streams/text/small": {
+			"displayType": "Text",
+			"description": "mal\u00e1 \u010d\u00e1st textu"
+		},
+		"Streams/text/medium": {
+			"displayType": "Text",
+			"description": "st\u0159edn\u00ed \u010d\u00e1st textu"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "Emailov\u00e1 adresa",
+			"description": "emailov\u00e1 adresa"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Telefonn\u00ed \u010d\u00edslo",
+			"description": "telefonn\u00ed \u010d\u00edslo"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "odkaz na webu"
+		},
+		"Streams/image": {
+			"displayType": "obraz",
+			"description": "vizu\u00e1ln\u00ed obraz",
+			"newItem": "P\u0159idat obr\u00e1zek"
+		},
+		"Streams/images": {
+			"displayType": "Galerie Obr\u00e1zk\u016f",
+			"description": "galerie obr\u00e1zk\u016f"
+		},
+		"Streams/album": {
+			"displayType": "Album",
+			"description": "album, ke kter\u00e9mu se vztahuj\u00ed r\u016fzn\u00e1 m\u00e9dia"
+		},
+		"Streams/file": {
+			"displayType": "Soubor",
+			"description": "nahran\u00fd soubor",
+			"newItem": "P\u0159idat soubor"
+		},
+		"Streams/audio": {
+			"displayType": "Zvukov\u00fd klip",
+			"description": "zvukov\u00fd klip",
+			"newItem": "P\u0159idat zvuk"
+		},
+		"Streams/video": {
+			"displayType": "Videoklip",
+			"description": "videoklip",
+			"newItem": "P\u0159idat video"
+		},
+		"Streams/pdf": {
+			"displayType": "PDF dokument",
+			"description": "PDF dokument",
+			"newItem": "P\u0159idat PDF"
+		},
+		"Streams/live": {
+			"displayType": "\u017div\u00fd p\u0159enos",
+			"description": "\u017eiv\u00e9 audio nebo video"
+		},
+		"Streams/category": {
+			"displayType": "Kategorie",
+			"description": "kategorie, ke kter\u00e9 lze p\u0159i\u0159adit dal\u0161\u00ed proudy",
+			"newItem": "P\u0159idat kategorii"
+		},
+		"Streams/participating": {
+			"displayType": "Z\u00fa\u010dastn\u011bn\u00fd index",
+			"description": "streamy s t\u00edm souvis\u00ed/nesouvis\u00ed, kdy\u017e se u\u017eivatel p\u0159ipoj\u00ed/odch\u00e1z\u00ed"
+		},
+		"Streams/interest": {
+			"displayType": "Z\u00e1jem",
+			"description": "p\u0159edstavuje z\u00e1jem u\u017eivatele o ur\u010dit\u00e9 t\u00e9ma"
+		},
+		"Streams/incoming": {
+			"displayType": "P\u0159ich\u00e1zej\u00edc\u00ed",
+			"description": "c\u00edl pro zpr\u00e1vy odeslan\u00e9 jin\u00fdmi u\u017eivateli"
+		},
+		"Streams/chat": {
+			"displayType": "Konverzace",
+			"description": "konverzace mezi u\u017eivateli s histori\u00ed"
+		},
+		"Streams/question": {
+			"displayType": "Ot\u00e1zka",
+			"description": "stream ot\u00e1zek",
+			"newItem": "P\u0159idat ot\u00e1zku"
+		},
+		"Streams/answer": {
+			"displayType": "Odpov\u011bd\u011bt",
+			"description": "stream odpov\u011bd\u00ed"
+		},
+		"Streams/topic": {
+			"displayType": "T\u00e9ma",
+			"description": "t\u00e9matick\u00fd proud",
+			"newItem": "P\u0159idat t\u00e9ma"
+		}
+	},
+	"menu": {
+		"placeholder": "zadejte n\u00e1zev str\u00e1nky",
+		"ModTab": "Upravit polo\u017eku",
+		"Save": "Ulo\u017eit",
+		"Delete": "Vymazat",
+		"Submenu": "Podnab\u00eddka"
+	},
+	"audio": {
+		"record": "Z\u00e1znam",
+		"reset": "Resetovat",
+		"edit": "Upravit",
+		"title": "titul",
+		"description": "popis",
+		"upload": "nahr\u00e1t",
+		"link": "Odkaz",
+		"setUrl": "Nastavit URL",
+		"save": "Ulo\u017eit",
+		"setClip": "Vyst\u0159ihnout klip",
+		"invalidURL": "neplatn\u00e1 URL",
+		"invalidFile": "Neplatn\u00fd soubor",
+		"errorNoSource": "\u017d\u00e1dn\u00fd zdroj zvuku",
+		"uploadLimit": "Maxim\u00e1ln\u00ed velikost souboru: {{size}}",
+		"errorFileSize": "Omlouv\u00e1me se, ale soubor je p\u0159\u00edli\u0161 velk\u00fd.<br> Maxim\u00e1ln\u00ed velikost souboru je {{size}}",
+		"TeaserAudio": "Teaser Audio"
+	},
+	"video": {
+		"reset": "Resetovat",
+		"edit": "Upravit",
+		"title": "titul",
+		"description": "popis",
+		"upload": "nahr\u00e1t",
+		"link": "Odkaz",
+		"setUrl": "Nastavit URL",
+		"save": "Ulo\u017eit",
+		"setClip": "Vyst\u0159ihnout klip",
+		"invalidURL": "neplatn\u00e1 URL",
+		"invalidFile": "Neplatn\u00fd soubor",
+		"errorNoSource": "\u017d\u00e1dn\u00fd zdroj videa",
+		"uploadLimit": "Maxim\u00e1ln\u00ed velikost souboru: {{size}}",
+		"errorFileSize": "Omlouv\u00e1me se, ale soubor je p\u0159\u00edli\u0161 velk\u00fd.<br> Maxim\u00e1ln\u00ed velikost souboru je {{size}}",
+		"createAnimatedThumbnail": "Vytvo\u0159te animovanou miniaturu",
+		"errorNotAvailable": "Omlouv\u00e1me se, ale video zat\u00edm nen\u00ed k dispozici. Pros\u00edm zkuste to znovu pozd\u011bji.",
+		"NewVideo": "Nov\u00e9 video",
+		"EditVideo": "Upravit video",
+		"TeaserVideo": "Video s upout\u00e1vkou"
+	},
+	"pdf": {
+		"reset": "Resetovat",
+		"edit": "Upravit",
+		"title": "titul",
+		"description": "popis",
+		"upload": "nahr\u00e1t",
+		"link": "Odkaz",
+		"setUrl": "Nastavit URL",
+		"save": "Ulo\u017eit",
+		"setClip": "Vyst\u0159ihnout klip",
+		"invalidURL": "neplatn\u00e1 URL",
+		"invalidFile": "Neplatn\u00fd soubor",
+		"errorNoSource": "\u017d\u00e1dn\u00fd zdroj pdf",
+		"uploadLimit": "Maxim\u00e1ln\u00ed velikost souboru: {{size}}",
+		"errorFileSize": "Omlouv\u00e1me se, ale soubor je p\u0159\u00edli\u0161 velk\u00fd.<br> Maxim\u00e1ln\u00ed velikost souboru je {{size}}",
+		"TeaserPDF": "Teaser PDF"
+	},
+	"image": {
+		"reset": "Resetovat",
+		"edit": "Upravit",
+		"title": "titul",
+		"description": "popis",
+		"upload": "nahr\u00e1t",
+		"link": "Odkaz",
+		"setUrl": "Nastavit URL",
+		"save": "Ulo\u017eit",
+		"uploadedImage": "Nahran\u00fd obr\u00e1zek",
+		"imageTitle": "N\u00e1zev obr\u00e1zku",
+		"setClip": "Vyst\u0159ihnout klip",
+		"invalidURL": "neplatn\u00e1 URL",
+		"invalidFile": "Neplatn\u00fd soubor",
+		"errorNoSource": "\u017d\u00e1dn\u00fd zdroj obr\u00e1zku",
+		"uploadLimit": "Maxim\u00e1ln\u00ed velikost souboru: {{size}}",
+		"errorFileSize": "Omlouv\u00e1me se, ale soubor je p\u0159\u00edli\u0161 velk\u00fd.<br> Maxim\u00e1ln\u00ed velikost souboru je {{size}}",
+		"TeaserImage": "Obr\u00e1zek upout\u00e1vky"
+	},
+	"questions": {
+		"Questions": "Ot\u00e1zky",
+		"Answers": "Odpov\u011bdi",
+		"AnswerQuestion": "Odpov\u011bd\u011bt na ot\u00e1zku",
+		"SetYourAnswer": "Odpov\u011bzte pros\u00edm na ot\u00e1zku",
+		"NewQuestion": "Nov\u00e1 ot\u00e1zka",
+		"EditQuestion": "Upravit ot\u00e1zku",
+		"NewAnswer": "Nov\u00e1 odpov\u011b\u010f",
+		"NewPossibleAnswer": "Nov\u00e1 mo\u017en\u00e1 odpov\u011b\u010f",
+		"AnswerDetails": "Podrobnosti odpov\u011bdi",
+		"answerOption": "Volba",
+		"answerOptionExclusive": "V\u00fdhradn\u00ed",
+		"answerTextarea": "Textarea",
+		"answerText": "Text",
+		"HideUntilAnswered": "Skr\u00fdt, dokud neodpov\u00ed",
+		"CantChangeAnswers": "Odpov\u011bdi nelze zm\u011bnit",
+		"FreeAnswer": "Zde napi\u0161te svou odpov\u011b\u010f",
+		"SaveQuestion": "Ulo\u017eit ot\u00e1zku",
+		"SaveAnswer": "Ulo\u017eit odpov\u011b\u010f",
+		"Save": "Ulo\u017eit",
+		"Send": "Poslat",
+		"TitleRequired": "Titul je povinn\u00fd!",
+		"AlreadyAnswered": "Ji\u017e zodpov\u011bzeno",
+		"TitlePlaceholder": "Napi\u0161te svou ot\u00e1zku",
+		"ContentPlaceholder": "Sem zadejte dal\u0161\u00ed informace, kter\u00e9 lidem pomohou odpov\u011bd\u011bt",
+		"ErrorTitle": "Vy\u017eaduje se ot\u00e1zka",
+		"Placeholder": "Napi\u0161te Pokyny",
+		"AreYouSure": "Jsi si jist\u00e1?",
+		"ShortAnswer": "Napi\u0161te kr\u00e1tkou odpov\u011b\u010f",
+		"AnswerCantBeChanged": "Odpov\u011b\u010f nelze zm\u011bnit"
+	},
+	"experience": {
+		"NewExperience": "Nov\u00fd z\u00e1\u017eitek",
+		"DefineTitle": "Definujte pros\u00edm n\u00e1zev",
+		"Create": "Vytvo\u0159it"
+	},
+	"calls": {
+		"SettingsTitle": "hovory",
+		"MaxCalls": "Max vol\u00e1n\u00ed",
+		"Update": "Aktualizace",
+		"NoCallsYet": "Zat\u00edm \u017e\u00e1dn\u00e9 hovory",
+		"CallReasonTitle": "O \u010dem je tento hovor?",
+		"WaitingRoom": "\u010cek\u00e1rna",
+		"LiveRoom": "Ob\u00fdvac\u00ed pokoj",
+		"interviewedByAnotherHost": "V sou\u010dasn\u00e9 dob\u011b je dotazov\u00e1n jin\u00fdm hostitelem",
+		"bringToLive": "Bring To Live Show",
+		"putOnHold": "Podr\u017ete",
+		"endCall": "Ukon\u010dit hovor",
+		"interview": "Rozhovor",
+		"markApproved": "Ozna\u010dit schv\u00e1leno"
+	},
+	"relate": {
+		"Add": "P\u0159idejte {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "Jm\u00e9no u\u017eivatele..."
+	},
+	"task": {
+		"errorsTitle": "Do\u0161lo k chyb\u00e1m"
+	},
+	"topic": {
+		"NewTopic": "Nov\u00e9 t\u00e9ma",
+		"UpdateTopic": "Aktualizovat t\u00e9ma",
+		"CreateTopic": "Vytvo\u0159it t\u00e9ma",
+		"AreYouSureDeleteTopic": "Opravdu chcete toto t\u00e9ma smazat?",
+		"TitlePlaceholder": "N\u00e1zev t\u00e9matu...",
+		"DescribeTopic": "popsat t\u00e9ma...",
+		"TopicIcon": "T\u00e9matick\u00fd obr\u00e1zek",
+		"UploadIcon": "Ikona nahr\u00e1v\u00e1n\u00ed",
+		"Conversation": "Konverzace",
+		"Metrics": "Metriky",
+		"Teaser": "Teaser",
+		"TeaserDescription": "popis teaseru...",
+		"TeaserVideo": "Video s upout\u00e1vkou"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Vytvo\u0159te animovanou miniaturu",
+		"Width": "\u0160\u00ed\u0159ka",
+		"Height": "V\u00fd\u0161ka",
+		"Start": "Start",
+		"End": "Konec",
+		"Delay": "Zpo\u017ed\u011bn\u00ed",
+		"Quality": "Kvalitn\u00ed",
+		"Size": "Velikost",
+		"OfFrames": "sn\u00edmk\u016f",
+		"Frame": "R\u00e1m",
+		"UseThis": "Pou\u017eij toto",
+		"ResultGIF": "V\u00fdsledek GIF",
+		"VideoElementNotFound": "Prvek videa nebyl nalezen"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} na va\u0161\u00ed tv\u00e1\u0159i",
+		"AcceptIcon": "P\u0159ijmout vybranou oblast"
+	},
+	"gallery": {
+		"DialogTitle": "Upravit obr\u00e1zek z galerie",
+		"EditImageTitle": "Upravit parametry obr\u00e1zku",
+		"IntervalLabel": "Interval (ms): ",
+		"IntervalPlaceholder": "nap\u0159. 3000",
+		"KenburnsInstruction": "Nastavte za\u010d\u00e1tek a konec Kena Burnse p\u0159eta\u017een\u00edm a p\u0159ibl\u00ed\u017een\u00edm."
+	}
 }

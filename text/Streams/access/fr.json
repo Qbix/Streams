@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "rien \u00e0 ce sujet",
+		"10": "que quelque chose est l\u00e0",
+		"20": "son contenu actuel",
+		"30": "qui y participe",
+		"40": "l&#39;activit\u00e9 sociale \u00e0 l&#39;int\u00e9rieur"
+	},
+	"writeLevelOptions": {
+		"0": "n&#39;y touchez pas",
+		"10": "y participer",
+		"20": "y poster des messages",
+		"30": "modifier son contenu"
+	},
+	"adminLevelOptions": {
+		"0": "ne rien faire de sp\u00e9cial",
+		"10": "Partager les messages du flux",
+		"20": "inviter d&#39;autres personnes au flux",
+		"30": "g\u00e9rer le flux",
+		"40": "Prenez-en possession et nommez des gestionnaires"
+	},
+	"tabs": {
+		"read": "visible \u00e0",
+		"write": "modifiable par",
+		"admin": "membres"
+	}
+}

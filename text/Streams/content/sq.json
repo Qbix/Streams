@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Kjo përmbajtje është e fshehur nga ju.",
-        "InplaceTypeMustBe": "inplaceType duhet të jetë &#39;textarea&#39; ose &#39;text&#39;"
-    },
-    "preview": {
-        "NewItemTitle": "Artikull i ri",
-        "Teaser": "Ngacmues"
-    },
-    "avatar": {
-        "firstName": "Emri",
-        "lastName": "mbiemri",
-        "username": "emri i përdoruesit"
-    },
-    "labels": {
-        "Streams\/invited": "Njerëz që i ftova",
-        "Streams\/invitedMe": "Kush më ftoi",
-        "DoYouAgree": "A jeni dakord?",
-        "Yes": "po",
-        "No": "Nr",
-        "JoinItNow": "Bashkohu tani?"
-    },
-    "login": {
-        "prompt": "Lërini miqtë t&#39;ju njohin:",
-        "newUser": "ose krijoni një llogari të re më poshtë",
-        "picTooltip": "Ju mund ta ndryshoni këtë foto më vonë",
-        "placeholders": {
-            "fullName": "vendos emrin tënd të plotë"
-        }
-    },
-    "interests": {
-        "Filter": "Interesat e kërkimit",
-        "CanGrant": "Nëse ende nuk mund të gjeni atë që po kërkoni, mund të shtoni një interes të ri më poshtë:",
-        "TrySynonyms": "Nuk e sheh? Provoni disa sinonime.",
-        "AddUnderCategory": "Shto nën kategorinë...",
-        "Other": "Të tjera",
-        "Unlisted": "I palistuar"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Mesazhi është raportuar për shqyrtim nga administratori. Prekni sërish për të hequr flamurin.",
-        "noOneSaid": "Askush nuk ka thënë asgjë",
-        "closeChatButton": "Mbylle bisedën",
-        "closeChatConfirmTitle": "Të mbyllet kjo bisedë?",
-        "closeChatConfirm": "Je i sigurt që dëshiron ta mbyllësh këtë bisedë?",
-        "Subscribed": "Njoftimet u aktivizuan",
-        "Unsubscribed": "Njoftimet janë të heshtura",
-        "closeChatConfirmYes": "po",
-        "closeChatConfirmNo": "Nr",
-        "earlierComments": "komentet e mëparshme",
-        "startedConversation": "filloi një bisedë",
-        "RealTimeCall": "Thirrje në kohë reale",
-        "JoinWebRTC": "Telekonferencë",
-        "SearchByName": "Kërko sipas emrit",
-        "Notifications": {
-            "Visit": "{{displayName}} po viziton bisedën",
-            "Join": "{{displayName}} iu bashkuan bisedës",
-            "Leave": "{{displayName}} u larguan nga biseda",
-            "RelatedTo": "{{displayName}} filloi një {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "Shto një koment",
-            "Private": "Shkruaj një mesazh privat"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "menaxhoni abonimet tuaja me email",
-        "IfUnsubscribe": "Nëse dëshironi të çregjistroheni",
-        "*": "Mesazh {{{ message.fields.type}} deri {{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} u bashkuan",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} kanë mbetur",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} tha: {{& message.content}}}",
-        "Streams\/changed": "Ndryshimet në {{stream.fields.title}}",
-        "Streams\/invite": "Jeni të ftuar në {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Njoftimi në {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} ndryshoi aksesin në {{& stream.fields.title}}}",
-        "Streams\/chat\/edit": "Mesazhi i bisedës i modifikuar në {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "Mesazhi i bisedës u hoq në {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} është mbyllur",
-        "Streams\/task\/progress": "Përparimi i bërë më {{stream.fields.title}}",
-        "Streams\/task\/complete": "Detyra e përfunduar: {{stream.fields.title}}",
-        "Streams\/task\/error": "Gabim gjatë: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Mesazhi në hyrje",
-        "Streams\/relatedTo\/Streams\/call": "Thirrja e re filloi në {{toTitle}}",
-        "Streams\/relatedTo\/*": "{{relationDisplayType}} e re në {{toTitle}}",
-        "Streams\/relatedFrom\/*": "Shtuar në {{toTitle}} si {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} ju përmendi në një koment",
-        "Streams\/call": "{{displayName}} filloi një telefonatë në kohë reale",
-        "changed": {
-            "ChangesIn": "Ndryshimet në {{title}}",
-            "Changed": "ndryshuar",
-            "HereIsWhatChanged": "Ja çfarë ndryshoi:"
-        },
-        "joined": {
-            "Joined": "{{subject}} u bashkuan <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Fto",
-        "Invite": "Fto",
-        "Share": "Shpërndaje",
-        "messageContent": "{{displayName}} ju ftoi në {{inviteUrl}}",
-        "youCanNowPaste": "Tani mund ta ngjitësh këtë lidhje diku për të ftuar njerëzit",
-        "roles": {
-            "title": "T&#39;u jepen role përdoruesve të ftuar?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Na vjen keq",
-                "alert": "Nuk je i autorizuar ta japësh këtë rol"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Na vjen keq",
-                "alert": "Nuk je i autorizuar ta heqësh këtë rol"
-            }
-        },
-        "labels": {
-            "title": "Cila është marrëdhënia juaj?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Zgjidhni nga kontaktet tuaja",
-            "chooseAgainFromContacts": "Zgjidhni Përsëri nga Kontaktet",
-            "inviteSelectedContacts": "Ftoni kontaktet e zgjedhura",
-            "selectFromContacts": "Zgjidhni Nga Kontaktet",
-            "userChooserPlaceholder": "Kërko sipas emrit",
-            "photo": "Bej nje foto",
-            "photoOf": "Bëni një foto të {{name}}",
-            "photoInstruction": "Nëse personi që ka skanuar kodin tuaj QR është para jush, fotografoni ata",
-            "to": "Deri në: {{Stream Title}}",
-            "go": "Shkoni",
-            "title": "Fto",
-            "placeholder": "Numri i celularit ose adresa e emailit",
-            "orInvite": "Ose ftoni njerëzit duke përdorur:",
-            "copyLink": "{{ClickOrTap}} për të kopjuar lidhjen e ftesës",
-            "shareOrCopyLink": "{{ClickOrTap}} për të ndarë ose kopjuar lidhjen e ftesës",
-            "QR": "{{ClickOrTap}} për të gjeneruar kodin QR",
-            "QRtitle": "Skanoni këtë kod QR",
-            "QRscanned": "E skanuan!",
-            "scannedQR": "{{ClickOrTap}} nëse kodi është skanuar",
-            "byEmail": "Email",
-            "bySms": "Teksti",
-            "byFacebook": "Facebook",
-            "byTwitter": "Cicëroj",
-            "title2": "Ftoni njerëzit",
-            "chooseMethod": "Zgjidhni një metodë:",
-            "selectContacts": "Zgjidhni Kontaktet",
-            "scanQRCode": "Skanoni kodin QR",
-            "shareLink": "Ndani një lidhje",
-            "chooseFromRegistered": "Zgjidhni nga përdoruesit e regjistruar",
-            "inviteViaEmailOrSms": "Fto me email ose SMS",
-            "TakeGroupPhoto": "Bëni një foto në grup",
-            "Skip": "Kapërce",
-            "byTelegram": "Telegrami",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Shto role",
-            "addPersonalRoles": "Shtoni Marrëdhëniet Personale"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Mirë se vini në {{communityName}}",
-            "HasInvitedYou": "ju ka ftuar në:",
-            "HasInvitedYouToTheirProfile": "ju ka ftuar të lidheni.",
-            "prompt": "Lërini miqtë t&#39;ju njohin:",
-            "accept": "Prano Ftesën"
-        },
-        "email": {
-            "subject": "Hej, shikoni këtë",
-            "PleaseVisitLink": "Ju lutemi vizitoni lidhjen e mëposhtme:",
-            "InvitingYou": "Unë ju ftoj në {{title}}",
-            "HasInvitedYou": "{{displayName}} ju ka ftuar në {{title}}",
-            "HasMentionedYou": "{{displayName}} ju ka përmendur në &quot; {{title}} &quot;",
-            "YOUAREINVITED": "JU JENI TË FTUAR!",
-            "AcceptInvite": "Prano Ftesën"
-        },
-        "mobile": {
-            "content": "Jeni të ftuar në {{title}} . Ju lutemi trokitni {{url}}"
-        },
-        "notice": {
-            "text": "Ju jeni ftuar. {{ClickOrTap}} këtu për të pranuar dhe për t&#39;u bashkuar."
-        },
-        "chat": {
-            "prompt": "Do të ftoni njerëz në një bisedë ku mund të qëndroni në kontakt, të ndani foto së bashku dhe më shumë. Jepini një emër:"
-        },
-        "Participants": "Ftoni njerëzit"
-    },
-    "messages": {
-        "html": {
-            "posted": "postoi një mesazh <em>{{message.fields.type}}<\/em> për {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "komentuar mbi",
-            "startedCallIn": "filloi një telefonatë",
-            "in": "në",
-            "body": "në {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "është postuar në",
-                "byAvatar": "me {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "ka një {{instructions.fromDisplayType}} të ri",
-                "byAvatar": "shtuar nga {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Ftesat dërgohen nga numri ynë, të cilin miqtë tuaj ende nuk e njohin. Ndiqni me një tekst të shpejtë për t&#39;i bërë të ditur se ftesa erdhi nga ju, duke u kërkuar atyre të klikojnë lidhjen.",
-            "confirm": "Ftesat dërgohen nga numri ynë, të cilin miqtë tuaj ende nuk e njohin. Dëshironi të vazhdoni me një tekst të shpejtë për t&#39;i bërë të ditur se ftesa erdhi nga ju, duke u kërkuar atyre të klikojnë lidhjen.",
-            "check": "Hej, sapo ju dërgova një ftesë në aplikacionin {{app}} . Ju lutemi kontrolloni sms-në tuaj dhe klikoni lidhjen!",
-            "CheckYourMobile": "Ju lutemi kontrolloni SMS dhe ndiqni udhëzimet!"
-        },
-        "email": {
-            "alert": "Ftesat dërgohen nga domeni ynë, të cilat miqtë tuaj nuk i njohin ende. Ndiqni me një tekst të shpejtë për t&#39;i bërë të ditur se ftesa erdhi nga ju, duke u kërkuar atyre të klikojnë lidhjen.",
-            "confirm": "Ftesat dërgohen nga domeni ynë, të cilat miqtë tuaj nuk i njohin ende. Dëshironi të vazhdoni me një tekst të shpejtë për t&#39;i bërë të ditur se ftesa erdhi nga ju, duke u kërkuar atyre të klikojnë lidhjen.",
-            "subject": "A keni marrë një ftesë?",
-            "body": "Hej, sapo ju dërgova një ftesë në aplikacionin {{app}} . Ju lutemi kontrolloni emailin tuaj dhe klikoni lidhjen atje!",
-            "CheckYourEmail": "Ju lutemi kontrolloni emailin tuaj dhe ndiqni udhëzimet!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Kushtet e Privatësisë"
-    },
-    "participating": {
-        "Title": "Titulli",
-        "Subscribed": "Abonuar",
-        "Participants": "Pjesëmarrësit",
-        "AreYouSureRemoveIdentifier": "Jeni i sigurt për ta hequr këtë identifikues?",
-        "AreYouSureUnsubscribeIdentifier": "Jeni i sigurt që e çabononi këtë identifikues? Do të çaktivizojë njoftimet për këtë identifikues.",
-        "AreYouSureUnsubscribeDevice": "Je i sigurt që ta çabonosh këtë pajisje? Do të çaktivizojë njoftimet për këtë pajisje.",
-        "AreYouSureRemoveParticipant": "Je i sigurt që dëshiron ta heqësh këtë pjesëmarrës?",
-        "RemoveParticipant": "Hiq pjesëmarrësin",
-        "Identifiers": "Identifikuesit",
-        "Devices": "Pajisjet",
-        "Streams": "Përrenjtë"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "I ftuar",
-            "description": "Inbox për ftesa"
-        },
-        "Streams\/resource": {
-            "displayType": "Burim",
-            "description": "transmetim për menaxhimin e aksesit në një burim dhe postimin e mesazheve rreth përditësimeve"
-        },
-        "Streams\/task": {
-            "description": "për marrjen e përditësimeve në lidhje me përparimin në një detyrë të caktuar",
-            "displayType": "Detyrë"
-        },
-        "Streams\/tasks": {
-            "description": "kategori për detyra",
-            "displayType": "Detyrat"
-        },
-        "Streams\/experience": {
-            "description": "një përvojë e përbashkët për anëtarët e një komuniteti",
-            "displayType": "Përvoja e zakonshme për anëtarët e një komuniteti"
-        },
-        "Streams\/greeting": {
-            "description": "përshëndetje me të cilën një përdorues mund të prezantohet",
-            "displayType": "pershendetje"
-        },
-        "Streams\/number": {
-            "displayType": "Numri",
-            "description": "numri matematik"
-        },
-        "Streams\/date": {
-            "displayType": "Data",
-            "description": "datë"
-        },
-        "Streams\/text": {
-            "displayType": "Teksti",
-            "description": "trupi i tekstit"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Teksti",
-            "description": "trup i vogël teksti"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Teksti",
-            "description": "trupi mesatar i tekstit"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "Adresa e emailit",
-            "description": "adresën e emailit"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Numri i telefonit",
-            "description": "Numri i telefonit"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "lidhje në ueb"
-        },
-        "Streams\/image": {
-            "displayType": "Imazhi",
-            "description": "imazh vizual",
-            "newItem": "Shto imazh"
-        },
-        "Streams\/images": {
-            "displayType": "Galeria e Imazheve",
-            "description": "galeria e imazheve"
-        },
-        "Streams\/album": {
-            "displayType": "Albumi",
-            "description": "një album me të cilin lidhen media të ndryshme"
-        },
-        "Streams\/file": {
-            "displayType": "Skedari",
-            "description": "skedari i ngarkuar",
-            "newItem": "Shto skedar"
-        },
-        "Streams\/audio": {
-            "displayType": "Klip audio",
-            "description": "klip audio",
-            "newItem": "Shto audio"
-        },
-        "Streams\/video": {
-            "displayType": "Videoklipi",
-            "description": "videoklip",
-            "newItem": "Shto Video"
-        },
-        "Streams\/pdf": {
-            "displayType": "dokument PDF",
-            "description": "dokument PDF",
-            "newItem": "Shto PDF"
-        },
-        "Streams\/live": {
-            "displayType": "Transmetim i drejtpërdrejtë",
-            "description": "audio ose video live"
-        },
-        "Streams\/category": {
-            "displayType": "Kategoria",
-            "description": "një kategori me të cilën mund të lidhen rryma të tjera",
-            "newItem": "Shto kategori"
-        },
-        "Streams\/participating": {
-            "displayType": "Indeksi pjesëmarrës",
-            "description": "transmetimet janë të lidhura\/pa lidhje me këtë kur një përdorues bashkohet\/largohet"
-        },
-        "Streams\/interest": {
-            "displayType": "Interesi",
-            "description": "përfaqëson interesin e një përdoruesi për një temë të caktuar"
-        },
-        "Streams\/incoming": {
-            "displayType": "Në hyrje",
-            "description": "destinacioni për mesazhet e dërguara nga përdoruesit e tjerë"
-        },
-        "Streams\/chat": {
-            "displayType": "bashkëbisedim",
-            "description": "një bisedë midis përdoruesve, me historinë"
-        },
-        "Streams\/question": {
-            "displayType": "Pyetje",
-            "description": "rrymë pyetjesh",
-            "newItem": "Shto pyetje"
-        },
-        "Streams\/answer": {
-            "displayType": "Përgjigju",
-            "description": "rrjedha e përgjigjeve"
-        },
-        "Streams\/topic": {
-            "displayType": "Tema",
-            "description": "rrjedha e temës",
-            "newItem": "Shto temë"
-        }
-    },
-    "menu": {
-        "placeholder": "shkruani titullin e faqes",
-        "ModTab": "Modifiko artikullin",
-        "Save": "Ruaj",
-        "Delete": "Fshije",
-        "Submenu": "Nënmenyja"
-    },
-    "audio": {
-        "record": "Regjistro",
-        "reset": "Rivendos",
-        "edit": "Redakto",
-        "title": "titullin",
-        "description": "përshkrim",
-        "upload": "Ngarkoni",
-        "link": "Lidhje",
-        "setUrl": "Cakto URL-në",
-        "save": "Ruaj",
-        "setClip": "Klip i prerë",
-        "invalidURL": "URL e pavlefshme",
-        "invalidFile": "Skedar i pavlefshëm",
-        "errorNoSource": "Nuk ka burim audio",
-        "uploadLimit": "Madhësia maksimale e skedarit: {{size}}",
-        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}",
-        "TeaserAudio": "Audio ngacmuese"
-    },
-    "video": {
-        "reset": "Rivendos",
-        "edit": "Redakto",
-        "title": "titullin",
-        "description": "përshkrim",
-        "upload": "Ngarkoni",
-        "link": "Lidhje",
-        "setUrl": "Cakto URL-në",
-        "save": "Ruaj",
-        "setClip": "Klip i prerë",
-        "invalidURL": "URL e pavlefshme",
-        "invalidFile": "Skedar i pavlefshëm",
-        "errorNoSource": "Nuk ka burim video",
-        "uploadLimit": "Madhësia maksimale e skedarit: {{size}}",
-        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}",
-        "createAnimatedThumbnail": "Krijo miniaturë të animuar",
-        "errorNotAvailable": "Na vjen keq, por video nuk është ende e disponueshme. Ju lutemi provoni përsëri më vonë.",
-        "NewVideo": "Video e re",
-        "EditVideo": "Edit Video",
-        "TeaserVideo": "Video ngacmuese"
-    },
-    "pdf": {
-        "reset": "Rivendos",
-        "edit": "Redakto",
-        "title": "titullin",
-        "description": "përshkrim",
-        "upload": "Ngarkoni",
-        "link": "Lidhje",
-        "setUrl": "Cakto URL-në",
-        "save": "Ruaj",
-        "setClip": "Klip i prerë",
-        "invalidURL": "URL e pavlefshme",
-        "invalidFile": "Skedar i pavlefshëm",
-        "errorNoSource": "Nuk ka burim pdf",
-        "uploadLimit": "Madhësia maksimale e skedarit: {{size}}",
-        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}",
-        "TeaserPDF": "Teaser PDF"
-    },
-    "image": {
-        "reset": "Rivendos",
-        "edit": "Redakto",
-        "title": "titullin",
-        "description": "përshkrim",
-        "upload": "Ngarkoni",
-        "link": "Lidhje",
-        "setUrl": "Cakto URL-në",
-        "save": "Ruaj",
-        "uploadedImage": "Imazhi i ngarkuar",
-        "imageTitle": "Titulli i imazhit",
-        "setClip": "Klip i prerë",
-        "invalidURL": "URL e pavlefshme",
-        "invalidFile": "Skedar i pavlefshëm",
-        "errorNoSource": "Nuk ka burim imazhi",
-        "uploadLimit": "Madhësia maksimale e skedarit: {{size}}",
-        "errorFileSize": "Na vjen keq, por skedari është shumë i madh.<br> Madhësia maksimale e skedarit është {{size}}",
-        "TeaserImage": "Imazhi ngacmues"
-    },
-    "questions": {
-        "Questions": "Pyetje",
-        "Answers": "Përgjigjet",
-        "AnswerQuestion": "Pergjigju pyetjes",
-        "SetYourAnswer": "Ju lutemi përgjigjuni pyetjes",
-        "NewQuestion": "Pyetje e re",
-        "EditQuestion": "Redakto pyetjen",
-        "NewAnswer": "Përgjigje e re",
-        "NewPossibleAnswer": "Përgjigje e re e mundshme",
-        "AnswerDetails": "Detajet e përgjigjes",
-        "answerOption": "Opsioni",
-        "answerOptionExclusive": "Ekskluzive",
-        "answerTextarea": "Textarea",
-        "answerText": "Teksti",
-        "HideUntilAnswered": "Fshihu derisa të përgjigjet",
-        "CantChangeAnswers": "Nuk mund të ndryshohen përgjigjet",
-        "FreeAnswer": "Shkruani përgjigjen tuaj këtu",
-        "SaveQuestion": "Ruaj pyetjen",
-        "SaveAnswer": "Ruaj përgjigjen",
-        "Save": "Ruaj",
-        "Send": "Dërgo",
-        "TitleRequired": "Kërkohet titulli!",
-        "AlreadyAnswered": "Tashmë është përgjigjur",
-        "TitlePlaceholder": "Shkruani pyetjen tuaj",
-        "ContentPlaceholder": "Vendos çdo informacion shtesë këtu për t&#39;i ndihmuar njerëzit të përgjigjen",
-        "ErrorTitle": "Kërkohet pyetje",
-        "Placeholder": "Shkruani udhëzime",
-        "AreYouSure": "A je i sigurt?",
-        "ShortAnswer": "Shkruani një përgjigje të shkurtër",
-        "AnswerCantBeChanged": "Përgjigja nuk mund të ndryshohet"
-    },
-    "experience": {
-        "NewExperience": "Përvojë e re",
-        "DefineTitle": "Ju lutemi përcaktoni një titull",
-        "Create": "Krijo"
-    },
-    "calls": {
-        "SettingsTitle": "Thirrjet",
-        "MaxCalls": "Maks telefonon",
-        "Update": "Përditëso",
-        "NoCallsYet": "Ende nuk ka telefonata",
-        "CallReasonTitle": "Për çfarë bëhet fjalë kjo thirrje?",
-        "WaitingRoom": "Dhome pritje",
-        "LiveRoom": "Dhomë e gjallë",
-        "interviewedByAnotherHost": "Aktualisht është intervistuar nga një mikpritës tjetër",
-        "bringToLive": "Bring To Live Show",
-        "putOnHold": "Vendos në pritje",
-        "endCall": "Fundi i telefonatës",
-        "interview": "Intervistë",
-        "markApproved": "Mark i miratuar"
-    },
-    "relate": {
-        "Add": "Shto {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "Emri i një përdoruesi..."
-    },
-    "task": {
-        "errorsTitle": "Ndodhën gabime"
-    },
-    "topic": {
-        "NewTopic": "Temë e re",
-        "UpdateTopic": "Përditëso temën",
-        "CreateTopic": "Krijo Temë",
-        "AreYouSureDeleteTopic": "Jeni të sigurt që dëshironi ta fshini këtë temë",
-        "TitlePlaceholder": "titulli i temës...",
-        "DescribeTopic": "përshkruani temën ...",
-        "TopicIcon": "Foto e temës",
-        "UploadIcon": "Ikona e ngarkimit",
-        "Conversation": "bashkëbisedim",
-        "Metrics": "Metrikë",
-        "Teaser": "Ngacmues",
-        "TeaserDescription": "përshkrimi i ngacmimit...",
-        "TeaserVideo": "Video ngacmuese"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Krijo miniaturë të animuar",
-        "Width": "Gjerësia",
-        "Height": "Lartësia",
-        "Start": "Filloni",
-        "End": "fund",
-        "Delay": "Vonesa",
-        "Quality": "Cilësia",
-        "Size": "Madhësia",
-        "OfFrames": "të Kornizave",
-        "Frame": "Kornizë",
-        "UseThis": "Përdor këtë",
-        "ResultGIF": "Rezultati GIF",
-        "VideoElementNotFound": "Elementi i videos nuk u gjet"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} Në fytyrën tuaj",
-        "AcceptIcon": "Prano zonën e zgjedhur"
-    }
+	"errors": {
+		"HiddenFromYou": "Kjo p\u00ebrmbajtje \u00ebsht\u00eb e fshehur nga ju.",
+		"InplaceTypeMustBe": "inplaceType duhet t\u00eb jet\u00eb &#39;textarea&#39; ose &#39;text&#39;",
+		"AmountInvalid": "Ju lutemi futni nj\u00eb num\u00ebr t\u00eb vlefsh\u00ebm milisekondash."
+	},
+	"preview": {
+		"NewItemTitle": "Artikull i ri",
+		"Teaser": "Ngacmues"
+	},
+	"avatar": {
+		"firstName": "Emri",
+		"lastName": "mbiemri",
+		"username": "emri i p\u00ebrdoruesit"
+	},
+	"labels": {
+		"Streams/invited": "Njer\u00ebz q\u00eb i ftova",
+		"Streams/invitedMe": "Kush m\u00eb ftoi",
+		"DoYouAgree": "A jeni dakord?",
+		"Yes": "po",
+		"No": "Nr",
+		"JoinItNow": "Bashkohu tani?"
+	},
+	"login": {
+		"prompt": "L\u00ebrini miqt\u00eb t&#39;ju njohin:",
+		"newUser": "ose krijoni nj\u00eb llogari t\u00eb re m\u00eb posht\u00eb",
+		"picTooltip": "Ju mund ta ndryshoni k\u00ebt\u00eb foto m\u00eb von\u00eb",
+		"placeholders": {
+			"fullName": "vendos emrin t\u00ebnd t\u00eb plot\u00eb"
+		}
+	},
+	"interests": {
+		"Filter": "Interesat e k\u00ebrkimit",
+		"CanGrant": "N\u00ebse ende nuk mund t\u00eb gjeni at\u00eb q\u00eb po k\u00ebrkoni, mund t\u00eb shtoni nj\u00eb interes t\u00eb ri m\u00eb posht\u00eb:",
+		"TrySynonyms": "Nuk e sheh? Provoni disa sinonime.",
+		"AddUnderCategory": "Shto n\u00ebn kategorin\u00eb...",
+		"Other": "T\u00eb tjera",
+		"Unlisted": "I palistuar"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Mesazhi \u00ebsht\u00eb raportuar p\u00ebr shqyrtim nga administratori. Prekni s\u00ebrish p\u00ebr t\u00eb hequr flamurin.",
+		"noOneSaid": "Askush nuk ka th\u00ebn\u00eb asgj\u00eb",
+		"closeChatButton": "Mbylle bised\u00ebn",
+		"closeChatConfirmTitle": "T\u00eb mbyllet kjo bised\u00eb?",
+		"closeChatConfirm": "Je i sigurt q\u00eb d\u00ebshiron ta mbyll\u00ebsh k\u00ebt\u00eb bised\u00eb?",
+		"Subscribed": "Njoftimet u aktivizuan",
+		"Unsubscribed": "Njoftimet jan\u00eb t\u00eb heshtura",
+		"closeChatConfirmYes": "po",
+		"closeChatConfirmNo": "Nr",
+		"earlierComments": "komentet e m\u00ebparshme",
+		"startedConversation": "filloi nj\u00eb bised\u00eb",
+		"RealTimeCall": "Thirrje n\u00eb koh\u00eb reale",
+		"JoinWebRTC": "Telekonferenc\u00eb",
+		"SearchByName": "K\u00ebrko sipas emrit",
+		"Notifications": {
+			"Visit": "{{displayName}} po viziton bised\u00ebn",
+			"Join": "{{displayName}} iu bashkuan bised\u00ebs",
+			"Leave": "{{displayName}} u larguan nga biseda",
+			"RelatedTo": "{{displayName}} filloi nj\u00eb {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "Shto nj\u00eb koment",
+			"Private": "Shkruaj nj\u00eb mesazh privat"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "menaxhoni abonimet tuaja me email",
+		"IfUnsubscribe": "N\u00ebse d\u00ebshironi t\u00eb \u00e7regjistroheni",
+		"*": "Mesazh {{{ message.fields.type}} deri {{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} u bashkuan",
+		"Streams/left": "{{{call 'avatar.displayName'}}} kan\u00eb mbetur",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} tha: {{& message.content}}}",
+		"Streams/changed": "Ndryshimet n\u00eb {{stream.fields.title}}",
+		"Streams/invite": "Jeni t\u00eb ftuar n\u00eb {{{ stream.fields.title}}}",
+		"Streams/announcement": "Njoftimi n\u00eb {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} ndryshoi aksesin n\u00eb {{& stream.fields.title}}}",
+		"Streams/chat/edit": "Mesazhi i bised\u00ebs i modifikuar n\u00eb {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "Mesazhi i bised\u00ebs u hoq n\u00eb {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} \u00ebsht\u00eb mbyllur",
+		"Streams/task/progress": "P\u00ebrparimi i b\u00ebr\u00eb m\u00eb {{stream.fields.title}}",
+		"Streams/task/complete": "Detyra e p\u00ebrfunduar: {{stream.fields.title}}",
+		"Streams/task/error": "Gabim gjat\u00eb: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : Mesazhi n\u00eb hyrje",
+		"Streams/relatedTo/Streams/call": "Thirrja e re filloi n\u00eb {{toTitle}}",
+		"Streams/relatedTo/*": "{{relationDisplayType}} e re n\u00eb {{toTitle}}",
+		"Streams/relatedFrom/*": "Shtuar n\u00eb {{toTitle}} si {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} ju p\u00ebrmendi n\u00eb nj\u00eb koment",
+		"Streams/call": "{{displayName}} filloi nj\u00eb telefonat\u00eb n\u00eb koh\u00eb reale",
+		"changed": {
+			"ChangesIn": "Ndryshimet n\u00eb {{title}}",
+			"Changed": "ndryshuar",
+			"HereIsWhatChanged": "Ja \u00e7far\u00eb ndryshoi:"
+		},
+		"joined": {
+			"Joined": "{{subject}} u bashkuan <em>{{title}}</em>"
+		},
+		"Streams/invited": "Ju u ftuat n\u00eb {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "Fto",
+		"Invite": "Fto",
+		"Share": "Shp\u00ebrndaje",
+		"messageContent": "{{displayName}} ju ftoi n\u00eb {{inviteUrl}}",
+		"youCanNowPaste": "Tani mund ta ngjit\u00ebsh k\u00ebt\u00eb lidhje diku p\u00ebr t\u00eb ftuar njer\u00ebzit",
+		"roles": {
+			"title": "T&#39;u jepen role p\u00ebrdoruesve t\u00eb ftuar?",
+			"NotAuthorizedToGrantRole": {
+				"title": "Na vjen keq",
+				"alert": "Nuk je i autorizuar ta jap\u00ebsh k\u00ebt\u00eb rol"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "Na vjen keq",
+				"alert": "Nuk je i autorizuar ta heq\u00ebsh k\u00ebt\u00eb rol"
+			}
+		},
+		"labels": {
+			"title": "Cila \u00ebsht\u00eb marr\u00ebdh\u00ebnia juaj?"
+		},
+		"dialog": {
+			"chooseFromContacts": "Zgjidhni nga kontaktet tuaja",
+			"chooseAgainFromContacts": "Zgjidhni P\u00ebrs\u00ebri nga Kontaktet",
+			"inviteSelectedContacts": "Ftoni kontaktet e zgjedhura",
+			"selectFromContacts": "Zgjidhni Nga Kontaktet",
+			"userChooserPlaceholder": "K\u00ebrko sipas emrit",
+			"photo": "Bej nje foto",
+			"photoOf": "B\u00ebni nj\u00eb foto t\u00eb {{name}}",
+			"photoInstruction": "N\u00ebse personi q\u00eb ka skanuar kodin tuaj QR \u00ebsht\u00eb para jush, fotografoni ata",
+			"to": "Deri n\u00eb: {{Stream Title}}",
+			"go": "Shkoni",
+			"title": "Fto",
+			"placeholder": "Numri i celularit ose adresa e emailit",
+			"orInvite": "Ose ftoni njer\u00ebzit duke p\u00ebrdorur:",
+			"copyLink": "{{ClickOrTap}} p\u00ebr t\u00eb kopjuar lidhjen e ftes\u00ebs",
+			"shareOrCopyLink": "{{ClickOrTap}} p\u00ebr t\u00eb ndar\u00eb ose kopjuar lidhjen e ftes\u00ebs",
+			"QR": "{{ClickOrTap}} p\u00ebr t\u00eb gjeneruar kodin QR",
+			"QRtitle": "Skanoni k\u00ebt\u00eb kod QR",
+			"QRscanned": "E skanuan!",
+			"scannedQR": "{{ClickOrTap}} n\u00ebse kodi \u00ebsht\u00eb skanuar",
+			"byEmail": "Email",
+			"bySms": "Teksti",
+			"byFacebook": "Facebook",
+			"byTwitter": "Cic\u00ebroj",
+			"title2": "Ftoni njer\u00ebzit",
+			"chooseMethod": "Zgjidhni nj\u00eb metod\u00eb:",
+			"selectContacts": "Zgjidhni Kontaktet",
+			"scanQRCode": "Skanoni kodin QR",
+			"shareLink": "Ndani nj\u00eb lidhje",
+			"chooseFromRegistered": "Zgjidhni nga p\u00ebrdoruesit e regjistruar",
+			"inviteViaEmailOrSms": "Fto me email ose SMS",
+			"TakeGroupPhoto": "B\u00ebni nj\u00eb foto n\u00eb grup",
+			"Skip": "Kap\u00ebrce",
+			"byTelegram": "Telegrami",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "Shto role",
+			"addPersonalRoles": "Shtoni Marr\u00ebdh\u00ebniet Personale"
+		},
+		"complete": {
+			"WelcomeToCommunity": "Mir\u00eb se vini n\u00eb {{communityName}}",
+			"HasInvitedYou": "ju ka ftuar n\u00eb:",
+			"HasInvitedYouToTheirProfile": "ju ka ftuar t\u00eb lidheni.",
+			"prompt": "L\u00ebrini miqt\u00eb t&#39;ju njohin:",
+			"accept": "Prano Ftes\u00ebn"
+		},
+		"email": {
+			"subject": "Hej, shikoni k\u00ebt\u00eb",
+			"PleaseVisitLink": "Ju lutemi vizitoni lidhjen e m\u00ebposhtme:",
+			"InvitingYou": "Un\u00eb ju ftoj n\u00eb {{title}}",
+			"HasInvitedYou": "{{displayName}} ju ka ftuar n\u00eb {{title}}",
+			"HasMentionedYou": "{{displayName}} ju ka p\u00ebrmendur n\u00eb &quot; {{title}} &quot;",
+			"YOUAREINVITED": "JU JENI T\u00cb FTUAR!",
+			"AcceptInvite": "Prano Ftes\u00ebn"
+		},
+		"mobile": {
+			"content": "Jeni t\u00eb ftuar n\u00eb {{title}} . Ju lutemi trokitni {{url}}"
+		},
+		"notice": {
+			"text": "Ju jeni ftuar. {{ClickOrTap}} k\u00ebtu p\u00ebr t\u00eb pranuar dhe p\u00ebr t&#39;u bashkuar."
+		},
+		"chat": {
+			"prompt": "Do t\u00eb ftoni njer\u00ebz n\u00eb nj\u00eb bised\u00eb ku mund t\u00eb q\u00ebndroni n\u00eb kontakt, t\u00eb ndani foto s\u00eb bashku dhe m\u00eb shum\u00eb. Jepini nj\u00eb em\u00ebr:"
+		},
+		"Participants": "Ftoni njer\u00ebzit"
+	},
+	"messages": {
+		"html": {
+			"posted": "postoi nj\u00eb mesazh <em>{{message.fields.type}}</em> p\u00ebr {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "komentuar mbi",
+			"startedCallIn": "filloi nj\u00eb telefonat\u00eb",
+			"in": "n\u00eb",
+			"body": "n\u00eb {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "\u00ebsht\u00eb postuar n\u00eb",
+				"byAvatar": "me {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "ka nj\u00eb {{instructions.fromDisplayType}} t\u00eb ri",
+				"byAvatar": "shtuar nga {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "Ftesat d\u00ebrgohen nga numri yn\u00eb, t\u00eb cilin miqt\u00eb tuaj ende nuk e njohin. Ndiqni me nj\u00eb tekst t\u00eb shpejt\u00eb p\u00ebr t&#39;i b\u00ebr\u00eb t\u00eb ditur se ftesa erdhi nga ju, duke u k\u00ebrkuar atyre t\u00eb klikojn\u00eb lidhjen.",
+			"confirm": "Ftesat d\u00ebrgohen nga numri yn\u00eb, t\u00eb cilin miqt\u00eb tuaj ende nuk e njohin. D\u00ebshironi t\u00eb vazhdoni me nj\u00eb tekst t\u00eb shpejt\u00eb p\u00ebr t&#39;i b\u00ebr\u00eb t\u00eb ditur se ftesa erdhi nga ju, duke u k\u00ebrkuar atyre t\u00eb klikojn\u00eb lidhjen.",
+			"check": "Hej, sapo ju d\u00ebrgova nj\u00eb ftes\u00eb n\u00eb aplikacionin {{app}} . Ju lutemi kontrolloni sms-n\u00eb tuaj dhe klikoni lidhjen!",
+			"CheckYourMobile": "Ju lutemi kontrolloni SMS dhe ndiqni udh\u00ebzimet!"
+		},
+		"email": {
+			"alert": "Ftesat d\u00ebrgohen nga domeni yn\u00eb, t\u00eb cilat miqt\u00eb tuaj nuk i njohin ende. Ndiqni me nj\u00eb tekst t\u00eb shpejt\u00eb p\u00ebr t&#39;i b\u00ebr\u00eb t\u00eb ditur se ftesa erdhi nga ju, duke u k\u00ebrkuar atyre t\u00eb klikojn\u00eb lidhjen.",
+			"confirm": "Ftesat d\u00ebrgohen nga domeni yn\u00eb, t\u00eb cilat miqt\u00eb tuaj nuk i njohin ende. D\u00ebshironi t\u00eb vazhdoni me nj\u00eb tekst t\u00eb shpejt\u00eb p\u00ebr t&#39;i b\u00ebr\u00eb t\u00eb ditur se ftesa erdhi nga ju, duke u k\u00ebrkuar atyre t\u00eb klikojn\u00eb lidhjen.",
+			"subject": "A keni marr\u00eb nj\u00eb ftes\u00eb?",
+			"body": "Hej, sapo ju d\u00ebrgova nj\u00eb ftes\u00eb n\u00eb aplikacionin {{app}} . Ju lutemi kontrolloni emailin tuaj dhe klikoni lidhjen atje!",
+			"CheckYourEmail": "Ju lutemi kontrolloni emailin tuaj dhe ndiqni udh\u00ebzimet!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Kushtet e Privat\u00ebsis\u00eb"
+	},
+	"participating": {
+		"Title": "Titulli",
+		"Subscribed": "Abonuar",
+		"Participants": "Pjes\u00ebmarr\u00ebsit",
+		"AreYouSureRemoveIdentifier": "Jeni i sigurt p\u00ebr ta hequr k\u00ebt\u00eb identifikues?",
+		"AreYouSureUnsubscribeIdentifier": "Jeni i sigurt q\u00eb e \u00e7abononi k\u00ebt\u00eb identifikues? Do t\u00eb \u00e7aktivizoj\u00eb njoftimet p\u00ebr k\u00ebt\u00eb identifikues.",
+		"AreYouSureUnsubscribeDevice": "Je i sigurt q\u00eb ta \u00e7abonosh k\u00ebt\u00eb pajisje? Do t\u00eb \u00e7aktivizoj\u00eb njoftimet p\u00ebr k\u00ebt\u00eb pajisje.",
+		"AreYouSureRemoveParticipant": "Je i sigurt q\u00eb d\u00ebshiron ta heq\u00ebsh k\u00ebt\u00eb pjes\u00ebmarr\u00ebs?",
+		"RemoveParticipant": "Hiq pjes\u00ebmarr\u00ebsin",
+		"Identifiers": "Identifikuesit",
+		"Devices": "Pajisjet",
+		"Streams": "P\u00ebrrenjt\u00eb"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "I ftuar",
+			"description": "Inbox p\u00ebr ftesa"
+		},
+		"Streams/resource": {
+			"displayType": "Burim",
+			"description": "transmetim p\u00ebr menaxhimin e aksesit n\u00eb nj\u00eb burim dhe postimin e mesazheve rreth p\u00ebrdit\u00ebsimeve"
+		},
+		"Streams/task": {
+			"description": "p\u00ebr marrjen e p\u00ebrdit\u00ebsimeve n\u00eb lidhje me p\u00ebrparimin n\u00eb nj\u00eb detyr\u00eb t\u00eb caktuar",
+			"displayType": "Detyr\u00eb"
+		},
+		"Streams/tasks": {
+			"description": "kategori p\u00ebr detyra",
+			"displayType": "Detyrat"
+		},
+		"Streams/experience": {
+			"description": "nj\u00eb p\u00ebrvoj\u00eb e p\u00ebrbashk\u00ebt p\u00ebr an\u00ebtar\u00ebt e nj\u00eb komuniteti",
+			"displayType": "P\u00ebrvoja e zakonshme p\u00ebr an\u00ebtar\u00ebt e nj\u00eb komuniteti"
+		},
+		"Streams/greeting": {
+			"description": "p\u00ebrsh\u00ebndetje me t\u00eb cil\u00ebn nj\u00eb p\u00ebrdorues mund t\u00eb prezantohet",
+			"displayType": "pershendetje"
+		},
+		"Streams/number": {
+			"displayType": "Numri",
+			"description": "numri matematik"
+		},
+		"Streams/date": {
+			"displayType": "Data",
+			"description": "dat\u00eb"
+		},
+		"Streams/text": {
+			"displayType": "Teksti",
+			"description": "trupi i tekstit"
+		},
+		"Streams/text/small": {
+			"displayType": "Teksti",
+			"description": "trup i vog\u00ebl teksti"
+		},
+		"Streams/text/medium": {
+			"displayType": "Teksti",
+			"description": "trupi mesatar i tekstit"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "Adresa e emailit",
+			"description": "adres\u00ebn e emailit"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Numri i telefonit",
+			"description": "Numri i telefonit"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "lidhje n\u00eb ueb"
+		},
+		"Streams/image": {
+			"displayType": "Imazhi",
+			"description": "imazh vizual",
+			"newItem": "Shto imazh"
+		},
+		"Streams/images": {
+			"displayType": "Galeria e Imazheve",
+			"description": "galeria e imazheve"
+		},
+		"Streams/album": {
+			"displayType": "Albumi",
+			"description": "nj\u00eb album me t\u00eb cilin lidhen media t\u00eb ndryshme"
+		},
+		"Streams/file": {
+			"displayType": "Skedari",
+			"description": "skedari i ngarkuar",
+			"newItem": "Shto skedar"
+		},
+		"Streams/audio": {
+			"displayType": "Klip audio",
+			"description": "klip audio",
+			"newItem": "Shto audio"
+		},
+		"Streams/video": {
+			"displayType": "Videoklipi",
+			"description": "videoklip",
+			"newItem": "Shto Video"
+		},
+		"Streams/pdf": {
+			"displayType": "dokument PDF",
+			"description": "dokument PDF",
+			"newItem": "Shto PDF"
+		},
+		"Streams/live": {
+			"displayType": "Transmetim i drejtp\u00ebrdrejt\u00eb",
+			"description": "audio ose video live"
+		},
+		"Streams/category": {
+			"displayType": "Kategoria",
+			"description": "nj\u00eb kategori me t\u00eb cil\u00ebn mund t\u00eb lidhen rryma t\u00eb tjera",
+			"newItem": "Shto kategori"
+		},
+		"Streams/participating": {
+			"displayType": "Indeksi pjes\u00ebmarr\u00ebs",
+			"description": "transmetimet jan\u00eb t\u00eb lidhura/pa lidhje me k\u00ebt\u00eb kur nj\u00eb p\u00ebrdorues bashkohet/largohet"
+		},
+		"Streams/interest": {
+			"displayType": "Interesi",
+			"description": "p\u00ebrfaq\u00ebson interesin e nj\u00eb p\u00ebrdoruesi p\u00ebr nj\u00eb tem\u00eb t\u00eb caktuar"
+		},
+		"Streams/incoming": {
+			"displayType": "N\u00eb hyrje",
+			"description": "destinacioni p\u00ebr mesazhet e d\u00ebrguara nga p\u00ebrdoruesit e tjer\u00eb"
+		},
+		"Streams/chat": {
+			"displayType": "bashk\u00ebbisedim",
+			"description": "nj\u00eb bised\u00eb midis p\u00ebrdoruesve, me historin\u00eb"
+		},
+		"Streams/question": {
+			"displayType": "Pyetje",
+			"description": "rrym\u00eb pyetjesh",
+			"newItem": "Shto pyetje"
+		},
+		"Streams/answer": {
+			"displayType": "P\u00ebrgjigju",
+			"description": "rrjedha e p\u00ebrgjigjeve"
+		},
+		"Streams/topic": {
+			"displayType": "Tema",
+			"description": "rrjedha e tem\u00ebs",
+			"newItem": "Shto tem\u00eb"
+		}
+	},
+	"menu": {
+		"placeholder": "shkruani titullin e faqes",
+		"ModTab": "Modifiko artikullin",
+		"Save": "Ruaj",
+		"Delete": "Fshije",
+		"Submenu": "N\u00ebnmenyja"
+	},
+	"audio": {
+		"record": "Regjistro",
+		"reset": "Rivendos",
+		"edit": "Redakto",
+		"title": "titullin",
+		"description": "p\u00ebrshkrim",
+		"upload": "Ngarkoni",
+		"link": "Lidhje",
+		"setUrl": "Cakto URL-n\u00eb",
+		"save": "Ruaj",
+		"setClip": "Klip i prer\u00eb",
+		"invalidURL": "URL e pavlefshme",
+		"invalidFile": "Skedar i pavlefsh\u00ebm",
+		"errorNoSource": "Nuk ka burim audio",
+		"uploadLimit": "Madh\u00ebsia maksimale e skedarit: {{size}}",
+		"errorFileSize": "Na vjen keq, por skedari \u00ebsht\u00eb shum\u00eb i madh.<br> Madh\u00ebsia maksimale e skedarit \u00ebsht\u00eb {{size}}",
+		"TeaserAudio": "Audio ngacmuese"
+	},
+	"video": {
+		"reset": "Rivendos",
+		"edit": "Redakto",
+		"title": "titullin",
+		"description": "p\u00ebrshkrim",
+		"upload": "Ngarkoni",
+		"link": "Lidhje",
+		"setUrl": "Cakto URL-n\u00eb",
+		"save": "Ruaj",
+		"setClip": "Klip i prer\u00eb",
+		"invalidURL": "URL e pavlefshme",
+		"invalidFile": "Skedar i pavlefsh\u00ebm",
+		"errorNoSource": "Nuk ka burim video",
+		"uploadLimit": "Madh\u00ebsia maksimale e skedarit: {{size}}",
+		"errorFileSize": "Na vjen keq, por skedari \u00ebsht\u00eb shum\u00eb i madh.<br> Madh\u00ebsia maksimale e skedarit \u00ebsht\u00eb {{size}}",
+		"createAnimatedThumbnail": "Krijo miniatur\u00eb t\u00eb animuar",
+		"errorNotAvailable": "Na vjen keq, por video nuk \u00ebsht\u00eb ende e disponueshme. Ju lutemi provoni p\u00ebrs\u00ebri m\u00eb von\u00eb.",
+		"NewVideo": "Video e re",
+		"EditVideo": "Edit Video",
+		"TeaserVideo": "Video ngacmuese"
+	},
+	"pdf": {
+		"reset": "Rivendos",
+		"edit": "Redakto",
+		"title": "titullin",
+		"description": "p\u00ebrshkrim",
+		"upload": "Ngarkoni",
+		"link": "Lidhje",
+		"setUrl": "Cakto URL-n\u00eb",
+		"save": "Ruaj",
+		"setClip": "Klip i prer\u00eb",
+		"invalidURL": "URL e pavlefshme",
+		"invalidFile": "Skedar i pavlefsh\u00ebm",
+		"errorNoSource": "Nuk ka burim pdf",
+		"uploadLimit": "Madh\u00ebsia maksimale e skedarit: {{size}}",
+		"errorFileSize": "Na vjen keq, por skedari \u00ebsht\u00eb shum\u00eb i madh.<br> Madh\u00ebsia maksimale e skedarit \u00ebsht\u00eb {{size}}",
+		"TeaserPDF": "Teaser PDF"
+	},
+	"image": {
+		"reset": "Rivendos",
+		"edit": "Redakto",
+		"title": "titullin",
+		"description": "p\u00ebrshkrim",
+		"upload": "Ngarkoni",
+		"link": "Lidhje",
+		"setUrl": "Cakto URL-n\u00eb",
+		"save": "Ruaj",
+		"uploadedImage": "Imazhi i ngarkuar",
+		"imageTitle": "Titulli i imazhit",
+		"setClip": "Klip i prer\u00eb",
+		"invalidURL": "URL e pavlefshme",
+		"invalidFile": "Skedar i pavlefsh\u00ebm",
+		"errorNoSource": "Nuk ka burim imazhi",
+		"uploadLimit": "Madh\u00ebsia maksimale e skedarit: {{size}}",
+		"errorFileSize": "Na vjen keq, por skedari \u00ebsht\u00eb shum\u00eb i madh.<br> Madh\u00ebsia maksimale e skedarit \u00ebsht\u00eb {{size}}",
+		"TeaserImage": "Imazhi ngacmues"
+	},
+	"questions": {
+		"Questions": "Pyetje",
+		"Answers": "P\u00ebrgjigjet",
+		"AnswerQuestion": "Pergjigju pyetjes",
+		"SetYourAnswer": "Ju lutemi p\u00ebrgjigjuni pyetjes",
+		"NewQuestion": "Pyetje e re",
+		"EditQuestion": "Redakto pyetjen",
+		"NewAnswer": "P\u00ebrgjigje e re",
+		"NewPossibleAnswer": "P\u00ebrgjigje e re e mundshme",
+		"AnswerDetails": "Detajet e p\u00ebrgjigjes",
+		"answerOption": "Opsioni",
+		"answerOptionExclusive": "Ekskluzive",
+		"answerTextarea": "Textarea",
+		"answerText": "Teksti",
+		"HideUntilAnswered": "Fshihu derisa t\u00eb p\u00ebrgjigjet",
+		"CantChangeAnswers": "Nuk mund t\u00eb ndryshohen p\u00ebrgjigjet",
+		"FreeAnswer": "Shkruani p\u00ebrgjigjen tuaj k\u00ebtu",
+		"SaveQuestion": "Ruaj pyetjen",
+		"SaveAnswer": "Ruaj p\u00ebrgjigjen",
+		"Save": "Ruaj",
+		"Send": "D\u00ebrgo",
+		"TitleRequired": "K\u00ebrkohet titulli!",
+		"AlreadyAnswered": "Tashm\u00eb \u00ebsht\u00eb p\u00ebrgjigjur",
+		"TitlePlaceholder": "Shkruani pyetjen tuaj",
+		"ContentPlaceholder": "Vendos \u00e7do informacion shtes\u00eb k\u00ebtu p\u00ebr t&#39;i ndihmuar njer\u00ebzit t\u00eb p\u00ebrgjigjen",
+		"ErrorTitle": "K\u00ebrkohet pyetje",
+		"Placeholder": "Shkruani udh\u00ebzime",
+		"AreYouSure": "A je i sigurt?",
+		"ShortAnswer": "Shkruani nj\u00eb p\u00ebrgjigje t\u00eb shkurt\u00ebr",
+		"AnswerCantBeChanged": "P\u00ebrgjigja nuk mund t\u00eb ndryshohet"
+	},
+	"experience": {
+		"NewExperience": "P\u00ebrvoj\u00eb e re",
+		"DefineTitle": "Ju lutemi p\u00ebrcaktoni nj\u00eb titull",
+		"Create": "Krijo"
+	},
+	"calls": {
+		"SettingsTitle": "Thirrjet",
+		"MaxCalls": "Maks telefonon",
+		"Update": "P\u00ebrdit\u00ebso",
+		"NoCallsYet": "Ende nuk ka telefonata",
+		"CallReasonTitle": "P\u00ebr \u00e7far\u00eb b\u00ebhet fjal\u00eb kjo thirrje?",
+		"WaitingRoom": "Dhome pritje",
+		"LiveRoom": "Dhom\u00eb e gjall\u00eb",
+		"interviewedByAnotherHost": "Aktualisht \u00ebsht\u00eb intervistuar nga nj\u00eb mikprit\u00ebs tjet\u00ebr",
+		"bringToLive": "Bring To Live Show",
+		"putOnHold": "Vendos n\u00eb pritje",
+		"endCall": "Fundi i telefonat\u00ebs",
+		"interview": "Intervist\u00eb",
+		"markApproved": "Mark i miratuar"
+	},
+	"relate": {
+		"Add": "Shto {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "Emri i nj\u00eb p\u00ebrdoruesi..."
+	},
+	"task": {
+		"errorsTitle": "Ndodh\u00ebn gabime"
+	},
+	"topic": {
+		"NewTopic": "Tem\u00eb e re",
+		"UpdateTopic": "P\u00ebrdit\u00ebso tem\u00ebn",
+		"CreateTopic": "Krijo Tem\u00eb",
+		"AreYouSureDeleteTopic": "Jeni t\u00eb sigurt q\u00eb d\u00ebshironi ta fshini k\u00ebt\u00eb tem\u00eb",
+		"TitlePlaceholder": "titulli i tem\u00ebs...",
+		"DescribeTopic": "p\u00ebrshkruani tem\u00ebn ...",
+		"TopicIcon": "Foto e tem\u00ebs",
+		"UploadIcon": "Ikona e ngarkimit",
+		"Conversation": "bashk\u00ebbisedim",
+		"Metrics": "Metrik\u00eb",
+		"Teaser": "Ngacmues",
+		"TeaserDescription": "p\u00ebrshkrimi i ngacmimit...",
+		"TeaserVideo": "Video ngacmuese"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Krijo miniatur\u00eb t\u00eb animuar",
+		"Width": "Gjer\u00ebsia",
+		"Height": "Lart\u00ebsia",
+		"Start": "Filloni",
+		"End": "fund",
+		"Delay": "Vonesa",
+		"Quality": "Cil\u00ebsia",
+		"Size": "Madh\u00ebsia",
+		"OfFrames": "t\u00eb Kornizave",
+		"Frame": "Korniz\u00eb",
+		"UseThis": "P\u00ebrdor k\u00ebt\u00eb",
+		"ResultGIF": "Rezultati GIF",
+		"VideoElementNotFound": "Elementi i videos nuk u gjet"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} N\u00eb fytyr\u00ebn tuaj",
+		"AcceptIcon": "Prano zon\u00ebn e zgjedhur"
+	},
+	"gallery": {
+		"DialogTitle": "Modifiko imazhin e galeris\u00eb",
+		"EditImageTitle": "Modifiko Parametrat e Imazhit",
+		"IntervalLabel": "Intervali (ms): ",
+		"IntervalPlaceholder": "p.sh. 3000",
+		"KenburnsInstruction": "Cakto fillimin dhe fundin e Ken Burns duke zvarritur dhe zmadhuar."
+	}
 }

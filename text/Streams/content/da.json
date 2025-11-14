@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Dette indhold er skjult for dig.",
-        "InplaceTypeMustBe": "inplaceType skal være &#39;textarea&#39; eller &#39;text&#39;"
-    },
-    "preview": {
-        "NewItemTitle": "Ny vare",
-        "Teaser": "Teaser"
-    },
-    "avatar": {
-        "firstName": "fornavn",
-        "lastName": "efternavn",
-        "username": "brugernavn"
-    },
-    "labels": {
-        "Streams\/invited": "Folk jeg inviterede",
-        "Streams\/invitedMe": "Hvem inviterede mig",
-        "DoYouAgree": "Er du enig?",
-        "Yes": "Ja",
-        "No": "Ingen",
-        "JoinItNow": "Vil du være med nu?"
-    },
-    "login": {
-        "prompt": "Lad venner genkende dig:",
-        "newUser": "eller opret en ny konto nedenfor",
-        "picTooltip": "Du kan ændre dette billede senere",
-        "placeholders": {
-            "fullName": "Skriv dit fulde navn"
-        }
-    },
-    "interests": {
-        "Filter": "Søg efter interesser",
-        "CanGrant": "Hvis du stadig ikke kan finde det, du leder efter, kan du tilføje en ny interesse nedenfor:",
-        "TrySynonyms": "Kan du ikke se det? Prøv nogle synonymer.",
-        "AddUnderCategory": "Tilføj under kategori...",
-        "Other": "Andet",
-        "Unlisted": "Unoteret"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Beskeden er blevet markeret til administratorgennemgang. Tryk igen for at fjerne flag.",
-        "noOneSaid": "Ingen har sagt noget",
-        "closeChatButton": "Luk chat",
-        "closeChatConfirmTitle": "Vil du lukke denne chat?",
-        "closeChatConfirm": "Er du sikker på, at du vil lukke denne chat?",
-        "Subscribed": "Notifikationer aktiveret",
-        "Unsubscribed": "Meddelelser slået fra",
-        "closeChatConfirmYes": "Ja",
-        "closeChatConfirmNo": "Ingen",
-        "earlierComments": "tidligere kommentarer",
-        "startedConversation": "startede en samtale",
-        "RealTimeCall": "Realtidsopkald",
-        "JoinWebRTC": "Telekonference",
-        "SearchByName": "Søg efter navn",
-        "Notifications": {
-            "Visit": "{{displayName}} besøger chatten",
-            "Join": "{{displayName}} deltog i chatten",
-            "Leave": "{{displayName}} forlod chatten",
-            "RelatedTo": "{{displayName}} startede en {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "Tilføj en kommentar",
-            "Private": "Skriv en privat besked"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "administrere dine e-mail-abonnementer",
-        "IfUnsubscribe": "Hvis du vil afmelde",
-        "*": "Besked {{{ message.fields.type}} til {{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} tiltrådte",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} tilbage",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} sagde: {{& message.content}}}",
-        "Streams\/changed": "Ændringer i {{stream.fields.title}}",
-        "Streams\/invite": "Du blev inviteret til {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Annoncering i {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} ændrede adgang i {{& stream.fields.title}}}",
-        "Streams\/chat\/edit": "Chatbesked redigeret i {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "Chatbeskeden blev fjernet i {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} er blevet lukket",
-        "Streams\/task\/progress": "Fremskridt i {{stream.fields.title}}",
-        "Streams\/task\/complete": "Udførte opgave: {{stream.fields.title}}",
-        "Streams\/task\/error": "Fejl under: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Indgående besked",
-        "Streams\/relatedTo\/Streams\/call": "Nyt opkald startede i {{toTitle}}",
-        "Streams\/relatedTo\/*": "Ny {{relationDisplayType}} i {{toTitle}}",
-        "Streams\/relatedFrom\/*": "Tilføjet til {{toTitle}} som {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} nævnte dig i en kommentar",
-        "Streams\/call": "{{displayName}} startede et opkald i realtid",
-        "changed": {
-            "ChangesIn": "Ændringer i {{title}}",
-            "Changed": "ændret",
-            "HereIsWhatChanged": "Her er, hvad der er ændret:"
-        },
-        "joined": {
-            "Joined": "{{subject}} sluttede sig <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Invitere",
-        "Invite": "Invitere",
-        "Share": "Del",
-        "messageContent": "{{displayName}} inviterede dig til {{inviteUrl}}",
-        "youCanNowPaste": "Du kan nu indsætte dette link et sted for at invitere folk",
-        "roles": {
-            "title": "Tildele roller til inviterede brugere?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Undskyld",
-                "alert": "Du er ikke autoriseret til at tildele denne rolle"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Undskyld",
-                "alert": "Du er ikke autoriseret til at fjerne denne rolle"
-            }
-        },
-        "labels": {
-            "title": "Hvad er dit forhold?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Vælg fra dine kontakter",
-            "chooseAgainFromContacts": "Vælg igen fra Kontakter",
-            "inviteSelectedContacts": "Inviter valgte kontakter",
-            "selectFromContacts": "Vælg Fra kontakter",
-            "userChooserPlaceholder": "Søg efter navn",
-            "photo": "Tag et billede",
-            "photoOf": "Tag et billede af {{name}}",
-            "photoInstruction": "Hvis den person, der har scannet din QR-kode, er foran dig, så tag et billede af vedkommende",
-            "to": "Til: {{Stream Title}}",
-            "go": "Gå",
-            "title": "Invitere",
-            "placeholder": "Mobilnummer eller e-mailadresse",
-            "orInvite": "Eller inviter folk ved at bruge:",
-            "copyLink": "{{ClickOrTap}} for at kopiere invitationslinket",
-            "shareOrCopyLink": "{{ClickOrTap}} for at dele eller kopiere invitationslinket",
-            "QR": "{{ClickOrTap}} for at generere QR-kode",
-            "QRtitle": "Scan denne QR-kode",
-            "QRscanned": "De scannede det!",
-            "scannedQR": "{{ClickOrTap}} , hvis koden blev scannet",
-            "byEmail": "E-mail",
-            "bySms": "Tekst",
-            "byFacebook": "Facebook",
-            "byTwitter": "Twitter",
-            "title2": "Inviter folk",
-            "chooseMethod": "Vælg en metode:",
-            "selectContacts": "Vælg Kontakter",
-            "scanQRCode": "Scan QR-kode",
-            "shareLink": "Del et link",
-            "chooseFromRegistered": "Vælg blandt registrerede brugere",
-            "inviteViaEmailOrSms": "Inviter via e-mail eller SMS",
-            "TakeGroupPhoto": "Tag et gruppebillede",
-            "Skip": "Springe",
-            "byTelegram": "Telegram",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Tilføj roller",
-            "addPersonalRoles": "Tilføj personlige forhold"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Velkommen til {{communityName}}",
-            "HasInvitedYou": "har inviteret dig til:",
-            "HasInvitedYouToTheirProfile": "har inviteret dig til at oprette forbindelse.",
-            "prompt": "Lad venner genkende dig:",
-            "accept": "Accepter invitation"
-        },
-        "email": {
-            "subject": "Hej, tjek det her ud",
-            "PleaseVisitLink": "Besøg venligst følgende link:",
-            "InvitingYou": "Jeg inviterer dig til {{title}}",
-            "HasInvitedYou": "{{displayName}} har inviteret dig til {{title}}",
-            "HasMentionedYou": "{{displayName}} har nævnt dig i &quot; {{title}} &quot;",
-            "YOUAREINVITED": "DU ER INVITERET!",
-            "AcceptInvite": "Accepter invitation"
-        },
-        "mobile": {
-            "content": "Du er blevet inviteret til {{title}} . Tryk venligst på {{url}}"
-        },
-        "notice": {
-            "text": "Du er blevet inviteret. {{ClickOrTap}} her for at acceptere og deltage."
-        },
-        "chat": {
-            "prompt": "Du vil invitere folk til en samtale, hvor du kan holde kontakten, dele billeder sammen og meget mere. Giv det et navn:"
-        },
-        "Participants": "Inviter folk"
-    },
-    "messages": {
-        "html": {
-            "posted": "sendte en <em>{{message.fields.type}}<\/em> besked til {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "kommenterede",
-            "startedCallIn": "startede et opkald",
-            "in": "i",
-            "body": "i {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "er blevet sendt til",
-                "byAvatar": "med {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "har en ny {{instructions.fromDisplayType}}",
-                "byAvatar": "tilføjet af {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Invitationer sendes fra vores nummer, som dine venner endnu ikke genkender. Følg op med en hurtig tekst for at fortælle dem, at invitationen kom fra dig, og bed dem om at klikke på linket.",
-            "confirm": "Invitationer sendes fra vores nummer, som dine venner endnu ikke genkender. Vil du følge op med en hurtig tekst for at fortælle dem, at invitationen kom fra dig, og bede dem om at klikke på linket.",
-            "check": "Hej, jeg har lige sendt dig en invitation til {{app}} -appen. Tjek venligst din sms og klik på linket!",
-            "CheckYourMobile": "Tjek venligst SMS og følg instruktionerne!"
-        },
-        "email": {
-            "alert": "Invitationer sendes fra vores domæne, som dine venner endnu ikke genkender. Følg op med en hurtig tekst for at fortælle dem, at invitationen kom fra dig, og bed dem om at klikke på linket.",
-            "confirm": "Invitationer sendes fra vores domæne, som dine venner endnu ikke genkender. Vil du følge op med en hurtig tekst for at fortælle dem, at invitationen kom fra dig, og bede dem om at klikke på linket.",
-            "subject": "Fik du en invitation?",
-            "body": "Hej, jeg har lige sendt dig en invitation til {{app}} -appen. Tjek venligst din e-mail og klik på linket derinde!",
-            "CheckYourEmail": "Tjek venligst din e-mail og følg instruktionerne!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Privatindstillinger"
-    },
-    "participating": {
-        "Title": "Titel",
-        "Subscribed": "Abonneret",
-        "Participants": "Deltagere",
-        "AreYouSureRemoveIdentifier": "Er du sikker på at fjerne denne identifikator?",
-        "AreYouSureUnsubscribeIdentifier": "Er du sikker på at afmelde denne identifikator? Det vil deaktivere meddelelser til denne identifikator.",
-        "AreYouSureUnsubscribeDevice": "Er du sikker på at afmelde denne enhed? Det vil deaktivere meddelelser til denne enhed.",
-        "AreYouSureRemoveParticipant": "Er du sikker på, at du vil fjerne denne deltager?",
-        "RemoveParticipant": "Fjern deltager",
-        "Identifiers": "Identifikatorer",
-        "Devices": "Enheder",
-        "Streams": "Strømme"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Inviteret",
-            "description": "Indbakke for invitationer"
-        },
-        "Streams\/resource": {
-            "displayType": "Ressource",
-            "description": "stream til at administrere adgangen til en ressource og sende beskeder om opdateringer"
-        },
-        "Streams\/task": {
-            "description": "for at modtage opdateringer om fremskridt på en bestemt opgave",
-            "displayType": "Opgave"
-        },
-        "Streams\/tasks": {
-            "description": "kategori for opgaver",
-            "displayType": "Opgaver"
-        },
-        "Streams\/experience": {
-            "description": "en fælles oplevelse for medlemmer af et fællesskab",
-            "displayType": "Fælles erfaring for medlemmer af et fællesskab"
-        },
-        "Streams\/greeting": {
-            "description": "hilsen, som en bruger kan præsentere sig selv med",
-            "displayType": "Hilsen"
-        },
-        "Streams\/number": {
-            "displayType": "Nummer",
-            "description": "matematisk tal"
-        },
-        "Streams\/date": {
-            "displayType": "Dato",
-            "description": "dato"
-        },
-        "Streams\/text": {
-            "displayType": "Tekst",
-            "description": "brødtekst"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Tekst",
-            "description": "lille tekstdel"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Tekst",
-            "description": "medium tekst"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "Email adresse",
-            "description": "email adresse"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Telefonnummer",
-            "description": "telefonnummer"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "link på nettet"
-        },
-        "Streams\/image": {
-            "displayType": "Billede",
-            "description": "visuelt billede",
-            "newItem": "Tilføj billede"
-        },
-        "Streams\/images": {
-            "displayType": "Billedgalleri",
-            "description": "galleri med billeder"
-        },
-        "Streams\/album": {
-            "displayType": "Album",
-            "description": "et album, som forskellige medier er relateret til"
-        },
-        "Streams\/file": {
-            "displayType": "Fil",
-            "description": "uploadet fil",
-            "newItem": "Tilføj fil"
-        },
-        "Streams\/audio": {
-            "displayType": "Lydklip",
-            "description": "lydklip",
-            "newItem": "Tilføj lyd"
-        },
-        "Streams\/video": {
-            "displayType": "Videoklip",
-            "description": "videoklip",
-            "newItem": "Tilføj video"
-        },
-        "Streams\/pdf": {
-            "displayType": "PDF-dokument",
-            "description": "PDF-dokument",
-            "newItem": "Tilføj PDF"
-        },
-        "Streams\/live": {
-            "displayType": "Live stream",
-            "description": "live lyd eller video"
-        },
-        "Streams\/category": {
-            "displayType": "Kategori",
-            "description": "en kategori, som andre strømme kan relateres til",
-            "newItem": "Tilføj kategori"
-        },
-        "Streams\/participating": {
-            "displayType": "Deltagende indeks",
-            "description": "streams er relateret\/ikke relateret til dette, når en bruger tiltræder\/forlader"
-        },
-        "Streams\/interest": {
-            "displayType": "Interesse",
-            "description": "repræsenterer en brugers interesse i et bestemt emne"
-        },
-        "Streams\/incoming": {
-            "displayType": "Indkommende",
-            "description": "destination for beskeder sendt af andre brugere"
-        },
-        "Streams\/chat": {
-            "displayType": "Samtale",
-            "description": "en samtale mellem brugere, med historie"
-        },
-        "Streams\/question": {
-            "displayType": "Spørgsmål",
-            "description": "spørgsmålsstrøm",
-            "newItem": "Tilføj spørgsmål"
-        },
-        "Streams\/answer": {
-            "displayType": "Svar",
-            "description": "svarstrøm"
-        },
-        "Streams\/topic": {
-            "displayType": "Emne",
-            "description": "emnestrøm",
-            "newItem": "Tilføj emne"
-        }
-    },
-    "menu": {
-        "placeholder": "skriv sidetitel",
-        "ModTab": "Rediger element",
-        "Save": "Gemme",
-        "Delete": "Slet",
-        "Submenu": "Undermenu"
-    },
-    "audio": {
-        "record": "Optage",
-        "reset": "Nulstil",
-        "edit": "Redigere",
-        "title": "titel",
-        "description": "beskrivelse",
-        "upload": "Upload",
-        "link": "Link",
-        "setUrl": "Indstil URL",
-        "save": "Gemme",
-        "setClip": "Udskåret klip",
-        "invalidURL": "ugyldig URL",
-        "invalidFile": "Ugyldig fil",
-        "errorNoSource": "Ingen lydkilde",
-        "uploadLimit": "Maksimal filstørrelse: {{size}}",
-        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}",
-        "TeaserAudio": "Teaser lyd"
-    },
-    "video": {
-        "reset": "Nulstil",
-        "edit": "Redigere",
-        "title": "titel",
-        "description": "beskrivelse",
-        "upload": "Upload",
-        "link": "Link",
-        "setUrl": "Indstil URL",
-        "save": "Gemme",
-        "setClip": "Udskåret klip",
-        "invalidURL": "ugyldig URL",
-        "invalidFile": "Ugyldig fil",
-        "errorNoSource": "Ingen videokilde",
-        "uploadLimit": "Maksimal filstørrelse: {{size}}",
-        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}",
-        "createAnimatedThumbnail": "Opret animeret thumbnail",
-        "errorNotAvailable": "Beklager, men videoen er endnu ikke tilgængelig. Prøv igen senere.",
-        "NewVideo": "Ny video",
-        "EditVideo": "Rediger video",
-        "TeaserVideo": "Teaser video"
-    },
-    "pdf": {
-        "reset": "Nulstil",
-        "edit": "Redigere",
-        "title": "titel",
-        "description": "beskrivelse",
-        "upload": "Upload",
-        "link": "Link",
-        "setUrl": "Indstil URL",
-        "save": "Gemme",
-        "setClip": "Udskåret klip",
-        "invalidURL": "ugyldig URL",
-        "invalidFile": "Ugyldig fil",
-        "errorNoSource": "Ingen pdf-kilde",
-        "uploadLimit": "Maksimal filstørrelse: {{size}}",
-        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}",
-        "TeaserPDF": "Teaser pdf"
-    },
-    "image": {
-        "reset": "Nulstil",
-        "edit": "Redigere",
-        "title": "titel",
-        "description": "beskrivelse",
-        "upload": "Upload",
-        "link": "Link",
-        "setUrl": "Indstil URL",
-        "save": "Gemme",
-        "uploadedImage": "Uploadet billede",
-        "imageTitle": "Billedets titel",
-        "setClip": "Udskåret klip",
-        "invalidURL": "ugyldig URL",
-        "invalidFile": "Ugyldig fil",
-        "errorNoSource": "Ingen billedkilde",
-        "uploadLimit": "Maksimal filstørrelse: {{size}}",
-        "errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filstørrelse er {{size}}",
-        "TeaserImage": "Teaser billede"
-    },
-    "questions": {
-        "Questions": "Spørgsmål",
-        "Answers": "Svar",
-        "AnswerQuestion": "Besvar spørgsmål",
-        "SetYourAnswer": "Svar venligst på spørgsmålet",
-        "NewQuestion": "Nyt spørgsmål",
-        "EditQuestion": "Rediger spørgsmål",
-        "NewAnswer": "Nyt svar",
-        "NewPossibleAnswer": "Nyt muligt svar",
-        "AnswerDetails": "Svar detaljer",
-        "answerOption": "Mulighed",
-        "answerOptionExclusive": "Eksklusiv",
-        "answerTextarea": "Tekstområde",
-        "answerText": "Tekst",
-        "HideUntilAnswered": "Skjul indtil svaret",
-        "CantChangeAnswers": "Kan ikke ændre svar",
-        "FreeAnswer": "Skriv dit svar her",
-        "SaveQuestion": "Gem spørgsmål",
-        "SaveAnswer": "Gem svar",
-        "Save": "Gemme",
-        "Send": "Sende",
-        "TitleRequired": "Titel påkrævet!",
-        "AlreadyAnswered": "Allerede besvaret",
-        "TitlePlaceholder": "Indtast dit spørgsmål",
-        "ContentPlaceholder": "Læg yderligere oplysninger her for at hjælpe folk med at svare",
-        "ErrorTitle": "Spørgsmål påkrævet",
-        "Placeholder": "Skriv instruktioner",
-        "AreYouSure": "Er du sikker?",
-        "ShortAnswer": "Skriv et kort svar",
-        "AnswerCantBeChanged": "Svaret kan ikke ændres"
-    },
-    "experience": {
-        "NewExperience": "Ny oplevelse",
-        "DefineTitle": "Definer venligst en titel",
-        "Create": "skab"
-    },
-    "calls": {
-        "SettingsTitle": "Opkald",
-        "MaxCalls": "Max ringer",
-        "Update": "Opdatering",
-        "NoCallsYet": "Ingen opkald endnu",
-        "CallReasonTitle": "Hvad handler dette opkald om?",
-        "WaitingRoom": "Venteværelse",
-        "LiveRoom": "Live Room",
-        "interviewedByAnotherHost": "Er i øjeblikket interviewet af en anden vært",
-        "bringToLive": "Bring til Live Show",
-        "putOnHold": "Sæt på hold",
-        "endCall": "Afslut opkald",
-        "interview": "Interview",
-        "markApproved": "Mærke godkendt"
-    },
-    "relate": {
-        "Add": "Tilføj {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "Navn på en bruger..."
-    },
-    "task": {
-        "errorsTitle": "Der opstod fejl"
-    },
-    "topic": {
-        "NewTopic": "Nyt emne",
-        "UpdateTopic": "Opdater emne",
-        "CreateTopic": "Opret emne",
-        "AreYouSureDeleteTopic": "Er du sikker på, at du vil slette dette emne",
-        "TitlePlaceholder": "emne titel...",
-        "DescribeTopic": "beskriv emnet...",
-        "TopicIcon": "Emnebillede",
-        "UploadIcon": "Upload ikon",
-        "Conversation": "Samtale",
-        "Metrics": "Metrics",
-        "Teaser": "Teaser",
-        "TeaserDescription": "teaser beskrivelse...",
-        "TeaserVideo": "Teaser video"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Opret animeret thumbnail",
-        "Width": "Bredde",
-        "Height": "Højde",
-        "Start": "Start",
-        "End": "Ende",
-        "Delay": "Forsinke",
-        "Quality": "Kvalitet",
-        "Size": "Størrelse",
-        "OfFrames": "af rammer",
-        "Frame": "Ramme",
-        "UseThis": "Brug denne",
-        "ResultGIF": "Resultat GIF",
-        "VideoElementNotFound": "Videoelement blev ikke fundet"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} på dit ansigt",
-        "AcceptIcon": "Accepter det valgte område"
-    }
+	"errors": {
+		"HiddenFromYou": "Dette indhold er skjult for dig.",
+		"InplaceTypeMustBe": "inplaceType skal v\u00e6re &#39;textarea&#39; eller &#39;text&#39;",
+		"AmountInvalid": "Indtast venligst et gyldigt antal millisekunder."
+	},
+	"preview": {
+		"NewItemTitle": "Ny vare",
+		"Teaser": "Teaser"
+	},
+	"avatar": {
+		"firstName": "fornavn",
+		"lastName": "efternavn",
+		"username": "brugernavn"
+	},
+	"labels": {
+		"Streams/invited": "Folk jeg inviterede",
+		"Streams/invitedMe": "Hvem inviterede mig",
+		"DoYouAgree": "Er du enig?",
+		"Yes": "Ja",
+		"No": "Ingen",
+		"JoinItNow": "Vil du v\u00e6re med nu?"
+	},
+	"login": {
+		"prompt": "Lad venner genkende dig:",
+		"newUser": "eller opret en ny konto nedenfor",
+		"picTooltip": "Du kan \u00e6ndre dette billede senere",
+		"placeholders": {
+			"fullName": "Skriv dit fulde navn"
+		}
+	},
+	"interests": {
+		"Filter": "S\u00f8g efter interesser",
+		"CanGrant": "Hvis du stadig ikke kan finde det, du leder efter, kan du tilf\u00f8je en ny interesse nedenfor:",
+		"TrySynonyms": "Kan du ikke se det? Pr\u00f8v nogle synonymer.",
+		"AddUnderCategory": "Tilf\u00f8j under kategori...",
+		"Other": "Andet",
+		"Unlisted": "Unoteret"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Beskeden er blevet markeret til administratorgennemgang. Tryk igen for at fjerne flag.",
+		"noOneSaid": "Ingen har sagt noget",
+		"closeChatButton": "Luk chat",
+		"closeChatConfirmTitle": "Vil du lukke denne chat?",
+		"closeChatConfirm": "Er du sikker p\u00e5, at du vil lukke denne chat?",
+		"Subscribed": "Notifikationer aktiveret",
+		"Unsubscribed": "Meddelelser sl\u00e5et fra",
+		"closeChatConfirmYes": "Ja",
+		"closeChatConfirmNo": "Ingen",
+		"earlierComments": "tidligere kommentarer",
+		"startedConversation": "startede en samtale",
+		"RealTimeCall": "Realtidsopkald",
+		"JoinWebRTC": "Telekonference",
+		"SearchByName": "S\u00f8g efter navn",
+		"Notifications": {
+			"Visit": "{{displayName}} bes\u00f8ger chatten",
+			"Join": "{{displayName}} deltog i chatten",
+			"Leave": "{{displayName}} forlod chatten",
+			"RelatedTo": "{{displayName}} startede en {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "Tilf\u00f8j en kommentar",
+			"Private": "Skriv en privat besked"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "administrere dine e-mail-abonnementer",
+		"IfUnsubscribe": "Hvis du vil afmelde",
+		"*": "Besked {{{ message.fields.type}} til {{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} tiltr\u00e5dte",
+		"Streams/left": "{{{call 'avatar.displayName'}}} tilbage",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} sagde: {{& message.content}}}",
+		"Streams/changed": "\u00c6ndringer i {{stream.fields.title}}",
+		"Streams/invite": "Du blev inviteret til {{{ stream.fields.title}}}",
+		"Streams/announcement": "Annoncering i {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} \u00e6ndrede adgang i {{& stream.fields.title}}}",
+		"Streams/chat/edit": "Chatbesked redigeret i {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "Chatbeskeden blev fjernet i {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} er blevet lukket",
+		"Streams/task/progress": "Fremskridt i {{stream.fields.title}}",
+		"Streams/task/complete": "Udf\u00f8rte opgave: {{stream.fields.title}}",
+		"Streams/task/error": "Fejl under: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : Indg\u00e5ende besked",
+		"Streams/relatedTo/Streams/call": "Nyt opkald startede i {{toTitle}}",
+		"Streams/relatedTo/*": "Ny {{relationDisplayType}} i {{toTitle}}",
+		"Streams/relatedFrom/*": "Tilf\u00f8jet til {{toTitle}} som {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} n\u00e6vnte dig i en kommentar",
+		"Streams/call": "{{displayName}} startede et opkald i realtid",
+		"changed": {
+			"ChangesIn": "\u00c6ndringer i {{title}}",
+			"Changed": "\u00e6ndret",
+			"HereIsWhatChanged": "Her er, hvad der er \u00e6ndret:"
+		},
+		"joined": {
+			"Joined": "{{subject}} sluttede sig <em>{{title}}</em>"
+		},
+		"Streams/invited": "Du blev inviteret til {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "Invitere",
+		"Invite": "Invitere",
+		"Share": "Del",
+		"messageContent": "{{displayName}} inviterede dig til {{inviteUrl}}",
+		"youCanNowPaste": "Du kan nu inds\u00e6tte dette link et sted for at invitere folk",
+		"roles": {
+			"title": "Tildele roller til inviterede brugere?",
+			"NotAuthorizedToGrantRole": {
+				"title": "Undskyld",
+				"alert": "Du er ikke autoriseret til at tildele denne rolle"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "Undskyld",
+				"alert": "Du er ikke autoriseret til at fjerne denne rolle"
+			}
+		},
+		"labels": {
+			"title": "Hvad er dit forhold?"
+		},
+		"dialog": {
+			"chooseFromContacts": "V\u00e6lg fra dine kontakter",
+			"chooseAgainFromContacts": "V\u00e6lg igen fra Kontakter",
+			"inviteSelectedContacts": "Inviter valgte kontakter",
+			"selectFromContacts": "V\u00e6lg Fra kontakter",
+			"userChooserPlaceholder": "S\u00f8g efter navn",
+			"photo": "Tag et billede",
+			"photoOf": "Tag et billede af {{name}}",
+			"photoInstruction": "Hvis den person, der har scannet din QR-kode, er foran dig, s\u00e5 tag et billede af vedkommende",
+			"to": "Til: {{Stream Title}}",
+			"go": "G\u00e5",
+			"title": "Invitere",
+			"placeholder": "Mobilnummer eller e-mailadresse",
+			"orInvite": "Eller inviter folk ved at bruge:",
+			"copyLink": "{{ClickOrTap}} for at kopiere invitationslinket",
+			"shareOrCopyLink": "{{ClickOrTap}} for at dele eller kopiere invitationslinket",
+			"QR": "{{ClickOrTap}} for at generere QR-kode",
+			"QRtitle": "Scan denne QR-kode",
+			"QRscanned": "De scannede det!",
+			"scannedQR": "{{ClickOrTap}} , hvis koden blev scannet",
+			"byEmail": "E-mail",
+			"bySms": "Tekst",
+			"byFacebook": "Facebook",
+			"byTwitter": "Twitter",
+			"title2": "Inviter folk",
+			"chooseMethod": "V\u00e6lg en metode:",
+			"selectContacts": "V\u00e6lg Kontakter",
+			"scanQRCode": "Scan QR-kode",
+			"shareLink": "Del et link",
+			"chooseFromRegistered": "V\u00e6lg blandt registrerede brugere",
+			"inviteViaEmailOrSms": "Inviter via e-mail eller SMS",
+			"TakeGroupPhoto": "Tag et gruppebillede",
+			"Skip": "Springe",
+			"byTelegram": "Telegram",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "Tilf\u00f8j roller",
+			"addPersonalRoles": "Tilf\u00f8j personlige forhold"
+		},
+		"complete": {
+			"WelcomeToCommunity": "Velkommen til {{communityName}}",
+			"HasInvitedYou": "har inviteret dig til:",
+			"HasInvitedYouToTheirProfile": "har inviteret dig til at oprette forbindelse.",
+			"prompt": "Lad venner genkende dig:",
+			"accept": "Accepter invitation"
+		},
+		"email": {
+			"subject": "Hej, tjek det her ud",
+			"PleaseVisitLink": "Bes\u00f8g venligst f\u00f8lgende link:",
+			"InvitingYou": "Jeg inviterer dig til {{title}}",
+			"HasInvitedYou": "{{displayName}} har inviteret dig til {{title}}",
+			"HasMentionedYou": "{{displayName}} har n\u00e6vnt dig i &quot; {{title}} &quot;",
+			"YOUAREINVITED": "DU ER INVITERET!",
+			"AcceptInvite": "Accepter invitation"
+		},
+		"mobile": {
+			"content": "Du er blevet inviteret til {{title}} . Tryk venligst p\u00e5 {{url}}"
+		},
+		"notice": {
+			"text": "Du er blevet inviteret. {{ClickOrTap}} her for at acceptere og deltage."
+		},
+		"chat": {
+			"prompt": "Du vil invitere folk til en samtale, hvor du kan holde kontakten, dele billeder sammen og meget mere. Giv det et navn:"
+		},
+		"Participants": "Inviter folk"
+	},
+	"messages": {
+		"html": {
+			"posted": "sendte en <em>{{message.fields.type}}</em> besked til {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "kommenterede",
+			"startedCallIn": "startede et opkald",
+			"in": "i",
+			"body": "i {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "er blevet sendt til",
+				"byAvatar": "med {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "har en ny {{instructions.fromDisplayType}}",
+				"byAvatar": "tilf\u00f8jet af {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "Invitationer sendes fra vores nummer, som dine venner endnu ikke genkender. F\u00f8lg op med en hurtig tekst for at fort\u00e6lle dem, at invitationen kom fra dig, og bed dem om at klikke p\u00e5 linket.",
+			"confirm": "Invitationer sendes fra vores nummer, som dine venner endnu ikke genkender. Vil du f\u00f8lge op med en hurtig tekst for at fort\u00e6lle dem, at invitationen kom fra dig, og bede dem om at klikke p\u00e5 linket.",
+			"check": "Hej, jeg har lige sendt dig en invitation til {{app}} -appen. Tjek venligst din sms og klik p\u00e5 linket!",
+			"CheckYourMobile": "Tjek venligst SMS og f\u00f8lg instruktionerne!"
+		},
+		"email": {
+			"alert": "Invitationer sendes fra vores dom\u00e6ne, som dine venner endnu ikke genkender. F\u00f8lg op med en hurtig tekst for at fort\u00e6lle dem, at invitationen kom fra dig, og bed dem om at klikke p\u00e5 linket.",
+			"confirm": "Invitationer sendes fra vores dom\u00e6ne, som dine venner endnu ikke genkender. Vil du f\u00f8lge op med en hurtig tekst for at fort\u00e6lle dem, at invitationen kom fra dig, og bede dem om at klikke p\u00e5 linket.",
+			"subject": "Fik du en invitation?",
+			"body": "Hej, jeg har lige sendt dig en invitation til {{app}} -appen. Tjek venligst din e-mail og klik p\u00e5 linket derinde!",
+			"CheckYourEmail": "Tjek venligst din e-mail og f\u00f8lg instruktionerne!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Privatindstillinger"
+	},
+	"participating": {
+		"Title": "Titel",
+		"Subscribed": "Abonneret",
+		"Participants": "Deltagere",
+		"AreYouSureRemoveIdentifier": "Er du sikker p\u00e5 at fjerne denne identifikator?",
+		"AreYouSureUnsubscribeIdentifier": "Er du sikker p\u00e5 at afmelde denne identifikator? Det vil deaktivere meddelelser til denne identifikator.",
+		"AreYouSureUnsubscribeDevice": "Er du sikker p\u00e5 at afmelde denne enhed? Det vil deaktivere meddelelser til denne enhed.",
+		"AreYouSureRemoveParticipant": "Er du sikker p\u00e5, at du vil fjerne denne deltager?",
+		"RemoveParticipant": "Fjern deltager",
+		"Identifiers": "Identifikatorer",
+		"Devices": "Enheder",
+		"Streams": "Str\u00f8mme"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "Inviteret",
+			"description": "Indbakke for invitationer"
+		},
+		"Streams/resource": {
+			"displayType": "Ressource",
+			"description": "stream til at administrere adgangen til en ressource og sende beskeder om opdateringer"
+		},
+		"Streams/task": {
+			"description": "for at modtage opdateringer om fremskridt p\u00e5 en bestemt opgave",
+			"displayType": "Opgave"
+		},
+		"Streams/tasks": {
+			"description": "kategori for opgaver",
+			"displayType": "Opgaver"
+		},
+		"Streams/experience": {
+			"description": "en f\u00e6lles oplevelse for medlemmer af et f\u00e6llesskab",
+			"displayType": "F\u00e6lles erfaring for medlemmer af et f\u00e6llesskab"
+		},
+		"Streams/greeting": {
+			"description": "hilsen, som en bruger kan pr\u00e6sentere sig selv med",
+			"displayType": "Hilsen"
+		},
+		"Streams/number": {
+			"displayType": "Nummer",
+			"description": "matematisk tal"
+		},
+		"Streams/date": {
+			"displayType": "Dato",
+			"description": "dato"
+		},
+		"Streams/text": {
+			"displayType": "Tekst",
+			"description": "br\u00f8dtekst"
+		},
+		"Streams/text/small": {
+			"displayType": "Tekst",
+			"description": "lille tekstdel"
+		},
+		"Streams/text/medium": {
+			"displayType": "Tekst",
+			"description": "medium tekst"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "Email adresse",
+			"description": "email adresse"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Telefonnummer",
+			"description": "telefonnummer"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "link p\u00e5 nettet"
+		},
+		"Streams/image": {
+			"displayType": "Billede",
+			"description": "visuelt billede",
+			"newItem": "Tilf\u00f8j billede"
+		},
+		"Streams/images": {
+			"displayType": "Billedgalleri",
+			"description": "galleri med billeder"
+		},
+		"Streams/album": {
+			"displayType": "Album",
+			"description": "et album, som forskellige medier er relateret til"
+		},
+		"Streams/file": {
+			"displayType": "Fil",
+			"description": "uploadet fil",
+			"newItem": "Tilf\u00f8j fil"
+		},
+		"Streams/audio": {
+			"displayType": "Lydklip",
+			"description": "lydklip",
+			"newItem": "Tilf\u00f8j lyd"
+		},
+		"Streams/video": {
+			"displayType": "Videoklip",
+			"description": "videoklip",
+			"newItem": "Tilf\u00f8j video"
+		},
+		"Streams/pdf": {
+			"displayType": "PDF-dokument",
+			"description": "PDF-dokument",
+			"newItem": "Tilf\u00f8j PDF"
+		},
+		"Streams/live": {
+			"displayType": "Live stream",
+			"description": "live lyd eller video"
+		},
+		"Streams/category": {
+			"displayType": "Kategori",
+			"description": "en kategori, som andre str\u00f8mme kan relateres til",
+			"newItem": "Tilf\u00f8j kategori"
+		},
+		"Streams/participating": {
+			"displayType": "Deltagende indeks",
+			"description": "streams er relateret/ikke relateret til dette, n\u00e5r en bruger tiltr\u00e6der/forlader"
+		},
+		"Streams/interest": {
+			"displayType": "Interesse",
+			"description": "repr\u00e6senterer en brugers interesse i et bestemt emne"
+		},
+		"Streams/incoming": {
+			"displayType": "Indkommende",
+			"description": "destination for beskeder sendt af andre brugere"
+		},
+		"Streams/chat": {
+			"displayType": "Samtale",
+			"description": "en samtale mellem brugere, med historie"
+		},
+		"Streams/question": {
+			"displayType": "Sp\u00f8rgsm\u00e5l",
+			"description": "sp\u00f8rgsm\u00e5lsstr\u00f8m",
+			"newItem": "Tilf\u00f8j sp\u00f8rgsm\u00e5l"
+		},
+		"Streams/answer": {
+			"displayType": "Svar",
+			"description": "svarstr\u00f8m"
+		},
+		"Streams/topic": {
+			"displayType": "Emne",
+			"description": "emnestr\u00f8m",
+			"newItem": "Tilf\u00f8j emne"
+		}
+	},
+	"menu": {
+		"placeholder": "skriv sidetitel",
+		"ModTab": "Rediger element",
+		"Save": "Gemme",
+		"Delete": "Slet",
+		"Submenu": "Undermenu"
+	},
+	"audio": {
+		"record": "Optage",
+		"reset": "Nulstil",
+		"edit": "Redigere",
+		"title": "titel",
+		"description": "beskrivelse",
+		"upload": "Upload",
+		"link": "Link",
+		"setUrl": "Indstil URL",
+		"save": "Gemme",
+		"setClip": "Udsk\u00e5ret klip",
+		"invalidURL": "ugyldig URL",
+		"invalidFile": "Ugyldig fil",
+		"errorNoSource": "Ingen lydkilde",
+		"uploadLimit": "Maksimal filst\u00f8rrelse: {{size}}",
+		"errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filst\u00f8rrelse er {{size}}",
+		"TeaserAudio": "Teaser lyd"
+	},
+	"video": {
+		"reset": "Nulstil",
+		"edit": "Redigere",
+		"title": "titel",
+		"description": "beskrivelse",
+		"upload": "Upload",
+		"link": "Link",
+		"setUrl": "Indstil URL",
+		"save": "Gemme",
+		"setClip": "Udsk\u00e5ret klip",
+		"invalidURL": "ugyldig URL",
+		"invalidFile": "Ugyldig fil",
+		"errorNoSource": "Ingen videokilde",
+		"uploadLimit": "Maksimal filst\u00f8rrelse: {{size}}",
+		"errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filst\u00f8rrelse er {{size}}",
+		"createAnimatedThumbnail": "Opret animeret thumbnail",
+		"errorNotAvailable": "Beklager, men videoen er endnu ikke tilg\u00e6ngelig. Pr\u00f8v igen senere.",
+		"NewVideo": "Ny video",
+		"EditVideo": "Rediger video",
+		"TeaserVideo": "Teaser video"
+	},
+	"pdf": {
+		"reset": "Nulstil",
+		"edit": "Redigere",
+		"title": "titel",
+		"description": "beskrivelse",
+		"upload": "Upload",
+		"link": "Link",
+		"setUrl": "Indstil URL",
+		"save": "Gemme",
+		"setClip": "Udsk\u00e5ret klip",
+		"invalidURL": "ugyldig URL",
+		"invalidFile": "Ugyldig fil",
+		"errorNoSource": "Ingen pdf-kilde",
+		"uploadLimit": "Maksimal filst\u00f8rrelse: {{size}}",
+		"errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filst\u00f8rrelse er {{size}}",
+		"TeaserPDF": "Teaser pdf"
+	},
+	"image": {
+		"reset": "Nulstil",
+		"edit": "Redigere",
+		"title": "titel",
+		"description": "beskrivelse",
+		"upload": "Upload",
+		"link": "Link",
+		"setUrl": "Indstil URL",
+		"save": "Gemme",
+		"uploadedImage": "Uploadet billede",
+		"imageTitle": "Billedets titel",
+		"setClip": "Udsk\u00e5ret klip",
+		"invalidURL": "ugyldig URL",
+		"invalidFile": "Ugyldig fil",
+		"errorNoSource": "Ingen billedkilde",
+		"uploadLimit": "Maksimal filst\u00f8rrelse: {{size}}",
+		"errorFileSize": "Beklager, men filen er for stor.<br> Maksimal filst\u00f8rrelse er {{size}}",
+		"TeaserImage": "Teaser billede"
+	},
+	"questions": {
+		"Questions": "Sp\u00f8rgsm\u00e5l",
+		"Answers": "Svar",
+		"AnswerQuestion": "Besvar sp\u00f8rgsm\u00e5l",
+		"SetYourAnswer": "Svar venligst p\u00e5 sp\u00f8rgsm\u00e5let",
+		"NewQuestion": "Nyt sp\u00f8rgsm\u00e5l",
+		"EditQuestion": "Rediger sp\u00f8rgsm\u00e5l",
+		"NewAnswer": "Nyt svar",
+		"NewPossibleAnswer": "Nyt muligt svar",
+		"AnswerDetails": "Svar detaljer",
+		"answerOption": "Mulighed",
+		"answerOptionExclusive": "Eksklusiv",
+		"answerTextarea": "Tekstomr\u00e5de",
+		"answerText": "Tekst",
+		"HideUntilAnswered": "Skjul indtil svaret",
+		"CantChangeAnswers": "Kan ikke \u00e6ndre svar",
+		"FreeAnswer": "Skriv dit svar her",
+		"SaveQuestion": "Gem sp\u00f8rgsm\u00e5l",
+		"SaveAnswer": "Gem svar",
+		"Save": "Gemme",
+		"Send": "Sende",
+		"TitleRequired": "Titel p\u00e5kr\u00e6vet!",
+		"AlreadyAnswered": "Allerede besvaret",
+		"TitlePlaceholder": "Indtast dit sp\u00f8rgsm\u00e5l",
+		"ContentPlaceholder": "L\u00e6g yderligere oplysninger her for at hj\u00e6lpe folk med at svare",
+		"ErrorTitle": "Sp\u00f8rgsm\u00e5l p\u00e5kr\u00e6vet",
+		"Placeholder": "Skriv instruktioner",
+		"AreYouSure": "Er du sikker?",
+		"ShortAnswer": "Skriv et kort svar",
+		"AnswerCantBeChanged": "Svaret kan ikke \u00e6ndres"
+	},
+	"experience": {
+		"NewExperience": "Ny oplevelse",
+		"DefineTitle": "Definer venligst en titel",
+		"Create": "skab"
+	},
+	"calls": {
+		"SettingsTitle": "Opkald",
+		"MaxCalls": "Max ringer",
+		"Update": "Opdatering",
+		"NoCallsYet": "Ingen opkald endnu",
+		"CallReasonTitle": "Hvad handler dette opkald om?",
+		"WaitingRoom": "Ventev\u00e6relse",
+		"LiveRoom": "Live Room",
+		"interviewedByAnotherHost": "Er i \u00f8jeblikket interviewet af en anden v\u00e6rt",
+		"bringToLive": "Bring til Live Show",
+		"putOnHold": "S\u00e6t p\u00e5 hold",
+		"endCall": "Afslut opkald",
+		"interview": "Interview",
+		"markApproved": "M\u00e6rke godkendt"
+	},
+	"relate": {
+		"Add": "Tilf\u00f8j {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "Navn p\u00e5 en bruger..."
+	},
+	"task": {
+		"errorsTitle": "Der opstod fejl"
+	},
+	"topic": {
+		"NewTopic": "Nyt emne",
+		"UpdateTopic": "Opdater emne",
+		"CreateTopic": "Opret emne",
+		"AreYouSureDeleteTopic": "Er du sikker p\u00e5, at du vil slette dette emne",
+		"TitlePlaceholder": "emne titel...",
+		"DescribeTopic": "beskriv emnet...",
+		"TopicIcon": "Emnebillede",
+		"UploadIcon": "Upload ikon",
+		"Conversation": "Samtale",
+		"Metrics": "Metrics",
+		"Teaser": "Teaser",
+		"TeaserDescription": "teaser beskrivelse...",
+		"TeaserVideo": "Teaser video"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Opret animeret thumbnail",
+		"Width": "Bredde",
+		"Height": "H\u00f8jde",
+		"Start": "Start",
+		"End": "Ende",
+		"Delay": "Forsinke",
+		"Quality": "Kvalitet",
+		"Size": "St\u00f8rrelse",
+		"OfFrames": "af rammer",
+		"Frame": "Ramme",
+		"UseThis": "Brug denne",
+		"ResultGIF": "Resultat GIF",
+		"VideoElementNotFound": "Videoelement blev ikke fundet"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} p\u00e5 dit ansigt",
+		"AcceptIcon": "Accepter det valgte omr\u00e5de"
+	},
+	"gallery": {
+		"DialogTitle": "Rediger galleribillede",
+		"EditImageTitle": "Rediger billedparametre",
+		"IntervalLabel": "Interval (ms): ",
+		"IntervalPlaceholder": "f.eks. 3000",
+		"KenburnsInstruction": "Indstil Ken Burns start og slut ved at tr\u00e6kke og zoome."
+	}
 }

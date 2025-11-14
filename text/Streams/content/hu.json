@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Ez a tartalom el van rejtve előtted.",
-        "InplaceTypeMustBe": "Az inplaceType értéke &quot;textarea&quot; vagy &quot;text&quot; lehet"
-    },
-    "preview": {
-        "NewItemTitle": "Új elem",
-        "Teaser": "Teaser"
-    },
-    "avatar": {
-        "firstName": "keresztnév",
-        "lastName": "vezetéknév",
-        "username": "felhasználónév"
-    },
-    "labels": {
-        "Streams\/invited": "Emberek, akiket meghívtam",
-        "Streams\/invitedMe": "Aki meghívott",
-        "DoYouAgree": "Egyetértesz?",
-        "Yes": "Igen",
-        "No": "Nem",
-        "JoinItNow": "Csatlakozz most?"
-    },
-    "login": {
-        "prompt": "Hagyd, hogy barátaid felismerjenek:",
-        "newUser": "vagy hozzon létre egy új fiókot alább",
-        "picTooltip": "Ezt a képet később megváltoztathatja",
-        "placeholders": {
-            "fullName": "Add meg a teljes neved"
-        }
-    },
-    "interests": {
-        "Filter": "Keresési érdeklődési körök",
-        "CanGrant": "Ha még mindig nem találja, amit keres, az alábbiakban hozzáadhat egy új érdeklődési kört:",
-        "TrySynonyms": "Nem látod? Próbáljon ki néhány szinonimát.",
-        "AddUnderCategory": "Hozzáadás a kategória alatt...",
-        "Other": "Egyéb",
-        "Unlisted": "Nem listázott"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Az üzenet meg lett jelölve adminisztrátori felülvizsgálatra. Koppintson újra a megjelölés megszüntetéséhez.",
-        "noOneSaid": "Senki nem mondott semmit",
-        "closeChatButton": "Csevegés bezárása",
-        "closeChatConfirmTitle": "Bezárja ezt a csevegést?",
-        "closeChatConfirm": "Biztosan bezárja ezt a csevegést?",
-        "Subscribed": "Értesítések engedélyezve",
-        "Unsubscribed": "Értesítések némítva",
-        "closeChatConfirmYes": "Igen",
-        "closeChatConfirmNo": "Nem",
-        "earlierComments": "korábbi hozzászólások",
-        "startedConversation": "beszélgetésbe kezdett",
-        "RealTimeCall": "Valós idejű hívás",
-        "JoinWebRTC": "Telekonferencia",
-        "SearchByName": "Keresés név szerint",
-        "Notifications": {
-            "Visit": "{{displayName}} látogatja a chat",
-            "Join": "{{displayName}} csatlakozott a chathez",
-            "Leave": "{{displayName}} kilépett a csevegésből",
-            "RelatedTo": "{{displayName}} {{stream.displayType}} et indított"
-        },
-        "placeholders": {
-            "Public": "Hozzászólni",
-            "Private": "Írj privát üzenetet"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "kezelheti e-mail-feliratkozásait",
-        "IfUnsubscribe": "Ha le szeretne iratkozni",
-        "*": "{{{ stream.fields.title}} {{& message.fields.type}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} en csatlakoztak",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} maradt",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} azt mondta: {{& message.content}}}",
-        "Streams\/changed": "Változások {{stream.fields.title}} -ben",
-        "Streams\/invite": "Meghívást kaptál {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Bejelentés {{{ stream.fields.title}}} -ben",
-        "Streams\/access": "{{{call 'avatar.displayName'}} hozzáférést változtatott {{& stream.fields.title}}} ben",
-        "Streams\/chat\/edit": "{{{ stream.fields.title}}} -ben szerkesztett csevegőüzenet",
-        "Streams\/chat\/remove": "A csevegőüzenet {{{ stream.fields.title}}} -ben eltávolítva",
-        "Streams\/closed": "{{stream.fields.title}} bezárva",
-        "Streams\/task\/progress": "Előrelépés {{stream.fields.title}} -ben",
-        "Streams\/task\/complete": "Feladat teljesítve: {{stream.fields.title}}",
-        "Streams\/task\/error": "Hiba közben: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Bejövő üzenet",
-        "Streams\/relatedTo\/Streams\/call": "Új felhívás {{toTitle}} -ben indult",
-        "Streams\/relatedTo\/*": "Új {{relationDisplayType}} az {{toTitle}} -ben",
-        "Streams\/relatedFrom\/*": "{{toTitle}} hez hozzáadva {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} megemlített egy megjegyzésben",
-        "Streams\/call": "A {{displayName}} valós idejű hívást indított",
-        "changed": {
-            "ChangesIn": "Változások {{title}} ben",
-            "Changed": "megváltozott",
-            "HereIsWhatChanged": "Íme, mi változott:"
-        },
-        "joined": {
-            "Joined": "{{subject}} csatlakozott <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Meghív",
-        "Invite": "Meghív",
-        "Share": "Ossza meg",
-        "messageContent": "{{displayName}} meghívott az {{inviteUrl}}",
-        "youCanNowPaste": "Most már beillesztheti ezt a linket valahova emberek meghívásához",
-        "roles": {
-            "title": "Szerepeket biztosít a meghívott felhasználóknak?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Sajnálom",
-                "alert": "Nincs jogosultsága ennek a szerepnek a megadására"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Sajnálom",
-                "alert": "Nincs jogosultsága ennek a szerepkörnek a eltávolítására"
-            }
-        },
-        "labels": {
-            "title": "Milyen a kapcsolatod?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Válasszon a Névjegyek közül",
-            "chooseAgainFromContacts": "Válassza újra a Névjegyek közül",
-            "inviteSelectedContacts": "A kiválasztott névjegyek meghívása",
-            "selectFromContacts": "Válassza a Névjegyekből lehetőséget",
-            "userChooserPlaceholder": "Keresés név szerint",
-            "photo": "Fotózd le",
-            "photoOf": "Készítsen fényképet {{name}} -ről",
-            "photoInstruction": "Ha a QR-kódot beolvasó személy előtted van, készíts róla fényképet",
-            "to": "Címzett: {{Stream Title}}",
-            "go": "Megy",
-            "title": "Meghív",
-            "placeholder": "Mobilszám vagy email cím",
-            "orInvite": "Vagy hívjon meg másokat a következő használatával:",
-            "copyLink": "{{ClickOrTap}} a meghívó link másolásához",
-            "shareOrCopyLink": "{{ClickOrTap}} a meghívólink megosztásához vagy másolásához",
-            "QR": "{{ClickOrTap}} QR-kód generálásához",
-            "QRtitle": "Olvassa be ezt a QR-kódot",
-            "QRscanned": "Beszkennelték!",
-            "scannedQR": "{{ClickOrTap}} , ha a kód beolvasásra került",
-            "byEmail": "Email",
-            "bySms": "Szöveg",
-            "byFacebook": "Facebook",
-            "byTwitter": "Twitter",
-            "title2": "Emberek meghívása",
-            "chooseMethod": "Válasszon egy módszert:",
-            "selectContacts": "Válassza a Névjegyek lehetőséget",
-            "scanQRCode": "QR kód beolvasása",
-            "shareLink": "Link megosztása",
-            "chooseFromRegistered": "Válasszon a regisztrált felhasználók közül",
-            "inviteViaEmailOrSms": "Meghívás e-mailben vagy SMS-ben",
-            "TakeGroupPhoto": "Készítsen csoportképet",
-            "Skip": "Kihagyás",
-            "byTelegram": "Távirat",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Szerepek hozzáadása",
-            "addPersonalRoles": "Személyes kapcsolatok hozzáadása"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Üdvözöljük a {{communityName}} -ben",
-            "HasInvitedYou": "meghívott téged a következőkre:",
-            "HasInvitedYouToTheirProfile": "meghívta Önt, hogy csatlakozzon.",
-            "prompt": "Hagyd, hogy barátaid felismerjenek:",
-            "accept": "Meghívás elfogadása"
-        },
-        "email": {
-            "subject": "Hé, ezt nézd meg",
-            "PleaseVisitLink": "Kérjük, látogasson el az alábbi linkre:",
-            "InvitingYou": "Meghívlak a {{title}}",
-            "HasInvitedYou": "{{displayName}} meghívott az {{title}}",
-            "HasMentionedYou": "{{displayName}} említett téged az &quot; {{title}} &quot;-ben",
-            "YOUAREINVITED": "MEG VAGY HÍVVA!",
-            "AcceptInvite": "Meghívás elfogadása"
-        },
-        "mobile": {
-            "content": "Meghívást kapott {{title}} . Kérjük, érintse meg {{url}}"
-        },
-        "notice": {
-            "text": "Meghívták. {{ClickOrTap}} ide, hogy elfogadja és csatlakozzon."
-        },
-        "chat": {
-            "prompt": "Meghívja az embereket egy beszélgetésre, ahol kapcsolatban maradhat, közös fotókat oszthat meg, és így tovább. Adj neki nevet:"
-        },
-        "Participants": "Emberek meghívása"
-    },
-    "messages": {
-        "html": {
-            "posted": "<em>{{message.fields.type}}<\/em> üzenetet írt az {{stream.fields.title}} re"
-        },
-        "text": {
-            "commentedOn": "kommentálta",
-            "startedCallIn": "hívást indított",
-            "in": "ban ben",
-            "body": "{{{ url}} : {{& message.fields.content}}} ben",
-            "relatedFrom": {
-                "hasBeenPostedTo": "elküldve ide",
-                "byAvatar": "{{avatar.displayName}} -ig"
-            },
-            "relatedTo": {
-                "hasANew": "van egy új {{instructions.fromDisplayType}}",
-                "byAvatar": "hozzáadta {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "A meghívókat a mi számunkról küldjük, amelyeket ismerősei még nem ismernek fel. Kövesse egy gyors szöveges üzenetet, amelyben tudatja velük, hogy Öntől érkezett meghívó, és kéri meg őket, hogy kattintson a linkre.",
-            "confirm": "A meghívókat a mi számunkról küldjük, amelyeket ismerősei még nem ismernek fel. Szeretne egy gyors szöveget küldeni, amelyben tudatja velük, hogy Öntől érkezett a meghívó, és megkéri őket, hogy kattintson a linkre.",
-            "check": "Hé, most küldtem egy meghívót a {{app}} alkalmazásba. Kérjük, nézze meg sms-ét és kattintson a linkre!",
-            "CheckYourMobile": "Kérjük, ellenőrizze az SMS-t, és kövesse az utasításokat!"
-        },
-        "email": {
-            "alert": "A meghívókat a mi domainünkből küldjük, amelyeket az ismerősei még nem ismernek fel. Kövesse egy gyors szöveges üzenetet, amelyben tudatja velük, hogy Öntől érkezett meghívó, és kéri meg őket, hogy kattintson a linkre.",
-            "confirm": "A meghívókat a mi domainünkből küldjük, amelyeket az ismerősei még nem ismernek fel. Szeretne egy gyors szöveget küldeni, amelyben tudatja velük, hogy Öntől érkezett a meghívó, és megkéri őket, hogy kattintson a linkre.",
-            "subject": "Kaptál meghívót?",
-            "body": "Hé, most küldtem egy meghívót a {{app}} alkalmazásba. Kérjük, ellenőrizze e-mailjeit, és kattintson az ott található linkre!",
-            "CheckYourEmail": "Kérjük, ellenőrizze e-mailjeit, és kövesse az utasításokat!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Adatvédelmi beállítások"
-    },
-    "participating": {
-        "Title": "Cím",
-        "Subscribed": "Előfizetve",
-        "Participants": "Résztvevők",
-        "AreYouSureRemoveIdentifier": "Biztosan eltávolítja ezt az azonosítót?",
-        "AreYouSureUnsubscribeIdentifier": "Biztosan leiratkozik erről az azonosítóról? Kikapcsolja az erre az azonosítóra küldött értesítéseket.",
-        "AreYouSureUnsubscribeDevice": "Biztosan leiratkozik erről az eszközről? Ezzel kikapcsolja az értesítéseket ezen az eszközön.",
-        "AreYouSureRemoveParticipant": "Biztosan eltávolítja ezt a résztvevőt?",
-        "RemoveParticipant": "Résztvevő eltávolítása",
-        "Identifiers": "Azonosítók",
-        "Devices": "Eszközök",
-        "Streams": "Streamek"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Meghívott",
-            "description": "Beérkező levelek a meghívók számára"
-        },
-        "Streams\/resource": {
-            "displayType": "Forrás",
-            "description": "adatfolyam az erőforrásokhoz való hozzáférés kezeléséhez és a frissítésekről szóló üzenetek közzétételéhez"
-        },
-        "Streams\/task": {
-            "description": "egy bizonyos feladat előrehaladásáról szóló frissítések fogadására",
-            "displayType": "Feladat"
-        },
-        "Streams\/tasks": {
-            "description": "kategória a feladatokhoz",
-            "displayType": "Feladatok"
-        },
-        "Streams\/experience": {
-            "description": "közös élmény egy közösség tagjai számára",
-            "displayType": "Közös élmény egy közösség tagjai számára"
-        },
-        "Streams\/greeting": {
-            "description": "köszönés, amellyel a felhasználó bemutatkozhat",
-            "displayType": "Üdvözlet"
-        },
-        "Streams\/number": {
-            "displayType": "Szám",
-            "description": "matematikai szám"
-        },
-        "Streams\/date": {
-            "displayType": "Dátum",
-            "description": "dátum"
-        },
-        "Streams\/text": {
-            "displayType": "Szöveg",
-            "description": "szövegtörzs"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Szöveg",
-            "description": "kis szövegrész"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Szöveg",
-            "description": "közepes szövegrész"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "Email cím",
-            "description": "email cím"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Telefonszám",
-            "description": "telefonszám"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "link a weben"
-        },
-        "Streams\/image": {
-            "displayType": "Kép",
-            "description": "vizuális kép",
-            "newItem": "Kép hozzáadása"
-        },
-        "Streams\/images": {
-            "displayType": "Képgaléria",
-            "description": "képgaléria"
-        },
-        "Streams\/album": {
-            "displayType": "Album",
-            "description": "egy album, amelyhez különféle médiák kapcsolódnak"
-        },
-        "Streams\/file": {
-            "displayType": "Fájl",
-            "description": "feltöltött fájl",
-            "newItem": "Fájl hozzáadása"
-        },
-        "Streams\/audio": {
-            "displayType": "Hang klip",
-            "description": "audio klip",
-            "newItem": "Hang hozzáadása"
-        },
-        "Streams\/video": {
-            "displayType": "Videoklip",
-            "description": "Videoklip",
-            "newItem": "Videó hozzáadása lehetőségre"
-        },
-        "Streams\/pdf": {
-            "displayType": "PDF dokumentum",
-            "description": "PDF dokumentum",
-            "newItem": "PDF hozzáadása"
-        },
-        "Streams\/live": {
-            "displayType": "Élő adás",
-            "description": "élő hang vagy videó"
-        },
-        "Streams\/category": {
-            "displayType": "Kategória",
-            "description": "egy kategória, amelyhez más folyamok is kapcsolhatók",
-            "newItem": "Kategória hozzáadása"
-        },
-        "Streams\/participating": {
-            "displayType": "Részvételi index",
-            "description": "a folyamok ehhez kapcsolódnak\/nem kapcsolódnak, amikor egy felhasználó csatlakozik\/kilép"
-        },
-        "Streams\/interest": {
-            "displayType": "Érdeklődés",
-            "description": "képviseli a felhasználó érdeklődését egy bizonyos téma iránt"
-        },
-        "Streams\/incoming": {
-            "displayType": "Beérkező",
-            "description": "más felhasználók által küldött üzenetek célállomása"
-        },
-        "Streams\/chat": {
-            "displayType": "Beszélgetés",
-            "description": "a felhasználók közötti beszélgetés előzményekkel"
-        },
-        "Streams\/question": {
-            "displayType": "Kérdés",
-            "description": "kérdésfolyam",
-            "newItem": "Kérdés hozzáadása"
-        },
-        "Streams\/answer": {
-            "displayType": "Válasz",
-            "description": "válaszfolyam"
-        },
-        "Streams\/topic": {
-            "displayType": "Téma",
-            "description": "témafolyam",
-            "newItem": "Téma hozzáadása elemre"
-        }
-    },
-    "menu": {
-        "placeholder": "írja be az oldal címét",
-        "ModTab": "Elem módosítása",
-        "Save": "Megment",
-        "Delete": "Töröl",
-        "Submenu": "Almenü"
-    },
-    "audio": {
-        "record": "Rekord",
-        "reset": "Visszaállítás",
-        "edit": "Szerkesztés",
-        "title": "cím",
-        "description": "leírás",
-        "upload": "Feltöltés",
-        "link": "Link",
-        "setUrl": "Állítsa be az URL-t",
-        "save": "Megment",
-        "setClip": "Kivágott klip",
-        "invalidURL": "érvénytelen URL",
-        "invalidFile": "Érvénytelen fájl",
-        "errorNoSource": "Nincs hangforrás",
-        "uploadLimit": "Max fájlméret: {{size}}",
-        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
-        "TeaserAudio": "Teaser Hang"
-    },
-    "video": {
-        "reset": "Visszaállítás",
-        "edit": "Szerkesztés",
-        "title": "cím",
-        "description": "leírás",
-        "upload": "Feltöltés",
-        "link": "Link",
-        "setUrl": "Állítsa be az URL-t",
-        "save": "Megment",
-        "setClip": "Kivágott klip",
-        "invalidURL": "érvénytelen URL",
-        "invalidFile": "Érvénytelen fájl",
-        "errorNoSource": "Nincs videó forrás",
-        "uploadLimit": "Max fájlméret: {{size}}",
-        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
-        "createAnimatedThumbnail": "Animált miniatűr létrehozása",
-        "errorNotAvailable": "Sajnáljuk, de a videó még nem érhető el. Kérlek, próbáld újra később.",
-        "NewVideo": "Új Videó",
-        "EditVideo": "Videó szerkesztése",
-        "TeaserVideo": "Teaser videó"
-    },
-    "pdf": {
-        "reset": "Visszaállítás",
-        "edit": "Szerkesztés",
-        "title": "cím",
-        "description": "leírás",
-        "upload": "Feltöltés",
-        "link": "Link",
-        "setUrl": "Állítsa be az URL-t",
-        "save": "Megment",
-        "setClip": "Kivágott klip",
-        "invalidURL": "érvénytelen URL",
-        "invalidFile": "Érvénytelen fájl",
-        "errorNoSource": "Nincs pdf forrás",
-        "uploadLimit": "Max fájlméret: {{size}}",
-        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
-        "TeaserPDF": "Teaser PDF"
-    },
-    "image": {
-        "reset": "Visszaállítás",
-        "edit": "Szerkesztés",
-        "title": "cím",
-        "description": "leírás",
-        "upload": "Feltöltés",
-        "link": "Link",
-        "setUrl": "Állítsa be az URL-t",
-        "save": "Megment",
-        "uploadedImage": "Feltöltött kép",
-        "imageTitle": "Kép címe",
-        "setClip": "Kivágott klip",
-        "invalidURL": "érvénytelen URL",
-        "invalidFile": "Érvénytelen fájl",
-        "errorNoSource": "Nincs képforrás",
-        "uploadLimit": "Max fájlméret: {{size}}",
-        "errorFileSize": "Elnézést, de a fájl túl nagy.<br> A maximális fájlméret {{size}}",
-        "TeaserImage": "Teaser kép"
-    },
-    "questions": {
-        "Questions": "Kérdések",
-        "Answers": "Válaszok",
-        "AnswerQuestion": "Válaszolj a kérdésre",
-        "SetYourAnswer": "Kérem, válaszoljon a kérdésre",
-        "NewQuestion": "Új Kérdés",
-        "EditQuestion": "Kérdés szerkesztése",
-        "NewAnswer": "Új válasz",
-        "NewPossibleAnswer": "Új lehetséges válasz",
-        "AnswerDetails": "Válasz Részletek",
-        "answerOption": "választási lehetőség",
-        "answerOptionExclusive": "Kizárólagos",
-        "answerTextarea": "Textarea",
-        "answerText": "Szöveg",
-        "HideUntilAnswered": "Rejtse el a válaszig",
-        "CantChangeAnswers": "A válaszokat nem lehet megváltoztatni",
-        "FreeAnswer": "Írja ide a válaszát",
-        "SaveQuestion": "Kérdés mentése",
-        "SaveAnswer": "Válasz mentése",
-        "Save": "Megment",
-        "Send": "Küld",
-        "TitleRequired": "Cím kötelező!",
-        "AlreadyAnswered": "Már válaszolt",
-        "TitlePlaceholder": "Írja be kérdését",
-        "ContentPlaceholder": "Írjon ide minden további információt, hogy segítsen az embereknek válaszolni",
-        "ErrorTitle": "Kérdés kötelező",
-        "Placeholder": "Írja meg az utasításokat",
-        "AreYouSure": "biztos vagy ebben?",
-        "ShortAnswer": "Írj egy rövid választ",
-        "AnswerCantBeChanged": "A választ nem lehet megváltoztatni"
-    },
-    "experience": {
-        "NewExperience": "Új tapasztalat",
-        "DefineTitle": "Kérjük, adjon meg egy címet",
-        "Create": "Teremt"
-    },
-    "calls": {
-        "SettingsTitle": "Hívások",
-        "MaxCalls": "Max hívások",
-        "Update": "Frissítés",
-        "NoCallsYet": "Még nincsenek hívások",
-        "CallReasonTitle": "Miről szól ez a hívás?",
-        "WaitingRoom": "Várószoba",
-        "LiveRoom": "Élőszoba",
-        "interviewedByAnotherHost": "Jelenleg egy másik műsorvezető interjúztatja",
-        "bringToLive": "Bring To Live Show",
-        "putOnHold": "Félretesz",
-        "endCall": "Hívás befejezése",
-        "interview": "Interjú",
-        "markApproved": "Jelölje meg jóváhagyva"
-    },
-    "relate": {
-        "Add": "Adjunk hozzá {{streamDisplayType}} et"
-    },
-    "userChooser": {
-        "Placeholder": "Egy felhasználó neve..."
-    },
-    "task": {
-        "errorsTitle": "Hibák történtek"
-    },
-    "topic": {
-        "NewTopic": "Új téma",
-        "UpdateTopic": "Téma frissítése",
-        "CreateTopic": "Téma létrehozása",
-        "AreYouSureDeleteTopic": "Biztosan törli ezt a témát?",
-        "TitlePlaceholder": "téma címe...",
-        "DescribeTopic": "írd le a témát...",
-        "TopicIcon": "Témakép",
-        "UploadIcon": "Feltöltés ikon",
-        "Conversation": "Beszélgetés",
-        "Metrics": "Mérések",
-        "Teaser": "Teaser",
-        "TeaserDescription": "teaser leírása...",
-        "TeaserVideo": "Teaser videó"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Animált miniatűr létrehozása",
-        "Width": "Szélesség",
-        "Height": "Magasság",
-        "Start": "Rajt",
-        "End": "Vége",
-        "Delay": "Késleltetés",
-        "Quality": "Minőség",
-        "Size": "Méret",
-        "OfFrames": "keretek közül",
-        "Frame": "Keret",
-        "UseThis": "Használd ezt",
-        "ResultGIF": "Eredmény GIF",
-        "VideoElementNotFound": "A videóelem nem található"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} Az arcodon",
-        "AcceptIcon": "A kiválasztott terület elfogadása"
-    }
+	"errors": {
+		"HiddenFromYou": "Ez a tartalom el van rejtve el\u0151tted.",
+		"InplaceTypeMustBe": "Az inplaceType \u00e9rt\u00e9ke &quot;textarea&quot; vagy &quot;text&quot; lehet",
+		"AmountInvalid": "K\u00e9rj\u00fck, adjon meg \u00e9rv\u00e9nyes milliszekundumsz\u00e1mot."
+	},
+	"preview": {
+		"NewItemTitle": "\u00daj elem",
+		"Teaser": "Teaser"
+	},
+	"avatar": {
+		"firstName": "keresztn\u00e9v",
+		"lastName": "vezet\u00e9kn\u00e9v",
+		"username": "felhaszn\u00e1l\u00f3n\u00e9v"
+	},
+	"labels": {
+		"Streams/invited": "Emberek, akiket megh\u00edvtam",
+		"Streams/invitedMe": "Aki megh\u00edvott",
+		"DoYouAgree": "Egyet\u00e9rtesz?",
+		"Yes": "Igen",
+		"No": "Nem",
+		"JoinItNow": "Csatlakozz most?"
+	},
+	"login": {
+		"prompt": "Hagyd, hogy bar\u00e1taid felismerjenek:",
+		"newUser": "vagy hozzon l\u00e9tre egy \u00faj fi\u00f3kot al\u00e1bb",
+		"picTooltip": "Ezt a k\u00e9pet k\u00e9s\u0151bb megv\u00e1ltoztathatja",
+		"placeholders": {
+			"fullName": "Add meg a teljes neved"
+		}
+	},
+	"interests": {
+		"Filter": "Keres\u00e9si \u00e9rdekl\u0151d\u00e9si k\u00f6r\u00f6k",
+		"CanGrant": "Ha m\u00e9g mindig nem tal\u00e1lja, amit keres, az al\u00e1bbiakban hozz\u00e1adhat egy \u00faj \u00e9rdekl\u0151d\u00e9si k\u00f6rt:",
+		"TrySynonyms": "Nem l\u00e1tod? Pr\u00f3b\u00e1ljon ki n\u00e9h\u00e1ny szinonim\u00e1t.",
+		"AddUnderCategory": "Hozz\u00e1ad\u00e1s a kateg\u00f3ria alatt...",
+		"Other": "Egy\u00e9b",
+		"Unlisted": "Nem list\u00e1zott"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Az \u00fczenet meg lett jel\u00f6lve adminisztr\u00e1tori fel\u00fclvizsg\u00e1latra. Koppintson \u00fajra a megjel\u00f6l\u00e9s megsz\u00fcntet\u00e9s\u00e9hez.",
+		"noOneSaid": "Senki nem mondott semmit",
+		"closeChatButton": "Cseveg\u00e9s bez\u00e1r\u00e1sa",
+		"closeChatConfirmTitle": "Bez\u00e1rja ezt a cseveg\u00e9st?",
+		"closeChatConfirm": "Biztosan bez\u00e1rja ezt a cseveg\u00e9st?",
+		"Subscribed": "\u00c9rtes\u00edt\u00e9sek enged\u00e9lyezve",
+		"Unsubscribed": "\u00c9rtes\u00edt\u00e9sek n\u00e9m\u00edtva",
+		"closeChatConfirmYes": "Igen",
+		"closeChatConfirmNo": "Nem",
+		"earlierComments": "kor\u00e1bbi hozz\u00e1sz\u00f3l\u00e1sok",
+		"startedConversation": "besz\u00e9lget\u00e9sbe kezdett",
+		"RealTimeCall": "Val\u00f3s idej\u0171 h\u00edv\u00e1s",
+		"JoinWebRTC": "Telekonferencia",
+		"SearchByName": "Keres\u00e9s n\u00e9v szerint",
+		"Notifications": {
+			"Visit": "{{displayName}} l\u00e1togatja a chat",
+			"Join": "{{displayName}} csatlakozott a chathez",
+			"Leave": "{{displayName}} kil\u00e9pett a cseveg\u00e9sb\u0151l",
+			"RelatedTo": "{{displayName}} {{stream.displayType}} et ind\u00edtott"
+		},
+		"placeholders": {
+			"Public": "Hozz\u00e1sz\u00f3lni",
+			"Private": "\u00cdrj priv\u00e1t \u00fczenetet"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "kezelheti e-mail-feliratkoz\u00e1sait",
+		"IfUnsubscribe": "Ha le szeretne iratkozni",
+		"*": "{{{ stream.fields.title}} {{& message.fields.type}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} en csatlakoztak",
+		"Streams/left": "{{{call 'avatar.displayName'}}} maradt",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} azt mondta: {{& message.content}}}",
+		"Streams/changed": "V\u00e1ltoz\u00e1sok {{stream.fields.title}} -ben",
+		"Streams/invite": "Megh\u00edv\u00e1st kapt\u00e1l {{{ stream.fields.title}}}",
+		"Streams/announcement": "Bejelent\u00e9s {{{ stream.fields.title}}} -ben",
+		"Streams/access": "{{{call 'avatar.displayName'}} hozz\u00e1f\u00e9r\u00e9st v\u00e1ltoztatott {{& stream.fields.title}}} ben",
+		"Streams/chat/edit": "{{{ stream.fields.title}}} -ben szerkesztett cseveg\u0151\u00fczenet",
+		"Streams/chat/remove": "A cseveg\u0151\u00fczenet {{{ stream.fields.title}}} -ben elt\u00e1vol\u00edtva",
+		"Streams/closed": "{{stream.fields.title}} bez\u00e1rva",
+		"Streams/task/progress": "El\u0151rel\u00e9p\u00e9s {{stream.fields.title}} -ben",
+		"Streams/task/complete": "Feladat teljes\u00edtve: {{stream.fields.title}}",
+		"Streams/task/error": "Hiba k\u00f6zben: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : Bej\u00f6v\u0151 \u00fczenet",
+		"Streams/relatedTo/Streams/call": "\u00daj felh\u00edv\u00e1s {{toTitle}} -ben indult",
+		"Streams/relatedTo/*": "\u00daj {{relationDisplayType}} az {{toTitle}} -ben",
+		"Streams/relatedFrom/*": "{{toTitle}} hez hozz\u00e1adva {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} megeml\u00edtett egy megjegyz\u00e9sben",
+		"Streams/call": "A {{displayName}} val\u00f3s idej\u0171 h\u00edv\u00e1st ind\u00edtott",
+		"changed": {
+			"ChangesIn": "V\u00e1ltoz\u00e1sok {{title}} ben",
+			"Changed": "megv\u00e1ltozott",
+			"HereIsWhatChanged": "\u00cdme, mi v\u00e1ltozott:"
+		},
+		"joined": {
+			"Joined": "{{subject}} csatlakozott <em>{{title}}</em>"
+		},
+		"Streams/invited": "Megh\u00edvtak a {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "Megh\u00edv",
+		"Invite": "Megh\u00edv",
+		"Share": "Ossza meg",
+		"messageContent": "{{displayName}} megh\u00edvott az {{inviteUrl}}",
+		"youCanNowPaste": "Most m\u00e1r beillesztheti ezt a linket valahova emberek megh\u00edv\u00e1s\u00e1hoz",
+		"roles": {
+			"title": "Szerepeket biztos\u00edt a megh\u00edvott felhaszn\u00e1l\u00f3knak?",
+			"NotAuthorizedToGrantRole": {
+				"title": "Sajn\u00e1lom",
+				"alert": "Nincs jogosults\u00e1ga ennek a szerepnek a megad\u00e1s\u00e1ra"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "Sajn\u00e1lom",
+				"alert": "Nincs jogosults\u00e1ga ennek a szerepk\u00f6rnek a elt\u00e1vol\u00edt\u00e1s\u00e1ra"
+			}
+		},
+		"labels": {
+			"title": "Milyen a kapcsolatod?"
+		},
+		"dialog": {
+			"chooseFromContacts": "V\u00e1lasszon a N\u00e9vjegyek k\u00f6z\u00fcl",
+			"chooseAgainFromContacts": "V\u00e1lassza \u00fajra a N\u00e9vjegyek k\u00f6z\u00fcl",
+			"inviteSelectedContacts": "A kiv\u00e1lasztott n\u00e9vjegyek megh\u00edv\u00e1sa",
+			"selectFromContacts": "V\u00e1lassza a N\u00e9vjegyekb\u0151l lehet\u0151s\u00e9get",
+			"userChooserPlaceholder": "Keres\u00e9s n\u00e9v szerint",
+			"photo": "Fot\u00f3zd le",
+			"photoOf": "K\u00e9sz\u00edtsen f\u00e9nyk\u00e9pet {{name}} -r\u0151l",
+			"photoInstruction": "Ha a QR-k\u00f3dot beolvas\u00f3 szem\u00e9ly el\u0151tted van, k\u00e9sz\u00edts r\u00f3la f\u00e9nyk\u00e9pet",
+			"to": "C\u00edmzett: {{Stream Title}}",
+			"go": "Megy",
+			"title": "Megh\u00edv",
+			"placeholder": "Mobilsz\u00e1m vagy email c\u00edm",
+			"orInvite": "Vagy h\u00edvjon meg m\u00e1sokat a k\u00f6vetkez\u0151 haszn\u00e1lat\u00e1val:",
+			"copyLink": "{{ClickOrTap}} a megh\u00edv\u00f3 link m\u00e1sol\u00e1s\u00e1hoz",
+			"shareOrCopyLink": "{{ClickOrTap}} a megh\u00edv\u00f3link megoszt\u00e1s\u00e1hoz vagy m\u00e1sol\u00e1s\u00e1hoz",
+			"QR": "{{ClickOrTap}} QR-k\u00f3d gener\u00e1l\u00e1s\u00e1hoz",
+			"QRtitle": "Olvassa be ezt a QR-k\u00f3dot",
+			"QRscanned": "Beszkennelt\u00e9k!",
+			"scannedQR": "{{ClickOrTap}} , ha a k\u00f3d beolvas\u00e1sra ker\u00fclt",
+			"byEmail": "Email",
+			"bySms": "Sz\u00f6veg",
+			"byFacebook": "Facebook",
+			"byTwitter": "Twitter",
+			"title2": "Emberek megh\u00edv\u00e1sa",
+			"chooseMethod": "V\u00e1lasszon egy m\u00f3dszert:",
+			"selectContacts": "V\u00e1lassza a N\u00e9vjegyek lehet\u0151s\u00e9get",
+			"scanQRCode": "QR k\u00f3d beolvas\u00e1sa",
+			"shareLink": "Link megoszt\u00e1sa",
+			"chooseFromRegistered": "V\u00e1lasszon a regisztr\u00e1lt felhaszn\u00e1l\u00f3k k\u00f6z\u00fcl",
+			"inviteViaEmailOrSms": "Megh\u00edv\u00e1s e-mailben vagy SMS-ben",
+			"TakeGroupPhoto": "K\u00e9sz\u00edtsen csoportk\u00e9pet",
+			"Skip": "Kihagy\u00e1s",
+			"byTelegram": "T\u00e1virat",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "Szerepek hozz\u00e1ad\u00e1sa",
+			"addPersonalRoles": "Szem\u00e9lyes kapcsolatok hozz\u00e1ad\u00e1sa"
+		},
+		"complete": {
+			"WelcomeToCommunity": "\u00dcdv\u00f6z\u00f6lj\u00fck a {{communityName}} -ben",
+			"HasInvitedYou": "megh\u00edvott t\u00e9ged a k\u00f6vetkez\u0151kre:",
+			"HasInvitedYouToTheirProfile": "megh\u00edvta \u00d6nt, hogy csatlakozzon.",
+			"prompt": "Hagyd, hogy bar\u00e1taid felismerjenek:",
+			"accept": "Megh\u00edv\u00e1s elfogad\u00e1sa"
+		},
+		"email": {
+			"subject": "H\u00e9, ezt n\u00e9zd meg",
+			"PleaseVisitLink": "K\u00e9rj\u00fck, l\u00e1togasson el az al\u00e1bbi linkre:",
+			"InvitingYou": "Megh\u00edvlak a {{title}}",
+			"HasInvitedYou": "{{displayName}} megh\u00edvott az {{title}}",
+			"HasMentionedYou": "{{displayName}} eml\u00edtett t\u00e9ged az &quot; {{title}} &quot;-ben",
+			"YOUAREINVITED": "MEG VAGY H\u00cdVVA!",
+			"AcceptInvite": "Megh\u00edv\u00e1s elfogad\u00e1sa"
+		},
+		"mobile": {
+			"content": "Megh\u00edv\u00e1st kapott {{title}} . K\u00e9rj\u00fck, \u00e9rintse meg {{url}}"
+		},
+		"notice": {
+			"text": "Megh\u00edvt\u00e1k. {{ClickOrTap}} ide, hogy elfogadja \u00e9s csatlakozzon."
+		},
+		"chat": {
+			"prompt": "Megh\u00edvja az embereket egy besz\u00e9lget\u00e9sre, ahol kapcsolatban maradhat, k\u00f6z\u00f6s fot\u00f3kat oszthat meg, \u00e9s \u00edgy tov\u00e1bb. Adj neki nevet:"
+		},
+		"Participants": "Emberek megh\u00edv\u00e1sa"
+	},
+	"messages": {
+		"html": {
+			"posted": "<em>{{message.fields.type}}</em> \u00fczenetet \u00edrt az {{stream.fields.title}} re"
+		},
+		"text": {
+			"commentedOn": "komment\u00e1lta",
+			"startedCallIn": "h\u00edv\u00e1st ind\u00edtott",
+			"in": "ban ben",
+			"body": "{{{ url}} : {{& message.fields.content}}} ben",
+			"relatedFrom": {
+				"hasBeenPostedTo": "elk\u00fcldve ide",
+				"byAvatar": "{{avatar.displayName}} -ig"
+			},
+			"relatedTo": {
+				"hasANew": "van egy \u00faj {{instructions.fromDisplayType}}",
+				"byAvatar": "hozz\u00e1adta {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "A megh\u00edv\u00f3kat a mi sz\u00e1munkr\u00f3l k\u00fcldj\u00fck, amelyeket ismer\u0151sei m\u00e9g nem ismernek fel. K\u00f6vesse egy gyors sz\u00f6veges \u00fczenetet, amelyben tudatja vel\u00fck, hogy \u00d6nt\u0151l \u00e9rkezett megh\u00edv\u00f3, \u00e9s k\u00e9ri meg \u0151ket, hogy kattintson a linkre.",
+			"confirm": "A megh\u00edv\u00f3kat a mi sz\u00e1munkr\u00f3l k\u00fcldj\u00fck, amelyeket ismer\u0151sei m\u00e9g nem ismernek fel. Szeretne egy gyors sz\u00f6veget k\u00fcldeni, amelyben tudatja vel\u00fck, hogy \u00d6nt\u0151l \u00e9rkezett a megh\u00edv\u00f3, \u00e9s megk\u00e9ri \u0151ket, hogy kattintson a linkre.",
+			"check": "H\u00e9, most k\u00fcldtem egy megh\u00edv\u00f3t a {{app}} alkalmaz\u00e1sba. K\u00e9rj\u00fck, n\u00e9zze meg sms-\u00e9t \u00e9s kattintson a linkre!",
+			"CheckYourMobile": "K\u00e9rj\u00fck, ellen\u0151rizze az SMS-t, \u00e9s k\u00f6vesse az utas\u00edt\u00e1sokat!"
+		},
+		"email": {
+			"alert": "A megh\u00edv\u00f3kat a mi domain\u00fcnkb\u0151l k\u00fcldj\u00fck, amelyeket az ismer\u0151sei m\u00e9g nem ismernek fel. K\u00f6vesse egy gyors sz\u00f6veges \u00fczenetet, amelyben tudatja vel\u00fck, hogy \u00d6nt\u0151l \u00e9rkezett megh\u00edv\u00f3, \u00e9s k\u00e9ri meg \u0151ket, hogy kattintson a linkre.",
+			"confirm": "A megh\u00edv\u00f3kat a mi domain\u00fcnkb\u0151l k\u00fcldj\u00fck, amelyeket az ismer\u0151sei m\u00e9g nem ismernek fel. Szeretne egy gyors sz\u00f6veget k\u00fcldeni, amelyben tudatja vel\u00fck, hogy \u00d6nt\u0151l \u00e9rkezett a megh\u00edv\u00f3, \u00e9s megk\u00e9ri \u0151ket, hogy kattintson a linkre.",
+			"subject": "Kapt\u00e1l megh\u00edv\u00f3t?",
+			"body": "H\u00e9, most k\u00fcldtem egy megh\u00edv\u00f3t a {{app}} alkalmaz\u00e1sba. K\u00e9rj\u00fck, ellen\u0151rizze e-mailjeit, \u00e9s kattintson az ott tal\u00e1lhat\u00f3 linkre!",
+			"CheckYourEmail": "K\u00e9rj\u00fck, ellen\u0151rizze e-mailjeit, \u00e9s k\u00f6vesse az utas\u00edt\u00e1sokat!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Adatv\u00e9delmi be\u00e1ll\u00edt\u00e1sok"
+	},
+	"participating": {
+		"Title": "C\u00edm",
+		"Subscribed": "El\u0151fizetve",
+		"Participants": "R\u00e9sztvev\u0151k",
+		"AreYouSureRemoveIdentifier": "Biztosan elt\u00e1vol\u00edtja ezt az azonos\u00edt\u00f3t?",
+		"AreYouSureUnsubscribeIdentifier": "Biztosan leiratkozik err\u0151l az azonos\u00edt\u00f3r\u00f3l? Kikapcsolja az erre az azonos\u00edt\u00f3ra k\u00fcld\u00f6tt \u00e9rtes\u00edt\u00e9seket.",
+		"AreYouSureUnsubscribeDevice": "Biztosan leiratkozik err\u0151l az eszk\u00f6zr\u0151l? Ezzel kikapcsolja az \u00e9rtes\u00edt\u00e9seket ezen az eszk\u00f6z\u00f6n.",
+		"AreYouSureRemoveParticipant": "Biztosan elt\u00e1vol\u00edtja ezt a r\u00e9sztvev\u0151t?",
+		"RemoveParticipant": "R\u00e9sztvev\u0151 elt\u00e1vol\u00edt\u00e1sa",
+		"Identifiers": "Azonos\u00edt\u00f3k",
+		"Devices": "Eszk\u00f6z\u00f6k",
+		"Streams": "Streamek"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "Megh\u00edvott",
+			"description": "Be\u00e9rkez\u0151 levelek a megh\u00edv\u00f3k sz\u00e1m\u00e1ra"
+		},
+		"Streams/resource": {
+			"displayType": "Forr\u00e1s",
+			"description": "adatfolyam az er\u0151forr\u00e1sokhoz val\u00f3 hozz\u00e1f\u00e9r\u00e9s kezel\u00e9s\u00e9hez \u00e9s a friss\u00edt\u00e9sekr\u0151l sz\u00f3l\u00f3 \u00fczenetek k\u00f6zz\u00e9t\u00e9tel\u00e9hez"
+		},
+		"Streams/task": {
+			"description": "egy bizonyos feladat el\u0151rehalad\u00e1s\u00e1r\u00f3l sz\u00f3l\u00f3 friss\u00edt\u00e9sek fogad\u00e1s\u00e1ra",
+			"displayType": "Feladat"
+		},
+		"Streams/tasks": {
+			"description": "kateg\u00f3ria a feladatokhoz",
+			"displayType": "Feladatok"
+		},
+		"Streams/experience": {
+			"description": "k\u00f6z\u00f6s \u00e9lm\u00e9ny egy k\u00f6z\u00f6ss\u00e9g tagjai sz\u00e1m\u00e1ra",
+			"displayType": "K\u00f6z\u00f6s \u00e9lm\u00e9ny egy k\u00f6z\u00f6ss\u00e9g tagjai sz\u00e1m\u00e1ra"
+		},
+		"Streams/greeting": {
+			"description": "k\u00f6sz\u00f6n\u00e9s, amellyel a felhaszn\u00e1l\u00f3 bemutatkozhat",
+			"displayType": "\u00dcdv\u00f6zlet"
+		},
+		"Streams/number": {
+			"displayType": "Sz\u00e1m",
+			"description": "matematikai sz\u00e1m"
+		},
+		"Streams/date": {
+			"displayType": "D\u00e1tum",
+			"description": "d\u00e1tum"
+		},
+		"Streams/text": {
+			"displayType": "Sz\u00f6veg",
+			"description": "sz\u00f6vegt\u00f6rzs"
+		},
+		"Streams/text/small": {
+			"displayType": "Sz\u00f6veg",
+			"description": "kis sz\u00f6vegr\u00e9sz"
+		},
+		"Streams/text/medium": {
+			"displayType": "Sz\u00f6veg",
+			"description": "k\u00f6zepes sz\u00f6vegr\u00e9sz"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "Email c\u00edm",
+			"description": "email c\u00edm"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Telefonsz\u00e1m",
+			"description": "telefonsz\u00e1m"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "link a weben"
+		},
+		"Streams/image": {
+			"displayType": "K\u00e9p",
+			"description": "vizu\u00e1lis k\u00e9p",
+			"newItem": "K\u00e9p hozz\u00e1ad\u00e1sa"
+		},
+		"Streams/images": {
+			"displayType": "K\u00e9pgal\u00e9ria",
+			"description": "k\u00e9pgal\u00e9ria"
+		},
+		"Streams/album": {
+			"displayType": "Album",
+			"description": "egy album, amelyhez k\u00fcl\u00f6nf\u00e9le m\u00e9di\u00e1k kapcsol\u00f3dnak"
+		},
+		"Streams/file": {
+			"displayType": "F\u00e1jl",
+			"description": "felt\u00f6lt\u00f6tt f\u00e1jl",
+			"newItem": "F\u00e1jl hozz\u00e1ad\u00e1sa"
+		},
+		"Streams/audio": {
+			"displayType": "Hang klip",
+			"description": "audio klip",
+			"newItem": "Hang hozz\u00e1ad\u00e1sa"
+		},
+		"Streams/video": {
+			"displayType": "Videoklip",
+			"description": "Videoklip",
+			"newItem": "Vide\u00f3 hozz\u00e1ad\u00e1sa lehet\u0151s\u00e9gre"
+		},
+		"Streams/pdf": {
+			"displayType": "PDF dokumentum",
+			"description": "PDF dokumentum",
+			"newItem": "PDF hozz\u00e1ad\u00e1sa"
+		},
+		"Streams/live": {
+			"displayType": "\u00c9l\u0151 ad\u00e1s",
+			"description": "\u00e9l\u0151 hang vagy vide\u00f3"
+		},
+		"Streams/category": {
+			"displayType": "Kateg\u00f3ria",
+			"description": "egy kateg\u00f3ria, amelyhez m\u00e1s folyamok is kapcsolhat\u00f3k",
+			"newItem": "Kateg\u00f3ria hozz\u00e1ad\u00e1sa"
+		},
+		"Streams/participating": {
+			"displayType": "R\u00e9szv\u00e9teli index",
+			"description": "a folyamok ehhez kapcsol\u00f3dnak/nem kapcsol\u00f3dnak, amikor egy felhaszn\u00e1l\u00f3 csatlakozik/kil\u00e9p"
+		},
+		"Streams/interest": {
+			"displayType": "\u00c9rdekl\u0151d\u00e9s",
+			"description": "k\u00e9pviseli a felhaszn\u00e1l\u00f3 \u00e9rdekl\u0151d\u00e9s\u00e9t egy bizonyos t\u00e9ma ir\u00e1nt"
+		},
+		"Streams/incoming": {
+			"displayType": "Be\u00e9rkez\u0151",
+			"description": "m\u00e1s felhaszn\u00e1l\u00f3k \u00e1ltal k\u00fcld\u00f6tt \u00fczenetek c\u00e9l\u00e1llom\u00e1sa"
+		},
+		"Streams/chat": {
+			"displayType": "Besz\u00e9lget\u00e9s",
+			"description": "a felhaszn\u00e1l\u00f3k k\u00f6z\u00f6tti besz\u00e9lget\u00e9s el\u0151zm\u00e9nyekkel"
+		},
+		"Streams/question": {
+			"displayType": "K\u00e9rd\u00e9s",
+			"description": "k\u00e9rd\u00e9sfolyam",
+			"newItem": "K\u00e9rd\u00e9s hozz\u00e1ad\u00e1sa"
+		},
+		"Streams/answer": {
+			"displayType": "V\u00e1lasz",
+			"description": "v\u00e1laszfolyam"
+		},
+		"Streams/topic": {
+			"displayType": "T\u00e9ma",
+			"description": "t\u00e9mafolyam",
+			"newItem": "T\u00e9ma hozz\u00e1ad\u00e1sa elemre"
+		}
+	},
+	"menu": {
+		"placeholder": "\u00edrja be az oldal c\u00edm\u00e9t",
+		"ModTab": "Elem m\u00f3dos\u00edt\u00e1sa",
+		"Save": "Megment",
+		"Delete": "T\u00f6r\u00f6l",
+		"Submenu": "Almen\u00fc"
+	},
+	"audio": {
+		"record": "Rekord",
+		"reset": "Vissza\u00e1ll\u00edt\u00e1s",
+		"edit": "Szerkeszt\u00e9s",
+		"title": "c\u00edm",
+		"description": "le\u00edr\u00e1s",
+		"upload": "Felt\u00f6lt\u00e9s",
+		"link": "Link",
+		"setUrl": "\u00c1ll\u00edtsa be az URL-t",
+		"save": "Megment",
+		"setClip": "Kiv\u00e1gott klip",
+		"invalidURL": "\u00e9rv\u00e9nytelen URL",
+		"invalidFile": "\u00c9rv\u00e9nytelen f\u00e1jl",
+		"errorNoSource": "Nincs hangforr\u00e1s",
+		"uploadLimit": "Max f\u00e1jlm\u00e9ret: {{size}}",
+		"errorFileSize": "Eln\u00e9z\u00e9st, de a f\u00e1jl t\u00fal nagy.<br> A maxim\u00e1lis f\u00e1jlm\u00e9ret {{size}}",
+		"TeaserAudio": "Teaser Hang"
+	},
+	"video": {
+		"reset": "Vissza\u00e1ll\u00edt\u00e1s",
+		"edit": "Szerkeszt\u00e9s",
+		"title": "c\u00edm",
+		"description": "le\u00edr\u00e1s",
+		"upload": "Felt\u00f6lt\u00e9s",
+		"link": "Link",
+		"setUrl": "\u00c1ll\u00edtsa be az URL-t",
+		"save": "Megment",
+		"setClip": "Kiv\u00e1gott klip",
+		"invalidURL": "\u00e9rv\u00e9nytelen URL",
+		"invalidFile": "\u00c9rv\u00e9nytelen f\u00e1jl",
+		"errorNoSource": "Nincs vide\u00f3 forr\u00e1s",
+		"uploadLimit": "Max f\u00e1jlm\u00e9ret: {{size}}",
+		"errorFileSize": "Eln\u00e9z\u00e9st, de a f\u00e1jl t\u00fal nagy.<br> A maxim\u00e1lis f\u00e1jlm\u00e9ret {{size}}",
+		"createAnimatedThumbnail": "Anim\u00e1lt miniat\u0171r l\u00e9trehoz\u00e1sa",
+		"errorNotAvailable": "Sajn\u00e1ljuk, de a vide\u00f3 m\u00e9g nem \u00e9rhet\u0151 el. K\u00e9rlek, pr\u00f3b\u00e1ld \u00fajra k\u00e9s\u0151bb.",
+		"NewVideo": "\u00daj Vide\u00f3",
+		"EditVideo": "Vide\u00f3 szerkeszt\u00e9se",
+		"TeaserVideo": "Teaser vide\u00f3"
+	},
+	"pdf": {
+		"reset": "Vissza\u00e1ll\u00edt\u00e1s",
+		"edit": "Szerkeszt\u00e9s",
+		"title": "c\u00edm",
+		"description": "le\u00edr\u00e1s",
+		"upload": "Felt\u00f6lt\u00e9s",
+		"link": "Link",
+		"setUrl": "\u00c1ll\u00edtsa be az URL-t",
+		"save": "Megment",
+		"setClip": "Kiv\u00e1gott klip",
+		"invalidURL": "\u00e9rv\u00e9nytelen URL",
+		"invalidFile": "\u00c9rv\u00e9nytelen f\u00e1jl",
+		"errorNoSource": "Nincs pdf forr\u00e1s",
+		"uploadLimit": "Max f\u00e1jlm\u00e9ret: {{size}}",
+		"errorFileSize": "Eln\u00e9z\u00e9st, de a f\u00e1jl t\u00fal nagy.<br> A maxim\u00e1lis f\u00e1jlm\u00e9ret {{size}}",
+		"TeaserPDF": "Teaser PDF"
+	},
+	"image": {
+		"reset": "Vissza\u00e1ll\u00edt\u00e1s",
+		"edit": "Szerkeszt\u00e9s",
+		"title": "c\u00edm",
+		"description": "le\u00edr\u00e1s",
+		"upload": "Felt\u00f6lt\u00e9s",
+		"link": "Link",
+		"setUrl": "\u00c1ll\u00edtsa be az URL-t",
+		"save": "Megment",
+		"uploadedImage": "Felt\u00f6lt\u00f6tt k\u00e9p",
+		"imageTitle": "K\u00e9p c\u00edme",
+		"setClip": "Kiv\u00e1gott klip",
+		"invalidURL": "\u00e9rv\u00e9nytelen URL",
+		"invalidFile": "\u00c9rv\u00e9nytelen f\u00e1jl",
+		"errorNoSource": "Nincs k\u00e9pforr\u00e1s",
+		"uploadLimit": "Max f\u00e1jlm\u00e9ret: {{size}}",
+		"errorFileSize": "Eln\u00e9z\u00e9st, de a f\u00e1jl t\u00fal nagy.<br> A maxim\u00e1lis f\u00e1jlm\u00e9ret {{size}}",
+		"TeaserImage": "Teaser k\u00e9p"
+	},
+	"questions": {
+		"Questions": "K\u00e9rd\u00e9sek",
+		"Answers": "V\u00e1laszok",
+		"AnswerQuestion": "V\u00e1laszolj a k\u00e9rd\u00e9sre",
+		"SetYourAnswer": "K\u00e9rem, v\u00e1laszoljon a k\u00e9rd\u00e9sre",
+		"NewQuestion": "\u00daj K\u00e9rd\u00e9s",
+		"EditQuestion": "K\u00e9rd\u00e9s szerkeszt\u00e9se",
+		"NewAnswer": "\u00daj v\u00e1lasz",
+		"NewPossibleAnswer": "\u00daj lehets\u00e9ges v\u00e1lasz",
+		"AnswerDetails": "V\u00e1lasz R\u00e9szletek",
+		"answerOption": "v\u00e1laszt\u00e1si lehet\u0151s\u00e9g",
+		"answerOptionExclusive": "Kiz\u00e1r\u00f3lagos",
+		"answerTextarea": "Textarea",
+		"answerText": "Sz\u00f6veg",
+		"HideUntilAnswered": "Rejtse el a v\u00e1laszig",
+		"CantChangeAnswers": "A v\u00e1laszokat nem lehet megv\u00e1ltoztatni",
+		"FreeAnswer": "\u00cdrja ide a v\u00e1lasz\u00e1t",
+		"SaveQuestion": "K\u00e9rd\u00e9s ment\u00e9se",
+		"SaveAnswer": "V\u00e1lasz ment\u00e9se",
+		"Save": "Megment",
+		"Send": "K\u00fcld",
+		"TitleRequired": "C\u00edm k\u00f6telez\u0151!",
+		"AlreadyAnswered": "M\u00e1r v\u00e1laszolt",
+		"TitlePlaceholder": "\u00cdrja be k\u00e9rd\u00e9s\u00e9t",
+		"ContentPlaceholder": "\u00cdrjon ide minden tov\u00e1bbi inform\u00e1ci\u00f3t, hogy seg\u00edtsen az embereknek v\u00e1laszolni",
+		"ErrorTitle": "K\u00e9rd\u00e9s k\u00f6telez\u0151",
+		"Placeholder": "\u00cdrja meg az utas\u00edt\u00e1sokat",
+		"AreYouSure": "biztos vagy ebben?",
+		"ShortAnswer": "\u00cdrj egy r\u00f6vid v\u00e1laszt",
+		"AnswerCantBeChanged": "A v\u00e1laszt nem lehet megv\u00e1ltoztatni"
+	},
+	"experience": {
+		"NewExperience": "\u00daj tapasztalat",
+		"DefineTitle": "K\u00e9rj\u00fck, adjon meg egy c\u00edmet",
+		"Create": "Teremt"
+	},
+	"calls": {
+		"SettingsTitle": "H\u00edv\u00e1sok",
+		"MaxCalls": "Max h\u00edv\u00e1sok",
+		"Update": "Friss\u00edt\u00e9s",
+		"NoCallsYet": "M\u00e9g nincsenek h\u00edv\u00e1sok",
+		"CallReasonTitle": "Mir\u0151l sz\u00f3l ez a h\u00edv\u00e1s?",
+		"WaitingRoom": "V\u00e1r\u00f3szoba",
+		"LiveRoom": "\u00c9l\u0151szoba",
+		"interviewedByAnotherHost": "Jelenleg egy m\u00e1sik m\u0171sorvezet\u0151 interj\u00faztatja",
+		"bringToLive": "Bring To Live Show",
+		"putOnHold": "F\u00e9lretesz",
+		"endCall": "H\u00edv\u00e1s befejez\u00e9se",
+		"interview": "Interj\u00fa",
+		"markApproved": "Jel\u00f6lje meg j\u00f3v\u00e1hagyva"
+	},
+	"relate": {
+		"Add": "Adjunk hozz\u00e1 {{streamDisplayType}} et"
+	},
+	"userChooser": {
+		"Placeholder": "Egy felhaszn\u00e1l\u00f3 neve..."
+	},
+	"task": {
+		"errorsTitle": "Hib\u00e1k t\u00f6rt\u00e9ntek"
+	},
+	"topic": {
+		"NewTopic": "\u00daj t\u00e9ma",
+		"UpdateTopic": "T\u00e9ma friss\u00edt\u00e9se",
+		"CreateTopic": "T\u00e9ma l\u00e9trehoz\u00e1sa",
+		"AreYouSureDeleteTopic": "Biztosan t\u00f6rli ezt a t\u00e9m\u00e1t?",
+		"TitlePlaceholder": "t\u00e9ma c\u00edme...",
+		"DescribeTopic": "\u00edrd le a t\u00e9m\u00e1t...",
+		"TopicIcon": "T\u00e9mak\u00e9p",
+		"UploadIcon": "Felt\u00f6lt\u00e9s ikon",
+		"Conversation": "Besz\u00e9lget\u00e9s",
+		"Metrics": "M\u00e9r\u00e9sek",
+		"Teaser": "Teaser",
+		"TeaserDescription": "teaser le\u00edr\u00e1sa...",
+		"TeaserVideo": "Teaser vide\u00f3"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Anim\u00e1lt miniat\u0171r l\u00e9trehoz\u00e1sa",
+		"Width": "Sz\u00e9less\u00e9g",
+		"Height": "Magass\u00e1g",
+		"Start": "Rajt",
+		"End": "V\u00e9ge",
+		"Delay": "K\u00e9sleltet\u00e9s",
+		"Quality": "Min\u0151s\u00e9g",
+		"Size": "M\u00e9ret",
+		"OfFrames": "keretek k\u00f6z\u00fcl",
+		"Frame": "Keret",
+		"UseThis": "Haszn\u00e1ld ezt",
+		"ResultGIF": "Eredm\u00e9ny GIF",
+		"VideoElementNotFound": "A vide\u00f3elem nem tal\u00e1lhat\u00f3"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} Az arcodon",
+		"AcceptIcon": "A kiv\u00e1lasztott ter\u00fclet elfogad\u00e1sa"
+	},
+	"gallery": {
+		"DialogTitle": "Gal\u00e9riak\u00e9p szerkeszt\u00e9se",
+		"EditImageTitle": "K\u00e9pparam\u00e9terek szerkeszt\u00e9se",
+		"IntervalLabel": "Intervallum (ms): ",
+		"IntervalPlaceholder": "pl. 3000",
+		"KenburnsInstruction": "Ken Burns kezd\u00e9si \u00e9s befejez\u00e9si pontj\u00e1nak be\u00e1ll\u00edt\u00e1sa h\u00faz\u00e1ssal \u00e9s nagy\u00edt\u00e1ssal."
+	}
 }

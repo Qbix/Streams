@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "intet om det",
+		"10": "at der er noget der",
+		"20": "dets nuv\u00e6rende indhold",
+		"30": "hvem deltager i det",
+		"40": "den sociale aktivitet indenfor"
+	},
+	"writeLevelOptions": {
+		"0": "g\u00f8r ingenting ved det",
+		"10": "deltage i det",
+		"20": "sende beskeder til den",
+		"30": "rediger dens indhold"
+	},
+	"adminLevelOptions": {
+		"0": "ikke lave noget s\u00e6rligt",
+		"10": "del beskeder fra str\u00f8mmen",
+		"20": "invitere andre til streamen",
+		"30": "administrere str\u00f8mmen",
+		"40": "eje det og udpege ledere"
+	},
+	"tabs": {
+		"read": "synlig for",
+		"write": "redigerbar af",
+		"admin": "medlemmer"
+	}
+}

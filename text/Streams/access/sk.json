@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "ni\u010d o tom",
+		"10": "\u017ee tam nie\u010do je",
+		"20": "jeho aktu\u00e1lny obsah",
+		"30": "kto sa na tom z\u00fa\u010dast\u0148uje",
+		"40": "spolo\u010densk\u00e1 aktivita vo vn\u00fatri"
+	},
+	"writeLevelOptions": {
+		"0": "ni\u010d s t\u00fdm nerob",
+		"10": "z\u00fa\u010dastni\u0165 sa na tom",
+		"20": "posiela\u0165 na\u0148 spr\u00e1vy",
+		"30": "upravi\u0165 jeho obsah"
+	},
+	"adminLevelOptions": {
+		"0": "nerobi\u0165 ni\u010d zvl\u00e1\u0161tne",
+		"10": "zdie\u013ea\u0165 spr\u00e1vy zo streamu",
+		"20": "pozva\u0165 ostatn\u00fdch do streamu",
+		"30": "spravova\u0165 stream",
+		"40": "vlastni\u0165 to a vymenova\u0165 mana\u017e\u00e9rov"
+	},
+	"tabs": {
+		"read": "vidite\u013en\u00e9 pre",
+		"write": "upravite\u013en\u00e9 pou\u017e\u00edvate\u013eom",
+		"admin": "\u010dlenovia"
+	}
+}

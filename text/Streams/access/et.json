@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "mitte midagi sellest",
+		"10": "et seal on midagi",
+		"20": "selle praegune sisu",
+		"30": "kes selles osaleb",
+		"40": "sotsiaalne tegevus sees"
+	},
+	"writeLevelOptions": {
+		"0": "\u00e4ra sellega midagi tee",
+		"10": "selles osalema",
+		"20": "postita sinna s\u00f5numeid",
+		"30": "muuta selle sisu"
+	},
+	"adminLevelOptions": {
+		"0": "mitte midagi erilist teha",
+		"10": "jaga voost s\u00f5numeid",
+		"20": "kutsu teisi voogu",
+		"30": "hallata voogu",
+		"40": "oma seda ja m\u00e4\u00e4ra haldurid"
+	},
+	"tabs": {
+		"read": "n\u00e4htav",
+		"write": "muudetav",
+		"admin": "liikmed"
+	}
+}

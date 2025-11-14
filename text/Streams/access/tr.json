@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "bununla ilgili hi\u00e7bir \u015fey yok",
+		"10": "orada bir \u015fey var",
+		"20": "g\u00fcncel i\u00e7eri\u011fi",
+		"30": "buna kim kat\u0131l\u0131yor",
+		"40": "i\u00e7erideki sosyal aktivite"
+	},
+	"writeLevelOptions": {
+		"0": "ona hi\u00e7bir \u015fey yapma",
+		"10": "buna kat\u0131lmak",
+		"20": "ona mesaj g\u00f6nder",
+		"30": "i\u00e7eri\u011fini d\u00fczenle"
+	},
+	"adminLevelOptions": {
+		"0": "\u00f6zel bir \u015fey yapma",
+		"10": "ak\u0131\u015ftan mesajlar\u0131 payla\u015f\u0131n",
+		"20": "ba\u015fkalar\u0131n\u0131 yay\u0131na davet et",
+		"30": "ak\u0131\u015f\u0131 y\u00f6net",
+		"40": "sahip olun ve y\u00f6neticiler atay\u0131n"
+	},
+	"tabs": {
+		"read": "g\u00f6r\u00fcn\u00fcr",
+		"write": "taraf\u0131ndan d\u00fczenlenebilir",
+		"admin": "\u00fcyeler"
+	}
+}

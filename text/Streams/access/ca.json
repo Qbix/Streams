@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "res d&#39;aix\u00f2",
+		"10": "que alguna cosa hi \u00e9s",
+		"20": "el seu contingut actual",
+		"30": "qui hi participa",
+		"40": "l&#39;activitat social a l&#39;interior"
+	},
+	"writeLevelOptions": {
+		"0": "no hi facis res",
+		"10": "participar-hi",
+		"20": "publicar-hi missatges",
+		"30": "editar el seu contingut"
+	},
+	"adminLevelOptions": {
+		"0": "no fer res d&#39;especial",
+		"10": "compartir missatges del flux",
+		"20": "convidar altres persones a la transmissi\u00f3",
+		"30": "gestionar el flux",
+		"40": "posseir-lo i nomenar administradors"
+	},
+	"tabs": {
+		"read": "visible per a",
+		"write": "editable per",
+		"admin": "membres"
+	}
+}

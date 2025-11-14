@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "dim byd amdano",
+		"10": "bod rhywbeth yno",
+		"20": "ei gynnwys cyfredol",
+		"30": "pwy sy&#39;n cymryd rhan ynddo",
+		"40": "y gweithgaredd cymdeithasol y tu mewn"
+	},
+	"writeLevelOptions": {
+		"0": "gwneud dim byd iddo",
+		"10": "cymryd rhan ynddo",
+		"20": "postio negeseuon iddo",
+		"30": "golygu ei gynnwys"
+	},
+	"adminLevelOptions": {
+		"0": "peidio \u00e2 gwneud unrhyw beth arbennig",
+		"10": "rhannu negeseuon o&#39;r ffrwd",
+		"20": "gwahodd eraill i&#39;r ffrydio",
+		"30": "rheoli&#39;r ffrwd",
+		"40": "yn berchen arno ac yn penodi rheolwyr"
+	},
+	"tabs": {
+		"read": "yn weladwy i",
+		"write": "gellir ei olygu gan",
+		"admin": "aelodau"
+	}
+}

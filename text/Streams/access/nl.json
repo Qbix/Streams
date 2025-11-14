@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "niets over",
+		"10": "dat er iets is",
+		"20": "de huidige inhoud",
+		"30": "wie er aan meedoet",
+		"40": "de sociale activiteit binnen"
+	},
+	"writeLevelOptions": {
+		"0": "er niets aan doen",
+		"10": "er aan deelnemen",
+		"20": "berichten erop plaatsen",
+		"30": "de inhoud ervan bewerken"
+	},
+	"adminLevelOptions": {
+		"0": "niets speciaals doen",
+		"10": "berichten delen vanuit de stream",
+		"20": "nodig anderen uit voor de stream",
+		"30": "de stroom beheren",
+		"40": "neem het in eigen beheer en benoem managers"
+	},
+	"tabs": {
+		"read": "zichtbaar voor",
+		"write": "bewerkbaar door",
+		"admin": "leden"
+	}
+}

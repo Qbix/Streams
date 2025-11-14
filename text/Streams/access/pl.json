@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "nic o tym",
+		"10": "\u017ce co\u015b tam jest",
+		"20": "jego aktualna zawarto\u015b\u0107",
+		"30": "kto w tym uczestniczy",
+		"40": "aktywno\u015b\u0107 spo\u0142eczna wewn\u0105trz"
+	},
+	"writeLevelOptions": {
+		"0": "nic z tym nie r\u00f3b",
+		"10": "bra\u0107 w tym udzia\u0142",
+		"20": "wysy\u0142aj do niego wiadomo\u015bci",
+		"30": "edytowa\u0107 jego zawarto\u015b\u0107"
+	},
+	"adminLevelOptions": {
+		"0": "nie r\u00f3b nic specjalnego",
+		"10": "udost\u0119pniaj wiadomo\u015bci ze strumienia",
+		"20": "zapro\u015b innych do transmisji",
+		"30": "zarz\u0105dza\u0107 strumieniem",
+		"40": "by\u0107 jego w\u0142a\u015bcicielem i wyznacza\u0107 mened\u017cer\u00f3w"
+	},
+	"tabs": {
+		"read": "widoczny dla",
+		"write": "edytowalne przez",
+		"admin": "cz\u0142onkowie"
+	}
+}

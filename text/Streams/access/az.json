@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "bu bar\u0259d\u0259 he\u00e7 n\u0259",
+		"10": "ki, orada bir \u015fey var",
+		"20": "onun cari m\u0259zmunu",
+		"30": "kim i\u015ftirak edir",
+		"40": "daxilind\u0259 ictimai f\u0259aliyy\u0259t"
+	},
+	"writeLevelOptions": {
+		"0": "ona he\u00e7 n\u0259 etm\u0259",
+		"10": "orada i\u015ftirak edin",
+		"20": "ona mesajlar g\u00f6nd\u0259rin",
+		"30": "m\u0259zmununu redakt\u0259 edin"
+	},
+	"adminLevelOptions": {
+		"0": "x\u00fcsusi bir \u015fey etm\u0259yin",
+		"10": "ax\u0131ndak\u0131 mesajlar\u0131 payla\u015f\u0131n",
+		"20": "ba\u015fqalar\u0131n\u0131 ax\u0131na d\u0259v\u0259t edin",
+		"30": "ax\u0131n\u0131 idar\u0259 edin",
+		"40": "sahib olun v\u0259 menecerl\u0259ri t\u0259yin edin"
+	},
+	"tabs": {
+		"read": "\u00fc\u00e7\u00fcn g\u00f6r\u00fcn\u00fcr",
+		"write": "t\u0259r\u0259find\u0259n redakt\u0259 edil\u0259 bil\u0259r",
+		"admin": "\u00fczvl\u0259ri"
+	}
+}

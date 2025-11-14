@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "nieko apie tai",
+		"10": "kad ka\u017ekas ten yra",
+		"20": "dabartinis jo turinys",
+		"30": "kas jame dalyvauja",
+		"40": "socialin\u0117 veikla viduje"
+	},
+	"writeLevelOptions": {
+		"0": "nieko d\u0117l to nedaryk",
+		"10": "dalyvauti jame",
+		"20": "si\u0173sti jai \u017einutes",
+		"30": "redaguoti jo turin\u012f"
+	},
+	"adminLevelOptions": {
+		"0": "nedaryti nieko ypatingo",
+		"10": "bendrinti prane\u0161imus i\u0161 srauto",
+		"20": "pakviesti kitus \u012f sraut\u0105",
+		"30": "valdyti sraut\u0105",
+		"40": "valdykite j\u012f ir paskirkite vadovus"
+	},
+	"tabs": {
+		"read": "matomas",
+		"write": "redaguojamas",
+		"admin": "nariai"
+	}
+}

@@ -209,77 +209,79 @@ Q.Tool.define("Streams/access", function(options) {
 
 				var extra = response.slots.extra;
 				Q.Streams.Stream.construct(extra.stream, {}, null);
-				state.avatarArray = extra.avatarArray;
-				state.accessArray = extra.accessArray;
+				state.avatarArray = extra.avatarArray || [];
+				state.accessArray = extra.accessArray || [];
 				state.labels = extra.labels;
 				state.icons = extra.icons;
 			}
 		});
 		
-		var tabName = ts.tabName;
-		element            = tool.element,
-		levelForEveryone   = $('.Streams_access_levelForEveryone', element),
-		fieldName          = (tabName != null ? tabName : 'read')+'Level',
-		actionText         = (tabName === 'read' || tabName == null) ? 'can see' : 'can',
-		tempSelect         = $('<select />');
-		tool.child('Streams_userChooser').exclude = state.avatarArray;
-		Q.Streams.retainWith(tool)
-		.get(tool.state.publisherId, tool.state.streamName, function (err, data) {
-			var msg;
-			if (msg = Q.firstErrorMessage(err, data && data.errors)) {
-				alert(msg);
-			}
-			if (!data) return;
-			state.stream = this;
+		ts.onCurrent.addOnce(function () {
+			var tabName = ts.tabName;
+			element            = tool.element,
+			levelForEveryone   = $('.Streams_access_levelForEveryone', element),
+			fieldName          = (tabName != null ? tabName : 'read')+'Level',
+			actionText         = (tabName === 'read' || tabName == null) ? 'can see' : 'can',
+			tempSelect         = $('<select />');
+			tool.child('Streams_userChooser').exclude = state.avatarArray;
+			Q.Streams.retainWith(tool)
+			.get(tool.state.publisherId, tool.state.streamName, function (err, data) {
+				var msg;
+				if (msg = Q.firstErrorMessage(err, data && data.errors)) {
+					alert(msg);
+				}
+				if (!data) return;
+				state.stream = this;
 
-			var i, userId, access;
-			prepareSelect(levelForEveryone, {ofUserId: ''}, state.stream.fields[fieldName], 'stream');
+				var i, userId, access;
+				prepareSelect(levelForEveryone, {ofUserId: ''}, state.stream.fields[fieldName], 'stream');
 
-			for (i=0; i<state.accessArray.length; ++i) {
-				access = state.accessArray[i];
-				addAccessRow(access);
-			}
+				for (i=0; i<state.accessArray.length; ++i) {
+					access = state.accessArray[i];
+					addAccessRow(access);
+				}
 
-			tool.child('Streams_userChooser').onChoose = function (userId, avatar) {
-				var fields = {
-					publisherId: state.stream.fields.publisherId,
-					streamName: state.stream.fields.name,
-					ofUserId: userId,
+				tool.child('Streams_userChooser').onChoose = function (userId, avatar) {
+					var fields = {
+						publisherId: state.stream.fields.publisherId,
+						streamName: state.stream.fields.name,
+						ofUserId: userId,
+					};
+					fields[fieldName] = levelForEveryone.val();
+
+					Q.req('Streams/access', ['data'], function (err, response) {
+						var msg;
+						if (msg = Q.firstErrorMessage(err, response && response.errors)) {
+							alert(msg);
+						}
+						addAccessRow(response.slots.data.access.fields, avatar);
+					}, {
+						method: 'put',
+						fields: fields
+					});
+					
 				};
-				fields[fieldName] = levelForEveryone.val();
 
-				Q.req('Streams/access', ['data'], function (err, response) {
-					var msg;
-					if (msg = Q.firstErrorMessage(err, response && response.errors)) {
-						alert(msg);
-					}
-					addAccessRow(response.slots.data.access.fields, avatar);
-				}, {
-					method: 'put',
-					fields: fields
-				});
-				
-			};
+				$('.Streams_access_levelAddLabel', element).change(function () {
+					var fields = {
+						publisherId: state.stream.fields.publisherId,
+						streamName: state.stream.fields.name,
+						ofContactLabel: $(this).val(),
+						'Q.method': 'put'
+					};
+					fields[fieldName] = levelForEveryone.val();
 
-			$('.Streams_access_levelAddLabel', element).change(function () {
-				var fields = {
-					publisherId: state.stream.fields.publisherId,
-					streamName: state.stream.fields.name,
-					ofContactLabel: $(this).val(),
-					'Q.method': 'put'
-				};
-				fields[fieldName] = levelForEveryone.val();
-
-				Q.req('Streams/access', ['data'], function (err, response) {
-					var msg;
-					if (msg = Q.firstErrorMessage(err, response && response.errors)) {
-						alert(msg);
-					}
-					addAccessRow(response.slots.data.access.fields);
-					state.stream.refresh();
-				}, {
-					method: 'put',
-					fields: fields
+					Q.req('Streams/access', ['data'], function (err, response) {
+						var msg;
+						if (msg = Q.firstErrorMessage(err, response && response.errors)) {
+							alert(msg);
+						}
+						addAccessRow(response.slots.data.access.fields);
+						state.stream.refresh();
+					}, {
+						method: 'put',
+						fields: fields
+					});
 				});
 			});
 		});
@@ -289,5 +291,7 @@ Q.Tool.define("Streams/access", function(options) {
 		_initialize();
 		onActivateHandler = this.child('Q_tabs').state.onActivate.set(_initialize, this);
 	}, this);
+}, {
+	
 });
 })(Q, Q.jQuery);

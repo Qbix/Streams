@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Nội dung này được ẩn từ bạn.",
-        "InplaceTypeMustBe": "inplaceType phải là &#39;textarea&#39; hoặc &#39;text&#39;"
-    },
-    "preview": {
-        "NewItemTitle": "Vật phẩm mới",
-        "Teaser": "Đoạn giới thiệu"
-    },
-    "avatar": {
-        "firstName": "tên đầu tiên",
-        "lastName": "họ",
-        "username": "tên tài khoản"
-    },
-    "labels": {
-        "Streams\/invited": "Những người tôi đã mời",
-        "Streams\/invitedMe": "Ai đã mời tôi",
-        "DoYouAgree": "Bạn có đồng ý không?",
-        "Yes": "Đúng",
-        "No": "KHÔNG",
-        "JoinItNow": "Tham gia nó ngay bây giờ?"
-    },
-    "login": {
-        "prompt": "Hãy để bạn bè nhận ra bạn:",
-        "newUser": "hoặc tạo tài khoản mới bên dưới",
-        "picTooltip": "Bạn có thể thay đổi hình ảnh này sau",
-        "placeholders": {
-            "fullName": "Nhập tên đầy đủ của bạn"
-        }
-    },
-    "interests": {
-        "Filter": "Sở thích tìm kiếm",
-        "CanGrant": "Nếu bạn vẫn không thể tìm thấy những gì bạn đang tìm kiếm, bạn có thể thêm sở thích mới bên dưới:",
-        "TrySynonyms": "Không nhìn thấy nó? Hãy thử một số từ đồng nghĩa.",
-        "AddUnderCategory": "Thêm vào danh mục...",
-        "Other": "Khác",
-        "Unlisted": "chưa niêm yết"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Thư đã được gắn cờ để quản trị viên xem xét. Nhấn lại để bỏ gắn cờ.",
-        "noOneSaid": "Không ai đã nói bất cứ điều gì",
-        "closeChatButton": "Đóng trò chuyện",
-        "closeChatConfirmTitle": "Đóng cuộc trò chuyện này?",
-        "closeChatConfirm": "Bạn có chắc chắn muốn đóng cuộc trò chuyện này?",
-        "Subscribed": "Đã bật thông báo",
-        "Unsubscribed": "Tắt tiếng thông báo",
-        "closeChatConfirmYes": "Đúng",
-        "closeChatConfirmNo": "KHÔNG",
-        "earlierComments": "nhận xét trước đó",
-        "startedConversation": "bắt đầu một cuộc trò chuyện",
-        "RealTimeCall": "Cuộc gọi thời gian thực",
-        "JoinWebRTC": "Hội nghị từ xa",
-        "SearchByName": "Tìm kiếm theo tên",
-        "Notifications": {
-            "Visit": "{{displayName}} đang truy cập chat",
-            "Join": "{{displayName}} đã tham gia trò chuyện",
-            "Leave": "{{displayName}} rời cuộc trò chuyện",
-            "RelatedTo": "{{displayName}} bắt đầu {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "thêm nhận xét",
-            "Private": "Viết tin nhắn riêng"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "quản lý đăng ký email của bạn",
-        "IfUnsubscribe": "Nếu bạn muốn hủy đăng ký",
-        "*": "Tin nhắn {{{ message.fields.type}} đến {{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} đã tham gia",
-        "Streams\/left": "còn {{{call 'avatar.displayName'}}}",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} đã nói: {{& message.content}}}",
-        "Streams\/changed": "Những thay đổi trong {{stream.fields.title}}",
-        "Streams\/invite": "Bạn đã được mời đến {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Thông báo năm {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} thay đổi quyền truy cập trong {{& stream.fields.title}}}",
-        "Streams\/chat\/edit": "Tin nhắn chat sửa năm {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "Đã xóa tin nhắn trò chuyện vào {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} đã bị đóng",
-        "Streams\/task\/progress": "Tiến độ thực hiện trên {{stream.fields.title}}",
-        "Streams\/task\/complete": "Nhiệm vụ đã hoàn thành: {{stream.fields.title}}",
-        "Streams\/task\/error": "Lỗi trong thời gian: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Tin nhắn đến",
-        "Streams\/relatedTo\/Streams\/call": "Cuộc gọi mới bắt đầu trong {{toTitle}}",
-        "Streams\/relatedTo\/*": "Mới {{relationDisplayType}} trong {{toTitle}}",
-        "Streams\/relatedFrom\/*": "Cộng với {{toTitle}} thành {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} đã đề cập đến bạn trong một bình luận",
-        "Streams\/call": "{{displayName}} bắt đầu cuộc gọi theo thời gian thực",
-        "changed": {
-            "ChangesIn": "Những thay đổi ở {{title}}",
-            "Changed": "đã thay đổi",
-            "HereIsWhatChanged": "Đây là những gì đã thay đổi:"
-        },
-        "joined": {
-            "Joined": "{{subject}} tham gia <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Mời",
-        "Invite": "Mời",
-        "Share": "Chia sẻ",
-        "messageContent": "{{displayName}} đã mời bạn đến {{inviteUrl}}",
-        "youCanNowPaste": "Bây giờ bạn có thể dán liên kết này vào đâu đó để mời mọi người",
-        "roles": {
-            "title": "Cấp vai trò cho người dùng được mời?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Lấy làm tiếc",
-                "alert": "Bạn không được phép cấp vai trò này"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Lấy làm tiếc",
-                "alert": "Bạn không được phép xóa vai trò này"
-            }
-        },
-        "labels": {
-            "title": "Mối quan hệ của bạn là gì?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Chọn từ Danh bạ của bạn",
-            "chooseAgainFromContacts": "Chọn lại từ Danh bạ",
-            "inviteSelectedContacts": "Mời những người liên hệ đã chọn",
-            "selectFromContacts": "Chọn Từ Danh bạ",
-            "userChooserPlaceholder": "Tìm kiếm theo tên",
-            "photo": "Chụp ảnh",
-            "photoOf": "Chụp ảnh {{name}}",
-            "photoInstruction": "Nếu người đã quét mã QR của bạn ở trước mặt bạn, hãy chụp ảnh họ",
-            "to": "Tới: {{Stream Title}}",
-            "go": "Đi",
-            "title": "Mời",
-            "placeholder": "Số điện thoại di động hoặc địa chỉ email",
-            "orInvite": "Hoặc mời mọi người bằng cách sử dụng:",
-            "copyLink": "{{ClickOrTap}} để sao chép liên kết mời",
-            "shareOrCopyLink": "{{ClickOrTap}} để chia sẻ hoặc sao chép liên kết mời",
-            "QR": "{{ClickOrTap}} để tạo mã QR",
-            "QRtitle": "Quét mã QR này",
-            "QRscanned": "Họ đã quét nó!",
-            "scannedQR": "{{ClickOrTap}} nếu mã được quét",
-            "byEmail": "E-mail",
-            "bySms": "Chữ",
-            "byFacebook": "Facebook",
-            "byTwitter": "Twitter",
-            "title2": "mời mọi người",
-            "chooseMethod": "Chọn một phương pháp:",
-            "selectContacts": "Chọn Danh bạ",
-            "scanQRCode": "Quét mã QR",
-            "shareLink": "Chia sẻ một liên kết",
-            "chooseFromRegistered": "Chọn từ người dùng đã đăng ký",
-            "inviteViaEmailOrSms": "Mời qua email hoặc SMS",
-            "TakeGroupPhoto": "Chụp ảnh nhóm",
-            "Skip": "Nhảy",
-            "byTelegram": "điện tín",
-            "byWhatsapp": "WhatsApp",
-            "addRoles": "Thêm vai trò",
-            "addPersonalRoles": "Thêm mối quan hệ cá nhân"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Chào mừng đến với {{communityName}}",
-            "HasInvitedYou": "đã mời bạn:",
-            "HasInvitedYouToTheirProfile": "đã mời bạn kết nối.",
-            "prompt": "Hãy để bạn bè nhận ra bạn:",
-            "accept": "Chấp nhận lời mời"
-        },
-        "email": {
-            "subject": "Này, xem này",
-            "PleaseVisitLink": "Vui lòng truy cập liên kết sau:",
-            "InvitingYou": "Tôi đang mời bạn đến {{title}}",
-            "HasInvitedYou": "{{displayName}} đã mời bạn đến {{title}}",
-            "HasMentionedYou": "{{displayName}} đã nhắc đến bạn trong &quot; {{title}} &quot;",
-            "YOUAREINVITED": "BẠN ĐƯỢC MỜI!",
-            "AcceptInvite": "Chấp nhận lời mời"
-        },
-        "mobile": {
-            "content": "Bạn đã được mời đến {{title}} . Vui lòng nhấn {{url}}"
-        },
-        "notice": {
-            "text": "Bạn đã được mời. {{ClickOrTap}} ở đây để chấp nhận và tham gia."
-        },
-        "chat": {
-            "prompt": "Bạn sẽ mời mọi người tham gia cuộc trò chuyện nơi bạn có thể giữ liên lạc, chia sẻ ảnh cùng nhau và hơn thế nữa. Đặt tên cho nó:"
-        },
-        "Participants": "Mời mọi người"
-    },
-    "messages": {
-        "html": {
-            "posted": "đã gửi một tin nhắn <em>{{message.fields.type}}<\/em> đến {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "Bình luận về",
-            "startedCallIn": "bắt đầu một cuộc gọi trong",
-            "in": "TRONG",
-            "body": "năm {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "đã được đăng lên",
-                "byAvatar": "bởi {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "có {{instructions.fromDisplayType}} mới",
-                "byAvatar": "thêm bởi {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Lời mời được gửi từ số của chúng tôi mà bạn bè của bạn chưa nhận ra. Theo dõi bằng một tin nhắn nhanh để cho họ biết lời mời đến từ bạn, yêu cầu họ nhấp vào liên kết.",
-            "confirm": "Lời mời được gửi từ số của chúng tôi mà bạn bè của bạn chưa nhận ra. Bạn có muốn theo dõi bằng một tin nhắn nhanh để cho họ biết lời mời đến từ bạn, yêu cầu họ nhấp vào liên kết.",
-            "check": "Này, tôi vừa gửi cho bạn lời mời tham gia ứng dụng {{app}} . Vui lòng kiểm tra sms của bạn và nhấp vào liên kết!",
-            "CheckYourMobile": "Vui lòng kiểm tra SMS và làm theo hướng dẫn!"
-        },
-        "email": {
-            "alert": "Lời mời được gửi từ miền của chúng tôi mà bạn bè của bạn chưa nhận ra. Theo dõi bằng một tin nhắn nhanh để cho họ biết lời mời đến từ bạn, yêu cầu họ nhấp vào liên kết.",
-            "confirm": "Lời mời được gửi từ miền của chúng tôi mà bạn bè của bạn chưa nhận ra. Bạn có muốn theo dõi bằng một tin nhắn nhanh để cho họ biết lời mời đến từ bạn, yêu cầu họ nhấp vào liên kết.",
-            "subject": "Bạn đã nhận được một lời mời?",
-            "body": "Này, tôi vừa gửi cho bạn lời mời tham gia ứng dụng {{app}} . Vui lòng kiểm tra email của bạn và nhấp vào liên kết trong đó!",
-            "CheckYourEmail": "Vui lòng kiểm tra email của bạn và làm theo hướng dẫn!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Những thiết lập riêng tư"
-    },
-    "participating": {
-        "Title": "Tiêu đề",
-        "Subscribed": "đã đăng ký",
-        "Participants": "Những người tham gia",
-        "AreYouSureRemoveIdentifier": "Bạn có chắc chắn xóa số nhận dạng này không?",
-        "AreYouSureUnsubscribeIdentifier": "Bạn có chắc chắn hủy đăng ký số nhận dạng này không? Nó sẽ tắt thông báo cho số nhận dạng này.",
-        "AreYouSureUnsubscribeDevice": "Bạn có chắc chắn hủy đăng ký thiết bị này? Nó sẽ tắt thông báo cho thiết bị này.",
-        "AreYouSureRemoveParticipant": "Bạn có chắc chắn muốn xóa người tham gia này không?",
-        "RemoveParticipant": "Xóa người tham gia",
-        "Identifiers": "định danh",
-        "Devices": "thiết bị",
-        "Streams": "Dòng"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Được mời",
-            "description": "Hộp thư mời"
-        },
-        "Streams\/resource": {
-            "displayType": "Nguồn",
-            "description": "luồng để quản lý quyền truy cập vào tài nguyên và đăng thông báo về các bản cập nhật"
-        },
-        "Streams\/task": {
-            "description": "để nhận thông tin cập nhật về tiến độ của một nhiệm vụ nhất định",
-            "displayType": "Nhiệm vụ"
-        },
-        "Streams\/tasks": {
-            "description": "danh mục nhiệm vụ",
-            "displayType": "nhiệm vụ"
-        },
-        "Streams\/experience": {
-            "description": "một kinh nghiệm chung cho các thành viên của một cộng đồng",
-            "displayType": "Kinh nghiệm chung cho các thành viên của một cộng đồng"
-        },
-        "Streams\/greeting": {
-            "description": "lời chào mà người dùng có thể tự giới thiệu",
-            "displayType": "Lời chào"
-        },
-        "Streams\/number": {
-            "displayType": "Con số",
-            "description": "số toán học"
-        },
-        "Streams\/date": {
-            "displayType": "Ngày",
-            "description": "ngày"
-        },
-        "Streams\/text": {
-            "displayType": "Chữ",
-            "description": "nội dung văn bản"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Chữ",
-            "description": "nội dung văn bản nhỏ"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Chữ",
-            "description": "nội dung trung bình của văn bản"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "Địa chỉ email",
-            "description": "địa chỉ email"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Số điện thoại",
-            "description": "số điện thoại"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "liên kết trên web"
-        },
-        "Streams\/image": {
-            "displayType": "Hình ảnh",
-            "description": "hình ảnh trực quan",
-            "newItem": "Thêm hình ảnh"
-        },
-        "Streams\/images": {
-            "displayType": "thư viện hình ảnh",
-            "description": "bộ sưu tập hình ảnh"
-        },
-        "Streams\/album": {
-            "displayType": "anbom",
-            "description": "một album có liên quan đến nhiều phương tiện khác nhau"
-        },
-        "Streams\/file": {
-            "displayType": "Tài liệu",
-            "description": "tệp đã tải lên",
-            "newItem": "Thêm tập tin"
-        },
-        "Streams\/audio": {
-            "displayType": "Đoạn âm thanh",
-            "description": "đoạn âm thanh",
-            "newItem": "Thêm âm thanh"
-        },
-        "Streams\/video": {
-            "displayType": "Đoạn ghi hình",
-            "description": "đoạn ghi hình",
-            "newItem": "Thêm video"
-        },
-        "Streams\/pdf": {
-            "displayType": "tài liệu PDF",
-            "description": "tài liệu PDF",
-            "newItem": "Thêm PDF"
-        },
-        "Streams\/live": {
-            "displayType": "trực tiếp",
-            "description": "âm thanh hoặc video trực tiếp"
-        },
-        "Streams\/category": {
-            "displayType": "Loại",
-            "description": "một danh mục mà các luồng khác có thể liên quan",
-            "newItem": "thêm thể loại"
-        },
-        "Streams\/participating": {
-            "displayType": "Chỉ số tham gia",
-            "description": "các luồng có liên quan\/không liên quan đến điều này khi người dùng tham gia\/rời khỏi"
-        },
-        "Streams\/interest": {
-            "displayType": "Quan tâm",
-            "description": "thể hiện sự quan tâm của người dùng đối với một chủ đề nhất định"
-        },
-        "Streams\/incoming": {
-            "displayType": "Mới đến",
-            "description": "đích cho tin nhắn được gửi bởi người dùng khác"
-        },
-        "Streams\/chat": {
-            "displayType": "Cuộc hội thoại",
-            "description": "một cuộc trò chuyện giữa những người dùng, với lịch sử"
-        },
-        "Streams\/question": {
-            "displayType": "Câu hỏi",
-            "description": "luồng câu hỏi",
-            "newItem": "Thêm câu hỏi"
-        },
-        "Streams\/answer": {
-            "displayType": "Trả lời",
-            "description": "luồng câu trả lời"
-        },
-        "Streams\/topic": {
-            "displayType": "Đề tài",
-            "description": "luồng chủ đề",
-            "newItem": "Thêm chủ đề"
-        }
-    },
-    "menu": {
-        "placeholder": "gõ tiêu đề trang",
-        "ModTab": "Sửa đổi mục",
-        "Save": "Cứu",
-        "Delete": "Xóa bỏ",
-        "Submenu": "menu con"
-    },
-    "audio": {
-        "record": "Ghi",
-        "reset": "Cài lại",
-        "edit": "Biên tập",
-        "title": "tiêu đề",
-        "description": "Sự miêu tả",
-        "upload": "Tải lên",
-        "link": "liên kết",
-        "setUrl": "Đặt URL",
-        "save": "Cứu",
-        "setClip": "Cắt Clip",
-        "invalidURL": "URL không hợp lệ",
-        "invalidFile": "Tập tin không hợp lệ",
-        "errorNoSource": "Không có nguồn âm thanh",
-        "uploadLimit": "Kích thước tệp tối đa: {{size}}",
-        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}",
-        "TeaserAudio": "Âm thanh Teaser"
-    },
-    "video": {
-        "reset": "Cài lại",
-        "edit": "Biên tập",
-        "title": "tiêu đề",
-        "description": "Sự miêu tả",
-        "upload": "Tải lên",
-        "link": "liên kết",
-        "setUrl": "Đặt URL",
-        "save": "Cứu",
-        "setClip": "Cắt Clip",
-        "invalidURL": "URL không hợp lệ",
-        "invalidFile": "Tập tin không hợp lệ",
-        "errorNoSource": "Không có nguồn video",
-        "uploadLimit": "Kích thước tệp tối đa: {{size}}",
-        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}",
-        "createAnimatedThumbnail": "Tạo hình thu nhỏ hoạt hình",
-        "errorNotAvailable": "Xin lỗi, nhưng video hiện chưa có. Vui lòng thử lại sau.",
-        "NewVideo": "Video mới",
-        "EditVideo": "Chỉnh sửa Video",
-        "TeaserVideo": "Video giới thiệu"
-    },
-    "pdf": {
-        "reset": "Cài lại",
-        "edit": "Biên tập",
-        "title": "tiêu đề",
-        "description": "Sự miêu tả",
-        "upload": "Tải lên",
-        "link": "liên kết",
-        "setUrl": "Đặt URL",
-        "save": "Cứu",
-        "setClip": "Cắt Clip",
-        "invalidURL": "URL không hợp lệ",
-        "invalidFile": "Tập tin không hợp lệ",
-        "errorNoSource": "Không có nguồn pdf",
-        "uploadLimit": "Kích thước tệp tối đa: {{size}}",
-        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}",
-        "TeaserPDF": "PDF giới thiệu"
-    },
-    "image": {
-        "reset": "Cài lại",
-        "edit": "Biên tập",
-        "title": "tiêu đề",
-        "description": "Sự miêu tả",
-        "upload": "Tải lên",
-        "link": "liên kết",
-        "setUrl": "Đặt URL",
-        "save": "Cứu",
-        "uploadedImage": "Hình ảnh đã tải lên",
-        "imageTitle": "Tiêu đề hình ảnh",
-        "setClip": "Cắt Clip",
-        "invalidURL": "URL không hợp lệ",
-        "invalidFile": "Tập tin không hợp lệ",
-        "errorNoSource": "Không có nguồn hình ảnh",
-        "uploadLimit": "Kích thước tệp tối đa: {{size}}",
-        "errorFileSize": "Xin lỗi, nhưng tập tin quá lớn.<br> Kích thước tệp tối đa là {{size}}",
-        "TeaserImage": "Hình ảnh Teaser"
-    },
-    "questions": {
-        "Questions": "câu hỏi",
-        "Answers": "câu trả lời",
-        "AnswerQuestion": "Trả lời câu hỏi",
-        "SetYourAnswer": "Làm ơn trả lời câu hỏi này",
-        "NewQuestion": "Câu hỏi mới",
-        "EditQuestion": "Chỉnh sửa câu hỏi",
-        "NewAnswer": "Câu trả lời mới",
-        "NewPossibleAnswer": "Câu trả lời khả thi mới",
-        "AnswerDetails": "Chi tiết trả lời",
-        "answerOption": "Lựa chọn",
-        "answerOptionExclusive": "Loại trừ",
-        "answerTextarea": "vùng văn bản",
-        "answerText": "Chữ",
-        "HideUntilAnswered": "Ẩn cho đến khi trả lời",
-        "CantChangeAnswers": "Không thể thay đổi câu trả lời",
-        "FreeAnswer": "Viết câu trả lời của bạn ở đây",
-        "SaveQuestion": "Lưu câu hỏi",
-        "SaveAnswer": "Lưu câu trả lời",
-        "Save": "Cứu",
-        "Send": "Gửi",
-        "TitleRequired": "Tiêu đề yêu cầu!",
-        "AlreadyAnswered": "Sẵn sàng trả lời",
-        "TitlePlaceholder": "Nhập câu hỏi của bạn",
-        "ContentPlaceholder": "Đặt bất kỳ thông tin bổ sung ở đây để giúp mọi người trả lời",
-        "ErrorTitle": "câu hỏi bắt buộc",
-        "Placeholder": "Viết hướng dẫn",
-        "AreYouSure": "Bạn có chắc không?",
-        "ShortAnswer": "Viết một câu trả lời ngắn",
-        "AnswerCantBeChanged": "Câu trả lời không thể thay đổi"
-    },
-    "experience": {
-        "NewExperience": "Kinh nghiệm mới",
-        "DefineTitle": "Hãy xác định một tiêu đề",
-        "Create": "Tạo nên"
-    },
-    "calls": {
-        "SettingsTitle": "cuộc gọi",
-        "MaxCalls": "Cuộc gọi tối đa",
-        "Update": "Cập nhật",
-        "NoCallsYet": "Chưa có cuộc gọi nào",
-        "CallReasonTitle": "Cuộc gọi này là về cái gì?",
-        "WaitingRoom": "Phòng chờ",
-        "LiveRoom": "phòng trực tiếp",
-        "interviewedByAnotherHost": "Hiện đang được phỏng vấn bởi một máy chủ khác",
-        "bringToLive": "Mang Đến Chương Trình Trực Tiếp",
-        "putOnHold": "Hoãn lại",
-        "endCall": "Kết thúc cuộc gọi",
-        "interview": "Phỏng vấn",
-        "markApproved": "Đánh dấu đã được phê duyệt"
-    },
-    "relate": {
-        "Add": "Thêm {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "Tên người dùng..."
-    },
-    "task": {
-        "errorsTitle": "Đã xảy ra lỗi"
-    },
-    "topic": {
-        "NewTopic": "Chủ đề mới",
-        "UpdateTopic": "Cập nhật chủ đề",
-        "CreateTopic": "Tạo chủ đề",
-        "AreYouSureDeleteTopic": "Bạn có chắc chắn muốn xóa chủ đề này",
-        "TitlePlaceholder": "Tên chủ đề...",
-        "DescribeTopic": "mô tả chủ đề...",
-        "TopicIcon": "Hình ảnh chủ đề",
-        "UploadIcon": "Biểu tượng tải lên",
-        "Conversation": "Cuộc hội thoại",
-        "Metrics": "Số liệu",
-        "Teaser": "Đoạn giới thiệu",
-        "TeaserDescription": "mô tả đoạn giới thiệu...",
-        "TeaserVideo": "Video giới thiệu"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Tạo hình thu nhỏ hoạt hình",
-        "Width": "Chiều rộng",
-        "Height": "Chiều cao",
-        "Start": "Bắt đầu",
-        "End": "Kết thúc",
-        "Delay": "Trì hoãn",
-        "Quality": "Chất lượng",
-        "Size": "Kích cỡ",
-        "OfFrames": "của khung",
-        "Frame": "Khung",
-        "UseThis": "Dùng cái này",
-        "ResultGIF": "GIF kết quả",
-        "VideoElementNotFound": "Không tìm thấy phần tử video"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} Trên mặt bạn",
-        "AcceptIcon": "Chấp nhận khu vực đã chọn"
-    }
+	"errors": {
+		"HiddenFromYou": "N\u1ed9i dung n\u00e0y \u0111\u01b0\u1ee3c \u1ea9n t\u1eeb b\u1ea1n.",
+		"InplaceTypeMustBe": "inplaceType ph\u1ea3i l\u00e0 &#39;textarea&#39; ho\u1eb7c &#39;text&#39;",
+		"AmountInvalid": "Vui l\u00f2ng nh\u1eadp s\u1ed1 mili gi\u00e2y h\u1ee3p l\u1ec7."
+	},
+	"preview": {
+		"NewItemTitle": "V\u1eadt ph\u1ea9m m\u1edbi",
+		"Teaser": "\u0110o\u1ea1n gi\u1edbi thi\u1ec7u"
+	},
+	"avatar": {
+		"firstName": "t\u00ean \u0111\u1ea7u ti\u00ean",
+		"lastName": "h\u1ecd",
+		"username": "t\u00ean t\u00e0i kho\u1ea3n"
+	},
+	"labels": {
+		"Streams/invited": "Nh\u1eefng ng\u01b0\u1eddi t\u00f4i \u0111\u00e3 m\u1eddi",
+		"Streams/invitedMe": "Ai \u0111\u00e3 m\u1eddi t\u00f4i",
+		"DoYouAgree": "B\u1ea1n c\u00f3 \u0111\u1ed3ng \u00fd kh\u00f4ng?",
+		"Yes": "\u0110\u00fang",
+		"No": "KH\u00d4NG",
+		"JoinItNow": "Tham gia n\u00f3 ngay b\u00e2y gi\u1edd?"
+	},
+	"login": {
+		"prompt": "H\u00e3y \u0111\u1ec3 b\u1ea1n b\u00e8 nh\u1eadn ra b\u1ea1n:",
+		"newUser": "ho\u1eb7c t\u1ea1o t\u00e0i kho\u1ea3n m\u1edbi b\u00ean d\u01b0\u1edbi",
+		"picTooltip": "B\u1ea1n c\u00f3 th\u1ec3 thay \u0111\u1ed5i h\u00ecnh \u1ea3nh n\u00e0y sau",
+		"placeholders": {
+			"fullName": "Nh\u1eadp t\u00ean \u0111\u1ea7y \u0111\u1ee7 c\u1ee7a b\u1ea1n"
+		}
+	},
+	"interests": {
+		"Filter": "S\u1edf th\u00edch t\u00ecm ki\u1ebfm",
+		"CanGrant": "N\u1ebfu b\u1ea1n v\u1eabn kh\u00f4ng th\u1ec3 t\u00ecm th\u1ea5y nh\u1eefng g\u00ec b\u1ea1n \u0111ang t\u00ecm ki\u1ebfm, b\u1ea1n c\u00f3 th\u1ec3 th\u00eam s\u1edf th\u00edch m\u1edbi b\u00ean d\u01b0\u1edbi:",
+		"TrySynonyms": "Kh\u00f4ng nh\u00ecn th\u1ea5y n\u00f3? H\u00e3y th\u1eed m\u1ed9t s\u1ed1 t\u1eeb \u0111\u1ed3ng ngh\u0129a.",
+		"AddUnderCategory": "Th\u00eam v\u00e0o danh m\u1ee5c...",
+		"Other": "Kh\u00e1c",
+		"Unlisted": "ch\u01b0a ni\u00eam y\u1ebft"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Th\u01b0 \u0111\u00e3 \u0111\u01b0\u1ee3c g\u1eafn c\u1edd \u0111\u1ec3 qu\u1ea3n tr\u1ecb vi\u00ean xem x\u00e9t. Nh\u1ea5n l\u1ea1i \u0111\u1ec3 b\u1ecf g\u1eafn c\u1edd.",
+		"noOneSaid": "Kh\u00f4ng ai \u0111\u00e3 n\u00f3i b\u1ea5t c\u1ee9 \u0111i\u1ec1u g\u00ec",
+		"closeChatButton": "\u0110\u00f3ng tr\u00f2 chuy\u1ec7n",
+		"closeChatConfirmTitle": "\u0110\u00f3ng cu\u1ed9c tr\u00f2 chuy\u1ec7n n\u00e0y?",
+		"closeChatConfirm": "B\u1ea1n c\u00f3 ch\u1eafc ch\u1eafn mu\u1ed1n \u0111\u00f3ng cu\u1ed9c tr\u00f2 chuy\u1ec7n n\u00e0y?",
+		"Subscribed": "\u0110\u00e3 b\u1eadt th\u00f4ng b\u00e1o",
+		"Unsubscribed": "T\u1eaft ti\u1ebfng th\u00f4ng b\u00e1o",
+		"closeChatConfirmYes": "\u0110\u00fang",
+		"closeChatConfirmNo": "KH\u00d4NG",
+		"earlierComments": "nh\u1eadn x\u00e9t tr\u01b0\u1edbc \u0111\u00f3",
+		"startedConversation": "b\u1eaft \u0111\u1ea7u m\u1ed9t cu\u1ed9c tr\u00f2 chuy\u1ec7n",
+		"RealTimeCall": "Cu\u1ed9c g\u1ecdi th\u1eddi gian th\u1ef1c",
+		"JoinWebRTC": "H\u1ed9i ngh\u1ecb t\u1eeb xa",
+		"SearchByName": "T\u00ecm ki\u1ebfm theo t\u00ean",
+		"Notifications": {
+			"Visit": "{{displayName}} \u0111ang truy c\u1eadp chat",
+			"Join": "{{displayName}} \u0111\u00e3 tham gia tr\u00f2 chuy\u1ec7n",
+			"Leave": "{{displayName}} r\u1eddi cu\u1ed9c tr\u00f2 chuy\u1ec7n",
+			"RelatedTo": "{{displayName}} b\u1eaft \u0111\u1ea7u {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "th\u00eam nh\u1eadn x\u00e9t",
+			"Private": "Vi\u1ebft tin nh\u1eafn ri\u00eang"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "qu\u1ea3n l\u00fd \u0111\u0103ng k\u00fd email c\u1ee7a b\u1ea1n",
+		"IfUnsubscribe": "N\u1ebfu b\u1ea1n mu\u1ed1n h\u1ee7y \u0111\u0103ng k\u00fd",
+		"*": "Tin nh\u1eafn {{{ message.fields.type}} \u0111\u1ebfn {{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} \u0111\u00e3 tham gia",
+		"Streams/left": "c\u00f2n {{{call 'avatar.displayName'}}}",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} \u0111\u00e3 n\u00f3i: {{& message.content}}}",
+		"Streams/changed": "Nh\u1eefng thay \u0111\u1ed5i trong {{stream.fields.title}}",
+		"Streams/invite": "B\u1ea1n \u0111\u00e3 \u0111\u01b0\u1ee3c m\u1eddi \u0111\u1ebfn {{{ stream.fields.title}}}",
+		"Streams/announcement": "Th\u00f4ng b\u00e1o n\u0103m {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} thay \u0111\u1ed5i quy\u1ec1n truy c\u1eadp trong {{& stream.fields.title}}}",
+		"Streams/chat/edit": "Tin nh\u1eafn chat s\u1eeda n\u0103m {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "\u0110\u00e3 x\u00f3a tin nh\u1eafn tr\u00f2 chuy\u1ec7n v\u00e0o {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} \u0111\u00e3 b\u1ecb \u0111\u00f3ng",
+		"Streams/task/progress": "Ti\u1ebfn \u0111\u1ed9 th\u1ef1c hi\u1ec7n tr\u00ean {{stream.fields.title}}",
+		"Streams/task/complete": "Nhi\u1ec7m v\u1ee5 \u0111\u00e3 ho\u00e0n th\u00e0nh: {{stream.fields.title}}",
+		"Streams/task/error": "L\u1ed7i trong th\u1eddi gian: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : Tin nh\u1eafn \u0111\u1ebfn",
+		"Streams/relatedTo/Streams/call": "Cu\u1ed9c g\u1ecdi m\u1edbi b\u1eaft \u0111\u1ea7u trong {{toTitle}}",
+		"Streams/relatedTo/*": "M\u1edbi {{relationDisplayType}} trong {{toTitle}}",
+		"Streams/relatedFrom/*": "C\u1ed9ng v\u1edbi {{toTitle}} th\u00e0nh {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} \u0111\u00e3 \u0111\u1ec1 c\u1eadp \u0111\u1ebfn b\u1ea1n trong m\u1ed9t b\u00ecnh lu\u1eadn",
+		"Streams/call": "{{displayName}} b\u1eaft \u0111\u1ea7u cu\u1ed9c g\u1ecdi theo th\u1eddi gian th\u1ef1c",
+		"changed": {
+			"ChangesIn": "Nh\u1eefng thay \u0111\u1ed5i \u1edf {{title}}",
+			"Changed": "\u0111\u00e3 thay \u0111\u1ed5i",
+			"HereIsWhatChanged": "\u0110\u00e2y l\u00e0 nh\u1eefng g\u00ec \u0111\u00e3 thay \u0111\u1ed5i:"
+		},
+		"joined": {
+			"Joined": "{{subject}} tham gia <em>{{title}}</em>"
+		},
+		"Streams/invited": "B\u1ea1n \u0111\u00e3 \u0111\u01b0\u1ee3c m\u1eddi \u0111\u1ebfn {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "M\u1eddi",
+		"Invite": "M\u1eddi",
+		"Share": "Chia s\u1ebb",
+		"messageContent": "{{displayName}} \u0111\u00e3 m\u1eddi b\u1ea1n \u0111\u1ebfn {{inviteUrl}}",
+		"youCanNowPaste": "B\u00e2y gi\u1edd b\u1ea1n c\u00f3 th\u1ec3 d\u00e1n li\u00ean k\u1ebft n\u00e0y v\u00e0o \u0111\u00e2u \u0111\u00f3 \u0111\u1ec3 m\u1eddi m\u1ecdi ng\u01b0\u1eddi",
+		"roles": {
+			"title": "C\u1ea5p vai tr\u00f2 cho ng\u01b0\u1eddi d\u00f9ng \u0111\u01b0\u1ee3c m\u1eddi?",
+			"NotAuthorizedToGrantRole": {
+				"title": "L\u1ea5y l\u00e0m ti\u1ebfc",
+				"alert": "B\u1ea1n kh\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p c\u1ea5p vai tr\u00f2 n\u00e0y"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "L\u1ea5y l\u00e0m ti\u1ebfc",
+				"alert": "B\u1ea1n kh\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p x\u00f3a vai tr\u00f2 n\u00e0y"
+			}
+		},
+		"labels": {
+			"title": "M\u1ed1i quan h\u1ec7 c\u1ee7a b\u1ea1n l\u00e0 g\u00ec?"
+		},
+		"dialog": {
+			"chooseFromContacts": "Ch\u1ecdn t\u1eeb Danh b\u1ea1 c\u1ee7a b\u1ea1n",
+			"chooseAgainFromContacts": "Ch\u1ecdn l\u1ea1i t\u1eeb Danh b\u1ea1",
+			"inviteSelectedContacts": "M\u1eddi nh\u1eefng ng\u01b0\u1eddi li\u00ean h\u1ec7 \u0111\u00e3 ch\u1ecdn",
+			"selectFromContacts": "Ch\u1ecdn T\u1eeb Danh b\u1ea1",
+			"userChooserPlaceholder": "T\u00ecm ki\u1ebfm theo t\u00ean",
+			"photo": "Ch\u1ee5p \u1ea3nh",
+			"photoOf": "Ch\u1ee5p \u1ea3nh {{name}}",
+			"photoInstruction": "N\u1ebfu ng\u01b0\u1eddi \u0111\u00e3 qu\u00e9t m\u00e3 QR c\u1ee7a b\u1ea1n \u1edf tr\u01b0\u1edbc m\u1eb7t b\u1ea1n, h\u00e3y ch\u1ee5p \u1ea3nh h\u1ecd",
+			"to": "T\u1edbi: {{Stream Title}}",
+			"go": "\u0110i",
+			"title": "M\u1eddi",
+			"placeholder": "S\u1ed1 \u0111i\u1ec7n tho\u1ea1i di \u0111\u1ed9ng ho\u1eb7c \u0111\u1ecba ch\u1ec9 email",
+			"orInvite": "Ho\u1eb7c m\u1eddi m\u1ecdi ng\u01b0\u1eddi b\u1eb1ng c\u00e1ch s\u1eed d\u1ee5ng:",
+			"copyLink": "{{ClickOrTap}} \u0111\u1ec3 sao ch\u00e9p li\u00ean k\u1ebft m\u1eddi",
+			"shareOrCopyLink": "{{ClickOrTap}} \u0111\u1ec3 chia s\u1ebb ho\u1eb7c sao ch\u00e9p li\u00ean k\u1ebft m\u1eddi",
+			"QR": "{{ClickOrTap}} \u0111\u1ec3 t\u1ea1o m\u00e3 QR",
+			"QRtitle": "Qu\u00e9t m\u00e3 QR n\u00e0y",
+			"QRscanned": "H\u1ecd \u0111\u00e3 qu\u00e9t n\u00f3!",
+			"scannedQR": "{{ClickOrTap}} n\u1ebfu m\u00e3 \u0111\u01b0\u1ee3c qu\u00e9t",
+			"byEmail": "E-mail",
+			"bySms": "Ch\u1eef",
+			"byFacebook": "Facebook",
+			"byTwitter": "Twitter",
+			"title2": "m\u1eddi m\u1ecdi ng\u01b0\u1eddi",
+			"chooseMethod": "Ch\u1ecdn m\u1ed9t ph\u01b0\u01a1ng ph\u00e1p:",
+			"selectContacts": "Ch\u1ecdn Danh b\u1ea1",
+			"scanQRCode": "Qu\u00e9t m\u00e3 QR",
+			"shareLink": "Chia s\u1ebb m\u1ed9t li\u00ean k\u1ebft",
+			"chooseFromRegistered": "Ch\u1ecdn t\u1eeb ng\u01b0\u1eddi d\u00f9ng \u0111\u00e3 \u0111\u0103ng k\u00fd",
+			"inviteViaEmailOrSms": "M\u1eddi qua email ho\u1eb7c SMS",
+			"TakeGroupPhoto": "Ch\u1ee5p \u1ea3nh nh\u00f3m",
+			"Skip": "Nh\u1ea3y",
+			"byTelegram": "\u0111i\u1ec7n t\u00edn",
+			"byWhatsapp": "WhatsApp",
+			"addRoles": "Th\u00eam vai tr\u00f2",
+			"addPersonalRoles": "Th\u00eam m\u1ed1i quan h\u1ec7 c\u00e1 nh\u00e2n"
+		},
+		"complete": {
+			"WelcomeToCommunity": "Ch\u00e0o m\u1eebng \u0111\u1ebfn v\u1edbi {{communityName}}",
+			"HasInvitedYou": "\u0111\u00e3 m\u1eddi b\u1ea1n:",
+			"HasInvitedYouToTheirProfile": "\u0111\u00e3 m\u1eddi b\u1ea1n k\u1ebft n\u1ed1i.",
+			"prompt": "H\u00e3y \u0111\u1ec3 b\u1ea1n b\u00e8 nh\u1eadn ra b\u1ea1n:",
+			"accept": "Ch\u1ea5p nh\u1eadn l\u1eddi m\u1eddi"
+		},
+		"email": {
+			"subject": "N\u00e0y, xem n\u00e0y",
+			"PleaseVisitLink": "Vui l\u00f2ng truy c\u1eadp li\u00ean k\u1ebft sau:",
+			"InvitingYou": "T\u00f4i \u0111ang m\u1eddi b\u1ea1n \u0111\u1ebfn {{title}}",
+			"HasInvitedYou": "{{displayName}} \u0111\u00e3 m\u1eddi b\u1ea1n \u0111\u1ebfn {{title}}",
+			"HasMentionedYou": "{{displayName}} \u0111\u00e3 nh\u1eafc \u0111\u1ebfn b\u1ea1n trong &quot; {{title}} &quot;",
+			"YOUAREINVITED": "B\u1ea0N \u0110\u01af\u1ee2C M\u1edcI!",
+			"AcceptInvite": "Ch\u1ea5p nh\u1eadn l\u1eddi m\u1eddi"
+		},
+		"mobile": {
+			"content": "B\u1ea1n \u0111\u00e3 \u0111\u01b0\u1ee3c m\u1eddi \u0111\u1ebfn {{title}} . Vui l\u00f2ng nh\u1ea5n {{url}}"
+		},
+		"notice": {
+			"text": "B\u1ea1n \u0111\u00e3 \u0111\u01b0\u1ee3c m\u1eddi. {{ClickOrTap}} \u1edf \u0111\u00e2y \u0111\u1ec3 ch\u1ea5p nh\u1eadn v\u00e0 tham gia."
+		},
+		"chat": {
+			"prompt": "B\u1ea1n s\u1ebd m\u1eddi m\u1ecdi ng\u01b0\u1eddi tham gia cu\u1ed9c tr\u00f2 chuy\u1ec7n n\u01a1i b\u1ea1n c\u00f3 th\u1ec3 gi\u1eef li\u00ean l\u1ea1c, chia s\u1ebb \u1ea3nh c\u00f9ng nhau v\u00e0 h\u01a1n th\u1ebf n\u1eefa. \u0110\u1eb7t t\u00ean cho n\u00f3:"
+		},
+		"Participants": "M\u1eddi m\u1ecdi ng\u01b0\u1eddi"
+	},
+	"messages": {
+		"html": {
+			"posted": "\u0111\u00e3 g\u1eedi m\u1ed9t tin nh\u1eafn <em>{{message.fields.type}}</em> \u0111\u1ebfn {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "B\u00ecnh lu\u1eadn v\u1ec1",
+			"startedCallIn": "b\u1eaft \u0111\u1ea7u m\u1ed9t cu\u1ed9c g\u1ecdi trong",
+			"in": "TRONG",
+			"body": "n\u0103m {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "\u0111\u00e3 \u0111\u01b0\u1ee3c \u0111\u0103ng l\u00ean",
+				"byAvatar": "b\u1edfi {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "c\u00f3 {{instructions.fromDisplayType}} m\u1edbi",
+				"byAvatar": "th\u00eam b\u1edfi {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "L\u1eddi m\u1eddi \u0111\u01b0\u1ee3c g\u1eedi t\u1eeb s\u1ed1 c\u1ee7a ch\u00fang t\u00f4i m\u00e0 b\u1ea1n b\u00e8 c\u1ee7a b\u1ea1n ch\u01b0a nh\u1eadn ra. Theo d\u00f5i b\u1eb1ng m\u1ed9t tin nh\u1eafn nhanh \u0111\u1ec3 cho h\u1ecd bi\u1ebft l\u1eddi m\u1eddi \u0111\u1ebfn t\u1eeb b\u1ea1n, y\u00eau c\u1ea7u h\u1ecd nh\u1ea5p v\u00e0o li\u00ean k\u1ebft.",
+			"confirm": "L\u1eddi m\u1eddi \u0111\u01b0\u1ee3c g\u1eedi t\u1eeb s\u1ed1 c\u1ee7a ch\u00fang t\u00f4i m\u00e0 b\u1ea1n b\u00e8 c\u1ee7a b\u1ea1n ch\u01b0a nh\u1eadn ra. B\u1ea1n c\u00f3 mu\u1ed1n theo d\u00f5i b\u1eb1ng m\u1ed9t tin nh\u1eafn nhanh \u0111\u1ec3 cho h\u1ecd bi\u1ebft l\u1eddi m\u1eddi \u0111\u1ebfn t\u1eeb b\u1ea1n, y\u00eau c\u1ea7u h\u1ecd nh\u1ea5p v\u00e0o li\u00ean k\u1ebft.",
+			"check": "N\u00e0y, t\u00f4i v\u1eeba g\u1eedi cho b\u1ea1n l\u1eddi m\u1eddi tham gia \u1ee9ng d\u1ee5ng {{app}} . Vui l\u00f2ng ki\u1ec3m tra sms c\u1ee7a b\u1ea1n v\u00e0 nh\u1ea5p v\u00e0o li\u00ean k\u1ebft!",
+			"CheckYourMobile": "Vui l\u00f2ng ki\u1ec3m tra SMS v\u00e0 l\u00e0m theo h\u01b0\u1edbng d\u1eabn!"
+		},
+		"email": {
+			"alert": "L\u1eddi m\u1eddi \u0111\u01b0\u1ee3c g\u1eedi t\u1eeb mi\u1ec1n c\u1ee7a ch\u00fang t\u00f4i m\u00e0 b\u1ea1n b\u00e8 c\u1ee7a b\u1ea1n ch\u01b0a nh\u1eadn ra. Theo d\u00f5i b\u1eb1ng m\u1ed9t tin nh\u1eafn nhanh \u0111\u1ec3 cho h\u1ecd bi\u1ebft l\u1eddi m\u1eddi \u0111\u1ebfn t\u1eeb b\u1ea1n, y\u00eau c\u1ea7u h\u1ecd nh\u1ea5p v\u00e0o li\u00ean k\u1ebft.",
+			"confirm": "L\u1eddi m\u1eddi \u0111\u01b0\u1ee3c g\u1eedi t\u1eeb mi\u1ec1n c\u1ee7a ch\u00fang t\u00f4i m\u00e0 b\u1ea1n b\u00e8 c\u1ee7a b\u1ea1n ch\u01b0a nh\u1eadn ra. B\u1ea1n c\u00f3 mu\u1ed1n theo d\u00f5i b\u1eb1ng m\u1ed9t tin nh\u1eafn nhanh \u0111\u1ec3 cho h\u1ecd bi\u1ebft l\u1eddi m\u1eddi \u0111\u1ebfn t\u1eeb b\u1ea1n, y\u00eau c\u1ea7u h\u1ecd nh\u1ea5p v\u00e0o li\u00ean k\u1ebft.",
+			"subject": "B\u1ea1n \u0111\u00e3 nh\u1eadn \u0111\u01b0\u1ee3c m\u1ed9t l\u1eddi m\u1eddi?",
+			"body": "N\u00e0y, t\u00f4i v\u1eeba g\u1eedi cho b\u1ea1n l\u1eddi m\u1eddi tham gia \u1ee9ng d\u1ee5ng {{app}} . Vui l\u00f2ng ki\u1ec3m tra email c\u1ee7a b\u1ea1n v\u00e0 nh\u1ea5p v\u00e0o li\u00ean k\u1ebft trong \u0111\u00f3!",
+			"CheckYourEmail": "Vui l\u00f2ng ki\u1ec3m tra email c\u1ee7a b\u1ea1n v\u00e0 l\u00e0m theo h\u01b0\u1edbng d\u1eabn!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Nh\u1eefng thi\u1ebft l\u1eadp ri\u00eang t\u01b0"
+	},
+	"participating": {
+		"Title": "Ti\u00eau \u0111\u1ec1",
+		"Subscribed": "\u0111\u00e3 \u0111\u0103ng k\u00fd",
+		"Participants": "Nh\u1eefng ng\u01b0\u1eddi tham gia",
+		"AreYouSureRemoveIdentifier": "B\u1ea1n c\u00f3 ch\u1eafc ch\u1eafn x\u00f3a s\u1ed1 nh\u1eadn d\u1ea1ng n\u00e0y kh\u00f4ng?",
+		"AreYouSureUnsubscribeIdentifier": "B\u1ea1n c\u00f3 ch\u1eafc ch\u1eafn h\u1ee7y \u0111\u0103ng k\u00fd s\u1ed1 nh\u1eadn d\u1ea1ng n\u00e0y kh\u00f4ng? N\u00f3 s\u1ebd t\u1eaft th\u00f4ng b\u00e1o cho s\u1ed1 nh\u1eadn d\u1ea1ng n\u00e0y.",
+		"AreYouSureUnsubscribeDevice": "B\u1ea1n c\u00f3 ch\u1eafc ch\u1eafn h\u1ee7y \u0111\u0103ng k\u00fd thi\u1ebft b\u1ecb n\u00e0y? N\u00f3 s\u1ebd t\u1eaft th\u00f4ng b\u00e1o cho thi\u1ebft b\u1ecb n\u00e0y.",
+		"AreYouSureRemoveParticipant": "B\u1ea1n c\u00f3 ch\u1eafc ch\u1eafn mu\u1ed1n x\u00f3a ng\u01b0\u1eddi tham gia n\u00e0y kh\u00f4ng?",
+		"RemoveParticipant": "X\u00f3a ng\u01b0\u1eddi tham gia",
+		"Identifiers": "\u0111\u1ecbnh danh",
+		"Devices": "thi\u1ebft b\u1ecb",
+		"Streams": "D\u00f2ng"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "\u0110\u01b0\u1ee3c m\u1eddi",
+			"description": "H\u1ed9p th\u01b0 m\u1eddi"
+		},
+		"Streams/resource": {
+			"displayType": "Ngu\u1ed3n",
+			"description": "lu\u1ed3ng \u0111\u1ec3 qu\u1ea3n l\u00fd quy\u1ec1n truy c\u1eadp v\u00e0o t\u00e0i nguy\u00ean v\u00e0 \u0111\u0103ng th\u00f4ng b\u00e1o v\u1ec1 c\u00e1c b\u1ea3n c\u1eadp nh\u1eadt"
+		},
+		"Streams/task": {
+			"description": "\u0111\u1ec3 nh\u1eadn th\u00f4ng tin c\u1eadp nh\u1eadt v\u1ec1 ti\u1ebfn \u0111\u1ed9 c\u1ee7a m\u1ed9t nhi\u1ec7m v\u1ee5 nh\u1ea5t \u0111\u1ecbnh",
+			"displayType": "Nhi\u1ec7m v\u1ee5"
+		},
+		"Streams/tasks": {
+			"description": "danh m\u1ee5c nhi\u1ec7m v\u1ee5",
+			"displayType": "nhi\u1ec7m v\u1ee5"
+		},
+		"Streams/experience": {
+			"description": "m\u1ed9t kinh nghi\u1ec7m chung cho c\u00e1c th\u00e0nh vi\u00ean c\u1ee7a m\u1ed9t c\u1ed9ng \u0111\u1ed3ng",
+			"displayType": "Kinh nghi\u1ec7m chung cho c\u00e1c th\u00e0nh vi\u00ean c\u1ee7a m\u1ed9t c\u1ed9ng \u0111\u1ed3ng"
+		},
+		"Streams/greeting": {
+			"description": "l\u1eddi ch\u00e0o m\u00e0 ng\u01b0\u1eddi d\u00f9ng c\u00f3 th\u1ec3 t\u1ef1 gi\u1edbi thi\u1ec7u",
+			"displayType": "L\u1eddi ch\u00e0o"
+		},
+		"Streams/number": {
+			"displayType": "Con s\u1ed1",
+			"description": "s\u1ed1 to\u00e1n h\u1ecdc"
+		},
+		"Streams/date": {
+			"displayType": "Ng\u00e0y",
+			"description": "ng\u00e0y"
+		},
+		"Streams/text": {
+			"displayType": "Ch\u1eef",
+			"description": "n\u1ed9i dung v\u0103n b\u1ea3n"
+		},
+		"Streams/text/small": {
+			"displayType": "Ch\u1eef",
+			"description": "n\u1ed9i dung v\u0103n b\u1ea3n nh\u1ecf"
+		},
+		"Streams/text/medium": {
+			"displayType": "Ch\u1eef",
+			"description": "n\u1ed9i dung trung b\u00ecnh c\u1ee7a v\u0103n b\u1ea3n"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "\u0110i\u0323a chi\u0309 email",
+			"description": "\u0111i\u0323a chi\u0309 email"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "S\u1ed1 \u0111i\u1ec7n tho\u1ea1i",
+			"description": "s\u1ed1 \u0111i\u1ec7n tho\u1ea1i"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "li\u00ean k\u1ebft tr\u00ean web"
+		},
+		"Streams/image": {
+			"displayType": "H\u00ecnh \u1ea3nh",
+			"description": "h\u00ecnh \u1ea3nh tr\u1ef1c quan",
+			"newItem": "Th\u00eam h\u00ecnh \u1ea3nh"
+		},
+		"Streams/images": {
+			"displayType": "th\u01b0 vi\u1ec7n h\u00ecnh \u1ea3nh",
+			"description": "b\u1ed9 s\u01b0u t\u1eadp h\u00ecnh \u1ea3nh"
+		},
+		"Streams/album": {
+			"displayType": "anbom",
+			"description": "m\u1ed9t album c\u00f3 li\u00ean quan \u0111\u1ebfn nhi\u1ec1u ph\u01b0\u01a1ng ti\u1ec7n kh\u00e1c nhau"
+		},
+		"Streams/file": {
+			"displayType": "T\u00e0i li\u1ec7u",
+			"description": "t\u1ec7p \u0111\u00e3 t\u1ea3i l\u00ean",
+			"newItem": "Th\u00eam t\u1eadp tin"
+		},
+		"Streams/audio": {
+			"displayType": "\u0110o\u1ea1n \u00e2m thanh",
+			"description": "\u0111o\u1ea1n \u00e2m thanh",
+			"newItem": "Th\u00eam \u00e2m thanh"
+		},
+		"Streams/video": {
+			"displayType": "\u0110o\u1ea1n ghi h\u00ecnh",
+			"description": "\u0111o\u1ea1n ghi h\u00ecnh",
+			"newItem": "Th\u00eam video"
+		},
+		"Streams/pdf": {
+			"displayType": "t\u00e0i li\u1ec7u PDF",
+			"description": "t\u00e0i li\u1ec7u PDF",
+			"newItem": "Th\u00eam PDF"
+		},
+		"Streams/live": {
+			"displayType": "tr\u1ef1c ti\u1ebfp",
+			"description": "\u00e2m thanh ho\u1eb7c video tr\u1ef1c ti\u1ebfp"
+		},
+		"Streams/category": {
+			"displayType": "Lo\u1ea1i",
+			"description": "m\u1ed9t danh m\u1ee5c m\u00e0 c\u00e1c lu\u1ed3ng kh\u00e1c c\u00f3 th\u1ec3 li\u00ean quan",
+			"newItem": "th\u00eam th\u00ea\u0309 loa\u0323i"
+		},
+		"Streams/participating": {
+			"displayType": "Ch\u1ec9 s\u1ed1 tham gia",
+			"description": "c\u00e1c lu\u1ed3ng c\u00f3 li\u00ean quan/kh\u00f4ng li\u00ean quan \u0111\u1ebfn \u0111i\u1ec1u n\u00e0y khi ng\u01b0\u1eddi d\u00f9ng tham gia/r\u1eddi kh\u1ecfi"
+		},
+		"Streams/interest": {
+			"displayType": "Quan t\u00e2m",
+			"description": "th\u1ec3 hi\u1ec7n s\u1ef1 quan t\u00e2m c\u1ee7a ng\u01b0\u1eddi d\u00f9ng \u0111\u1ed1i v\u1edbi m\u1ed9t ch\u1ee7 \u0111\u1ec1 nh\u1ea5t \u0111\u1ecbnh"
+		},
+		"Streams/incoming": {
+			"displayType": "M\u1edbi \u0111\u1ebfn",
+			"description": "\u0111\u00edch cho tin nh\u1eafn \u0111\u01b0\u1ee3c g\u1eedi b\u1edfi ng\u01b0\u1eddi d\u00f9ng kh\u00e1c"
+		},
+		"Streams/chat": {
+			"displayType": "Cu\u1ed9c h\u1ed9i tho\u1ea1i",
+			"description": "m\u1ed9t cu\u1ed9c tr\u00f2 chuy\u1ec7n gi\u1eefa nh\u1eefng ng\u01b0\u1eddi d\u00f9ng, v\u1edbi l\u1ecbch s\u1eed"
+		},
+		"Streams/question": {
+			"displayType": "C\u00e2u h\u1ecfi",
+			"description": "lu\u1ed3ng c\u00e2u h\u1ecfi",
+			"newItem": "Th\u00eam c\u00e2u h\u1ecfi"
+		},
+		"Streams/answer": {
+			"displayType": "Tr\u1ea3 l\u1eddi",
+			"description": "lu\u1ed3ng c\u00e2u tr\u1ea3 l\u1eddi"
+		},
+		"Streams/topic": {
+			"displayType": "\u0110\u1ec1 t\u00e0i",
+			"description": "lu\u1ed3ng ch\u1ee7 \u0111\u1ec1",
+			"newItem": "Th\u00eam ch\u1ee7 \u0111\u1ec1"
+		}
+	},
+	"menu": {
+		"placeholder": "g\u00f5 ti\u00eau \u0111\u1ec1 trang",
+		"ModTab": "S\u1eeda \u0111\u1ed5i m\u1ee5c",
+		"Save": "C\u1ee9u",
+		"Delete": "X\u00f3a b\u1ecf",
+		"Submenu": "menu con"
+	},
+	"audio": {
+		"record": "Ghi",
+		"reset": "C\u00e0i l\u1ea1i",
+		"edit": "Bi\u00ean t\u1eadp",
+		"title": "ti\u00eau \u0111\u1ec1",
+		"description": "S\u1ef1 mi\u00eau t\u1ea3",
+		"upload": "T\u1ea3i l\u00ean",
+		"link": "li\u00ean k\u1ebft",
+		"setUrl": "\u0110\u1eb7t URL",
+		"save": "C\u1ee9u",
+		"setClip": "C\u1eaft Clip",
+		"invalidURL": "URL kh\u00f4ng h\u1ee3p l\u1ec7",
+		"invalidFile": "T\u1eadp tin kh\u00f4ng h\u1ee3p l\u1ec7",
+		"errorNoSource": "Kh\u00f4ng c\u00f3 ngu\u1ed3n \u00e2m thanh",
+		"uploadLimit": "K\u00edch th\u01b0\u1edbc t\u1ec7p t\u1ed1i \u0111a: {{size}}",
+		"errorFileSize": "Xin l\u1ed7i, nh\u01b0ng t\u1eadp tin qu\u00e1 l\u1edbn.<br> K\u00edch th\u01b0\u1edbc t\u1ec7p t\u1ed1i \u0111a l\u00e0 {{size}}",
+		"TeaserAudio": "\u00c2m thanh Teaser"
+	},
+	"video": {
+		"reset": "C\u00e0i l\u1ea1i",
+		"edit": "Bi\u00ean t\u1eadp",
+		"title": "ti\u00eau \u0111\u1ec1",
+		"description": "S\u1ef1 mi\u00eau t\u1ea3",
+		"upload": "T\u1ea3i l\u00ean",
+		"link": "li\u00ean k\u1ebft",
+		"setUrl": "\u0110\u1eb7t URL",
+		"save": "C\u1ee9u",
+		"setClip": "C\u1eaft Clip",
+		"invalidURL": "URL kh\u00f4ng h\u1ee3p l\u1ec7",
+		"invalidFile": "T\u1eadp tin kh\u00f4ng h\u1ee3p l\u1ec7",
+		"errorNoSource": "Kh\u00f4ng c\u00f3 ngu\u1ed3n video",
+		"uploadLimit": "K\u00edch th\u01b0\u1edbc t\u1ec7p t\u1ed1i \u0111a: {{size}}",
+		"errorFileSize": "Xin l\u1ed7i, nh\u01b0ng t\u1eadp tin qu\u00e1 l\u1edbn.<br> K\u00edch th\u01b0\u1edbc t\u1ec7p t\u1ed1i \u0111a l\u00e0 {{size}}",
+		"createAnimatedThumbnail": "T\u1ea1o h\u00ecnh thu nh\u1ecf ho\u1ea1t h\u00ecnh",
+		"errorNotAvailable": "Xin l\u1ed7i, nh\u01b0ng video hi\u1ec7n ch\u01b0a c\u00f3. Vui l\u00f2ng th\u1eed l\u1ea1i sau.",
+		"NewVideo": "Video m\u1edbi",
+		"EditVideo": "Ch\u1ec9nh s\u1eeda Video",
+		"TeaserVideo": "Video gi\u1edbi thi\u1ec7u"
+	},
+	"pdf": {
+		"reset": "C\u00e0i l\u1ea1i",
+		"edit": "Bi\u00ean t\u1eadp",
+		"title": "ti\u00eau \u0111\u1ec1",
+		"description": "S\u1ef1 mi\u00eau t\u1ea3",
+		"upload": "T\u1ea3i l\u00ean",
+		"link": "li\u00ean k\u1ebft",
+		"setUrl": "\u0110\u1eb7t URL",
+		"save": "C\u1ee9u",
+		"setClip": "C\u1eaft Clip",
+		"invalidURL": "URL kh\u00f4ng h\u1ee3p l\u1ec7",
+		"invalidFile": "T\u1eadp tin kh\u00f4ng h\u1ee3p l\u1ec7",
+		"errorNoSource": "Kh\u00f4ng c\u00f3 ngu\u1ed3n pdf",
+		"uploadLimit": "K\u00edch th\u01b0\u1edbc t\u1ec7p t\u1ed1i \u0111a: {{size}}",
+		"errorFileSize": "Xin l\u1ed7i, nh\u01b0ng t\u1eadp tin qu\u00e1 l\u1edbn.<br> K\u00edch th\u01b0\u1edbc t\u1ec7p t\u1ed1i \u0111a l\u00e0 {{size}}",
+		"TeaserPDF": "PDF gi\u1edbi thi\u1ec7u"
+	},
+	"image": {
+		"reset": "C\u00e0i l\u1ea1i",
+		"edit": "Bi\u00ean t\u1eadp",
+		"title": "ti\u00eau \u0111\u1ec1",
+		"description": "S\u1ef1 mi\u00eau t\u1ea3",
+		"upload": "T\u1ea3i l\u00ean",
+		"link": "li\u00ean k\u1ebft",
+		"setUrl": "\u0110\u1eb7t URL",
+		"save": "C\u1ee9u",
+		"uploadedImage": "H\u00ecnh \u1ea3nh \u0111\u00e3 t\u1ea3i l\u00ean",
+		"imageTitle": "Ti\u00eau \u0111\u1ec1 h\u00ecnh \u1ea3nh",
+		"setClip": "C\u1eaft Clip",
+		"invalidURL": "URL kh\u00f4ng h\u1ee3p l\u1ec7",
+		"invalidFile": "T\u1eadp tin kh\u00f4ng h\u1ee3p l\u1ec7",
+		"errorNoSource": "Kh\u00f4ng c\u00f3 ngu\u1ed3n h\u00ecnh \u1ea3nh",
+		"uploadLimit": "K\u00edch th\u01b0\u1edbc t\u1ec7p t\u1ed1i \u0111a: {{size}}",
+		"errorFileSize": "Xin l\u1ed7i, nh\u01b0ng t\u1eadp tin qu\u00e1 l\u1edbn.<br> K\u00edch th\u01b0\u1edbc t\u1ec7p t\u1ed1i \u0111a l\u00e0 {{size}}",
+		"TeaserImage": "H\u00ecnh \u1ea3nh Teaser"
+	},
+	"questions": {
+		"Questions": "c\u00e2u h\u1ecfi",
+		"Answers": "c\u00e2u tr\u1ea3 l\u1eddi",
+		"AnswerQuestion": "Tr\u1ea3 l\u1eddi c\u00e2u h\u1ecfi",
+		"SetYourAnswer": "L\u00e0m \u01a1n tr\u1ea3 l\u1eddi c\u00e2u h\u1ecfi n\u00e0y",
+		"NewQuestion": "C\u00e2u h\u1ecfi m\u1edbi",
+		"EditQuestion": "Ch\u1ec9nh s\u1eeda c\u00e2u h\u1ecfi",
+		"NewAnswer": "C\u00e2u tr\u1ea3 l\u1eddi m\u1edbi",
+		"NewPossibleAnswer": "C\u00e2u tr\u1ea3 l\u1eddi kh\u1ea3 thi m\u1edbi",
+		"AnswerDetails": "Chi ti\u1ebft tr\u1ea3 l\u1eddi",
+		"answerOption": "L\u1ef1a ch\u1ecdn",
+		"answerOptionExclusive": "Lo\u1ea1i tr\u1eeb",
+		"answerTextarea": "v\u00f9ng v\u0103n b\u1ea3n",
+		"answerText": "Ch\u1eef",
+		"HideUntilAnswered": "\u1ea8n cho \u0111\u1ebfn khi tr\u1ea3 l\u1eddi",
+		"CantChangeAnswers": "Kh\u00f4ng th\u1ec3 thay \u0111\u1ed5i c\u00e2u tr\u1ea3 l\u1eddi",
+		"FreeAnswer": "Vi\u1ebft c\u00e2u tr\u1ea3 l\u1eddi c\u1ee7a b\u1ea1n \u1edf \u0111\u00e2y",
+		"SaveQuestion": "L\u01b0u c\u00e2u h\u1ecfi",
+		"SaveAnswer": "L\u01b0u c\u00e2u tr\u1ea3 l\u1eddi",
+		"Save": "C\u1ee9u",
+		"Send": "G\u1eedi",
+		"TitleRequired": "Ti\u00eau \u0111\u1ec1 y\u00eau c\u1ea7u!",
+		"AlreadyAnswered": "S\u1eb5n s\u00e0ng tr\u1ea3 l\u1eddi",
+		"TitlePlaceholder": "Nh\u1eadp c\u00e2u h\u1ecfi c\u1ee7a b\u1ea1n",
+		"ContentPlaceholder": "\u0110\u1eb7t b\u1ea5t k\u1ef3 th\u00f4ng tin b\u1ed5 sung \u1edf \u0111\u00e2y \u0111\u1ec3 gi\u00fap m\u1ecdi ng\u01b0\u1eddi tr\u1ea3 l\u1eddi",
+		"ErrorTitle": "c\u00e2u h\u1ecfi b\u1eaft bu\u1ed9c",
+		"Placeholder": "Vi\u1ebft h\u01b0\u1edbng d\u1eabn",
+		"AreYouSure": "B\u1ea1n c\u00f3 ch\u1eafc kh\u00f4ng?",
+		"ShortAnswer": "Vi\u1ebft m\u1ed9t c\u00e2u tr\u1ea3 l\u1eddi ng\u1eafn",
+		"AnswerCantBeChanged": "C\u00e2u tr\u1ea3 l\u1eddi kh\u00f4ng th\u1ec3 thay \u0111\u1ed5i"
+	},
+	"experience": {
+		"NewExperience": "Kinh nghi\u1ec7m m\u1edbi",
+		"DefineTitle": "H\u00e3y x\u00e1c \u0111\u1ecbnh m\u1ed9t ti\u00eau \u0111\u1ec1",
+		"Create": "T\u1ea1o n\u00ean"
+	},
+	"calls": {
+		"SettingsTitle": "cu\u1ed9c g\u1ecdi",
+		"MaxCalls": "Cu\u1ed9c g\u1ecdi t\u1ed1i \u0111a",
+		"Update": "C\u1eadp nh\u1eadt",
+		"NoCallsYet": "Ch\u01b0a c\u00f3 cu\u1ed9c g\u1ecdi n\u00e0o",
+		"CallReasonTitle": "Cu\u1ed9c g\u1ecdi n\u00e0y l\u00e0 v\u1ec1 c\u00e1i g\u00ec?",
+		"WaitingRoom": "Ph\u00f2ng ch\u1edd",
+		"LiveRoom": "ph\u00f2ng tr\u1ef1c ti\u1ebfp",
+		"interviewedByAnotherHost": "Hi\u1ec7n \u0111ang \u0111\u01b0\u1ee3c ph\u1ecfng v\u1ea5n b\u1edfi m\u1ed9t m\u00e1y ch\u1ee7 kh\u00e1c",
+		"bringToLive": "Mang \u0110\u1ebfn Ch\u01b0\u01a1ng Tr\u00ecnh Tr\u1ef1c Ti\u1ebfp",
+		"putOnHold": "Ho\u00e3n l\u1ea1i",
+		"endCall": "K\u1ebft th\u00fac cu\u1ed9c g\u1ecdi",
+		"interview": "Ph\u1ecfng v\u1ea5n",
+		"markApproved": "\u0110\u00e1nh d\u1ea5u \u0111\u00e3 \u0111\u01b0\u1ee3c ph\u00ea duy\u1ec7t"
+	},
+	"relate": {
+		"Add": "Th\u00eam {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "T\u00ean ng\u01b0\u1eddi d\u00f9ng..."
+	},
+	"task": {
+		"errorsTitle": "\u0110\u00e3 x\u1ea3y ra l\u1ed7i"
+	},
+	"topic": {
+		"NewTopic": "Ch\u1ee7 \u0111\u1ec1 m\u1edbi",
+		"UpdateTopic": "C\u1eadp nh\u1eadt ch\u1ee7 \u0111\u1ec1",
+		"CreateTopic": "T\u1ea1o ch\u1ee7 \u0111\u1ec1",
+		"AreYouSureDeleteTopic": "B\u1ea1n c\u00f3 ch\u1eafc ch\u1eafn mu\u1ed1n x\u00f3a ch\u1ee7 \u0111\u1ec1 n\u00e0y",
+		"TitlePlaceholder": "T\u00ean ch\u1ee7 \u0111\u1ec1...",
+		"DescribeTopic": "m\u00f4 t\u1ea3 ch\u1ee7 \u0111\u1ec1...",
+		"TopicIcon": "H\u00ecnh \u1ea3nh ch\u1ee7 \u0111\u1ec1",
+		"UploadIcon": "Bi\u1ec3u t\u01b0\u1ee3ng t\u1ea3i l\u00ean",
+		"Conversation": "Cu\u1ed9c h\u1ed9i tho\u1ea1i",
+		"Metrics": "S\u1ed1 li\u1ec7u",
+		"Teaser": "\u0110o\u1ea1n gi\u1edbi thi\u1ec7u",
+		"TeaserDescription": "m\u00f4 t\u1ea3 \u0111o\u1ea1n gi\u1edbi thi\u1ec7u...",
+		"TeaserVideo": "Video gi\u1edbi thi\u1ec7u"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "T\u1ea1o h\u00ecnh thu nh\u1ecf ho\u1ea1t h\u00ecnh",
+		"Width": "Chi\u1ec1u r\u1ed9ng",
+		"Height": "Chi\u1ec1u cao",
+		"Start": "B\u1eaft \u0111\u1ea7u",
+		"End": "K\u1ebft th\u00fac",
+		"Delay": "Tr\u00ec ho\u00e3n",
+		"Quality": "Ch\u1ea5t l\u01b0\u1ee3ng",
+		"Size": "K\u00edch c\u1ee1",
+		"OfFrames": "c\u1ee7a khung",
+		"Frame": "Khung",
+		"UseThis": "D\u00f9ng c\u00e1i n\u00e0y",
+		"ResultGIF": "GIF k\u1ebft qu\u1ea3",
+		"VideoElementNotFound": "Kh\u00f4ng t\u00ecm th\u1ea5y ph\u1ea7n t\u1eed video"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} Tr\u00ean m\u1eb7t b\u1ea1n",
+		"AcceptIcon": "Ch\u1ea5p nh\u1eadn khu v\u1ef1c \u0111\u00e3 ch\u1ecdn"
+	},
+	"gallery": {
+		"DialogTitle": "Ch\u1ec9nh s\u1eeda h\u00ecnh \u1ea3nh th\u01b0 vi\u1ec7n",
+		"EditImageTitle": "Ch\u1ec9nh s\u1eeda th\u00f4ng s\u1ed1 h\u00ecnh \u1ea3nh",
+		"IntervalLabel": "Kho\u1ea3ng th\u1eddi gian (ms): ",
+		"IntervalPlaceholder": "v\u00ed d\u1ee5 3000",
+		"KenburnsInstruction": "\u0110\u1eb7t Ken Burns b\u1eaft \u0111\u1ea7u v\u00e0 k\u1ebft th\u00fac b\u1eb1ng c\u00e1ch k\u00e9o v\u00e0 ph\u00f3ng to."
+	}
 }

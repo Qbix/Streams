@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "ezer ez horri buruz",
+		"10": "zerbait hor dagoela",
+		"20": "bere egungo edukia",
+		"30": "nork parte hartzen du bertan",
+		"40": "barneko gizarte-jarduera"
+	},
+	"writeLevelOptions": {
+		"0": "ezer egin horri",
+		"10": "parte hartu bertan",
+		"20": "mezuak bertan argitaratu",
+		"30": "editatu bere edukia"
+	},
+	"adminLevelOptions": {
+		"0": "ezer berezirik ez egin",
+		"10": "partekatu mezuak korrontetik",
+		"20": "gonbidatu beste batzuk erreka-jariora",
+		"30": "kudeatu erreka.",
+		"40": "jabetu eta kudeatzaileak izendatu"
+	},
+	"tabs": {
+		"read": "ikusgai",
+		"write": "editagarria hemendik aurrera",
+		"admin": "kideak"
+	}
+}

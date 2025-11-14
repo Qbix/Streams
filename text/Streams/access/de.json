@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "Nichts daran",
+		"10": "dass da etwas ist",
+		"20": "sein aktueller Inhalt",
+		"30": "wer daran teilnimmt",
+		"40": "die soziale Aktivit\u00e4t im Inneren"
+	},
+	"writeLevelOptions": {
+		"0": "Tu nichts daran",
+		"10": "daran teilnehmen",
+		"20": "Poste Nachrichten darauf",
+		"30": "den Inhalt bearbeiten"
+	},
+	"adminLevelOptions": {
+		"0": "Nichts Besonderes tun",
+		"10": "Nachrichten aus dem Stream teilen",
+		"20": "Lade andere zum Stream ein",
+		"30": "Stream verwalten",
+		"40": "Besitzen Sie es und ernennen Sie Manager."
+	},
+	"tabs": {
+		"read": "sichtbar f\u00fcr",
+		"write": "bearbeitbar von",
+		"admin": "Mitglieder"
+	}
+}

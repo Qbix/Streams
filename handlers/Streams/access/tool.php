@@ -11,18 +11,27 @@
  * @param {array} $options Options for the tool
  * @param {string} [$options.publisherId] the id of the user who is publishing the stream
  * @param {string} [$options.streamName] the name of the stream for which to edit access levels
- * @param {array} [$options.tabs] array of tab name => title. Defaults to read, write, admin tabs.
+ * @param {array} [$options.tabs] Defaults to ("read", "write", "admin"), but you can pass a subset.
  * @param {array} [$options.ranges] associative array with keys "read", "write", "admin" and values as associative arrays of ($min, $max) for the displayed levels.
  * @param {boolean} [$options.controls] optionally set this to true to render only the controls
  */
 function Streams_access_tool($options)
 {
-	$tabs = array(
-		'read'  => 'visible to', 
-		'write' => 'editable by', 
-		'admin' => 'members'
+	$defaults = Streams_Stream::getConfigField(
+		$streamType, array('access'), array()
 	);
+	$options = array_merge($defaults, $options);
+
 	extract($options);
+	$tabNames = isset($tabs) ? $tabs : array('read', 'write', 'admin');
+
+	$text = Q_Text::get('Streams/access');
+	$tabs = array(
+		'read'  => $text['tabs']['read'], 
+		'write' => $text['tabs']['write'], 
+		'admin' => $text['tabs']['admin']
+	);
+	$tabs = Q::take($tabs, $tabNames);
 
 	$user = Users::loggedInUser(true);
 	/**
@@ -83,13 +92,13 @@ function Streams_access_tool($options)
 
 	switch ($tab) {
 		case 'read':
-			$levels = Q_Config::get('Streams', 'readLevelOptions', array());
+			$levels = $text['readLevelOptions'];
 			break;
 		case 'write':
-			$levels = Q_Config::get('Streams', 'writeLevelOptions', array());
+			$levels = $text['writeLevelOptions'];
 			break;
 		case 'admin':
-			$levels = Q_Config::get('Streams', 'adminLevelOptions', array());
+			$levels = $text['adminLevelOptions'];
 			break;
 	}
 	if (isset($ranges[$tab])) {
@@ -114,6 +123,10 @@ function Streams_access_tool($options)
 	$accessArray = Db::exportArray($access_array);
 	$avatarArray = Db::exportArray($avatar_array);
 
+	if (empty($tabs)) {
+		$controls = true;
+	}
+
 	if (empty($controls)) {
 		Q_Response::addScript("{{Streams}}/js/Streams.js", 'Streams');
 		Q_Response::addScript("{{Streams}}/js/tools/access.js", 'Streams');
@@ -129,7 +142,9 @@ function Streams_access_tool($options)
 			'accessArray' => $accessArray,
 			'avatarArray' => $avatarArray,
 			'labels' => $labels,
-			'icons' => $icons
+			'icons' => $icons,
+			'publisherId' => $publisherId,
+			'streamName' => $streamName
 		));
 	}
 	

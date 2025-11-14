@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "tiada apa-apa mengenainya",
+		"10": "bahawa ada sesuatu di sana",
+		"20": "kandungan semasanya",
+		"30": "siapa yang menyertainya",
+		"40": "aktiviti sosial di dalam"
+	},
+	"writeLevelOptions": {
+		"0": "tidak berbuat apa-apa kepadanya",
+		"10": "mengambil bahagian di dalamnya",
+		"20": "hantar mesej kepadanya",
+		"30": "mengedit kandungannya"
+	},
+	"adminLevelOptions": {
+		"0": "tidak melakukan sesuatu yang istimewa",
+		"10": "berkongsi mesej daripada strim",
+		"20": "jemput orang lain ke strim",
+		"30": "menguruskan aliran",
+		"40": "memilikinya dan melantik pengurus"
+	},
+	"tabs": {
+		"read": "kelihatan kepada",
+		"write": "boleh disunting oleh",
+		"admin": "ahli"
+	}
+}

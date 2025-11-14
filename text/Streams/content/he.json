@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "התוכן הזה מוסתר ממך.",
-        "InplaceTypeMustBe": "inplaceType חייב להיות &#39;textarea&#39; או &#39;text&#39;"
-    },
-    "preview": {
-        "NewItemTitle": "פריט חדש",
-        "Teaser": "טיזר"
-    },
-    "avatar": {
-        "firstName": "שם פרטי",
-        "lastName": "שם משפחה",
-        "username": "שם משתמש"
-    },
-    "labels": {
-        "Streams\/invited": "אנשים שהזמנתי",
-        "Streams\/invitedMe": "מי הזמין אותי",
-        "DoYouAgree": "אתה מסכים?",
-        "Yes": "כן",
-        "No": "לא",
-        "JoinItNow": "להצטרף אליו עכשיו?"
-    },
-    "login": {
-        "prompt": "תן לחברים לזהות אותך:",
-        "newUser": "או צור חשבון חדש למטה",
-        "picTooltip": "אתה יכול לשנות תמונה זו מאוחר יותר",
-        "placeholders": {
-            "fullName": "הכנס את שמך המלא"
-        }
-    },
-    "interests": {
-        "Filter": "תחומי עניין בחיפוש",
-        "CanGrant": "אם אתה עדיין לא מוצא את מה שאתה מחפש, אתה יכול להוסיף עניין חדש למטה:",
-        "TrySynonyms": "לא רואה את זה? נסה כמה מילים נרדפות.",
-        "AddUnderCategory": "הוסף תחת קטגוריה...",
-        "Other": "אַחֵר",
-        "Unlisted": "לא רשום"
-    },
-    "chat": {
-        "flaggedForAdminReview": "ההודעה סומנה לבדיקת מנהל. הקש שוב כדי לבטל את הסימון.",
-        "noOneSaid": "אף אחד לא אמר כלום",
-        "closeChatButton": "סגור צ&#39;אט",
-        "closeChatConfirmTitle": "לסגור את הצ&#39;אט הזה?",
-        "closeChatConfirm": "האם אתה בטוח שברצונך לסגור את הצ&#39;אט הזה?",
-        "Subscribed": "התראות מופעלות",
-        "Unsubscribed": "הודעות מושתקות",
-        "closeChatConfirmYes": "כן",
-        "closeChatConfirmNo": "לא",
-        "earlierComments": "הערות קודמות",
-        "startedConversation": "התחילה שיחה",
-        "RealTimeCall": "שיחה בזמן אמת",
-        "JoinWebRTC": "ועידה טלפונית",
-        "SearchByName": "חפש לפי שם",
-        "Notifications": {
-            "Visit": "{{displayName}} מבקר בצ&#39;אט",
-            "Join": "{{displayName}} הצטרפו לצ&#39;אט",
-            "Leave": "{{displayName}} עזבו את הצ&#39;אט",
-            "RelatedTo": "{{displayName}} התחיל {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "הוסף תגובה",
-            "Private": "כתוב הודעה פרטית"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "לנהל את מנויי האימייל שלך",
-        "IfUnsubscribe": "אם אתה רוצה לבטל את המנוי",
-        "*": "הודעה {{{ message.fields.type}} עד {{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} הצטרפו",
-        "Streams\/left": "נותרו {{{call 'avatar.displayName'}}}",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} אמרו: {{& message.content}}}",
-        "Streams\/changed": "שינויים ב {{stream.fields.title}}",
-        "Streams\/invite": "הוזמנת ל {{{ stream.fields.title}}}",
-        "Streams\/announcement": "הודעה ב {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} שינה גישה ב {{& stream.fields.title}}}",
-        "Streams\/chat\/edit": "הודעת צ&#39;אט נערך ב {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "הודעת צ&#39;אט הוסרה ב {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} נסגר",
-        "Streams\/task\/progress": "התקדמות שנעשתה ב {{stream.fields.title}}",
-        "Streams\/task\/complete": "משימה שהושלמו: {{stream.fields.title}}",
-        "Streams\/task\/error": "שגיאה במהלך: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : הודעה נכנסת",
-        "Streams\/relatedTo\/Streams\/call": "שיחה חדשה החלה ב {{toTitle}}",
-        "Streams\/relatedTo\/*": "חדש {{relationDisplayType}} ב {{toTitle}}",
-        "Streams\/relatedFrom\/*": "נוסף ל {{toTitle}} כ {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} הזכיר אותך בתגובה",
-        "Streams\/call": "{{displayName}} התחיל שיחה בזמן אמת",
-        "changed": {
-            "ChangesIn": "שינויים ב {{title}}",
-            "Changed": "השתנה",
-            "HereIsWhatChanged": "הנה מה שהשתנה:"
-        },
-        "joined": {
-            "Joined": "{{subject}} הצטרפו <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "להזמין",
-        "Invite": "להזמין",
-        "Share": "לַחֲלוֹק",
-        "messageContent": "{{displayName}} הזמין אותך ל {{inviteUrl}}",
-        "youCanNowPaste": "כעת תוכל להדביק את הקישור הזה במקום כלשהו כדי להזמין אנשים",
-        "roles": {
-            "title": "להעניק תפקידים למשתמשים מוזמנים?",
-            "NotAuthorizedToGrantRole": {
-                "title": "מצטער",
-                "alert": "אינך מורשה להעניק תפקיד זה"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "מצטער",
-                "alert": "אינך מורשה להסיר את התפקיד הזה"
-            }
-        },
-        "labels": {
-            "title": "מה הקשר שלך?"
-        },
-        "dialog": {
-            "chooseFromContacts": "בחר מתוך אנשי הקשר שלך",
-            "chooseAgainFromContacts": "בחר שוב מתוך אנשי קשר",
-            "inviteSelectedContacts": "הזמן אנשי קשר נבחרים",
-            "selectFromContacts": "בחר מתוך אנשי קשר",
-            "userChooserPlaceholder": "חפש לפי שם",
-            "photo": "צלם תמונה",
-            "photoOf": "צלם תמונה של {{name}}",
-            "photoInstruction": "אם האדם שסרק את קוד ה-QR שלך נמצא מולך, צלם אותו",
-            "to": "אל: {{Stream Title}}",
-            "go": "ללכת",
-            "title": "להזמין",
-            "placeholder": "מספר נייד או כתובת מייל",
-            "orInvite": "או הזמן אנשים באמצעות:",
-            "copyLink": "{{ClickOrTap}} להעתקת קישור להזמנה",
-            "shareOrCopyLink": "{{ClickOrTap}} כדי לשתף או להעתיק קישור להזמנה",
-            "QR": "{{ClickOrTap}} ליצירת קוד QR",
-            "QRtitle": "סרוק את קוד ה-QR הזה",
-            "QRscanned": "הם סרקו את זה!",
-            "scannedQR": "{{ClickOrTap}} אם הקוד נסרק",
-            "byEmail": "אימייל",
-            "bySms": "טֶקסט",
-            "byFacebook": "פייסבוק",
-            "byTwitter": "טוויטר",
-            "title2": "להזמין אנשים",
-            "chooseMethod": "בחר שיטה:",
-            "selectContacts": "בחר אנשי קשר",
-            "scanQRCode": "סרוק קוד QR",
-            "shareLink": "שתף קישור",
-            "chooseFromRegistered": "בחר מבין משתמשים רשומים",
-            "inviteViaEmailOrSms": "הזמינו במייל או ב-SMS",
-            "TakeGroupPhoto": "צלם תמונה קבוצתית",
-            "Skip": "לדלג",
-            "byTelegram": "מִברָק",
-            "byWhatsapp": "וואטסאפ",
-            "addRoles": "הוסף תפקידים",
-            "addPersonalRoles": "הוסף קשרים אישיים"
-        },
-        "complete": {
-            "WelcomeToCommunity": "ברוכים הבאים ל {{communityName}}",
-            "HasInvitedYou": "הזמין אותך ל:",
-            "HasInvitedYouToTheirProfile": "הזמין אותך להתחבר.",
-            "prompt": "תן לחברים לזהות אותך:",
-            "accept": "קבל הזמנה"
-        },
-        "email": {
-            "subject": "היי, תבדוק את זה",
-            "PleaseVisitLink": "אנא בקר בקישור הבא:",
-            "InvitingYou": "אני מזמין אותך ל {{title}}",
-            "HasInvitedYou": "{{displayName}} הזמין אותך ל {{title}}",
-            "HasMentionedYou": "{{displayName}} הזכיר אותך ב&quot; {{title}} &quot;",
-            "YOUAREINVITED": "אתם מוזמנים!",
-            "AcceptInvite": "קבל הזמנה"
-        },
-        "mobile": {
-            "content": "הוזמנת ל {{title}} . אנא הקש על {{url}}"
-        },
-        "notice": {
-            "text": "הוזמנת. {{ClickOrTap}} כאן כדי לקבל ולהצטרף."
-        },
-        "chat": {
-            "prompt": "אתה תזמין אנשים לשיחה שבה תוכל לשמור על קשר, לשתף תמונות ביחד ועוד. תן לזה שם:"
-        },
-        "Participants": "להזמין אנשים"
-    },
-    "messages": {
-        "html": {
-            "posted": "פרסם הודעה <em>{{message.fields.type}}<\/em> ל {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "הגיב על",
-            "startedCallIn": "התחילה שיחה פנימה",
-            "in": "ב",
-            "body": "ב {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "פורסם אל",
-                "byAvatar": "עד {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "יש {{instructions.fromDisplayType}} חדש",
-                "byAvatar": "נוסף על ידי {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "ההזמנות נשלחות מהמספר שלנו, שחבריך עדיין לא מזהים. המשך עם טקסט מהיר כדי ליידע אותם שההזמנה הגיעה ממך, וביקש מהם ללחוץ על הקישור.",
-            "confirm": "ההזמנות נשלחות מהמספר שלנו, שחבריך עדיין לא מזהים. האם תרצה להמשיך עם טקסט מהיר כדי ליידע אותם שההזמנה הגיעה ממך, ולבקש מהם ללחוץ על הקישור.",
-            "check": "היי, זה עתה שלחתי לך הזמנה לאפליקציית {{app}} . אנא בדוק את ה-SMS שלך ולחץ על הקישור!",
-            "CheckYourMobile": "אנא בדוק SMS ופעל לפי ההוראות!"
-        },
-        "email": {
-            "alert": "הזמנות נשלחות מהדומיין שלנו, שהחברים שלך עדיין לא מזהים. המשך עם טקסט מהיר כדי ליידע אותם שההזמנה הגיעה ממך, וביקש מהם ללחוץ על הקישור.",
-            "confirm": "הזמנות נשלחות מהדומיין שלנו, שהחברים שלך עדיין לא מזהים. האם תרצה להמשיך עם טקסט מהיר כדי ליידע אותם שההזמנה הגיעה ממך, ולבקש מהם ללחוץ על הקישור.",
-            "subject": "קיבלת הזמנה?",
-            "body": "היי, זה עתה שלחתי לך הזמנה לאפליקציית {{app}} . אנא בדוק את האימייל שלך ולחץ על הקישור שם!",
-            "CheckYourEmail": "אנא בדוק את האימייל שלך ופעל לפי ההוראות!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "הגדרות פרטיות"
-    },
-    "participating": {
-        "Title": "כותרת",
-        "Subscribed": "נרשם",
-        "Participants": "משתתפים",
-        "AreYouSureRemoveIdentifier": "האם אתה בטוח להסיר מזהה זה?",
-        "AreYouSureUnsubscribeIdentifier": "האם אתה בטוח לבטל את הרישום של מזהה זה? זה יכבה את ההתראות למזהה הזה.",
-        "AreYouSureUnsubscribeDevice": "האם אתה בטוח לבטל את הרישום של המכשיר הזה? זה יכבה את ההתראות למכשיר הזה.",
-        "AreYouSureRemoveParticipant": "האם אתה בטוח שברצונך להסיר את המשתתף הזה?",
-        "RemoveParticipant": "הסר את המשתתף",
-        "Identifiers": "מזהים",
-        "Devices": "מכשירים",
-        "Streams": "זרמים"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "מוזמן",
-            "description": "תיבת דואר נכנס להזמנות"
-        },
-        "Streams\/resource": {
-            "displayType": "מַשׁאָב",
-            "description": "זרם לניהול גישה למשאב ופרסום הודעות על עדכונים"
-        },
-        "Streams\/task": {
-            "description": "לקבלת עדכונים על התקדמות במשימה מסוימת",
-            "displayType": "מְשִׁימָה"
-        },
-        "Streams\/tasks": {
-            "description": "קטגוריה למשימות",
-            "displayType": "משימות"
-        },
-        "Streams\/experience": {
-            "description": "חוויה משותפת לחברי קהילה",
-            "displayType": "ניסיון משותף לחברי קהילה"
-        },
-        "Streams\/greeting": {
-            "description": "ברכה שאיתה משתמש יכול להציג את עצמו",
-            "displayType": "בְּרָכָה"
-        },
-        "Streams\/number": {
-            "displayType": "מספר",
-            "description": "מספר מתמטי"
-        },
-        "Streams\/date": {
-            "displayType": "תַאֲרִיך",
-            "description": "תַאֲרִיך"
-        },
-        "Streams\/text": {
-            "displayType": "טֶקסט",
-            "description": "גוף הטקסט"
-        },
-        "Streams\/text\/small": {
-            "displayType": "טֶקסט",
-            "description": "גוף טקסט קטן"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "טֶקסט",
-            "description": "גוף טקסט בינוני"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "כתובת דוא&quot;ל",
-            "description": "כתובת דוא&quot;ל"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "מספר טלפון",
-            "description": "מספר טלפון"
-        },
-        "Streams\/text\/url": {
-            "displayType": "כתובת אתר",
-            "description": "קישור באינטרנט"
-        },
-        "Streams\/image": {
-            "displayType": "תמונה",
-            "description": "תמונה ויזואלית",
-            "newItem": "להוסיף תמונה"
-        },
-        "Streams\/images": {
-            "displayType": "גלריית תמונות",
-            "description": "גלריית תמונות"
-        },
-        "Streams\/album": {
-            "displayType": "אַלבּוֹם",
-            "description": "אלבום אליו קשורים מדיות שונות"
-        },
-        "Streams\/file": {
-            "displayType": "קוֹבֶץ",
-            "description": "קובץ שהועלה",
-            "newItem": "הוסף קובץ"
-        },
-        "Streams\/audio": {
-            "displayType": "קליפ אודיו",
-            "description": "קליפ אודיו",
-            "newItem": "הוסף אודיו"
-        },
-        "Streams\/video": {
-            "displayType": "סרטון וידאו",
-            "description": "סרטון וידאו",
-            "newItem": "הוסף וידאו"
-        },
-        "Streams\/pdf": {
-            "displayType": "מסמך PDF",
-            "description": "מסמך PDF",
-            "newItem": "הוסף PDF"
-        },
-        "Streams\/live": {
-            "displayType": "שידור חי",
-            "description": "אודיו או וידאו חי"
-        },
-        "Streams\/category": {
-            "displayType": "קטגוריה",
-            "description": "קטגוריה שאליה ניתן לקשר זרמים אחרים",
-            "newItem": "הוסף קטגוריה"
-        },
-        "Streams\/participating": {
-            "displayType": "אינדקס משתתף",
-            "description": "זרמים קשורים\/לא קשורים לזה כאשר משתמש מצטרף\/עוזב"
-        },
-        "Streams\/interest": {
-            "displayType": "ריבית",
-            "description": "מייצג עניין של משתמש בנושא מסוים"
-        },
-        "Streams\/incoming": {
-            "displayType": "נִכנָס",
-            "description": "יעד להודעות שנשלחו על ידי משתמשים אחרים"
-        },
-        "Streams\/chat": {
-            "displayType": "שִׂיחָה",
-            "description": "שיחה בין משתמשים, עם היסטוריה"
-        },
-        "Streams\/question": {
-            "displayType": "שְׁאֵלָה",
-            "description": "זרם שאלות",
-            "newItem": "הוסף שאלה"
-        },
-        "Streams\/answer": {
-            "displayType": "תשובה",
-            "description": "זרם תשובות"
-        },
-        "Streams\/topic": {
-            "displayType": "נוֹשֵׂא",
-            "description": "זרם נושא",
-            "newItem": "הוסף נושא"
-        }
-    },
-    "menu": {
-        "placeholder": "הקלד את כותרת העמוד",
-        "ModTab": "שנה פריט",
-        "Save": "להציל",
-        "Delete": "לִמְחוֹק",
-        "Submenu": "תפריט משנה"
-    },
-    "audio": {
-        "record": "תקליט",
-        "reset": "אִתחוּל",
-        "edit": "לַעֲרוֹך",
-        "title": "כותרת",
-        "description": "תיאור",
-        "upload": "העלה",
-        "link": "קישור",
-        "setUrl": "הגדר כתובת URL",
-        "save": "להציל",
-        "setClip": "חתוך קליפ",
-        "invalidURL": "כתובת אתר לא חוקית",
-        "invalidFile": "קובץ לא תקין",
-        "errorNoSource": "אין מקור שמע",
-        "uploadLimit": "גודל קובץ מקסימלי: {{size}}",
-        "errorFileSize": "סליחה, אבל הקובץ גדול מדי.<br> גודל הקובץ המרבי הוא {{size}}",
-        "TeaserAudio": "טיזר אודיו"
-    },
-    "video": {
-        "reset": "אִתחוּל",
-        "edit": "לַעֲרוֹך",
-        "title": "כותרת",
-        "description": "תיאור",
-        "upload": "העלה",
-        "link": "קישור",
-        "setUrl": "הגדר כתובת URL",
-        "save": "להציל",
-        "setClip": "חתוך קליפ",
-        "invalidURL": "כתובת אתר לא חוקית",
-        "invalidFile": "קובץ לא תקין",
-        "errorNoSource": "אין מקור וידאו",
-        "uploadLimit": "גודל קובץ מקסימלי: {{size}}",
-        "errorFileSize": "סליחה, אבל הקובץ גדול מדי.<br> גודל הקובץ המרבי הוא {{size}}",
-        "createAnimatedThumbnail": "צור תמונה ממוזערת מונפשת",
-        "errorNotAvailable": "מצטערים, אבל הסרטון עדיין לא זמין. בבקשה נסה שוב מאוחר יותר.",
-        "NewVideo": "סרטון חדש",
-        "EditVideo": "ערוך וידאו",
-        "TeaserVideo": "סרטון טיזר"
-    },
-    "pdf": {
-        "reset": "אִתחוּל",
-        "edit": "לַעֲרוֹך",
-        "title": "כותרת",
-        "description": "תיאור",
-        "upload": "העלה",
-        "link": "קישור",
-        "setUrl": "הגדר כתובת URL",
-        "save": "להציל",
-        "setClip": "חתוך קליפ",
-        "invalidURL": "כתובת אתר לא חוקית",
-        "invalidFile": "קובץ לא תקין",
-        "errorNoSource": "אין מקור pdf",
-        "uploadLimit": "גודל קובץ מקסימלי: {{size}}",
-        "errorFileSize": "סליחה, אבל הקובץ גדול מדי.<br> גודל הקובץ המרבי הוא {{size}}",
-        "TeaserPDF": "טיזר PDF"
-    },
-    "image": {
-        "reset": "אִתחוּל",
-        "edit": "לַעֲרוֹך",
-        "title": "כותרת",
-        "description": "תיאור",
-        "upload": "העלה",
-        "link": "קישור",
-        "setUrl": "הגדר כתובת URL",
-        "save": "להציל",
-        "uploadedImage": "תמונה שהועלתה",
-        "imageTitle": "כותרת התמונה",
-        "setClip": "חתוך קליפ",
-        "invalidURL": "כתובת אתר לא חוקית",
-        "invalidFile": "קובץ לא תקין",
-        "errorNoSource": "אין מקור תמונה",
-        "uploadLimit": "גודל קובץ מקסימלי: {{size}}",
-        "errorFileSize": "סליחה, אבל הקובץ גדול מדי.<br> גודל הקובץ המרבי הוא {{size}}",
-        "TeaserImage": "תמונת טיזר"
-    },
-    "questions": {
-        "Questions": "שאלות",
-        "Answers": "תשובות",
-        "AnswerQuestion": "ענה לשאלה",
-        "SetYourAnswer": "בבקשה ענה על השאלה",
-        "NewQuestion": "שאלה חדשה",
-        "EditQuestion": "ערוך שאלה",
-        "NewAnswer": "תשובה חדשה",
-        "NewPossibleAnswer": "תשובה אפשרית חדשה",
-        "AnswerDetails": "פרטי תשובה",
-        "answerOption": "אוֹפְּצִיָה",
-        "answerOptionExclusive": "בִּלעָדִי",
-        "answerTextarea": "Textarea",
-        "answerText": "טֶקסט",
-        "HideUntilAnswered": "הסתר עד שתענה",
-        "CantChangeAnswers": "לא יכול לשנות תשובות",
-        "FreeAnswer": "כתבו כאן את תשובתכם",
-        "SaveQuestion": "שמור שאלה",
-        "SaveAnswer": "שמור תשובה",
-        "Save": "להציל",
-        "Send": "לִשְׁלוֹחַ",
-        "TitleRequired": "חובה כותרת!",
-        "AlreadyAnswered": "כבר נענה",
-        "TitlePlaceholder": "הקלד את השאלה שלך",
-        "ContentPlaceholder": "שים כאן כל מידע נוסף כדי לעזור לאנשים לענות",
-        "ErrorTitle": "נדרשת שאלה",
-        "Placeholder": "כתוב הוראות",
-        "AreYouSure": "האם אתה בטוח?",
-        "ShortAnswer": "כתבו תשובה קצרה",
-        "AnswerCantBeChanged": "לא ניתן לשנות את התשובה"
-    },
-    "experience": {
-        "NewExperience": "חוויה חדשה",
-        "DefineTitle": "נא להגדיר כותרת",
-        "Create": "לִיצוֹר"
-    },
-    "calls": {
-        "SettingsTitle": "שיחות",
-        "MaxCalls": "מקסימום שיחות",
-        "Update": "עדכון",
-        "NoCallsYet": "עדיין אין שיחות",
-        "CallReasonTitle": "על מה השיחה הזו?",
-        "WaitingRoom": "חדר המתנה",
-        "LiveRoom": "חדר חי",
-        "interviewedByAnotherHost": "כרגע מתראיין על ידי מארח אחר",
-        "bringToLive": "תביא למופע חי",
-        "putOnHold": "לשים בהמתנה",
-        "endCall": "סיום שיחה",
-        "interview": "רֵאָיוֹן",
-        "markApproved": "סמן אושר"
-    },
-    "relate": {
-        "Add": "הוסף {{streamDisplayType}}"
-    },
-    "userChooser": {
-        "Placeholder": "שם של משתמש..."
-    },
-    "task": {
-        "errorsTitle": "אירעו שגיאות"
-    },
-    "topic": {
-        "NewTopic": "נושא חדש",
-        "UpdateTopic": "עדכון נושא",
-        "CreateTopic": "צור נושא",
-        "AreYouSureDeleteTopic": "האם אתה בטוח שברצונך למחוק את הנושא הזה",
-        "TitlePlaceholder": "כותרת הנושא...",
-        "DescribeTopic": "תאר נושא...",
-        "TopicIcon": "תמונת נושא",
-        "UploadIcon": "סמל העלאה",
-        "Conversation": "שִׂיחָה",
-        "Metrics": "מדדים",
-        "Teaser": "טיזר",
-        "TeaserDescription": "תיאור טיזר...",
-        "TeaserVideo": "סרטון טיזר"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "צור תמונה ממוזערת מונפשת",
-        "Width": "רוֹחַב",
-        "Height": "גוֹבַה",
-        "Start": "הַתחָלָה",
-        "End": "סוֹף",
-        "Delay": "לְעַכֵּב",
-        "Quality": "איכות",
-        "Size": "גודל",
-        "OfFrames": "של מסגרות",
-        "Frame": "מִסגֶרֶת",
-        "UseThis": "השתמש בזה",
-        "ResultGIF": "תוצאה GIF",
-        "VideoElementNotFound": "רכיב וידאו לא נמצא"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} על הפנים שלך",
-        "AcceptIcon": "קבל את האזור הנבחר"
-    }
+	"errors": {
+		"HiddenFromYou": "\u05d4\u05ea\u05d5\u05db\u05df \u05d4\u05d6\u05d4 \u05de\u05d5\u05e1\u05ea\u05e8 \u05de\u05de\u05da.",
+		"InplaceTypeMustBe": "inplaceType \u05d7\u05d9\u05d9\u05d1 \u05dc\u05d4\u05d9\u05d5\u05ea &#39;textarea&#39; \u05d0\u05d5 &#39;text&#39;",
+		"AmountInvalid": "\u05d0\u05e0\u05d0 \u05d4\u05d6\u05df \u05de\u05e1\u05e4\u05e8 \u05d7\u05d5\u05e7\u05d9 \u05e9\u05dc \u05de\u05d9\u05dc\u05d9\u05e9\u05e0\u05d9\u05d5\u05ea."
+	},
+	"preview": {
+		"NewItemTitle": "\u05e4\u05e8\u05d9\u05d8 \u05d7\u05d3\u05e9",
+		"Teaser": "\u05d8\u05d9\u05d6\u05e8"
+	},
+	"avatar": {
+		"firstName": "\u05e9\u05dd \u05e4\u05e8\u05d8\u05d9",
+		"lastName": "\u05e9\u05dd \u05de\u05e9\u05e4\u05d7\u05d4",
+		"username": "\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9"
+	},
+	"labels": {
+		"Streams/invited": "\u05d0\u05e0\u05e9\u05d9\u05dd \u05e9\u05d4\u05d6\u05de\u05e0\u05ea\u05d9",
+		"Streams/invitedMe": "\u05de\u05d9 \u05d4\u05d6\u05de\u05d9\u05df \u05d0\u05d5\u05ea\u05d9",
+		"DoYouAgree": "\u05d0\u05ea\u05d4 \u05de\u05e1\u05db\u05d9\u05dd?",
+		"Yes": "\u05db\u05df",
+		"No": "\u05dc\u05d0",
+		"JoinItNow": "\u05dc\u05d4\u05e6\u05d8\u05e8\u05e3 \u05d0\u05dc\u05d9\u05d5 \u05e2\u05db\u05e9\u05d9\u05d5?"
+	},
+	"login": {
+		"prompt": "\u05ea\u05df \u05dc\u05d7\u05d1\u05e8\u05d9\u05dd \u05dc\u05d6\u05d4\u05d5\u05ea \u05d0\u05d5\u05ea\u05da:",
+		"newUser": "\u05d0\u05d5 \u05e6\u05d5\u05e8 \u05d7\u05e9\u05d1\u05d5\u05df \u05d7\u05d3\u05e9 \u05dc\u05de\u05d8\u05d4",
+		"picTooltip": "\u05d0\u05ea\u05d4 \u05d9\u05db\u05d5\u05dc \u05dc\u05e9\u05e0\u05d5\u05ea \u05ea\u05de\u05d5\u05e0\u05d4 \u05d6\u05d5 \u05de\u05d0\u05d5\u05d7\u05e8 \u05d9\u05d5\u05ea\u05e8",
+		"placeholders": {
+			"fullName": "\u05d4\u05db\u05e0\u05e1 \u05d0\u05ea \u05e9\u05de\u05da \u05d4\u05de\u05dc\u05d0"
+		}
+	},
+	"interests": {
+		"Filter": "\u05ea\u05d7\u05d5\u05de\u05d9 \u05e2\u05e0\u05d9\u05d9\u05df \u05d1\u05d7\u05d9\u05e4\u05d5\u05e9",
+		"CanGrant": "\u05d0\u05dd \u05d0\u05ea\u05d4 \u05e2\u05d3\u05d9\u05d9\u05df \u05dc\u05d0 \u05de\u05d5\u05e6\u05d0 \u05d0\u05ea \u05de\u05d4 \u05e9\u05d0\u05ea\u05d4 \u05de\u05d7\u05e4\u05e9, \u05d0\u05ea\u05d4 \u05d9\u05db\u05d5\u05dc \u05dc\u05d4\u05d5\u05e1\u05d9\u05e3 \u05e2\u05e0\u05d9\u05d9\u05df \u05d7\u05d3\u05e9 \u05dc\u05de\u05d8\u05d4:",
+		"TrySynonyms": "\u05dc\u05d0 \u05e8\u05d5\u05d0\u05d4 \u05d0\u05ea \u05d6\u05d4? \u05e0\u05e1\u05d4 \u05db\u05de\u05d4 \u05de\u05d9\u05dc\u05d9\u05dd \u05e0\u05e8\u05d3\u05e4\u05d5\u05ea.",
+		"AddUnderCategory": "\u05d4\u05d5\u05e1\u05e3 \u05ea\u05d7\u05ea \u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d4...",
+		"Other": "\u05d0\u05b7\u05d7\u05b5\u05e8",
+		"Unlisted": "\u05dc\u05d0 \u05e8\u05e9\u05d5\u05dd"
+	},
+	"chat": {
+		"flaggedForAdminReview": "\u05d4\u05d4\u05d5\u05d3\u05e2\u05d4 \u05e1\u05d5\u05de\u05e0\u05d4 \u05dc\u05d1\u05d3\u05d9\u05e7\u05ea \u05de\u05e0\u05d4\u05dc. \u05d4\u05e7\u05e9 \u05e9\u05d5\u05d1 \u05db\u05d3\u05d9 \u05dc\u05d1\u05d8\u05dc \u05d0\u05ea \u05d4\u05e1\u05d9\u05de\u05d5\u05df.",
+		"noOneSaid": "\u05d0\u05e3 \u05d0\u05d7\u05d3 \u05dc\u05d0 \u05d0\u05de\u05e8 \u05db\u05dc\u05d5\u05dd",
+		"closeChatButton": "\u05e1\u05d2\u05d5\u05e8 \u05e6&#39;\u05d0\u05d8",
+		"closeChatConfirmTitle": "\u05dc\u05e1\u05d2\u05d5\u05e8 \u05d0\u05ea \u05d4\u05e6&#39;\u05d0\u05d8 \u05d4\u05d6\u05d4?",
+		"closeChatConfirm": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7 \u05e9\u05d1\u05e8\u05e6\u05d5\u05e0\u05da \u05dc\u05e1\u05d2\u05d5\u05e8 \u05d0\u05ea \u05d4\u05e6&#39;\u05d0\u05d8 \u05d4\u05d6\u05d4?",
+		"Subscribed": "\u05d4\u05ea\u05e8\u05d0\u05d5\u05ea \u05de\u05d5\u05e4\u05e2\u05dc\u05d5\u05ea",
+		"Unsubscribed": "\u05d4\u05d5\u05d3\u05e2\u05d5\u05ea \u05de\u05d5\u05e9\u05ea\u05e7\u05d5\u05ea",
+		"closeChatConfirmYes": "\u05db\u05df",
+		"closeChatConfirmNo": "\u05dc\u05d0",
+		"earlierComments": "\u05d4\u05e2\u05e8\u05d5\u05ea \u05e7\u05d5\u05d3\u05de\u05d5\u05ea",
+		"startedConversation": "\u05d4\u05ea\u05d7\u05d9\u05dc\u05d4 \u05e9\u05d9\u05d7\u05d4",
+		"RealTimeCall": "\u05e9\u05d9\u05d7\u05d4 \u05d1\u05d6\u05de\u05df \u05d0\u05de\u05ea",
+		"JoinWebRTC": "\u05d5\u05e2\u05d9\u05d3\u05d4 \u05d8\u05dc\u05e4\u05d5\u05e0\u05d9\u05ea",
+		"SearchByName": "\u05d7\u05e4\u05e9 \u05dc\u05e4\u05d9 \u05e9\u05dd",
+		"Notifications": {
+			"Visit": "{{displayName}} \u05de\u05d1\u05e7\u05e8 \u05d1\u05e6&#39;\u05d0\u05d8",
+			"Join": "{{displayName}} \u05d4\u05e6\u05d8\u05e8\u05e4\u05d5 \u05dc\u05e6&#39;\u05d0\u05d8",
+			"Leave": "{{displayName}} \u05e2\u05d6\u05d1\u05d5 \u05d0\u05ea \u05d4\u05e6&#39;\u05d0\u05d8",
+			"RelatedTo": "{{displayName}} \u05d4\u05ea\u05d7\u05d9\u05dc {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "\u05d4\u05d5\u05e1\u05e3 \u05ea\u05d2\u05d5\u05d1\u05d4",
+			"Private": "\u05db\u05ea\u05d5\u05d1 \u05d4\u05d5\u05d3\u05e2\u05d4 \u05e4\u05e8\u05d8\u05d9\u05ea"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "\u05dc\u05e0\u05d4\u05dc \u05d0\u05ea \u05de\u05e0\u05d5\u05d9\u05d9 \u05d4\u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05e9\u05dc\u05da",
+		"IfUnsubscribe": "\u05d0\u05dd \u05d0\u05ea\u05d4 \u05e8\u05d5\u05e6\u05d4 \u05dc\u05d1\u05d8\u05dc \u05d0\u05ea \u05d4\u05de\u05e0\u05d5\u05d9",
+		"*": "\u05d4\u05d5\u05d3\u05e2\u05d4 {{{ message.fields.type}} \u05e2\u05d3 {{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} \u05d4\u05e6\u05d8\u05e8\u05e4\u05d5",
+		"Streams/left": "\u05e0\u05d5\u05ea\u05e8\u05d5 {{{call 'avatar.displayName'}}}",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} \u05d0\u05de\u05e8\u05d5: {{& message.content}}}",
+		"Streams/changed": "\u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd \u05d1 {{stream.fields.title}}",
+		"Streams/invite": "\u05d4\u05d5\u05d6\u05de\u05e0\u05ea \u05dc {{{ stream.fields.title}}}",
+		"Streams/announcement": "\u05d4\u05d5\u05d3\u05e2\u05d4 \u05d1 {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} \u05e9\u05d9\u05e0\u05d4 \u05d2\u05d9\u05e9\u05d4 \u05d1 {{& stream.fields.title}}}",
+		"Streams/chat/edit": "\u05d4\u05d5\u05d3\u05e2\u05ea \u05e6&#39;\u05d0\u05d8 \u05e0\u05e2\u05e8\u05da \u05d1 {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "\u05d4\u05d5\u05d3\u05e2\u05ea \u05e6&#39;\u05d0\u05d8 \u05d4\u05d5\u05e1\u05e8\u05d4 \u05d1 {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} \u05e0\u05e1\u05d2\u05e8",
+		"Streams/task/progress": "\u05d4\u05ea\u05e7\u05d3\u05de\u05d5\u05ea \u05e9\u05e0\u05e2\u05e9\u05ea\u05d4 \u05d1 {{stream.fields.title}}",
+		"Streams/task/complete": "\u05de\u05e9\u05d9\u05de\u05d4 \u05e9\u05d4\u05d5\u05e9\u05dc\u05de\u05d5: {{stream.fields.title}}",
+		"Streams/task/error": "\u05e9\u05d2\u05d9\u05d0\u05d4 \u05d1\u05de\u05d4\u05dc\u05da: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : \u05d4\u05d5\u05d3\u05e2\u05d4 \u05e0\u05db\u05e0\u05e1\u05ea",
+		"Streams/relatedTo/Streams/call": "\u05e9\u05d9\u05d7\u05d4 \u05d7\u05d3\u05e9\u05d4 \u05d4\u05d7\u05dc\u05d4 \u05d1 {{toTitle}}",
+		"Streams/relatedTo/*": "\u05d7\u05d3\u05e9 {{relationDisplayType}} \u05d1 {{toTitle}}",
+		"Streams/relatedFrom/*": "\u05e0\u05d5\u05e1\u05e3 \u05dc {{toTitle}} \u05db {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} \u05d4\u05d6\u05db\u05d9\u05e8 \u05d0\u05d5\u05ea\u05da \u05d1\u05ea\u05d2\u05d5\u05d1\u05d4",
+		"Streams/call": "{{displayName}} \u05d4\u05ea\u05d7\u05d9\u05dc \u05e9\u05d9\u05d7\u05d4 \u05d1\u05d6\u05de\u05df \u05d0\u05de\u05ea",
+		"changed": {
+			"ChangesIn": "\u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd \u05d1 {{title}}",
+			"Changed": "\u05d4\u05e9\u05ea\u05e0\u05d4",
+			"HereIsWhatChanged": "\u05d4\u05e0\u05d4 \u05de\u05d4 \u05e9\u05d4\u05e9\u05ea\u05e0\u05d4:"
+		},
+		"joined": {
+			"Joined": "{{subject}} \u05d4\u05e6\u05d8\u05e8\u05e4\u05d5 <em>{{title}}</em>"
+		},
+		"Streams/invited": "\u05d4\u05d5\u05d6\u05de\u05e0\u05ea \u05dc {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "\u05dc\u05d4\u05d6\u05de\u05d9\u05df",
+		"Invite": "\u05dc\u05d4\u05d6\u05de\u05d9\u05df",
+		"Share": "\u05dc\u05b7\u05d7\u05b2\u05dc\u05d5\u05b9\u05e7",
+		"messageContent": "{{displayName}} \u05d4\u05d6\u05de\u05d9\u05df \u05d0\u05d5\u05ea\u05da \u05dc {{inviteUrl}}",
+		"youCanNowPaste": "\u05db\u05e2\u05ea \u05ea\u05d5\u05db\u05dc \u05dc\u05d4\u05d3\u05d1\u05d9\u05e7 \u05d0\u05ea \u05d4\u05e7\u05d9\u05e9\u05d5\u05e8 \u05d4\u05d6\u05d4 \u05d1\u05de\u05e7\u05d5\u05dd \u05db\u05dc\u05e9\u05d4\u05d5 \u05db\u05d3\u05d9 \u05dc\u05d4\u05d6\u05de\u05d9\u05df \u05d0\u05e0\u05e9\u05d9\u05dd",
+		"roles": {
+			"title": "\u05dc\u05d4\u05e2\u05e0\u05d9\u05e7 \u05ea\u05e4\u05e7\u05d9\u05d3\u05d9\u05dd \u05dc\u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05de\u05d5\u05d6\u05de\u05e0\u05d9\u05dd?",
+			"NotAuthorizedToGrantRole": {
+				"title": "\u05de\u05e6\u05d8\u05e2\u05e8",
+				"alert": "\u05d0\u05d9\u05e0\u05da \u05de\u05d5\u05e8\u05e9\u05d4 \u05dc\u05d4\u05e2\u05e0\u05d9\u05e7 \u05ea\u05e4\u05e7\u05d9\u05d3 \u05d6\u05d4"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "\u05de\u05e6\u05d8\u05e2\u05e8",
+				"alert": "\u05d0\u05d9\u05e0\u05da \u05de\u05d5\u05e8\u05e9\u05d4 \u05dc\u05d4\u05e1\u05d9\u05e8 \u05d0\u05ea \u05d4\u05ea\u05e4\u05e7\u05d9\u05d3 \u05d4\u05d6\u05d4"
+			}
+		},
+		"labels": {
+			"title": "\u05de\u05d4 \u05d4\u05e7\u05e9\u05e8 \u05e9\u05dc\u05da?"
+		},
+		"dialog": {
+			"chooseFromContacts": "\u05d1\u05d7\u05e8 \u05de\u05ea\u05d5\u05da \u05d0\u05e0\u05e9\u05d9 \u05d4\u05e7\u05e9\u05e8 \u05e9\u05dc\u05da",
+			"chooseAgainFromContacts": "\u05d1\u05d7\u05e8 \u05e9\u05d5\u05d1 \u05de\u05ea\u05d5\u05da \u05d0\u05e0\u05e9\u05d9 \u05e7\u05e9\u05e8",
+			"inviteSelectedContacts": "\u05d4\u05d6\u05de\u05df \u05d0\u05e0\u05e9\u05d9 \u05e7\u05e9\u05e8 \u05e0\u05d1\u05d7\u05e8\u05d9\u05dd",
+			"selectFromContacts": "\u05d1\u05d7\u05e8 \u05de\u05ea\u05d5\u05da \u05d0\u05e0\u05e9\u05d9 \u05e7\u05e9\u05e8",
+			"userChooserPlaceholder": "\u05d7\u05e4\u05e9 \u05dc\u05e4\u05d9 \u05e9\u05dd",
+			"photo": "\u05e6\u05dc\u05dd \u05ea\u05de\u05d5\u05e0\u05d4",
+			"photoOf": "\u05e6\u05dc\u05dd \u05ea\u05de\u05d5\u05e0\u05d4 \u05e9\u05dc {{name}}",
+			"photoInstruction": "\u05d0\u05dd \u05d4\u05d0\u05d3\u05dd \u05e9\u05e1\u05e8\u05e7 \u05d0\u05ea \u05e7\u05d5\u05d3 \u05d4-QR \u05e9\u05dc\u05da \u05e0\u05de\u05e6\u05d0 \u05de\u05d5\u05dc\u05da, \u05e6\u05dc\u05dd \u05d0\u05d5\u05ea\u05d5",
+			"to": "\u05d0\u05dc: {{Stream Title}}",
+			"go": "\u05dc\u05dc\u05db\u05ea",
+			"title": "\u05dc\u05d4\u05d6\u05de\u05d9\u05df",
+			"placeholder": "\u05de\u05e1\u05e4\u05e8 \u05e0\u05d9\u05d9\u05d3 \u05d0\u05d5 \u05db\u05ea\u05d5\u05d1\u05ea \u05de\u05d9\u05d9\u05dc",
+			"orInvite": "\u05d0\u05d5 \u05d4\u05d6\u05de\u05df \u05d0\u05e0\u05e9\u05d9\u05dd \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea:",
+			"copyLink": "{{ClickOrTap}} \u05dc\u05d4\u05e2\u05ea\u05e7\u05ea \u05e7\u05d9\u05e9\u05d5\u05e8 \u05dc\u05d4\u05d6\u05de\u05e0\u05d4",
+			"shareOrCopyLink": "{{ClickOrTap}} \u05db\u05d3\u05d9 \u05dc\u05e9\u05ea\u05e3 \u05d0\u05d5 \u05dc\u05d4\u05e2\u05ea\u05d9\u05e7 \u05e7\u05d9\u05e9\u05d5\u05e8 \u05dc\u05d4\u05d6\u05de\u05e0\u05d4",
+			"QR": "{{ClickOrTap}} \u05dc\u05d9\u05e6\u05d9\u05e8\u05ea \u05e7\u05d5\u05d3 QR",
+			"QRtitle": "\u05e1\u05e8\u05d5\u05e7 \u05d0\u05ea \u05e7\u05d5\u05d3 \u05d4-QR \u05d4\u05d6\u05d4",
+			"QRscanned": "\u05d4\u05dd \u05e1\u05e8\u05e7\u05d5 \u05d0\u05ea \u05d6\u05d4!",
+			"scannedQR": "{{ClickOrTap}} \u05d0\u05dd \u05d4\u05e7\u05d5\u05d3 \u05e0\u05e1\u05e8\u05e7",
+			"byEmail": "\u05d0\u05d9\u05de\u05d9\u05d9\u05dc",
+			"bySms": "\u05d8\u05b6\u05e7\u05e1\u05d8",
+			"byFacebook": "\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7",
+			"byTwitter": "\u05d8\u05d5\u05d5\u05d9\u05d8\u05e8",
+			"title2": "\u05dc\u05d4\u05d6\u05de\u05d9\u05df \u05d0\u05e0\u05e9\u05d9\u05dd",
+			"chooseMethod": "\u05d1\u05d7\u05e8 \u05e9\u05d9\u05d8\u05d4:",
+			"selectContacts": "\u05d1\u05d7\u05e8 \u05d0\u05e0\u05e9\u05d9 \u05e7\u05e9\u05e8",
+			"scanQRCode": "\u05e1\u05e8\u05d5\u05e7 \u05e7\u05d5\u05d3 QR",
+			"shareLink": "\u05e9\u05ea\u05e3 \u05e7\u05d9\u05e9\u05d5\u05e8",
+			"chooseFromRegistered": "\u05d1\u05d7\u05e8 \u05de\u05d1\u05d9\u05df \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05e8\u05e9\u05d5\u05de\u05d9\u05dd",
+			"inviteViaEmailOrSms": "\u05d4\u05d6\u05de\u05d9\u05e0\u05d5 \u05d1\u05de\u05d9\u05d9\u05dc \u05d0\u05d5 \u05d1-SMS",
+			"TakeGroupPhoto": "\u05e6\u05dc\u05dd \u05ea\u05de\u05d5\u05e0\u05d4 \u05e7\u05d1\u05d5\u05e6\u05ea\u05d9\u05ea",
+			"Skip": "\u05dc\u05d3\u05dc\u05d2",
+			"byTelegram": "\u05de\u05b4\u05d1\u05e8\u05b8\u05e7",
+			"byWhatsapp": "\u05d5\u05d5\u05d0\u05d8\u05e1\u05d0\u05e4",
+			"addRoles": "\u05d4\u05d5\u05e1\u05e3 \u05ea\u05e4\u05e7\u05d9\u05d3\u05d9\u05dd",
+			"addPersonalRoles": "\u05d4\u05d5\u05e1\u05e3 \u05e7\u05e9\u05e8\u05d9\u05dd \u05d0\u05d9\u05e9\u05d9\u05d9\u05dd"
+		},
+		"complete": {
+			"WelcomeToCommunity": "\u05d1\u05e8\u05d5\u05db\u05d9\u05dd \u05d4\u05d1\u05d0\u05d9\u05dd \u05dc {{communityName}}",
+			"HasInvitedYou": "\u05d4\u05d6\u05de\u05d9\u05df \u05d0\u05d5\u05ea\u05da \u05dc:",
+			"HasInvitedYouToTheirProfile": "\u05d4\u05d6\u05de\u05d9\u05df \u05d0\u05d5\u05ea\u05da \u05dc\u05d4\u05ea\u05d7\u05d1\u05e8.",
+			"prompt": "\u05ea\u05df \u05dc\u05d7\u05d1\u05e8\u05d9\u05dd \u05dc\u05d6\u05d4\u05d5\u05ea \u05d0\u05d5\u05ea\u05da:",
+			"accept": "\u05e7\u05d1\u05dc \u05d4\u05d6\u05de\u05e0\u05d4"
+		},
+		"email": {
+			"subject": "\u05d4\u05d9\u05d9, \u05ea\u05d1\u05d3\u05d5\u05e7 \u05d0\u05ea \u05d6\u05d4",
+			"PleaseVisitLink": "\u05d0\u05e0\u05d0 \u05d1\u05e7\u05e8 \u05d1\u05e7\u05d9\u05e9\u05d5\u05e8 \u05d4\u05d1\u05d0:",
+			"InvitingYou": "\u05d0\u05e0\u05d9 \u05de\u05d6\u05de\u05d9\u05df \u05d0\u05d5\u05ea\u05da \u05dc {{title}}",
+			"HasInvitedYou": "{{displayName}} \u05d4\u05d6\u05de\u05d9\u05df \u05d0\u05d5\u05ea\u05da \u05dc {{title}}",
+			"HasMentionedYou": "{{displayName}} \u05d4\u05d6\u05db\u05d9\u05e8 \u05d0\u05d5\u05ea\u05da \u05d1&quot; {{title}} &quot;",
+			"YOUAREINVITED": "\u05d0\u05ea\u05dd \u05de\u05d5\u05d6\u05de\u05e0\u05d9\u05dd!",
+			"AcceptInvite": "\u05e7\u05d1\u05dc \u05d4\u05d6\u05de\u05e0\u05d4"
+		},
+		"mobile": {
+			"content": "\u05d4\u05d5\u05d6\u05de\u05e0\u05ea \u05dc {{title}} . \u05d0\u05e0\u05d0 \u05d4\u05e7\u05e9 \u05e2\u05dc {{url}}"
+		},
+		"notice": {
+			"text": "\u05d4\u05d5\u05d6\u05de\u05e0\u05ea. {{ClickOrTap}} \u05db\u05d0\u05df \u05db\u05d3\u05d9 \u05dc\u05e7\u05d1\u05dc \u05d5\u05dc\u05d4\u05e6\u05d8\u05e8\u05e3."
+		},
+		"chat": {
+			"prompt": "\u05d0\u05ea\u05d4 \u05ea\u05d6\u05de\u05d9\u05df \u05d0\u05e0\u05e9\u05d9\u05dd \u05dc\u05e9\u05d9\u05d7\u05d4 \u05e9\u05d1\u05d4 \u05ea\u05d5\u05db\u05dc \u05dc\u05e9\u05de\u05d5\u05e8 \u05e2\u05dc \u05e7\u05e9\u05e8, \u05dc\u05e9\u05ea\u05e3 \u05ea\u05de\u05d5\u05e0\u05d5\u05ea \u05d1\u05d9\u05d7\u05d3 \u05d5\u05e2\u05d5\u05d3. \u05ea\u05df \u05dc\u05d6\u05d4 \u05e9\u05dd:"
+		},
+		"Participants": "\u05dc\u05d4\u05d6\u05de\u05d9\u05df \u05d0\u05e0\u05e9\u05d9\u05dd"
+	},
+	"messages": {
+		"html": {
+			"posted": "\u05e4\u05e8\u05e1\u05dd \u05d4\u05d5\u05d3\u05e2\u05d4 <em>{{message.fields.type}}</em> \u05dc {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "\u05d4\u05d2\u05d9\u05d1 \u05e2\u05dc",
+			"startedCallIn": "\u05d4\u05ea\u05d7\u05d9\u05dc\u05d4 \u05e9\u05d9\u05d7\u05d4 \u05e4\u05e0\u05d9\u05de\u05d4",
+			"in": "\u05d1",
+			"body": "\u05d1 {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "\u05e4\u05d5\u05e8\u05e1\u05dd \u05d0\u05dc",
+				"byAvatar": "\u05e2\u05d3 {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "\u05d9\u05e9 {{instructions.fromDisplayType}} \u05d7\u05d3\u05e9",
+				"byAvatar": "\u05e0\u05d5\u05e1\u05e3 \u05e2\u05dc \u05d9\u05d3\u05d9 {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "\u05d4\u05d4\u05d6\u05de\u05e0\u05d5\u05ea \u05e0\u05e9\u05dc\u05d7\u05d5\u05ea \u05de\u05d4\u05de\u05e1\u05e4\u05e8 \u05e9\u05dc\u05e0\u05d5, \u05e9\u05d7\u05d1\u05e8\u05d9\u05da \u05e2\u05d3\u05d9\u05d9\u05df \u05dc\u05d0 \u05de\u05d6\u05d4\u05d9\u05dd. \u05d4\u05de\u05e9\u05da \u05e2\u05dd \u05d8\u05e7\u05e1\u05d8 \u05de\u05d4\u05d9\u05e8 \u05db\u05d3\u05d9 \u05dc\u05d9\u05d9\u05d3\u05e2 \u05d0\u05d5\u05ea\u05dd \u05e9\u05d4\u05d4\u05d6\u05de\u05e0\u05d4 \u05d4\u05d2\u05d9\u05e2\u05d4 \u05de\u05de\u05da, \u05d5\u05d1\u05d9\u05e7\u05e9 \u05de\u05d4\u05dd \u05dc\u05dc\u05d7\u05d5\u05e5 \u05e2\u05dc \u05d4\u05e7\u05d9\u05e9\u05d5\u05e8.",
+			"confirm": "\u05d4\u05d4\u05d6\u05de\u05e0\u05d5\u05ea \u05e0\u05e9\u05dc\u05d7\u05d5\u05ea \u05de\u05d4\u05de\u05e1\u05e4\u05e8 \u05e9\u05dc\u05e0\u05d5, \u05e9\u05d7\u05d1\u05e8\u05d9\u05da \u05e2\u05d3\u05d9\u05d9\u05df \u05dc\u05d0 \u05de\u05d6\u05d4\u05d9\u05dd. \u05d4\u05d0\u05dd \u05ea\u05e8\u05e6\u05d4 \u05dc\u05d4\u05de\u05e9\u05d9\u05da \u05e2\u05dd \u05d8\u05e7\u05e1\u05d8 \u05de\u05d4\u05d9\u05e8 \u05db\u05d3\u05d9 \u05dc\u05d9\u05d9\u05d3\u05e2 \u05d0\u05d5\u05ea\u05dd \u05e9\u05d4\u05d4\u05d6\u05de\u05e0\u05d4 \u05d4\u05d2\u05d9\u05e2\u05d4 \u05de\u05de\u05da, \u05d5\u05dc\u05d1\u05e7\u05e9 \u05de\u05d4\u05dd \u05dc\u05dc\u05d7\u05d5\u05e5 \u05e2\u05dc \u05d4\u05e7\u05d9\u05e9\u05d5\u05e8.",
+			"check": "\u05d4\u05d9\u05d9, \u05d6\u05d4 \u05e2\u05ea\u05d4 \u05e9\u05dc\u05d7\u05ea\u05d9 \u05dc\u05da \u05d4\u05d6\u05de\u05e0\u05d4 \u05dc\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d9\u05ea {{app}} . \u05d0\u05e0\u05d0 \u05d1\u05d3\u05d5\u05e7 \u05d0\u05ea \u05d4-SMS \u05e9\u05dc\u05da \u05d5\u05dc\u05d7\u05e5 \u05e2\u05dc \u05d4\u05e7\u05d9\u05e9\u05d5\u05e8!",
+			"CheckYourMobile": "\u05d0\u05e0\u05d0 \u05d1\u05d3\u05d5\u05e7 SMS \u05d5\u05e4\u05e2\u05dc \u05dc\u05e4\u05d9 \u05d4\u05d4\u05d5\u05e8\u05d0\u05d5\u05ea!"
+		},
+		"email": {
+			"alert": "\u05d4\u05d6\u05de\u05e0\u05d5\u05ea \u05e0\u05e9\u05dc\u05d7\u05d5\u05ea \u05de\u05d4\u05d3\u05d5\u05de\u05d9\u05d9\u05df \u05e9\u05dc\u05e0\u05d5, \u05e9\u05d4\u05d7\u05d1\u05e8\u05d9\u05dd \u05e9\u05dc\u05da \u05e2\u05d3\u05d9\u05d9\u05df \u05dc\u05d0 \u05de\u05d6\u05d4\u05d9\u05dd. \u05d4\u05de\u05e9\u05da \u05e2\u05dd \u05d8\u05e7\u05e1\u05d8 \u05de\u05d4\u05d9\u05e8 \u05db\u05d3\u05d9 \u05dc\u05d9\u05d9\u05d3\u05e2 \u05d0\u05d5\u05ea\u05dd \u05e9\u05d4\u05d4\u05d6\u05de\u05e0\u05d4 \u05d4\u05d2\u05d9\u05e2\u05d4 \u05de\u05de\u05da, \u05d5\u05d1\u05d9\u05e7\u05e9 \u05de\u05d4\u05dd \u05dc\u05dc\u05d7\u05d5\u05e5 \u05e2\u05dc \u05d4\u05e7\u05d9\u05e9\u05d5\u05e8.",
+			"confirm": "\u05d4\u05d6\u05de\u05e0\u05d5\u05ea \u05e0\u05e9\u05dc\u05d7\u05d5\u05ea \u05de\u05d4\u05d3\u05d5\u05de\u05d9\u05d9\u05df \u05e9\u05dc\u05e0\u05d5, \u05e9\u05d4\u05d7\u05d1\u05e8\u05d9\u05dd \u05e9\u05dc\u05da \u05e2\u05d3\u05d9\u05d9\u05df \u05dc\u05d0 \u05de\u05d6\u05d4\u05d9\u05dd. \u05d4\u05d0\u05dd \u05ea\u05e8\u05e6\u05d4 \u05dc\u05d4\u05de\u05e9\u05d9\u05da \u05e2\u05dd \u05d8\u05e7\u05e1\u05d8 \u05de\u05d4\u05d9\u05e8 \u05db\u05d3\u05d9 \u05dc\u05d9\u05d9\u05d3\u05e2 \u05d0\u05d5\u05ea\u05dd \u05e9\u05d4\u05d4\u05d6\u05de\u05e0\u05d4 \u05d4\u05d2\u05d9\u05e2\u05d4 \u05de\u05de\u05da, \u05d5\u05dc\u05d1\u05e7\u05e9 \u05de\u05d4\u05dd \u05dc\u05dc\u05d7\u05d5\u05e5 \u05e2\u05dc \u05d4\u05e7\u05d9\u05e9\u05d5\u05e8.",
+			"subject": "\u05e7\u05d9\u05d1\u05dc\u05ea \u05d4\u05d6\u05de\u05e0\u05d4?",
+			"body": "\u05d4\u05d9\u05d9, \u05d6\u05d4 \u05e2\u05ea\u05d4 \u05e9\u05dc\u05d7\u05ea\u05d9 \u05dc\u05da \u05d4\u05d6\u05de\u05e0\u05d4 \u05dc\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d9\u05ea {{app}} . \u05d0\u05e0\u05d0 \u05d1\u05d3\u05d5\u05e7 \u05d0\u05ea \u05d4\u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05e9\u05dc\u05da \u05d5\u05dc\u05d7\u05e5 \u05e2\u05dc \u05d4\u05e7\u05d9\u05e9\u05d5\u05e8 \u05e9\u05dd!",
+			"CheckYourEmail": "\u05d0\u05e0\u05d0 \u05d1\u05d3\u05d5\u05e7 \u05d0\u05ea \u05d4\u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05e9\u05dc\u05da \u05d5\u05e4\u05e2\u05dc \u05dc\u05e4\u05d9 \u05d4\u05d4\u05d5\u05e8\u05d0\u05d5\u05ea!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05e4\u05e8\u05d8\u05d9\u05d5\u05ea"
+	},
+	"participating": {
+		"Title": "\u05db\u05d5\u05ea\u05e8\u05ea",
+		"Subscribed": "\u05e0\u05e8\u05e9\u05dd",
+		"Participants": "\u05de\u05e9\u05ea\u05ea\u05e4\u05d9\u05dd",
+		"AreYouSureRemoveIdentifier": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7 \u05dc\u05d4\u05e1\u05d9\u05e8 \u05de\u05d6\u05d4\u05d4 \u05d6\u05d4?",
+		"AreYouSureUnsubscribeIdentifier": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7 \u05dc\u05d1\u05d8\u05dc \u05d0\u05ea \u05d4\u05e8\u05d9\u05e9\u05d5\u05dd \u05e9\u05dc \u05de\u05d6\u05d4\u05d4 \u05d6\u05d4? \u05d6\u05d4 \u05d9\u05db\u05d1\u05d4 \u05d0\u05ea \u05d4\u05d4\u05ea\u05e8\u05d0\u05d5\u05ea \u05dc\u05de\u05d6\u05d4\u05d4 \u05d4\u05d6\u05d4.",
+		"AreYouSureUnsubscribeDevice": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7 \u05dc\u05d1\u05d8\u05dc \u05d0\u05ea \u05d4\u05e8\u05d9\u05e9\u05d5\u05dd \u05e9\u05dc \u05d4\u05de\u05db\u05e9\u05d9\u05e8 \u05d4\u05d6\u05d4? \u05d6\u05d4 \u05d9\u05db\u05d1\u05d4 \u05d0\u05ea \u05d4\u05d4\u05ea\u05e8\u05d0\u05d5\u05ea \u05dc\u05de\u05db\u05e9\u05d9\u05e8 \u05d4\u05d6\u05d4.",
+		"AreYouSureRemoveParticipant": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7 \u05e9\u05d1\u05e8\u05e6\u05d5\u05e0\u05da \u05dc\u05d4\u05e1\u05d9\u05e8 \u05d0\u05ea \u05d4\u05de\u05e9\u05ea\u05ea\u05e3 \u05d4\u05d6\u05d4?",
+		"RemoveParticipant": "\u05d4\u05e1\u05e8 \u05d0\u05ea \u05d4\u05de\u05e9\u05ea\u05ea\u05e3",
+		"Identifiers": "\u05de\u05d6\u05d4\u05d9\u05dd",
+		"Devices": "\u05de\u05db\u05e9\u05d9\u05e8\u05d9\u05dd",
+		"Streams": "\u05d6\u05e8\u05de\u05d9\u05dd"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "\u05de\u05d5\u05d6\u05de\u05df",
+			"description": "\u05ea\u05d9\u05d1\u05ea \u05d3\u05d5\u05d0\u05e8 \u05e0\u05db\u05e0\u05e1 \u05dc\u05d4\u05d6\u05de\u05e0\u05d5\u05ea"
+		},
+		"Streams/resource": {
+			"displayType": "\u05de\u05b7\u05e9\u05c1\u05d0\u05b8\u05d1",
+			"description": "\u05d6\u05e8\u05dd \u05dc\u05e0\u05d9\u05d4\u05d5\u05dc \u05d2\u05d9\u05e9\u05d4 \u05dc\u05de\u05e9\u05d0\u05d1 \u05d5\u05e4\u05e8\u05e1\u05d5\u05dd \u05d4\u05d5\u05d3\u05e2\u05d5\u05ea \u05e2\u05dc \u05e2\u05d3\u05db\u05d5\u05e0\u05d9\u05dd"
+		},
+		"Streams/task": {
+			"description": "\u05dc\u05e7\u05d1\u05dc\u05ea \u05e2\u05d3\u05db\u05d5\u05e0\u05d9\u05dd \u05e2\u05dc \u05d4\u05ea\u05e7\u05d3\u05de\u05d5\u05ea \u05d1\u05de\u05e9\u05d9\u05de\u05d4 \u05de\u05e1\u05d5\u05d9\u05de\u05ea",
+			"displayType": "\u05de\u05b0\u05e9\u05c1\u05b4\u05d9\u05de\u05b8\u05d4"
+		},
+		"Streams/tasks": {
+			"description": "\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d4 \u05dc\u05de\u05e9\u05d9\u05de\u05d5\u05ea",
+			"displayType": "\u05de\u05e9\u05d9\u05de\u05d5\u05ea"
+		},
+		"Streams/experience": {
+			"description": "\u05d7\u05d5\u05d5\u05d9\u05d4 \u05de\u05e9\u05d5\u05ea\u05e4\u05ea \u05dc\u05d7\u05d1\u05e8\u05d9 \u05e7\u05d4\u05d9\u05dc\u05d4",
+			"displayType": "\u05e0\u05d9\u05e1\u05d9\u05d5\u05df \u05de\u05e9\u05d5\u05ea\u05e3 \u05dc\u05d7\u05d1\u05e8\u05d9 \u05e7\u05d4\u05d9\u05dc\u05d4"
+		},
+		"Streams/greeting": {
+			"description": "\u05d1\u05e8\u05db\u05d4 \u05e9\u05d0\u05d9\u05ea\u05d4 \u05de\u05e9\u05ea\u05de\u05e9 \u05d9\u05db\u05d5\u05dc \u05dc\u05d4\u05e6\u05d9\u05d2 \u05d0\u05ea \u05e2\u05e6\u05de\u05d5",
+			"displayType": "\u05d1\u05bc\u05b0\u05e8\u05b8\u05db\u05b8\u05d4"
+		},
+		"Streams/number": {
+			"displayType": "\u05de\u05e1\u05e4\u05e8",
+			"description": "\u05de\u05e1\u05e4\u05e8 \u05de\u05ea\u05de\u05d8\u05d9"
+		},
+		"Streams/date": {
+			"displayType": "\u05ea\u05b7\u05d0\u05b2\u05e8\u05b4\u05d9\u05da",
+			"description": "\u05ea\u05b7\u05d0\u05b2\u05e8\u05b4\u05d9\u05da"
+		},
+		"Streams/text": {
+			"displayType": "\u05d8\u05b6\u05e7\u05e1\u05d8",
+			"description": "\u05d2\u05d5\u05e3 \u05d4\u05d8\u05e7\u05e1\u05d8"
+		},
+		"Streams/text/small": {
+			"displayType": "\u05d8\u05b6\u05e7\u05e1\u05d8",
+			"description": "\u05d2\u05d5\u05e3 \u05d8\u05e7\u05e1\u05d8 \u05e7\u05d8\u05df"
+		},
+		"Streams/text/medium": {
+			"displayType": "\u05d8\u05b6\u05e7\u05e1\u05d8",
+			"description": "\u05d2\u05d5\u05e3 \u05d8\u05e7\u05e1\u05d8 \u05d1\u05d9\u05e0\u05d5\u05e0\u05d9"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "\u05db\u05ea\u05d5\u05d1\u05ea \u05d3\u05d5\u05d0&quot;\u05dc",
+			"description": "\u05db\u05ea\u05d5\u05d1\u05ea \u05d3\u05d5\u05d0&quot;\u05dc"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "\u05de\u05e1\u05e4\u05e8 \u05d8\u05dc\u05e4\u05d5\u05df",
+			"description": "\u05de\u05e1\u05e4\u05e8 \u05d8\u05dc\u05e4\u05d5\u05df"
+		},
+		"Streams/text/url": {
+			"displayType": "\u05db\u05ea\u05d5\u05d1\u05ea \u05d0\u05ea\u05e8",
+			"description": "\u05e7\u05d9\u05e9\u05d5\u05e8 \u05d1\u05d0\u05d9\u05e0\u05d8\u05e8\u05e0\u05d8"
+		},
+		"Streams/image": {
+			"displayType": "\u05ea\u05de\u05d5\u05e0\u05d4",
+			"description": "\u05ea\u05de\u05d5\u05e0\u05d4 \u05d5\u05d9\u05d6\u05d5\u05d0\u05dc\u05d9\u05ea",
+			"newItem": "\u05dc\u05d4\u05d5\u05e1\u05d9\u05e3 \u05ea\u05de\u05d5\u05e0\u05d4"
+		},
+		"Streams/images": {
+			"displayType": "\u05d2\u05dc\u05e8\u05d9\u05d9\u05ea \u05ea\u05de\u05d5\u05e0\u05d5\u05ea",
+			"description": "\u05d2\u05dc\u05e8\u05d9\u05d9\u05ea \u05ea\u05de\u05d5\u05e0\u05d5\u05ea"
+		},
+		"Streams/album": {
+			"displayType": "\u05d0\u05b7\u05dc\u05d1\u05bc\u05d5\u05b9\u05dd",
+			"description": "\u05d0\u05dc\u05d1\u05d5\u05dd \u05d0\u05dc\u05d9\u05d5 \u05e7\u05e9\u05d5\u05e8\u05d9\u05dd \u05de\u05d3\u05d9\u05d5\u05ea \u05e9\u05d5\u05e0\u05d5\u05ea"
+		},
+		"Streams/file": {
+			"displayType": "\u05e7\u05d5\u05b9\u05d1\u05b6\u05e5",
+			"description": "\u05e7\u05d5\u05d1\u05e5 \u05e9\u05d4\u05d5\u05e2\u05dc\u05d4",
+			"newItem": "\u05d4\u05d5\u05e1\u05e3 \u05e7\u05d5\u05d1\u05e5"
+		},
+		"Streams/audio": {
+			"displayType": "\u05e7\u05dc\u05d9\u05e4 \u05d0\u05d5\u05d3\u05d9\u05d5",
+			"description": "\u05e7\u05dc\u05d9\u05e4 \u05d0\u05d5\u05d3\u05d9\u05d5",
+			"newItem": "\u05d4\u05d5\u05e1\u05e3 \u05d0\u05d5\u05d3\u05d9\u05d5"
+		},
+		"Streams/video": {
+			"displayType": "\u05e1\u05e8\u05d8\u05d5\u05df \u05d5\u05d9\u05d3\u05d0\u05d5",
+			"description": "\u05e1\u05e8\u05d8\u05d5\u05df \u05d5\u05d9\u05d3\u05d0\u05d5",
+			"newItem": "\u05d4\u05d5\u05e1\u05e3 \u05d5\u05d9\u05d3\u05d0\u05d5"
+		},
+		"Streams/pdf": {
+			"displayType": "\u05de\u05e1\u05de\u05da PDF",
+			"description": "\u05de\u05e1\u05de\u05da PDF",
+			"newItem": "\u05d4\u05d5\u05e1\u05e3 PDF"
+		},
+		"Streams/live": {
+			"displayType": "\u05e9\u05d9\u05d3\u05d5\u05e8 \u05d7\u05d9",
+			"description": "\u05d0\u05d5\u05d3\u05d9\u05d5 \u05d0\u05d5 \u05d5\u05d9\u05d3\u05d0\u05d5 \u05d7\u05d9"
+		},
+		"Streams/category": {
+			"displayType": "\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d4",
+			"description": "\u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d4 \u05e9\u05d0\u05dc\u05d9\u05d4 \u05e0\u05d9\u05ea\u05df \u05dc\u05e7\u05e9\u05e8 \u05d6\u05e8\u05de\u05d9\u05dd \u05d0\u05d7\u05e8\u05d9\u05dd",
+			"newItem": "\u05d4\u05d5\u05e1\u05e3 \u05e7\u05d8\u05d2\u05d5\u05e8\u05d9\u05d4"
+		},
+		"Streams/participating": {
+			"displayType": "\u05d0\u05d9\u05e0\u05d3\u05e7\u05e1 \u05de\u05e9\u05ea\u05ea\u05e3",
+			"description": "\u05d6\u05e8\u05de\u05d9\u05dd \u05e7\u05e9\u05d5\u05e8\u05d9\u05dd/\u05dc\u05d0 \u05e7\u05e9\u05d5\u05e8\u05d9\u05dd \u05dc\u05d6\u05d4 \u05db\u05d0\u05e9\u05e8 \u05de\u05e9\u05ea\u05de\u05e9 \u05de\u05e6\u05d8\u05e8\u05e3/\u05e2\u05d5\u05d6\u05d1"
+		},
+		"Streams/interest": {
+			"displayType": "\u05e8\u05d9\u05d1\u05d9\u05ea",
+			"description": "\u05de\u05d9\u05d9\u05e6\u05d2 \u05e2\u05e0\u05d9\u05d9\u05df \u05e9\u05dc \u05de\u05e9\u05ea\u05de\u05e9 \u05d1\u05e0\u05d5\u05e9\u05d0 \u05de\u05e1\u05d5\u05d9\u05dd"
+		},
+		"Streams/incoming": {
+			"displayType": "\u05e0\u05b4\u05db\u05e0\u05b8\u05e1",
+			"description": "\u05d9\u05e2\u05d3 \u05dc\u05d4\u05d5\u05d3\u05e2\u05d5\u05ea \u05e9\u05e0\u05e9\u05dc\u05d7\u05d5 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d0\u05d7\u05e8\u05d9\u05dd"
+		},
+		"Streams/chat": {
+			"displayType": "\u05e9\u05c2\u05b4\u05d9\u05d7\u05b8\u05d4",
+			"description": "\u05e9\u05d9\u05d7\u05d4 \u05d1\u05d9\u05df \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd, \u05e2\u05dd \u05d4\u05d9\u05e1\u05d8\u05d5\u05e8\u05d9\u05d4"
+		},
+		"Streams/question": {
+			"displayType": "\u05e9\u05c1\u05b0\u05d0\u05b5\u05dc\u05b8\u05d4",
+			"description": "\u05d6\u05e8\u05dd \u05e9\u05d0\u05dc\u05d5\u05ea",
+			"newItem": "\u05d4\u05d5\u05e1\u05e3 \u05e9\u05d0\u05dc\u05d4"
+		},
+		"Streams/answer": {
+			"displayType": "\u05ea\u05e9\u05d5\u05d1\u05d4",
+			"description": "\u05d6\u05e8\u05dd \u05ea\u05e9\u05d5\u05d1\u05d5\u05ea"
+		},
+		"Streams/topic": {
+			"displayType": "\u05e0\u05d5\u05b9\u05e9\u05c2\u05b5\u05d0",
+			"description": "\u05d6\u05e8\u05dd \u05e0\u05d5\u05e9\u05d0",
+			"newItem": "\u05d4\u05d5\u05e1\u05e3 \u05e0\u05d5\u05e9\u05d0"
+		}
+	},
+	"menu": {
+		"placeholder": "\u05d4\u05e7\u05dc\u05d3 \u05d0\u05ea \u05db\u05d5\u05ea\u05e8\u05ea \u05d4\u05e2\u05de\u05d5\u05d3",
+		"ModTab": "\u05e9\u05e0\u05d4 \u05e4\u05e8\u05d9\u05d8",
+		"Save": "\u05dc\u05d4\u05e6\u05d9\u05dc",
+		"Delete": "\u05dc\u05b4\u05de\u05b0\u05d7\u05d5\u05b9\u05e7",
+		"Submenu": "\u05ea\u05e4\u05e8\u05d9\u05d8 \u05de\u05e9\u05e0\u05d4"
+	},
+	"audio": {
+		"record": "\u05ea\u05e7\u05dc\u05d9\u05d8",
+		"reset": "\u05d0\u05b4\u05ea\u05d7\u05d5\u05bc\u05dc",
+		"edit": "\u05dc\u05b7\u05e2\u05b2\u05e8\u05d5\u05b9\u05da",
+		"title": "\u05db\u05d5\u05ea\u05e8\u05ea",
+		"description": "\u05ea\u05d9\u05d0\u05d5\u05e8",
+		"upload": "\u05d4\u05e2\u05dc\u05d4",
+		"link": "\u05e7\u05d9\u05e9\u05d5\u05e8",
+		"setUrl": "\u05d4\u05d2\u05d3\u05e8 \u05db\u05ea\u05d5\u05d1\u05ea URL",
+		"save": "\u05dc\u05d4\u05e6\u05d9\u05dc",
+		"setClip": "\u05d7\u05ea\u05d5\u05da \u05e7\u05dc\u05d9\u05e4",
+		"invalidURL": "\u05db\u05ea\u05d5\u05d1\u05ea \u05d0\u05ea\u05e8 \u05dc\u05d0 \u05d7\u05d5\u05e7\u05d9\u05ea",
+		"invalidFile": "\u05e7\u05d5\u05d1\u05e5 \u05dc\u05d0 \u05ea\u05e7\u05d9\u05df",
+		"errorNoSource": "\u05d0\u05d9\u05df \u05de\u05e7\u05d5\u05e8 \u05e9\u05de\u05e2",
+		"uploadLimit": "\u05d2\u05d5\u05d3\u05dc \u05e7\u05d5\u05d1\u05e5 \u05de\u05e7\u05e1\u05d9\u05de\u05dc\u05d9: {{size}}",
+		"errorFileSize": "\u05e1\u05dc\u05d9\u05d7\u05d4, \u05d0\u05d1\u05dc \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d2\u05d3\u05d5\u05dc \u05de\u05d3\u05d9.<br> \u05d2\u05d5\u05d3\u05dc \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d4\u05de\u05e8\u05d1\u05d9 \u05d4\u05d5\u05d0 {{size}}",
+		"TeaserAudio": "\u05d8\u05d9\u05d6\u05e8 \u05d0\u05d5\u05d3\u05d9\u05d5"
+	},
+	"video": {
+		"reset": "\u05d0\u05b4\u05ea\u05d7\u05d5\u05bc\u05dc",
+		"edit": "\u05dc\u05b7\u05e2\u05b2\u05e8\u05d5\u05b9\u05da",
+		"title": "\u05db\u05d5\u05ea\u05e8\u05ea",
+		"description": "\u05ea\u05d9\u05d0\u05d5\u05e8",
+		"upload": "\u05d4\u05e2\u05dc\u05d4",
+		"link": "\u05e7\u05d9\u05e9\u05d5\u05e8",
+		"setUrl": "\u05d4\u05d2\u05d3\u05e8 \u05db\u05ea\u05d5\u05d1\u05ea URL",
+		"save": "\u05dc\u05d4\u05e6\u05d9\u05dc",
+		"setClip": "\u05d7\u05ea\u05d5\u05da \u05e7\u05dc\u05d9\u05e4",
+		"invalidURL": "\u05db\u05ea\u05d5\u05d1\u05ea \u05d0\u05ea\u05e8 \u05dc\u05d0 \u05d7\u05d5\u05e7\u05d9\u05ea",
+		"invalidFile": "\u05e7\u05d5\u05d1\u05e5 \u05dc\u05d0 \u05ea\u05e7\u05d9\u05df",
+		"errorNoSource": "\u05d0\u05d9\u05df \u05de\u05e7\u05d5\u05e8 \u05d5\u05d9\u05d3\u05d0\u05d5",
+		"uploadLimit": "\u05d2\u05d5\u05d3\u05dc \u05e7\u05d5\u05d1\u05e5 \u05de\u05e7\u05e1\u05d9\u05de\u05dc\u05d9: {{size}}",
+		"errorFileSize": "\u05e1\u05dc\u05d9\u05d7\u05d4, \u05d0\u05d1\u05dc \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d2\u05d3\u05d5\u05dc \u05de\u05d3\u05d9.<br> \u05d2\u05d5\u05d3\u05dc \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d4\u05de\u05e8\u05d1\u05d9 \u05d4\u05d5\u05d0 {{size}}",
+		"createAnimatedThumbnail": "\u05e6\u05d5\u05e8 \u05ea\u05de\u05d5\u05e0\u05d4 \u05de\u05de\u05d5\u05d6\u05e2\u05e8\u05ea \u05de\u05d5\u05e0\u05e4\u05e9\u05ea",
+		"errorNotAvailable": "\u05de\u05e6\u05d8\u05e2\u05e8\u05d9\u05dd, \u05d0\u05d1\u05dc \u05d4\u05e1\u05e8\u05d8\u05d5\u05df \u05e2\u05d3\u05d9\u05d9\u05df \u05dc\u05d0 \u05d6\u05de\u05d9\u05df. \u05d1\u05d1\u05e7\u05e9\u05d4 \u05e0\u05e1\u05d4 \u05e9\u05d5\u05d1 \u05de\u05d0\u05d5\u05d7\u05e8 \u05d9\u05d5\u05ea\u05e8.",
+		"NewVideo": "\u05e1\u05e8\u05d8\u05d5\u05df \u05d7\u05d3\u05e9",
+		"EditVideo": "\u05e2\u05e8\u05d5\u05da \u05d5\u05d9\u05d3\u05d0\u05d5",
+		"TeaserVideo": "\u05e1\u05e8\u05d8\u05d5\u05df \u05d8\u05d9\u05d6\u05e8"
+	},
+	"pdf": {
+		"reset": "\u05d0\u05b4\u05ea\u05d7\u05d5\u05bc\u05dc",
+		"edit": "\u05dc\u05b7\u05e2\u05b2\u05e8\u05d5\u05b9\u05da",
+		"title": "\u05db\u05d5\u05ea\u05e8\u05ea",
+		"description": "\u05ea\u05d9\u05d0\u05d5\u05e8",
+		"upload": "\u05d4\u05e2\u05dc\u05d4",
+		"link": "\u05e7\u05d9\u05e9\u05d5\u05e8",
+		"setUrl": "\u05d4\u05d2\u05d3\u05e8 \u05db\u05ea\u05d5\u05d1\u05ea URL",
+		"save": "\u05dc\u05d4\u05e6\u05d9\u05dc",
+		"setClip": "\u05d7\u05ea\u05d5\u05da \u05e7\u05dc\u05d9\u05e4",
+		"invalidURL": "\u05db\u05ea\u05d5\u05d1\u05ea \u05d0\u05ea\u05e8 \u05dc\u05d0 \u05d7\u05d5\u05e7\u05d9\u05ea",
+		"invalidFile": "\u05e7\u05d5\u05d1\u05e5 \u05dc\u05d0 \u05ea\u05e7\u05d9\u05df",
+		"errorNoSource": "\u05d0\u05d9\u05df \u05de\u05e7\u05d5\u05e8 pdf",
+		"uploadLimit": "\u05d2\u05d5\u05d3\u05dc \u05e7\u05d5\u05d1\u05e5 \u05de\u05e7\u05e1\u05d9\u05de\u05dc\u05d9: {{size}}",
+		"errorFileSize": "\u05e1\u05dc\u05d9\u05d7\u05d4, \u05d0\u05d1\u05dc \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d2\u05d3\u05d5\u05dc \u05de\u05d3\u05d9.<br> \u05d2\u05d5\u05d3\u05dc \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d4\u05de\u05e8\u05d1\u05d9 \u05d4\u05d5\u05d0 {{size}}",
+		"TeaserPDF": "\u05d8\u05d9\u05d6\u05e8 PDF"
+	},
+	"image": {
+		"reset": "\u05d0\u05b4\u05ea\u05d7\u05d5\u05bc\u05dc",
+		"edit": "\u05dc\u05b7\u05e2\u05b2\u05e8\u05d5\u05b9\u05da",
+		"title": "\u05db\u05d5\u05ea\u05e8\u05ea",
+		"description": "\u05ea\u05d9\u05d0\u05d5\u05e8",
+		"upload": "\u05d4\u05e2\u05dc\u05d4",
+		"link": "\u05e7\u05d9\u05e9\u05d5\u05e8",
+		"setUrl": "\u05d4\u05d2\u05d3\u05e8 \u05db\u05ea\u05d5\u05d1\u05ea URL",
+		"save": "\u05dc\u05d4\u05e6\u05d9\u05dc",
+		"uploadedImage": "\u05ea\u05de\u05d5\u05e0\u05d4 \u05e9\u05d4\u05d5\u05e2\u05dc\u05ea\u05d4",
+		"imageTitle": "\u05db\u05d5\u05ea\u05e8\u05ea \u05d4\u05ea\u05de\u05d5\u05e0\u05d4",
+		"setClip": "\u05d7\u05ea\u05d5\u05da \u05e7\u05dc\u05d9\u05e4",
+		"invalidURL": "\u05db\u05ea\u05d5\u05d1\u05ea \u05d0\u05ea\u05e8 \u05dc\u05d0 \u05d7\u05d5\u05e7\u05d9\u05ea",
+		"invalidFile": "\u05e7\u05d5\u05d1\u05e5 \u05dc\u05d0 \u05ea\u05e7\u05d9\u05df",
+		"errorNoSource": "\u05d0\u05d9\u05df \u05de\u05e7\u05d5\u05e8 \u05ea\u05de\u05d5\u05e0\u05d4",
+		"uploadLimit": "\u05d2\u05d5\u05d3\u05dc \u05e7\u05d5\u05d1\u05e5 \u05de\u05e7\u05e1\u05d9\u05de\u05dc\u05d9: {{size}}",
+		"errorFileSize": "\u05e1\u05dc\u05d9\u05d7\u05d4, \u05d0\u05d1\u05dc \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d2\u05d3\u05d5\u05dc \u05de\u05d3\u05d9.<br> \u05d2\u05d5\u05d3\u05dc \u05d4\u05e7\u05d5\u05d1\u05e5 \u05d4\u05de\u05e8\u05d1\u05d9 \u05d4\u05d5\u05d0 {{size}}",
+		"TeaserImage": "\u05ea\u05de\u05d5\u05e0\u05ea \u05d8\u05d9\u05d6\u05e8"
+	},
+	"questions": {
+		"Questions": "\u05e9\u05d0\u05dc\u05d5\u05ea",
+		"Answers": "\u05ea\u05e9\u05d5\u05d1\u05d5\u05ea",
+		"AnswerQuestion": "\u05e2\u05e0\u05d4 \u05dc\u05e9\u05d0\u05dc\u05d4",
+		"SetYourAnswer": "\u05d1\u05d1\u05e7\u05e9\u05d4 \u05e2\u05e0\u05d4 \u05e2\u05dc \u05d4\u05e9\u05d0\u05dc\u05d4",
+		"NewQuestion": "\u05e9\u05d0\u05dc\u05d4 \u05d7\u05d3\u05e9\u05d4",
+		"EditQuestion": "\u05e2\u05e8\u05d5\u05da \u05e9\u05d0\u05dc\u05d4",
+		"NewAnswer": "\u05ea\u05e9\u05d5\u05d1\u05d4 \u05d7\u05d3\u05e9\u05d4",
+		"NewPossibleAnswer": "\u05ea\u05e9\u05d5\u05d1\u05d4 \u05d0\u05e4\u05e9\u05e8\u05d9\u05ea \u05d7\u05d3\u05e9\u05d4",
+		"AnswerDetails": "\u05e4\u05e8\u05d8\u05d9 \u05ea\u05e9\u05d5\u05d1\u05d4",
+		"answerOption": "\u05d0\u05d5\u05b9\u05e4\u05bc\u05b0\u05e6\u05b4\u05d9\u05b8\u05d4",
+		"answerOptionExclusive": "\u05d1\u05bc\u05b4\u05dc\u05e2\u05b8\u05d3\u05b4\u05d9",
+		"answerTextarea": "Textarea",
+		"answerText": "\u05d8\u05b6\u05e7\u05e1\u05d8",
+		"HideUntilAnswered": "\u05d4\u05e1\u05ea\u05e8 \u05e2\u05d3 \u05e9\u05ea\u05e2\u05e0\u05d4",
+		"CantChangeAnswers": "\u05dc\u05d0 \u05d9\u05db\u05d5\u05dc \u05dc\u05e9\u05e0\u05d5\u05ea \u05ea\u05e9\u05d5\u05d1\u05d5\u05ea",
+		"FreeAnswer": "\u05db\u05ea\u05d1\u05d5 \u05db\u05d0\u05df \u05d0\u05ea \u05ea\u05e9\u05d5\u05d1\u05ea\u05db\u05dd",
+		"SaveQuestion": "\u05e9\u05de\u05d5\u05e8 \u05e9\u05d0\u05dc\u05d4",
+		"SaveAnswer": "\u05e9\u05de\u05d5\u05e8 \u05ea\u05e9\u05d5\u05d1\u05d4",
+		"Save": "\u05dc\u05d4\u05e6\u05d9\u05dc",
+		"Send": "\u05dc\u05b4\u05e9\u05c1\u05b0\u05dc\u05d5\u05b9\u05d7\u05b7",
+		"TitleRequired": "\u05d7\u05d5\u05d1\u05d4 \u05db\u05d5\u05ea\u05e8\u05ea!",
+		"AlreadyAnswered": "\u05db\u05d1\u05e8 \u05e0\u05e2\u05e0\u05d4",
+		"TitlePlaceholder": "\u05d4\u05e7\u05dc\u05d3 \u05d0\u05ea \u05d4\u05e9\u05d0\u05dc\u05d4 \u05e9\u05dc\u05da",
+		"ContentPlaceholder": "\u05e9\u05d9\u05dd \u05db\u05d0\u05df \u05db\u05dc \u05de\u05d9\u05d3\u05e2 \u05e0\u05d5\u05e1\u05e3 \u05db\u05d3\u05d9 \u05dc\u05e2\u05d6\u05d5\u05e8 \u05dc\u05d0\u05e0\u05e9\u05d9\u05dd \u05dc\u05e2\u05e0\u05d5\u05ea",
+		"ErrorTitle": "\u05e0\u05d3\u05e8\u05e9\u05ea \u05e9\u05d0\u05dc\u05d4",
+		"Placeholder": "\u05db\u05ea\u05d5\u05d1 \u05d4\u05d5\u05e8\u05d0\u05d5\u05ea",
+		"AreYouSure": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7?",
+		"ShortAnswer": "\u05db\u05ea\u05d1\u05d5 \u05ea\u05e9\u05d5\u05d1\u05d4 \u05e7\u05e6\u05e8\u05d4",
+		"AnswerCantBeChanged": "\u05dc\u05d0 \u05e0\u05d9\u05ea\u05df \u05dc\u05e9\u05e0\u05d5\u05ea \u05d0\u05ea \u05d4\u05ea\u05e9\u05d5\u05d1\u05d4"
+	},
+	"experience": {
+		"NewExperience": "\u05d7\u05d5\u05d5\u05d9\u05d4 \u05d7\u05d3\u05e9\u05d4",
+		"DefineTitle": "\u05e0\u05d0 \u05dc\u05d4\u05d2\u05d3\u05d9\u05e8 \u05db\u05d5\u05ea\u05e8\u05ea",
+		"Create": "\u05dc\u05b4\u05d9\u05e6\u05d5\u05b9\u05e8"
+	},
+	"calls": {
+		"SettingsTitle": "\u05e9\u05d9\u05d7\u05d5\u05ea",
+		"MaxCalls": "\u05de\u05e7\u05e1\u05d9\u05de\u05d5\u05dd \u05e9\u05d9\u05d7\u05d5\u05ea",
+		"Update": "\u05e2\u05d3\u05db\u05d5\u05df",
+		"NoCallsYet": "\u05e2\u05d3\u05d9\u05d9\u05df \u05d0\u05d9\u05df \u05e9\u05d9\u05d7\u05d5\u05ea",
+		"CallReasonTitle": "\u05e2\u05dc \u05de\u05d4 \u05d4\u05e9\u05d9\u05d7\u05d4 \u05d4\u05d6\u05d5?",
+		"WaitingRoom": "\u05d7\u05d3\u05e8 \u05d4\u05de\u05ea\u05e0\u05d4",
+		"LiveRoom": "\u05d7\u05d3\u05e8 \u05d7\u05d9",
+		"interviewedByAnotherHost": "\u05db\u05e8\u05d2\u05e2 \u05de\u05ea\u05e8\u05d0\u05d9\u05d9\u05df \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05d0\u05e8\u05d7 \u05d0\u05d7\u05e8",
+		"bringToLive": "\u05ea\u05d1\u05d9\u05d0 \u05dc\u05de\u05d5\u05e4\u05e2 \u05d7\u05d9",
+		"putOnHold": "\u05dc\u05e9\u05d9\u05dd \u05d1\u05d4\u05de\u05ea\u05e0\u05d4",
+		"endCall": "\u05e1\u05d9\u05d5\u05dd \u05e9\u05d9\u05d7\u05d4",
+		"interview": "\u05e8\u05b5\u05d0\u05b8\u05d9\u05d5\u05b9\u05df",
+		"markApproved": "\u05e1\u05de\u05df \u05d0\u05d5\u05e9\u05e8"
+	},
+	"relate": {
+		"Add": "\u05d4\u05d5\u05e1\u05e3 {{streamDisplayType}}"
+	},
+	"userChooser": {
+		"Placeholder": "\u05e9\u05dd \u05e9\u05dc \u05de\u05e9\u05ea\u05de\u05e9..."
+	},
+	"task": {
+		"errorsTitle": "\u05d0\u05d9\u05e8\u05e2\u05d5 \u05e9\u05d2\u05d9\u05d0\u05d5\u05ea"
+	},
+	"topic": {
+		"NewTopic": "\u05e0\u05d5\u05e9\u05d0 \u05d7\u05d3\u05e9",
+		"UpdateTopic": "\u05e2\u05d3\u05db\u05d5\u05df \u05e0\u05d5\u05e9\u05d0",
+		"CreateTopic": "\u05e6\u05d5\u05e8 \u05e0\u05d5\u05e9\u05d0",
+		"AreYouSureDeleteTopic": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7 \u05e9\u05d1\u05e8\u05e6\u05d5\u05e0\u05da \u05dc\u05de\u05d7\u05d5\u05e7 \u05d0\u05ea \u05d4\u05e0\u05d5\u05e9\u05d0 \u05d4\u05d6\u05d4",
+		"TitlePlaceholder": "\u05db\u05d5\u05ea\u05e8\u05ea \u05d4\u05e0\u05d5\u05e9\u05d0...",
+		"DescribeTopic": "\u05ea\u05d0\u05e8 \u05e0\u05d5\u05e9\u05d0...",
+		"TopicIcon": "\u05ea\u05de\u05d5\u05e0\u05ea \u05e0\u05d5\u05e9\u05d0",
+		"UploadIcon": "\u05e1\u05de\u05dc \u05d4\u05e2\u05dc\u05d0\u05d4",
+		"Conversation": "\u05e9\u05c2\u05b4\u05d9\u05d7\u05b8\u05d4",
+		"Metrics": "\u05de\u05d3\u05d3\u05d9\u05dd",
+		"Teaser": "\u05d8\u05d9\u05d6\u05e8",
+		"TeaserDescription": "\u05ea\u05d9\u05d0\u05d5\u05e8 \u05d8\u05d9\u05d6\u05e8...",
+		"TeaserVideo": "\u05e1\u05e8\u05d8\u05d5\u05df \u05d8\u05d9\u05d6\u05e8"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "\u05e6\u05d5\u05e8 \u05ea\u05de\u05d5\u05e0\u05d4 \u05de\u05de\u05d5\u05d6\u05e2\u05e8\u05ea \u05de\u05d5\u05e0\u05e4\u05e9\u05ea",
+		"Width": "\u05e8\u05d5\u05b9\u05d7\u05b7\u05d1",
+		"Height": "\u05d2\u05d5\u05b9\u05d1\u05b7\u05d4",
+		"Start": "\u05d4\u05b7\u05ea\u05d7\u05b8\u05dc\u05b8\u05d4",
+		"End": "\u05e1\u05d5\u05b9\u05e3",
+		"Delay": "\u05dc\u05b0\u05e2\u05b7\u05db\u05bc\u05b5\u05d1",
+		"Quality": "\u05d0\u05d9\u05db\u05d5\u05ea",
+		"Size": "\u05d2\u05d5\u05d3\u05dc",
+		"OfFrames": "\u05e9\u05dc \u05de\u05e1\u05d2\u05e8\u05d5\u05ea",
+		"Frame": "\u05de\u05b4\u05e1\u05d2\u05b6\u05e8\u05b6\u05ea",
+		"UseThis": "\u05d4\u05e9\u05ea\u05de\u05e9 \u05d1\u05d6\u05d4",
+		"ResultGIF": "\u05ea\u05d5\u05e6\u05d0\u05d4 GIF",
+		"VideoElementNotFound": "\u05e8\u05db\u05d9\u05d1 \u05d5\u05d9\u05d3\u05d0\u05d5 \u05dc\u05d0 \u05e0\u05de\u05e6\u05d0"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} \u05e2\u05dc \u05d4\u05e4\u05e0\u05d9\u05dd \u05e9\u05dc\u05da",
+		"AcceptIcon": "\u05e7\u05d1\u05dc \u05d0\u05ea \u05d4\u05d0\u05d6\u05d5\u05e8 \u05d4\u05e0\u05d1\u05d7\u05e8"
+	},
+	"gallery": {
+		"DialogTitle": "\u05e2\u05e8\u05d9\u05db\u05ea \u05ea\u05de\u05d5\u05e0\u05ea \u05d2\u05dc\u05e8\u05d9\u05d4",
+		"EditImageTitle": "\u05e2\u05e8\u05d9\u05db\u05ea \u05e4\u05e8\u05de\u05d8\u05e8\u05d9\u05dd \u05e9\u05dc \u05ea\u05de\u05d5\u05e0\u05d4",
+		"IntervalLabel": "\u05de\u05e8\u05d5\u05d5\u05d7 (\u05de\u05d9\u05dc\u05d9\u05e9\u05e0\u05d9\u05d5\u05ea): ",
+		"IntervalPlaceholder": "\u05dc\u05d3\u05d5\u05d2\u05de\u05d4 3000",
+		"KenburnsInstruction": "\u05d4\u05d2\u05d3\u05e8 \u05d0\u05ea \u05d4\u05d4\u05ea\u05d7\u05dc\u05d4 \u05d5\u05d4\u05e1\u05d9\u05d5\u05dd \u05e9\u05dc \u05e7\u05df \u05d1\u05e8\u05e0\u05e1 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05d2\u05e8\u05d9\u05e8\u05d4 \u05d5\u05d4\u05d2\u05d3\u05dc\u05d4."
+	}
 }

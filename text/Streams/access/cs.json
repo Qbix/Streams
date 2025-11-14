@@ -1,0 +1,27 @@
+{
+	"readLevelOptions": {
+		"0": "nic o tom",
+		"10": "\u017ee tam n\u011bco je",
+		"20": "jeho aktu\u00e1ln\u00ed obsah",
+		"30": "kdo se toho \u00fa\u010dastn\u00ed",
+		"40": "spole\u010densk\u00e1 aktivita uvnit\u0159"
+	},
+	"writeLevelOptions": {
+		"0": "nic s t\u00edm ned\u011blej",
+		"10": "\u00fa\u010dastnit se toho",
+		"20": "pos\u00edlat na n\u011bj zpr\u00e1vy",
+		"30": "upravit jeho obsah"
+	},
+	"adminLevelOptions": {
+		"0": "ned\u011blat nic zvl\u00e1\u0161tn\u00edho",
+		"10": "sd\u00edlet zpr\u00e1vy ze streamu",
+		"20": "pozvat ostatn\u00ed do streamu",
+		"30": "spravovat stream",
+		"40": "vlastnit to a jmenovat mana\u017eery"
+	},
+	"tabs": {
+		"read": "viditeln\u00e9 pro",
+		"write": "upraviteln\u00e9 u\u017eivatelem",
+		"admin": "\u010dlenov\u00e9"
+	}
+}

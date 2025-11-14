@@ -1,538 +1,547 @@
 {
-    "errors": {
-        "HiddenFromYou": "Deze inhoud is voor u verborgen.",
-        "InplaceTypeMustBe": "inplaceType moet &#39;textarea&#39; of &#39;text&#39; zijn"
-    },
-    "preview": {
-        "NewItemTitle": "Nieuw item",
-        "Teaser": "Voorproefje"
-    },
-    "avatar": {
-        "firstName": "Voornaam",
-        "lastName": "achternaam",
-        "username": "gebruikersnaam"
-    },
-    "labels": {
-        "Streams\/invited": "Mensen die ik heb uitgenodigd",
-        "Streams\/invitedMe": "Wie mij heeft uitgenodigd",
-        "DoYouAgree": "Bent u het eens?",
-        "Yes": "Ja",
-        "No": "Nee",
-        "JoinItNow": "Nu meedoen?"
-    },
-    "login": {
-        "prompt": "Laat vrienden je herkennen:",
-        "newUser": "of maak hieronder een nieuw account aan",
-        "picTooltip": "U kunt deze afbeelding later wijzigen",
-        "placeholders": {
-            "fullName": "Vul uw volledige naam in"
-        }
-    },
-    "interests": {
-        "Filter": "Zoek interesses",
-        "CanGrant": "Als je nog steeds niet kunt vinden wat je zoekt, kun je hieronder een nieuwe interesse toevoegen:",
-        "TrySynonyms": "Zie je het niet? Probeer enkele synoniemen.",
-        "AddUnderCategory": "Toevoegen onder categorie...",
-        "Other": "Ander",
-        "Unlisted": "Niet vermeld"
-    },
-    "chat": {
-        "flaggedForAdminReview": "Het bericht is gemarkeerd voor beoordeling door de beheerder. Tik nogmaals om de markering ongedaan te maken.",
-        "noOneSaid": "Niemand heeft iets gezegd",
-        "closeChatButton": "Chat sluiten",
-        "closeChatConfirmTitle": "Deze chat sluiten?",
-        "closeChatConfirm": "Weet je zeker dat je deze chat wilt sluiten?",
-        "Subscribed": "Meldingen ingeschakeld",
-        "Unsubscribed": "Meldingen gedempt",
-        "closeChatConfirmYes": "Ja",
-        "closeChatConfirmNo": "Nee",
-        "earlierComments": "eerdere opmerkingen",
-        "startedConversation": "begon een gesprek",
-        "RealTimeCall": "Realtime oproep",
-        "JoinWebRTC": "Teleconferentie",
-        "SearchByName": "Zoek op naam",
-        "Notifications": {
-            "Visit": "{{displayName}} bezoekt de chat",
-            "Join": "{{displayName}} namen deel aan de chat",
-            "Leave": "{{displayName}} verliet de chat",
-            "RelatedTo": "{{displayName}} begon een {{stream.displayType}}"
-        },
-        "placeholders": {
-            "Public": "Voeg een reactie toe",
-            "Private": "Schrijf een privébericht"
-        }
-    },
-    "notifications": {
-        "ManageEmailSubscriptions": "beheer uw e-mailabonnementen",
-        "IfUnsubscribe": "Als u zich wilt afmelden",
-        "*": "Bericht {{{ message.fields.type}} tot {{& stream.fields.title}}}",
-        "Streams\/joined": "{{{call 'avatar.displayName'}}} toegetreden",
-        "Streams\/left": "{{{call 'avatar.displayName'}}} over",
-        "Streams\/chat\/message": "💬 {{{call 'avatar.displayName'}} zei: {{& message.content}}}",
-        "Streams\/changed": "Veranderingen in {{stream.fields.title}}",
-        "Streams\/invite": "Je bent uitgenodigd voor {{{ stream.fields.title}}}",
-        "Streams\/announcement": "Aankondiging in {{{ stream.fields.title}}}",
-        "Streams\/access": "{{{call 'avatar.displayName'}} gewijzigde toegang in {{& stream.fields.title}}}",
-        "Streams\/chat\/edit": "Chatbericht bewerkt in {{{ stream.fields.title}}}",
-        "Streams\/chat\/remove": "Chatbericht verwijderd in {{{ stream.fields.title}}}",
-        "Streams\/closed": "{{stream.fields.title}} is gesloten",
-        "Streams\/task\/progress": "Vooruitgang geboekt op {{stream.fields.title}}",
-        "Streams\/task\/complete": "Taak voltooid: {{stream.fields.title}}",
-        "Streams\/task\/error": "Fout tijdens: {{stream.fields.title}}",
-        "Streams\/incoming\/*": "{{app}} : Inkomend bericht",
-        "Streams\/relatedTo\/Streams\/call": "Nieuwe oproep gestart in {{toTitle}}",
-        "Streams\/relatedTo\/*": "Nieuwe {{relationDisplayType}} op {{toTitle}}",
-        "Streams\/relatedFrom\/*": "Toegevoegd aan {{toTitle}} als {{relationDisplayType}}",
-        "Streams\/mention": "{{{call 'avatar.displayName'}}} noemde je in een reactie",
-        "Streams\/call": "{{displayName}} startte een real-time oproep",
-        "changed": {
-            "ChangesIn": "Veranderingen in {{title}}",
-            "Changed": "veranderd",
-            "HereIsWhatChanged": "Dit is wat er is veranderd:"
-        },
-        "joined": {
-            "Joined": "{{subject}} sloten zich aan bij <em>{{title}}<\/em>"
-        }
-    },
-    "invite": {
-        "command": "Uitnodiging",
-        "Invite": "Uitnodiging",
-        "Share": "Deel",
-        "messageContent": "{{displayName}} nodigde je uit voor {{inviteUrl}}",
-        "youCanNowPaste": "Je kunt deze link nu ergens plakken om mensen uit te nodigen",
-        "roles": {
-            "title": "Rollen toekennen aan uitgenodigde gebruikers?",
-            "NotAuthorizedToGrantRole": {
-                "title": "Sorry",
-                "alert": "U bent niet bevoegd om deze rol toe te kennen"
-            },
-            "NotAuthorizedToRemoveRole": {
-                "title": "Sorry",
-                "alert": "U bent niet gemachtigd om deze rol te verwijderen"
-            }
-        },
-        "labels": {
-            "title": "Wat is je relatie?"
-        },
-        "dialog": {
-            "chooseFromContacts": "Kies uit uw contacten",
-            "chooseAgainFromContacts": "Kies opnieuw uit Contacten",
-            "inviteSelectedContacts": "Nodig geselecteerde contacten uit",
-            "selectFromContacts": "Selecteer Uit contacten",
-            "userChooserPlaceholder": "Zoek op naam",
-            "photo": "Maak een foto",
-            "photoOf": "Maak een foto van {{name}}",
-            "photoInstruction": "Als de persoon die je QR-code heeft gescand voor je staat, maak dan een foto van hem of haar",
-            "to": "Naar: {{Stream Title}}",
-            "go": "Gaan",
-            "title": "Uitnodiging",
-            "placeholder": "Mobiel nummer of e-mailadres",
-            "orInvite": "Of nodig mensen uit met:",
-            "copyLink": "{{ClickOrTap}} om de uitnodigingslink te kopiëren",
-            "shareOrCopyLink": "{{ClickOrTap}} om de uitnodigingslink te delen of te kopiëren",
-            "QR": "{{ClickOrTap}} om QR-code te genereren",
-            "QRtitle": "Scan deze QR-code",
-            "QRscanned": "Ze hebben het gescand!",
-            "scannedQR": "{{ClickOrTap}} als de code is gescand",
-            "byEmail": "E-mail",
-            "bySms": "Tekst",
-            "byFacebook": "Facebook",
-            "byTwitter": "Twitteren",
-            "title2": "Mensen uitnodigen",
-            "chooseMethod": "Kies een methode:",
-            "selectContacts": "Selecteer Contacten",
-            "scanQRCode": "Scan QR-code",
-            "shareLink": "Deel een koppeling",
-            "chooseFromRegistered": "Kies uit geregistreerde gebruikers",
-            "inviteViaEmailOrSms": "Nodig uit via e-mail of sms",
-            "TakeGroupPhoto": "Maak een groepsfoto",
-            "Skip": "Overslaan",
-            "byTelegram": "Telegram",
-            "byWhatsapp": "WhatsAppen",
-            "addRoles": "Rollen toevoegen",
-            "addPersonalRoles": "Voeg persoonlijke relaties toe"
-        },
-        "complete": {
-            "WelcomeToCommunity": "Welkom bij {{communityName}}",
-            "HasInvitedYou": "heeft u uitgenodigd voor:",
-            "HasInvitedYouToTheirProfile": "heeft je uitgenodigd om verbinding te maken.",
-            "prompt": "Laat vrienden je herkennen:",
-            "accept": "Uitnodiging accepteren"
-        },
-        "email": {
-            "subject": "Hé, kijk hier eens naar",
-            "PleaseVisitLink": "Bezoek de volgende link:",
-            "InvitingYou": "Ik nodig je uit voor {{title}}",
-            "HasInvitedYou": "{{displayName}} heeft je uitgenodigd voor {{title}}",
-            "HasMentionedYou": "{{displayName}} heeft je genoemd in &quot; {{title}} &quot;",
-            "YOUAREINVITED": "JE BENT UITGENODIGD!",
-            "AcceptInvite": "Uitnodiging accepteren"
-        },
-        "mobile": {
-            "content": "U bent uitgenodigd voor {{title}} . Tik op {{url}}"
-        },
-        "notice": {
-            "text": "Je bent uitgenodigd. {{ClickOrTap}} hier om te accepteren en lid te worden."
-        },
-        "chat": {
-            "prompt": "Je nodigt mensen uit voor een gesprek waarin je contact kunt houden, samen foto&#39;s kunt delen en meer. Geef het een naam:"
-        },
-        "Participants": "Mensen uitnodigen"
-    },
-    "messages": {
-        "html": {
-            "posted": "plaatste een <em>{{message.fields.type}}<\/em> bericht naar {{stream.fields.title}}"
-        },
-        "text": {
-            "commentedOn": "Gereageerd op",
-            "startedCallIn": "begon een inbelgesprek",
-            "in": "in",
-            "body": "in {{{ url}} : {{& message.fields.content}}}",
-            "relatedFrom": {
-                "hasBeenPostedTo": "is op geplaatst",
-                "byAvatar": "tegen {{avatar.displayName}}"
-            },
-            "relatedTo": {
-                "hasANew": "heeft een nieuwe {{instructions.fromDisplayType}}",
-                "byAvatar": "toegevoegd door {{avatar.displayName}}"
-            }
-        }
-    },
-    "followup": {
-        "mobile": {
-            "alert": "Uitnodigingen worden verzonden vanaf ons nummer, dat je vrienden nog niet herkennen. Vervolg met een korte sms om hen te laten weten dat de uitnodiging van jou afkomstig is en hen te vragen op de link te klikken.",
-            "confirm": "Uitnodigingen worden verzonden vanaf ons nummer, dat je vrienden nog niet herkennen. Wilt u snel reageren met een sms om hen te laten weten dat de uitnodiging van u afkomstig is en hen te vragen op de link te klikken.",
-            "check": "Hé, ik heb je net een uitnodiging gestuurd voor de {{app}} app. Controleer uw sms en klik op de link!",
-            "CheckYourMobile": "Controleer de sms en volg de instructies!"
-        },
-        "email": {
-            "alert": "Uitnodigingen worden verzonden vanaf ons domein, dat uw vrienden nog niet herkennen. Vervolg met een korte sms om hen te laten weten dat de uitnodiging van jou afkomstig is en hen te vragen op de link te klikken.",
-            "confirm": "Uitnodigingen worden verzonden vanaf ons domein, dat uw vrienden nog niet herkennen. Wilt u snel reageren met een sms om hen te laten weten dat de uitnodiging van u afkomstig is en hen te vragen op de link te klikken.",
-            "subject": "Heb je een uitnodiging gekregen?",
-            "body": "Hé, ik heb je net een uitnodiging gestuurd voor de {{app}} app. Controleer uw e-mail en klik op de link daar!",
-            "CheckYourEmail": "Controleer uw e-mail en volg de instructies!"
-        }
-    },
-    "identifier": {
-        "privacySettings": "Privacy instellingen"
-    },
-    "participating": {
-        "Title": "Titel",
-        "Subscribed": "Geabonneerd",
-        "Participants": "Deelnemers",
-        "AreYouSureRemoveIdentifier": "Weet u zeker dat u deze ID wilt verwijderen?",
-        "AreYouSureUnsubscribeIdentifier": "Weet u zeker dat u zich afmeldt voor deze identifier? Hiermee worden meldingen voor deze identifier uitgeschakeld.",
-        "AreYouSureUnsubscribeDevice": "Weet je zeker dat je dit apparaat wilt afmelden? Hiermee worden meldingen voor dit apparaat uitgeschakeld.",
-        "AreYouSureRemoveParticipant": "Weet u zeker dat u deze deelnemer wilt verwijderen?",
-        "RemoveParticipant": "Deelnemer verwijderen",
-        "Identifiers": "Identificaties",
-        "Devices": "Apparaten",
-        "Streams": "Stromen"
-    },
-    "types": {
-        "Streams\/invited": {
-            "displayType": "Uitgenodigd",
-            "description": "Inbox voor uitnodigingen"
-        },
-        "Streams\/resource": {
-            "displayType": "Bron",
-            "description": "stream voor het beheren van de toegang tot een bron en het plaatsen van berichten over updates"
-        },
-        "Streams\/task": {
-            "description": "voor het ontvangen van updates over de voortgang van een bepaalde taak",
-            "displayType": "Taak"
-        },
-        "Streams\/tasks": {
-            "description": "categorie voor taken",
-            "displayType": "Taken"
-        },
-        "Streams\/experience": {
-            "description": "een gemeenschappelijke ervaring voor leden van een gemeenschap",
-            "displayType": "Gemeenschappelijke ervaring voor leden van een gemeenschap"
-        },
-        "Streams\/greeting": {
-            "description": "begroeting waarmee een gebruiker zichzelf kan voorstellen",
-            "displayType": "Groet"
-        },
-        "Streams\/number": {
-            "displayType": "Nummer",
-            "description": "wiskundig getal"
-        },
-        "Streams\/date": {
-            "displayType": "Datum",
-            "description": "datum"
-        },
-        "Streams\/text": {
-            "displayType": "Tekst",
-            "description": "tekstgedeelte"
-        },
-        "Streams\/text\/small": {
-            "displayType": "Tekst",
-            "description": "kleine hoeveelheid tekst"
-        },
-        "Streams\/text\/medium": {
-            "displayType": "Tekst",
-            "description": "medium tekst"
-        },
-        "Streams\/text\/emailAddress": {
-            "displayType": "E-mailadres",
-            "description": "e-mailadres"
-        },
-        "Streams\/text\/phoneNumber": {
-            "displayType": "Telefoonnummer",
-            "description": "telefoonnummer"
-        },
-        "Streams\/text\/url": {
-            "displayType": "URL",
-            "description": "koppeling op internet"
-        },
-        "Streams\/image": {
-            "displayType": "Afbeelding",
-            "description": "visueel beeld",
-            "newItem": "Voeg afbeelding toe"
-        },
-        "Streams\/images": {
-            "displayType": "Afbeeldingengalerij",
-            "description": "galerij met afbeeldingen"
-        },
-        "Streams\/album": {
-            "displayType": "Album",
-            "description": "een album waaraan verschillende media gerelateerd zijn"
-        },
-        "Streams\/file": {
-            "displayType": "Bestand",
-            "description": "geüpload bestand",
-            "newItem": "Bestand toevoegen"
-        },
-        "Streams\/audio": {
-            "displayType": "Audioclip",
-            "description": "audioclip",
-            "newItem": "Audio toevoegen"
-        },
-        "Streams\/video": {
-            "displayType": "Videoclip",
-            "description": "videoclip",
-            "newItem": "Voeg video toe"
-        },
-        "Streams\/pdf": {
-            "displayType": "PDF-document",
-            "description": "PDF-document",
-            "newItem": "Pdf toevoegen"
-        },
-        "Streams\/live": {
-            "displayType": "Livestream",
-            "description": "live audio of video"
-        },
-        "Streams\/category": {
-            "displayType": "Categorie",
-            "description": "een categorie waaraan andere streams kunnen worden gerelateerd",
-            "newItem": "categorie toevoegen"
-        },
-        "Streams\/participating": {
-            "displayType": "Deelnemende Index",
-            "description": "streams zijn hiermee gerelateerd\/niet gerelateerd wanneer een gebruiker toetreedt\/verlaat"
-        },
-        "Streams\/interest": {
-            "displayType": "Interesse",
-            "description": "vertegenwoordigt de interesse van een gebruiker in een bepaald onderwerp"
-        },
-        "Streams\/incoming": {
-            "displayType": "Inkomend",
-            "description": "bestemming voor berichten die door andere gebruikers zijn verzonden"
-        },
-        "Streams\/chat": {
-            "displayType": "Gesprek",
-            "description": "een gesprek tussen gebruikers, met geschiedenis"
-        },
-        "Streams\/question": {
-            "displayType": "Vraag",
-            "description": "vraag stroom",
-            "newItem": "Vraag toevoegen"
-        },
-        "Streams\/answer": {
-            "displayType": "Antwoord",
-            "description": "antwoord stroom"
-        },
-        "Streams\/topic": {
-            "displayType": "Onderwerp",
-            "description": "onderwerp stroom",
-            "newItem": "Onderwerp toevoegen"
-        }
-    },
-    "menu": {
-        "placeholder": "typ de paginatitel",
-        "ModTab": "Artikel wijzigen",
-        "Save": "Redden",
-        "Delete": "Verwijderen",
-        "Submenu": "Submenu"
-    },
-    "audio": {
-        "record": "Dossier",
-        "reset": "Resetten",
-        "edit": "Bewerking",
-        "title": "titel",
-        "description": "beschrijving",
-        "upload": "Uploaden",
-        "link": "Koppeling",
-        "setUrl": "URL instellen",
-        "save": "Redden",
-        "setClip": "Clipje uitknippen",
-        "invalidURL": "Ongeldige URL",
-        "invalidFile": "Ongeldig bestand",
-        "errorNoSource": "Geen audiobron",
-        "uploadLimit": "Maximale bestandsgrootte: {{size}}",
-        "errorFileSize": "Sorry, maar bestand te groot.<br> De maximale bestandsgrootte is {{size}}",
-        "TeaserAudio": "Teaser-audio"
-    },
-    "video": {
-        "reset": "Resetten",
-        "edit": "Bewerking",
-        "title": "titel",
-        "description": "beschrijving",
-        "upload": "Uploaden",
-        "link": "Koppeling",
-        "setUrl": "URL instellen",
-        "save": "Redden",
-        "setClip": "Clipje uitknippen",
-        "invalidURL": "Ongeldige URL",
-        "invalidFile": "Ongeldig bestand",
-        "errorNoSource": "Geen videobron",
-        "uploadLimit": "Maximale bestandsgrootte: {{size}}",
-        "errorFileSize": "Sorry, maar bestand te groot.<br> De maximale bestandsgrootte is {{size}}",
-        "createAnimatedThumbnail": "Maak een geanimeerde miniatuur",
-        "errorNotAvailable": "Sorry, maar de video is nog niet beschikbaar. Probeer het later opnieuw.",
-        "NewVideo": "Nieuwe video",
-        "EditVideo": "Video bewerken",
-        "TeaserVideo": "Teaser-video"
-    },
-    "pdf": {
-        "reset": "Resetten",
-        "edit": "Bewerking",
-        "title": "titel",
-        "description": "beschrijving",
-        "upload": "Uploaden",
-        "link": "Koppeling",
-        "setUrl": "URL instellen",
-        "save": "Redden",
-        "setClip": "Clipje uitknippen",
-        "invalidURL": "Ongeldige URL",
-        "invalidFile": "Ongeldig bestand",
-        "errorNoSource": "Geen pdf-bron",
-        "uploadLimit": "Maximale bestandsgrootte: {{size}}",
-        "errorFileSize": "Sorry, maar bestand te groot.<br> De maximale bestandsgrootte is {{size}}",
-        "TeaserPDF": "Voorproefje PDF"
-    },
-    "image": {
-        "reset": "Resetten",
-        "edit": "Bewerking",
-        "title": "titel",
-        "description": "beschrijving",
-        "upload": "Uploaden",
-        "link": "Koppeling",
-        "setUrl": "URL instellen",
-        "save": "Redden",
-        "uploadedImage": "Geüploade afbeelding",
-        "imageTitle": "Titel afbeelding",
-        "setClip": "Clipje uitknippen",
-        "invalidURL": "Ongeldige URL",
-        "invalidFile": "Ongeldig bestand",
-        "errorNoSource": "Geen beeldbron",
-        "uploadLimit": "Maximale bestandsgrootte: {{size}}",
-        "errorFileSize": "Sorry, maar bestand te groot.<br> De maximale bestandsgrootte is {{size}}",
-        "TeaserImage": "Teaser-afbeelding"
-    },
-    "questions": {
-        "Questions": "Vragen",
-        "Answers": "Antwoorden",
-        "AnswerQuestion": "Antwoord vraag",
-        "SetYourAnswer": "Beantwoord alstublieft de vraag",
-        "NewQuestion": "Nieuwe vraag",
-        "EditQuestion": "Vraag bewerken",
-        "NewAnswer": "Nieuw antwoord",
-        "NewPossibleAnswer": "Nieuw mogelijk antwoord",
-        "AnswerDetails": "Antwoord Details",
-        "answerOption": "Keuze",
-        "answerOptionExclusive": "Exclusief",
-        "answerTextarea": "Tekstgebied",
-        "answerText": "Tekst",
-        "HideUntilAnswered": "Verbergen totdat beantwoord",
-        "CantChangeAnswers": "Antwoorden kunnen niet worden gewijzigd",
-        "FreeAnswer": "Schrijf hier je antwoord",
-        "SaveQuestion": "Vraag opslaan",
-        "SaveAnswer": "Bewaar antwoord",
-        "Save": "Redden",
-        "Send": "Versturen",
-        "TitleRequired": "Titel vereist!",
-        "AlreadyAnswered": "Al beantwoord",
-        "TitlePlaceholder": "Typ uw vraag",
-        "ContentPlaceholder": "Plaats hier aanvullende informatie om mensen te helpen antwoorden",
-        "ErrorTitle": "Vraag vereist",
-        "Placeholder": "Schrijf instructies",
-        "AreYouSure": "Weet je het zeker?",
-        "ShortAnswer": "Schrijf een kort antwoord",
-        "AnswerCantBeChanged": "Antwoord kan niet worden gewijzigd"
-    },
-    "experience": {
-        "NewExperience": "Nieuwe ervaring",
-        "DefineTitle": "Geef een titel op",
-        "Create": "Creëren"
-    },
-    "calls": {
-        "SettingsTitle": "Oproepen",
-        "MaxCalls": "Max belt",
-        "Update": "Update",
-        "NoCallsYet": "Nog geen oproepen",
-        "CallReasonTitle": "Waar gaat deze oproep over?",
-        "WaitingRoom": "Wachtkamer",
-        "LiveRoom": "Woonkamer",
-        "interviewedByAnotherHost": "Wordt momenteel geïnterviewd door een andere gastheer",
-        "bringToLive": "Breng naar liveshow",
-        "putOnHold": "In de wacht gezet",
-        "endCall": "Ophangen",
-        "interview": "Interview",
-        "markApproved": "Markeer Goedgekeurd"
-    },
-    "relate": {
-        "Add": "Voeg {{streamDisplayType}} toe"
-    },
-    "userChooser": {
-        "Placeholder": "Naam van een gebruiker..."
-    },
-    "task": {
-        "errorsTitle": "Er zijn fouten opgetreden"
-    },
-    "topic": {
-        "NewTopic": "Nieuw onderwerp",
-        "UpdateTopic": "Onderwerp bijwerken",
-        "CreateTopic": "Onderwerp maken",
-        "AreYouSureDeleteTopic": "Weet je zeker dat je dit onderwerp wilt verwijderen?",
-        "TitlePlaceholder": "onderwerp titel...",
-        "DescribeTopic": "onderwerp beschrijven...",
-        "TopicIcon": "Onderwerp foto",
-        "UploadIcon": "Uploadpictogram",
-        "Conversation": "Gesprek",
-        "Metrics": "Statistieken",
-        "Teaser": "Voorproefje",
-        "TeaserDescription": "teaser beschrijving...",
-        "TeaserVideo": "Teaser-video"
-    },
-    "animatedThumbnail": {
-        "CreateAnimatedThumbnail": "Maak een geanimeerde miniatuur",
-        "Width": "Breedte",
-        "Height": "Hoogte",
-        "Start": "Begin",
-        "End": "Einde",
-        "Delay": "Vertraging",
-        "Quality": "Kwaliteit",
-        "Size": "Maat",
-        "OfFrames": "van Kaders",
-        "Frame": "Kader",
-        "UseThis": "Gebruik dit",
-        "ResultGIF": "Resultaat GIF",
-        "VideoElementNotFound": "Video-element niet gevonden"
-    },
-    "groupPhoto": {
-        "ClickOnYourFace": "{{ClickOrTap}} Op je gezicht",
-        "AcceptIcon": "Accepteer het geselecteerde gebied"
-    }
+	"errors": {
+		"HiddenFromYou": "Deze inhoud is voor u verborgen.",
+		"InplaceTypeMustBe": "inplaceType moet &#39;textarea&#39; of &#39;text&#39; zijn",
+		"AmountInvalid": "Voer een geldig aantal milliseconden in."
+	},
+	"preview": {
+		"NewItemTitle": "Nieuw item",
+		"Teaser": "Voorproefje"
+	},
+	"avatar": {
+		"firstName": "Voornaam",
+		"lastName": "achternaam",
+		"username": "gebruikersnaam"
+	},
+	"labels": {
+		"Streams/invited": "Mensen die ik heb uitgenodigd",
+		"Streams/invitedMe": "Wie mij heeft uitgenodigd",
+		"DoYouAgree": "Bent u het eens?",
+		"Yes": "Ja",
+		"No": "Nee",
+		"JoinItNow": "Nu meedoen?"
+	},
+	"login": {
+		"prompt": "Laat vrienden je herkennen:",
+		"newUser": "of maak hieronder een nieuw account aan",
+		"picTooltip": "U kunt deze afbeelding later wijzigen",
+		"placeholders": {
+			"fullName": "Vul uw volledige naam in"
+		}
+	},
+	"interests": {
+		"Filter": "Zoek interesses",
+		"CanGrant": "Als je nog steeds niet kunt vinden wat je zoekt, kun je hieronder een nieuwe interesse toevoegen:",
+		"TrySynonyms": "Zie je het niet? Probeer enkele synoniemen.",
+		"AddUnderCategory": "Toevoegen onder categorie...",
+		"Other": "Ander",
+		"Unlisted": "Niet vermeld"
+	},
+	"chat": {
+		"flaggedForAdminReview": "Het bericht is gemarkeerd voor beoordeling door de beheerder. Tik nogmaals om de markering ongedaan te maken.",
+		"noOneSaid": "Niemand heeft iets gezegd",
+		"closeChatButton": "Chat sluiten",
+		"closeChatConfirmTitle": "Deze chat sluiten?",
+		"closeChatConfirm": "Weet je zeker dat je deze chat wilt sluiten?",
+		"Subscribed": "Meldingen ingeschakeld",
+		"Unsubscribed": "Meldingen gedempt",
+		"closeChatConfirmYes": "Ja",
+		"closeChatConfirmNo": "Nee",
+		"earlierComments": "eerdere opmerkingen",
+		"startedConversation": "begon een gesprek",
+		"RealTimeCall": "Realtime oproep",
+		"JoinWebRTC": "Teleconferentie",
+		"SearchByName": "Zoek op naam",
+		"Notifications": {
+			"Visit": "{{displayName}} bezoekt de chat",
+			"Join": "{{displayName}} namen deel aan de chat",
+			"Leave": "{{displayName}} verliet de chat",
+			"RelatedTo": "{{displayName}} begon een {{stream.displayType}}"
+		},
+		"placeholders": {
+			"Public": "Voeg een reactie toe",
+			"Private": "Schrijf een priv\u00e9bericht"
+		}
+	},
+	"notifications": {
+		"ManageEmailSubscriptions": "beheer uw e-mailabonnementen",
+		"IfUnsubscribe": "Als u zich wilt afmelden",
+		"*": "Bericht {{{ message.fields.type}} tot {{& stream.fields.title}}}",
+		"Streams/joined": "{{{call 'avatar.displayName'}}} toegetreden",
+		"Streams/left": "{{{call 'avatar.displayName'}}} over",
+		"Streams/chat/message": "\ud83d\udcac {{{call 'avatar.displayName'}} zei: {{& message.content}}}",
+		"Streams/changed": "Veranderingen in {{stream.fields.title}}",
+		"Streams/invite": "Je bent uitgenodigd voor {{{ stream.fields.title}}}",
+		"Streams/announcement": "Aankondiging in {{{ stream.fields.title}}}",
+		"Streams/access": "{{{call 'avatar.displayName'}} gewijzigde toegang in {{& stream.fields.title}}}",
+		"Streams/chat/edit": "Chatbericht bewerkt in {{{ stream.fields.title}}}",
+		"Streams/chat/remove": "Chatbericht verwijderd in {{{ stream.fields.title}}}",
+		"Streams/closed": "{{stream.fields.title}} is gesloten",
+		"Streams/task/progress": "Vooruitgang geboekt op {{stream.fields.title}}",
+		"Streams/task/complete": "Taak voltooid: {{stream.fields.title}}",
+		"Streams/task/error": "Fout tijdens: {{stream.fields.title}}",
+		"Streams/incoming/*": "{{app}} : Inkomend bericht",
+		"Streams/relatedTo/Streams/call": "Nieuwe oproep gestart in {{toTitle}}",
+		"Streams/relatedTo/*": "Nieuwe {{relationDisplayType}} op {{toTitle}}",
+		"Streams/relatedFrom/*": "Toegevoegd aan {{toTitle}} als {{relationDisplayType}}",
+		"Streams/mention": "{{{call 'avatar.displayName'}}} noemde je in een reactie",
+		"Streams/call": "{{displayName}} startte een real-time oproep",
+		"changed": {
+			"ChangesIn": "Veranderingen in {{title}}",
+			"Changed": "veranderd",
+			"HereIsWhatChanged": "Dit is wat er is veranderd:"
+		},
+		"joined": {
+			"Joined": "{{subject}} sloten zich aan bij <em>{{title}}</em>"
+		},
+		"Streams/invited": "Je bent uitgenodigd voor {{{stream.fields.title}}}"
+	},
+	"invite": {
+		"command": "Uitnodiging",
+		"Invite": "Uitnodiging",
+		"Share": "Deel",
+		"messageContent": "{{displayName}} nodigde je uit voor {{inviteUrl}}",
+		"youCanNowPaste": "Je kunt deze link nu ergens plakken om mensen uit te nodigen",
+		"roles": {
+			"title": "Rollen toekennen aan uitgenodigde gebruikers?",
+			"NotAuthorizedToGrantRole": {
+				"title": "Sorry",
+				"alert": "U bent niet bevoegd om deze rol toe te kennen"
+			},
+			"NotAuthorizedToRemoveRole": {
+				"title": "Sorry",
+				"alert": "U bent niet gemachtigd om deze rol te verwijderen"
+			}
+		},
+		"labels": {
+			"title": "Wat is je relatie?"
+		},
+		"dialog": {
+			"chooseFromContacts": "Kies uit uw contacten",
+			"chooseAgainFromContacts": "Kies opnieuw uit Contacten",
+			"inviteSelectedContacts": "Nodig geselecteerde contacten uit",
+			"selectFromContacts": "Selecteer Uit contacten",
+			"userChooserPlaceholder": "Zoek op naam",
+			"photo": "Maak een foto",
+			"photoOf": "Maak een foto van {{name}}",
+			"photoInstruction": "Als de persoon die je QR-code heeft gescand voor je staat, maak dan een foto van hem of haar",
+			"to": "Naar: {{Stream Title}}",
+			"go": "Gaan",
+			"title": "Uitnodiging",
+			"placeholder": "Mobiel nummer of e-mailadres",
+			"orInvite": "Of nodig mensen uit met:",
+			"copyLink": "{{ClickOrTap}} om de uitnodigingslink te kopi\u00ebren",
+			"shareOrCopyLink": "{{ClickOrTap}} om de uitnodigingslink te delen of te kopi\u00ebren",
+			"QR": "{{ClickOrTap}} om QR-code te genereren",
+			"QRtitle": "Scan deze QR-code",
+			"QRscanned": "Ze hebben het gescand!",
+			"scannedQR": "{{ClickOrTap}} als de code is gescand",
+			"byEmail": "E-mail",
+			"bySms": "Tekst",
+			"byFacebook": "Facebook",
+			"byTwitter": "Twitteren",
+			"title2": "Mensen uitnodigen",
+			"chooseMethod": "Kies een methode:",
+			"selectContacts": "Selecteer Contacten",
+			"scanQRCode": "Scan QR-code",
+			"shareLink": "Deel een koppeling",
+			"chooseFromRegistered": "Kies uit geregistreerde gebruikers",
+			"inviteViaEmailOrSms": "Nodig uit via e-mail of sms",
+			"TakeGroupPhoto": "Maak een groepsfoto",
+			"Skip": "Overslaan",
+			"byTelegram": "Telegram",
+			"byWhatsapp": "WhatsAppen",
+			"addRoles": "Rollen toevoegen",
+			"addPersonalRoles": "Voeg persoonlijke relaties toe"
+		},
+		"complete": {
+			"WelcomeToCommunity": "Welkom bij {{communityName}}",
+			"HasInvitedYou": "heeft u uitgenodigd voor:",
+			"HasInvitedYouToTheirProfile": "heeft je uitgenodigd om verbinding te maken.",
+			"prompt": "Laat vrienden je herkennen:",
+			"accept": "Uitnodiging accepteren"
+		},
+		"email": {
+			"subject": "H\u00e9, kijk hier eens naar",
+			"PleaseVisitLink": "Bezoek de volgende link:",
+			"InvitingYou": "Ik nodig je uit voor {{title}}",
+			"HasInvitedYou": "{{displayName}} heeft je uitgenodigd voor {{title}}",
+			"HasMentionedYou": "{{displayName}} heeft je genoemd in &quot; {{title}} &quot;",
+			"YOUAREINVITED": "JE BENT UITGENODIGD!",
+			"AcceptInvite": "Uitnodiging accepteren"
+		},
+		"mobile": {
+			"content": "U bent uitgenodigd voor {{title}} . Tik op {{url}}"
+		},
+		"notice": {
+			"text": "Je bent uitgenodigd. {{ClickOrTap}} hier om te accepteren en lid te worden."
+		},
+		"chat": {
+			"prompt": "Je nodigt mensen uit voor een gesprek waarin je contact kunt houden, samen foto&#39;s kunt delen en meer. Geef het een naam:"
+		},
+		"Participants": "Mensen uitnodigen"
+	},
+	"messages": {
+		"html": {
+			"posted": "plaatste een <em>{{message.fields.type}}</em> bericht naar {{stream.fields.title}}"
+		},
+		"text": {
+			"commentedOn": "Gereageerd op",
+			"startedCallIn": "begon een inbelgesprek",
+			"in": "in",
+			"body": "in {{{ url}} : {{& message.fields.content}}}",
+			"relatedFrom": {
+				"hasBeenPostedTo": "is op geplaatst",
+				"byAvatar": "tegen {{avatar.displayName}}"
+			},
+			"relatedTo": {
+				"hasANew": "heeft een nieuwe {{instructions.fromDisplayType}}",
+				"byAvatar": "toegevoegd door {{avatar.displayName}}"
+			}
+		}
+	},
+	"followup": {
+		"mobile": {
+			"alert": "Uitnodigingen worden verzonden vanaf ons nummer, dat je vrienden nog niet herkennen. Vervolg met een korte sms om hen te laten weten dat de uitnodiging van jou afkomstig is en hen te vragen op de link te klikken.",
+			"confirm": "Uitnodigingen worden verzonden vanaf ons nummer, dat je vrienden nog niet herkennen. Wilt u snel reageren met een sms om hen te laten weten dat de uitnodiging van u afkomstig is en hen te vragen op de link te klikken.",
+			"check": "H\u00e9, ik heb je net een uitnodiging gestuurd voor de {{app}} app. Controleer uw sms en klik op de link!",
+			"CheckYourMobile": "Controleer de sms en volg de instructies!"
+		},
+		"email": {
+			"alert": "Uitnodigingen worden verzonden vanaf ons domein, dat uw vrienden nog niet herkennen. Vervolg met een korte sms om hen te laten weten dat de uitnodiging van jou afkomstig is en hen te vragen op de link te klikken.",
+			"confirm": "Uitnodigingen worden verzonden vanaf ons domein, dat uw vrienden nog niet herkennen. Wilt u snel reageren met een sms om hen te laten weten dat de uitnodiging van u afkomstig is en hen te vragen op de link te klikken.",
+			"subject": "Heb je een uitnodiging gekregen?",
+			"body": "H\u00e9, ik heb je net een uitnodiging gestuurd voor de {{app}} app. Controleer uw e-mail en klik op de link daar!",
+			"CheckYourEmail": "Controleer uw e-mail en volg de instructies!"
+		}
+	},
+	"identifier": {
+		"privacySettings": "Privacy instellingen"
+	},
+	"participating": {
+		"Title": "Titel",
+		"Subscribed": "Geabonneerd",
+		"Participants": "Deelnemers",
+		"AreYouSureRemoveIdentifier": "Weet u zeker dat u deze ID wilt verwijderen?",
+		"AreYouSureUnsubscribeIdentifier": "Weet u zeker dat u zich afmeldt voor deze identifier? Hiermee worden meldingen voor deze identifier uitgeschakeld.",
+		"AreYouSureUnsubscribeDevice": "Weet je zeker dat je dit apparaat wilt afmelden? Hiermee worden meldingen voor dit apparaat uitgeschakeld.",
+		"AreYouSureRemoveParticipant": "Weet u zeker dat u deze deelnemer wilt verwijderen?",
+		"RemoveParticipant": "Deelnemer verwijderen",
+		"Identifiers": "Identificaties",
+		"Devices": "Apparaten",
+		"Streams": "Stromen"
+	},
+	"types": {
+		"Streams/invited": {
+			"displayType": "Uitgenodigd",
+			"description": "Inbox voor uitnodigingen"
+		},
+		"Streams/resource": {
+			"displayType": "Bron",
+			"description": "stream voor het beheren van de toegang tot een bron en het plaatsen van berichten over updates"
+		},
+		"Streams/task": {
+			"description": "voor het ontvangen van updates over de voortgang van een bepaalde taak",
+			"displayType": "Taak"
+		},
+		"Streams/tasks": {
+			"description": "categorie voor taken",
+			"displayType": "Taken"
+		},
+		"Streams/experience": {
+			"description": "een gemeenschappelijke ervaring voor leden van een gemeenschap",
+			"displayType": "Gemeenschappelijke ervaring voor leden van een gemeenschap"
+		},
+		"Streams/greeting": {
+			"description": "begroeting waarmee een gebruiker zichzelf kan voorstellen",
+			"displayType": "Groet"
+		},
+		"Streams/number": {
+			"displayType": "Nummer",
+			"description": "wiskundig getal"
+		},
+		"Streams/date": {
+			"displayType": "Datum",
+			"description": "datum"
+		},
+		"Streams/text": {
+			"displayType": "Tekst",
+			"description": "tekstgedeelte"
+		},
+		"Streams/text/small": {
+			"displayType": "Tekst",
+			"description": "kleine hoeveelheid tekst"
+		},
+		"Streams/text/medium": {
+			"displayType": "Tekst",
+			"description": "medium tekst"
+		},
+		"Streams/text/emailAddress": {
+			"displayType": "E-mailadres",
+			"description": "e-mailadres"
+		},
+		"Streams/text/phoneNumber": {
+			"displayType": "Telefoonnummer",
+			"description": "telefoonnummer"
+		},
+		"Streams/text/url": {
+			"displayType": "URL",
+			"description": "koppeling op internet"
+		},
+		"Streams/image": {
+			"displayType": "Afbeelding",
+			"description": "visueel beeld",
+			"newItem": "Voeg afbeelding toe"
+		},
+		"Streams/images": {
+			"displayType": "Afbeeldingengalerij",
+			"description": "galerij met afbeeldingen"
+		},
+		"Streams/album": {
+			"displayType": "Album",
+			"description": "een album waaraan verschillende media gerelateerd zijn"
+		},
+		"Streams/file": {
+			"displayType": "Bestand",
+			"description": "ge\u00fcpload bestand",
+			"newItem": "Bestand toevoegen"
+		},
+		"Streams/audio": {
+			"displayType": "Audioclip",
+			"description": "audioclip",
+			"newItem": "Audio toevoegen"
+		},
+		"Streams/video": {
+			"displayType": "Videoclip",
+			"description": "videoclip",
+			"newItem": "Voeg video toe"
+		},
+		"Streams/pdf": {
+			"displayType": "PDF-document",
+			"description": "PDF-document",
+			"newItem": "Pdf toevoegen"
+		},
+		"Streams/live": {
+			"displayType": "Livestream",
+			"description": "live audio of video"
+		},
+		"Streams/category": {
+			"displayType": "Categorie",
+			"description": "een categorie waaraan andere streams kunnen worden gerelateerd",
+			"newItem": "categorie toevoegen"
+		},
+		"Streams/participating": {
+			"displayType": "Deelnemende Index",
+			"description": "streams zijn hiermee gerelateerd/niet gerelateerd wanneer een gebruiker toetreedt/verlaat"
+		},
+		"Streams/interest": {
+			"displayType": "Interesse",
+			"description": "vertegenwoordigt de interesse van een gebruiker in een bepaald onderwerp"
+		},
+		"Streams/incoming": {
+			"displayType": "Inkomend",
+			"description": "bestemming voor berichten die door andere gebruikers zijn verzonden"
+		},
+		"Streams/chat": {
+			"displayType": "Gesprek",
+			"description": "een gesprek tussen gebruikers, met geschiedenis"
+		},
+		"Streams/question": {
+			"displayType": "Vraag",
+			"description": "vraag stroom",
+			"newItem": "Vraag toevoegen"
+		},
+		"Streams/answer": {
+			"displayType": "Antwoord",
+			"description": "antwoord stroom"
+		},
+		"Streams/topic": {
+			"displayType": "Onderwerp",
+			"description": "onderwerp stroom",
+			"newItem": "Onderwerp toevoegen"
+		}
+	},
+	"menu": {
+		"placeholder": "typ de paginatitel",
+		"ModTab": "Artikel wijzigen",
+		"Save": "Redden",
+		"Delete": "Verwijderen",
+		"Submenu": "Submenu"
+	},
+	"audio": {
+		"record": "Dossier",
+		"reset": "Resetten",
+		"edit": "Bewerking",
+		"title": "titel",
+		"description": "beschrijving",
+		"upload": "Uploaden",
+		"link": "Koppeling",
+		"setUrl": "URL instellen",
+		"save": "Redden",
+		"setClip": "Clipje uitknippen",
+		"invalidURL": "Ongeldige URL",
+		"invalidFile": "Ongeldig bestand",
+		"errorNoSource": "Geen audiobron",
+		"uploadLimit": "Maximale bestandsgrootte: {{size}}",
+		"errorFileSize": "Sorry, maar bestand te groot.<br> De maximale bestandsgrootte is {{size}}",
+		"TeaserAudio": "Teaser-audio"
+	},
+	"video": {
+		"reset": "Resetten",
+		"edit": "Bewerking",
+		"title": "titel",
+		"description": "beschrijving",
+		"upload": "Uploaden",
+		"link": "Koppeling",
+		"setUrl": "URL instellen",
+		"save": "Redden",
+		"setClip": "Clipje uitknippen",
+		"invalidURL": "Ongeldige URL",
+		"invalidFile": "Ongeldig bestand",
+		"errorNoSource": "Geen videobron",
+		"uploadLimit": "Maximale bestandsgrootte: {{size}}",
+		"errorFileSize": "Sorry, maar bestand te groot.<br> De maximale bestandsgrootte is {{size}}",
+		"createAnimatedThumbnail": "Maak een geanimeerde miniatuur",
+		"errorNotAvailable": "Sorry, maar de video is nog niet beschikbaar. Probeer het later opnieuw.",
+		"NewVideo": "Nieuwe video",
+		"EditVideo": "Video bewerken",
+		"TeaserVideo": "Teaser-video"
+	},
+	"pdf": {
+		"reset": "Resetten",
+		"edit": "Bewerking",
+		"title": "titel",
+		"description": "beschrijving",
+		"upload": "Uploaden",
+		"link": "Koppeling",
+		"setUrl": "URL instellen",
+		"save": "Redden",
+		"setClip": "Clipje uitknippen",
+		"invalidURL": "Ongeldige URL",
+		"invalidFile": "Ongeldig bestand",
+		"errorNoSource": "Geen pdf-bron",
+		"uploadLimit": "Maximale bestandsgrootte: {{size}}",
+		"errorFileSize": "Sorry, maar bestand te groot.<br> De maximale bestandsgrootte is {{size}}",
+		"TeaserPDF": "Voorproefje PDF"
+	},
+	"image": {
+		"reset": "Resetten",
+		"edit": "Bewerking",
+		"title": "titel",
+		"description": "beschrijving",
+		"upload": "Uploaden",
+		"link": "Koppeling",
+		"setUrl": "URL instellen",
+		"save": "Redden",
+		"uploadedImage": "Ge\u00fcploade afbeelding",
+		"imageTitle": "Titel afbeelding",
+		"setClip": "Clipje uitknippen",
+		"invalidURL": "Ongeldige URL",
+		"invalidFile": "Ongeldig bestand",
+		"errorNoSource": "Geen beeldbron",
+		"uploadLimit": "Maximale bestandsgrootte: {{size}}",
+		"errorFileSize": "Sorry, maar bestand te groot.<br> De maximale bestandsgrootte is {{size}}",
+		"TeaserImage": "Teaser-afbeelding"
+	},
+	"questions": {
+		"Questions": "Vragen",
+		"Answers": "Antwoorden",
+		"AnswerQuestion": "Antwoord vraag",
+		"SetYourAnswer": "Beantwoord alstublieft de vraag",
+		"NewQuestion": "Nieuwe vraag",
+		"EditQuestion": "Vraag bewerken",
+		"NewAnswer": "Nieuw antwoord",
+		"NewPossibleAnswer": "Nieuw mogelijk antwoord",
+		"AnswerDetails": "Antwoord Details",
+		"answerOption": "Keuze",
+		"answerOptionExclusive": "Exclusief",
+		"answerTextarea": "Tekstgebied",
+		"answerText": "Tekst",
+		"HideUntilAnswered": "Verbergen totdat beantwoord",
+		"CantChangeAnswers": "Antwoorden kunnen niet worden gewijzigd",
+		"FreeAnswer": "Schrijf hier je antwoord",
+		"SaveQuestion": "Vraag opslaan",
+		"SaveAnswer": "Bewaar antwoord",
+		"Save": "Redden",
+		"Send": "Versturen",
+		"TitleRequired": "Titel vereist!",
+		"AlreadyAnswered": "Al beantwoord",
+		"TitlePlaceholder": "Typ uw vraag",
+		"ContentPlaceholder": "Plaats hier aanvullende informatie om mensen te helpen antwoorden",
+		"ErrorTitle": "Vraag vereist",
+		"Placeholder": "Schrijf instructies",
+		"AreYouSure": "Weet je het zeker?",
+		"ShortAnswer": "Schrijf een kort antwoord",
+		"AnswerCantBeChanged": "Antwoord kan niet worden gewijzigd"
+	},
+	"experience": {
+		"NewExperience": "Nieuwe ervaring",
+		"DefineTitle": "Geef een titel op",
+		"Create": "Cre\u00ebren"
+	},
+	"calls": {
+		"SettingsTitle": "Oproepen",
+		"MaxCalls": "Max belt",
+		"Update": "Update",
+		"NoCallsYet": "Nog geen oproepen",
+		"CallReasonTitle": "Waar gaat deze oproep over?",
+		"WaitingRoom": "Wachtkamer",
+		"LiveRoom": "Woonkamer",
+		"interviewedByAnotherHost": "Wordt momenteel ge\u00efnterviewd door een andere gastheer",
+		"bringToLive": "Breng naar liveshow",
+		"putOnHold": "In de wacht gezet",
+		"endCall": "Ophangen",
+		"interview": "Interview",
+		"markApproved": "Markeer Goedgekeurd"
+	},
+	"relate": {
+		"Add": "Voeg {{streamDisplayType}} toe"
+	},
+	"userChooser": {
+		"Placeholder": "Naam van een gebruiker..."
+	},
+	"task": {
+		"errorsTitle": "Er zijn fouten opgetreden"
+	},
+	"topic": {
+		"NewTopic": "Nieuw onderwerp",
+		"UpdateTopic": "Onderwerp bijwerken",
+		"CreateTopic": "Onderwerp maken",
+		"AreYouSureDeleteTopic": "Weet je zeker dat je dit onderwerp wilt verwijderen?",
+		"TitlePlaceholder": "onderwerp titel...",
+		"DescribeTopic": "onderwerp beschrijven...",
+		"TopicIcon": "Onderwerp foto",
+		"UploadIcon": "Uploadpictogram",
+		"Conversation": "Gesprek",
+		"Metrics": "Statistieken",
+		"Teaser": "Voorproefje",
+		"TeaserDescription": "teaser beschrijving...",
+		"TeaserVideo": "Teaser-video"
+	},
+	"animatedThumbnail": {
+		"CreateAnimatedThumbnail": "Maak een geanimeerde miniatuur",
+		"Width": "Breedte",
+		"Height": "Hoogte",
+		"Start": "Begin",
+		"End": "Einde",
+		"Delay": "Vertraging",
+		"Quality": "Kwaliteit",
+		"Size": "Maat",
+		"OfFrames": "van Kaders",
+		"Frame": "Kader",
+		"UseThis": "Gebruik dit",
+		"ResultGIF": "Resultaat GIF",
+		"VideoElementNotFound": "Video-element niet gevonden"
+	},
+	"groupPhoto": {
+		"ClickOnYourFace": "{{ClickOrTap}} Op je gezicht",
+		"AcceptIcon": "Accepteer het geselecteerde gebied"
+	},
+	"gallery": {
+		"DialogTitle": "Galerijafbeelding bewerken",
+		"EditImageTitle": "Afbeeldingsparameters bewerken",
+		"IntervalLabel": "Interval (ms): ",
+		"IntervalPlaceholder": "bijv. 3000",
+		"KenburnsInstruction": "Stel het begin en einde van Ken Burns in door te slepen en te zoomen."
+	}
 }
