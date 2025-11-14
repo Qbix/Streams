@@ -56,6 +56,10 @@ function _Streams_default_preview(options, preview) {
 	},
 	onInvoke: new Q.Event(function () {
 		var ps = this.preview.state;
+		if (!ps.publisherId || !ps.streamName) {
+			return;
+		}
+
 		Q.Streams.get(ps.publisherId, ps.streamName, function (err, stream) {
 			if (stream) {
 				var url = url = stream.url();
