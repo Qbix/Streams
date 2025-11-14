@@ -82,6 +82,7 @@ Q.Tool.define("Streams/access", function(options) {
 					$('option', tempSelect).each(function () {
 						if ($(this).val() === criteria.ofContactLabel) {
 							$(this).appendTo($('.Streams_access_levelAddLabel', element));
+							$('.Streams_access_levelAddLabel', element).val('');
 							return false;
 						}
 					});

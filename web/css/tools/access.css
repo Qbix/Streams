@@ -150,3 +150,10 @@ body:has(.Streams_access_tool_dialog_container) .Streams_userChooser_results .Q_
     background-origin: fixed;
     background-position-x: center !important;
 }
+
+@media (prefers-color-scheme: dark) {
+    .Streams_access_tool .Streams_access_by_table .Streams_access_for_item .Streams_access_for_remove a {
+        color: #a8a7a7;
+        font-size: 25px;
+    }
+}
