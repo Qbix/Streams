@@ -7,9 +7,9 @@
     flex-grow: 1;
 	width: auto;
     height: auto;
-    padding: 10px 10px 20px 10px;
+    padding: 10px 10px 10px 10px;
     margin: 0;
-    background-color: none;
+    background-color: transparent;
 }
 .Streams_access_tool .Q_tabs_tabs li.Q_tabs_tab.Q_current {
 	background-color: #e4e4e4;
@@ -52,7 +52,7 @@
 .Streams_access_tool .Streams_access_controls_subconfig .Streams_access_by_table{
 	margin-top: 10px;
     padding: 10px;
-    background: #e4e4e4;
+    background: rgba(125, 125, 125, 0.5);
     border-radius: 5px;
 }
 .Streams_access_tool .Streams_access_controls_subconfig .Streams_access_by_table:empty {

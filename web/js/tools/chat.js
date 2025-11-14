@@ -75,7 +75,7 @@ Q.Tool.define('Streams/chat', function(options) {
 	}
 
 	if (state.drafts) {
-		tool.cache = Q.Cache.local('Streams/chat');
+		tool.cache = Q.Cache.session('Streams/chat');
 	}
 
 	tool.refresh(null, true); // use cached stream first time, if available
@@ -1520,6 +1520,6 @@ Q.Template.set('Streams/chat/main',
 	'<div class="Q_clear"></div>'
 );
 
-Q.Cache.local('Streams/chat', 100); // create a cache
+Q.Cache.session('Streams/chat', 100); // create a cache
 
 })(Q, Q.jQuery);

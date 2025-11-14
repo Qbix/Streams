@@ -492,7 +492,7 @@ Streams.listen = function (options, servers) {
 			function _continue(messages) {
 				var NotAuthorizedException = {
 					type: 'Users.Exception.NotAuthorized',
-					message: 'Not  Authorized'
+					message: 'Not Authorized'
 				};
 				var now = Date.now() / 1000;
 				if (!Q.Utils.validateCapability(client.capability, 'Streams/observe')) {

@@ -181,7 +181,8 @@ Q.Tool.define("Streams/access", function(options) {
 			} else if(tab) {
 				$tab = $('[data-name="'+tab+'"]', $(tabsTool.element));
 			} else {
-				$tab = $('[data-name="'+ts.defaultTabName+'"]', $(tabsTool.element));
+				var tn = window.location.search.queryField(ts.field) || ts.defaultTabName;
+				$tab = $('[data-name="'+tn+'"]', $(tabsTool.element));
 			}
 			
 			tabsTool.$tabs.removeClass('Q_current Q_tabs_switchingTo Q_tabs_switchingFrom');
