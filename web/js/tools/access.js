@@ -181,6 +181,9 @@ Q.Tool.define("Streams/access", function(options) {
 				tab = $tab.data('name');
 			} else if(tab) {
 				$tab = $('[data-name="'+tab+'"]', $(tabsTool.element));
+				if (tabsTool.$overflowed) {
+					$tab = $tab.add(tabsTool.$overflowed.filter('[data-name="'+tab+'"]'));
+				}
 			} else {
 				var tn = window.location.search.queryField(ts.field) || ts.defaultTabName;
 				$tab = $('[data-name="'+tn+'"]', $(tabsTool.element));
