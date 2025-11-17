@@ -53,9 +53,9 @@ function Streams_access_tool($options)
 
 	$text = Q_Text::get('Streams/access');
 	$tabs = array(
-		'read'  => $text['tabs']['read'], 
-		'write' => $text['tabs']['write'], 
-		'admin' => $text['tabs']['admin']
+		'read'  => $text['tabs']['Read'], 
+		'write' => $text['tabs']['Write'], 
+		'admin' => $text['tabs']['Admin']
 	);
 	$tabs = Q::take($tabs, $tabNames);
 
