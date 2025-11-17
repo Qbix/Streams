@@ -136,20 +136,20 @@ Q.Tool.define("Streams/access", function(options) {
 		prepareSelect(clonedSelect, criteria, access[fieldName]);
 		var labelAccessDiv = $('<div class="Streams_access_for_item"/>');
 		if (userId !== "") {
-			var label = state.labels[contactLabel];
-			var src = Q.Users.iconUrl(state.icons[contactLabel], 40);
-			var icon = $('<img />').attr('src', src).css('width', 20)
+			Q.Users.get(userId, function (err, user) {
+				var src = user.iconUrl(40);
+				var icon = $('<img />').attr('src', src).css('width', 20)
 
-			labelAccessDiv.append(
-				$('<div class="Streams_access_for_text"/>')
-				.append($('<div class="Streams_access_for_icon"/>').append(icon))
-				.append($('<div class="Streams_access_for_name"/>').append(label).append(avatar.displayName() + ' ' + actionText + ' '))
-			).append(
-				$('<div class="Streams_access_for_select"/>').append(clonedSelect)
-			).append(
-				$('<div class="Streams_access_for_remove"/>').append(newRemoveLink(criteria))
-			).appendTo($('.Streams_access_user_array', element));
-
+				labelAccessDiv.append(
+					$('<div class="Streams_access_for_text"/>')
+					.append($('<div class="Streams_access_for_icon"/>').append(icon))
+					.append($('<div class="Streams_access_for_name"/>').append(label).append(avatar.displayName() + ' ' + actionText + ' '))
+				).append(
+					$('<div class="Streams_access_for_select"/>').append(clonedSelect)
+				).append(
+					$('<div class="Streams_access_for_remove"/>').append(newRemoveLink(criteria))
+				).appendTo($('.Streams_access_user_array', element));
+			});
 		} else {
 			var label = state.labels[contactLabel];
 			var src = Q.Users.iconUrl(state.icons[contactLabel], 40);
@@ -221,7 +221,7 @@ Q.Tool.define("Streams/access", function(options) {
 			element            = tool.element,
 			levelForEveryone   = $('.Streams_access_levelForEveryone', element),
 			fieldName          = (tabName != null ? tabName : 'read')+'Level',
-			actionText         = (tabName === 'read' || tabName == null) ? 'can see' : 'can',
+			actionText         = (tabName === 'read' || tabName == null) ? tool.text.verb.CanSee : tool.text.verb.Can,
 			tempSelect         = $('<select />');
 			tool.child('Streams_userChooser').exclude = state.avatarArray;
 			Q.Streams.retainWith(tool)

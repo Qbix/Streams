@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "sigbaar vir",
 		"write": "wysigbaar deur",
-		"admin": "lede"
+		"admin": "lede",
+		"Read": "sigbaar vir",
+		"Write": "wysigbaar deur",
+		"Admin": "lede"
+	},
+	"who": {
+		"TheGeneralPublic": "Die algemene publiek",
+		"GrantAdditionalAccessTo": "Verleen addisionele toegang tot",
+		"CustomAccessForIndividualUsers": "Pasgemaakte toegang vir individuele gebruikers"
+	},
+	"verb": {
+		"Can": "blikkie",
+		"CanSee": "kan sien"
 	}
 }

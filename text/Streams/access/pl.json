@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "widoczny dla",
 		"write": "edytowalne przez",
-		"admin": "cz\u0142onkowie"
+		"admin": "cz\u0142onkowie",
+		"Read": "widoczny dla",
+		"Write": "edytowalne przez",
+		"Admin": "cz\u0142onkowie"
+	},
+	"who": {
+		"TheGeneralPublic": "Og\u00f3\u0142 spo\u0142ecze\u0144stwa",
+		"GrantAdditionalAccessTo": "Udziel dodatkowego dost\u0119pu do",
+		"CustomAccessForIndividualUsers": "Dost\u0119p niestandardowy dla poszczeg\u00f3lnych u\u017cytkownik\u00f3w"
+	},
+	"verb": {
+		"Can": "M\u00f3c",
+		"CanSee": "mo\u017cna zobaczy\u0107"
 	}
 }

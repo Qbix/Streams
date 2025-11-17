@@ -18,9 +18,9 @@
 <div class="Streams_access_controls Q_tabbed">
 	<div class="Streams_access_controls_item Streams_access_general">
 		<?php if ($tab === 'read'): ?>
-			<div class="Streams_access_controls_caption">The general public can see</div>
+			<div class="Streams_access_controls_caption"><?= $who['TheGeneralPublic']?> <?= $verb['CanSee'] ?></div>
 		<?php else: ?>
-			<div class="Streams_access_controls_caption">The general public can</div>
+			<div class="Streams_access_controls_caption"><?= $who['TheGeneralPublic']?> <?= $verb['Can'] ?></div>
 		<?php endif; ?>
 		<div class="Streams_access_controls_config">
 			<select name="levelForEveryone" class="Streams_access_levelForEveryone">
@@ -32,7 +32,7 @@
 	<?php if (count($labels) != 0): ?>
 	<div class="Streams_access_controls_section">
 		<div class="Streams_access_controls_item Streams_access_by_label">
-		<div class="Streams_access_controls_caption">Grant additional access to</div>
+		<div class="Streams_access_controls_caption"><?= $who['GrantAdditionalAccessTo'] ?></div>
 		<div class="Streams_access_controls_config">
 			<select name="levelAddLabel" class="Streams_access_levelAddLabel">
 				<?php echo Q_Html::options($labels, '', null, true) ?>
@@ -47,7 +47,7 @@
 	<?php endif ?>
 
 	<div class="Streams_access_controls_section Streams_access_by_user">
-		<div class="Streams_access_controls_scaption">Custom access for individual users:</div>
+		<div class="Streams_access_controls_scaption"><?= $who['CustomAccessForIndividualUsers'] ?>:</div>
 		<div class="Streams_access_controls_sconfig">
 			<?php echo Q::tool('Streams/userChooser') ?>
 		</div>

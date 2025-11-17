@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "n\u00e4kyviss\u00e4",
 		"write": "muokattavissa",
-		"admin": "j\u00e4senet"
+		"admin": "j\u00e4senet",
+		"Read": "n\u00e4kyviss\u00e4",
+		"Write": "muokattavissa",
+		"Admin": "j\u00e4senet"
+	},
+	"who": {
+		"TheGeneralPublic": "Suuri yleis\u00f6",
+		"GrantAdditionalAccessTo": "My\u00f6nn\u00e4 lis\u00e4k\u00e4ytt\u00f6oikeudet",
+		"CustomAccessForIndividualUsers": "Yksitt\u00e4isten k\u00e4ytt\u00e4jien mukautetut k\u00e4ytt\u00f6oikeudet"
+	},
+	"verb": {
+		"Can": "t\u00f6lkki",
+		"CanSee": "voi n\u00e4hd\u00e4"
 	}
 }

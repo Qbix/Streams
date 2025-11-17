@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "nakikita ng",
 		"write": "nae-edit ni",
-		"admin": "mga miyembro"
+		"admin": "mga miyembro",
+		"Read": "nakikita sa",
+		"Write": "nae-edit ni",
+		"Admin": "mga miyembro"
+	},
+	"who": {
+		"TheGeneralPublic": "Ang pangkalahatang publiko",
+		"GrantAdditionalAccessTo": "Magbigay ng karagdagang access sa",
+		"CustomAccessForIndividualUsers": "Custom na access para sa mga indibidwal na user"
+	},
+	"verb": {
+		"Can": "pwede",
+		"CanSee": "makikita"
 	}
 }

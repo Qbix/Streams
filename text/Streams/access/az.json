@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "\u00fc\u00e7\u00fcn g\u00f6r\u00fcn\u00fcr",
 		"write": "t\u0259r\u0259find\u0259n redakt\u0259 edil\u0259 bil\u0259r",
-		"admin": "\u00fczvl\u0259ri"
+		"admin": "\u00fczvl\u0259ri",
+		"Read": "\u00fc\u00e7\u00fcn g\u00f6r\u00fcn\u00fcr",
+		"Write": "t\u0259r\u0259find\u0259n redakt\u0259 edil\u0259 bil\u0259r",
+		"Admin": "\u00fczvl\u0259ri"
+	},
+	"who": {
+		"TheGeneralPublic": "\u00dcmumi ictimaiyy\u0259t",
+		"GrantAdditionalAccessTo": "\u018flav\u0259 giri\u015f icaz\u0259si verin",
+		"CustomAccessForIndividualUsers": "F\u0259rdi istifad\u0259\u00e7il\u0259r \u00fc\u00e7\u00fcn f\u0259rdi giri\u015f"
+	},
+	"verb": {
+		"Can": "bil\u0259r",
+		"CanSee": "g\u00f6r\u0259 bil\u0259r"
 	}
 }

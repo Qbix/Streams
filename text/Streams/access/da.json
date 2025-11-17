@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "synlig for",
 		"write": "redigerbar af",
-		"admin": "medlemmer"
+		"admin": "medlemmer",
+		"Read": "synlig for",
+		"Write": "redigerbar af",
+		"Admin": "medlemmer"
+	},
+	"who": {
+		"TheGeneralPublic": "Den brede offentlighed",
+		"GrantAdditionalAccessTo": "Giv yderligere adgang til",
+		"CustomAccessForIndividualUsers": "Tilpasset adgang for individuelle brugere"
+	},
+	"verb": {
+		"Can": "kan",
+		"CanSee": "kan se"
 	}
 }

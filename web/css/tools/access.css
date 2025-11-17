@@ -20,6 +20,7 @@
 .Streams_access_tool .Q_tabs_tabs li.Q_tabs_tab a div{
 	display: flex;
     align-items: center;
+    text-transform: capitalize;
 }
 .Streams_access_tool .Q_tabbed {
 	border:0;

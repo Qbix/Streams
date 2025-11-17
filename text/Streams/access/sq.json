@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "i duksh\u00ebm p\u00ebr",
 		"write": "i modifikuesh\u00ebm nga",
-		"admin": "an\u00ebtar\u00eb"
+		"admin": "an\u00ebtar\u00eb",
+		"Read": "i duksh\u00ebm p\u00ebr",
+		"Write": "i modifikuesh\u00ebm nga",
+		"Admin": "an\u00ebtar\u00eb"
+	},
+	"who": {
+		"TheGeneralPublic": "Publiku i gjer\u00eb",
+		"GrantAdditionalAccessTo": "Jepni akses shtes\u00eb p\u00ebr",
+		"CustomAccessForIndividualUsers": "Qasje e personalizuar p\u00ebr p\u00ebrdoruesit individual\u00eb"
+	},
+	"verb": {
+		"Can": "mund",
+		"CanSee": "mund t\u00eb shoh"
 	}
 }

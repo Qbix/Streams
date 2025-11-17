@@ -125,7 +125,10 @@
 		},
 		"text": {
 			"Streams": {
-				"*": ["Streams/content"]
+				"*": ["Streams/content"],
+				"tool": {
+					"access.php": ["Streams/content", "Streams/access"]
+				}
 			}
 		},
 		"urls": {

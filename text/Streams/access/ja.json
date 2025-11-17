@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "\u898b\u3048\u308b\u7bc4\u56f2",
 		"write": "\u7de8\u96c6\u53ef\u80fd",
-		"admin": "\u30e1\u30f3\u30d0\u30fc"
+		"admin": "\u30e1\u30f3\u30d0\u30fc",
+		"Read": "\u898b\u3048\u308b\u7bc4\u56f2",
+		"Write": "\u7de8\u96c6\u53ef\u80fd",
+		"Admin": "\u30e1\u30f3\u30d0\u30fc"
+	},
+	"who": {
+		"TheGeneralPublic": "\u4e00\u822c\u5927\u8846",
+		"GrantAdditionalAccessTo": "\u8ffd\u52a0\u306e\u30a2\u30af\u30bb\u30b9\u3092\u8a31\u53ef\u3059\u308b",
+		"CustomAccessForIndividualUsers": "\u500b\u3005\u306e\u30e6\u30fc\u30b6\u30fc\u5411\u3051\u306e\u30ab\u30b9\u30bf\u30e0\u30a2\u30af\u30bb\u30b9"
+	},
+	"verb": {
+		"Can": "\u3067\u304d\u308b",
+		"CanSee": "\u898b\u308b\u3053\u3068\u304c\u3067\u304d\u308b"
 	}
 }

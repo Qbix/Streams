@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "visible para",
 		"write": "editable por",
-		"admin": "membros"
+		"admin": "membros",
+		"Read": "visible para",
+		"Write": "editable por",
+		"Admin": "membros"
+	},
+	"who": {
+		"TheGeneralPublic": "O p\u00fablico en xeral",
+		"GrantAdditionalAccessTo": "Conceder acceso adicional a",
+		"CustomAccessForIndividualUsers": "Acceso personalizado para usuarios individuais"
+	},
+	"verb": {
+		"Can": "pode",
+		"CanSee": "pode ver"
 	}
 }

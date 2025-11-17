@@ -823,7 +823,10 @@ Q.Tool.define({
 		css: "{{Streams}}/css/tools/participants.css"
 	},
 	"Streams/basic"		: "{{Streams}}/js/tools/basic.js",
-	"Streams/access"	   : "{{Streams}}/js/tools/access.js",
+	"Streams/access"	   : {
+		js: "{{Streams}}/js/tools/access.js",
+		text: ["Streams/access"]
+	},
 	"Streams/subscription" : "{{Streams}}/js/tools/subscription.js",
 	"Streams/interests"	: "{{Streams}}/js/tools/interests.js",
 	"Streams/lookup"	   : "{{Streams}}/js/tools/lookup.js",

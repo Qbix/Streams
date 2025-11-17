@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "synlig f\u00f6r",
 		"write": "redigerbar av",
-		"admin": "medlemmar"
+		"admin": "medlemmar",
+		"Read": "synlig f\u00f6r",
+		"Write": "redigerbar av",
+		"Admin": "medlemmar"
+	},
+	"who": {
+		"TheGeneralPublic": "Allm\u00e4nheten",
+		"GrantAdditionalAccessTo": "Bevilja ytterligare \u00e5tkomst till",
+		"CustomAccessForIndividualUsers": "Anpassad \u00e5tkomst f\u00f6r enskilda anv\u00e4ndare"
+	},
+	"verb": {
+		"Can": "burk",
+		"CanSee": "kan se"
 	}
 }

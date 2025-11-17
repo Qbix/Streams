@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "vidite\u013en\u00e9 pre",
 		"write": "upravite\u013en\u00e9 pou\u017e\u00edvate\u013eom",
-		"admin": "\u010dlenovia"
+		"admin": "\u010dlenovia",
+		"Read": "vidite\u013en\u00e9 pre",
+		"Write": "upravite\u013en\u00e9 pou\u017e\u00edvate\u013eom",
+		"Admin": "\u010dlenovia"
+	},
+	"who": {
+		"TheGeneralPublic": "\u0160irok\u00e1 verejnos\u0165",
+		"GrantAdditionalAccessTo": "Udeli\u0165 dodato\u010dn\u00fd pr\u00edstup k",
+		"CustomAccessForIndividualUsers": "Prisp\u00f4soben\u00fd pr\u00edstup pre jednotliv\u00fdch pou\u017e\u00edvate\u013eov"
+	},
+	"verb": {
+		"Can": "m\u00f4\u017ee",
+		"CanSee": "m\u00f4\u017eem vidie\u0165"
 	}
 }

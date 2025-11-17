@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "n\u00e4htav",
 		"write": "muudetav",
-		"admin": "liikmed"
+		"admin": "liikmed",
+		"Read": "n\u00e4htav",
+		"Write": "muudetav",
+		"Admin": "liikmed"
+	},
+	"who": {
+		"TheGeneralPublic": "\u00dcldsus",
+		"GrantAdditionalAccessTo": "Andke t\u00e4iendav juurdep\u00e4\u00e4s",
+		"CustomAccessForIndividualUsers": "Kohandatud juurdep\u00e4\u00e4s iga kasutaja jaoks"
+	},
+	"verb": {
+		"Can": "purk",
+		"CanSee": "n\u00e4en"
 	}
 }

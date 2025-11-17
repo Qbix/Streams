@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "zichtbaar voor",
 		"write": "bewerkbaar door",
-		"admin": "leden"
+		"admin": "leden",
+		"Read": "zichtbaar voor",
+		"Write": "bewerkbaar door",
+		"Admin": "leden"
+	},
+	"who": {
+		"TheGeneralPublic": "Het grote publiek",
+		"GrantAdditionalAccessTo": "Geef extra toegang tot",
+		"CustomAccessForIndividualUsers": "Aangepaste toegang voor individuele gebruikers"
+	},
+	"verb": {
+		"Can": "kan",
+		"CanSee": "kan zien"
 	}
 }

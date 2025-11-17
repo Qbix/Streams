@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "le feice\u00e1il ag",
 		"write": "in-eagarth\u00f3ireacht d\u00e9anta ag",
-		"admin": "baill"
+		"admin": "baill",
+		"Read": "le feice\u00e1il ag",
+		"Write": "in-eagarth\u00f3ireacht d\u00e9anta ag",
+		"Admin": "baill"
+	},
+	"who": {
+		"TheGeneralPublic": "An pobal i gcoitinne",
+		"GrantAdditionalAccessTo": "Deonaigh rochtain bhreise do",
+		"CustomAccessForIndividualUsers": "Rochtain saincheaptha d&#39;\u00fas\u00e1ideoir\u00ed aonair"
+	},
+	"verb": {
+		"Can": "is f\u00e9idir",
+		"CanSee": "is f\u00e9idir a fheice\u00e1il"
 	}
 }

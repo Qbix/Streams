@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "yn weladwy i",
 		"write": "gellir ei olygu gan",
-		"admin": "aelodau"
+		"admin": "aelodau",
+		"Read": "yn weladwy i",
+		"Write": "gellir ei olygu gan",
+		"Admin": "aelodau"
+	},
+	"who": {
+		"TheGeneralPublic": "Y cyhoedd yn gyffredinol",
+		"GrantAdditionalAccessTo": "Rhoi mynediad ychwanegol i",
+		"CustomAccessForIndividualUsers": "Mynediad personol ar gyfer defnyddwyr unigol"
+	},
+	"verb": {
+		"Can": "gall",
+		"CanSee": "gall weld"
 	}
 }

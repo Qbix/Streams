@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "ikusgai",
 		"write": "editagarria hemendik aurrera",
-		"admin": "kideak"
+		"admin": "kideak",
+		"Read": "ikusgai",
+		"Write": "editagarria hemendik aurrera",
+		"Admin": "kideak"
+	},
+	"who": {
+		"TheGeneralPublic": "Publiko orokorra",
+		"GrantAdditionalAccessTo": "Eman sarbide gehigarria",
+		"CustomAccessForIndividualUsers": "Erabiltzaile bakoitzarentzako sarbide pertsonalizatua"
+	},
+	"verb": {
+		"Can": "ahal",
+		"CanSee": "ikus dezake"
 	}
 }

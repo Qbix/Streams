@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "viditeln\u00e9 pro",
 		"write": "upraviteln\u00e9 u\u017eivatelem",
-		"admin": "\u010dlenov\u00e9"
+		"admin": "\u010dlenov\u00e9",
+		"Read": "viditeln\u00e9 pro",
+		"Write": "upraviteln\u00e9 u\u017eivatelem",
+		"Admin": "\u010dlenov\u00e9"
+	},
+	"who": {
+		"TheGeneralPublic": "\u0160irok\u00e1 ve\u0159ejnost",
+		"GrantAdditionalAccessTo": "Ud\u011blit dal\u0161\u00ed p\u0159\u00edstup k",
+		"CustomAccessForIndividualUsers": "P\u0159izp\u016fsoben\u00fd p\u0159\u00edstup pro jednotliv\u00e9 u\u017eivatele"
+	},
+	"verb": {
+		"Can": "m\u016f\u017ee",
+		"CanSee": "m\u016f\u017ee vid\u011bt"
 	}
 }

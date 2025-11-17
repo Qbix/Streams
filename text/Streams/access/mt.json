@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "vi\u017cibbli g\u0127al",
 		"write": "editjabbli minn",
-		"admin": "membri"
+		"admin": "membri",
+		"Read": "vi\u017cibbli g\u0127al",
+		"Write": "editjabbli minn",
+		"Admin": "membri"
+	},
+	"who": {
+		"TheGeneralPublic": "Il-pubbliku \u0121enerali",
+		"GrantAdditionalAccessTo": "Ag\u0127ti a\u010b\u010bess addizzjonali lil",
+		"CustomAccessForIndividualUsers": "A\u010b\u010bess personalizzat g\u0127al utenti individwali"
+	},
+	"verb": {
+		"Can": "jista&#39;",
+		"CanSee": "nista&#39; nara"
 	}
 }

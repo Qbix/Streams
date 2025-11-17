@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "terlihat oleh",
 		"write": "dapat diedit oleh",
-		"admin": "anggota"
+		"admin": "anggota",
+		"Read": "terlihat oleh",
+		"Write": "dapat diedit oleh",
+		"Admin": "anggota"
+	},
+	"who": {
+		"TheGeneralPublic": "Masyarakat umum",
+		"GrantAdditionalAccessTo": "Berikan akses tambahan ke",
+		"CustomAccessForIndividualUsers": "Akses khusus untuk pengguna individu"
+	},
+	"verb": {
+		"Can": "Bisa",
+		"CanSee": "bisa melihat"
 	}
 }

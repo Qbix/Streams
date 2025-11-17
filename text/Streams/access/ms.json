@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "kelihatan kepada",
 		"write": "boleh disunting oleh",
-		"admin": "ahli"
+		"admin": "ahli",
+		"Read": "kelihatan kepada",
+		"Write": "boleh disunting oleh",
+		"Admin": "ahli"
+	},
+	"who": {
+		"TheGeneralPublic": "Orang awam",
+		"GrantAdditionalAccessTo": "Berikan akses tambahan kepada",
+		"CustomAccessForIndividualUsers": "Akses tersuai untuk pengguna individu"
+	},
+	"verb": {
+		"Can": "boleh",
+		"CanSee": "boleh nampak"
 	}
 }

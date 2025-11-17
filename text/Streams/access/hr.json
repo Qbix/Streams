@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "vidljivo",
 		"write": "mo\u017ee ure\u0111ivati",
-		"admin": "\u010dlanovi"
+		"admin": "\u010dlanovi",
+		"Read": "vidljivo",
+		"Write": "mo\u017ee ure\u0111ivati",
+		"Admin": "\u010dlanovi"
+	},
+	"who": {
+		"TheGeneralPublic": "\u0160ira javnost",
+		"GrantAdditionalAccessTo": "Omogu\u0107ite dodatni pristup",
+		"CustomAccessForIndividualUsers": "Prilago\u0111eni pristup za pojedina\u010dne korisnike"
+	},
+	"verb": {
+		"Can": "mo\u017ee",
+		"CanSee": "mogu vidjeti"
 	}
 }

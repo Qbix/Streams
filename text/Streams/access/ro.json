@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "vizibil pentru",
 		"write": "editabil de",
-		"admin": "membri"
+		"admin": "membri",
+		"Read": "vizibil pentru",
+		"Write": "editabil de",
+		"Admin": "membri"
+	},
+	"who": {
+		"TheGeneralPublic": "Publicul larg",
+		"GrantAdditionalAccessTo": "Acorda\u021bi acces suplimentar la",
+		"CustomAccessForIndividualUsers": "Acces personalizat pentru utilizatori individuali"
+	},
+	"verb": {
+		"Can": "poate",
+		"CanSee": "pot vedea"
 	}
 }

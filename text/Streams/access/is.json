@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "s\u00fdnilegt fyrir",
 		"write": "breytanlegt af",
-		"admin": "me\u00f0limir"
+		"admin": "me\u00f0limir",
+		"Read": "s\u00fdnilegt fyrir",
+		"Write": "breytanlegt af",
+		"Admin": "me\u00f0limir"
+	},
+	"who": {
+		"TheGeneralPublic": "Almenningur",
+		"GrantAdditionalAccessTo": "Veita vi\u00f0b\u00f3tara\u00f0gang a\u00f0",
+		"CustomAccessForIndividualUsers": "S\u00e9rsni\u00f0inn a\u00f0gangur fyrir einstaka notendur"
+	},
+	"verb": {
+		"Can": "getur",
+		"CanSee": "getur s\u00e9\u00f0"
 	}
 }

@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "vidno",
 		"write": "urejanje s strani",
-		"admin": "\u010dlani"
+		"admin": "\u010dlani",
+		"Read": "vidno",
+		"Write": "urejanje s strani",
+		"Admin": "\u010dlani"
+	},
+	"who": {
+		"TheGeneralPublic": "\u0160ir\u0161a javnost",
+		"GrantAdditionalAccessTo": "Omogo\u010dite dodaten dostop do",
+		"CustomAccessForIndividualUsers": "Prilagojen dostop za posamezne uporabnike"
+	},
+	"verb": {
+		"Can": "lahko",
+		"CanSee": "lahko vidi"
 	}
 }

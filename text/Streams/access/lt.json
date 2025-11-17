@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "matomas",
 		"write": "redaguojamas",
-		"admin": "nariai"
+		"admin": "nariai",
+		"Read": "matomas",
+		"Write": "redaguojamas",
+		"Admin": "nariai"
+	},
+	"who": {
+		"TheGeneralPublic": "Pla\u010dioji visuomen\u0117",
+		"GrantAdditionalAccessTo": "Suteikti papildom\u0105 prieig\u0105",
+		"CustomAccessForIndividualUsers": "Individuali\u0173 vartotoj\u0173 pritaikyta prieiga"
+	},
+	"verb": {
+		"Can": "skardin\u0117",
+		"CanSee": "galiu matyti"
 	}
 }

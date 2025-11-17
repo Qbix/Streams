@@ -1,8 +1,17 @@
 {
 	"tabs": {
-		"read": "visible to",
-		"write": "editable by",
-		"admin": "members"
+		"Read": "visible to",
+		"Write": "editable by",
+		"Admin": "members"
+	},
+	"who": {
+		"TheGeneralPublic": "The general public",
+		"GrantAdditionalAccessTo": "Grant additional access to",
+		"CustomAccessForIndividualUsers": "Custom access for individual users"
+	},
+	"verb": {
+		"Can": "can",
+		"CanSee": "can see"
 	},
 	"readLevelOptions": {
 		"0": "nothing about it",

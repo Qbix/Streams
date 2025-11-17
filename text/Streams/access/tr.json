@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "g\u00f6r\u00fcn\u00fcr",
 		"write": "taraf\u0131ndan d\u00fczenlenebilir",
-		"admin": "\u00fcyeler"
+		"admin": "\u00fcyeler",
+		"Read": "g\u00f6r\u00fcn\u00fcr",
+		"Write": "taraf\u0131ndan d\u00fczenlenebilir",
+		"Admin": "\u00fcyeler"
+	},
+	"who": {
+		"TheGeneralPublic": "Genel halk",
+		"GrantAdditionalAccessTo": "Ek eri\u015fim izni verin",
+		"CustomAccessForIndividualUsers": "Bireysel kullan\u0131c\u0131lar i\u00e7in \u00f6zel eri\u015fim"
+	},
+	"verb": {
+		"Can": "olabilmek",
+		"CanSee": "g\u00f6rebiliyorum"
 	}
 }

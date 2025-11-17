@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "l\u00e1that\u00f3",
 		"write": "szerkeszthet\u0151 \u00e1ltal",
-		"admin": "tagok"
+		"admin": "tagok",
+		"Read": "l\u00e1that\u00f3",
+		"Write": "szerkeszthet\u0151 \u00e1ltal",
+		"Admin": "tagok"
+	},
+	"who": {
+		"TheGeneralPublic": "A nagyk\u00f6z\u00f6ns\u00e9g",
+		"GrantAdditionalAccessTo": "Tov\u00e1bbi hozz\u00e1f\u00e9r\u00e9s biztos\u00edt\u00e1sa",
+		"CustomAccessForIndividualUsers": "Egy\u00e9ni hozz\u00e1f\u00e9r\u00e9s az egyes felhaszn\u00e1l\u00f3k sz\u00e1m\u00e1ra"
+	},
+	"verb": {
+		"Can": "tud",
+		"CanSee": "l\u00e1thatom"
 	}
 }

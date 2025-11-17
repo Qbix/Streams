@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "inayoonekana kwa",
 		"write": "kuhaririwa na",
-		"admin": "wanachama"
+		"admin": "wanachama",
+		"Read": "inayoonekana kwa",
+		"Write": "kuhaririwa na",
+		"Admin": "wanachama"
+	},
+	"who": {
+		"TheGeneralPublic": "Umma kwa ujumla",
+		"GrantAdditionalAccessTo": "Ruhusu ufikiaji wa ziada kwa",
+		"CustomAccessForIndividualUsers": "Ufikiaji maalum kwa watumiaji binafsi"
+	},
+	"verb": {
+		"Can": "unaweza",
+		"CanSee": "unaweza kuona"
 	}
 }

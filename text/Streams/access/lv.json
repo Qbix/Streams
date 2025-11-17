@@ -22,6 +22,18 @@
 	"tabs": {
 		"read": "redzams",
 		"write": "redi\u0123\u0113jams ar",
-		"admin": "biedri"
+		"admin": "biedri",
+		"Read": "redzams",
+		"Write": "redi\u0123\u0113jams ar",
+		"Admin": "biedri"
+	},
+	"who": {
+		"TheGeneralPublic": "Pla\u0161ai sabiedr\u012bbai",
+		"GrantAdditionalAccessTo": "Pie\u0161\u0137irt papildu piek\u013cuvi",
+		"CustomAccessForIndividualUsers": "Piel\u0101gota piek\u013cuve atsevi\u0161\u0137iem lietot\u0101jiem"
+	},
+	"verb": {
+		"Can": "kanna",
+		"CanSee": "var redz\u0113t"
 	}
 }
