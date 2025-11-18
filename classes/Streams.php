@@ -1784,12 +1784,12 @@ abstract class Streams extends Base_Streams
 	 *   @param {boolean} [$options.escape] If true, does HTML escaping of the retrieved field
 	 *   @param {string} [$options.asUserId=Users::loggedInUser()] Optionally override which user to get the display name as
 	 *   @param {string} [$options.fullAccess=false] if true, sets the $asUserId = $userId
-	 * @param {string} [$fallback='Someone'] HTML to return if there is no info to get displayName from.
-	 * @param {string|null} [$fallback='Someone']
-	 *  What to return if there is no info to get displayName from.
-	 * @return {string|null}
+	 *   @param {array|string} [$options.fallback] HTML to return if there is no info to get displayName from.
+	 *     You can set it to an array of (textName, pathArray) to be used with Q::interpolate(),
+	 *     or pass a string here, including "" if you want an empty string.
+	 * @return {string}
 	 */
-	static function displayName($userId, $options = array(), $fallback = 'Someone')
+	static function displayName($userId, $options = array())
 	{
 		if ($userId instanceof Users_User) {
 			$userId = $userId->id;
@@ -1802,9 +1802,12 @@ abstract class Streams extends Base_Streams
 			$asUser = Users::loggedInUser();
 			$asUserId = $asUser ? $asUser->id : "";
 		}
+		$fallback = Q::ifset($options, 'fallback', array(
+			'Streams/content', array('avatar', 'Someone')
+		));
 		$avatar = Streams_Avatar::fetch($asUserId, $userId);
 		if ($avatar) {
-			return $avatar->displayName($options, $fallback);
+			return $avatar->displayName($options, Q::interpolate($fallback));
 		}
 
 		$displayName = array();
@@ -3812,7 +3815,7 @@ abstract class Streams extends Base_Streams
 		if ($token = Q::ifset($_SESSION, 'Streams', 'invite', 'token', null)) {
 			if ($invite = Streams_Invite::fromToken($token)) {
 				foreach ($streams5 as $s) {
-					Streams_Stream::handleReferral($user->id, $invite->publisherId, $s->type, $invite->invitingUserId);
+					Users_Referred::handleReferral($asUserId, $invite->publisherId, $s->type, $invite->invitingUserId);
 				}
 			}
 		}
@@ -4281,7 +4284,7 @@ abstract class Streams extends Base_Streams
 			}
 
 			$assign = Q::ifset($options, 'assign', array());
-			if ($assign) {
+			if ($assign and count($raw_userIds) == 1) {
 				// SECURITY: anyone inviting this user can set the initial fields to anything
 				try {
 					Streams_Internal::updateBasicStreams($userId, $assign);
