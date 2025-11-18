@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "etunimi",
 		"lastName": "sukunimi",
-		"username": "k\u00e4ytt\u00e4j\u00e4tunnus"
+		"username": "k\u00e4ytt\u00e4j\u00e4tunnus",
+		"Someone": "Joku"
 	},
 	"labels": {
 		"Streams/invited": "Kutsumani ihmiset",

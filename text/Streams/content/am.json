@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "\u12e8\u1218\u1300\u1218\u122a\u12eb \u1235\u121d",
 		"lastName": "\u12e8\u12a0\u12eb\u1275 \u1235\u121d",
-		"username": "\u12e8\u1270\u1320\u1243\u121a \u1235\u121d"
+		"username": "\u12e8\u1270\u1320\u1243\u121a \u1235\u121d",
+		"Someone": "\u12a0\u1295\u12f5 \u1230\u12cd"
 	},
 	"labels": {
 		"Streams/invited": "\u12e8\u130b\u1260\u12dd\u12b3\u1278\u12cd \u1230\u12ce\u127d",

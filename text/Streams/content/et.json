@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "eesnimi",
 		"lastName": "perekonnanimi",
-		"username": "kasutajanimi"
+		"username": "kasutajanimi",
+		"Someone": "Keegi"
 	},
 	"labels": {
 		"Streams/invited": "Inimesed, keda kutsusin",

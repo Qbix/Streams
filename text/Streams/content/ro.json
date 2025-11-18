@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "Nume",
 		"lastName": "nume",
-		"username": "nume de utilizator"
+		"username": "nume de utilizator",
+		"Someone": "Cineva"
 	},
 	"labels": {
 		"Streams/invited": "Oamenii pe care i-am invitat",

@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "\uc774\ub984",
 		"lastName": "\uc131",
-		"username": "\uc0ac\uc6a9\uc790 \uc774\ub984"
+		"username": "\uc0ac\uc6a9\uc790 \uc774\ub984",
+		"Someone": "\ub204\uad6c"
 	},
 	"labels": {
 		"Streams/invited": "\ub0b4\uac00 \ucd08\ub300\ud55c \uc0ac\ub78c\ub4e4",

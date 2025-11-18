@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "fyrsta nafn",
 		"lastName": "eftirnafn",
-		"username": "notendanafn"
+		"username": "notendanafn",
+		"Someone": "Einhver"
 	},
 	"labels": {
 		"Streams/invited": "F\u00f3lki sem \u00e9g bau\u00f0",

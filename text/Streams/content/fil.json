@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "pangalan",
 		"lastName": "huling pangalan",
-		"username": "username"
+		"username": "username",
+		"Someone": "isang tao"
 	},
 	"labels": {
 		"Streams/invited": "Mga taong inimbitahan ko",

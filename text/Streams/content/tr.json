@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "ilk ad\u0131",
 		"lastName": "soy isim",
-		"username": "Kullan\u0131c\u0131 ad\u0131"
+		"username": "Kullan\u0131c\u0131 ad\u0131",
+		"Someone": "Birisi"
 	},
 	"labels": {
 		"Streams/invited": "Davet etti\u011fim ki\u015filer",

@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "nombre de pila",
 		"lastName": "apellido",
-		"username": "nombre de usuario"
+		"username": "nombre de usuario",
+		"Someone": "Alguien"
 	},
 	"labels": {
 		"Streams/invited": "Personas a las que invit\u00e9",

@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "nama depan",
 		"lastName": "nama keluarga",
-		"username": "nama belakang"
+		"username": "nama belakang",
+		"Someone": "Seseorang"
 	},
 	"labels": {
 		"Streams/invited": "Orang yang saya undang",

@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "Pirmas vardas",
 		"lastName": "pavard\u0117",
-		"username": "Vartotojo vardas"
+		"username": "Vartotojo vardas",
+		"Someone": "Ka\u017ekas"
 	},
 	"labels": {
 		"Streams/invited": "\u017dmon\u0117s, kuriuos pakvie\u010diau",

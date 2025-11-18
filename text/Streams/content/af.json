@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "eerste naam",
 		"lastName": "van",
-		"username": "gebruikernaam"
+		"username": "gebruikernaam",
+		"Someone": "Iemand"
 	},
 	"labels": {
 		"Streams/invited": "Mense wat ek genooi het",

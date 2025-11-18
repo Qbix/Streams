@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "f\u00f6rnamn",
 		"lastName": "efternamn",
-		"username": "Anv\u00e4ndarnamn"
+		"username": "Anv\u00e4ndarnamn",
+		"Someone": "N\u00e5gon"
 	},
 	"labels": {
 		"Streams/invited": "M\u00e4nniskor jag bjudit in",

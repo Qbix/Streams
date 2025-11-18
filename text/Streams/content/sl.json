@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "ime",
 		"lastName": "priimek",
-		"username": "uporabni\u0161ko ime"
+		"username": "uporabni\u0161ko ime",
+		"Someone": "Nekdo"
 	},
 	"labels": {
 		"Streams/invited": "Ljudje, ki sem jih povabil",

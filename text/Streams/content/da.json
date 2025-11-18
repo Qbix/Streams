@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "fornavn",
 		"lastName": "efternavn",
-		"username": "brugernavn"
+		"username": "brugernavn",
+		"Someone": "Nogen"
 	},
 	"labels": {
 		"Streams/invited": "Folk jeg inviterede",

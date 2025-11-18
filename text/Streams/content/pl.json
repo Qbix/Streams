@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "imi\u0119",
 		"lastName": "nazwisko",
-		"username": "nazwa u\u017cytkownika"
+		"username": "nazwa u\u017cytkownika",
+		"Someone": "Kto\u015b"
 	},
 	"labels": {
 		"Streams/invited": "Osoby, kt\u00f3re zaprosi\u0142em",

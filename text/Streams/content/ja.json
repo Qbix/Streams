@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "\u30d5\u30a1\u30fc\u30b9\u30c8\u30cd\u30fc\u30e0",
 		"lastName": "\u82d7\u5b57",
-		"username": "\u30e6\u30fc\u30b6\u30fc\u540d"
+		"username": "\u30e6\u30fc\u30b6\u30fc\u540d",
+		"Someone": "\u8ab0\u304b"
 	},
 	"labels": {
 		"Streams/invited": "\u79c1\u304c\u62db\u5f85\u3057\u305f\u4eba\u3005",

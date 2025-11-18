@@ -11,7 +11,8 @@
 	"avatar": {
 		"firstName": "nom",
 		"lastName": "cognom",
-		"username": "nom d&#39;usuari"
+		"username": "nom d&#39;usuari",
+		"Someone": "Alg\u00fa"
 	},
 	"labels": {
 		"Streams/invited": "Gent que vaig convidar",
