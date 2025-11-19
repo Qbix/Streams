@@ -261,6 +261,7 @@ function Streams_after_Users_User_saveExecute($params)
 
 	if ($modifiedFields) {
 		if ($updates) {
+			// public fields
 			Streams_Avatar::update()
 				->set($updates)
 				->where(array('publisherId' => $user->id))

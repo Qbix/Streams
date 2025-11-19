@@ -210,7 +210,7 @@ class Streams_Message extends Base_Streams_Message
 						$message['byClientId'] = $clientId ? substr($clientId, 0, 255) : '';
 					}
 					if (is_array($instructions)) {
-						$instructions = Q::json_encode($instructions);
+						$instructions = Q::json_encode($instructions, Q::JSON_FORCE_OBJECT);
 					}
 					$byClientId = $message['byClientId'];
 					$stream = $fetched[$streamName];
@@ -410,7 +410,7 @@ class Streams_Message extends Base_Streams_Message
 	{
 		$instr = $this->getAllInstructions();
 		$instr[$instructionName] = $value;
-		$this->instructions = Q::json_encode($instr);
+		$this->instructions = Q::json_encode($instr, Q::JSON_FORCE_OBJECT);
 
 		return $this;
 	}
@@ -423,7 +423,7 @@ class Streams_Message extends Base_Streams_Message
 	{
 		$instr = $this->getAllInstructions();
 		unset($instr[$instructionName]);
-		$this->instructions = Q::json_encode($instr);
+		$this->instructions = Q::json_encode($instr, Q::JSON_FORCE_OBJECT);
 	}
 	
 	/* * * */
