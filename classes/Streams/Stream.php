@@ -279,11 +279,12 @@ class Streams_Stream extends Base_Streams_Stream
 				'result' => &$relateResult
 			)
 		);
-		$stream->calculateAccess();
-		$commit->execute(null, $commit->shard(null, $criteria));
 		if (!$stream) {
+			$commit->execute(null, $commit->shard(null, $criteria));
 			return null;
 		}
+		$stream->calculateAccess();
+		$commit->execute(null, $commit->shard(null, $criteria));
 		if (is_array($results)) {
 			$results['related'] = $relateResult;
 		}
