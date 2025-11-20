@@ -23,6 +23,12 @@
 		"writeLevel": 0,
 		"adminLevel": 0
 	},
+	"Streams/greeting/{{communityId}}": {
+		"type": "Streams/greeting",
+		"title": "Greeting",
+		"icon": "",
+		"updateIfEmpty": true
+	},
 	"Streams/invited": {
 		"type": "Streams/invited",
 		"title": "Invited",
@@ -101,7 +107,8 @@
 				" ",
 				0
 			]
-		}
+		},
+		"updateIfEmpty": true
 	},
 	"Streams/user/middleName": {
 		"type": "Streams/text/name",
@@ -117,7 +124,8 @@
 				" ",
 				1
 			]
-		}
+		},
+		"updateIfEmpty": true
 	},
 	"Streams/user/lastName": {
 		"type": "Streams/text/name",
@@ -128,7 +136,8 @@
 		"adminLevel": 20,
 		"platforms": {
 			"facebook": "last_name"
-		}
+		},
+		"updateIfEmpty": true
 	},
 	"Streams/user/emailAddress": {
 		"type": "Streams/text/emailAddress",

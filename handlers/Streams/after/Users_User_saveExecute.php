@@ -139,14 +139,19 @@ function Streams_after_Users_User_saveExecute($params)
 	$rows = Streams_Stream::select('name')->where(array(
 		'publisherId' => $user->id,
 		'name' => $toInsert
-	))->ignoreCache()->fetchAll(PDO::FETCH_ASSOC);
+	))->ignoreCache()->fetchDbRows();
 	$existing = array();
 	foreach ($rows as $row) {
-		$existing[$row['name']] = true;
+		$existing[$row['name']] = $row;
 	}
 	$toCreate = array();
 	foreach ($toInsert as $name) {
-		if (!empty($existing[$name])) {
+		if (!empty($existing[$name]) and $p->get($name, 'updateIfEmpty', false)) {
+			// can set firstName, lastName, icon, greeting, etc.
+			if (empty($existing[$name]->content) and $values[$name]) {
+				$existing[$name]->content = $values[$name];
+				$existing[$name]->changed($user->id);
+			}
 			continue;
 		}
 
@@ -200,15 +205,14 @@ function Streams_after_Users_User_saveExecute($params)
 	Streams::subscribe($user->id, $user->id, $streamsToSubscribe, array('skipAccess' => true));
 	Q_Utils::garbageCollect();
 	
-	if ($params['inserted']) {
-		
-		// Save a greeting stream, to be edited
-		$communityId = Users::communityId();
-		$name = "Streams/greeting/$communityId";
-		$stream = Streams_Stream::fetch($user->id, $user->id, $name, array('dontCache' => true));
+	$communityId = Users::communityId();
+	$name = "Streams/greeting/$communityId";
 
-		if (!$stream) {
-			Streams::create($user->id, $user->id, "Streams/greeting", @compact('name'));
+	if ($params['inserted']) {
+		$greeting = Streams_Stream::fetchOrCreate($user->id, $user->id, $name, array('dontCache' => true), $results);
+		if ($results['created']) {
+			// Save a greeting stream, to be edited
+			$greeting = Streams::create($user->id, $user->id, "Streams/greeting", @compact('name'));
 
 			$text = Q_Text::get('Streams/content', array(
 				'language' => Q::ifset($user, 'preferredLanguage', null)
@@ -256,7 +260,6 @@ function Streams_after_Users_User_saveExecute($params)
 			// to run, to insert a Streams_Avatar row for the new user, and
 			// to properly configure it.
 		}
-		
 	}
 
 	if ($modifiedFields) {

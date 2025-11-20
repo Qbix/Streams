@@ -5144,26 +5144,53 @@ abstract class Streams extends Base_Streams
 	
 	/**
 	 * Use this function to merge all the files under Streams/userStreams config,
-	 * and get descriptions of all potential user streams, indexed by their name
+	 * and get descriptions of all potential user streams, indexed by their name.
+	 *
+	 * After loading all configs, each top-level entry is interpolated using
+	 * Q::interpolate($value, $rootArray).
+	 *
 	 * @method userStreamsTree
 	 * @static
-	 * 
 	 */
 	static function userStreamsTree()
 	{
 		static $p = null;
 		static $previousArr = null;
+
 		$arr = Q_Config::get('Streams', 'userStreams', array());
 		if ($p && $previousArr === $arr) {
 			return $p;
 		}
 		$previousArr = $arr;
+
 		$p = new Q_Tree();
 		$app = Q::app();
+
 		foreach ($arr as $k => $v) {
 			$PREFIX = ($k === $app ? 'APP' : strtoupper($k).'_PLUGIN');
-			$path = constant( $PREFIX . '_CONFIG_DIR' );
-			$p->load($path.DS.$v);
+			$path = constant($PREFIX . '_CONFIG_DIR');
+			$p->load($path . DS . $v);
+		}
+
+		// Interpolate each top-level entry
+		$communityId = Users::communityId();
+		$currentCommunityId = Users::currentCommunityId();
+		$loggedInUser = Users::loggedInUser();
+		$loggedInUserId = $loggedInUser ? $loggedInUser->id : null;
+		$vars = compact(
+			'communityId', 'currentCommunityId', 'loggedInUserId'
+		);
+		$all = $p->getAll();
+		$interp = array();
+		foreach ($all as $key => $value) {
+			$newKey = Q::interpolate($key, $vars);
+			if ($newKey !== $key) {
+				$p->clear($key);
+				$interp[$newKey] = $value;
+			}
+		}
+		foreach ($interp as $k => $v) {
+			$p->set($k, $v);
 		}
 		return $p;
 	}

@@ -13,7 +13,7 @@
  * @param {string} [$options.streamName] the name of the stream for which to edit access levels
  * @param {array} [$options.tabs] Defaults to ("read", "write", "admin"), but you can pass a subset.
  * @param {array} [$options.ranges] associative array with keys "read", "write", "admin" and values as associative arrays of ($min, $max) for the displayed levels.
- * @param {array} [$options.filter] associative array with keys "read", "write", "admin" and values as arrays of level integers for which there are labels
+ * @param {array|string} [$options.filter] associative array with keys "read", "write", "admin" and values as arrays of level integers for which there are labels, or values can be "simple"
  * @param {boolean} [$options.controls] optionally set this to true to render only the controls
  */
 function Streams_access_tool($options)
@@ -119,6 +119,19 @@ function Streams_access_tool($options)
 		}
 	}
 	if (isset($filter[$tab])) {
+		if ($filter[$tab] === 'simple') {
+			switch ($tab) {
+				case 'read':
+					$filter[$tab] = array(10, 23, 40);
+					break;
+				case 'write':
+					$filter[$tab] = array(0, 30, 40);
+					break;
+				case 'admin':
+					$filter[$tab] = array(0, 10, 20, 30);
+					break;
+			}
+		}
 		$keys = array_intersect($filter[$tab], array_keys($levels));
 		$levels = Q::take($levels, $keys);
 	}
