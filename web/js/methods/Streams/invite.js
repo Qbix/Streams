@@ -101,7 +101,7 @@ Q.exports(function() {
                         case 'mobile': mobileNumbers.push(identifier); break;
                         case 'facebook':
                             if (shouldFollowup === true) {
-                                fb_xids.push(identifier[i]);
+                                fb_xids.push(identifier);
                             }
                             break;
                         case 'label':
@@ -124,6 +124,10 @@ Q.exports(function() {
             }, { method: 'post', fields: fields, baseUrl: baseUrl });
         }
         function _sendBy(r, text) {
+            // At the same time, synchronously continue to handle event and open external link:
+            var rsd = r.data;
+            var rss = r.stream;
+            var t;
             // Send a request to create the actual invite
             Q.req(o.uri, ['data', 'stream'], function (err, response) {
                 var msg = Q.firstErrorMessage(err, response && response.errors);
@@ -140,10 +144,6 @@ Q.exports(function() {
                 fields: fields,
                 baseUrl: baseUrl
             });
-            // At the same time, synchronously continue to handle event and open external link:
-            var rsd = r.data;
-            var rss = r.stream;
-            var t;
             switch (r.sendBy) {
                 case "email":
                     t = Q.extend({
@@ -192,9 +192,12 @@ Q.exports(function() {
                     window.open("http://www.twitter.com/share?url=" + rsd.url, "_blank");
                     break;
                 case "telegram":
+                    var info = Q.getObject(['telegram', Q.info.app], Q.Users.apps);
+                    var param = info.startapp ? 'startapp' : 'start';
+                    var url = !info.botUsername ? rsd.url : '@'+info.botUsername + '?' + param + '=invite-' + rsd.invite.token;
                     var content = Q.getObject(['invite', 'mobile', 'content'], text)
                         .interpolate({
-                            url: rsd.url,
+                            url: url,
                             title: rss.fields.title
                         });
                     window.open(Q.Links.telegram(null, content, rsd.url), "_blank");
@@ -258,7 +261,7 @@ Q.exports(function() {
 
                                     if (Q.Dialogs.dialogs.length) {
                                         var lastDialog = Q.Dialogs.dialogs[Q.Dialogs.dialogs.length-1];
-                                        if (lastDialog.hasClas && lastDialog.hasClass(dialogClassName)) {
+                                        if (lastDialog.hasClass && lastDialog.hasClass(dialogClassName)) {
                                             Q.Dialogs.pop();
                                         }
                                     }
@@ -363,13 +366,13 @@ Q.exports(function() {
             }, 'Streams.invite.observe');
             return true;
         }
-        if (o.identifier || o.token || o.xids || o.userIds || o.label) {
+        if (o.identifier || o.token || o.xids || o.userId || o.label) {
             return _request();
         }
         Q.Text.get('Streams/content', function (err, text) {
             _getCanGrantRoles().then(function (response) {
-                var canGrantRoles = Q.getObject('slots.canGrant', response);
-                var canRevokeRoles = Q.getObject('slots.canRevoke', response);
+                var canGrantRoles = Q.getObject('slots.canGrant', response) || [];
+                var canRevokeRoles = Q.getObject('slots.canRevoke', response) || [];
 
                 var addLabel = o.addLabel;
                 if(!Q.isEmpty(canGrantRoles) && addLabel !== false) {

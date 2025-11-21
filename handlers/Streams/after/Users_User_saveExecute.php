@@ -22,7 +22,8 @@ function Streams_after_Users_User_saveExecute($params)
 	}
 
 	// if we only modified some inconsequential fields, no need to proceed
-	if (!$params['inserted']) {
+	if (!$params['inserted']
+	and !$user->get('processPlatformUserData')) {
 		$mf = $modifiedFields;
 		unset($mf['updatedTime']);
 		unset($mf['signedUpWith']);
@@ -138,7 +139,9 @@ function Streams_after_Users_User_saveExecute($params)
 	$so = array();
 	$streamsToJoin = array();
 	$streamsToSubscribe = array();
-	$rows = Streams_Stream::select()->where(array(
+	$rows = Streams_Stream::select(array(
+		'publisherId', 'name', 'type', 'content'
+	))->where(array(
 		'publisherId' => $user->id,
 		'name' => $toInsert
 	))->ignoreCache()->fetchDbRows();
