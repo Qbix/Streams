@@ -32,6 +32,8 @@ function Streams_after_Users_User_saveExecute($params)
 		unset($mf['sessionId']);
 		unset($mf['sessionCount']);
 		unset($mf['insertedTime']);
+		unset($mf['preferrredLanguage']);
+		unset($mf['xids']);
 		if (empty($mf)) {
 			$processing = false;
 			Db::allowCaching($prevAllowCaching);
@@ -136,21 +138,23 @@ function Streams_after_Users_User_saveExecute($params)
 	$so = array();
 	$streamsToJoin = array();
 	$streamsToSubscribe = array();
-	$rows = Streams_Stream::select('name')->where(array(
+	$rows = Streams_Stream::select()->where(array(
 		'publisherId' => $user->id,
 		'name' => $toInsert
 	))->ignoreCache()->fetchDbRows();
 	$existing = array();
 	foreach ($rows as $row) {
-		$existing[$row['name']] = $row;
+		$existing[$row->name] = $row;
 	}
 	$toCreate = array();
 	foreach ($toInsert as $name) {
-		if (!empty($existing[$name]) and $p->get($name, 'updateIfEmpty', false)) {
-			// can set firstName, lastName, icon, greeting, etc.
-			if (empty($existing[$name]->content) and $values[$name]) {
-				$existing[$name]->content = $values[$name];
-				$existing[$name]->changed($user->id);
+		if (!empty($existing[$name])) {
+			if ($p->get($name, 'updateIfEmpty', false)) {
+				// can set firstName, lastName, icon, greeting, etc.
+				if (empty($existing[$name]->content) and $values[$name]) {
+					$existing[$name]->content = $values[$name];
+					$existing[$name]->changed($user->id);
+				}
 			}
 			continue;
 		}
@@ -212,8 +216,6 @@ function Streams_after_Users_User_saveExecute($params)
 		$greeting = Streams_Stream::fetchOrCreate($user->id, $user->id, $name, array('dontCache' => true), $results);
 		if ($results['created']) {
 			// Save a greeting stream, to be edited
-			$greeting = Streams::create($user->id, $user->id, "Streams/greeting", @compact('name'));
-
 			$text = Q_Text::get('Streams/content', array(
 				'language' => Q::ifset($user, 'preferredLanguage', null)
 			));

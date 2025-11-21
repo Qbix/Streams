@@ -199,6 +199,11 @@
 							"permissions": []
 						}
 					},
+					"filter": {
+						"read": "simple", 
+						"write": "simple", 
+						"admin": "simple"
+					},
 					"checkMutableForPublic": true
 				},
 				"admins": ["Users/owners", "Users/admins"],

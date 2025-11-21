@@ -47,7 +47,6 @@ function Streams_access_tool($options)
 		$stream->type, array('access'), array()
 	);
 	$options = array_merge($defaults, $options);
-
 	extract($options);
 	$tabNames = isset($tabs) ? $tabs : array('read', 'write', 'admin');
 

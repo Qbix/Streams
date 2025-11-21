@@ -16,7 +16,7 @@
 	"readLevelOptions": {
 		"0": "nothing about it",
 		"10": "that something is there",
-		"20": "its current content",
+		"23": "its current content",
 		"30": "who is participating in it",
 		"40": "the social activity inside"
 	},

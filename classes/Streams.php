@@ -99,7 +99,7 @@ abstract class Streams extends Base_Streams
 		'teaser' => 15,				// can see teaser:Streams/.. attributes
 		'relations' => 20,			// can see relations to other streams
 		'content' => 23,			// can see the stream's content
-		'fields' => 25,			// can see most of the stream's fields
+		'fields' => 25,				// can see most of the stream's fields
 		'participants' => 30,		// can see participants in the stream
 		'messages' => 35,			// can play stream in a player
 		'receipts' => 40,			// can see other users' play receipts
