@@ -16,13 +16,12 @@ Q.exports(function(priv) {
      * @param {Function} callbackAfterHandled Same parameters as callback, but is called after all new messages were handled
      */
     return function _Streams_Message_post (msg, callback, callbackAfterHandled) {
-        var optimisticId = Q.uuid(Q.clientId() + '_' + (++Q.Optimistic.counter));
         Q.each([msg.type, ""], function (i, type) {
             Q.handle(
                 Q.Optimistic.onBegin("message", msg.publisherId, msg.streamName, type),
                 Q.Streams.Message,
                 {
-                    optimisticId: optimisticId,
+                    optimisticId: Q.Optimistic.id(),
                     msg: msg
                 }
             );
