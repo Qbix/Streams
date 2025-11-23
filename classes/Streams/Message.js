@@ -38,6 +38,7 @@ Q.mixin(Streams_Message, Base_Streams_Message);
 
 Streams_Message.defined = {};
 Streams_Message.handlers = {};
+Streams_Message.beforeDelivery = new Q.Event();
 
 Streams_Message.construct = function Streams_Message_construct(fields, retrieved) {
 	if (Q.isEmpty(fields)) {
@@ -376,6 +377,7 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 			if (typeof destinations === 'string') {
 				destinations = [destinations];
 			}
+			
 			var platforms = Q.Config.get('Users', 'apps', 'platforms', []);
 			var p2 = new Q.Pipe();
 			var waitFor = ['proceed'];
@@ -543,7 +545,7 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 			result.push({'devices': deviceId || true});
 		}
 		function _platform(platform, callback) {
-			var appId = Users.appInfo(platform).appId;
+			var appId = Users.appInfo(platform, Q.app.name).appId;
 			Users.ExternalFrom.SELECT('*').WHERE({
 				userId: toUserId,
 				platform: platform,

@@ -2027,14 +2027,24 @@ Stream.subscribe = new Q.Method({
     */
     onError: new Q.Event(),
 
+	/**
+    * Occurs when Stream.subscribe wants to ask for permission.
+	* Can be used by plugins as a hook and return false to prevent
+	* asking for push device notification, for instance.
+    * @event subscribe.onError
+    */
+    onPermission: new Q.Event(),
+
     /**
     * Default options for Stream.subscribe function.
     * @param {bool} device Whether to subscribe device when user subscribed to some stream
     */
     options: {
-       device: true
+		permissions: {
+			device: true
+		}
     }
-})
+});
 
 Stream.unsubscribe = new Q.Method({
     /**

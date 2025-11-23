@@ -1,4 +1,5 @@
-Q.exports(function(priv){
+Q.exports(function(priv) {
+
     /**
      * Streams plugin's front end code
      *
@@ -15,11 +16,23 @@ Q.exports(function(priv){
      * @param {Function} callbackAfterHandled Same parameters as callback, but is called after all new messages were handled
      */
     return function _Streams_Message_post (msg, callback, callbackAfterHandled) {
+        var optimisticId = Q.uuid(Q.clientId() + '_' + (++Q.Optimistic.counter));
+        Q.each([msg.type, ""], function (i, type) {
+            Q.handle(
+                Q.Optimistic.onBegin("message", msg.publisherId, msg.streamName, type),
+                Q.Streams.Message,
+                {
+                    optimisticId: optimisticId,
+                    msg: msg
+                }
+            );
+        });
         var baseUrl = Q.baseUrl({
             publisherId: msg.publisherId,
             streamName: msg.streamName
         });
         var fields = Q.copy(msg);
+        fields.optimisticId = optimisticId;
         fields["Q.clientId"] = Q.clientId();
         fields["min"] = Q.Streams.Message.latestOrdinal(msg.publisherId, msg.streamName) || 0;
         Q.req('Streams/message', ['messages', 'extras'], function (err, data) {
@@ -30,6 +43,17 @@ Q.exports(function(priv){
                 }
             }
             if (fem) {
+                Q.each([msg.type, ""], function (i, type) {
+                    Q.handle(
+                        Q.Optimistic.onReject("message", msg.publisherId, msg.streamName, type),
+                        Q.Streams.Message,
+                        { 
+                            optimisticId: optimisticId,
+                            error: fem,
+                            msg: msg
+                        }
+                    );
+                });
                 var args = [err, data];
                 Q.Streams.onError.handle.call(this, fem, args);
                 Q.Streams.Message.post.onError.handle.call(this, fem, args);
@@ -48,6 +72,18 @@ Q.exports(function(priv){
             }, {ascending: true, numeric: true});
 
             var extras = data.slots.extras;
+            Q.each([msg.type, ""], function (i, type) {
+                Q.handle(
+                    Q.Optimistic.onResolve("message", msg.publisherId, msg.streamName, type),
+                    Q.Streams.Message,
+                    {
+                        optimisticId: optimisticId,
+                        msg: msg, 
+                        message: message, 
+                        messages: messages, extras: extras
+                    }
+                );
+            });
             Q.handle(callback, Q.Streams.Message, [err, message, messages, extras]);
             priv._simulatePosting(messages, extras);
             Q.handle(callbackAfterHandled, Q.Streams.Message, [err, message, messages, extras]);
@@ -55,5 +91,4 @@ Q.exports(function(priv){
         }, { method: 'post', fields: fields, baseUrl: baseUrl });
     };
 
-
-})
+});

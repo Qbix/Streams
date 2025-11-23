@@ -5915,8 +5915,7 @@ abstract class Streams extends Base_Streams
 			}
 		}
 		$params = array_merge(@compact(
-			'criteria', 'accumulateErrors', 
-			'fields', 'publisherIdFields'
+			'criteria', 'fields', 'publisherIdFields'
 		), $options);
 		$params['errors'] =& $errors;
 		/**
@@ -5991,9 +5990,8 @@ abstract class Streams extends Base_Streams
 				}
 			}
 		}
-		$params = array_merge(compact(
-			'updates', 'accumulateErrors', 
-			'chunks', 'fields', 'publisherIdFields'
+		$params = array_merge(@compact(
+			'updates', 'chunks', 'fields', 'publisherIdFields'
 		), $options);
 		$params['errors'] =& $errors;
 		/**

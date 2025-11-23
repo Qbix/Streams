@@ -23,7 +23,7 @@ function Streams_after_Users_User_saveExecute($params)
 
 	// if we only modified some inconsequential fields, no need to proceed
 	if (!$params['inserted']
-	and !$user->get('processPlatformUserData')) {
+	and $user->get('processPlatformUserData')) {
 		$mf = $modifiedFields;
 		unset($mf['updatedTime']);
 		unset($mf['signedUpWith']);

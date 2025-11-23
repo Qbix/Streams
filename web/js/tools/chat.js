@@ -79,6 +79,46 @@ Q.Tool.define('Streams/chat', function(options) {
 	}
 
 	tool.refresh(null, true); // use cached stream first time, if available
+
+	Q.Optimistic.onBegin("message", state.publisherId, state.streamName, "Streams/chat/message")
+	.set(function (o) {
+		var tempId = o.optimisticId
+		var fields = {
+			ordinal: tempId,
+			byUserId: Q.Users.loggedInUserId(),
+			content: o.msg && o.msg.content,
+			sentTime: (new Date()).toDateTimeString(),
+			instructions: "{}",
+			type: "Streams/chat/message",
+			time: Date.now()/1000,
+			classes: "Streams_chat_from_me Q_optimistic",
+			_tempId: tempId
+		}
+		this.renderMessage(fields)
+		this.$('.Q_optimistic:last').attr('data-tempid', tempId)
+	}, tool);
+
+	// optimistic resolve -- replace temp with real
+	Q.Optimistic.onResolve("message", state.publisherId, state.streamName, "Streams/chat/message")
+	.set(function (o) {
+		var $msg = this.$('[data-tempid="' + o.optimisticId + '"]')
+		if (!$msg.length) return
+		$msg.attr("data-ordinal", o.message.ordinal)
+			.removeAttr("data-tempid")
+			.removeClass("Q_optimistic")
+		$msg.find(".Streams_chat_timestamp")
+			.attr("data-time", Date.fromDateTime(o.message.sentTime).getTime())
+	}, tool);
+
+	// optimistic reject -- remove temp + show error
+	Q.Optimistic.onReject("message", state.publisherId, state.streamName, "Streams/chat/message")
+	.set(function (o) {
+		this.$('[data-tempid="' + o.optimisticId + '"]').remove()
+		this.renderError(o.error)
+		this.scrollToComposer()
+	}, tool);
+
+
 	Q.Streams.refresh.beforeRequest.add(function () {
 		if (state.stream && state.stream.refresh) {
 			state.stream.refresh(null, {messages: true});
@@ -755,7 +795,7 @@ Q.Tool.define('Streams/chat', function(options) {
 			}
 			var results = tool.prepareMessages(messages);
 			tool.renderMessages(results, function (items) {
-				var least = 1000;
+				tool.$('.Q_optimistic').remove();
 				var $scm = tool.$('.Streams_chat_messages');
 				Q.each(items, function (ordinal, $element) {
 					$element.appendTo($scm).activate();
@@ -786,6 +826,7 @@ Q.Tool.define('Streams/chat', function(options) {
 		var $scm = tool.$('.Streams_chat_messages');
 		tool.renderMessages(results, function (items) {
 			tool.$('.Streams_chat_noMessages').remove();
+			tool.$('.Q_optimistic').remove();
 			var least = 1000;
 			var totalHeight = 0;
 			Q.each(items, function (ordinal, $element) {
@@ -810,6 +851,7 @@ Q.Tool.define('Streams/chat', function(options) {
 		var tool = this;
 		tool.renderMessages(tool.prepareMessages(message), function (items) {
 			tool.$('.Streams_chat_noMessages').remove();
+			tool.$('.Q_optimistic').remove();
 			var $scm = tool.$('.Streams_chat_messages');
 			Q.each(items, function (key, $html) {
 				$html.appendTo($scm).activate();
