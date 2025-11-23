@@ -345,6 +345,46 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 			Streams.onAvatar(state.userId).set(function () {
 				tool.refresh();
 			}, tool);
+
+			// optimistic: show temporary avatar info
+			var uid = state.userId || "@me";
+
+			Q.Optimistic.onBegin("avatar", uid).set(function (payload) {
+				tool.element.addClass("Q_optimistic");
+
+				// optimistic icon
+				if (payload.icon) {
+					var $img = tool.$('.Users_avatar_icon');
+					if ($img.length) {
+						$img.attr('src', payload.icon);
+					}
+				}
+
+				// optimistic displayName:
+				// use this.displayName but override only the fields from payload
+				var displayName = this.displayName(
+					Q.extend({}, state, payload, { html: true })
+				);
+
+				if (displayName) {
+					var $name = tool.$('.Users_avatar_name');
+					if ($name.length) {
+						$name.html(displayName);
+					}
+				}
+			}, tool);
+
+			// resolve
+			Q.Optimistic.onResolve("avatar", uid).set(function () {
+				tool.element.removeClass("Q_optimistic");
+			}, tool);
+
+			// reject → full refresh
+			Q.Optimistic.onReject("avatar", uid).set(function () {
+				tool.element.removeClass("Q_optimistic");
+				tool.refresh();
+			}, tool);
+
 		}
 	}
 });
