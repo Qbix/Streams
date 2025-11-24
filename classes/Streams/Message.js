@@ -38,7 +38,6 @@ Q.mixin(Streams_Message, Base_Streams_Message);
 
 Streams_Message.defined = {};
 Streams_Message.handlers = {};
-Streams_Message.beforeDelivery = new Q.Event();
 
 Streams_Message.construct = function Streams_Message_construct(fields, retrieved) {
 	if (Q.isEmpty(fields)) {
