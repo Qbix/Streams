@@ -23,7 +23,8 @@ function Streams_participant_response_participant()
 	}
 	$stream = reset($stream);
 
-	if (!$stream->testReadLevel('participants')) {
+	if ($userId !== $publisher && !$stream->testReadLevel('participants')) {
+		// not authorized to get other participants, except your own
 		throw new Users_Exception_NotAuthorized();
 	}
 	$p = new Streams_Participant();
