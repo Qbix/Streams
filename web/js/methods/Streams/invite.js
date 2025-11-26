@@ -173,7 +173,6 @@ Q.exports(function() {
                         if (err) {
                             return;
                         }
-    
                         window.location = Q.Links.sms(text);
                     });
                     break;
@@ -186,10 +185,14 @@ Q.exports(function() {
                             url: rsd.url,
                             title: rss.fields.title
                         });
-                    window.open(Q.Links.whatsApp(null, content), "_blank");
+                    window.location = Q.Links.whatsApp(null, content);
                     break;
                 case "twitter":
-                    window.open("http://www.twitter.com/share?url=" + rsd.url, "_blank");
+                    if (Q.info.isMobile) {
+                        window.location = "http://www.twitter.com/share?url=" + rsd.url;
+                    } else {
+                        window.open("http://www.twitter.com/share?url=" + rsd.url, '_blank');
+                    }
                     break;
                 case "telegram":
                     var info = Q.getObject(['telegram', Q.info.app], Q.Users.apps);
@@ -198,7 +201,7 @@ Q.exports(function() {
                         var tlOptions = {
                             url: url
                         };
-                        o[info.startapp ? 'startapp' : 'start'] = 'invite-' + rsd.invite.token;
+                        tlOptions[info.startapp ? 'startapp' : 'start'] = 'invite-' + rsd.invite.token;
                         if (info.botUsername) {
                             url = Q.Links.telegram('@'+info.botUsername, null, tlOptions);
                         }
@@ -208,7 +211,7 @@ Q.exports(function() {
                             url: url,
                             title: rss.fields.title
                         });
-                    window.open(Q.Links.telegram(null, content), "_blank");
+                    location.href = Q.Links.telegram(null, content);
                     break;
                 case "copyLink":
                     if (Q.info.formFactor !== 'desktop'
