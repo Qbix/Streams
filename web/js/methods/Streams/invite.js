@@ -195,12 +195,12 @@ Q.exports(function() {
                     var info = Q.getObject(['telegram', Q.info.app], Q.Users.apps);
                     var url = rsd.url;
                     if (info) {
-                        var o = {
+                        var tlOptions = {
                             url: url
                         };
                         o[info.startapp ? 'startapp' : 'start'] = 'invite-' + rsd.invite.token;
                         if (info.botUsername) {
-                            url = Q.Links.telegram('@'+info.botUsername, null, o);
+                            url = Q.Links.telegram('@'+info.botUsername, null, tlOptions);
                         }
                     }
                     var content = Q.getObject(['invite', 'mobile', 'content'], text)

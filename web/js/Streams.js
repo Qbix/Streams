@@ -4269,9 +4269,13 @@ Ap.displayName = function _Avatar_prototype_displayName (options, fallback) {
  * @return {String} the url
  */
 Ap.iconUrl = function _Avatar_prototype_iconUrl (basename) {
-	return Users.iconUrl(this.icon.interpolate({
-		userId: this.publisherId.splitId()
-	}), basename);
+	var icon = this.icon;
+	if (this.publisherId) {
+		icon = icon.interpolate({
+			userId: this.publisherId.splitId()
+		});
+	}
+	return Users.iconUrl(icon, basename);
 };
 
 /**
