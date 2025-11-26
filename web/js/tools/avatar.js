@@ -72,6 +72,9 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 		state.editable = ['icon', 'name'];
 	}
 	this.refresh(true);
+	if (state.optimisticPayload) {
+		_optimisticRender(tool, state.optimisticPayload);
+	}
 	if (!state.userId) {
 		return;
 	}
@@ -181,7 +184,7 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 		}
 
 		var fields;
-		var p = new Q.Pipe(['icon', 'contents'], function (params) {
+		var p = tool.pipe = new Q.Pipe(['icon', 'contents'], function (params) {
 			var icon = state.icon ? params.icon[0] : '';
 			var contents = state.contents ? params.contents[0] : '';
 			tool.element.innerHTML = icon + contents;
@@ -218,42 +221,7 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 			if (fem) {
 				return console.warn(fem);
 			}
-			var fields;
-			tool.element.removeClass('Q_loading');
-			if (!avatar) {
-				return Q.handle(state.onMissing, tool, [err]);
-			}
-			state.avatar = avatar;
-			if (state.icon) {
-				var src = isNaN(state.icon)
-					? state.icon
-					: Q.url(avatar.iconUrl(state.icon, true), null);
-				fields = Q.extend({}, state.templates.icon.fields, {
-					src: src,
-					size: parseInt(state.icon) || 'icon'
-				});
-				Q.Template.render(state.templates.icon.name, fields, 
-				function (err, html) {
-					p.fill('icon')(html);
-				}, Q.extend({size: state.icon}, state.templates.icon));
-			} else {
-				p.fill('icon')('');
-			}
-
-			fields = Q.extend({}, state.templates.contents.fields, {
-				name: this.displayName(Q.extend({}, state, {html: true}))
-			});
-			if (fields.name) {
-				Q.Template.render(state.templates.contents.name, fields,
-				function (err, html) {
-					p.fill('contents')(html);
-				}, state.templates.contents);
-			} else {
-				Q.Template.render(state.templates.blank.contents.name, fields,
-				function (err, html) {
-					p.fill('contents')(html);
-				});
-			}
+			_renderAvatar(tool, avatar);
 		});
 		
 		if (state.reflectChanges) {
@@ -349,30 +317,7 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 			// optimistic: show temporary avatar info
 			var uid = state.userId || "@me";
 
-			Q.Optimistic.onBegin("avatar", uid).set(function (payload) {
-				tool.element.addClass("Q_optimistic");
-
-				// optimistic icon
-				if (payload.icon) {
-					var $img = tool.$('.Users_avatar_icon');
-					if ($img.length) {
-						$img.attr('src', payload.icon);
-					}
-				}
-
-				// optimistic displayName:
-				// use this.displayName but override only the fields from payload
-				var displayName = this.displayName(
-					Q.extend({}, state, payload, { html: true })
-				);
-
-				if (displayName) {
-					var $name = tool.$('.Users_avatar_name');
-					if ($name.length) {
-						$name.html(displayName);
-					}
-				}
-			}, tool);
+			Q.Optimistic.onBegin("avatar", uid).set(_optimisticRender, tool);
 
 			// resolve
 			Q.Optimistic.onResolve("avatar", uid).set(function () {
@@ -394,5 +339,51 @@ Q.Template.set('Users/avatar/icon', '<img src="{{{src}}}" alt="{{alt}}" class="U
 Q.Template.set('Users/avatar/contents', '<{{tag}} class="Users_avatar_name">{{{name}}}</{{tag}}>');
 Q.Template.set('Users/avatar/blank/icon', '<div class="Users_avatar_icon Users_avatar_icon_blank"></div>');
 Q.Template.set('Users/avatar/blank/contents', '<div class="Users_avatar_name Users_avatar_name_blank">&nbsp;</div>');
+
+function _optimisticRender(tool, payload) {
+	tool.element.addClass("Q_optimistic");
+	var avatar = new Q.Streams.Avatar(payload);
+	_renderAvatar(tool, avatar);
+}
+
+function _renderAvatar(tool, avatar) {
+	var fields;
+	var state = tool.state;
+	tool.element.removeClass('Q_loading');
+	if (!avatar) {
+		return Q.handle(state.onMissing, tool, [err]);
+	}
+	state.avatar = avatar;
+	if (state.icon) {
+		var src = isNaN(state.icon)
+			? state.icon
+			: Q.url(avatar.iconUrl(state.icon, true), null);
+		fields = Q.extend({}, state.templates.icon.fields, {
+			src: src,
+			size: parseInt(state.icon) || 'icon'
+		});
+		Q.Template.render(state.templates.icon.name, fields, 
+		function (err, html) {
+			tool.pipe.fill('icon')(html);
+		}, Q.extend({size: state.icon}, state.templates.icon));
+	} else {
+		tool.pipe.fill('icon')('');
+	}
+
+	fields = Q.extend({}, state.templates.contents.fields, {
+		name: avatar.displayName(Q.extend({}, state, {html: true}))
+	});
+	if (fields.name) {
+		Q.Template.render(state.templates.contents.name, fields,
+		function (err, html) {
+			tool.pipe.fill('contents')(html);
+		}, state.templates.contents);
+	} else {
+		Q.Template.render(state.templates.blank.contents.name, fields,
+		function (err, html) {
+			tool.pipe.fill('contents')(html);
+		});
+	}
+}
 
 })(Q, Q.jQuery, window);

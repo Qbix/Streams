@@ -195,9 +195,12 @@ Q.exports(function() {
                     var info = Q.getObject(['telegram', Q.info.app], Q.Users.apps);
                     var url = rsd.url;
                     if (info) {
-                        var param = info.startapp ? 'startapp' : 'start';
+                        var o = {
+                            url: url
+                        };
+                        o[info.startapp ? 'startapp' : 'start'] = 'invite-' + rsd.invite.token;
                         if (info.botUsername) {
-                            url = '@'+info.botUsername + '?' + param + '=invite-' + rsd.invite.token
+                            url = Q.Links.telegram('@'+info.botUsername, null, o);
                         }
                     }
                     var content = Q.getObject(['invite', 'mobile', 'content'], text)
@@ -205,7 +208,7 @@ Q.exports(function() {
                             url: url,
                             title: rss.fields.title
                         });
-                    window.open(Q.Links.telegram(null, content, rsd.url), "_blank");
+                    window.open(Q.Links.telegram(null, content), "_blank");
                     break;
                 case "copyLink":
                     if (Q.info.formFactor !== 'desktop'
