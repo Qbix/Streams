@@ -193,8 +193,13 @@ Q.exports(function() {
                     break;
                 case "telegram":
                     var info = Q.getObject(['telegram', Q.info.app], Q.Users.apps);
-                    var param = info.startapp ? 'startapp' : 'start';
-                    var url = !info.botUsername ? rsd.url : '@'+info.botUsername + '?' + param + '=invite-' + rsd.invite.token;
+                    var url = rsd.url;
+                    if (info) {
+                        var param = info.startapp ? 'startapp' : 'start';
+                        if (info.botUsername) {
+                            url = '@'+info.botUsername + '?' + param + '=invite-' + rsd.invite.token
+                        }
+                    }
                     var content = Q.getObject(['invite', 'mobile', 'content'], text)
                         .interpolate({
                             url: url,

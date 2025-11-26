@@ -12,12 +12,17 @@ Q.exports(function(Users, Streams) {
 	 * @param {string} [options.token] Use to set the invite token, if you have enough permissions
 	 * @param {String} [options.userChooser=false] If true allow to invite registered users with Streams/userChooser tool.
 	 * @param {String} [options.sendBy] Set this to immediately invoke a specific method for the invite as soon as the dialog appears (e.g., 'contactPicker', 'sms', 'email', 'copyLink', 'QR')
+     * @param {String|Function} [options.appUrl] Can be used to override the URL to which the invited user will be redirected and receive "Q.Streams.token" in the querystring.
 	 */
     return function Streams_Dialogs_invite(publisherId, streamName, callback, options) {
 		var stream = null;
 		var text = null;
 		options = Q.extend({}, Streams.Dialogs.invite.options, options);
 	
+        if (typeof options.appUrl === 'function') {
+            options.appUrl = options.appUrl();
+        }
+
 		var suggestion = null;
 		var data = null;
 		var dialog = null;
