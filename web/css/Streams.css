@@ -196,7 +196,6 @@
 .Streams_participants_tool .Streams_participants_invite {
 	display: inline-block;
 	padding: 3px;
-	overflow: hidden;
 	text-overflow: ellipsis;
 	text-align: center;
 	vertical-align: top;
@@ -217,6 +216,7 @@
 	text-indent: 0;
 	text-align: center;
 	position: relative;
+	overflow: hidden;
 }
 
 .Streams_invite_social_labels {
