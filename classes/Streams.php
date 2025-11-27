@@ -5530,11 +5530,10 @@ abstract class Streams extends Base_Streams
 		if (is_dir(APP_WEB_DIR.DS."plugins".DS."Streams".DS."img".DS."icons".DS.$streamName)) {
 			$stream->icon = $streamName;
 		} else {
-			// if char colon exists, remove from title colon and all before
-			if (strstr($title, ':')) {
-				$title = preg_replace("/.+:\s*/", '', $title);
-			}
-			$keywords = explode(' ', $title);
+			$t = strtolower($title);
+			$t = str_replace(':', ' ', $t);
+			$t = trim(preg_replace('/\s+/', ' ', $t));
+			$keywords = explode(' ', $t);
 			$data = null;
 			while (sizeof($keywords)) {
 				$subpath = "Streams/interest/".strtolower(implode("_", $keywords));
