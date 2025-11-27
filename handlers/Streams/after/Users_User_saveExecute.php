@@ -216,7 +216,10 @@ function Streams_after_Users_User_saveExecute($params)
 	$name = "Streams/greeting/$communityId";
 
 	if ($params['inserted']) {
-		$greeting = Streams_Stream::fetchOrCreate($user->id, $user->id, $name, array('dontCache' => true), $results);
+		$greeting = Streams_Stream::fetchOrCreate($user->id, $user->id, $name, array(
+			'dontCache' => true,
+			'subscribe' => true
+		), $results);
 		if ($results['created']) {
 			// Save a greeting stream, to be edited
 			$text = Q_Text::get('Streams/content', array(
