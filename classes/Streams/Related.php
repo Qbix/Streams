@@ -46,10 +46,10 @@ class Streams_Related
 				if (!empty($options['writeLevel']) && !$s->testWriteLevel($options['writeLevel'])) {
 					continue;
 				}
-				if (!empty($options['adminLevel']) && !$s->testAdminLevel('adminLevel')) {
+				if (!empty($options['adminLevel']) && !$s->testAdminLevel($options['adminLevel'])) {
 					continue;
 				}
-				if (!empty($options['permission']) && !$s->testPermission('permission')) {
+				if (!empty($options['permission']) && !$s->testPermission($options['permission'])) {
 					continue;
 				}
 				$key = $s->publisherId . "\t" . $s->name;
