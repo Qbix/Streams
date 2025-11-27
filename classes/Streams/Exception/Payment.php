@@ -15,4 +15,4 @@ class Streams_Exception_Payment extends Q_Exception
 	 */	
 };
 
-Q_Exception::add('Streams_Exception_Payment', 'Payment required.');
+Q_Exception::add('Streams_Exception_Payment', 'Payment required.', 402);
