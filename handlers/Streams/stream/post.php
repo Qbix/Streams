@@ -82,6 +82,8 @@ function Streams_stream_post($params = array())
 	if (isset($relateStreamName)) {
 		$relate['publisherId'] = Q_Request::special("Streams.related.publisherId", $publisherId, $req);
 		$relate['streamName'] = $relateStreamName;
+		// if that stream doesn't exist, try to create it, otherwise will throw exception
+		Streams_Stream::fetchOrCreate($relate['publisherId'], $relate['publisherId'], $relate['streamName']);
 		$relate['inheritAccess'] = filter_var(
 			Q_Request::special("Streams.related.inheritAccess", true, $req),
 			FILTER_VALIDATE_BOOLEAN

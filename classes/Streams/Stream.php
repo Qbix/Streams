@@ -1841,6 +1841,7 @@ class Streams_Stream extends Base_Streams_Stream
 		$readLevel_source = $this->get('readLevel_source', $public_source);
 		$writeLevel_source = $this->get('writeLevel_source', $public_source);
 		$adminLevel_source = $this->get('adminLevel_source', $public_source);
+		$permissions_source = $this->get('permissions_source', $public_source);
 
 		// Inheritance only goes one "generation" here.
 		// To implement several "generations" of inheritance, you can do things like:
