@@ -934,7 +934,7 @@ Sp.testPermission = function(permission, callback)
 		callback && callback.call(subj, null, true);
 		return true;
 	}
-	if (subj.closedTime && level !== 'close' && !subj.testWriteLevel('close')) {
+	if (subj.fields.closedTime && level !== 'close' && !subj.testWriteLevel('close')) {
 		return false;
 	}
 	var permissions = subj.get('permissions', []);
