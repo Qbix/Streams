@@ -1590,13 +1590,13 @@ class Streams_Stream extends Base_Streams_Stream
 
 	/**
 	 * Gets the read level on the stream, taking into account any invite
-	 * that may have been followed
+	 * that may have been followed, and fromPermmissions config
 	 * @method getReadLevel
 	 * @param {array} [$options]
 	 * @param {array} [$options.ignoreInvite] Do not check Streams::$followedInvite or $_SESSION['Streams']['invite']
 	 * @return {integer}
 	 */
-	function getReadLevel($options)
+	function getReadLevel($options = array())
 	{
 		$readLevel = $this->get('readLevel', $this->readLevel);
 		$fields = Q::ifset($_SESSION, 'Streams', 'invite', array());
@@ -1609,7 +1609,52 @@ class Streams_Stream extends Base_Streams_Stream
 			// set the readLevel, but not writeLevel or adminLevel
 			$readLevel = max($readLevel, $invite->readLevel);
 		}
+		$fp = self::getConfigField($this->type, 'fromPermissions', array());
+		foreach ($this->getAllPermissions() as $p) {
+			if (isset($fp[$p]['readLevel'])) {
+				$level = Streams_Stream::numericReadLevel($fp[$p]['readLevel']);
+				$readLevel = max($readLevel, $level);
+			}
+		}
 		return $readLevel;
+	}
+
+	/**
+	 * Gets the write level on the stream, taking into account fromPermissions config
+	 * @method getWriteLevel
+	 * @param {array} [$options]
+	 * @return {integer}
+	 */
+	function getWriteLevel($options = array())
+	{
+		$writeLevel = $this->get('writeLevel', $this->writeLevel);
+		$fp = self::getConfigField($this->type, 'fromPermissions', array());
+		foreach ($this->getAllPermissions() as $p) {
+			if (isset($fp[$p]['writeLevel'])) {
+				$level = Streams_Stream::numericWriteLevel($fp[$p]['writeLevel']);
+				$writeLevel = max($writeLevel, $level);
+			}
+		}
+		return $writeLevel;
+	}
+
+	/**
+	 * Gets the admin level on the stream, taking into account fromPermissions config
+	 * @method getAdminLevel
+	 * @param {array} [$options]
+	 * @return {integer}
+	 */
+	function getAdminLevel($options = array())
+	{
+		$adminLevel = $this->get('adminLevel', $this->adminLevel);
+		$fp = self::getConfigField($this->type, 'fromPermissions', array());
+		foreach ($this->getAllPermissions() as $p) {
+			if (isset($fp[$p]['adminLevel'])) {
+				$level = Streams_Stream::numericAdminLevel($fp[$p]['adminLevel']);
+				$adminLevel = max($adminLevel, $level);
+			}
+		}
+		return $adminLevel;
 	}
 	
 	/**
@@ -1673,7 +1718,7 @@ class Streams_Stream extends Base_Streams_Stream
 		}
 
 		$numeric = Streams_Stream::numericWriteLevel($level);
-		$writeLevel = $this->get('writeLevel', 0);
+		$writeLevel = $this->getWriteLevel();
 		if ($writeLevel >= 0 and $writeLevel >= $numeric) {
 			return true;
 		}
@@ -1709,7 +1754,7 @@ class Streams_Stream extends Base_Streams_Stream
 		}
 
 		$numeric = Streams_Stream::numericAdminLevel($level);
-		$adminLevel = $this->get('adminLevel', 0);
+		$adminLevel = $this->getAdminLevel();
 		if ($adminLevel >= 0 and $adminLevel >= $numeric) {
 			return true;
 		}

@@ -270,7 +270,7 @@ function testLevel (subj, type, values, level, callback) {
 		callback && callback.call(subj, null, true);
 		return true;
 	}
-	if (subj.closedTime && level !== 'close' && !subj.testWriteLevel('close')) {
+	if (subj.fields.closedTime && level !== 'close' && !subj.testWriteLevel('close')) {
 		return false;
 	}
 	var LEVEL = Streams[values];
@@ -282,7 +282,20 @@ function testLevel (subj, type, values, level, callback) {
 		callback && callback.call(subj, null, false);
 		return false;
 	}
-	if (subj.get(type, 0) >= level) {
+
+	var fp = Streams_Stream.getConfigField(subj.fields.type, ['fromPermissions']) || [];
+	var permissions = subj.getAllPermissions();
+	var m = subj.get(type, 0);
+	for (var i=0; i<permissions.length; ++i) {
+		var p = permissions[i];
+		if (fp[p] && fp[p][type] > 0) {
+			var l = fp[p][type];
+			l = (typeof l === 'string' ? LEVEL[l] : l);
+			m = Math.max(l, m);
+		}
+	}
+
+	if (m >= level) {
 		callback && callback.call(subj, null, true);
 		return true;
 	}
