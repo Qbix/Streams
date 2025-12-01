@@ -46,12 +46,12 @@ Q.exports(function(priv) {
                 Q.each([msg.type, ""], function (i, type) {
                     Q.handle(
                         Q.Optimistic.onReject("message", msg.publisherId, msg.streamName, type),
-                        Q.Streams.Message,
-                        { 
+                        msg,
+                        [{ 
                             optimisticId: optimisticId,
                             error: fem,
                             msg: msg
-                        }
+                        }]
                     );
                 });
                 var args = [err, data];
@@ -75,13 +75,13 @@ Q.exports(function(priv) {
             Q.each([msg.type, ""], function (i, type) {
                 Q.handle(
                     Q.Optimistic.onResolve("message", msg.publisherId, msg.streamName, type),
-                    Q.Streams.Message,
-                    {
+                    message,
+                    [{
                         optimisticId: optimisticId,
                         msg: msg, 
                         message: message, 
                         messages: messages, extras: extras
-                    }
+                    }]
                 );
             });
             Q.handle(callback, Q.Streams.Message, [err, message, messages, extras]);
