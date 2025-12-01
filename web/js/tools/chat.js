@@ -118,7 +118,6 @@ Q.Tool.define('Streams/chat', function(options) {
 	Q.Optimistic.onReject("message", state.publisherId, state.streamName, "Streams/chat/message")
 	.set(function (o) {
 		tool.$('[data-tempid="' + o.optimisticId + '"]').remove()
-		tool.renderError(o.error)
 		tool.scrollToComposer()
 	}, tool);
 
