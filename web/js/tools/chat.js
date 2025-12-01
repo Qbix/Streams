@@ -103,19 +103,18 @@ Q.Tool.define('Streams/chat', function(options) {
 		tool.$('.Q_optimistic:last').attr('data-tempid', tempId)
 	}, tool);
 
-	// optimistic resolve -- replace temp with real
 	Q.Optimistic.onResolve("message", state.publisherId, state.streamName, "Streams/chat/message")
 	.set(function (o) {
-		var $msg = tool.$('[data-tempid="' + o.optimisticId + '"]')
-		if (!$msg.length) return
-		$msg.attr("data-ordinal", o.message.ordinal)
-			.removeAttr("data-tempid")
-			.removeClass("Q_optimistic")
-		$msg.find(".Streams_chat_timestamp")
-			.attr("data-time", Date.fromDateTime(o.message.sentTime).getTime())
+		// var $msg = tool.$('[data-tempid="' + o.optimisticId + '"]')
+		// if (!$msg.length) return
+		// $msg.attr("data-ordinal", o.message.ordinal)
+		// 	.removeAttr("data-tempid")
+		// 	.removeClass("Q_optimistic")
+		// $msg.find(".Streams_chat_timestamp")
+		// 	.attr("data-time", Date.fromDateTime(o.message.sentTime).getTime())
+		tool.$('[data-tempid="' + o.optimisticId + '"]').remove()
 	}, tool);
 
-	// optimistic reject -- remove temp + show error
 	Q.Optimistic.onReject("message", state.publisherId, state.streamName, "Streams/chat/message")
 	.set(function (o) {
 		tool.$('[data-tempid="' + o.optimisticId + '"]').remove()
