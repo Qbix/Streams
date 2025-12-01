@@ -100,7 +100,7 @@ Q.Tool.define('Streams/chat', function(options) {
 			_tempId: tempId
 		};
 		tool.renderMessage(fields);
-		this.$('.Q_optimistic:last').attr('data-tempid', tempId)
+		tool.$('.Q_optimistic:last').attr('data-tempid', tempId)
 	}, tool);
 
 	// optimistic resolve -- replace temp with real
