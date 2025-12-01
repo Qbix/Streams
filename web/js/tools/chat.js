@@ -87,7 +87,7 @@ Q.Tool.define('Streams/chat', function(options) {
 			ordinal: tempId,
 			byUserId: Q.Users.loggedInUserId(),
 			content: o.msg && o.msg.content,
-			sentTime: (new Date()).toDateTimeString(),
+			sentTime: (new Date()).toDateTime(),
 			instructions: "{}",
 			type: "Streams/chat/message",
 			time: Date.now()/1000,
