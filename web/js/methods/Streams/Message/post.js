@@ -20,10 +20,10 @@ Q.exports(function(priv) {
             Q.handle(
                 Q.Optimistic.onBegin("message", msg.publisherId, msg.streamName, type),
                 Q.Streams.Message,
-                {
+                [{
                     optimisticId: Q.Optimistic.id(),
                     msg: msg
-                }
+                }]
             );
         });
         var baseUrl = Q.baseUrl({
