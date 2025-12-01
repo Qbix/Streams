@@ -94,8 +94,8 @@ Q.Tool.define('Streams/chat', function(options) {
 			classes: "Streams_chat_from_me Q_optimistic",
 			_tempId: tempId
 		}
-		this.renderMessage(fields)
-		this.$('.Q_optimistic:last').attr('data-tempid', tempId)
+		tool.renderMessage(fields)
+		thtoolis.$('.Q_optimistic:last').attr('data-tempid', tempId)
 	}, tool);
 
 	// optimistic resolve -- replace temp with real
