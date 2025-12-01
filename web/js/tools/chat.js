@@ -80,11 +80,16 @@ Q.Tool.define('Streams/chat', function(options) {
 
 	tool.refresh(null, true); // use cached stream first time, if available
 
+	var counters = {};
 	Q.Optimistic.onBegin("message", state.publisherId, state.streamName, "Streams/chat/message")
 	.set(function (o) {
+		var key = state.publisherId + "\t" + state.streamName;
+		var base = state.latest || (tool.stream && tool.stream.fields.messageCount) || 0;
+		counters[key] = (counters[key] || base) + 1;
 		var tempId = o.optimisticId
 		var fields = {
-			ordinal: tempId,
+			// fake the ordinal for now
+			ordinal: counters[key],
 			byUserId: Q.Users.loggedInUserId(),
 			content: o.msg && o.msg.content,
 			sentTime: (new Date()).toDateTime(),
@@ -93,9 +98,9 @@ Q.Tool.define('Streams/chat', function(options) {
 			time: Date.now()/1000,
 			classes: "Streams_chat_from_me Q_optimistic",
 			_tempId: tempId
-		}
-		tool.renderMessage(fields)
-		thtoolis.$('.Q_optimistic:last').attr('data-tempid', tempId)
+		};
+		tool.renderMessage(fields);
+		this.$('.Q_optimistic:last').attr('data-tempid', tempId)
 	}, tool);
 
 	// optimistic resolve -- replace temp with real
