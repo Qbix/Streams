@@ -118,9 +118,9 @@ Q.Tool.define('Streams/chat', function(options) {
 	// optimistic reject -- remove temp + show error
 	Q.Optimistic.onReject("message", state.publisherId, state.streamName, "Streams/chat/message")
 	.set(function (o) {
-		this.$('[data-tempid="' + o.optimisticId + '"]').remove()
-		this.renderError(o.error)
-		this.scrollToComposer()
+		tool.$('[data-tempid="' + o.optimisticId + '"]').remove()
+		tool.renderError(o.error)
+		tool.scrollToComposer()
 	}, tool);
 
 
