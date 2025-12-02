@@ -242,7 +242,7 @@ Streams_Message.prototype.getType = function () {
  * @param {String|Object} deliver can be any key under "Streams"/"rules"/"deliver" config,
  *   such as "default" or "invited". The value in the config should be an array of entries,
  *   each of which can be a string or an array itself.
- *   Entries can contain one or more of "email", "mobile" and "devices".
+ *   Entries can contain one or more of "email", "mobile", "devices", and platform names.
  *   They are tried, in order, and delivery stops as soon as at least one destination
  *   is found to deliver to.
  *   Or, it can be an object with "to" property

@@ -18,6 +18,7 @@
 }
 .Streams_access_tool .Q_tabs_tabs li.Q_tabs_tab a {
 	color: black;
+    text-decoration: underline;
 }
 .Streams_access_tool .Q_tabs_tabs li.Q_tabs_tab a div{
 	display: flex;

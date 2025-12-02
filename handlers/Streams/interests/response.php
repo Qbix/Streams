@@ -6,6 +6,10 @@ function Streams_interests_response()
 	$communityId = Q::ifset($_REQUEST, 'communityId', Users::communityId());
 	$skipStreams = filter_var(Q::ifset($_REQUEST, 'skipStreams', false), FILTER_VALIDATE_BOOLEAN);
 	$interests = Streams::interests($communityId, $skipStreams);
+	if (empty($interests)) {
+		// fall back to main community's interests
+		$interests = Streams::interests(Users::communityId(), $skipStreams);
+	}
 	header('Content-Type: text/javascript');
 	header("Pragma: cache");
 	header("Cache-Control: public, max-age=60"); // cache for 1 minute
