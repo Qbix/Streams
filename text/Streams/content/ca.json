@@ -23,7 +23,7 @@
 		"JoinItNow": "Unir-s&#39;hi ara?"
 	},
 	"login": {
-		"prompt": "Deixa que els teus amics et reconeguin:",
+		"prompt": "Qui s&#39;est\u00e0 registrant?",
 		"newUser": "o crea un compte nou a continuaci\u00f3",
 		"picTooltip": "Podeu canviar aquesta imatge m\u00e9s endavant",
 		"placeholders": {

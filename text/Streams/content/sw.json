@@ -23,7 +23,7 @@
 		"JoinItNow": "Jiunge nayo sasa?"
 	},
 	"login": {
-		"prompt": "Waruhusu marafiki wakutambue:",
+		"prompt": "Nani anajiandikisha?",
 		"newUser": "au fungua akaunti mpya hapa chini",
 		"picTooltip": "Unaweza kubadilisha picha hii baadaye",
 		"placeholders": {

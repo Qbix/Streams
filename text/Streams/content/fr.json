@@ -23,7 +23,7 @@
 		"JoinItNow": "Rejoignez-le maintenant\u00a0?"
 	},
 	"login": {
-		"prompt": "Laissez vos amis vous reconna\u00eetre :",
+		"prompt": "Qui s&#39;inscrit ?",
 		"newUser": "ou cr\u00e9ez un nouveau compte ci-dessous",
 		"picTooltip": "Vous pouvez changer cette image plus tard",
 		"placeholders": {

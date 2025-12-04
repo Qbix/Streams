@@ -23,7 +23,7 @@
 		"JoinItNow": "\u0130ndi qo\u015fulun?"
 	},
 	"login": {
-		"prompt": "Dostlar sizi tan\u0131s\u0131n:",
+		"prompt": "Kim qeydiyyatdan ke\u00e7ir?",
 		"newUser": "v\u0259 ya a\u015fa\u011f\u0131da yeni hesab yarad\u0131n",
 		"picTooltip": "Bu \u015f\u0259kli sonra d\u0259yi\u015f\u0259 bil\u0259rsiniz",
 		"placeholders": {

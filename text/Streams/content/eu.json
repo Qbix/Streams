@@ -23,7 +23,7 @@
 		"JoinItNow": "Bat egin orain?"
 	},
 	"login": {
-		"prompt": "Utzi lagunei ezagutarazten:",
+		"prompt": "Nor ari da izena ematen?",
 		"newUser": "edo sortu kontu berri bat behean",
 		"picTooltip": "Irudi hau geroago alda dezakezu",
 		"placeholders": {

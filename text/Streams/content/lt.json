@@ -23,7 +23,7 @@
 		"JoinItNow": "Prisijunk dabar?"
 	},
 	"login": {
-		"prompt": "Leisk draugams tave atpa\u017einti:",
+		"prompt": "Kas registruojasi?",
 		"newUser": "arba toliau sukurkite nauj\u0105 paskyr\u0105",
 		"picTooltip": "V\u0117liau gal\u0117site pakeisti \u0161i\u0105 nuotrauk\u0105",
 		"placeholders": {

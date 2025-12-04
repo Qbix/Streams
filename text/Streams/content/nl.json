@@ -23,7 +23,7 @@
 		"JoinItNow": "Nu meedoen?"
 	},
 	"login": {
-		"prompt": "Laat vrienden je herkennen:",
+		"prompt": "Wie registreert zich?",
 		"newUser": "of maak hieronder een nieuw account aan",
 		"picTooltip": "U kunt deze afbeelding later wijzigen",
 		"placeholders": {

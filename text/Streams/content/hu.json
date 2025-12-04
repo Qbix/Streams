@@ -23,7 +23,7 @@
 		"JoinItNow": "Csatlakozz most?"
 	},
 	"login": {
-		"prompt": "Hagyd, hogy bar\u00e1taid felismerjenek:",
+		"prompt": "Ki regisztr\u00e1l?",
 		"newUser": "vagy hozzon l\u00e9tre egy \u00faj fi\u00f3kot al\u00e1bb",
 		"picTooltip": "Ezt a k\u00e9pet k\u00e9s\u0151bb megv\u00e1ltoztathatja",
 		"placeholders": {

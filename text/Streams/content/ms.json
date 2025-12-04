@@ -23,7 +23,7 @@
 		"JoinItNow": "Sertai sekarang?"
 	},
 	"login": {
-		"prompt": "Biarkan rakan mengenali anda:",
+		"prompt": "Siapa yang mendaftar?",
 		"newUser": "atau buat akaun baharu di bawah",
 		"picTooltip": "Anda boleh menukar gambar ini kemudian",
 		"placeholders": {

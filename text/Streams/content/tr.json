@@ -23,7 +23,7 @@
 		"JoinItNow": "\u015eimdi kat\u0131lmak ister misin?"
 	},
 	"login": {
-		"prompt": "Arkada\u015flar\u0131n\u0131z\u0131n sizi tan\u0131mas\u0131na izin verin:",
+		"prompt": "Kimler kay\u0131t yapt\u0131r\u0131yor?",
 		"newUser": "veya a\u015fa\u011f\u0131dan yeni bir hesap olu\u015fturun",
 		"picTooltip": "Bu resmi daha sonra de\u011fi\u015ftirebilirsiniz.",
 		"placeholders": {

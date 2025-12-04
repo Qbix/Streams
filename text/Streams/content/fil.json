@@ -23,7 +23,7 @@
 		"JoinItNow": "Sumali dito ngayon?"
 	},
 	"login": {
-		"prompt": "Hayaang makilala ka ng mga kaibigan:",
+		"prompt": "Sino ang nagpaparehistro?",
 		"newUser": "o gumawa ng bagong account sa ibaba",
 		"picTooltip": "Maaari mong baguhin ang larawang ito sa ibang pagkakataon",
 		"placeholders": {

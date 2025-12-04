@@ -23,7 +23,7 @@
 		"JoinItNow": "Kas liituda sellega kohe?"
 	},
 	"login": {
-		"prompt": "Laske s\u00f5pradel teid \u00e4ra tunda:",
+		"prompt": "Kes registreerub?",
 		"newUser": "v\u00f5i looge allpool uus konto",
 		"picTooltip": "Saate seda pilti hiljem muuta",
 		"placeholders": {

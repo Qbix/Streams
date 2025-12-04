@@ -23,7 +23,7 @@
 		"JoinItNow": "Vai pievienoties tai tagad?"
 	},
 	"login": {
-		"prompt": "\u013baujiet draugiem j\u016bs atpaz\u012bt:",
+		"prompt": "Kas re\u0123istr\u0113jas?",
 		"newUser": "vai izveidojiet jaunu kontu t\u0101l\u0101k",
 		"picTooltip": "V\u0113l\u0101k varat main\u012bt \u0161o att\u0113lu",
 		"placeholders": {

@@ -23,7 +23,7 @@
 		"JoinItNow": "P\u0159ipojit se nyn\u00ed?"
 	},
 	"login": {
-		"prompt": "Umo\u017en\u011bte p\u0159\u00e1tel\u016fm, aby v\u00e1s poznali:",
+		"prompt": "Kdo se registruje?",
 		"newUser": "nebo si n\u00ed\u017ee vytvo\u0159te nov\u00fd \u00fa\u010det",
 		"picTooltip": "Tento obr\u00e1zek m\u016f\u017eete pozd\u011bji zm\u011bnit",
 		"placeholders": {

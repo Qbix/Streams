@@ -23,7 +23,7 @@
 		"JoinItNow": "Vil du v\u00e6re med nu?"
 	},
 	"login": {
-		"prompt": "Lad venner genkende dig:",
+		"prompt": "Hvem registrerer sig?",
 		"newUser": "eller opret en ny konto nedenfor",
 		"picTooltip": "Du kan \u00e6ndre dette billede senere",
 		"placeholders": {

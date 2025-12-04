@@ -23,7 +23,7 @@
 		"JoinItNow": "Ymunwch ag ef nawr?"
 	},
 	"login": {
-		"prompt": "Gadewch i ffrindiau eich adnabod:",
+		"prompt": "Pwy sy&#39;n cofrestru?",
 		"newUser": "neu greu cyfrif newydd isod",
 		"picTooltip": "Gallwch newid y llun hwn yn ddiweddarach",
 		"placeholders": {

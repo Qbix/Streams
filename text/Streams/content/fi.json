@@ -23,7 +23,7 @@
 		"JoinItNow": "Liitytk\u00f6 nyt?"
 	},
 	"login": {
-		"prompt": "Anna yst\u00e4vien tunnistaa sinut:",
+		"prompt": "Kuka rekister\u00f6ityy?",
 		"newUser": "tai luo uusi tili alla",
 		"picTooltip": "Voit muuttaa t\u00e4t\u00e4 kuvaa my\u00f6hemmin",
 		"placeholders": {

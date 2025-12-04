@@ -23,7 +23,7 @@
 		"JoinItNow": "Bashkohu tani?"
 	},
 	"login": {
-		"prompt": "L\u00ebrini miqt\u00eb t&#39;ju njohin:",
+		"prompt": "Kush po regjistrohet?",
 		"newUser": "ose krijoni nj\u00eb llogari t\u00eb re m\u00eb posht\u00eb",
 		"picTooltip": "Ju mund ta ndryshoni k\u00ebt\u00eb foto m\u00eb von\u00eb",
 		"placeholders": {

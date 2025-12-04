@@ -23,7 +23,7 @@
 		"JoinItNow": "Pripoji\u0165 sa teraz?"
 	},
 	"login": {
-		"prompt": "Umo\u017enite priate\u013eom, aby v\u00e1s spoznali:",
+		"prompt": "Kto sa registruje?",
 		"newUser": "alebo si vytvorte nov\u00fd \u00fa\u010det ni\u017e\u0161ie",
 		"picTooltip": "Tento obr\u00e1zok m\u00f4\u017eete nesk\u00f4r zmeni\u0165",
 		"placeholders": {
