@@ -3277,6 +3277,22 @@ abstract class Streams extends Base_Streams
 			'streamName' => $streamNames,
 			'userId' => $asUserId
 		))->ignoreCache()->fetchDbRows(null, null, 'streamName');
+
+		/**
+		 * @event Streams/join {before}
+		 * @param {string} asUserId
+		 * @param {string} publisherId
+		 * @param {array} streams
+		 * @param {array} streamNames
+		 * @param {array} participants
+		 * @param {array} options
+		 */
+		if (false === Q::event('Streams/join', compact(
+			'asUserId', 'publisherId', 'streams', 'streamNames', 'participants', 'options'
+		), 'before')) {
+			return array();
+		}
+
 		$streamNamesMissing = array();
 		$streamNamesUpdate = array();
 		$messages = array();
@@ -3422,6 +3438,18 @@ abstract class Streams extends Base_Streams
 				);
 			}
 		}
+		/**
+		 * @event Streams/join {after}
+		 * @param {string} asUserId
+		 * @param {string} publisherId
+		 * @param {array} streams
+		 * @param {array} streamNames
+		 * @param {array} participants
+		 * @param {array} options
+		 */
+		Q::event('Streams/join', compact(
+			'asUserId', 'publisherId', 'streams', 'streamNames', 'participants', 'options'
+		), 'after');
 		return $results;
 	}
 	
@@ -3461,6 +3489,22 @@ abstract class Streams extends Base_Streams
 			'streamName' => $streamNames,
 			'userId' => $asUserId
 		))->ignoreCache()->fetchDbRows(null, null, 'streamName');
+
+		/**
+		 * @event Streams/leave {before}
+		 * @param {string} asUserId
+		 * @param {string} publisherId
+		 * @param {array} streams
+		 * @param {array} streamNames
+		 * @param {array} participants
+		 * @param {array} options
+		 */
+		if (false === Q::event('Streams/leave', compact(
+			'asUserId', 'publisherId', 'streams', 'streamNames', 'participants', 'options'
+		), 'before')) {
+			return array();
+		}
+
 		$streamNamesUpdate = array();
 		$streamNamesMissing = array();
 		$updateCounts = array();
@@ -3572,6 +3616,18 @@ abstract class Streams extends Base_Streams
 				);
 			}
 		}
+		/**
+		 * @event Streams/leave {after}
+		 * @param {string} asUserId
+		 * @param {string} publisherId
+		 * @param {array} streams
+		 * @param {array} streamNames
+		 * @param {array} participants
+		 * @param {array} options
+		 */
+		Q::event('Streams/leave', compact(
+			'asUserId', 'publisherId', 'streams', 'streamNames', 'participants', 'options'
+		), 'after');
 		return $participants;
 	}
 

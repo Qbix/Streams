@@ -46,9 +46,6 @@ Q.text.Streams = {
 		picTooltip: "You can change this picture later",
 		placeholders: {
 			fullName: 'Enter your full name'
-		},
-		maxlengths: {
-			fullName: 50
 		}
 	},
 	invite: {
@@ -1796,7 +1793,7 @@ Streams.setupRegisterForm = function _Streams_setupRegisterForm(identifier, json
 	$formContent.append(
 		$('<input id="Streams_login_fullname" name="fullName" type="text" class="text" />')
 			.attr('autocomplete', 'name')
-			.attr('maxlength', Q.text.Streams.login.maxlengths.fullName)
+			.attr('maxlength', Q.getObject('Q.Users.login.options.maxlengths.fullName'))
 			.attr('placeholder', Q.text.Streams.login.placeholders.fullName)
 			.attr('tabindex', 1010)
 			.on('input', function () {
@@ -2031,7 +2028,7 @@ Stream.subscribe = new Q.Method({
     * Occurs when Stream.subscribe wants to ask for permission.
 	* Can be used by plugins as a hook and return false to prevent
 	* asking for push device notification, for instance.
-    * @event subscribe.onError
+    * @event subscribe.onPermission
     */
     onPermission: new Q.Event(),
 
