@@ -1026,7 +1026,7 @@ Q.Tool.define('Streams/chat', function(options) {
 			}
 		})
 		// when virtual keyboard appear, trying to scroll body to input element position
-		.on('focus', tool.scrollToComposer.bind(tool));
+		.on('focus', tool.scrollToComposer.bind(tool, null, false));
 
 		// submit button handler
 		tool.$(".Streams_chat_composer .Streams_chat_submit").on(Q.Pointer.fastclick, function(){
