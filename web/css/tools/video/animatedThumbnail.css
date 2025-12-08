@@ -24,7 +24,7 @@
     width: 100%;
 }
 .Streams_video_animatedThumbnail .Q_dialog_content .Streams_video_animatedThumbnail_settings button[name=start].Q_disabled {
-    background-image: url("../../../Q/img/throbbers/long_bar.gif");
+    background-image: url("../../../../Q/img/throbbers/long_bar.gif");
     background-repeat: no-repeat;
     background-size: 140% 170%;
     background-position: center center;
