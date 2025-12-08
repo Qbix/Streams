@@ -3869,7 +3869,7 @@ abstract class Streams extends Base_Streams
 		}
 
 		foreach ($streams5 as $s) {
-			Users_Referred::handleReferral($asUserId, $invite->publisherId, 'Streams/subscribe', $s->type, $invite->invitingUserId);
+			Users_Referred::handleReferral($asUserId, $invite->publisherId, 'Streams/subscribe', $s->type);
 		}
 		
 		return $participants;
