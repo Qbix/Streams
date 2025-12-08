@@ -1,6 +1,6 @@
 <?php
 
-function Streams_before_Users_referred($params, $result)
+function Streams_before_Users_referred($params, &$result)
 {
     if ($result) {
         return; // byUserId already set
