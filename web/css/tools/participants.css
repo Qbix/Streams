@@ -57,6 +57,7 @@
 
 .Streams_participants_tool .Streams_participants_controls {
 	width: 40px; display: none; visibility: hidden; pointer-events: none;
+	float: right;
 }
 
 .Streams_participants_tool.Q_overflowed .Streams_participants_controls {
