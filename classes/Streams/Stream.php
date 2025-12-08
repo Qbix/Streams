@@ -1183,7 +1183,7 @@ class Streams_Stream extends Base_Streams_Stream
 	{
 		$attr = $this->getAllAttributes();
 		unset($attr[$attributeName]);
-		$this->attributes = Q::json_encode($attr);
+		$this->attributes = Q::json_encode($attr, Q::JSON_FORCE_OBJECT);
 		return $this;
 	}
 	

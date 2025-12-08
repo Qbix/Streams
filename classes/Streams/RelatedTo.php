@@ -76,7 +76,7 @@ class Streams_RelatedTo extends Base_Streams_RelatedTo
 	{
 		$attr = $this->getAllExtras();
 		unset($attr[$extraName]);
-		$this->extra = Q::json_encode($attr);
+		$this->extra = Q::json_encode($attr, Q::JSON_FORCE_OBJECT);;
 	}
 	
 	/**

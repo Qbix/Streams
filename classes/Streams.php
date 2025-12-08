@@ -3871,7 +3871,8 @@ abstract class Streams extends Base_Streams
 		if ($token = Q::ifset($_SESSION, 'Streams', 'invite', 'token', null)) {
 			if ($invite = Streams_Invite::fromToken($token)) {
 				foreach ($streams5 as $s) {
-					Users_Referred::handleReferral($asUserId, $invite->publisherId, $s->type, $invite->invitingUserId);
+					$referredType = $s->type . "\tsubscribed";
+					Users_Referred::handleReferral($asUserId, $invite->publisherId, $referredType, $invite->invitingUserId);
 				}
 			}
 		}
@@ -4331,8 +4332,10 @@ abstract class Streams extends Base_Streams
 				// TODO: Debate the merits of this approach.
 				Users_Contact::addContact($asUserId, "Streams/invited", $userId, null, false, true);
 				Users_Contact::addContact($asUserId, "Streams/invited/{$stream->type}", $userId, null, false, true);
-				Users_Contact::addContact($userId, "Streams/invitedMe", $asUserId, null, false, true);
-				Users_Contact::addContact($userId, "Streams/invitedMe/{$stream->type}", $asUserId, null, false, true);
+
+				// Don't add invitedMe labels until after the person accepts the invite
+				// Users_Contact::addContact($userId, "Streams/invitedMe", $asUserId, null, false, true);
+				// Users_Contact::addContact($userId, "Streams/invitedMe/{$stream->type}", $asUserId, null, false, true);
 			}
 			if ($addMyLabel) {
 				$myLabels = Q::isAssociative($addMyLabel) ? array_keys($addMyLabel) : $addMyLabel;

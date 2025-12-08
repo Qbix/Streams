@@ -452,7 +452,7 @@ class Streams_Invite extends Base_Streams_Invite
 	{
 		$attr = $this->getAllExtras();
 		unset($attr[$extraName]);
-		$this->extra = Q::json_encode($attr);
+		$this->extra = Q::json_encode($attr, Q::JSON_FORCE_OBJECT);;
 	}
 
 	/**
