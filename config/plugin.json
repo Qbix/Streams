@@ -118,7 +118,7 @@
 					"400": "400.png",
 					"x400": "x400.png",
 					"150x100": "x100.png",
-					"500x333": "500x.png"
+					"1000x666": "1000x.png"
 				},
 				"defaultSize": "400",
 				"defaultCacheBust": 1000,

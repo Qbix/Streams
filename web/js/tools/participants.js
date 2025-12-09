@@ -178,7 +178,7 @@ function _Streams_participants(options) {
 			tool.$pei = $('<img class="Streams_participants_expand_img" />').attr({
 				src: Q.url('{{Q}}/img/expand.png'),
 				alt: "expand"
-			});
+			}).addClass('Q_no_lazyload');
 		}
 		if (!tool.$controls.length) {
 			tool.$controls = $("<div class='Streams_participants_controls' />")
