@@ -167,6 +167,13 @@
 				}
 			}
 		},
+		"referred": {
+			"Streams/invite/accept": {
+				"": {
+					"points": 1
+				}
+			}
+		},
 		"icon": {
 			"labels": "labels/default",
 			"canSetInitialCustom": ["Streams/invitedMe"]

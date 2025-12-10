@@ -46,7 +46,7 @@ class Streams_Invite extends Base_Streams_Invite
 	static function forStream($publisherId, $streamName, $userId = null)
 	{
 		if (!isset($userId)) {
-			$user = Users::loggedInUser()->id;
+			$user = Users::loggedInUser();
 			if ($user) {
 				return null;
 			}
@@ -139,6 +139,8 @@ class Streams_Invite extends Base_Streams_Invite
 				throw new Streams_Exception_InviteExpired();
 			}
 		}
+
+		$referredAction = 'Streams/invite/accept';
 		
 		$invited = new Streams_Invited();
 		$invited->token = $this->token;
@@ -173,12 +175,14 @@ class Streams_Invite extends Base_Streams_Invite
 			return false;
 		}
 
+		$referred = Users_Referred::handleReferral($userId, $this->publisherId, $referredAction, '');
+
 		/**
 		 * @event Streams/invite {before}
 		 * @param {Streams_Invite} stream
 		 * @param {Users_User} user
 		 */
-		if (Q::event("Streams/invite/accept", @compact('invite', 'userId'), 'before') === false) {
+		if (Q::event("Streams/invite/accept", @compact('invite', 'userId', 'referred'), 'before') === false) {
 			return false;
 		}
 
