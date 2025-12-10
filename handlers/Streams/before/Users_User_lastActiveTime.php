@@ -1,6 +1,6 @@
 <?php
 
-function Streams_before_Users_user_lastActiveTime($params, &$result)
+function Streams_before_Users_User_lastActiveTime($params, &$result)
 {
 	$userId = $params['userId'];
 

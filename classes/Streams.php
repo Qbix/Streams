@@ -404,9 +404,9 @@ abstract class Streams extends Base_Streams
 	 *  @param {reference} $results=array()
 	 *   pass an array here, to be filled with intermediate results you might want to use
 	 * @return {array}
-	 *  Returns an array of Streams_Stream objects with access info calculated
-	 *  specifically for $asUserId . Make sure to call the methods 
-	 *  testReadLevel(), testWriteLevel() and testAdminLevel()
+	 *  Returns an array of Streams_Stream objects indexed by streamName,
+	 *  with access info calculated specifically for $asUserId . 
+	 *  Make sure to call the methods testReadLevel(), testWriteLevel() and testAdminLevel()
 	 *  on these streams before using them on the user's behalf.
 	 */
 	static function fetch(
@@ -3857,7 +3857,7 @@ abstract class Streams extends Base_Streams
 			Streams_SubscriptionRule::insertManyAndExecute($ruleRows);
 		}
 
-		$streams5 = Q::take($streams, $streamNames);
+		$streams5 = Q::take($streams2, $streamNames);
 		Q_Utils::sendToNode(array(
 			"Q/method" => "Streams/Stream/subscribe",
 			"subscriptions" => Q::json_encode($subscriptions),
@@ -3869,7 +3869,7 @@ abstract class Streams extends Base_Streams
 		}
 
 		foreach ($streams5 as $s) {
-			Users_Referred::handleReferral($asUserId, $invite->publisherId, 'Streams/subscribe', $s->type);
+			Users_Referred::handleReferral($asUserId, $s->publisherId, 'Streams/subscribe', $s->type);
 		}
 		
 		return $participants;
