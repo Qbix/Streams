@@ -76,7 +76,7 @@
 
 .Streams_participants_tool.Streams_participants_loading.Streams_hideIfNoParticipants,
 .Streams_participants_tool.Streams_noParticipants .Streams_participants_container > * {
-	display: none;
+	display: none !important;
 }
 
 .Streams_participants_tool > .Streams_participants_container > .Streams_participants_invite_button {
