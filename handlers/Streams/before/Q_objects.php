@@ -65,6 +65,7 @@ function Streams_before_Q_objects()
 	}
 
 	// schedule the invite to be accepted after the user logs in
+	Q_Session::setNonce();
 	$_SESSION['Streams']['invite'] = $invite->fields;
 	
 	$liu = Users::loggedInUser();	
