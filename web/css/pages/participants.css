@@ -18,7 +18,7 @@
     font-weight: bold
 }
 
-.Streams_participants_tool .Users_avatar_icon {
+.Streams_participants_tool .Streams_participants_avatars .Users_avatar_icon {
     box-shadow: #222 0 0 1px;
     width: 40px;
     height: 40px
