@@ -83,6 +83,8 @@ function Streams_after_Q_objects () {
 		'related' => !empty($related) ? Db::exportArray($related) : array()
 	);
 
+	$params['discount'] = Streams_Credits::discountInfo($stream, $user->id, null);
+
 	if (Users::isCommunityId($stream->publisherId)) {
 		$params['communityId'] = $stream->publisherId;
 		$params['communityName'] = Streams::displayName($stream->publisherId);

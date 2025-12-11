@@ -416,6 +416,10 @@ Q.exports(function() {
                     o.addMyLabel = [];
                 }
 
+                if (!o.description) {
+                    o.description = Q.text.Streams.invite.dialog.chooseMethod;
+                }
+
                 _showInviteDialog();
 
                 // Commented out because now we check the server every time
@@ -519,10 +523,6 @@ Q.exports(function() {
                             }, labelsTool);
                         }
                     });
-                }
-
-                if (!o.description) {
-                    o.description = Q.text.Streams.invite.dialog.chooseMethod;
                 }
 
                 function _showInviteDialog() {

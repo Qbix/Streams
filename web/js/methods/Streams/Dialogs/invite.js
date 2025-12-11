@@ -323,6 +323,7 @@ Q.exports(function(Users, Streams) {
 					template: {
 						name: 'Streams/templates/invite/modernDialog',
 						fields: {
+							description: options.description,
 							isContactsPicker: isContactsPicker,
 							userChooser: options.userChooser,
 							showLabelsButtons: options.showGrantRolesButton || options.showGrantRelationshipsButtonButton,

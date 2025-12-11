@@ -7,6 +7,10 @@
 	justify-content: center;
 	align-items: center;
 }
+.Streams_invite_modern_dialog_heading {
+	padding: 10px;
+    text-align: center;
+}
 .Streams_invite_modern_dialog_buttons {
 	display: flex;
 }
