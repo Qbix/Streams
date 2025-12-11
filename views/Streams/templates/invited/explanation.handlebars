@@ -12,5 +12,15 @@
                 <td><div>{{stream.fields.title}}</div></td>
             </tr>
         {{/if}}
+        {{#if discount}}
+            <tr class="Streams_complete_discount">
+                <td colspan="2">
+                    <div class="Streams_invited_discount">
+                        {{discount.description}}
+                    </div>
+                </td>
+            </tr>
+        {{/if}}
     </table>
+    
 </div>
