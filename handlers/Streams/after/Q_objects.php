@@ -83,7 +83,14 @@ function Streams_after_Q_objects () {
 		'related' => !empty($related) ? Db::exportArray($related) : array()
 	);
 
-	$params['discount'] = Assets_Credits::discountInfo($stream, $user->id, null);
+	$referrerUserId = Q::ifset($invite, 'invitingUserId', null);
+
+	$params['discount'] = Assets_Credits::discountInfo(
+		$stream,
+		$user ? $user->id : null,
+		null,
+		$referrerUserId
+	);
 
 	if (Users::isCommunityId($stream->publisherId)) {
 		$params['communityId'] = $stream->publisherId;
