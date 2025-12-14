@@ -5123,12 +5123,26 @@ Q.onInit.add(function _Streams_onInit() {
 			}
 		}
 	}, 'Streams');
+
+	function _messageTypePrefixes(type) {
+		var parts = type.split('/');
+		var prefixes = [];
+		for (var i = parts.length; i > 0; --i) {
+			prefixes.push(parts.slice(0, i).join('/') + '/');
+		}
+		return prefixes;
+	}
 	
 	function _handlers(streamType, msg, params) {
+		var prefixes = _messageTypePrefixes(msg.type);
 		Q.handle(Q.getObject(['', ''], priv._messageHandlers), Streams, params);
 		Q.handle(Q.getObject([streamType, msg.type], priv._messageHandlers), Streams, params);
 		Q.handle(Q.getObject(['', msg.type], priv._messageHandlers), Streams, params);
 		Q.handle(Q.getObject([streamType, ''], priv._messageHandlers), Streams, params);
+		Q.each(prefixes, function (i, prefix) {
+			Q.handle(Q.getObject([streamType, prefix], priv._messageHandlers), Streams, params);
+			Q.handle(Q.getObject(['', prefix], priv._messageHandlers), Streams, params);
+		});
 		Q.each([msg.publisherId, ''], function (i, publisherId) {
 			Q.each([msg.streamName, ''], function (ordinal, streamName) {
 				Q.handle(
@@ -5146,6 +5160,13 @@ Q.onInit.add(function _Streams_onInit() {
 					Streams,
 					params
 				);
+				Q.each(prefixes, function (i, prefix) {
+					Q.handle(
+						Q.getObject([publisherId, streamName, prefix], priv._streamMessageHandlers),
+						Streams,
+						params
+					);
+				});
 			});
 		});
 	}

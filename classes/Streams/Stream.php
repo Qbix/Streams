@@ -2691,7 +2691,9 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {string} [$options.offset=0] Number of the messages to be selected.
 	 * @param {string} [$options.ascending] Sorting of fetched participants by insertedTime. If true, sorting is ascending, if false - descending. Defaults to false.
 	 * @param {string} [$options.type] Optional string specifying the particular type of messages to get
-	 * @param {boolean} [$options.skipLimiting=false] Pass true here to not cut the limit off by the getParticipantsLimit from config. It's here to protect against excessively large queries.
+	 * @param {string} [$options.skipFiltering] Pass true to skip filtering using Users/filter/users handlers
+	 * @param {boolean} [$options.skipLimiting=false] Pass true to not cut the limit off by the max getParticipantsLimit from config. It's here to protect against excessively large queries.
+	 * @return {array}
 	 */
 	function getParticipants($options)
 	{
@@ -2720,7 +2722,15 @@ class Streams_Stream extends Base_Streams_Stream
 			$q->limit($limit, $offset);
 		}
 		$q->orderBy('insertedTime', isset($options['ascending']) ? $options['ascending'] : $ascending);
-		return $q->fetchDbRows(null, '', 'userId');
+		$participants = $q->fetchDbRows(null, '', 'userId');
+		if (empty($options['skipFiltering'])) {
+			$userIds = array_keys($participants);
+			$userIds = Q::event('Users/filter/users', array(
+				'from' => 'Streams_Avatar::fetchByPrefix'
+			), 'after', false, $userIds, $handlersCalled);
+			$participants = Q::take($participants, $userIds);
+		}
+		return $participants;
 	}
 	
 	/**
