@@ -2726,7 +2726,7 @@ class Streams_Stream extends Base_Streams_Stream
 		if (empty($options['skipFiltering'])) {
 			$userIds = array_keys($participants);
 			$userIds = Q::event('Users/filter/users', array(
-				'from' => 'Streams_Avatar::fetchByPrefix'
+				'from' => 'Streams_Stream::getParticipants'
 			), 'after', false, $userIds, $handlersCalled);
 			$participants = Q::take($participants, $userIds);
 		}
