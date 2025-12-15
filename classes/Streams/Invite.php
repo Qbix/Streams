@@ -139,8 +139,6 @@ class Streams_Invite extends Base_Streams_Invite
 				throw new Streams_Exception_InviteExpired();
 			}
 		}
-
-		$referredAction = 'Streams/invite/accept';
 		
 		$invited = new Streams_Invited();
 		$invited->token = $this->token;
@@ -171,11 +169,20 @@ class Streams_Invite extends Base_Streams_Invite
 			$saved = true;
 		}
 
+		// INVITE: set the invite as the latest invite in the session,
+		// and schedule the invite to be accepted after the user logs in,
+		// if the invite didn't have a specific userId 
+		Q_Session::setNonce();
+		$_SESSION['Streams']['invite'] = $this->fields;
+		unset($_SESSION['Streams']['inviteFollowedToken']);
+
+		// Handle referral
+		$referredAction = 'Streams/invite/accept';
+		$referred = Users_Referred::handleReferral($userId, $this->publisherId, $referredAction, '');
+
 		if (!$saved) {
 			return false;
 		}
-
-		$referred = Users_Referred::handleReferral($userId, $this->publisherId, $referredAction, '');
 
 		/**
 		 * @event Streams/invite {before}
@@ -528,8 +535,27 @@ class Streams_Invite extends Base_Streams_Invite
 		}
 		return true;
 	}
+
+	/**
+	 * Returns the latest invite that was accepted in this session.
+	 * Doesn't return Streams_Invite::$followedInvite unless accept()
+	 * was called on it, and it became the latest invite in this session.
+	 * @method tokenAcceptedInSession
+	 * @static
+	 * @return {Streams_Invite|null}
+	 */
+	static function tokenAcceptedInSession()
+	{
+		return Q::ifset($_SESSION, 'Streams', 'invite', 'token', null);
+	}
 	
 	static protected $cache = array();
+
+	/**
+	 * @property $followedInvite
+	 * @type Streams_Invite
+	 */
+	static $followed = null;
 
 	/* * * */
 	/**

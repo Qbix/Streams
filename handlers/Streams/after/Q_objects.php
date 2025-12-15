@@ -1,7 +1,7 @@
 <?php
 
 function Streams_after_Q_objects () {
-	$invite = Streams::$followedInvite;
+	$invite = Streams_Invite::$followed;
 	if (!$invite) {
 		return;
 	}
@@ -85,12 +85,9 @@ function Streams_after_Q_objects () {
 
 	$referrerUserId = Q::ifset($invite, 'invitingUserId', null);
 
-	$params['discount'] = Assets_Credits::discountInfo(
-		$stream,
-		$user ? $user->id : null,
-		null,
-		$referrerUserId
-	);
+	$params = Q::event('Streams/Dialogs/invite/complete', compact(
+		'stream', 'user', 'referrerUserId'
+	), 'before', false, $params);
 
 	if (Users::isCommunityId($stream->publisherId)) {
 		$params['communityId'] = $stream->publisherId;

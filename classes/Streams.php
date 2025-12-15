@@ -1562,8 +1562,8 @@ abstract class Streams extends Base_Streams
 				throw new Users_Exception_NoSuchUser(array(), 'username');
 			}
 			$publisherId = $publisher->id;
-		} else if (Streams::$followedInvite) {
-			$publisherId = Streams::$followedInvite->publisherId;
+		} else if (Streams_Invite::$followed) {
+			$publisherId = Streams_Invite::$followed->publisherId;
 		} else if ($throwIfMissing) {
 			throw new Q_Exception_RequiredField(
 				array('field' => 'publisher id'),
@@ -1632,8 +1632,8 @@ abstract class Streams extends Base_Streams
 				}
 			}
 			$name = isset($uri->name_prefix) ? $uri->name_prefix.$result : $result;
-		} else if (Streams::$followedInvite) {
-			$name = Streams::$followedInvite->streamName;
+		} else if (Streams_Invite::$followed) {
+			$name = Streams_Invite::$followed->streamName;
 		} else if ($throwIfMissing) {
 			throw new Q_Exception_RequiredField(
 				array('field' => 'stream name'),
@@ -3868,8 +3868,9 @@ abstract class Streams extends Base_Streams
 			Streams_Message::postMessages($asUserId, $messages, true);
 		}
 
+		$referredAction = 'Streams/subscribe';
 		foreach ($streams5 as $s) {
-			Users_Referred::handleReferral($asUserId, $s->publisherId, 'Streams/subscribe', $s->type);
+			Users_Referred::handleReferral($asUserId, $s->publisherId, $referredAction, $s->type);
 		}
 		
 		return $participants;
@@ -6073,11 +6074,6 @@ abstract class Streams extends Base_Streams
 	 * @type array
 	 */
 	static $cache = array();
-	/**
-	 * @property $followedInvite
-	 * @type Streams_Invite
-	 */
-	static $followedInvite = null;
 	/**
 	 * @property $requestedPublisherId_override
 	 * @static

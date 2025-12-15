@@ -28,7 +28,7 @@ function Streams_before_Q_objects()
 	}
 	
 	// retain the invite object for further processing
-	Streams::$followedInvite = $invite;
+	Streams_Invite::$followed = $invite;
 	
 	// is invite still pending?
 	if ($invite->state !== 'pending') {
@@ -63,14 +63,11 @@ function Streams_before_Q_objects()
 			}
 		}
 	}
-
-	// schedule the invite to be accepted after the user logs in
-	Q_Session::setNonce();
-	$_SESSION['Streams']['invite'] = $invite->fields;
 	
 	$liu = Users::loggedInUser();	
-	if ($invite->userId and (!$liu or $liu->id !== $invite->userId)) {
-		// log the invited user in, suddenly
+	if (!$liu and $invite->userId) {
+		// invite was for a speciic user, and 
+		// log the invited user in only if they weren't logged in before
 		$user = new Users_User();
 		$user->id = $invite->userId;
 		if (!$user->retrieve()) {
@@ -84,6 +81,8 @@ function Streams_before_Q_objects()
 	
 	if (!$liu and !$invite->userId) {
 		// tell Users plugin we have an icon ready for a certain user
+		// based on the invite token, once we actually setLoggedInUser
+		// and they didn't have a custom icon yet, the system might use this.
 		$splitId = Q_Utils::splitId($invite->invitingUserId, 3, "/");
 		$path = 'Q/uploads/Users';
 		$subpath = $splitId.'/invited/'.$token;
@@ -95,12 +94,22 @@ function Streams_before_Q_objects()
 				array("baseUrlPlaceholder" => true)
 			);
 		}
-		return;
 	}
-	
-	// accept invite and autosubscribe if first time and possible
-	if ($invite->accept(array(
-		'access' => true,
-		'subscribe' => true
-	)));
+
+	// INVITE: now that user may have logged in (or still not)
+	// save the token for Streams_Invite::$followed in the session
+	Q_Session::setNonce();
+	$_SESSION['Streams']['inviteFollowedToken'] = $invite->token;
+
+	// INVITE: potentially accept the invite
+	if (Q_Request::special('Streams.acceptInvite')) {
+		if ($token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null)) {
+			// accept invite and autosubscribe if first time and possible
+			$invite = Streams_Invite::fromToken($token);
+			if ($invite->accept(array(
+				'access' => true,
+				'subscribe' => true
+			)));	
+		}
+	}
 }
