@@ -1,111 +1,163 @@
-.Streams_participants_invite img {
-    width: 40px;
-    height: 40px;
-    margin: auto
+#content.Streams_participating {
+	padding: 0 5px;
 }
-
-.Streams_participants_tool {
-    display: flex;
-    align-items: start;
-    flex-shrink: 0;
-    height: 60px;
-    overflow: none;
-    overflow-x: auto;
-    scrollbar-width: none
+#content.Streams_participating > h2 {
+	margin-top: 10px;
+	text-align: center;
 }
-
-.Streams_participants_tool .Streams_invite_label {
-    font-weight: bold
+table.Streams_participating_stream {
+	table-layout: auto;
+	width: 100%;
 }
-
-.Streams_participants_tool .Streams_participants_avatars .Users_avatar_icon {
-    box-shadow: #222 0 0 1px;
-    width: 40px;
-    height: 40px
+.Streams_participating_stream div[data-type=tr] {
+	background-color: #eeeeff;
+	border: 1px solid #e1e1e1;
+	white-space: nowrap;
 }
-
-.Streams_participants_tool .Users_avatar_icon_blank {
-    box-shadow: none;
-    border-radius: 50%;
-    background: url(http://hebrews.app/Q/plugins/Q/img/xadd.png.pagespeed.ic.RuWTSy-80W.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 70%;
-    border: 1px dashed rgba(100,100,100,.2);
-    opacity: 50%
+.Streams_participating_stream div[data-type=title],
+.Streams_participating_stream div[data-type=checkmark] {
+	padding: 0;
+	white-space: nowrap;
+	display: inline-block;
+	vertical-align: middle;
 }
-
-.Streams_participants_tool .Streams_participants_summary {
-    position: relative;
-    color: #fff;
-    text-shadow: rgba(0,0,0,.5) 0 0 5px;
-    min-width: 40px;
-    max-width: 100px;
-    height: 25px;
-    line-height: 25px;
-    border-radius: 5px;
-    font-size: 14px;
-    background: rgba(50,50,50,.4);
-    font-weight: 700;
-    text-align: center;
-    overflow: hidden;
-    margin-inline-end:2%;margin-inline-start:auto;box-shadow: 0 0 5px rgba(100,100,100,.5);
-    outline: 1px dotted rgba(100,100,100,.5)
+.Streams_participating_stream div[data-type=title] {
+	width: calc(100% - 50px);
 }
+.Streams_participating_stream div[data-type=title] > * {
+	display: inline-block;
+	line-height: 40px;
+	vertical-align: top;
+}
+.Streams_participating_stream div[data-type=title] > div {
+	font-size: 20px;
+	font-weight: normal;
+	width: calc(100% - 50px);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.Streams_participating_stream div[data-type=checkmark] {
+	text-align: center;
+	width: 50px;
+}
+.Streams_participating_stream div[data-type=participants] {
+	min-width: 280px;
+}
+.Streams_participating_stream img.Streams_participating_stream_icon,
+.Streams_participating_stream .Streams_participating_stream_checkmark {
+	width: 40px;
+	height: 40px;
+	margin: 0;
+}
+.Streams_participating_stream img.Streams_participating_stream_icon {
+	margin-right: 5px;
+}
+.Streams_participating_stream .Streams_participants_tool {
+	position: relative;
+}
+.Streams_participating_stream .Streams_participants_tool .Streams_participants_summary {
+	position: absolute;
+	right: 40px;
+}
+.Streams_participating .Q_tool.Q_expandable_tool h2,
+.Streams_participating .Streams_participating_item {
+	padding: 10px;
+	background-color: rgba(180, 200, 220, 0.7);
+	font-weight: 400;
+	font-size: 20px;
+	border-radius: 10px;
+	margin-top: 10px;
+	white-space: nowrap;
+	position: relative;
+}
+.Streams_participating .Streams_participating_item span {
+	vertical-align: middle;
+	color: #008504;
+}
+.Streams_participating .Streams_participating_item .Streams_participating_item_actions {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	overflow: hidden;
 
+}
+.Streams_participating .Streams_participating_item .Streams_participating_item_actions .Q_actions_container {
+	position: static !important;
+}
 .Streams_participants_tool .Streams_participants_controls {
-    width: 40px;
-    display: none;
-    visibility: hidden;
-    pointer-events: none;
 	float: right;
 }
-
-.Streams_participants_tool.Q_overflowed .Streams_participants_controls {
-    display: block;
-    visibility: visible;
-    pointer-events: auto
+.Streams_participating .Streams_participating_item:before {
+	color: #919191;
+	font-size: 24px;
+	vertical-align: middle;
+	font-family: 'qplatform-communities' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
-
-.Streams_participants_tool .Streams_participants_expand img {
-    width: 40px;
-    height: 40px
+.Streams_participating .Streams_participating_item[data-type=email]:before {
+	content: "\e91a";
 }
-
-.Streams_participants_tool .Streams_participants_container {
-    overflow: hidden;
-    flex-grow: 2;
-    position: relative
+.Streams_participating .Streams_participating_item[data-type=mobile]:before {
+	content: "\e918";
 }
-
-.Streams_participants_tool.Streams_participants_loading.Streams_hideIfNoParticipants,
-.Streams_participants_tool.Streams_noParticipants .Streams_participants_container>* {
-    display: none !important;
+.Streams_participating .Streams_participating_item[data-defined=true] .Q_actions_plus {
+	display: none !important;
 }
-
-.Streams_participants_tool>.Streams_participants_container>.Streams_participants_invite_button {
-    display: none !important;
-    opacity: 0!important
+.Streams_participating .Streams_participating_item .Q_actions_container {
+	text-align: right;
 }
-
-.Streams_participants_tool.Streams_noParticipants .Streams_participants_container>.Streams_participants_invite_button {
-    display: block!important;
-    opacity: 1!important;
-    transition: opacity .3s 1s , transform .3s!important;
-    margin: 2% auto;
-    max-width: 300px;
-    opacity: .97;
-    width: 94%;
-    border: 1px outset rgba(0,0,0,.5);
-    box-shadow: 0 0 10px 5px rgba(0,0,0,.2)!important
+.Streams_participating .Streams_participating_item[data-defined=false] .Q_actions_edit,
+.Streams_participating .Streams_participating_item[data-defined=false] .Q_actions_remove {
+	display: none !important;
 }
-
-.Streams_participants_tool.Streams_noParticipants .Streams_participants_container>.Streams_participants_invite_button:hover {
-    transform: scale(1.10)
+.Streams_participating .Q_tool.Q_expandable_tool h2 span {
+	font-weight: normal;
+	color: blue;
 }
-
-.Streams_participants_tool.Streams_noParticipants,.Streams_participants_tool.Streams_noParticipants .Streams_participants_container {
-    overflow: visible
+.Streams_participating .Q_tool.Q_expandable_tool .Q_expandable_container {
+	padding-left: 0;
+	padding-right: 0;
 }
-
-
+.Streams_participating_item .Streams_participant_subscribed_icon,
+.Streams_participating_item .Streams_participant_plus_icon,
+.Streams_participating_stream .Streams_participant_subscribed_icon,
+.Streams_participating_item .Streams_participant_delete_icon {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: url(../../../Q/img/icons/basic32.png) 0 -885px no-repeat;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.Streams_participating_item .Streams_participant_subscribed_icon,
+.Streams_participating_item .Streams_participant_plus_icon,
+.Streams_participating_item .Streams_participant_delete_icon {
+	float: right;
+	margin-top: -3px;
+}
+.Streams_participating_item .Streams_participant_delete_icon {
+	background: url(../../../Q/img/icons/basic32.png) 0 -964px no-repeat;
+}
+.Streams_participating_item[data-defined=true] .Streams_participant_plus_icon,
+.Streams_participating_item[data-defined=false] .Streams_participant_subscribed_icon {
+	display: none;
+}
+.Streams_participating_item[data-subscribed=true] .Streams_participant_subscribed_icon,
+.Streams_participant_subscribed_icon[data-subscribed=true] {
+	background: url(../../img/subscription/on/80.png) center center no-repeat;
+	background-size: contain;
+}
+.Streams_participating_item[data-subscribed=false] .Streams_participant_subscribed_icon,
+.Streams_participant_subscribed_icon[data-subscribed=false] {
+	background: url(../../img/subscription/off/80.png) center center no-repeat;
+	background-size: contain;
+}
