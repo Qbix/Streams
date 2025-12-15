@@ -64,6 +64,8 @@ function Streams_before_Q_objects()
 		}
 	}
 	
+	// user just landed on a page, don't expect nonce from client
+	Q_Session::setNonce();
 	$liu = Users::loggedInUser();	
 	if (!$liu and $invite->userId) {
 		// invite was for a speciic user, and 
@@ -98,7 +100,6 @@ function Streams_before_Q_objects()
 
 	// INVITE: now that user may have logged in (or still not)
 	// save the token for Streams_Invite::$followed in the session
-	Q_Session::setNonce();
 	$_SESSION['Streams']['inviteFollowedToken'] = $invite->token;
 
 	// INVITE: potentially accept the invite
