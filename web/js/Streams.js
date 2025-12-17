@@ -4730,7 +4730,7 @@ Q.onInit.add(function _Streams_onInit() {
 			return;
 		}
 		if (Q.Users.loggedInUser && Q.Users.loggedInUser.sessionCount > 1) {
-			return; // in this case, skip the dialog for now
+			// return; // in this case, skip the dialog for now
 		}
 		_Streams_onInvited.showed = true;
 		var delay = params.delay || 2000;

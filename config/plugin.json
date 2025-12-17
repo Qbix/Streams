@@ -172,6 +172,11 @@
 				"": {
 					"points": 1
 				}
+			},
+			"Streams/subscribe": {
+				"": {
+					"points": 3
+				}
 			}
 		},
 		"icon": {

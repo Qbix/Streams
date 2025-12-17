@@ -15,5 +15,6 @@ function Streams_basic_post($params = array())
 {
 	Q_Valid::nonce(true);
 	$request = array_merge($_REQUEST, $params);
+
 	Streams_Internal::updateBasicStreams(Q::ifset($params, 'userId', null), $request);
 }

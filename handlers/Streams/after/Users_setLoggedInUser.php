@@ -4,7 +4,7 @@ function Streams_after_Users_setLoggedInUser($params)
 {
 	$user = $params['user'];
 	$invite = null;
-	if ($token = Q::ifset($_SESSION, 'Streams', 'invite', 'token', null)) {
+	if ($token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null)) {
 		$invite = Streams_Invite::fromToken($token);
 		// accept invite and autosubscribe if first time and possible
 		if ($invite and $invite->accept(array(

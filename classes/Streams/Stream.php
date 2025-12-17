@@ -1593,14 +1593,14 @@ class Streams_Stream extends Base_Streams_Stream
 	 * that may have been followed, and fromPermmissions config
 	 * @method getReadLevel
 	 * @param {array} [$options]
-	 * @param {array} [$options.ignoreInvite] Do not check Streams::$followedInvite or $_SESSION['Streams']['invite']
+	 * @param {array} [$options.ignoreInvite] Do not check Streams_Invite::$followed or $_SESSION['Streams']['invite']
 	 * @return {integer}
 	 */
 	function getReadLevel($options = array())
 	{
 		$readLevel = $this->get('readLevel', $this->readLevel);
 		$fields = Q::ifset($_SESSION, 'Streams', 'invite', array());
-		$invite = $fields ? new Streams_Invite($fields) : Streams::$followedInvite;
+		$invite = $fields ? new Streams_Invite($fields) : Streams_Invite::$followed;
 		if (empty($options['ignoreInvite'])
 		and $invite
 		and $invite->publisherId == $this->publisherId
@@ -1663,7 +1663,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {string|integer} $level
 	 *	String describing the level (see Streams::$READ_LEVEL) or integer
 	 * @param {array} [$options]
-	 * @param {array} [$options.ignoreInvite] Do not check Streams::$followedInvite
+	 * @param {array} [$options.ignoreInvite] Do not check Streams_Invite::$followed
 	 * @return {boolean}
 	 * @throws {Q_Exception_WrongValue}
 	 *	If string is not referring to Streams::$READ_LEVEL
@@ -2217,7 +2217,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {array} [$options.fields=null] By default, all fields from tables used to "extend" the
 	 *  stream are returned. You can indicate here an array consisting of only the names of
 	 *  fields to export. An empty array means no extended fields will be exported.
-	 * @param {array} [$options.ignoreInvite] Do not check Streams::$followedInvite
+	 * @param {array} [$options.ignoreInvite] Do not check Streams_Invite::$followed
 	 * @return {array}
 	 */
 	function exportArray($options = null)
@@ -2726,7 +2726,7 @@ class Streams_Stream extends Base_Streams_Stream
 		if (empty($options['skipFiltering'])) {
 			$userIds = array_keys($participants);
 			$userIds = Q::event('Users/filter/users', array(
-				'from' => 'Streams_Avatar::fetchByPrefix'
+				'from' => 'Streams_Stream::getParticipants'
 			), 'after', false, $userIds, $handlersCalled);
 			$participants = Q::take($participants, $userIds);
 		}
