@@ -351,7 +351,7 @@ function _renderAvatar(tool, avatar) {
 	var state = tool.state;
 	tool.element.removeClass('Q_loading');
 	if (!avatar) {
-		return Q.handle(state.onMissing, tool, [err]);
+		return Q.handle(state.onMissing, tool, ["Users/avatar: missing avatar"]);
 	}
 	state.avatar = avatar;
 	if (state.icon) {
