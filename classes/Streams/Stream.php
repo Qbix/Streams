@@ -2498,7 +2498,9 @@ class Streams_Stream extends Base_Streams_Stream
 
 				$toRemove = array_diff($oldVals, $newVals);
 				foreach ($toRemove as $r) {
-					if (is_numeric($r)) $r = sprintf("%015.2f", $r);
+					if (is_numeric($r)) {
+						$r = Db::decimalToString($r);
+					}
 					if ($r !== '' && $r !== null) {
 						$removeRelationTypes[] = "attribute/$ak=$r";
 					}
@@ -2506,7 +2508,9 @@ class Streams_Stream extends Base_Streams_Stream
 
 				$toAdd = array_diff($newVals, $oldVals);
 				foreach ($toAdd as $a) {
-					if (is_numeric($a)) $a = sprintf("%015.2f", $a);
+					if (is_numeric($a)) {
+						$a = Db::decimalToString($a);
+					}
 					if ($a !== '' && $a !== null) {
 						$addRelationTypes[] = "attribute/$ak=$a";
 					}

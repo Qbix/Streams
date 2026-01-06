@@ -4,9 +4,10 @@ function Streams_before_Q_objects()
 {
 	$token = Q_Request::special('Streams.token', null);
 	if ($token === null) {
+		Streams_before_Q_objects_handle_acceptInvite();
 		$field = Q_Config::get('Streams', 'token', 'field', null);
 		$token = Q::ifset($_REQUEST, $field, null);
-		if ($token === null) {
+		if (!$token) {
 			return;
 		}
 	}
@@ -102,6 +103,11 @@ function Streams_before_Q_objects()
 	// save the token for Streams_Invite::$followed in the session
 	$_SESSION['Streams']['inviteFollowedToken'] = $invite->token;
 
+	Streams_before_Q_objects_handle_acceptInvite(); 
+}
+
+function Streams_before_Q_objects_handle_acceptInvite()
+{
 	// INVITE: potentially accept the invite
 	if (Q_Request::special('Streams.acceptInvite')) {
 		if ($token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null)) {
