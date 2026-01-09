@@ -2451,8 +2451,7 @@ class Streams_Stream extends Base_Streams_Stream
 			throw new Q_Exception_WrongType(array('field' => 'updateRelations', 'type' => 'array'));
 		}
 
-		$toStreams = array();
-
+		$plans = array();
 		foreach ($updateRelations as $direction) {
 			if ($direction !== 'from') {
 				continue;
@@ -2461,80 +2460,72 @@ class Streams_Stream extends Base_Streams_Stream
 			// Fetch candidate templates (type-level + stream-specific)
 			$candidates = Streams_RelatedFrom::select()->where(array(
 				'fromPublisherId' => array('', $this->publisherId),
-				'fromStreamName' => array($this->type . '/', $this->name),
-				'type' => $relationTypes
+				'fromStreamName'  => array($this->type . '/', $this->name),
+				'type'            => $relationTypes
 			))->fetchDbRows();
 
 			// Deduplicate per (toPublisherId,toStreamName,type), prefer stream-specific
 			$rfroms = array();
 			foreach ($candidates as $rf) {
-				$tp = $rf->toPublisherId ? $rf->toPublisherId : $this->publisherId;
-				$key = $tp . '|' . $rf->toStreamName . '|' . $rf->type;
+				$tp  = $rf->toPublisherId ? $rf->toPublisherId : $this->publisherId;
+				$key = $tp . "\t" . $rf->toStreamName . "\t" . $rf->type;
 				if (!isset($rfroms[$key]) || $rf->fromStreamName === $this->name) {
 					$rfroms[$key] = $rf;
 				}
 			}
 			$rfroms = array_values($rfroms);
 
-			$weight = 1.0; // constant weight for all added relations
 			$removeRelationTypes = array();
 			$addRelationTypes    = array();
 
-			// Process changed attributes
+			// Changed attributes
 			foreach ($attributesChanged as $ak => $av) {
-				$found = false;
+				$hasTemplate = false;
 				foreach ($rfroms as $rf) {
 					if ($rf->type === "attribute/$ak") {
-						$found = true;
+						$hasTemplate = true;
+						break;
 					}
 				}
-				if (!$found) {
-					continue; // nothing to remove or update for this attribute
+				if (!$hasTemplate) {
+					continue;
 				}
 
-				// Treat both scalar and array as arrays, deduplicate
 				$oldVals = array_unique((array)$av);
 				$newVals = array_unique((array)(isset($attr[$ak]) ? $attr[$ak] : array()));
 
-				$toRemove = array_diff($oldVals, $newVals);
-				foreach ($toRemove as $r) {
-					if (is_numeric($r)) {
-						$r = Db::decimalToString($r);
-					}
+				foreach (array_diff($oldVals, $newVals) as $r) {
+					if (is_numeric($r)) $r = Db::decimalToString($r);
 					if ($r !== '' && $r !== null) {
 						$removeRelationTypes[] = "attribute/$ak=$r";
 					}
 				}
 
-				$toAdd = array_diff($newVals, $oldVals);
-				foreach ($toAdd as $a) {
-					if (is_numeric($a)) {
-						$a = Db::decimalToString($a);
-					}
+				foreach (array_diff($newVals, $oldVals) as $a) {
+					if (is_numeric($a)) $a = Db::decimalToString($a);
 					if ($a !== '' && $a !== null) {
 						$addRelationTypes[] = "attribute/$ak=$a";
 					}
 				}
 			}
 
-			// Process newly added attributes
+			// Newly added attributes
 			foreach ($attributesAdded as $ak => $av) {
-				$found = false;
+				$hasTemplate = false;
 				foreach ($rfroms as $rf) {
 					if ($rf->type === "attribute/$ak") {
-						$found = true;
+						$hasTemplate = true;
+						break;
 					}
 				}
-				if (!$found) {
-					continue; // nothing to add for this attribute
+				if (!$hasTemplate) {
+					continue;
 				}
 
-				// Treat both scalar and array as arrays, deduplicate
 				$newVals = array_unique((array)$av);
 				$oldVals = array_unique((array)(isset($orig[$ak]) ? $orig[$ak] : array()));
 
-				$toAdd = array_diff($newVals, $oldVals);
-				foreach ($toAdd as $a) {
+				foreach (array_diff($newVals, $oldVals) as $a) {
 					if (is_numeric($a)) $a = sprintf("%015.2f", $a);
 					if ($a !== '' && $a !== null) {
 						$addRelationTypes[] = "attribute/$ak=$a";
@@ -2542,65 +2533,132 @@ class Streams_Stream extends Base_Streams_Stream
 				}
 			}
 
-			// Organize to-streams by relation type
+			// Build per-target execution plans
 			foreach ($rfroms as $rf) {
-				if (!isset($toStreams[$rf->type])) {
-					$toStreams[$rf->type] = array();
-				}
 				$tp = $rf->toPublisherId ? $rf->toPublisherId : $this->publisherId;
-				if (!isset($toStreams[$rf->type][$tp])) {
-					$toStreams[$rf->type][$tp] = array();
-				}
-				$toStreams[$rf->type][$tp][] = $rf->toStreamName;
-			}
+				$ts = $rf->toStreamName;
+				$k  = $tp . '|' . $ts;
 
-			// Apply unrelate, relate
-			foreach ($toStreams as $relationType => $info) {
-				$unrelateRelationTypes = array();
-				$relateRelationTypes   = array();
-
-				foreach ($removeRelationTypes as $rrt) {
-					if (Q::startsWith($rrt, $relationType.'=')) {
-						$unrelateRelationTypes[] = $rrt;
-					}
-				}
-				foreach ($addRelationTypes as $art) {
-					if (Q::startsWith($art, $relationType.'=')) {
-						$relateRelationTypes[] = $art;
-					}
+				if (!isset($plans[$k])) {
+					$plans[$k] = array(
+						'toPublisherId' => $tp,
+						'toStreamName'  => $ts,
+						'unrelate'      => array(),
+						'relate'        => array()
+					);
 				}
 
-				// Save what was done for introspection / return value
-				$toStreams[$relationType]['@unrelateTypes'] = $unrelateRelationTypes;
-				$toStreams[$relationType]['@relateTypes']   = $relateRelationTypes;
-
-				foreach ($info as $toPublisherId => $toStreamNames) {
-					if ($toPublisherId === '@unrelateTypes' || $toPublisherId === '@relateTypes') {
-						continue;
+				foreach ($removeRelationTypes as $t) {
+					if (Q::startsWith($t, $rf->type . '=')) {
+						$plans[$k]['unrelate'][$t] = true;
 					}
-					if ($unrelateRelationTypes) {
-						Streams::unrelate(
-							Q::app(),
-							$toPublisherId, $toStreamNames,
-							$unrelateRelationTypes,
-							$this->publisherId, $this->name,
-							array('skipAccess' => true, 'skipMessageTo' => true)
-						);
-					}
-					if ($relateRelationTypes) {
-						Streams::relate(
-							Q::app(),
-							$toPublisherId, $toStreamNames,
-							$relateRelationTypes,
-							$this->publisherId, $this->name,
-							array('skipAccess' => true, 'weight' => $weight, 'skipMessageTo' => true)
-						);
+				}
+				foreach ($addRelationTypes as $t) {
+					if (Q::startsWith($t, $rf->type . '=')) {
+						$plans[$k]['relate'][$t] = true;
 					}
 				}
 			}
 		}
 
-		return $toStreams;
+		// Execute plans
+		$weight = 1.0;
+
+		foreach ($plans as &$p) {
+			$unrelateTypes = array_keys($p['unrelate']);
+			$relateTypes   = array_keys($p['relate']);
+
+			if ($unrelateTypes) {
+				Streams::unrelate(
+					Q::app(),
+					$p['toPublisherId'], $p['toStreamName'],
+					$unrelateTypes,
+					$this->publisherId, $this->name,
+					array('skipAccess' => true, 'skipMessageTo' => true)
+				);
+			}
+
+			if ($relateTypes) {
+				Streams::relate(
+					Q::app(),
+					$p['toPublisherId'], $p['toStreamName'],
+					$relateTypes,
+					$this->publisherId, $this->name,
+					array('skipAccess' => true, 'weight' => $weight, 'skipMessageTo' => true)
+				);
+			}
+
+			// normalize return payload
+			$p['unrelate'] = $unrelateTypes;
+			$p['relate']   = $relateTypes;
+		}
+
+		return $plans;
+
+	}
+
+	/**
+	 * Register attribute-indexed relation templates for a stream type.
+	 *
+	 * Each attribute creates a template relation:
+	 *   fromPublisherId = $fromPublisherId
+	 *   fromStreamName  = "{$fromStreamType}/"
+	 *   type            = "attribute/$attr"
+	 *   toPublisherId   = $toPublisherId
+	 *   toStreamName    = $toStreamName
+	 *
+	 * @method registerRelations
+	 * @static
+	 * @param string $fromPublisherId
+	 * @param string $fromStreamType
+	 * @param string $toPublisherId
+	 * @param string $toStreamName
+	 * @param array  $attributes list of attribute names
+	 * @return int number of relations inserted
+	 */
+	static function registerRelations(
+		$fromPublisherId,
+		$fromStreamType,
+		$toPublisherId,
+		$toStreamName,
+		array $attributes
+	) {
+		if (!$fromStreamType || !$toStreamName) {
+			throw new Q_Exception_RequiredField(array(
+				'field' => 'fromStreamType / toStreamName'
+			));
+		}
+
+		$rows = array();
+		$fromStreamName = $fromStreamType . '/';
+
+		foreach ($attributes as $attr) {
+			if (!is_string($attr) || $attr === '') {
+				continue;
+			}
+
+			$rows[] = array(
+				'fromPublisherId' => (string)$fromPublisherId,
+				'fromStreamName'  => $fromStreamName,
+				'type'            => "attribute/$attr",
+				'toPublisherId'   => (string)$toPublisherId,
+				'toStreamName'    => (string)$toStreamName
+			);
+		}
+
+		if (!$rows) {
+			return 0;
+		}
+
+		// Idempotent insert
+		Streams_RelatedFrom::insertManyAndExecute($rows, array(
+			'onDuplicateKeyUpdate' => array(
+				// no-op update to suppress duplicates
+				'toStreamName' => new Db_Expression('toStreamName')
+			)
+		));
+
+		return count($rows);
 	}
 	
 	/**

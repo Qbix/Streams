@@ -502,6 +502,16 @@
 				"defaults": {
 					"title": "Untitled Image",
 					"icon": "Streams/image"
+				},
+				"syncRelations": ["from"],
+				"indexAttributes": {
+					"language": true,
+					"spelling": true,
+					"obscene": true,
+					"controversy": true,
+					"countries": {
+						"maxItems": 3
+					}
 				}
 			},
 			"Streams/images": {
