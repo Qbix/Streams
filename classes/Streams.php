@@ -1835,8 +1835,8 @@ abstract class Streams extends Base_Streams
 	 *  The publisher of the category
 	 * @param {string|array} $toStreamName
 	 *  The name of the category. May be turned into an array.
-	 * @param {string} $type
-	 *  The type of the relation.
+	 * @param {string|array|Db_Range} $type
+	 *  The type of the relation. May be an array or range.
 	 * @param {string} $fromPublisherId
 	 *  The publisher of the member stream(s)
 	 * @param {string|array} $fromStreamName
@@ -1988,7 +1988,7 @@ abstract class Streams extends Base_Streams
 	 *  The name of the category stream. Pass an array of strings to relate a single stream
 	 *  to multiple categories, but in that case make sure fromStreamName is a string.
 	 * @param {string|array} $type
-	 *  The type of the relation
+	 *  The type of the relation. May be an array.
 	 * @param {string} $fromPublisherId
 	 *  The user who has published the related stream
 	 * @param {string} $fromStreamName
@@ -2369,8 +2369,8 @@ abstract class Streams extends Base_Streams
 	 * @param {string|array} $toStreamName
 	 *  The name of the category stream. Pass an array of strings to unrelate a single stream
 	 *  from multiple categories, but in that case make sure fromStreamName is a string.
-	 * @param {string|array|Db_Range} $type
-	 *  The type of the relation
+	 * @param {string|array} $type
+	 *  The type of the relation. May be an array.
 	 * @param {string} $fromPublisherId
 	 *  The user who has publishes the related stream
 	 * @param {string|array} $fromStreamName
