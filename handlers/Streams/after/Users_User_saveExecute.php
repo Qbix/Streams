@@ -72,11 +72,17 @@ function Streams_after_Users_User_saveExecute($params)
 
 				$query = $fullName['first'] . ' ' . $fullName['last'];
 				$results = call_user_func(
-					array('Q_Image', $service), $query, array(), false
-				);
+					array('Q_Image', $service), $query, array(
+                        "imgSize" => "xxlarge",
+                        "amount" => 10,
+                        "min" => array(
+                            "width" => 800,
+                            "height" => 800
+                        )
+                ), false);
 
 				foreach ($results as $result) {
-					if (!@getimagesize($result)) {
+					if (!Q_Image::isRealImage($result)) {
 						continue;
 					}
 
