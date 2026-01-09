@@ -2402,6 +2402,7 @@ abstract class Streams extends Base_Streams
 		if (empty($type)) {
 			return array(array(), array());
 		}
+
 		self::getRelations(
 			$asUserId,
 			$toPublisherId,
@@ -2414,7 +2415,8 @@ abstract class Streams extends Base_Streams
 			$categories,
 			$streams,
 			$arrayField,
-			$options);
+			$options
+		);
 
 		$types = is_array($type) ? $type : array($type);
 
@@ -2442,7 +2444,8 @@ abstract class Streams extends Base_Streams
 			if (Q::event(
 					"Streams/unrelateTo/{$category->type}",
 					@compact('relatedTo', 'relatedFrom', 'asUserId'),
-					'before') === false
+					'before'
+				) === false
 			) {
 				return false;
 			}
@@ -2459,95 +2462,124 @@ abstract class Streams extends Base_Streams
 			if (Q::event(
 					"Streams/unrelateFrom/{$stream->type}",
 					@compact('relatedTo', 'relatedFrom', 'asUserId'),
-					'before') === false
+					'before'
+				) === false
 			) {
 				return false;
 			}
 		}
 
+		$messagesTo   = array();
+		$messagesFrom = array();
+
 		/*
-		 * remove 'Streams/relation' from $relatedTo.
-		 * we consider category stream as 'remote' i.e. more error prone.
-		 */
+		* remove 'Streams/relation' from $relatedTo.
+		* we consider category stream as 'remote' i.e. more error prone.
+		*/
 		foreach ($types as $type) {
+
 			foreach ($relatedTo as $rt) {
-				$toPublisherId = $rt->toPublisherId;
-				$toStreamName = $rt->toStreamName;
+				$toPublisherId   = $rt->toPublisherId;
+				$toStreamName    = $rt->toStreamName;
 				$fromPublisherId = $rt->fromPublisherId;
-				$fromStreamName = $rt->fromStreamName;
-				$stream = $streams[$fromStreamName];
-				$weight = isset($rt->weight) ? $rt->weight : null;
+				$fromStreamName  = $rt->fromStreamName;
+				$stream          = $streams[$fromStreamName];
+				$weight          = isset($rt->weight) ? $rt->weight : null;
+
 				if ($rt && $rt->remove()) {
-					if (isset($weight) and !empty($options['adjustWeights'])) {
-						$adjustWeights = $options['adjustWeights'] === true
+
+					if (isset($weight) && !empty($options['adjustWeights'])) {
+						$adjustWeights = ($options['adjustWeights'] === true)
 							? -1 // backward compatibility
 							: floatval($options['adjustWeights']);
-						$criteria = @compact(
-							'toPublisherId', 'toStreamName', 'type'
-						);
+
+						$criteria = @compact('toPublisherId', 'toStreamName', 'type');
+
 						if ($options['adjustWeights'] > 0) {
 							$criteria['weight'] = new Db_Range(null, false, false, $weight);
 						} else {
 							$criteria['weight'] = new Db_Range($weight, false, false, null);
 						}
-						Streams_RelatedTo::update()->set(array(
-							'weight' => new Db_Expression("weight + ($adjustWeights)")
-						))->where($criteria)
-						->execute();
+
+						Streams_RelatedTo::update()
+							->set(array(
+								'weight' => new Db_Expression("weight + ($adjustWeights)")
+							))
+							->where($criteria)
+							->execute();
 					}
-					
-					Streams_RelatedToTotal::update()->set(array(
-						'relationCount' => new Db_Expression('relationCount - 1')
-					))->where(array(
-						'toPublisherId' => $category->publisherId,
-						'toStreamName' => $category->name,
-						'relationType' => $type,
-						'fromStreamType' => $stream->type,
-					))->execute();
-					
-					// Send Streams/unrelatedTo message to a stream
-					// node server will be notified by Streams_Message::post
+
+					Streams_RelatedToTotal::update()
+						->set(array(
+							'relationCount' => new Db_Expression('relationCount - 1')
+						))
+						->where(array(
+							'toPublisherId'  => $category->publisherId,
+							'toStreamName'   => $category->name,
+							'relationType'   => $type,
+							'fromStreamType' => $stream->type,
+						))
+						->execute();
+
 					if (empty($options['skipMessageTo'])) {
-						Streams_Message::post($asUserId, $toPublisherId, $toStreamName, array(
+						$messagesTo[$toPublisherId][$toStreamName][] = array(
 							'type' => 'Streams/unrelatedTo',
 							'content' => "Removed relation from " . $stream->title,
 							'instructions' => @compact(
-								'fromPublisherId', 'fromStreamName', 'type', 'options', 'weight'
+								'fromPublisherId',
+								'fromStreamName',
+								'type',
+								'options',
+								'weight'
 							)
-						), true);
+						);
 					}
 				}
 			}
+
 			foreach ($relatedFrom as $rf) {
-				$toPublisherId = $rf->toPublisherId;
-				$toStreamName = $rf->toStreamName;
+				$toPublisherId   = $rf->toPublisherId;
+				$toStreamName    = $rf->toStreamName;
 				$fromPublisherId = $rf->fromPublisherId;
-				$fromStreamName = $rf->fromStreamName;
-				$category = $categories[$toStreamName];
-				$stream = $streams[$fromStreamName];
+				$fromStreamName  = $rf->fromStreamName;
+				$category        = $categories[$toStreamName];
+				$stream          = $streams[$fromStreamName];
+
 				if ($rf && $rf->remove()) {
-					Streams_RelatedFromTotal::update()->set(array(
-						'relationCount' => new Db_Expression('relationCount - 1')
-					))->where(array(
-						'fromPublisherId' => $fromPublisherId,
-						'fromStreamName' => $fromStreamName,
-						'relationType' => $type,
-						'toStreamType' => $category->type,
-					))->execute();
-					
+
+					Streams_RelatedFromTotal::update()
+						->set(array(
+							'relationCount' => new Db_Expression('relationCount - 1')
+						))
+						->where(array(
+							'fromPublisherId' => $fromPublisherId,
+							'fromStreamName'  => $fromStreamName,
+							'relationType'    => $type,
+							'toStreamType'    => $category->type,
+						))
+						->execute();
+
 					if (empty($options['skipMessageFrom'])) {
-						// Send Streams/unrelatedFrom message to a stream
-						// node server will be notified by Streams_Message::post
-						Streams_Message::post($asUserId, $fromPublisherId, $fromStreamName, array(
+						$messagesFrom[$fromPublisherId][$fromStreamName][] = array(
 							'type' => 'Streams/unrelatedFrom',
 							'contents' => "Removed relation to " . $category->title,
 							'instructions' => @compact(
-								'toPublisherId', 'toStreamName', 'type', 'options'
+								'toPublisherId',
+								'toStreamName',
+								'type',
+								'options'
 							)
-						), true);
+						);
 					}
 				}
 			}
+		}
+
+		if (empty($options['skipMessageTo']) && $messagesTo) {
+			Streams_Message::postMessages($asUserId, $messagesTo, true);
+		}
+		if (empty($options['skipMessageFrom']) && $messagesFrom) {
+			Streams_Message::postMessages($asUserId, $messagesFrom, true);
 		}
 
 		/**
@@ -2558,7 +2590,7 @@ abstract class Streams extends Base_Streams
 		 */
 		Q::event(
 			"Streams/unrelateFrom/{$stream->type}",
-			@compact('relatedTo', 'relatedFrom', 'asUserId'), 
+			@compact('relatedTo', 'relatedFrom', 'asUserId'),
 			'after'
 		);
 
@@ -2867,6 +2899,46 @@ abstract class Streams extends Base_Streams
 			$returnMultiple ? $streams : $stream
 		);
 	}
+
+	/**
+	 * Build Db_Range for relation type filtering
+	 *
+	 * @param array $spec
+	 *   [
+	 *     'confidence' => array($from, $includeMin, $includeMax, $to),
+	 *     'obscene'    => array($from, true, false, $to),
+	 *     ...
+	 *   ]
+	 * @return Db_Range
+	 */
+	static function relationTypes($spec)
+	{
+		$range = null;
+
+		foreach ($spec as $attribute => $args) {
+
+			list($from, $includeMin, $includeMax, $to) = $args;
+
+			$fromStr = 'attribute/' . $attribute . '=' . Db::decimalToString($from);
+			$toStr   = 'attribute/' . $attribute . '=' . Db::decimalToString($to);
+
+			$r = new Db_Range(
+				$fromStr,
+				$includeMin,
+				$includeMax,
+				$toStr
+			);
+
+			if (!$range) {
+				$range = $r;
+			} else {
+				$range->union($r);
+			}
+		}
+
+		return $range;
+	}
+
 
 	/**
 	 * Check if the maximum number of relations of a given type has been exceeded,

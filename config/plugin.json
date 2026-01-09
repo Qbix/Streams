@@ -508,10 +508,14 @@
 					"language": true,
 					"spelling": true,
 					"obscene": true,
-					"controversy": true,
-					"countries": {
-						"maxItems": 3
-					}
+					"controversial": true,
+					"countries": true,
+					"keywords": true,
+					"keywordsNative": true,
+					"holidayName": true,
+					"holidayImportance": true,
+					"startDate": true,
+					"endDate": true
 				}
 			},
 			"Streams/images": {
