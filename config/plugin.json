@@ -92,21 +92,25 @@
 				"sizes": ["40", "50", "80", "1000"],
 				"defaultSize": "40",
 				"defaultCacheBust": 1000,
+				"extension": "jpg",
 				"maxStretch": 5
 			},
 			"Streams/image": {
 				"sizes": ["40", "50", "80", "200x", "x200", "1000x"],
 				"defaultSize": "1000x",
+				"extension": "jpg",
 				"maxStretch": 2
 			},
 			"Streams/album": {
 				"sizes": ["40", "50", "80", "400"],
 				"defaultSize": "400",
+				"extension": "jpg",
 				"maxStretch": 2
 			},
 			"Streams/invite/groupPhoto": {
 				"sizes": ["1000x"],
 				"defaultSize": "1000x",
+				"extension": "jpg",
 				"maxStretch": 3
 			},
 			"Streams/interest": {
@@ -122,6 +126,7 @@
 				},
 				"defaultSize": "400",
 				"defaultCacheBust": 1000,
+				"extension": "jpg",
 				"maxStretch": 2
 			}
 		},

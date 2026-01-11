@@ -4883,7 +4883,7 @@ abstract class Streams extends Base_Streams
 	/**
 	 * Get the url of the stream's icon
 	 * @param {object} [$stream] Stream row or Streams_Stream object
-	 * @param {string|false} [$size=null] The last part after the slash, such as "50.png" or "50". Setting it to false skips appending "/basename"
+	 * @param {string|false} [$size=null] The last part after the slash, such as "50.jpg" or "50". Setting it to false skips appending "/basename"
 	 * @return {string} The stream's icon url
 	 */
 	static function iconUrl($stream, $size = null)
@@ -4907,7 +4907,7 @@ abstract class Streams extends Base_Streams
 				$size = Q_Image::largestSize('Streams/image', $size === 'largestHeight');
 			}
 			if (strpos($size, '.') === false) {
-				$size .= '.png';
+				$size .= '.jpg';
 			}
 			$url .= "/$size";
 			return Q_Html::themedUrl($url);

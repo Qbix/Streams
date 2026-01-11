@@ -1209,7 +1209,7 @@ Streams.messageHandler = function(msgType, callback) {
  * @static
  * @method iconUrl
  * @param {String} icon the value of the stream's "icon" field
- * @param {String|Number|false} [basename=40] The last part after the slash, such as "50.png" or "50". Setting it to false skips appending "/basename"
+ * @param {String|Number|false} [basename=40] The last part after the slash, such as "50.jpg" or "50". Setting it to false skips appending "/basename"
  * @return {String} the url
  */
 Streams.iconUrl = function(icon, basename) {
@@ -1221,7 +1221,7 @@ Streams.iconUrl = function(icon, basename) {
 		|| (!basename && basename !== false)) {
 		basename = '40';
 	}
-	basename = (String(basename).match(/\.\w+$/g)) ? basename : basename+'.png';
+	basename = (String(basename).match(/\.\w+$/g)) ? basename : basename+'.jpg';
 	icon = icon.match(/\.\w+$/g) ? icon : icon + (basename ? '/' + basename : '');
 	var src = Q.interpolateUrl(icon);
 	return src.isUrl() || icon.substring(0, 2) == '{{'
