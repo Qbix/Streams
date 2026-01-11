@@ -30,6 +30,11 @@ class Streams_Stream extends Base_Streams_Stream
 			'rt.toPublisherId' => 'c.publisherId',
 			'rt.toStreamName' => 'c.name'
 		));
+		$this->hasOne('publisher', array(
+			'u' => 'Users_User'
+		), array(
+			'{$this}.publisherId' => 'u.id'
+		));
 		parent::setUp();
 	}
 

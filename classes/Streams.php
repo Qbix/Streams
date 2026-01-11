@@ -2637,6 +2637,10 @@ abstract class Streams extends Base_Streams
 	 * @param {number|array|Db_Range} [$options.weight] if specified, this filters the weight of the relation.
 	 *   Can be useful for implementing custom indexes using relations and varying the weight ranges.
 	 *   Only used if $options.isCategory is true.
+	 * @param {array} [$options.criteria]
+	 *   Optional intersection-based relation criteria.
+	 *   Passed verbatim to Streams::relationCriteria().
+	 *   Each element is a spec accepted by Streams::relationTypes().
 	 * @param {string} [$options.prefix] if specified, this filters by the prefix of the related streams
 	 * @param {string} [$options.title] if specified, this filters the titles of the streams with a LIKE condition
 	 * @param {array} [$options.where] you can also specify any extra conditions here
@@ -2717,6 +2721,13 @@ abstract class Streams extends Base_Streams
 				'fromPublisherId' => $publisherId,
 				'fromStreamName' => $streamName
 			));
+		}
+		if (!empty($options['criteria'])) {
+			$query = Streams::relationCriteria(
+				$query,
+				$options['criteria'],
+				$isCategory
+			);
 		}
 		if ($isCategory) {
 			$orderBy = Q::ifset($options, "orderBy", false);
@@ -2901,44 +2912,203 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
-	 * Build Db_Range for relation type filtering
+	 * Build Db_Range objects for relation type existence and optional weight filtering.
 	 *
+	 * Semantics:
+	 *
+	 * 1) Exact type existence:
+	 *    'foo' => true
+	 *    -> requires a relation of type exactly 'foo'
+	 *
+	 * 2) Type range:
+	 *    'foo' => array($from, $includeMin, $includeMax, $to)
+	 *
+	 * 3) Type existence + weight constraint:
+	 *    'foo' => array(
+	 *        'weight' => array($wFrom, $wIncludeMin, $wIncludeMax, $wTo)
+	 *    )
+	 *
+	 * 4) Type range + weight constraint:
+	 *    'foo' => array(
+	 *        $from, $includeMin, $includeMax, $to,
+	 *        'weight' => array(...)
+	 *    )
+	 *
+	 * In ALL cases, the presence of key 'foo' means:
+	 *   -> a relation of type 'foo' (or within its range) MUST exist.
+	 *
+	 * @method relationTypes
+	 * @static
 	 * @param array $spec
-	 *   [
-	 *     'confidence' => array($from, $includeMin, $includeMax, $to),
-	 *     'obscene'    => array($from, true, false, $to),
-	 *     ...
-	 *   ]
-	 * @return Db_Range
+	 * @param int $maxLen
+	 * @return array
+	 *   array(
+	 *     'type'   => Db_Range|null,
+	 *     'weight' => Db_Range|null
+	 *   )
 	 */
-	static function relationTypes($spec)
+	static function relationTypes(array $spec, $maxLen = 64)
 	{
-		$range = null;
+		$typeRange = null;
+		$weightRange = null;
 
-		foreach ($spec as $attribute => $args) {
+		foreach ($spec as $type => $args) {
 
-			list($from, $includeMin, $includeMax, $to) = $args;
+			// Case 1: exact existence
+			if ($args === true) {
+				$r = new Db_Range($type, true, false, true);
+				$typeRange = $typeRange ? $typeRange->union($r) : $r;
+				continue;
+			}
 
-			$fromStr = 'attribute/' . $attribute . '=' . Db::decimalToString($from);
-			$toStr   = 'attribute/' . $attribute . '=' . Db::decimalToString($to);
+			if (!is_array($args)) {
+				throw new Exception("Invalid relationTypes spec for '$type'");
+			}
 
-			$r = new Db_Range(
-				$fromStr,
-				$includeMin,
-				$includeMax,
-				$toStr
+			$hasTypeRange = (
+				isset($args[0]) &&
+				isset($args[1]) &&
+				isset($args[2]) &&
+				array_key_exists(3, $args)
 			);
 
-			if (!$range) {
-				$range = $r;
-			} else {
-				$range->union($r);
+			// If no explicit type range, but key exists -> exact type required
+			if (!$hasTypeRange) {
+				$r = new Db_Range($type, true, false, true);
+				$typeRange = $typeRange ? $typeRange->union($r) : $r;
+			}
+
+			// Case 2 / 4: explicit type range
+			if ($hasTypeRange) {
+
+				list($from, $includeMin, $includeMax, $to) = $args;
+
+				$fromVal = is_numeric($from)
+					? Db::decimalToString($from)
+					: substr(trim((string)$from), 0, $maxLen);
+
+				$toVal = is_numeric($to)
+					? Db::decimalToString($to)
+					: substr(trim((string)$to), 0, $maxLen);
+
+				if ($fromVal === '' || $toVal === '') {
+					throw new Exception("Empty relation type value for '$type'");
+				}
+
+				$r = new Db_Range(
+					$type . '=' . $fromVal,
+					$includeMin,
+					$includeMax,
+					$type . '=' . $toVal
+				);
+
+				$typeRange = $typeRange ? $typeRange->union($r) : $r;
+			}
+
+			// Weight constraint always applies to THIS type join
+			if (isset($args['weight'])) {
+
+				$w = $args['weight'];
+
+				if (!is_array($w) || count($w) !== 4) {
+					throw new Exception("Invalid weight spec for '$type'");
+				}
+
+				$wr = new Db_Range(
+					$w[0],
+					$w[1],
+					$w[2],
+					$w[3]
+				);
+
+				$weightRange = $weightRange
+					? $weightRange->union($wr)
+					: $wr;
 			}
 		}
 
-		return $range;
+		return array(
+			'type'   => $typeRange,
+			'weight' => $weightRange
+		);
 	}
 
+	/**
+	 * Apply intersection-based relation criteria using self INNER JOINs.
+	 *
+	 * Joins are performed ONLY on the anchor side:
+	 * - isCategory = true: join on toPublisherId + toStreamName
+	 * - isCategory = false: join on fromPublisherId + fromStreamName
+	 *
+	 * @method relationCriteria
+	 * @static
+	 * @param {Db_Query} $query
+	 * @param {array} $criteriaSpecs
+	 * @param {boolean} $isCategory
+	 * @return {Db_Query}
+	 */
+	static function relationCriteria($query, array $criteriaSpecs, $isCategory)
+	{
+		if (empty($criteriaSpecs)) {
+			return $query;
+		}
+
+		$baseTable = $isCategory
+			? Streams_RelatedTo::table()
+			: Streams_RelatedFrom::table();
+
+		$baseAlias = 'r0';
+		$query->as($baseAlias);
+
+		// Determine anchor columns ONCE
+		if ($isCategory) {
+			$anchorJoin = array(
+				'toPublisherId',
+				'toStreamName'
+			);
+		} else {
+			$anchorJoin = array(
+				'fromPublisherId',
+				'fromStreamName'
+			);
+		}
+
+		$joinIndex = 0;
+
+		foreach ($criteriaSpecs as $spec) {
+
+			if (!is_array($spec)) {
+				continue;
+			}
+
+			$range = Streams::relationTypes($spec);
+			if (!$range) {
+				continue;
+			}
+
+			$joinIndex++;
+			$alias = 'r' . $joinIndex;
+
+			// Build structured join conditions (anchor-only)
+			$joinConditions = array();
+			foreach ($anchorJoin as $field) {
+				$joinConditions["$baseAlias.$field"] = "$alias.$field";
+			}
+
+			$query->join(
+				array($baseTable, $alias),
+				$joinConditions,
+				'INNER'
+			);
+
+			// Apply criterion to THIS join only
+			$query->where(array(
+				"$alias.type" => $range
+			));
+		}
+
+		return $query;
+	}
 
 	/**
 	 * Check if the maximum number of relations of a given type has been exceeded,
