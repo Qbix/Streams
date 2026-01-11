@@ -2912,40 +2912,54 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
-	 * Build Db_Range objects for relation type existence and optional weight filtering.
+	 * Build Db_Range objects for relation type existence, value filtering, and optional weight ranges.
 	 *
-	 * Semantics:
+	 * This method converts a declarative specification into:
+	 * - a Db_Range (or union of ranges) for the `type` column
+	 * - an optional Db_Range (or union) for the `weight` column
 	 *
-	 * 1) Exact type existence:
+	 * Semantics per entry in `$spec`:
+	 *
+	 * 1) Exact type existence
 	 *    'foo' => true
-	 *    -> requires a relation of type exactly 'foo'
+	 *    Requires a relation whose type is exactly 'foo'.
 	 *
-	 * 2) Type range:
+	 * 2) Type range
 	 *    'foo' => array($from, $includeMin, $includeMax, $to)
+	 *    Requires a relation whose type value (after '=') lies within the range.
 	 *
-	 * 3) Type existence + weight constraint:
+	 * 3) Type filter (IN semantics)
+	 *    'foo' => array(
+	 *        'filter' => array('a', 'b', 'c')
+	 *    )
+	 *    Requires a relation whose type equals one of:
+	 *      foo=a, foo=b, foo=c
+	 *
+	 * 4) Type range + filter
+	 *    'foo' => array(
+	 *        $from, $includeMin, $includeMax, $to,
+	 *        'filter' => array('a', 'b')
+	 *    )
+	 *    Requires existence of the type AND applies both constraints.
+	 *
+	 * 5) Weight range (optional, range-only)
 	 *    'foo' => array(
 	 *        'weight' => array($wFrom, $wIncludeMin, $wIncludeMax, $wTo)
 	 *    )
 	 *
-	 * 4) Type range + weight constraint:
-	 *    'foo' => array(
-	 *        $from, $includeMin, $includeMax, $to,
-	 *        'weight' => array(...)
-	 *    )
-	 *
 	 * In ALL cases, the presence of key 'foo' means:
-	 *   -> a relation of type 'foo' (or within its range) MUST exist.
+	 *   -> at least one relation of type 'foo' MUST exist.
 	 *
 	 * @method relationTypes
 	 * @static
-	 * @param array $spec
-	 * @param int $maxLen
-	 * @return array
-	 *   array(
-	 *     'type'   => Db_Range|null,
-	 *     'weight' => Db_Range|null
-	 *   )
+	 * @param {array} spec
+	 *   Map of relation type => constraint specification.
+	 * @param {number} [maxLen=64]
+	 *   Maximum length for non-numeric type values.
+	 * @return {array}
+	 *   Object with keys:
+	 *   - {Db_Range|null} type   Union of type constraints
+	 *   - {Db_Range|null} weight Union of weight constraints
 	 */
 	static function relationTypes(array $spec, $maxLen = 64)
 	{
@@ -2966,21 +2980,20 @@ abstract class Streams extends Base_Streams
 			}
 
 			$hasTypeRange = (
-				isset($args[0]) &&
-				isset($args[1]) &&
-				isset($args[2]) &&
+				array_key_exists(0, $args) &&
+				array_key_exists(1, $args) &&
+				array_key_exists(2, $args) &&
 				array_key_exists(3, $args)
 			);
 
-			// If no explicit type range, but key exists -> exact type required
+			// If key exists but no explicit range, require exact existence
 			if (!$hasTypeRange) {
 				$r = new Db_Range($type, true, false, true);
 				$typeRange = $typeRange ? $typeRange->union($r) : $r;
 			}
 
-			// Case 2 / 4: explicit type range
+			// Explicit type range
 			if ($hasTypeRange) {
-
 				list($from, $includeMin, $includeMax, $to) = $args;
 
 				$fromVal = is_numeric($from)
@@ -3005,25 +3018,34 @@ abstract class Streams extends Base_Streams
 				$typeRange = $typeRange ? $typeRange->union($r) : $r;
 			}
 
-			// Weight constraint always applies to THIS type join
+			// Filter (IN semantics on exact values)
+			if (isset($args['filter'])) {
+				if (!is_array($args['filter'])) {
+					throw new Exception("Invalid filter spec for '$type'");
+				}
+				foreach ($args['filter'] as $v) {
+					$v = is_numeric($v)
+						? Db::decimalToString($v)
+						: substr(trim((string)$v), 0, $maxLen);
+
+					if ($v === '') {
+						continue;
+					}
+
+					$r = new Db_Range($type . '=' . $v, true, false, true);
+					$typeRange = $typeRange ? $typeRange->union($r) : $r;
+				}
+			}
+
+			// Weight constraint (range-only)
 			if (isset($args['weight'])) {
-
 				$w = $args['weight'];
-
 				if (!is_array($w) || count($w) !== 4) {
 					throw new Exception("Invalid weight spec for '$type'");
 				}
 
-				$wr = new Db_Range(
-					$w[0],
-					$w[1],
-					$w[2],
-					$w[3]
-				);
-
-				$weightRange = $weightRange
-					? $weightRange->union($wr)
-					: $wr;
+				$wr = new Db_Range($w[0], $w[1], $w[2], $w[3]);
+				$weightRange = $weightRange ? $weightRange->union($wr) : $wr;
 			}
 		}
 
@@ -3032,6 +3054,7 @@ abstract class Streams extends Base_Streams
 			'weight' => $weightRange
 		);
 	}
+
 
 	/**
 	 * Apply intersection-based relation criteria using self INNER JOINs.
@@ -3102,9 +3125,12 @@ abstract class Streams extends Base_Streams
 			);
 
 			// Apply criterion to THIS join only
-			$query->where(array(
-				"$alias.type" => $range
-			));
+			if ($range['type']) {
+				$query->where(array("$alias.type" => $range['type']));
+			}
+			if ($range['weight']) {
+				$query->where(array("$alias.weight" => $range['weight']));
+			}
 		}
 
 		return $query;
