@@ -2912,37 +2912,36 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
-	 * Build Db_Range objects for relation type existence, value filtering, and optional weight ranges.
+	 * Build Db_Range objects for relation type existence, value filtering,
+	 * and optional weight ranges.
 	 *
-	 * This method converts a declarative specification into:
-	 * - a Db_Range (or union of ranges) for the `type` column
-	 * - an optional Db_Range (or union) for the `weight` column
+	 * This method converts a declarative specification into SQL-friendly
+	 * Db_Range objects. Open-ended ranges are fully supported.
 	 *
 	 * Semantics per entry in `$spec`:
 	 *
 	 * 1) Exact type existence
 	 *    'foo' => true
-	 *    Requires a relation whose type is exactly 'foo'.
+	 *    Requires at least one relation whose type starts with 'foo'.
 	 *
-	 * 2) Type range
+	 * 2) Type range (open-ended allowed)
 	 *    'foo' => array($from, $includeMin, $includeMax, $to)
-	 *    Requires a relation whose type value (after '=') lies within the range.
+	 *    - $from or $to may be null to indicate no bound.
+	 *    - Values are compared against the suffix after '='.
 	 *
 	 * 3) Type filter (IN semantics)
 	 *    'foo' => array(
 	 *        'filter' => array('a', 'b', 'c')
 	 *    )
-	 *    Requires a relation whose type equals one of:
-	 *      foo=a, foo=b, foo=c
+	 *    Matches foo=a OR foo=b OR foo=c.
 	 *
 	 * 4) Type range + filter
 	 *    'foo' => array(
 	 *        $from, $includeMin, $includeMax, $to,
 	 *        'filter' => array('a', 'b')
 	 *    )
-	 *    Requires existence of the type AND applies both constraints.
 	 *
-	 * 5) Weight range (optional, range-only)
+	 * 5) Weight range (optional, open-ended allowed)
 	 *    'foo' => array(
 	 *        'weight' => array($wFrom, $wIncludeMin, $wIncludeMax, $wTo)
 	 *    )
@@ -2953,13 +2952,11 @@ abstract class Streams extends Base_Streams
 	 * @method relationTypes
 	 * @static
 	 * @param {array} spec
-	 *   Map of relation type => constraint specification.
 	 * @param {number} [maxLen=64]
-	 *   Maximum length for non-numeric type values.
 	 * @return {array}
-	 *   Object with keys:
-	 *   - {Db_Range|null} type   Union of type constraints
-	 *   - {Db_Range|null} weight Union of weight constraints
+	 *   Keys:
+	 *   - {Db_Range|null} type
+	 *   - {Db_Range|null} weight
 	 */
 	static function relationTypes(array $spec, $maxLen = 64)
 	{
@@ -3092,7 +3089,7 @@ abstract class Streams extends Base_Streams
 			? Streams_RelatedTo::table()
 			: Streams_RelatedFrom::table();
 
-		// Anchor columns (base query has NO alias)
+		// Anchor columns
 		if ($isCategory) {
 			$anchor = array(
 				'toPublisherId',
@@ -3146,6 +3143,16 @@ abstract class Streams extends Base_Streams
 					"$alias.weight" => $ranges['weight']
 				));
 			}
+		}
+
+		if ($joinIndex) {
+			// Alias base table
+			$query->aliases(array(
+				($isCategory
+					? Streams_RelatedTo::table()
+					: Streams_RelatedFrom::table()
+				) => 'r0'
+			));
 		}
 
 		return $query;
