@@ -37,8 +37,12 @@ function Streams_after_Q_Plugin_install($params)
 	$offset = 0;
 	$batch = 1000;
 	for ($i=1; true; ++$i) {
+		$criteria = empty($onInsert['person']) and empty($onInsert['user'])
+			? array('id' => new Db_Range('A', true, false, ord('Z')+1))
+			: 'TRUE';
 		$users = Users_User::select()
 			->orderBy('id')
+			->where($criteria)
 			->limit($batch, $offset)
 			->fetchDbRows();
 		if (!$users) {
