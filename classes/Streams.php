@@ -2710,29 +2710,35 @@ abstract class Streams extends Base_Streams
 		}
 
 		if ($isCategory) {
-			$query = Streams_RelatedTo::select()
-			->where(array(
-				'toPublisherId' => $publisherId,
-				'toStreamName' => $streamName
-			));
+			$query = Streams_RelatedTo::select();
 		} else {
-			$query = Streams_RelatedFrom::select()
-			->where(array(
-				'fromPublisherId' => $publisherId,
-				'fromStreamName' => $streamName
-			));
+			$query = Streams_RelatedFrom::select();
 		}
+		$baseAlias = null;
 		if (!empty($options['criteria'])) {
 			$query = Streams::relationCriteria(
 				$query,
 				$options['criteria'],
-				$isCategory
+				$isCategory,
+				$baseAlias
 			);
+		}
+		$prefix = $baseAlias ? "$baseAlias." : '';
+		if ($isCategory) {
+			$query = $query->where(array(
+				$prefix.'toPublisherId' => $publisherId,
+				$prefix.'toStreamName'  => $streamName
+			));
+		} else {
+			$query = $query->where(array(
+				$prefix.'fromPublisherId' => $publisherId,
+				$prefix.'fromStreamName'  => $streamName
+			));
 		}
 		if ($isCategory) {
 			$orderBy = Q::ifset($options, "orderBy", false);
 			if (is_bool($orderBy)) {
-				$query = $query->orderBy('weight', $orderBy);
+				$query = $query->orderBy($prefix.'weight', $orderBy);
 			} else if (strtolower($orderBy) === 'random') {
 				$query = $query->orderBy('random', null)->ignoreCache();
 			} else {
@@ -2743,7 +2749,7 @@ abstract class Streams extends Base_Streams
 			}
 
 			if (!empty($options['weight'])) {
-				$query = $query->andWhere(array('weight' => $options['weight']));
+				$query = $query->andWhere(array($prefix.'weight' => $options['weight']));
 			}
 		}
 		if (isset($options['prefix'])) {
@@ -2752,7 +2758,7 @@ abstract class Streams extends Base_Streams
 			}
 			$other_field = $isCategory ? 'fromStreamName' : 'toStreamName';
 			$query = $query->where(array(
-				$other_field => new Db_Range($options['prefix'], true, false, true)
+				$prefix.$other_field => new Db_Range($options['prefix'], true, false, true)
 			));
 		}
 		if (!empty($options['title'])) {
@@ -2763,7 +2769,7 @@ abstract class Streams extends Base_Streams
 				));
 			}
 			$query = $query->where(array(
-				'title LIKE ' => $options['title']
+				$prefix.'title LIKE ' => $options['title']
 			));
 		}
 
@@ -2791,16 +2797,16 @@ abstract class Streams extends Base_Streams
 		}
 		if (isset($min) or isset($max)) {
 			$range = new Db_Range(isset($min) ? $min : null, true, true, isset($max) ? $max : null);
-			$query = $query->where(array('weight' => $range));
+			$query = $query->where(array($prefix.'weight' => $range));
 		}
 		if ($limit or $offset) {
 			$query = $query->limit($limit, $offset);
 		}
 		if (isset($options['type'])) {
-			$query = $query->where(array('type' => $options['type']));
+			$query = $query->where(array($prefix.'type' => $options['type']));
 		}
 		if (isset($options['where'])) {
-			$query = $query->where($options['where']);
+			$query = $query->where($query->prefixFields($options['where'], $prefix));
 		}
 		$FT = $isCategory ? 'from' : 'to';
 		$col = $isCategory ? 'fromStreamName' : 'toStreamName';
@@ -2808,7 +2814,7 @@ abstract class Streams extends Base_Streams
 		$col3 = $isCategory ? 'fromPublisherId' : 'toPublisherId';
 		if (empty($options['includeTemplates'])) {
 			$query = $query->where(new Db_Expression(
-				"SUBSTRING($col, -1, 1) != '/'"
+				"SUBSTRING($prefix$col, -1, 1) != '/'"
 			));
 		}
 		if (Q::ifset($options, "ignoreCache", false)) {
@@ -3079,7 +3085,7 @@ abstract class Streams extends Base_Streams
 	 * @param {boolean} $isCategory
 	 * @return {Db_Query}
 	 */
-	static function relationCriteria($query, array $criteriaSpecs, $isCategory)
+	static function relationCriteria($query, array $criteriaSpecs, $isCategory, &$baseAlias = null)
 	{
 		if (empty($criteriaSpecs)) {
 			return $query;
@@ -3153,6 +3159,7 @@ abstract class Streams extends Base_Streams
 					: Streams_RelatedFrom::table()
 				) => 'r0'
 			));
+			$baseAlias = 'r0';
 		}
 
 		return $query;
@@ -3341,6 +3348,7 @@ abstract class Streams extends Base_Streams
 			'after'
 		);
 	}
+	
 	/**
 	 * Updates the weight on a relation, possibly adjusting weights of other relations
 	 * @method updateRelation
