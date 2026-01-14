@@ -3092,7 +3092,7 @@ abstract class Streams extends Base_Streams
 			? Streams_RelatedTo::table()
 			: Streams_RelatedFrom::table();
 
-		// Anchor columns on the BASE query (no alias)
+		// Anchor columns (base query has NO alias)
 		if ($isCategory) {
 			$anchor = array(
 				'toPublisherId',
@@ -3114,26 +3114,27 @@ abstract class Streams extends Base_Streams
 			}
 
 			$ranges = Streams::relationTypes($spec);
-			if (!$ranges) {
+			if (empty($ranges['type']) && empty($ranges['weight'])) {
 				continue;
 			}
 
 			$joinIndex++;
 			$alias = 'r' . $joinIndex;
 
-			// Join base table to a new alias of itself
+			// Build ON clause: base table ↔ alias
 			$on = array();
 			foreach ($anchor as $field) {
-				$on[$field] = "$alias.$field";
+				$on[$field] = new Db_Expression("$alias.$field");
 			}
 
+			// IMPORTANT: alias is embedded in the table string
 			$query->join(
-				array($table, $alias),
+				"$table $alias",
 				$on,
 				'INNER'
 			);
 
-			// Apply constraints to THIS join only
+			// Apply constraints ONLY to this alias
 			if (!empty($ranges['type'])) {
 				$query->where(array(
 					"$alias.type" => $ranges['type']
@@ -3149,7 +3150,6 @@ abstract class Streams extends Base_Streams
 
 		return $query;
 	}
-
 
 	/**
 	 * Check if the maximum number of relations of a given type has been exceeded,
