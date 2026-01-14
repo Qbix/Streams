@@ -2979,116 +2979,6 @@ abstract class Streams extends Base_Streams
 				throw new Exception("Invalid relationTypes spec for '$type'");
 			}
 
-			$hasTypeRange = (
-				array_key_exists(0, $args) &&
-				array_key_exists(1, $args) &&
-				array_key_exists(2, $args) &&
-				array_key_exists(3, $args)
-			);
-
-			// If key exists but no explicit range, require exact existence
-			if (!$hasTypeRange) {
-				$r = new Db_Range($type, true, false, true);
-				$typeRange = $typeRange ? $typeRange->union($r) : $r;
-			}
-
-			// Explicit type range
-			if ($hasTypeRange) {
-				list($from, $includeMin, $includeMax, $to) = $args;
-
-				$fromVal = is_numeric($from)
-					? Db::decimalToString($from)
-					: substr(trim((string)$from), 0, $maxLen);
-
-				$toVal = is_numeric($to)
-					? Db::decimalToString($to)
-					: substr(trim((string)$to), 0, $maxLen);
-
-				if ($fromVal === '' || $toVal === '') {
-					throw new Exception("Empty relation type value for '$type'");
-				}
-
-				$r = new Db_Range(
-					$type . '=' . $fromVal,
-					$includeMin,
-					$includeMax,
-					$type . '=' . $toVal
-				);
-
-				$typeRange = $typeRange ? $typeRange->union($r) : $r;
-			}
-
-			// Filter (IN semantics on exact values)
-			if (isset($args['filter'])) {
-				if (!is_array($args['filter'])) {
-					throw new Exception("Invalid filter spec for '$type'");
-				}
-				foreach ($args['filter'] as $v) {
-					$v = is_numeric($v)
-						? Db::decimalToString($v)
-						: substr(trim((string)$v), 0, $maxLen);
-
-					if ($v === '') {
-						continue;
-					}
-
-					$r = new Db_Range($type . '=' . $v, true, false, true);
-					$typeRange = $typeRange ? $typeRange->union($r) : $r;
-				}
-			}
-
-			// Weight constraint (range-only)
-			if (isset($args['weight'])) {
-				$w = $args['weight'];
-				if (!is_array($w) || count($w) !== 4) {
-					throw new Exception("Invalid weight spec for '$type'");
-				}
-
-				$wr = new Db_Range($w[0], $w[1], $w[2], $w[3]);
-				$weightRange = $weightRange ? $weightRange->union($wr) : $wr;
-			}
-		}
-
-		return array(
-			'type'   => $typeRange,
-			'weight' => $weightRange
-		);
-	}
-
-	/**
-	 * Apply intersection-based relation criteria using self INNER JOINs.
-	 *
-	 * Joins are performed ONLY on the anchor side:
-	 * - isCategory = true: join on toPublisherId + toStreamName
-	 * - isCategory = false: join on fromPublisherId + fromStreamName
-	 *
-	 * No query aliasing is used; the base table is implicit.
-	 *
-	 * @method relationCriteria
-	 * @static
-	 * @param {Db_Query} $query
-	 * @param {array} $criteriaSpecs
-	 * @param {boolean} $isCategory
-	 * @return {Db_Query}
-	 */
-	static function relationTypes(array $spec, $maxLen = 64)
-	{
-		$typeRange = null;
-		$weightRange = null;
-
-		foreach ($spec as $type => $args) {
-
-			// Case 1: exact existence
-			if ($args === true) {
-				$r = new Db_Range($type, true, false, true);
-				$typeRange = $typeRange ? $typeRange->union($r) : $r;
-				continue;
-			}
-
-			if (!is_array($args)) {
-				throw new Exception("Invalid relationTypes spec for '$type'");
-			}
-
 			$hasTypeRange =
 				array_key_exists(0, $args) &&
 				array_key_exists(1, $args) &&
@@ -3174,6 +3064,90 @@ abstract class Streams extends Base_Streams
 			'type'   => $typeRange,
 			'weight' => $weightRange
 		);
+	}
+
+	/**
+	 * Apply intersection-based relation criteria using self INNER JOINs.
+	 *
+	 * Joins are performed ONLY on the anchor side:
+	 * - isCategory = true: join on toPublisherId + toStreamName
+	 * - isCategory = false: join on fromPublisherId + fromStreamName
+	 *
+	 * No query aliasing is used; the base table is implicit.
+	 *
+	 * @method relationCriteria
+	 * @static
+	 * @param {Db_Query} $query
+	 * @param {array} $criteriaSpecs
+	 * @param {boolean} $isCategory
+	 * @return {Db_Query}
+	 */
+	static function relationCriteria($query, array $criteriaSpecs, $isCategory)
+	{
+		if (empty($criteriaSpecs)) {
+			return $query;
+		}
+
+		$table = $isCategory
+			? Streams_RelatedTo::table()
+			: Streams_RelatedFrom::table();
+
+		// Anchor columns on the BASE query (no alias)
+		if ($isCategory) {
+			$anchor = array(
+				'toPublisherId',
+				'toStreamName'
+			);
+		} else {
+			$anchor = array(
+				'fromPublisherId',
+				'fromStreamName'
+			);
+		}
+
+		$joinIndex = 0;
+
+		foreach ($criteriaSpecs as $spec) {
+
+			if (!is_array($spec)) {
+				continue;
+			}
+
+			$ranges = Streams::relationTypes($spec);
+			if (!$ranges) {
+				continue;
+			}
+
+			$joinIndex++;
+			$alias = 'r' . $joinIndex;
+
+			// Join base table to a new alias of itself
+			$on = array();
+			foreach ($anchor as $field) {
+				$on[$field] = "$alias.$field";
+			}
+
+			$query->join(
+				array($table, $alias),
+				$on,
+				'INNER'
+			);
+
+			// Apply constraints to THIS join only
+			if (!empty($ranges['type'])) {
+				$query->where(array(
+					"$alias.type" => $ranges['type']
+				));
+			}
+
+			if (!empty($ranges['weight'])) {
+				$query->where(array(
+					"$alias.weight" => $ranges['weight']
+				));
+			}
+		}
+
+		return $query;
 	}
 
 
