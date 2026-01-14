@@ -2726,6 +2726,7 @@ abstract class Streams extends Base_Streams
 		$prefix = $baseAlias ? "$baseAlias." : '';
 		if ($prefix) {
 			if ($baseAlias) {
+				$fieldNames = array();
 				$fns = call_user_func($query->className, 'fieldNames');
 				foreach ($fns as $fn) {
 					$fieldNames[] = $prefix . $fn;
