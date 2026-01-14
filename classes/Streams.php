@@ -3055,13 +3055,14 @@ abstract class Streams extends Base_Streams
 		);
 	}
 
-
 	/**
 	 * Apply intersection-based relation criteria using self INNER JOINs.
 	 *
 	 * Joins are performed ONLY on the anchor side:
 	 * - isCategory = true: join on toPublisherId + toStreamName
 	 * - isCategory = false: join on fromPublisherId + fromStreamName
+	 *
+	 * No query aliasing is used; the base table is implicit.
 	 *
 	 * @method relationCriteria
 	 * @static
@@ -3076,21 +3077,18 @@ abstract class Streams extends Base_Streams
 			return $query;
 		}
 
-		$baseTable = $isCategory
+		$table = $isCategory
 			? Streams_RelatedTo::table()
 			: Streams_RelatedFrom::table();
 
-		$baseAlias = 'r0';
-		$query->as($baseAlias);
-
-		// Determine anchor columns ONCE
+		// Anchor columns on the BASE query (no alias)
 		if ($isCategory) {
-			$anchorJoin = array(
+			$anchor = array(
 				'toPublisherId',
 				'toStreamName'
 			);
 		} else {
-			$anchorJoin = array(
+			$anchor = array(
 				'fromPublisherId',
 				'fromStreamName'
 			);
@@ -3104,37 +3102,43 @@ abstract class Streams extends Base_Streams
 				continue;
 			}
 
-			$range = Streams::relationTypes($spec);
-			if (!$range) {
+			$ranges = Streams::relationTypes($spec);
+			if (!$ranges) {
 				continue;
 			}
 
 			$joinIndex++;
 			$alias = 'r' . $joinIndex;
 
-			// Build structured join conditions (anchor-only)
-			$joinConditions = array();
-			foreach ($anchorJoin as $field) {
-				$joinConditions["$baseAlias.$field"] = "$alias.$field";
+			// Join base table to a new alias of itself
+			$on = array();
+			foreach ($anchor as $field) {
+				$on[$field] = "$alias.$field";
 			}
 
 			$query->join(
-				array($baseTable, $alias),
-				$joinConditions,
+				array($table, $alias),
+				$on,
 				'INNER'
 			);
 
-			// Apply criterion to THIS join only
-			if ($range['type']) {
-				$query->where(array("$alias.type" => $range['type']));
+			// Apply constraints to THIS join only
+			if (!empty($ranges['type'])) {
+				$query->where(array(
+					"$alias.type" => $ranges['type']
+				));
 			}
-			if ($range['weight']) {
-				$query->where(array("$alias.weight" => $range['weight']));
+
+			if (!empty($ranges['weight'])) {
+				$query->where(array(
+					"$alias.weight" => $ranges['weight']
+				));
 			}
 		}
 
 		return $query;
 	}
+
 
 	/**
 	 * Check if the maximum number of relations of a given type has been exceeded,
