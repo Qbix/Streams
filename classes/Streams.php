@@ -2710,9 +2710,9 @@ abstract class Streams extends Base_Streams
 		}
 
 		if ($isCategory) {
-			$query = Streams_RelatedTo::select();
+			$query = Streams_RelatedTo::select('', $baseAlias);
 		} else {
-			$query = Streams_RelatedFrom::select();
+			$query = Streams_RelatedFrom::select('', $baseAlias);
 		}
 		$baseAlias = null;
 		if (!empty($options['criteria'])) {
@@ -2724,6 +2724,15 @@ abstract class Streams extends Base_Streams
 			);
 		}
 		$prefix = $baseAlias ? "$baseAlias." : '';
+		if ($prefix) {
+			if ($baseAlias) {
+				$fns = call_user_func($query->className, 'fieldNames');
+				foreach ($fns as $fn) {
+					$fieldNames[] = $prefix . $fn;
+				}
+				$query = $query->select($fieldNames);
+			}
+		}
 		if ($isCategory) {
 			$query = $query->where(array(
 				$prefix.'toPublisherId' => $publisherId,
@@ -3109,6 +3118,7 @@ abstract class Streams extends Base_Streams
 		}
 
 		$joinIndex = 0;
+		$baseAlias = $prefix = '';
 
 		foreach ($criteriaSpecs as $spec) {
 
@@ -3121,13 +3131,25 @@ abstract class Streams extends Base_Streams
 				continue;
 			}
 
+			// If we're here, it's time to set prefix
+			if ($joinIndex == 0) {
+				$query->aliases(array(
+					($isCategory
+						? Streams_RelatedTo::table()
+						: Streams_RelatedFrom::table()
+					) => 'r0'
+				));
+				$baseAlias = 'r0';
+				$prefix = $baseAlias . '.';
+			}
+
 			$joinIndex++;
 			$alias = 'r' . $joinIndex;
 
 			// Build ON clause: base table ↔ alias
 			$on = array();
 			foreach ($anchor as $field) {
-				$on[$field] = new Db_Expression("$alias.$field");
+				$on[$prefix . $field] = new Db_Expression("$alias.$field");
 			}
 
 			// IMPORTANT: alias is embedded in the table string
@@ -3149,17 +3171,6 @@ abstract class Streams extends Base_Streams
 					"$alias.weight" => $ranges['weight']
 				));
 			}
-		}
-
-		if ($joinIndex) {
-			// Alias base table
-			$query->aliases(array(
-				($isCategory
-					? Streams_RelatedTo::table()
-					: Streams_RelatedFrom::table()
-				) => 'r0'
-			));
-			$baseAlias = 'r0';
 		}
 
 		return $query;
