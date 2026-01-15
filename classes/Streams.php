@@ -3156,7 +3156,7 @@ abstract class Streams extends Base_Streams
 				->where($where)
 				->limit(1);
 
-			$query->andWhere(new Db_Expression("EXISTS (", $sub, ")"));
+			$query->where(new Db_Expression("EXISTS (", $sub, ")"));
 
 			if ($withRelevance) {
 				$relevanceExprs[] = new Db_Expression(
