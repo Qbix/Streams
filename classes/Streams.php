@@ -2740,7 +2740,7 @@ abstract class Streams extends Base_Streams
 		$prefix = $baseAlias ? "$baseAlias." : '';
 		if ($baseAlias) {
 			$fieldNames = array();
-			$fns = call_user_func($query->className, 'fieldNames');
+			$fns = call_user_func(array($query->className, 'fieldNames'));
 			foreach ($fns as $fn) {
 				$fieldNames[] = $prefix . $fn;
 			}
@@ -2845,7 +2845,6 @@ abstract class Streams extends Base_Streams
 		if (Q::ifset($options, "ignoreCache", false)) {
 			$query->ignoreCache();
 		}
-
 		$relations = $query->fetchDbRows();
 		foreach ($relations as $k => $v) {
 			if (empty($options['includeTemplates'])) {
@@ -3161,9 +3160,7 @@ abstract class Streams extends Base_Streams
 				->where($where)
 				->limit(1);
 
-			$GLOBALS['a'] = 5;
 			$query->where(new Db_Expression("EXISTS (", $sub, ")"));
-			$GLOBALS['a'] = null;
 
 			if ($withRelevance) {
 				$relevanceExprs[] = new Db_Expression(
@@ -3181,10 +3178,8 @@ abstract class Streams extends Base_Streams
 				$args[] = $expr;
 			}
 
-			$withRelevance = call_user_func_array(
-				'Db_Expression',
-				$args
-			);
+			$ref = new ReflectionClass('Db_Expression');
+			$withRelevance = $ref->newInstanceArgs($args);
 		}
 
 		return $query;
