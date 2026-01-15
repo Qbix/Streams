@@ -3054,15 +3054,37 @@ abstract class Streams extends Base_Streams
 					}
 				}
 
+				$prefix    = $type . '=';
+				$prefixEnd = $type . chr(ord('=') + 1);
+
+				// Intersect user range with attribute namespace
+				$min = $prefix;
+				$max = $prefixEnd;
+
+				if ($fromVal !== null) {
+					$candidate = $prefix . $fromVal;
+					if ($candidate > $min) {
+						$min = $candidate;
+					}
+				}
+
+				if ($toVal !== null) {
+					$candidate = $prefix . $toVal;
+					if ($candidate < $max) {
+						$max = $candidate;
+					}
+				}
+
 				$r = new Db_Range(
-					$fromVal !== null ? $type . '=' . $fromVal : null,
+					$min,
 					$includeMin,
 					$includeMax,
-					$toVal !== null ? $type . '=' . $toVal : null
+					$max
 				);
 
 				$typeRange = $typeRange ? $typeRange->union($r) : $r;
 			}
+
 
 			// Filter (IN semantics)
 			if (isset($args['filter'])) {
@@ -3262,6 +3284,7 @@ abstract class Streams extends Base_Streams
 			return false;
 		}
 	}
+	
 	/**
 	 * Inserts multiple relations and/or updates the weight on multiple relations.
 	 * Doesn't adjust weights of other relations, unlike the updateRelation() method.
