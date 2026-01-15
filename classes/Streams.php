@@ -3152,7 +3152,9 @@ abstract class Streams extends Base_Streams
 				$where['weight'] = $ranges['weight'];
 			}
 
-			$sub = Db::select('1', $table)->where($where)->limit(1);
+			$sub = Streams_Stream::db()->select('1', $table)
+				->where($where)
+				->limit(1);
 
 			$query->andWhere(new Db_Expression("EXISTS (" . $sub->toSql() . ")"));
 
