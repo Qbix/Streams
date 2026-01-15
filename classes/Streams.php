@@ -2822,25 +2822,25 @@ abstract class Streams extends Base_Streams
 		$col = $isCategory ? 'fromStreamName' : 'toStreamName';
 		$col2 = $isCategory ? 'toStreamName' : 'fromStreamName';
 		$col3 = $isCategory ? 'fromPublisherId' : 'toPublisherId';
-		if (empty($options['includeTemplates'])) {
-			$query = $query->where(new Db_Expression(
-				"SUBSTRING($prefix$col, -1, 1) != '/'"
-			));
-		}
 		if (Q::ifset($options, "ignoreCache", false)) {
 			$query->ignoreCache();
 		}
 
 		$relations = $query->fetchDbRows();
 		foreach ($relations as $k => $v) {
-			if (!empty($options['includeTemplates'])
-			and substr($k, -1) === '/') {
-				unset($relations[$k]);
-			} else if (!empty($skipTypes[$v->$col2])
+			if (empty($options['includeTemplates'])) {
+				$name = $v->$col;
+				if (is_string($name) && substr($name, -1) === '/') {
+					unset($relations[$k]);
+					continue;
+				}
+			}
+			if (!empty($skipTypes[$v->$col2])
 			and in_array($v->type, $skipTypes[$v->$col2])) {
 				unset($relations[$k]);
 			}
 		}
+
 
 		if (empty($relations)) {
 			if (!empty($options['relationsOnly'])
