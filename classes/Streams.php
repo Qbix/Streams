@@ -2715,6 +2715,7 @@ abstract class Streams extends Base_Streams
 			$query = Streams_RelatedFrom::select('');
 		}
 		$baseAlias = null;
+		$relevance = null;
 		if (!empty($options['criteria'])) {
 			// Ensure base alias exists
 			if (!$baseAlias) {
@@ -2727,24 +2728,26 @@ abstract class Streams extends Base_Streams
 				$baseAlias = 'r0';
 			}
 
+			$relevance = true;
 			$query = Streams::relationCriteria(
 				$query,
 				$options['criteria'],
 				$isCategory,
 				$baseAlias,
-				/* withRelevance = */ true
+				$relevance
 			);
 		}
 		$prefix = $baseAlias ? "$baseAlias." : '';
-		if ($prefix) {
-			if ($baseAlias) {
-				$fieldNames = array();
-				$fns = call_user_func($query->className, 'fieldNames');
-				foreach ($fns as $fn) {
-					$fieldNames[] = $prefix . $fn;
-				}
-				$query = $query->select($fieldNames);
+		if ($baseAlias) {
+			$fieldNames = array();
+			$fns = call_user_func($query->className, 'fieldNames');
+			foreach ($fns as $fn) {
+				$fieldNames[] = $prefix . $fn;
 			}
+			if ($relevance) {
+				$fieldNames['relevance'] = $relevance;
+			}
+			$query = $query->select($fieldNames);
 		}
 		if ($isCategory) {
 			$query = $query->where(array(
@@ -2759,7 +2762,9 @@ abstract class Streams extends Base_Streams
 		}
 		if ($isCategory) {
 			if (!empty($options['criteria'])) {
-				$query->orderBy('relevance', false);
+				if ($relevance) {
+					$query->orderBy('relevance', false);	
+				}
 				$query->orderBy($prefix.'weight', false);
 			} else {
 				$orderBy = Q::ifset($options, "orderBy", false);
@@ -3113,7 +3118,7 @@ abstract class Streams extends Base_Streams
 		array $criteriaSpecs,
 		$isCategory,
 		$baseAlias,
-		$withRelevance = false
+		&$withRelevance = false
 	) {
 		if (empty($criteriaSpecs)) {
 			return $query;
@@ -3156,20 +3161,30 @@ abstract class Streams extends Base_Streams
 				->where($where)
 				->limit(1);
 
+			$GLOBALS['a'] = 5;
 			$query->where(new Db_Expression("EXISTS (", $sub, ")"));
+			$GLOBALS['a'] = null;
 
 			if ($withRelevance) {
 				$relevanceExprs[] = new Db_Expression(
-					'CASE WHEN EXISTS', $sub, 'THEN 1 ELSE 0 END'
+					'CASE WHEN EXISTS (', $sub->copy(), ') THEN 1 ELSE 0 END'
 				);
 			}
 		}
 
 		if ($withRelevance && $relevanceExprs) {
-			$query->select(array(
-				$baseAlias . '.*',
-				'relevance' => new Db_Expression(implode(' + ', $relevanceExprs))
-			));
+			$args = [];
+			foreach ($relevanceExprs as $i => $expr) {
+				if ($i > 0) {
+					$args[] = '+';
+				}
+				$args[] = $expr;
+			}
+
+			$withRelevance = call_user_func_array(
+				'Db_Expression',
+				$args
+			);
 		}
 
 		return $query;
@@ -6405,4 +6420,4 @@ abstract class Streams extends Base_Streams
 	 * @type string
 	 */
 	static $dontCache = false;
-};
+}
