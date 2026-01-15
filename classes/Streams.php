@@ -2641,6 +2641,9 @@ abstract class Streams extends Base_Streams
 	 *   Optional intersection-based relation criteria.
 	 *   Passed verbatim to Streams::relationCriteria().
 	 *   Each element is a spec accepted by Streams::relationTypes().
+	 * @param {boolean} [$options.relevance]
+	 *   If criteria is passed, set relevance = true to also retrieve the number of matching criteria.
+	 *   This usually makes the query around 3x slower, though.
 	 * @param {string} [$options.prefix] if specified, this filters by the prefix of the related streams
 	 * @param {string} [$options.title] if specified, this filters the titles of the streams with a LIKE condition
 	 * @param {array} [$options.where] you can also specify any extra conditions here
@@ -2728,7 +2731,7 @@ abstract class Streams extends Base_Streams
 				$baseAlias = 'r0';
 			}
 
-			$relevance = true;
+			$relevance = !empty($options['relevance']);
 			$query = Streams::relationCriteria(
 				$query,
 				$options['criteria'],
