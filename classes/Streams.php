@@ -3119,6 +3119,7 @@ abstract class Streams extends Base_Streams
 		}
 
 		$joinIndex = 0;
+		$seedApplied = false;
 		$baseAlias = $prefix = '';
 
 		foreach ($criteriaSpecs as $spec) {
@@ -3142,6 +3143,13 @@ abstract class Streams extends Base_Streams
 				));
 				$baseAlias = 'r0';
 				$prefix = $baseAlias . '.';
+			}
+
+			if (!$seedApplied && !empty($ranges['type'])) {
+				$query->where(array(
+					$prefix . 'type' => $ranges['type']
+				));
+				$seedApplied = true;
 			}
 
 			$joinIndex++;
