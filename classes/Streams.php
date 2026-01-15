@@ -3167,9 +3167,8 @@ abstract class Streams extends Base_Streams
 
 		if ($withRelevance && $relevanceExprs) {
 			$query->select(array(
-				'relevance' => new Db_Expression(
-					implode(' + ', $relevanceExprs)
-				)
+				$baseAlias . '.*',
+				'relevance' => new Db_Expression(implode(' + ', $relevanceExprs))
 			));
 		}
 
