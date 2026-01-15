@@ -2682,10 +2682,10 @@ abstract class Streams extends Base_Streams
 		}
 		$skipTypes = Q::ifset($options, 'skipTypes', array());
 
+		$fetchOptions = isset($options['fetchOptions']) ? $options['fetchOptions'] : null;
 		if (empty($options['relationsOnly'])
 		or empty($options['skipAccess'])) {
 			// Check access to stream
-			$fetchOptions = isset($options['fetchOptions']) ? $options['fetchOptions'] : null;
 			$rows = Streams::fetch($asUserId, $publisherId, $streamName, '*', $fetchOptions);
 			$streams = array();
 			foreach($rows as $n => $row) {
@@ -2710,17 +2710,29 @@ abstract class Streams extends Base_Streams
 		}
 
 		if ($isCategory) {
-			$query = Streams_RelatedTo::select('', $baseAlias);
+			$query = Streams_RelatedTo::select('');
 		} else {
-			$query = Streams_RelatedFrom::select('', $baseAlias);
+			$query = Streams_RelatedFrom::select('');
 		}
 		$baseAlias = null;
 		if (!empty($options['criteria'])) {
+			// Ensure base alias exists
+			if (!$baseAlias) {
+				$query->aliases(array(
+					($isCategory
+						? Streams_RelatedTo::table()
+						: Streams_RelatedFrom::table()
+					) => 'r0'
+				));
+				$baseAlias = 'r0';
+			}
+
 			$query = Streams::relationCriteria(
 				$query,
 				$options['criteria'],
 				$isCategory,
-				$baseAlias
+				$baseAlias,
+				/* withRelevance = */ true
 			);
 		}
 		$prefix = $baseAlias ? "$baseAlias." : '';
@@ -2746,21 +2758,24 @@ abstract class Streams extends Base_Streams
 			));
 		}
 		if ($isCategory) {
-			$orderBy = Q::ifset($options, "orderBy", false);
-			if (is_bool($orderBy)) {
-				$query = $query->orderBy($prefix.'weight', $orderBy);
-			} else if (strtolower($orderBy) === 'random') {
-				$query = $query->orderBy('random', null)->ignoreCache();
+			if (!empty($options['criteria'])) {
+				$query->orderBy('relevance', false);
+				$query->orderBy($prefix.'weight', false);
 			} else {
-				throw new Q_Exception_WrongValue(array(
-					'field' => 'orderBy',
-					'range' => 'true, false, or "random"'
-				));
+				$orderBy = Q::ifset($options, "orderBy", false);
+				if (is_bool($orderBy)) {
+					$query->orderBy($prefix.'weight', $orderBy);
+				} else if (strtolower($orderBy) === 'random') {
+					$query->orderBy('random', null)->ignoreCache();
+				} else {
+					throw new Q_Exception_WrongValue(array(
+						'field' => 'orderBy',
+						'range' => 'true, false, or "random"'
+					));
+				}
 			}
-
-			if (!empty($options['weight'])) {
-				$query = $query->andWhere(array($prefix.'weight' => $options['weight']));
-			}
+		} else if (!empty($options['criteria'])) {
+			$query->orderBy('relevance', false);
 		}
 		if (isset($options['prefix'])) {
 			if (substr($options['prefix'], -1) !== '/') {
@@ -2856,6 +2871,7 @@ abstract class Streams extends Base_Streams
 
 		if (empty($options['dontFilterUsers'])) {
 			// filter userIds and manipulate their order as well
+			$userIds = array();
 			foreach ($relations as $r) {
 				$userIds[] = $userId = $r->$col3;
 			}
@@ -3080,23 +3096,25 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
-	 * Apply intersection-based relation criteria using self INNER JOINs.
-	 *
-	 * Joins are performed ONLY on the anchor side:
-	 * - isCategory = true: join on toPublisherId + toStreamName
-	 * - isCategory = false: join on fromPublisherId + fromStreamName
-	 *
-	 * No query aliasing is used; the base table is implicit.
+	 * Apply intersection-based relation criteria using correlated EXISTS subqueries.
+	 * Optionally computes a per-stream relevance score.
 	 *
 	 * @method relationCriteria
 	 * @static
 	 * @param {Db_Query} $query
 	 * @param {array} $criteriaSpecs
 	 * @param {boolean} $isCategory
+	 * @param {string} $baseAlias
+	 * @param {boolean} $withRelevance
 	 * @return {Db_Query}
 	 */
-	static function relationCriteria($query, array $criteriaSpecs, $isCategory, &$baseAlias = null)
-	{
+	static function relationCriteria(
+		$query,
+		array $criteriaSpecs,
+		$isCategory,
+		$baseAlias,
+		$withRelevance = false
+	) {
 		if (empty($criteriaSpecs)) {
 			return $query;
 		}
@@ -3105,22 +3123,11 @@ abstract class Streams extends Base_Streams
 			? Streams_RelatedTo::table()
 			: Streams_RelatedFrom::table();
 
-		// Anchor columns
-		if ($isCategory) {
-			$anchor = array(
-				'toPublisherId',
-				'toStreamName'
-			);
-		} else {
-			$anchor = array(
-				'fromPublisherId',
-				'fromStreamName'
-			);
-		}
+		$anchor = $isCategory
+			? array('toPublisherId', 'toStreamName', 'fromPublisherId', 'fromStreamName')
+			: array('fromPublisherId', 'fromStreamName', 'toPublisherId', 'toStreamName');
 
-		$joinIndex = 0;
-		$seedApplied = false;
-		$baseAlias = $prefix = '';
+		$relevanceExprs = array();
 
 		foreach ($criteriaSpecs as $spec) {
 
@@ -3133,53 +3140,35 @@ abstract class Streams extends Base_Streams
 				continue;
 			}
 
-			// If we're here, it's time to set prefix
-			if ($joinIndex == 0) {
-				$query->aliases(array(
-					($isCategory
-						? Streams_RelatedTo::table()
-						: Streams_RelatedFrom::table()
-					) => 'r0'
-				));
-				$baseAlias = 'r0';
-				$prefix = $baseAlias . '.';
-			}
-
-			if (!$seedApplied && !empty($ranges['type'])) {
-				$query->where(array(
-					$prefix . 'type' => $ranges['type']
-				));
-				$seedApplied = true;
-			}
-
-			$joinIndex++;
-			$alias = 'r' . $joinIndex;
-
-			// Build ON clause: base table ↔ alias
-			$on = array();
+			$where = array();
 			foreach ($anchor as $field) {
-				$on[$prefix . $field] = new Db_Expression("$alias.$field");
+				$where[$field] = new Db_Expression("$baseAlias.$field");
 			}
 
-			// IMPORTANT: alias is embedded in the table string
-			$query->join(
-				"$table $alias",
-				$on,
-				'INNER'
-			);
-
-			// Apply constraints ONLY to this alias
 			if (!empty($ranges['type'])) {
-				$query->where(array(
-					"$alias.type" => $ranges['type']
-				));
+				$where['type'] = $ranges['type'];
+			}
+			if (!empty($ranges['weight'])) {
+				$where['weight'] = $ranges['weight'];
 			}
 
-			if (!empty($ranges['weight'])) {
-				$query->where(array(
-					"$alias.weight" => $ranges['weight']
-				));
+			$sub = Db::select('1', $table)->where($where)->limit(1);
+
+			$query->andWhere(new Db_Expression("EXISTS (" . $sub->toSql() . ")"));
+
+			if ($withRelevance) {
+				$relevanceExprs[] = new Db_Expression(
+					'CASE WHEN EXISTS', $sub, 'THEN 1 ELSE 0 END'
+				);
 			}
+		}
+
+		if ($withRelevance && $relevanceExprs) {
+			$query->select(array(
+				'relevance' => new Db_Expression(
+					implode(' + ', $relevanceExprs)
+				)
+			));
 		}
 
 		return $query;
