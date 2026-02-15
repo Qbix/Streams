@@ -2754,24 +2754,36 @@ abstract class Streams extends Base_Streams
 				$relevance
 			);
 		}
-		// Constrain returned relation rows to the same criteria ranges
-		// (default ON; pass dontConstrainRelations => true to disable)
 		if (!empty($options['criteria']) && empty($options['dontConstrainRelations'])) {
-			foreach ($options['criteria'] as $spec) {
-				if (!is_array($spec)) continue;
+			$unionTypeRange = null;
+			$unionWeightRange = null;
 
+			foreach ($options['criteria'] as $spec) {
 				$ranges = Streams::relationTypes($spec);
 
 				if (!empty($ranges['type'])) {
-					$query->where(array(
-						$prefix . 'type' => $ranges['type']
-					));
+					$unionTypeRange = $unionTypeRange
+						? $unionTypeRange->union($ranges['type'])
+						: $ranges['type'];
 				}
+
 				if (!empty($ranges['weight'])) {
-					$query->where(array(
-						$prefix . 'weight' => $ranges['weight']
-					));
+					$unionWeightRange = $unionWeightRange
+						? $unionWeightRange->union($ranges['weight'])
+						: $ranges['weight'];
 				}
+			}
+
+			if ($unionTypeRange) {
+				$query->where(array(
+					$prefix . 'type' => $unionTypeRange
+				));
+			}
+
+			if ($unionWeightRange) {
+				$query->where(array(
+					$prefix . 'weight' => $unionWeightRange
+				));
 			}
 		}
 		$prefix = $baseAlias ? "$baseAlias." : '';
