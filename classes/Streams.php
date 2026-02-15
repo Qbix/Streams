@@ -2689,8 +2689,8 @@ abstract class Streams extends Base_Streams
 		$publisherId,
 		$streamName,
 		$isCategory = true,
-		$options = array())
-	{
+		$options = array()
+	) {
 		if (is_string($streamName) and substr($streamName, -1) === '/') {
 			$streamName = new Db_Range($streamName, false, false, true);
 		}
@@ -2702,15 +2702,13 @@ abstract class Streams extends Base_Streams
 		$skipTypes = Q::ifset($options, 'skipTypes', array());
 
 		$fetchOptions = isset($options['fetchOptions']) ? $options['fetchOptions'] : null;
-		if (empty($options['relationsOnly'])
-		or empty($options['skipAccess'])) {
+		if (empty($options['relationsOnly']) or empty($options['skipAccess'])) {
 			// Check access to stream
 			$rows = Streams::fetch($asUserId, $publisherId, $streamName, '*', $fetchOptions);
 			$streams = array();
-			foreach($rows as $n => $row) {
+			foreach ($rows as $n => $row) {
 				if (!$row) continue;
-				if (empty($options['skipAccess'])
-				&& !$row->testReadLevel('relations')) {
+				if (empty($options['skipAccess']) && !$row->testReadLevel('relations')) {
 					throw new Users_Exception_NotAuthorized();
 				}
 				if (!$row->testReadLevel('participants')) {
@@ -2719,8 +2717,7 @@ abstract class Streams extends Base_Streams
 				$streams[$n] = $row;
 			}
 			if (!$streams) {
-				if (!empty($options['relationsOnly'])
-				|| !empty($options['streamsOnly'])) {
+				if (!empty($options['relationsOnly']) || !empty($options['streamsOnly'])) {
 					return array();
 				}
 				return array(array(), array(), $returnMultiple ? array() : null);
@@ -2761,18 +2758,13 @@ abstract class Streams extends Base_Streams
 		$prefix = $baseAlias ? "$baseAlias." : '';
 
 		if (!empty($options['criteria']) && empty($options['dontConstrainRelations'])) {
-			$unionTypeRange = null;
-			$unionWeightRange = null;
 			$matchingTypeRange = null;
+			$unionWeightRange = null;
 
 			foreach ($options['criteria'] as $spec) {
 				$ranges = Streams::relationTypes($spec);
 
 				if (!empty($ranges['type'])) {
-					$unionTypeRange = $unionTypeRange
-						? $unionTypeRange->union($ranges['type'])
-						: $ranges['type'];
-
 					$matchingTypeRange = $matchingTypeRange
 						? $matchingTypeRange->union($ranges['type'])
 						: $ranges['type'];
@@ -2783,12 +2775,6 @@ abstract class Streams extends Base_Streams
 						? $unionWeightRange->union($ranges['weight'])
 						: $ranges['weight'];
 				}
-			}
-
-			if ($unionTypeRange) {
-				$query->where(array(
-					$prefix . 'type' => $unionTypeRange
-				));
 			}
 
 			if ($unionWeightRange) {
@@ -2818,26 +2804,26 @@ abstract class Streams extends Base_Streams
 
 		if ($isCategory) {
 			$query = $query->where(array(
-				$prefix.'toPublisherId' => $publisherId,
-				$prefix.'toStreamName'  => $streamName
+				$prefix . 'toPublisherId' => $publisherId,
+				$prefix . 'toStreamName'  => $streamName
 			));
 		} else {
 			$query = $query->where(array(
-				$prefix.'fromPublisherId' => $publisherId,
-				$prefix.'fromStreamName'  => $streamName
+				$prefix . 'fromPublisherId' => $publisherId,
+				$prefix . 'fromStreamName'  => $streamName
 			));
 		}
 
 		if ($isCategory) {
 			if (!empty($options['criteria'])) {
 				if ($relevance) {
-					$query->orderBy('relevance', false);	
+					$query->orderBy('relevance', false);
 				}
-				$query->orderBy($prefix.'weight', false);
+				$query->orderBy($prefix . 'weight', false);
 			} else {
 				$orderBy = Q::ifset($options, "orderBy", false);
 				if (is_bool($orderBy)) {
-					$query->orderBy($prefix.'weight', $orderBy);
+					$query->orderBy($prefix . 'weight', $orderBy);
 				} else if (strtolower($orderBy) === 'random') {
 					$query->orderBy('random', null)->ignoreCache();
 				} else {
@@ -2856,8 +2842,8 @@ abstract class Streams extends Base_Streams
 				throw new Q_Exception("prefix has to end in a slash", 'prefix');
 			}
 			$other_field = $isCategory ? 'fromStreamName' : 'toStreamName';
-			$query = $query->where(array(
-				$prefix.$other_field => new Db_Range($options['prefix'], true, false, true)
+			$query->where(array(
+				$prefix . $other_field => new Db_Range($options['prefix'], true, false, true)
 			));
 		}
 
@@ -2868,8 +2854,8 @@ abstract class Streams extends Base_Streams
 					'type' => 'string'
 				));
 			}
-			$query = $query->where(array(
-				$prefix.'title LIKE ' => $options['title']
+			$query->where(array(
+				$prefix . 'title LIKE ' => $options['title']
 			));
 		}
 
@@ -2877,6 +2863,7 @@ abstract class Streams extends Base_Streams
 		$max_offset = (Q_Config::expect('Streams', 'db', 'pages') - 1) * $max_limit - 1;
 		$offset = !empty($options['offset']) ? $options['offset'] : 0;
 		$limit = !empty($options['limit']) ? $options['limit'] : $max_limit;
+
 		if (empty($options['overrideMaximums'])) {
 			if (!is_numeric($offset) or $offset > $max_offset) {
 				throw new Q_Exception("Streams::related offset is too large, must be <= $max_offset");
@@ -2890,30 +2877,29 @@ abstract class Streams extends Base_Streams
 		if (isset($options['min'])) {
 			$min = is_numeric($options['min']) ? $options['min'] : strtotime($options['min']);
 		}
-
 		$max = null;
 		if (isset($options['max'])) {
 			$max = is_numeric($options['max']) ? $options['max'] : strtotime($options['max']);
 		}
 		if (isset($min) or isset($max)) {
 			$range = new Db_Range(isset($min) ? $min : null, true, true, isset($max) ? $max : null);
-			$query = $query->where(array($prefix.'weight' => $range));
+			$query->where(array($prefix . 'weight' => $range));
 		}
 
 		if ($limit or $offset) {
-			$query = $query->limit($limit, $offset);
+			$query->limit($limit, $offset);
 		}
 
 		if (isset($options['type'])) {
-			$query = $query->where(array($prefix.'type' => $options['type']));
+			$query->where(array($prefix . 'type' => $options['type']));
 		}
 
 		if (isset($options['where'])) {
-			$query = $query->where($query->prefixFields($options['where'], $prefix));
+			$query->where($query->prefixFields($options['where'], $prefix));
 		}
 
-		$FT = $isCategory ? 'from' : 'to';
-		$col = $isCategory ? 'fromStreamName' : 'toStreamName';
+		$FT   = $isCategory ? 'from' : 'to';
+		$col  = $isCategory ? 'fromStreamName' : 'toStreamName';
 		$col2 = $isCategory ? 'toStreamName' : 'fromStreamName';
 		$col3 = $isCategory ? 'fromPublisherId' : 'toPublisherId';
 
@@ -2931,15 +2917,13 @@ abstract class Streams extends Base_Streams
 					continue;
 				}
 			}
-			if (!empty($skipTypes[$v->$col2])
-			and in_array($v->type, $skipTypes[$v->$col2])) {
+			if (!empty($skipTypes[$v->$col2]) && in_array($v->type, $skipTypes[$v->$col2])) {
 				unset($relations[$k]);
 			}
 		}
 
 		if (empty($relations)) {
-			if (!empty($options['relationsOnly'])
-			or !empty($options['streamsOnly'])) {
+			if (!empty($options['relationsOnly']) || !empty($options['streamsOnly'])) {
 				return array();
 			}
 			return array(array(), array(), $returnMultiple ? $streams : $stream);
@@ -2952,19 +2936,17 @@ abstract class Streams extends Base_Streams
 		if (empty($options['dontFilterUsers'])) {
 			$userIds = array();
 			foreach ($relations as $r) {
-				$userIds[] = $userId = $r->$col3;
+				$userIds[] = $r->$col3;
 			}
 			$userIdsUniq = array_unique($userIds);
 			$from = 'Streams::related';
-			$alsoFilterOwnStreams = !empty($options['alsoFilterOwnStreams']);
 
 			$userIds = Q::event('Users/filter/users', compact(
 				'from',
 				'asUserId', 'publisherId', 'streamName', 'isCategory', 'options'
 			), 'after', false, $userIdsUniq, $handlersCalled);
 
-			if (empty($options['alsoFilterOwnStreams'])
-			and !in_array($publisherId, $userIds)) {
+			if (empty($options['alsoFilterOwnStreams']) && !in_array($publisherId, $userIds)) {
 				array_unshift($userIds, $publisherId);
 			}
 			if ($handlersCalled) {
@@ -2996,10 +2978,10 @@ abstract class Streams extends Base_Streams
 				: implode(',', $options['streamFields']);
 		}
 
-		$FTP = $FT.'PublisherId';
-		$FSN = $FT.'StreamName';
+		$FTP = $FT . 'PublisherId';
+		$FSN = $FT . 'StreamName';
 		$names = array();
-		foreach ($relations as $name => $r) {
+		foreach ($relations as $r) {
 			if ($r->$FTP === $publisherId) {
 				$names[] = $r->$FSN;
 			}
@@ -3022,7 +3004,7 @@ abstract class Streams extends Base_Streams
 		}
 
 		return array(
-			$relations, 
+			$relations,
 			$relatedStreams,
 			$returnMultiple ? $streams : $stream
 		);
