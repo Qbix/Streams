@@ -2655,8 +2655,8 @@ abstract class Streams extends Base_Streams
 	 *   Each element is a spec accepted by Streams::relationTypes().
 	 * @param {boolean} [$options.dontConstrainRelations=false] If true, do not constrain returned relation rows
 	 *   to match the EXISTS criteria filters.
-	* @param {boolean} [$options.constrainFacets=false] If true, filter returned relation rows
-	*   to only the facets matching the EXISTS criteria filters. By default, returns all matching facets.
+	 * @param {boolean} [$options.constrainFacets=false] If true, filter returned relation rows
+	 *   to only the facets matching the EXISTS criteria filters. By default, returns all matching facets.
 	 * @param {boolean} [$options.relevance]
 	 *   If criteria is passed, set relevance = true to also retrieve the number of matching criteria.
 	 *   This usually makes the query around 3x slower, though.
@@ -2997,6 +2997,25 @@ abstract class Streams extends Base_Streams
 				? $relations[$name]->weight
 				: null;
 			$s->set('weight', $weight);
+		}
+
+		$facetMap = array();
+		foreach ($relations as $r) {
+			$name = $r->$FSN;
+			if (!isset($facetMap[$name])) {
+				$facetMap[$name] = array();
+			}
+			$facetMap[$name][] = $r->type;
+		}
+		foreach ($relatedStreams as $name => $s) {
+			if (!$s) continue;
+
+			$s->set(
+				'relationTypes',
+				isset($facetMap[$name])
+					? array_values(array_unique($facetMap[$name]))
+					: array()
+			);
 		}
 
 		if (!empty($options['streamsOnly'])) {
