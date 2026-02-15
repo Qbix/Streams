@@ -70,6 +70,16 @@ function Streams_Stream (fields) {
 Sp = Streams_Stream.prototype;
 
 /**
+ * Calculate the canonical key of a stream
+ * @static
+ * @method key
+ * @return {String} the key
+ */
+Sp.key = function () {
+	return Streams.key(this.fields.publisherId, this.fields.name);
+};
+
+/**
  * Calculate the url of a stream's icon
  * @method iconUrl
  * @param {Number} [size=40] the size of the icon to render. Defaults to 40.

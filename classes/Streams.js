@@ -377,6 +377,18 @@ Streams.ACCESS_SOURCES = {
 	'inherited_direct':      7
 };
 
+/**
+ * Calculate the canonical key of a stream
+ * @static
+ * @method key
+ * @param {String} publisherId
+ * @param {String} streamName
+ * @return {String} the key
+ */
+Streams.key = function (publisherId, streamName) {
+	return publisherId + "\t" + streamName;
+};
+
 Streams.defined = {};
 
 /**

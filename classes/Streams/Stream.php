@@ -133,6 +133,16 @@ class Streams_Stream extends Base_Streams_Stream
 	);
 
 	/**
+	 * Calculate the canonical key of a stream
+	 * @static
+	 * @method key
+	 * @return {string} the key
+	 */
+	function key() {
+		return Streams::key($this->publisherId, $this->name);
+	}
+
+	/**
 	 * Get defaults for a given stream type
 	 * @method defaults
 	 * @static

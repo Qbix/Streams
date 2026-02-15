@@ -355,6 +355,18 @@ abstract class Streams extends Base_Streams
 	);
 
 	/**
+	 * Calculate the canonical key of a stream
+	 * @static
+	 * @method key
+	 * @param {string} $publisherId
+	 * @param {string} $streamName
+	 * @return {string} the key
+	 */
+	static function key($publisherId, $streamName) {
+		return "$publisherId\t$streamName";
+	}
+
+	/**
 	 * Fetches streams from the database.
 	 * @method fetch
 	 * @static
@@ -2641,6 +2653,8 @@ abstract class Streams extends Base_Streams
 	 *   Optional intersection-based relation criteria.
 	 *   Passed verbatim to Streams::relationCriteria().
 	 *   Each element is a spec accepted by Streams::relationTypes().
+	 * @param {boolean} [$options.dontConstrainRelations=false] If true, do not constrain returned relation rows
+	 *   to match the EXISTS criteria filters.
 	 * @param {boolean} [$options.relevance]
 	 *   If criteria is passed, set relevance = true to also retrieve the number of matching criteria.
 	 *   This usually makes the query around 3x slower, though.
@@ -2739,6 +2753,26 @@ abstract class Streams extends Base_Streams
 				$baseAlias,
 				$relevance
 			);
+		}
+		// Constrain returned relation rows to the same criteria ranges
+		// (default ON; pass dontConstrainRelations => true to disable)
+		if (!empty($options['criteria']) && empty($options['dontConstrainRelations'])) {
+			foreach ($options['criteria'] as $spec) {
+				if (!is_array($spec)) continue;
+
+				$ranges = Streams::relationTypes($spec);
+
+				if (!empty($ranges['type'])) {
+					$query->where(array(
+						$prefix . 'type' => $ranges['type']
+					));
+				}
+				if (!empty($ranges['weight'])) {
+					$query->where(array(
+						$prefix . 'weight' => $ranges['weight']
+					));
+				}
+			}
 		}
 		$prefix = $baseAlias ? "$baseAlias." : '';
 		if ($baseAlias) {

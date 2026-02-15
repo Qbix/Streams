@@ -44,6 +44,8 @@ function _Streams_participants(options) {
 	if (!state.streamName) {
 		throw new Q.Error("Streams/participants: missing streamName option");
 	}
+
+	tool.element.addClass('Q_badge_parent_clip'); // clip even if badges inside
 	
 	tool.element.addClass('Streams_participants_loading');
 	if (state.hideIfNoParticipants) {
