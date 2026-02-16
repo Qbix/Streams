@@ -2783,7 +2783,7 @@ abstract class Streams extends Base_Streams
 				));
 			}
 
-			if (empty($options['constrainFacets']) && $matchingTypeRange) {
+			if (!empty($options['constrainFacets']) && $matchingTypeRange) {
 				$query->where(array(
 					$prefix . 'type' => $matchingTypeRange
 				));
@@ -2991,29 +2991,38 @@ abstract class Streams extends Base_Streams
 			$asUserId, $publisherId, $names, $fields, $fetchOptions
 		);
 
-		foreach ($relatedStreams as $name => $s) {
-			if (!$s) continue;
-			$weight = isset($relations[$name]->weight)
-				? $relations[$name]->weight
-				: null;
-			$s->set('weight', $weight);
-		}
-
+		// Build facet map: per related stream, collect types and per-type weights (if present)
 		$facetMap = array();
 		foreach ($relations as $r) {
 			$name = $r->$FSN;
 			if (!isset($facetMap[$name])) {
-				$facetMap[$name] = array();
+				$facetMap[$name] = array(
+					'types'   => array(),
+					'weights' => array() // keyed by type when weight is meaningful
+				);
 			}
-			$facetMap[$name][] = $r->type;
+			$facetMap[$name]['types'][] = $r->type;
+
+			// weight may be null when $isCategory === false
+			if (isset($r->weight)) {
+				$facetMap[$name]['weights'][$r->type] = $r->weight;
+			}
 		}
+
 		foreach ($relatedStreams as $name => $s) {
 			if (!$s) continue;
 
 			$s->set(
 				'relationTypes',
 				isset($facetMap[$name])
-					? array_values(array_unique($facetMap[$name]))
+					? array_values(array_unique($facetMap[$name]['types']))
+					: array()
+			);
+
+			$s->set(
+				'weights',
+				isset($facetMap[$name])
+					? $facetMap[$name]['weights']
 					: array()
 			);
 		}
@@ -3021,6 +3030,7 @@ abstract class Streams extends Base_Streams
 		if (!empty($options['streamsOnly'])) {
 			return $relatedStreams;
 		}
+
 
 		return array(
 			$relations,
