@@ -513,6 +513,7 @@
 					"language": true,
 					"spelling": true,
 					"obscene": true,
+					"culture": true,
 					"controversial": true,
 					"countries": true,
 					"keywords": true,
