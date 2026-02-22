@@ -3134,7 +3134,7 @@ abstract class Streams extends Base_Streams
 					}
 				}
 
-				if ($to !== null && !is_boolean($to)) {
+				if ($to !== null && !is_bool($to)) {
 					$toVal = is_numeric($to)
 						? Db::decimalToString($to)
 						: substr(trim((string)$to), 0, $maxLen);
