@@ -2537,8 +2537,10 @@ class Streams_Stream extends Base_Streams_Stream
 					continue;
 				}
 
+				$oldVals = isset($options['firstTimeAddingAttributes'][$k])
+					? array()
+					: array_unique((array)(isset($orig[$ak]) ? $orig[$ak] : array()));
 				$newVals = array_unique((array)$av);
-				$oldVals = array_unique((array)(isset($orig[$ak]) ? $orig[$ak] : array()));
 
 				foreach (array_diff($newVals, $oldVals) as $a) {
 					if (is_numeric($a)) $a = sprintf("%015.2f", $a);
