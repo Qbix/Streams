@@ -5355,12 +5355,12 @@ function _updateRelatedCache(msg, instructions) {
 
 function _clearCaches() {
 	// Clear caches so permissions can be recalculated as various objects are fetched
-	Streams.get.cache.clear();
-	Streams.related.cache.clear();
-	Message.get.cache.clear();
-	Participant.get.cache.clear();
-	Avatar.get.cache.clear();
-	MTotal.seen.cache.clear();
+	Streams.get.cache && Streams.get.cache.clear();
+	Streams.related.cache && Streams.related.cache.clear();
+	Message.get.cache && Message.get.cache.clear();
+	Participant.get.cache && Participant.get.cache.clear();
+	Avatar.get.cache && Avatar.get.cache.clear();
+	MTotal.seen.cache && MTotal.seen.cache.clear();
 	priv._retainedByKey = {};
 	priv._retainedByStream = {};
 	priv._retainedStreams = {};
