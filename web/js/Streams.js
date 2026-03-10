@@ -971,29 +971,6 @@ Streams.retainingKeys = function (publisherId, streamName) {
 };
 
 /**
- * Streams batch getter.
- * @static
- * @method get
- * @param {String} publisherId Publisher's user id
- * @param {String} streamName Name of the stream published by this publisher
- * @param {Function} callback
- *	If there were errors, first parameter is an array of errors.
- *  Otherwise, first parameter is null and second parameter is a Streams.Stream object.
- *  The third parameter can contain more retrieved objects, under keys like "messages" and "participants"
- * @param {object} [extra] Optional object which can include the following keys:
- *   @param {Number|Object} [extra.participants=0] Optionally fetch up to that many participants
- *   @param {Number|Object} [extra.messages=0] Optionally fetch up to that many latest messages
- *   @param {String} [extra.messageType] optional String specifying the type of messages to fetch
- *   @param {Array} [extra.withMessageTotals] an array of message types to get messageTotals for in the returned stream object
- *   @param {Array} [extra.withRelatedToTotals] an array of relation types to get relatedToTotals for in the returned stream object
- *   @param {Array} [extra.withRelatedFromTotals] an array of relation types to get relatedFromTotals for in the returned stream object
- *   @param {Boolean} [extra.cacheIfMissing] defaults to false. If true, caches the "missing stream" result.
- *   @param {Array} [extra.fields] the stream is obtained again from the server
- *	if any fields named in this array are == null
- *   @param {Mixed} [extra."$Module_$fieldname"] any other fields you would like can be added, to be passed to your hooks on the back end
- */
-
-/**
  * @static
  * @method batchFunction
  * @param {String} baseUrl
@@ -1167,7 +1144,7 @@ priv.onResultHandler = function _onResultHandler(subject, params, args, shared, 
 }
 
 /**
- * Streams batch getter.
+ * Gets a stream from the server. Works with batch getting functionality.
  * @static
  * @method get
  * @param {String} publisherId Publisher's user id

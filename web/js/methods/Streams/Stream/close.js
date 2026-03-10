@@ -8,7 +8,7 @@ Q.exports(function(priv){
      * @param {String} streamName
      * @param {Function} callback Receives (err, result) as parameters
      */
-    return function _Stream_remove (publisherId, streamName, callback) {
+    return function _Stream_close (publisherId, streamName, callback) {
         var slotName = "result,stream";
         var fields = {"publisherId": publisherId, "name": streamName};
         var baseUrl = Q.baseUrl({

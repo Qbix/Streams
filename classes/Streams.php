@@ -1986,6 +1986,50 @@ abstract class Streams extends Base_Streams
 		}
 	}
 
+	static protected function relationTransitionKey($stream, $category)
+	{
+		return
+			$stream->publisherId."\t".$stream->name."\t".
+			$category->publisherId."\t".$category->name;
+	}
+
+	static protected function recordRelationTransition($stream, $category, $type, $action)
+	{
+		$key = self::relationTransitionKey($stream, $category);
+		if (!isset(self::$relationTransitions[$key])) {
+			self::$relationTransitions[$key] = array(
+				'addedTypes' => array(),
+				'removedTypes' => array()
+			);
+		}
+		if ($action === 'add') {
+			self::$relationTransitions[$key]['addedTypes'][] = $type;
+		} else {
+			self::$relationTransitions[$key]['removedTypes'][] = $type;
+		}
+	}
+
+	static protected function relationTransitionsFor($stream, $category)
+	{
+		$key = self::relationTransitionKey($stream, $category);
+
+		if (empty(self::$relationTransitions[$key])) {
+			return array(
+				'addedTypes' => array(),
+				'removedTypes' => array()
+			);
+		}
+
+		return array(
+			'addedTypes' => array_values(array_unique(
+				self::$relationTransitions[$key]['addedTypes']
+			)),
+			'removedTypes' => array_values(array_unique(
+				self::$relationTransitions[$key]['removedTypes']
+			))
+		);
+	}
+
 	/**
 	 * Make the stream a member of category or other aggregating stream,
 	 * First parameter set - where to add, Second parameter set - what to add
@@ -2095,80 +2139,99 @@ abstract class Streams extends Base_Streams
 			if (isset($relatedToArray[$sn])) {
 				continue;
 			}
+
 			$category = ($arrayField === 'toStreamName') ? $categories[$sn] : reset($categories);
 			$stream = ($arrayField === 'fromStreamName') ? $streams[$sn] : reset($streams);
+
 			if (!empty($options['extra'][$sn])) {
 				$extra = $options['extra'][$sn];
 				$extra = is_string($extra) ? $extra : Q::json_encode($extra);
 			} else {
 				$extra = null;
 			}
-			/**
-			 * @event Streams/relateTo/$categoryType {before}
-			 * @param {array} relatedTo
-			 * @param {array} relatedFrom
-			 * @param {string} asUserId
-			 * @param {Streams_Stream} category
-			 * @param {Streams_Stream} stream
-			 * @return {false} To cancel further processing
-			 */
-			if (false === Q::event(
-				"Streams/relateTo/{$category->type}",
-				array(
-					'asUserId' => $asUserId,
-					'category' => $category,
-					'stream' => $stream,
-					'extra' => &$extra,
-					'type' => $type
-				),
-				'before'
-			)) {
-				continue;
-			}
-			/**
-			 * @event Streams/relateFrom/$streamType {before}
-			 * @param {array} relatedTo
-			 * @param {array} relatedFrom
-			 * @param {string} asUserId
-			 * @param {Streams_Stream} category
-			 * @param {Streams_Stream} stream
-			 * @return {false} To cancel further processing
-			 */
-			if (false === Q::event(
-				"Streams/relateFrom/{$stream->type}",
-				@compact('asUserId', 'category', 'stream', 'type'),
-				'before'
-			)) {
-				continue;
-			}
+
 			foreach ($types as $type) {
+
+				$transitions = self::relationTransitionsFor($stream, $category);
+				$addedTypes = $transitions['addedTypes'];
+				$removedTypes = $transitions['removedTypes'];
+
+				/**
+				 * @event Streams/relateTo/$categoryType {before}
+				 */
+				if (false === Q::event(
+					"Streams/relateTo/{$category->type}",
+					array(
+						'asUserId' => $asUserId,
+						'category' => $category,
+						'stream' => $stream,
+						'extra' => &$extra,
+						'type' => $type,
+						'addedTypes' => $addedTypes,
+						'removedTypes' => $removedTypes
+					),
+					'before'
+				)) {
+					continue;
+				}
+
+				/**
+				 * @event Streams/relateFrom/$streamType {before}
+				 */
+				if (false === Q::event(
+					"Streams/relateFrom/{$stream->type}",
+					@compact('asUserId', 'category', 'stream', 'type', 'addedTypes', 'removedTypes'),
+					'before'
+				)) {
+					continue;
+				}
+
+				self::recordRelationTransition($stream, $category, $type, 'add');
+
 				$tsn = ($arrayField === 'toStreamName') ? $sn : $toStreamName;
+
 				$key = "$sn\t$type";
 				$key2 = "$tsn\t$type";
+
 				$newRT[$key] = $newRF[$key] = @compact(
 					'toPublisherId', 'fromPublisherId', 'type'
 				);
+
 				if (isset($extra)) {
 					$newRT[$key]['extra'] = $extra;
 				}
+
 				if ($calculateWeights) {
 					if (!isset($weights2[$key2])) {
-						$weights2[$key2] = Q::ifset($maxWeights, $key2, Q::ifset($maxWeights, $key, Q::ifset($maxWeights, $tsn, Q::ifset($maxWeights, $sn, 0))));
+						$weights2[$key2] = Q::ifset(
+							$maxWeights,
+							$key2,
+							Q::ifset(
+								$maxWeights,
+								$key,
+								Q::ifset($maxWeights, $tsn, Q::ifset($maxWeights, $sn, 0))
+							)
+						);
 					}
 					$weights2[$key2] += $calculateWeights;
 					$newRT[$key]['weight'] = $weights2[$key2];
+
 				} else if (isset($options['weight'])) {
 					$weights2[$key2] = $newRT[$key]['weight'] = $options['weight'];
 				}
+
 				foreach (array('toStreamName', 'fromStreamName') as $f) {
-					$newRT[$key][$f] = $newRF[$key][$f] = ($f === $arrayField) ? $sn : $$f;
+					$newRT[$key][$f] = $newRF[$key][$f] =
+						($f === $arrayField) ? $sn : $$f;
 				}
+
 				if (empty($category)) {
 					throw new Q_Exception_MissingRow(array(
 						'table' => 'stream',
 						'criteria' => Q::json_encode(compact('toPublisherId', 'toStreamName'))
 					));
 				}
+
 				$newRTT[] = array(
 					'toPublisherId' => $category->publisherId,
 					'toStreamName' => $category->name,
@@ -2176,15 +2239,17 @@ abstract class Streams extends Base_Streams
 					'fromStreamType' => $stream->type,
 					'relationCount' => 1
 				);
+
 				$newRFT[] = array(
 					'fromPublisherId' => $stream->publisherId,
 					'fromStreamName' => $stream->name,
 					'relationType' => $type,
 					'toStreamType' => $category->type,
 					'relationCount' => 1
-				);	
+				);
 			}
 		}
+
 		// Insert/update all the relatedTo and relatedFrom rows
 		Streams_RelatedTo::insertManyAndExecute($newRT);
 		Streams_RelatedFrom::insertManyAndExecute($newRF);
@@ -2208,152 +2273,155 @@ abstract class Streams extends Base_Streams
 
 			$category = ($arrayField === 'toStreamName') ? $categories[$sn] : reset($categories);
 			$stream = ($arrayField === 'fromStreamName') ? $streams[$sn] : reset($streams);
-			$weight = (isset($options['weight']) && is_numeric($options['weight']))
-				? $options['weight']
-				: null;
-			$weight = Q::ifset($weights2, $category->name."\t$type", $weight);
-			if (!$stream) {
-				continue;
-			}
-			$fromUri = $stream->uri();
-			$fromUrl = $stream->url();
-			$fromIcon = $stream->icon;
-			$fromTitle = $stream->title;
-			$fromType = $stream->type;
-			$fromDisplayType = Streams_Stream::displayType($fromType);
-			if (!$category) {
-				continue;
-			}
-			$toUri = $category->uri();
-			$toUrl = $category->url();
-			$toIcon = $category->icon;
-			$toTitle = $category->title;
-			$toType = $category->type;
-			$toDisplayType = Streams_Stream::displayType($toType);
-			$relationDisplayType = Streams_Stream::relationDisplayType($type);
-			$categoryName = explode('/', $category->name);
-			$streamName = explode('/', $stream->name);
 
-			$params = @compact(
-				'relatedToArray', 'relatedFromArray', 'asUserId', 'category', 'stream',
-				'fromUri', 'fromUrl',
-				'fromIcon', 'fromTitle', 'fromType', 'fromDisplayType',
-				'toUri', 'toUrl',
-				'toIcon', 'toTitle', 'toType', 'toDisplayType',
-				'displayType', 'categoryName', 'streamName', 'extra'
-			);
+			foreach ($types as $type) {
 
-			if ($u = Streams_Stream::getConfigField($category->type, 
-				array('relatedTo', $type, 'url'),
-				Streams_Stream::getConfigField($category->type, array(
-					'relatedTo', '*', 'url', null
-				))
-			)) {
-				$fromUrl = Q_Uri::url(Q_Handlebars::renderSource($u, $params));
-			}
-			if ($u = Streams_Stream::getConfigField($stream->type, 
-				array('relatedFrom', $type, 'url'),
-				Streams_Stream::getConfigField($stream->type, array(
-					'relatedFrom', '*', 'url', null
-				))
-			)) {
-				$toUrl = Q_Uri::url(Q_Handlebars::renderSource($u, $params));
-			}
+				$weight = (isset($options['weight']) && is_numeric($options['weight']))
+					? $options['weight']
+					: null;
 
-			$params['relationDisplayType'] = $relationDisplayType;
+				$tsn = ($arrayField === 'toStreamName') ? $sn : $toStreamName;
+				$weight = Q::ifset($weights2, $tsn."\t".$type, $weight);
+
+				if (!$stream) {
+					continue;
+				}
+
+				$fromUri = $stream->uri();
+				$fromUrl = $stream->url();
+				$fromIcon = $stream->icon;
+				$fromTitle = $stream->title;
+				$fromType = $stream->type;
+				$fromDisplayType = Streams_Stream::displayType($fromType);
+
+				if (!$category) {
+					continue;
+				}
+
+				$toUri = $category->uri();
+				$toUrl = $category->url();
+				$toIcon = $category->icon;
+				$toTitle = $category->title;
+				$toType = $category->type;
+				$toDisplayType = Streams_Stream::displayType($toType);
+
+				$relationDisplayType = Streams_Stream::relationDisplayType($type);
+
+				$categoryName = explode('/', $category->name);
+				$streamName = explode('/', $stream->name);
+
+				$params = @compact(
+					'relatedToArray', 'relatedFromArray', 'asUserId', 'category', 'stream',
+					'fromUri', 'fromUrl',
+					'fromIcon', 'fromTitle', 'fromType', 'fromDisplayType',
+					'toUri', 'toUrl',
+					'toIcon', 'toTitle', 'toType', 'toDisplayType',
+					'displayType', 'categoryName', 'streamName', 'extra'
+				);
+
+				if ($u = Streams_Stream::getConfigField($category->type, 
+					array('relatedTo', $type, 'url'),
+					Streams_Stream::getConfigField($category->type, array(
+						'relatedTo', '*', 'url', null
+					))
+				)) {
+					$fromUrl = Q_Uri::url(Q_Handlebars::renderSource($u, $params));
+				}
+
+				if ($u = Streams_Stream::getConfigField($stream->type, 
+					array('relatedFrom', $type, 'url'),
+					Streams_Stream::getConfigField($stream->type, array(
+						'relatedFrom', '*', 'url', null
+					))
+				)) {
+					$toUrl = Q_Uri::url(Q_Handlebars::renderSource($u, $params));
+				}
+
+				$params['relationDisplayType'] = $relationDisplayType;
+
+				// Related TO description
+				$description = Streams_Stream::getConfigField(
+					$category->type,
+					array('relatedTo', $type, 'description'),
+					Streams_Stream::getConfigField($category->type, array(
+						'relatedTo', '*', 'description'
+					), "New {{relationDisplayType}} added"),
+					false
+				);
+
+				$content = Q_Handlebars::renderSource($description, $params);
+
+				$instructions = @compact(
+					'fromPublisherId', 'type', 'weight', 'displayType',
+					'fromUrl', 'toUrl', 'toTitle', 'relationDisplayType',
+					'fromIcon', 'fromTitle', 'fromType', 'fromDisplayType', 'description'
+				);
+
+				$instructions['url'] = $instructions['fromUrl'];
+				$instructions['fromStreamName'] = $stream->name;
+
+				$relatedTo_messages[$toPublisherId][$category->name][] = array(
+					'type' => 'Streams/relatedTo',
+					'content' => $content,
+					'instructions' => $instructions
+				);
+
+				// Related FROM description
+				$description = Streams_Stream::getConfigField(
+					$stream->type,
+					array('relatedFrom', $type, 'description'),
+					Streams_Stream::getConfigField($stream->type, array('relatedFrom', '*', 'description'),
+						"Added to {{toDisplayType}} as {{relationDisplayType}}"
+					)
+				);
+
+				$content = Q_Handlebars::renderSource($description, $params);
+
+				$instructions = @compact(
+					'toPublisherId', 'type', 'weight', 'displayType',
+					'fromUrl', 'toUrl', 'fromUri', 'toUri', 'relationDisplayType',
+					'toIcon', 'toTitle', 'toType', 'toDisplayType', 'content', 'description'
+				);
+
+				$instructions['url'] = $instructions['toUrl'];
+				$instructions['toStreamName'] = $category->name;
+
+				$relatedFrom_messages[$fromPublisherId][$stream->name][] = array(
+					'type' => 'Streams/relatedFrom',
+					'content' => $content,
+					'instructions' => $instructions
+				);
+
+				$transitions = self::relationTransitionsFor($stream, $category);
+				$addedTypes = $transitions['addedTypes'];
+				$removedTypes = $transitions['removedTypes'];
+
+				Q::event(
+					"Streams/relateFrom/{$stream->type}",
+					@compact('relatedToArray', 'relatedFromArray', 'asUserId', 'category', 'stream', 'extra', 'type', 'addedTypes', 'removedTypes'),
+					'after'
+				);
+
+				Q::event(
+					"Streams/relateTo/{$category->type}",
+					@compact('relatedToArray', 'relatedFromArray', 'asUserId', 'category', 'stream', 'type', 'addedTypes', 'removedTypes'),
+					'after'
+				);
+
+			}
 			
-			// Related TO description
-			$description = Streams_Stream::getConfigField(
-				$category->type,
-				array('relatedTo', $type, 'description'),
-				Streams_Stream::getConfigField($category->type, array(
-					'relatedTo', '*', 'description'
-				), "New {{relationDisplayType}} added"),
-				false
-			);
-			$content = Q_Handlebars::renderSource($description, $params);
-
-			// Send Streams/relatedTo message to a stream
-			// node server will be notified by Streams_Message::post
-			// DISTRIBUTED: in the future, the publishers may be on separate domains
-			// so posting this message may require internet communication.
-			$instructions = @compact(
-				'fromPublisherId', 'type', 'weight', 'displayType',
-				'fromUrl', 'toUrl', 'toTitle', 'relationDisplayType',
-				'fromIcon', 'fromTitle', 'fromType', 'fromDisplayType', 'description'
-			);
-			$instructions['url'] = $instructions['fromUrl'];
-			$instructions['fromStreamName'] = $stream->name;
-			$relatedTo_messages[$toPublisherId][$category->name][] = array(
-				'type' => 'Streams/relatedTo',
-				'content' => $content,
-				'instructions' => $instructions
-			);
-
-			// Related FROM description
-			$description = Streams_Stream::getConfigField(
-				$stream->type,
-				array('relatedFrom', $type, 'description'),
-				Streams_Stream::getConfigField($stream->type, array('relatedFrom', '*', 'description'),
-					"Added to {{toDisplayType}} as {{relationDisplayType}}"
-				)
-			);
-			$content = Q_Handlebars::renderSource($description, $params);
-
-			// Send Streams/relatedFrom message to a stream
-			// node server will be notified by Streams_Message::post
-			// DISTRIBUTED: in the future, the publishers may be on separate domains
-			// so posting this message may require internet communication.
-			$instructions = @compact(
-				'toPublisherId', 'type', 'weight', 'displayType',
-				'fromUrl', 'toUrl', 'fromUri', 'toUri', 'relationDisplayType',
-				'toIcon', 'toTitle', 'toType', 'toDisplayType', 'content', 'description'
-			);
-			$instructions['url'] = $instructions['toUrl'];
-			$instructions['toStreamName'] = $category->name;
-			$relatedFrom_messages[$fromPublisherId][$stream->name][] = array(
-				'type' => 'Streams/relatedFrom',
-				'content' => $content,
-				'instructions' => $instructions
-			);
-
-			/**
-			 * @event Streams/relateFrom/$streamType {after}
-			 * @param {string} relatedToArray
-			 * @param {string} relatedFromArray
-			 * @param {string} asUserId
-			 * @param {array} extra
-			 * @param {Streams_Stream} category
-			 * @param {Streams_Stream} stream
-			 */
-			Q::event(
-				"Streams/relateFrom/{$stream->type}",
-				@compact('relatedToArray', 'relatedFromArray', 'asUserId', 'category', 'stream', 'extra', 'type'),
-				'after'
-			);
-			/**
-			 * @event Streams/relateTo/$categoryType {after}
-			 * @param {string} relatedToArray
-			 * @param {string} relatedFromArray
-			 * @param {string} asUserId
-			 * @param {Streams_Stream} category
-			 * @param {Streams_Stream} stream
-			 */
-			Q::event(
-				"Streams/relateTo/{$category->type}",
-				@compact('relatedToArray', 'relatedFromArray', 'asUserId', 'category', 'stream', 'type'),
-				'after'
-			);
-
 			// inherit access from category to related stream
 			if (Q::ifset($options, 'inheritAccess', false)) {
 				$inheritAccess = ($category and $category->inheritAccess)
 					? Q::json_decode($category->inheritAccess)
 					: array();
+
 				$newInheritAccess = array($category->publisherId, $category->name);
+
 				if (!in_array($newInheritAccess, $inheritAccess)) {
 					$inheritAccess[] = $newInheritAccess;
 				}
+
 				$stream->inheritAccess = Q::json_encode($inheritAccess);
 				$stream->save();
 			}
@@ -2491,6 +2559,9 @@ abstract class Streams extends Base_Streams
 		foreach ($types as $type) {
 
 			foreach ($relatedTo as $rt) {
+				if ($rt->type !== $type) {
+					continue;
+				}
 				$toPublisherId   = $rt->toPublisherId;
 				$toStreamName    = $rt->toStreamName;
 				$fromPublisherId = $rt->fromPublisherId;
@@ -2521,6 +2592,7 @@ abstract class Streams extends Base_Streams
 							->execute();
 					}
 
+					$category = $categories[$toStreamName];
 					Streams_RelatedToTotal::update()
 						->set(array(
 							'relationCount' => new Db_Expression('relationCount - 1')
@@ -2550,6 +2622,9 @@ abstract class Streams extends Base_Streams
 			}
 
 			foreach ($relatedFrom as $rf) {
+				if ($rf->type !== $type) {
+					continue;
+				}
 				$toPublisherId   = $rf->toPublisherId;
 				$toStreamName    = $rf->toStreamName;
 				$fromPublisherId = $rf->fromPublisherId;
@@ -2558,6 +2633,8 @@ abstract class Streams extends Base_Streams
 				$stream          = $streams[$fromStreamName];
 
 				if ($rf && $rf->remove()) {
+
+					self::recordRelationTransition($stream, $category, $type, 'remove');
 
 					Streams_RelatedFromTotal::update()
 						->set(array(
@@ -2574,7 +2651,7 @@ abstract class Streams extends Base_Streams
 					if (empty($options['skipMessageFrom'])) {
 						$messagesFrom[$fromPublisherId][$fromStreamName][] = array(
 							'type' => 'Streams/unrelatedFrom',
-							'contents' => "Removed relation to " . $category->title,
+							'content' => "Removed relation to " . $category->title,
 							'instructions' => @compact(
 								'toPublisherId',
 								'toStreamName',
@@ -2600,11 +2677,13 @@ abstract class Streams extends Base_Streams
 		 * @param {string} relatedFrom
 		 * @param {string} asUserId
 		 */
-		Q::event(
-			"Streams/unrelateFrom/{$stream->type}",
-			@compact('relatedTo', 'relatedFrom', 'asUserId'),
-			'after'
-		);
+		foreach ($streams as $stream) {
+			Q::event(
+				"Streams/unrelateFrom/{$stream->type}",
+				@compact('relatedTo', 'relatedFrom', 'asUserId'),
+				'after'
+			);
+		}
 
 		/**
 		 * @event Streams/unrelateTo/$categoryType {after}
@@ -2612,11 +2691,13 @@ abstract class Streams extends Base_Streams
 		 * @param {string} relatedFrom
 		 * @param {string} asUserId
 		 */
-		Q::event(
-			"Streams/unrelateTo/{$category->type}",
-			@compact('relatedTo', 'relatedFrom', 'asUserId'),
-			'after'
-		);
+		foreach ($categories as $category) {
+			Q::event(
+				"Streams/unrelateTo/{$category->type}",
+				@compact('relatedTo', 'relatedFrom', 'asUserId'),
+				'after'
+			);
+		}
 
 		return array($relatedTo, $relatedFrom);
 	}
@@ -6531,4 +6612,12 @@ abstract class Streams extends Base_Streams
 	 * @type string
 	 */
 	static $dontCache = false;
+
+	/**
+	 * @property $relationTransitions
+	 * @static
+	 * @type array
+	 * @protected
+	 */
+	protected static $relationTransitions = array();
 }
