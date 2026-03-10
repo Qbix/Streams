@@ -11,10 +11,10 @@ function Streams_froala_post($params = array())
 		if (!empty($p['image'])) {
 			$p['icon']['data'] = $p['image'];
 		}
-		$p['icon']['save'] = array('x' => 'x.png');
+		$p['icon']['save'] = array('x' => 'x.jpg');
 		Q::event('Streams/stream/post', $p);
 		Q_Response::output(json_encode(array(
-			'link' => Streams::$cache['stream']->iconUrl('x.png')
+			'link' => Streams::$cache['stream']->iconUrl('x.jpg')
 		)));
 	} catch (Exception $e) {
 		Q_Response::output(json_encode(array(

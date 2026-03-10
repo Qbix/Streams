@@ -410,7 +410,7 @@ Streams.define = function (type, ctor, methods) {
  * @static
  * @method iconUrl
  * @param {String} icon the value of the stream's "icon" field
- * @param {String|Number|false} [size=40] The last part after the slash, such as "50.png" or "50".
+ * @param {String|Number|false} [size=40] The last part after the slash, such as "50.jpg" or "50".
  *  Setting it to false skips appending "/size".
  *  Setting it to "largestWidth"or "largestHeight" gets the size with largest explicit width or height, respectively.
  * @return {String} the url
@@ -427,7 +427,7 @@ Streams.iconUrl = function(icon, size) {
 	if (size === 'largestWidth' || size === 'largestHeight') {
 		size = Q.largestSize(Q.image.sizes['Streams/image'], size === 'largestHeight');
 	}
-	size = (String(size).match(/\.\w+$/g)) ? size : size+'.png';
+	size = (String(size).match(/\.\w+$/g)) ? size : size+'.jpg';
 	icon = icon.match(/\w+\/\w+\.\w+$/g) ? icon : icon + (size ? '/' + size : '');
 	var src = Q.interpolateUrl(icon);
 	return src.isUrl() || icon.substring(0, 2) == '{{'
@@ -971,29 +971,6 @@ Streams.retainingKeys = function (publisherId, streamName) {
 };
 
 /**
- * Streams batch getter.
- * @static
- * @method get
- * @param {String} publisherId Publisher's user id
- * @param {String} streamName Name of the stream published by this publisher
- * @param {Function} callback
- *	If there were errors, first parameter is an array of errors.
- *  Otherwise, first parameter is null and second parameter is a Streams.Stream object.
- *  The third parameter can contain more retrieved objects, under keys like "messages" and "participants"
- * @param {object} [extra] Optional object which can include the following keys:
- *   @param {Number|Object} [extra.participants=0] Optionally fetch up to that many participants
- *   @param {Number|Object} [extra.messages=0] Optionally fetch up to that many latest messages
- *   @param {String} [extra.messageType] optional String specifying the type of messages to fetch
- *   @param {Array} [extra.withMessageTotals] an array of message types to get messageTotals for in the returned stream object
- *   @param {Array} [extra.withRelatedToTotals] an array of relation types to get relatedToTotals for in the returned stream object
- *   @param {Array} [extra.withRelatedFromTotals] an array of relation types to get relatedFromTotals for in the returned stream object
- *   @param {Boolean} [extra.cacheIfMissing] defaults to false. If true, caches the "missing stream" result.
- *   @param {Array} [extra.fields] the stream is obtained again from the server
- *	if any fields named in this array are == null
- *   @param {Mixed} [extra."$Module_$fieldname"] any other fields you would like can be added, to be passed to your hooks on the back end
- */
-
-/**
  * @static
  * @method batchFunction
  * @param {String} baseUrl
@@ -1167,7 +1144,7 @@ priv.onResultHandler = function _onResultHandler(subject, params, args, shared, 
 }
 
 /**
- * Streams batch getter.
+ * Gets a stream from the server. Works with batch getting functionality.
  * @static
  * @method get
  * @param {String} publisherId Publisher's user id
@@ -2367,7 +2344,7 @@ function _disconnectStreamNode(publisherId, streamName, ps) {
 /**
  * Calculate the url of a stream's icon
  * @method iconUrl
- * @param {String|Number|false} [size=40] The last part after the slash, such as "original.png", "50.png", or "50".
+ * @param {String|Number|false} [size=40] The last part after the slash, such as "original.jpg", "50.jpg", or "50".
  *  Setting it to false skips appending "/size".
  *  Setting it to "largestWidth"or "largestHeight" gets the size with largest explicit width or height, respectively,
  *  and in this method we use getAttribute("sizes") before falling back to the default Streams.icon.sizes
@@ -5355,12 +5332,12 @@ function _updateRelatedCache(msg, instructions) {
 
 function _clearCaches() {
 	// Clear caches so permissions can be recalculated as various objects are fetched
-	Streams.get.cache.clear();
-	Streams.related.cache.clear();
-	Message.get.cache.clear();
-	Participant.get.cache.clear();
-	Avatar.get.cache.clear();
-	MTotal.seen.cache.clear();
+	Streams.get.cache && Streams.get.cache.clear();
+	Streams.related.cache && Streams.related.cache.clear();
+	Message.get.cache && Message.get.cache.clear();
+	Participant.get.cache && Participant.get.cache.clear();
+	Avatar.get.cache && Avatar.get.cache.clear();
+	MTotal.seen.cache && MTotal.seen.cache.clear();
 	priv._retainedByKey = {};
 	priv._retainedByStream = {};
 	priv._retainedStreams = {};

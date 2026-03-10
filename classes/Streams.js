@@ -377,6 +377,18 @@ Streams.ACCESS_SOURCES = {
 	'inherited_direct':      7
 };
 
+/**
+ * Calculate the canonical key of a stream
+ * @static
+ * @method key
+ * @param {String} publisherId
+ * @param {String} streamName
+ * @return {String} the key
+ */
+Streams.key = function (publisherId, streamName) {
+	return publisherId + "\t" + streamName;
+};
+
 Streams.defined = {};
 
 /**
@@ -1209,7 +1221,7 @@ Streams.messageHandler = function(msgType, callback) {
  * @static
  * @method iconUrl
  * @param {String} icon the value of the stream's "icon" field
- * @param {String|Number|false} [basename=40] The last part after the slash, such as "50.png" or "50". Setting it to false skips appending "/basename"
+ * @param {String|Number|false} [basename=40] The last part after the slash, such as "50.jpg" or "50". Setting it to false skips appending "/basename"
  * @return {String} the url
  */
 Streams.iconUrl = function(icon, basename) {
@@ -1221,7 +1233,7 @@ Streams.iconUrl = function(icon, basename) {
 		|| (!basename && basename !== false)) {
 		basename = '40';
 	}
-	basename = (String(basename).match(/\.\w+$/g)) ? basename : basename+'.png';
+	basename = (String(basename).match(/\.\w+$/g)) ? basename : basename+'.jpg';
 	icon = icon.match(/\.\w+$/g) ? icon : icon + (basename ? '/' + basename : '');
 	var src = Q.interpolateUrl(icon);
 	return src.isUrl() || icon.substring(0, 2) == '{{'
@@ -1274,6 +1286,305 @@ Streams.displayType = function _Streams_displayType(type, callback, options) {
 		result = Q.getObject(['types', type, 'displayTypePlural'], text) || result;
 	}
 	callback(result || ret);
+};
+
+/**
+ * Fetch streams related to or from a given stream.
+ *
+ * @method related
+ * @static
+ * @param {String} asUserId
+ * @param {String} publisherId
+ * @param {String|Array|Db.Range} streamName
+ * @param {Boolean} [isCategory=true]
+ * @param {Object} [options]
+ * @param {Boolean} [options.relationsOnly=false]
+ * @param {Boolean} [options.streamsOnly=false]
+ * @param {Number} [options.limit]
+ * @param {Number} [options.offset]
+ * @param {String|Db.Range|Array} [options.type]
+ * @param {Number|Db.Range|Array} [options.weight]
+ * @return {Promise}
+ */
+Streams.related = function (
+	asUserId,
+	publisherId,
+	streamName,
+	isCategory,
+	options
+) {
+	options = options || {};
+	if (isCategory === undefined) isCategory = true;
+
+	var db = Base.db();
+	var table = isCategory
+		? Base.RelatedTo.table()
+		: Base.RelatedFrom.table();
+
+	var query = db.SELECT('*', table);
+
+	if (isCategory) {
+		query.where({
+			toPublisherId: publisherId,
+			toStreamName: streamName
+		});
+	} else {
+		query.where({
+			fromPublisherId: publisherId,
+			fromStreamName: streamName
+		});
+	}
+
+	if (options.type) {
+		query.andWhere({ type: options.type });
+	}
+
+	if (options.weight) {
+		query.andWhere({ weight: options.weight });
+	}
+
+	if (options.limit !== undefined) {
+		query.limit(options.limit, options.offset || 0);
+	}
+
+	return new Promise(function (resolve, reject) {
+
+		query.execute(function (err, rows) {
+
+			if (err) {
+				reject(err);
+				return;
+			}
+
+			if (options.relationsOnly) {
+				resolve(rows);
+				return;
+			}
+
+			var nameField = isCategory
+				? 'fromStreamName'
+				: 'toStreamName';
+
+			var names = [];
+
+			for (var i=0; i<rows.length; ++i) {
+				names.push(rows[i].fields[nameField]);
+			}
+
+			if (!names.length) {
+				resolve([rows, {}, null]);
+				return;
+			}
+
+			Base.Stream.fetch(
+				asUserId,
+				publisherId,
+				names
+			).then(function (streams) {
+
+				if (options.streamsOnly) {
+					resolve(streams);
+					return;
+				}
+
+				resolve([rows, streams]);
+
+			}).catch(reject);
+
+		});
+
+	});
+};
+
+/**
+ * Convert relation type specification into Db.Range filters.
+ *
+ * @method relationTypes
+ * @static
+ * @param {Object} spec
+ * @param {Number} [maxLen=64]
+ * @return {Object}
+ */
+Streams.relationTypes = function (spec, maxLen) {
+
+	maxLen = maxLen || 64;
+
+	var typeRange = null;
+	var weightRange = null;
+
+	for (var type in spec) {
+
+		var args = spec[type];
+
+		if (args === true) {
+
+			var r = new Db.Range(type, true, false, true);
+
+			typeRange = typeRange
+				? Db.Range.union(typeRange, r)
+				: r;
+
+			continue;
+		}
+
+		if (Array.isArray(args) && args.length >= 4) {
+
+			var from = args[0];
+			var includeMin = args[1];
+			var includeMax = args[2];
+			var to = args[3];
+
+			var prefix = type + "=";
+
+			var min = from !== null
+				? prefix + String(from).slice(0, maxLen)
+				: prefix;
+
+			var max = to !== null
+				? prefix + String(to).slice(0, maxLen)
+				: prefix + "\uffff";
+
+			var range = new Db.Range(
+				min,
+				includeMin,
+				includeMax,
+				max
+			);
+
+			typeRange = typeRange
+				? Db.Range.union(typeRange, range)
+				: range;
+		}
+
+		if (args.filter) {
+
+			args.filter.forEach(function (v) {
+
+				if (v == null) return;
+
+				var r = new Db.Range(
+					type + "=" + v,
+					true,
+					false,
+					true
+				);
+
+				typeRange = typeRange
+					? Db.Range.union(typeRange, r)
+					: r;
+			});
+		}
+
+		if (args.weight) {
+
+			var w = args.weight;
+
+			var wr = new Db.Range(
+				w[0],
+				w[1],
+				w[2],
+				w[3]
+			);
+
+			weightRange = weightRange
+				? Db.Range.union(weightRange, wr)
+				: wr;
+		}
+	}
+
+	return {
+		type: typeRange,
+		weight: weightRange
+	};
+};
+
+/**
+ * Apply relation criteria using EXISTS subqueries.
+ *
+ * @method relationCriteria
+ * @static
+ * @param {Db.Query} query
+ * @param {Array} criteriaSpecs
+ * @param {Boolean} isCategory
+ * @param {String} baseAlias
+ * @param {Boolean} withRelevance
+ * @return {Db.Query|Db.Expression}
+ */
+Streams.relationCriteria = function (
+	query,
+	criteriaSpecs,
+	isCategory,
+	baseAlias,
+	withRelevance
+) {
+
+	if (!criteriaSpecs || !criteriaSpecs.length) {
+		return query;
+	}
+
+	var db = Base.db();
+
+	var table = isCategory
+		? Base.RelatedTo.table()
+		: Base.RelatedFrom.table();
+
+	var anchor = isCategory
+		? ["toPublisherId","toStreamName","fromPublisherId","fromStreamName"]
+		: ["fromPublisherId","fromStreamName","toPublisherId","toStreamName"];
+
+	var relevance = [];
+
+	criteriaSpecs.forEach(function (spec) {
+
+		var ranges = Streams.relationTypes(spec);
+
+		if (!ranges.type && !ranges.weight) {
+			return;
+		}
+
+		var sub = db.SELECT("1", table);
+
+		var where = {};
+
+		anchor.forEach(function (field) {
+			where[field] = new Db.Expression(baseAlias + "." + field);
+		});
+
+		if (ranges.type) where.type = ranges.type;
+		if (ranges.weight) where.weight = ranges.weight;
+
+		sub.where(where).limit(1);
+
+		query.where(
+			new Db.Expression("EXISTS (" + sub + ")")
+		);
+
+		if (withRelevance) {
+
+			relevance.push(
+				new Db.Expression(
+					"CASE WHEN EXISTS (" + sub + ") THEN 1 ELSE 0 END"
+				)
+			);
+		}
+
+	});
+
+	if (withRelevance && relevance.length) {
+
+		var expr = relevance[0];
+
+		for (var i=1; i<relevance.length; ++i) {
+
+			expr = new Db.Expression(
+				expr + " + " + relevance[i]
+			);
+		}
+
+		return expr;
+	}
+
+	return query;
 };
 
 Streams.Mentions = require('Streams/Mentions');
