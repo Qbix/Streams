@@ -6241,7 +6241,15 @@ abstract class Streams extends Base_Streams
 		Streams_Stream::delete()
 			->where(array('publisherId' => $publisherId, 'name' => $streamNames))
 			->execute();
-		
+
+        // remove uploaded files
+        foreach ($streamNames as $streamName) {
+            $uploadsDirectory = Streams::uploadsDirectory($publisherId, $streamName);
+            if (is_dir($uploadsDirectory)) {
+                Q_Utils::rmdir($uploadsDirectory);
+            }
+        }
+
 		/**
 		 * @event Streams/remove {after}
 		 * @param {string} $publisherId
