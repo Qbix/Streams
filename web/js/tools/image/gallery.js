@@ -39,6 +39,9 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 	publisherId: null,
 	streamName: null,
 	relationType: "Streams/images",
+	icon: {
+		size: 800
+	},
 	params: {
 		transition: { duration: 1000, ease: "smooth", type: "crossfade" },
 		interval:   { duration: 3000, ease: "smooth", type: "" },
@@ -58,7 +61,7 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 				Q.each(self.relatedStreams, function (_, imgStream) {
 					var overrides = imgStream.getAttribute("Streams/image/gallery") || {};
 					images.push(Q.extend({}, 2, {
-						src: imgStream.iconUrl(800),
+						src: imgStream.iconUrl(state.icon.size),
 						caption: imgStream.fields.title || ""
 					}, 2, overrides));
 				});
@@ -106,8 +109,8 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 		var endDiv   = content.querySelector(".Q_gallery_kenburns_end");
 		var fromSel, toSel;
 
-		var startImg = Q.element("img", {src: imageStream.iconUrl(800)});
-		var endImg   = Q.element("img", {src: imageStream.iconUrl(800)});
+		var startImg = Q.element("img", {src: imageStream.iconUrl(tool.state.icon.size)});
+		var endImg   = Q.element("img", {src: imageStream.iconUrl(tool.state.icon.size)});
 		startDiv.appendChild(startImg);
 		endDiv.appendChild(endImg);
 
