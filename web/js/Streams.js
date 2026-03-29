@@ -235,7 +235,7 @@ Streams.READ_LEVEL = {
  */
 /**
  * Can post durable messages which appear immediately
- * @property WRITE_LEVEL.messages
+ * @property WRITE_LEVEL.post
  * @type integer
  * @default 20
  * @final
