@@ -26,12 +26,6 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 		throw new Q.Error("Streams/image/gallery: missing publisherId or streamName");
 	}
 
-	// Container for the gallery
-	var container = Q.element("div", {"class": "Streams_image_gallery_container"});
-	tool.element.appendChild(container);
-
-	state.$gallery = container;
-
 	tool.refresh();
 
 }, {
@@ -44,45 +38,63 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 		interval:   { duration: 3000, ease: "smooth", type: "" },
 		autoplay:   true,
 		loop:       true
+	},
+	images: {
+		size: 800,
+		skipCaption: false
+	},
+	related: {
+		forceUpdate: false,
+		options: {}
 	}
 }, {
 	refresh: function () {
-		var tool = this, state = tool.state;
+		var tool = this, state = tool.state, $toolElement = $(this.element);
 
 		Streams.get(state.publisherId, state.streamName).then(function (stream) {
-			Streams.related(state.publisherId, state.streamName, state.relationType, true, {}, function (err) {
+			var relatedMethod = state.related.forceUpdate ? Streams.related.force : Streams.related;
+			relatedMethod(state.publisherId, state.streamName, state.relationType, true, state.related.options, function (err) {
 				if (err) return console.warn(err);
 
 				var images = [];
 				var self = this;
 				Q.each(self.relatedStreams, function (_, imgStream) {
-					var overrides = imgStream.getAttribute("Streams/image/gallery") || {};
+					var overrides = imgStream.getAttribute(tool.name) || {};
 					images.push(Q.extend({}, 2, {
-						src: imgStream.iconUrl(800),
-						caption: imgStream.fields.title || ""
+						src: imgStream.iconUrl(state.images.size),
+						caption: state.images.skipCaption ? "" : imgStream.fields.title || ""
 					}, 2, overrides));
 				});
 
-				// clear old gallery
-				state.$gallery.innerHTML = "";
+				// clear element
+				$toolElement.plugin("Q/gallery", "remove");
+				$toolElement.empty();
+
+				const options = {
+					images
+				};
+
+				if (stream.testWriteLevel("relations")) {
+					options.onInvoke = new Q.Event(function ($img) {
+						Q.each(self.relatedStreams, function (_, imgStream) {
+							if ($img.prop("src") !== imgStream.iconUrl(state.images.size)) {
+								return;
+							}
+
+							tool.openImageEditor(imgStream);
+						});
+					});
+				}
 
 				// mount Q/gallery
-				Q.Tool.setUpElement(state.$gallery, "Q/gallery", Q.extend({}, 2, state.params, {
-					images: images,
-					onTransition: new Q.Event(function (idx) {
-						if (stream.testWriteLevel("relations")) {
-							var imgStream = self.relatedStreams[idx];
-							tool.openImageEditor(imgStream);
-						}
-					})
-				}));
+				$(tool.element).plugin("Q/gallery", Q.extend({}, 2, state.params, options));
 			});
 		});
 	},
 
 	openImageEditor: function (imageStream) {
 		var tool = this;
-		var overrides = imageStream.getAttribute("Streams/image/gallery") || {};
+		var overrides = imageStream.getAttribute(tool.name) || {};
 		var intervalVal = (overrides.interval && overrides.interval.duration) 
 			|| tool.state.params.interval.duration;
 
@@ -106,16 +118,20 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 		var endDiv   = content.querySelector(".Q_gallery_kenburns_end");
 		var fromSel, toSel;
 
-		var startImg = Q.element("img", {src: imageStream.iconUrl(800)});
-		var endImg   = Q.element("img", {src: imageStream.iconUrl(800)});
+		var startImg = Q.element("img", {src: imageStream.iconUrl(tool.state.images.size)});
+		var endImg   = Q.element("img", {src: imageStream.iconUrl(tool.state.images.size)});
 		startDiv.appendChild(startImg);
 		endDiv.appendChild(endImg);
 
-		Q.Tool.setUpElement(startImg, "Q/viewport", {
-			onUpdate: new Q.Event(function (sel) { fromSel = sel; })
+		$(startImg).plugin("Q/viewport", {
+			onUpdate: new Q.Event(function (sel) {
+				fromSel = sel;
+			})
 		});
-		Q.Tool.setUpElement(endImg, "Q/viewport", {
-			onUpdate: new Q.Event(function (sel) { toSel = sel; })
+		$(endImg).plugin("Q/viewport", {
+			onUpdate: new Q.Event(function (sel) {
+				toSel = sel;
+			})
 		});
 
 		Q.Dialogs.push({
@@ -141,12 +157,14 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 					newOverrides.interval.to   = toSel;
 				}
 
-				imageStream.setAttribute("Streams/image/gallery", newOverrides);
-				imageStream.save({changed: {attributes: true}}, function (err) {
-					if (err) {
-						console.warn("Failed to save image params:", err);
-					} else {
-						tool.refresh();
+				imageStream.setAttribute(tool.name, newOverrides);
+				imageStream.save({
+					onSave: function (err) {
+						if (err) {
+							console.warn("Failed to save image params:", err);
+						} else {
+							tool.refresh();
+						}
 					}
 				});
 			}
