@@ -10,20 +10,20 @@ var Streams = Q.Streams;
 /**
  * Displays a gallery of related images, backed by Q/gallery.
  * Allows editing of per-image params if user has relations write access.
- * @class Streams/image/gallery
+ * @class Streams/gallery
  * @constructor
  * @param {Object} [options]
  */
-Q.Tool.define("Streams/image/gallery", function (options) {
+Q.Tool.define("Streams/gallery", function (options) {
 	var tool = this;
 	var state = tool.state;
 
 	if (!Users.loggedInUser) {
-		throw new Q.Error("Streams/image/gallery: You are not logged in.");
+		throw new Q.Error("Streams/gallery: You are not logged in.");
 	}
 	if ((!state.publisherId || !state.streamName)
 		&& (!state.stream || Q.typeOf(state.stream) !== 'Streams.Stream')) {
-		throw new Q.Error("Streams/image/gallery: missing publisherId or streamName");
+		throw new Q.Error("Streams/gallery: missing publisherId or streamName");
 	}
 
 	tool.refresh();
