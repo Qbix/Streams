@@ -176,10 +176,13 @@ function Streams_related_response()
 	}
 	if (!empty($_REQUEST['participants'])) {
 		$limit = $_REQUEST['participants'];
-		$offset = -1;
+		$offset = 0;
+		$state = 'participating';
 		$participants = false;
 		if ($stream->testReadLevel('participants')) {
-			$participants = Db::exportArray($stream->getParticipants(compact('limit', 'offset')));
+			$participants = Db::exportArray($stream->getParticipants(@compact(
+				'limit', 'offset', 'state'
+			)));
 		}
 		Q_Response::setSlot('participants', $participants);
 	}
