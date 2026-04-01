@@ -290,12 +290,12 @@ Q.Tool.define("Streams/userChooser", function(o) {
 				tool.$results.remove();
 			} else {
 				function _handlePointerEnd() {
-					tool.$results.remove();
+					setTimeout(function () {
+						tool.$results.remove();
+					}, 0);
 					$(document).off(Q.Pointer.end, _handlePointerEnd);
 				}
-				$(document).on(Q.Pointer.end, tool, function () {
-					setTimeout(_handlePointerEnd, 0);
-				});
+				$(document).on(Q.Pointer.end, tool, _handlePointerEnd);
 			}
 			tool.focusedResults = false;
 		}, 10);
