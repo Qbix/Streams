@@ -3,10 +3,6 @@
 /**
  * @module Streams
  */
-
-/**
- * @module Streams
- */
 /**
  * Used by HTTP clients to fetch relations and related streams
  * @class HTTP Streams related

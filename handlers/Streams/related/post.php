@@ -1,12 +1,21 @@
 <?php
 
 /**
- * Used to create a new relation
- *
- * @param array $_REQUEST 
- *   toPublisherId, toStreamName, type
- *   fromPublisherId, fromStreamName, inheritAccess, weight
- * @return {void}
+ * @module Streams
+ */
+
+/**
+ * Used to create a new relation between streams
+ * @class HTTP Streams related
+ * @method post
+ * @param {array} [$_REQUEST] Parameters that can come from the request
+ *   @param {string} $_REQUEST.toPublisherId The publisher of the 'to' stream
+ *   @param {string} $_REQUEST.toStreamName The name of the 'to' stream
+ *   @param {string} $_REQUEST.type The type of the relation to create
+ *   @param {string} $_REQUEST.fromPublisherId The publisher of the 'from' stream
+ *   @param {string} $_REQUEST.fromStreamName The name of the 'from' stream
+ *   @param {boolean} [$_REQUEST.inheritAccess=false] Whether to inherit access from the 'to' stream
+ *   @param {double} [$_REQUEST.weight] Optional weight for the relation
  */
 
 function Streams_related_post($params) {
