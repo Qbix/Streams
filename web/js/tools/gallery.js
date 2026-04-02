@@ -10,20 +10,20 @@ var Streams = Q.Streams;
 /**
  * Displays a gallery of related images, backed by Q/gallery.
  * Allows editing of per-image params if user has relations write access.
- * @class Streams/image/gallery
+ * @class Streams/gallery
  * @constructor
  * @param {Object} [options]
  */
-Q.Tool.define("Streams/image/gallery", function (options) {
+Q.Tool.define("Streams/gallery", function (options) {
 	var tool = this;
 	var state = tool.state;
 
 	if (!Users.loggedInUser) {
-		throw new Q.Error("Streams/image/gallery: You are not logged in.");
+		throw new Q.Error("Streams/gallery: You are not logged in.");
 	}
 	if ((!state.publisherId || !state.streamName)
 		&& (!state.stream || Q.typeOf(state.stream) !== 'Streams.Stream')) {
-		throw new Q.Error("Streams/image/gallery: missing publisherId or streamName");
+		throw new Q.Error("Streams/gallery: missing publisherId or streamName");
 	}
 
 	tool.refresh();
@@ -53,6 +53,7 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 
 		Streams.get(state.publisherId, state.streamName).then(function (stream) {
 			var relatedMethod = state.related.forceUpdate ? Streams.related.force : Streams.related;
+			state.related.forceUpdate = false;
 			relatedMethod(state.publisherId, state.streamName, state.relationType, true, state.related.options, function (err) {
 				if (err) return console.warn(err);
 
@@ -116,19 +117,42 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 
 		var startDiv = content.querySelector(".Q_gallery_kenburns_start");
 		var endDiv   = content.querySelector(".Q_gallery_kenburns_end");
-		var fromSel, toSel;
+		var attributes = imageStream.getAttribute("streams_gallery");
+		var defaultSel = {left: 0, top: 0, width: 1, height: 1};
 
-		var startImg = Q.element("img", {src: imageStream.iconUrl(tool.state.images.size)});
-		var endImg   = Q.element("img", {src: imageStream.iconUrl(tool.state.images.size)});
+		var startImg = Q.element("img", {src: imageStream.iconUrl(tool.state.images.size), class: 'Q_no_lazyload'});
+		var endImg   = Q.element("img", {src: imageStream.iconUrl(tool.state.images.size), class: 'Q_no_lazyload'});
 		startDiv.appendChild(startImg);
 		endDiv.appendChild(endImg);
 
+		var fromSel = Q.getObject("interval.from", attributes) || Q.getObject("state.params.interval.from", tool) || defaultSel;
+		var fromScale = 1/fromSel.width;
+		var fromX = fromSel.left * fromScale + 0.5;
+		var fromY = fromSel.top * fromScale + 0.5;
+
+		var toSel = Q.getObject("interval.to", attributes) || Q.getObject("state.params.interval.to", tool) || defaultSel;
+		var toScale = 1/toSel.width;
+		var toX = toSel.left * toScale + 0.5;
+		var toY = toSel.top * toScale + 0.5;
+
 		$(startImg).plugin("Q/viewport", {
+			maxScale: 5,
+			initial: {
+				x: fromX,
+				y: fromY,
+				scale: fromScale
+			},
 			onUpdate: new Q.Event(function (sel) {
 				fromSel = sel;
 			})
 		});
 		$(endImg).plugin("Q/viewport", {
+			maxScale: 5,
+			initial: {
+				x: toX,
+				y: toY,
+				scale: toScale
+			},
 			onUpdate: new Q.Event(function (sel) {
 				toSel = sel;
 			})
@@ -148,14 +172,13 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 				}
 
 				var newOverrides = {
-					interval: { duration: interval }
+					interval: {
+						type: "kenburns",
+						duration: interval,
+						from: fromSel,
+						to: toSel
+					}
 				};
-
-				if (fromSel && toSel) {
-					newOverrides.interval.type = "kenburns";
-					newOverrides.interval.from = fromSel;
-					newOverrides.interval.to   = toSel;
-				}
 
 				imageStream.setAttribute(tool.name, newOverrides);
 				imageStream.save({
@@ -163,6 +186,7 @@ Q.Tool.define("Streams/image/gallery", function (options) {
 						if (err) {
 							console.warn("Failed to save image params:", err);
 						} else {
+							tool.state.related.forceUpdate = true;
 							tool.refresh();
 						}
 					}
