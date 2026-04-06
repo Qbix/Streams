@@ -131,7 +131,7 @@ abstract class Streams extends Base_Streams
 	 * @default 13
 	 * @final
 	 */
-/**
+	/**
 	 * Can privately suggest actions for stream managers to consider
 	 * @property $WRITE_LEVEL['suggest']
 	 * @type integer
@@ -150,6 +150,13 @@ abstract class Streams extends Base_Streams
 	 * @property $WRITE_LEVEL['contribute']
 	 * @type integer
 	 * @default 18
+	 * @final
+	 */
+	/**
+	 * Can fork the stream, to make progress on a fork
+	 * @property $WRITE_LEVEL['fork']
+	 * @type integer
+	 * @default 19
 	 * @final
 	 */
 	/**
@@ -209,10 +216,10 @@ abstract class Streams extends Base_Streams
 		'suggest' => 15,	
 		'ephemeral' => 16,
 		'contribute' => 18,	
+		'fork' => 19,
 		'post' => 20,
 		'relate' => 23,
 		'relations' => 25,
-		'suggest' => 28,
 		'edit' => 30,
 		'closePending' => 35,
 		'close' => 40,
@@ -6241,15 +6248,7 @@ abstract class Streams extends Base_Streams
 		Streams_Stream::delete()
 			->where(array('publisherId' => $publisherId, 'name' => $streamNames))
 			->execute();
-
-        // remove uploaded files
-        foreach ($streamNames as $streamName) {
-            $uploadsDirectory = Streams::uploadsDirectory($publisherId, $streamName);
-            if (is_dir($uploadsDirectory)) {
-                Q_Utils::rmdir($uploadsDirectory);
-            }
-        }
-
+		
 		/**
 		 * @event Streams/remove {after}
 		 * @param {string} $publisherId

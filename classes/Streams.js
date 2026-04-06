@@ -176,6 +176,13 @@ Streams.READ_LEVEL = {
  * @final
  */
 /**
+ * Can fork the stream, to make progress on a fork
+ * @property $WRITE_LEVEL.fork
+ * @type integer
+ * @default 19
+ * @final
+ */
+/**
  * Can post durable messages which appear immediately
  * @property WRITE_LEVEL.messages
  * @type integer
@@ -232,6 +239,7 @@ Streams.WRITE_LEVEL = {
 	'suggest':	    15,		// can suggest actions, but manage must approve
 	'ephemeral':    16, 	// can send ephemeral payloads to the stream to be broadcast
 	'contribute':   18,		// can contribute to the stream (e.g. "join the stage")
+	'fork':         19,		// can contribute to the stream (e.g. "join the stage")
 	'post':			20,		// can post durable messages which take effect immediately
 	'relate':       23,		// can relate other streams to this one
 	'relations':    25,		// can update weights and relations directly
