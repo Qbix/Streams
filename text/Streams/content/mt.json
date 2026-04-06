@@ -360,6 +360,10 @@
 			"displayType": "Su\u0121\u0121ett",
 			"description": "fluss tas-su\u0121\u0121ett",
 			"newItem": "\u017bid Su\u0121\u0121ett"
+		},
+		"Streams/outgoing": {
+			"displayType": "\u0126er\u0121in",
+			"description": "destinazzjoni g\u0127ar-re\u0121istrazzjoni ta&#39; messa\u0121\u0121i mibg\u0127uta lil utenti o\u0127ra jew sistemi esterni"
 		}
 	},
 	"menu": {

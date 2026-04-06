@@ -360,6 +360,10 @@
 			"displayType": "Tema",
 			"description": "fluxo tem\u00e1tico",
 			"newItem": "Engadir tema"
+		},
+		"Streams/outgoing": {
+			"displayType": "Sa\u00ednte",
+			"description": "destino para gravar mensaxes enviadas a outros usuarios ou sistemas externos"
 		}
 	},
 	"menu": {

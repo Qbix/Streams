@@ -360,6 +360,10 @@
 			"displayType": "Aihe",
 			"description": "aihevirta",
 			"newItem": "Lis\u00e4\u00e4 aihe"
+		},
+		"Streams/outgoing": {
+			"displayType": "L\u00e4htev\u00e4",
+			"description": "muille k\u00e4ytt\u00e4jille tai ulkoisille j\u00e4rjestelmille l\u00e4hetettyjen viestien tallennuskohde"
 		}
 	},
 	"menu": {

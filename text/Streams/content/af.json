@@ -360,6 +360,10 @@
 			"displayType": "Onderwerp",
 			"description": "onderwerp stroom",
 			"newItem": "Voeg onderwerp by"
+		},
+		"Streams/outgoing": {
+			"displayType": "Uitgaande",
+			"description": "bestemming vir die opname van boodskappe wat na ander gebruikers of eksterne stelsels gestuur word"
 		}
 	},
 	"menu": {

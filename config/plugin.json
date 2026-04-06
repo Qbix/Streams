@@ -673,6 +673,16 @@
 					}
 				}
 			},
+			"Streams/outgoing": {
+				"emoji": "📤",
+				"create": true,
+				"messages": {
+					"Streams/outgoing/message": { "post": true },
+					"*": {
+						"subject": ["Streams/content", ["notifications", "Streams/outgoing/*"]]
+					}
+				}
+			},
 			"Streams/chat": {
 				"emoji": "💬",
 				"create": true,

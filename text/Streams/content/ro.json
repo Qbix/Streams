@@ -360,6 +360,10 @@
 			"displayType": "Subiect",
 			"description": "flux de subiecte",
 			"newItem": "Ad\u0103uga\u021bi subiect"
+		},
+		"Streams/outgoing": {
+			"displayType": "Ie\u0219ire",
+			"description": "destina\u021bie pentru \u00eenregistrarea mesajelor trimise c\u0103tre al\u021bi utilizatori sau sisteme externe"
 		}
 	},
 	"menu": {

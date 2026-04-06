@@ -345,8 +345,12 @@
 			"description": "represents a user's interest in a certain topic"
 		},
 		"Streams/incoming": {
-			"displayType": "Incoming",
-			"description": "destination for messages sent by other users"
+			"displayType": "Outgoing",
+			"description": "destination for recording messages sent to other users or external systems"
+		},
+		"Streams/outgoing": {
+			"displayType": "Outgoing",
+			"description": "destination for recording messages sent to other users or external systems"
 		},
 		"Streams/chat": {
 			"displayType": "Conversation",

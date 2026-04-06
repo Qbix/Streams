@@ -360,6 +360,10 @@
 			"displayType": "Temat",
 			"description": "strumie\u0144 tematyczny",
 			"newItem": "Dodaj temat"
+		},
+		"Streams/outgoing": {
+			"displayType": "Towarzyski",
+			"description": "miejsce do nagrywania wiadomo\u015bci wysy\u0142anych do innych u\u017cytkownik\u00f3w lub system\u00f3w zewn\u0119trznych"
 		}
 	},
 	"menu": {

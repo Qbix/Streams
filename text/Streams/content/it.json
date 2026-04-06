@@ -360,6 +360,10 @@
 			"displayType": "Argomento",
 			"description": "flusso di argomenti",
 			"newItem": "Aggiungi argomento"
+		},
+		"Streams/outgoing": {
+			"displayType": "In uscita",
+			"description": "destinazione per la registrazione dei messaggi inviati ad altri utenti o sistemi esterni"
 		}
 	},
 	"menu": {

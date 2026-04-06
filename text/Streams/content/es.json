@@ -360,6 +360,10 @@
 			"displayType": "Tema",
 			"description": "flujo de temas",
 			"newItem": "Agregar tema"
+		},
+		"Streams/outgoing": {
+			"displayType": "Extrovertido",
+			"description": "Destino para registrar los mensajes enviados a otros usuarios o sistemas externos."
 		}
 	},
 	"menu": {

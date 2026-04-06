@@ -360,6 +360,10 @@
 			"displayType": "Mada",
 			"description": "mkondo wa mada",
 			"newItem": "Ongeza Mada"
+		},
+		"Streams/outgoing": {
+			"displayType": "Anayemaliza muda wake",
+			"description": "mahali pa kurekodi ujumbe uliotumwa kwa watumiaji wengine au mifumo ya nje"
 		}
 	},
 	"menu": {

@@ -360,6 +360,10 @@
 			"displayType": "T\u00e9ma",
 			"description": "t\u00e9matick\u00fd proud",
 			"newItem": "P\u0159idat t\u00e9ma"
+		},
+		"Streams/outgoing": {
+			"displayType": "Odchoz\u00ed",
+			"description": "c\u00edl pro z\u00e1znam zpr\u00e1v odeslan\u00fdch jin\u00fdm u\u017eivatel\u016fm nebo extern\u00edm syst\u00e9m\u016fm"
 		}
 	},
 	"menu": {

@@ -360,6 +360,10 @@
 			"displayType": "Onderwerp",
 			"description": "onderwerp stroom",
 			"newItem": "Onderwerp toevoegen"
+		},
+		"Streams/outgoing": {
+			"displayType": "Uitgaand",
+			"description": "Bestemming voor het opslaan van berichten die naar andere gebruikers of externe systemen worden verzonden."
 		}
 	},
 	"menu": {
