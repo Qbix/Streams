@@ -374,6 +374,31 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
+	 * Check if a publisherId is a virtual workspace publisher (contains "~")
+	 * @method isWorkspacePublisherId
+	 * @static
+	 * @param {string} $publisherId
+	 * @return {boolean}
+	 */
+	static function isWorkspacePublisherId($publisherId)
+	{
+		return strpos($publisherId, '~') !== false;
+	}
+
+	/**
+	 * Get the base publisherId from a workspace publisherId.
+	 * e.g. "alice~ws2" => "alice"
+	 * @method basePublisherId
+	 * @static
+	 * @param {string} $publisherId
+	 * @return {string}
+	 */
+	static function basePublisherId($publisherId)
+	{
+		return strstr($publisherId, '~', true) ?: $publisherId;
+	}
+
+	/**
 	 * Fetches streams from the database.
 	 * @method fetch
 	 * @static
@@ -474,8 +499,12 @@ abstract class Streams extends Base_Streams
 		} else {
 			$namesToFetch = $name;
 		}
+		$workspacePublisherIds = Streams_Workspace::stackedPublisherIds(
+			$publisherId,
+			Streams_Workspace::fromRequest($options)
+		);
 		$results['criteria'] = $criteria = array(
-			'publisherId' => $publisherId,
+			'publisherId' => $workspacePublisherIds,
 			'name' => $namesToFetch
 		);
 
@@ -485,13 +514,33 @@ abstract class Streams extends Base_Streams
 			$prevCaching = Db::allowCaching(false);
 			$restoreCaching = true;
 		}
-		$allRetrieved = $namesToFetch
-			? Streams_Stream::select($fields)
+		$allRetrieved = array();
+		if ($namesToFetch) {
+			$rows = Streams_Stream::select($fields)
 				->where($criteria)
 				->ignoreCache()
 				->options($options)
-				->fetchDbRows(null, '', 'name')
-			: array();
+				->fetchDbRows(null, '', 'name');
+			// Workspace cascade: for each name, keep only the row from the
+			// highest-priority publisherId (first match in stack order).
+			$priorityMap = array_flip($workspacePublisherIds); // publisherId => priority index
+			foreach ($rows as $name => $row) {
+				if (!isset($allRetrieved[$name])) {
+					$allRetrieved[$name] = $row;
+				} else {
+					$existing = $allRetrieved[$name];
+					$existingPriority = isset($priorityMap[$existing->publisherId])
+						? $priorityMap[$existing->publisherId]
+						: PHP_INT_MAX;
+					$newPriority = isset($priorityMap[$row->publisherId])
+						? $priorityMap[$row->publisherId]
+						: PHP_INT_MAX;
+					if ($newPriority < $existingPriority) {
+						$allRetrieved[$name] = $row;
+					}
+				}
+			}
+		}
 		
 		if (!empty($options['withParticipant']) and $asUserId) {
 			$prows = Streams_Participant::select()->where(array(
@@ -801,6 +850,11 @@ abstract class Streams extends Base_Streams
 		}
 		if (!isset($actualPublisherId)) {
 			$actualPublisherId = $publisherId;
+		}
+		// For workspace publishers, resolve labels/grants against the base publisher
+		$publisherIdForAccess = self::basePublisherId($publisherId);
+		if ($publisherIdForAccess !== $publisherId) {
+			$actualPublisherId = $publisherIdForAccess;
 		}
 		if ($recalculate) {
 			$streams2 = $streams;
@@ -1278,7 +1332,7 @@ abstract class Streams extends Base_Streams
 		}
 
 		$accessProfileInherit = array();
-		if ($accessProfileName) {
+		if ($accessProfileName and empty($options['skipTemplates'])) {
 			$ap = Streams_Stream::getConfigField($stream->type, array('access', 'profiles', $accessProfileName), null);
 			Q::take($ap, array(
 				'readLevel', 'writeLevel', 'adminLevel', 'permissions'
@@ -1288,12 +1342,17 @@ abstract class Streams extends Base_Streams
 			}
 		}
 
-		// extend with any config defaults for this stream type
-		$fieldNames = Streams::getExtendFieldNames($stream->type);
-		$fieldNames[] = 'name';
-		foreach ($fieldNames as $f) {
-			if (isset($fields[$f])) {
-				$stream->$f = $fields[$f];
+		// extend with any config defaults for this stream type,
+		// unless caller has already provided authoritative field values (e.g. fork)
+		if (empty($options['skipTemplates'])) {
+			$fieldNames = Streams::getExtendFieldNames($stream->type);
+			$fieldNames[] = 'name';
+			foreach ($fieldNames as $fn) {
+				if (isset($fields[$fn])
+				&& $fn !== 'insertedTime'
+				&& $fn !== 'updatedTime') {
+					$stream->$fn = $fields[$fn];
+				}
 			}
 		}
 	
@@ -1417,14 +1476,17 @@ abstract class Streams extends Base_Streams
 				}
 			}
 
-			// extend with any config defaults for this stream type
-			$fieldNames = Streams::getExtendFieldNames($f['type']);
-			$fieldNames[] = 'name';
-			foreach ($fieldNames as $fn) {
-				if (isset($f[$fn])
-				&& $fn !== 'insertedTime'
-				&& $fn !== 'updatedTime') {
-					$tc[$fn] = $f[$fn];
+			// extend with any config defaults for this stream type,
+			// unless caller has already provided authoritative field values (e.g. fork)
+			if (empty($options['skipTemplates'])) {
+				$fieldNames = Streams::getExtendFieldNames($stream->type);
+				$fieldNames[] = 'name';
+				foreach ($fieldNames as $fn) {
+					if (isset($f[$fn])
+					&& $fn !== 'insertedTime'
+					&& $fn !== 'updatedTime') {
+						$tc[$fn] = $f[$fn];
+					}
 				}
 			}
 			
@@ -1456,6 +1518,239 @@ abstract class Streams extends Base_Streams
 		}
 		
 		return $streams;
+	}
+
+	/**
+	 * Fork a stream into a workspace (or any target publisher),
+	 * copying all fields, attributes, and content from the source.
+	 * Uses Streams::create() with skipTemplates for proper access control,
+	 * inheritAccess, Streams/created message, and Streams/fork relation.
+	 * relatedFrom (children) are NOT copied — they fall through via workspace
+	 * cascade in Streams::related() once that is made workspace-aware (1.3.1).
+	 * @method fork
+	 * @static
+	 * @param {string} $asUserId
+	 * @param {string} $publisherId Source publisher
+	 * @param {string} $streamName Source stream name
+	 * @param {integer} $ordinal Messages from this ordinal onward belong to the fork
+	 * @param {string} $toPublisherId Target publisher (typically "$publisherId~$workspaceId")
+	 * @param {string} [$toStreamName=null] Defaults to same as $streamName
+	 * @param {array} [$options=array()]
+	 * @param {boolean} [$options.skipAccess=false] Skip all access checks
+	 * @return {Streams_Stream|false}
+	 */
+	static function fork(
+		$asUserId,
+		$publisherId,
+		$streamName,
+		$ordinal,
+		$toPublisherId,
+		$toStreamName = null,
+		$options = array())
+	{
+		if (!isset($asUserId)) {
+			$asUserId = Users::loggedInUser(true)->id;
+		}
+		if (!isset($toStreamName)) {
+			$toStreamName = $streamName;
+		}
+		$skipAccess = Q::ifset($options, 'skipAccess', false);
+
+		// Fetch source stream — respects workspace cascade
+		$source = Streams_Stream::fetch($asUserId, $publisherId, $streamName, true);
+
+		if (!$skipAccess) {
+			// Gate 1: source stream governance.
+			// The source publisher controls who can fork via public writeLevel
+			// or per-user/per-label access rows. writeLevel >= 'fork' (19).
+			if (!$source->testWriteLevel('fork')) {
+				throw new Users_Exception_NotAuthorized();
+			}
+			// Gate 2: destination authorization is handled inside Streams::create()
+			// via canCreateStreamType() with the Streams/fork relate path.
+		}
+
+		/**
+		 * @event Streams/fork {before}
+		 */
+		if (Q::event("Streams/fork/{$source->type}", compact(
+			'asUserId', 'publisherId', 'streamName', 'ordinal',
+			'toPublisherId', 'toStreamName', 'options'
+		), 'before') === false) {
+			return false;
+		}
+
+		// Copy all fields from source except identity, timestamps, and the
+		// fields we set explicitly below. create() will set publisherId,
+		// insertedTime, updatedTime. We set name, messageCount, fork, closedTime.
+		$skipFields = array(
+			'publisherId', 'name', 'insertedTime', 'updatedTime',
+			'messageCount', 'closedTime', 'fork'
+		);
+		$fields = array('name' => $toStreamName);
+		foreach (Base_Streams_Stream::fieldNames() as $f) {
+			if (!in_array($f, $skipFields)) {
+				$fields[$f] = $source->$f;
+			}
+		}
+
+		// Build compact fork chain: each entry is [publisherId|null, ordinalMin, ordinalMax|null]
+		// null publisherId = this stream's own publisherId (always the tip entry)
+		$sourceChain = array();
+		if ($source->fork) {
+			$sourceForkData = Q::json_decode($source->fork, true);
+			if (!empty($sourceForkData['chain'])) {
+				$sourceChain = $sourceForkData['chain'];
+			}
+		}
+		if (!empty($sourceChain)) {
+			// Close the inherited tip segment at $ordinal - 1
+			$sourceChain[count($sourceChain) - 1][2] = $ordinal - 1;
+		} else {
+			// Source is root — starts at ordinal 0
+			$sourceChain[] = array($publisherId, 0, $ordinal - 1);
+		}
+		// Append new open-ended tip
+		$sourceChain[] = array(null, $ordinal, null);
+
+		$db  = Streams_Stream::db();
+		$now = $db->toDateTime($db->getCurrentTimestamp());
+		$fields['fork'] = Q::json_encode(array(
+			'publisherId' => $publisherId,
+			'streamName'  => $streamName,
+			'ordinal'     => $ordinal,
+			'time'        => $now,
+			'chain'       => $sourceChain
+		));
+
+		// New messages on the fork continue the ordinal sequence from the split point
+		$fields['messageCount'] = $ordinal;
+
+		// Streams::create() handles:
+		// - canCreateStreamType() with Streams/fork relate path (destination auth)
+		// - access profile application (skipped via skipTemplates)
+		// - template field merging (skipped via skipTemplates — source fields are authoritative)
+		// - inheritAccess from source stream
+		// - Streams/created message
+		// - the Streams/fork relatedTo row
+		// weight = $ordinal gives the fork graph a meaningful sort key
+		// (forks ordered by where they split off, useful for governance tooling)
+		$fork = Streams::create(
+			$asUserId,
+			$toPublisherId,
+			$source->type,
+			$fields,
+			array(
+				'skipAccess'    => $skipAccess,
+				'skipTemplates' => true,
+				'relate'        => array(
+					'publisherId'   => $publisherId,
+					'streamName'    => $streamName,
+					'type'          => 'Streams/fork',
+					'inheritAccess' => true,
+					'weight'        => $ordinal
+				)
+			)
+		);
+
+		// Post Streams/forked on the fork to record provenance.
+		// Streams::create() already posted Streams/created above.
+		$fork->post($asUserId, array(
+			'type'         => 'Streams/forked',
+			'content'      => '',
+			'instructions' => array(
+				'fromPublisherId' => $publisherId,
+				'fromStreamName'  => $streamName,
+				'ordinal'         => $ordinal
+			)
+		), true);
+
+		// Copy relatedTo rows — fork inherits source's folder memberships.
+		// The Streams/fork row itself was already created by Streams::create() above.
+		$rtRows = Streams_RelatedTo::select()->where(array(
+			'fromPublisherId' => $publisherId,
+			'fromStreamName'  => $streamName
+		))->fetchDbRows();
+		foreach ($rtRows as $rt) {
+			if ($rt->type === 'Streams/fork') continue;
+			Streams::relate(
+				$asUserId,
+				$rt->toPublisherId, $rt->toStreamName,
+				$rt->type,
+				$toPublisherId, $toStreamName,
+				array('skipAccess' => true)
+			);
+		}
+
+		// relatedFrom (children) intentionally NOT copied.
+		// They fall through via workspace cascade in Streams::related()
+		// once that method is made workspace-aware in 1.3.1.
+
+		/**
+		 * @event Streams/fork {after}
+		 */
+		Q::event("Streams/fork/{$source->type}", compact(
+			'asUserId', 'publisherId', 'streamName', 'ordinal',
+			'toPublisherId', 'toStreamName', 'fork', 'options'
+		), 'after');
+
+		return $fork;
+	}
+
+	/**
+	 * Walk the fork chain of a stream upward via the `fork` JSON field.
+	 * Returns an ordered array of segment descriptors for UNION message fetch,
+	 * from root (oldest) to tip (newest).
+	 * Each entry: array('publisherId', 'streamName', 'ordinalMin', 'ordinalMax', 'closedTime')
+	 * ordinalMax null means no upper bound (the tip).
+	 * @method forkChain
+	 * @static
+	 * @param {string} $publisherId
+	 * @param {string} $streamName
+	 * @return {array}
+	 */
+	static function forkChain($publisherId, $streamName)
+	{
+		$segments = array();
+		$currentPublisherId = $publisherId;
+		$currentStreamName  = $streamName;
+		$ordinalMax         = null;
+		$seen               = array();
+
+		while (true) {
+			$key = "$currentPublisherId\t$currentStreamName";
+			if (isset($seen[$key])) break; // cycle guard
+			$seen[$key] = true;
+
+			$row = Streams_Stream::select('publisherId, name, fork, closedTime')
+				->where(array(
+					'publisherId' => $currentPublisherId,
+					'name'        => $currentStreamName
+				))
+				->limit(1)
+				->fetchDbRow();
+
+			if (!$row) break;
+
+			$forkData   = $row->fork ? Q::json_decode($row->fork, true) : null;
+			$ordinalMin = $forkData ? (int)$forkData['ordinal'] : 0;
+
+			array_unshift($segments, array(
+				'publisherId' => $currentPublisherId,
+				'streamName'  => $currentStreamName,
+				'ordinalMin'  => $ordinalMin,
+				'ordinalMax'  => $ordinalMax,
+				'closedTime'  => $row->closedTime
+			));
+
+			if (!$forkData) break; // reached the root
+
+			$ordinalMax         = $ordinalMin - 1;
+			$currentPublisherId = $forkData['publisherId'];
+			$currentStreamName  = $forkData['streamName'];
+		}
+
+		return $segments;
 	}
 
 	/**
@@ -2789,7 +3084,14 @@ abstract class Streams extends Base_Streams
 		}
 		$skipTypes = Q::ifset($options, 'skipTypes', array());
 
-		$fetchOptions = isset($options['fetchOptions']) ? $options['fetchOptions'] : null;
+		$workspaces = Streams_Workspace::fromRequest($options);
+		$workspacePublisherIds = Streams_Workspace::stackedPublisherIds($publisherId, $workspaces);
+
+		$fetchOptions = isset($options['fetchOptions']) ? $options['fetchOptions'] : array();
+		if ($workspaces) {
+			$fetchOptions['workspaces'] = $workspaces;
+		}
+
 		if (empty($options['relationsOnly']) or empty($options['skipAccess'])) {
 			// Check access to stream
 			$rows = Streams::fetch($asUserId, $publisherId, $streamName, '*', $fetchOptions);
@@ -2892,17 +3194,9 @@ abstract class Streams extends Base_Streams
 
 		if ($isCategory) {
 			$query = $query->where(array(
-				$prefix . 'toPublisherId' => $publisherId,
+				$prefix . 'toPublisherId' => $workspacePublisherIds,
 				$prefix . 'toStreamName'  => $streamName
 			));
-		} else {
-			$query = $query->where(array(
-				$prefix . 'fromPublisherId' => $publisherId,
-				$prefix . 'fromStreamName'  => $streamName
-			));
-		}
-
-		if ($isCategory) {
 			if (!empty($options['criteria'])) {
 				if ($relevance) {
 					$query->orderBy('relevance', false);
@@ -2921,8 +3215,14 @@ abstract class Streams extends Base_Streams
 					));
 				}
 			}
-		} else if (!empty($options['criteria'])) {
-			$query->orderBy('relevance', false);
+		} else {
+			$query = $query->where(array(
+				$prefix . 'fromPublisherId' => $workspacePublisherIds,
+				$prefix . 'fromStreamName'  => $streamName
+			));
+			if (!empty($options['criteria'])) {
+				$query = $query->orderBy('relevance', false);
+			}
 		}
 
 		if (isset($options['prefix'])) {
@@ -2996,6 +3296,43 @@ abstract class Streams extends Base_Streams
 		}
 
 		$relations = $query->fetchDbRows();
+
+		// Workspace overlay: for each (otherStreamName, baseType) tuple, keep only the
+		// highest-priority relation (lowest index in $workspacePublisherIds).
+		// Tombstone rows (type prefixed with "Streams/-/") suppress the relation entirely.
+		if (count($workspacePublisherIds) > 1) {
+			$priorityMap = array_flip($workspacePublisherIds);
+			$anchorCol = $isCategory ? 'toPublisherId' : 'fromPublisherId';
+			$seen = array();
+			$filtered = array();
+			$self = $relations; // copy for usort
+			usort($self, function($a, $b) use ($priorityMap, $anchorCol) {
+				$pa = isset($priorityMap[$a->$anchorCol])
+					? $priorityMap[$a->$anchorCol]
+					: PHP_INT_MAX;
+				$pb = isset($priorityMap[$b->$anchorCol])
+					? $priorityMap[$b->$anchorCol]
+					: PHP_INT_MAX;
+				return $pa - $pb;
+			});
+			foreach ($self as $r) {
+				$otherName = $isCategory ? $r->fromStreamName : $r->toStreamName;
+				$isTombstone = (strpos($r->type, 'Streams/-/') === 0);
+				$baseType = $isTombstone
+					? substr($r->type, strlen('Streams/-/'))
+					: $r->type;
+				$key = $otherName . "\t" . $baseType;
+				if (isset($seen[$key])) {
+					continue; // lower-priority row, skip
+				}
+				$seen[$key] = true;
+				if (!$isTombstone) {
+					$filtered[] = $r;
+				}
+				// tombstone: mark seen but don't add — suppresses lower-priority rows
+			}
+			$relations = $filtered;
+		}
 
 		foreach ($relations as $k => $v) {
 			if (empty($options['includeTemplates'])) {
@@ -3086,7 +3423,7 @@ abstract class Streams extends Base_Streams
 			if (!isset($facetMap[$name])) {
 				$facetMap[$name] = array(
 					'types'   => array(),
-					'weights' => array() // keyed by type when weight is meaningful
+					'weights' => array()
 				);
 			}
 			$facetMap[$name]['types'][] = $r->type;
@@ -3118,7 +3455,6 @@ abstract class Streams extends Base_Streams
 		if (!empty($options['streamsOnly'])) {
 			return $relatedStreams;
 		}
-
 
 		return array(
 			$relations,

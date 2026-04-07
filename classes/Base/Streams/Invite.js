@@ -89,13 +89,13 @@ Q.mixin(Base, Row);
  * @property readLevel
  * @type Integer
  * @default 0
- * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 40='messages'
+ * 0=none, 10='see', 20='content', 30='participants', 40='messages'
  */
 /**
  * @property writeLevel
  * @type Integer
  * @default 0
- * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate
+ * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
  */
 /**
  * @property adminLevel

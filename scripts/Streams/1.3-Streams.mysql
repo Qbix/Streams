@@ -1,0 +1,13 @@
+CREATE TABLE `{{prefix}}workspace` (
+    `name` varbinary(15) NOT NULL,
+    `parentName` varbinary(15) NULL DEFAULT NULL,
+    `insertedTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updatedTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`name`),
+    KEY `byParent` (`parentName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `{{prefix}}stream`
+ADD COLUMN `fork` varbinary(4095) NULL DEFAULT NULL
+COMMENT 'JSON: {publisherId, streamName, ordinal, time} — immutable fork origin'
+AFTER `joinedRatio`;

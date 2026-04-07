@@ -80,13 +80,13 @@ abstract class Base_Streams_Invite extends Db_Row
 	 * @property $readLevel
 	 * @type integer
 	 * @default 0
-	 * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 40='messages'
+	 * 0=none, 10='see', 20='content', 30='participants', 40='messages'
 	 */
 	/**
 	 * @property $writeLevel
 	 * @type integer
 	 * @default 0
-	 * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate
+	 * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
 	 */
 	/**
 	 * @property $adminLevel
@@ -184,6 +184,76 @@ abstract class Base_Streams_Invite extends Db_Row
 	static function connectionName()
 	{
 		return 'Streams';
+	}
+
+	/**
+	 * Returns index metadata for the table
+	 * @method indexes
+	 * @static
+	 * @return {array}
+	 */
+	static function indexes()
+	{
+		return array (
+  'PRIMARY' => 
+  array (
+    'unique' => true,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'token',
+    ),
+  ),
+  'user' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'userId',
+      1 => 'token',
+    ),
+  ),
+  'stream' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'publisherId',
+      1 => 'streamName',
+      2 => 'userId',
+    ),
+  ),
+  'inviting' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'invitingUserId',
+      1 => 'publisherId',
+      2 => 'streamName',
+    ),
+  ),
+);
+	}
+
+	/**
+	 * Returns true if a left-prefix index exists for the given columns
+	 * @method hasIndexOn
+	 * @static
+	 * @param {array} $columns
+	 * @return {boolean}
+	 */
+	static function hasIndexOn(array $columns)
+	{
+		foreach (self::indexes() as $idx) {
+			if (array_slice($idx['columns'], 0, count($columns)) === $columns) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

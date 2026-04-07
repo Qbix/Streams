@@ -37,6 +37,7 @@
  * @param {integer} [$fields.leftCount] defaults to 0
  * @param {float} [$fields.arrivedRatio] defaults to 0
  * @param {float} [$fields.joinedRatio] defaults to 0
+ * @param {string} [$fields.fork] defaults to null
  * @param {string|Db_Expression} [$fields.closedTime] defaults to null
  */
 abstract class Base_Streams_Stream extends Db_Row
@@ -99,19 +100,19 @@ abstract class Base_Streams_Stream extends Db_Row
 	 * @property $readLevel
 	 * @type integer
 	 * @default 40
-	 * 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 40='messages'
+	 * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 35='messages', 40='receipts'
 	 */
 	/**
 	 * @property $writeLevel
 	 * @type integer
 	 * @default 10
-	 * 0=self, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+	 * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 19=fork, 20=post, 23=relate, 30=edit, 40=close
 	 */
 	/**
 	 * @property $adminLevel
 	 * @type integer
 	 * @default 20
-	 * 10='publish', 20='invite', 30='manage', 40='own'
+	 * 0=none, 10='publish', 20='invite', 30='manage', 40='own'
 	 */
 	/**
 	 * @property $permissions
@@ -166,6 +167,12 @@ abstract class Base_Streams_Stream extends Db_Row
 	 * @type float
 	 * @default 0
 	 * 
+	 */
+	/**
+	 * @property $fork
+	 * @type string
+	 * @default null
+	 * JSON: {publisherId, streamName, ordinal, time} — immutable fork origin
 	 */
 	/**
 	 * @property $closedTime
@@ -234,6 +241,83 @@ abstract class Base_Streams_Stream extends Db_Row
 	static function connectionName()
 	{
 		return 'Streams';
+	}
+
+	/**
+	 * Returns index metadata for the table
+	 * @method indexes
+	 * @static
+	 * @return {array}
+	 */
+	static function indexes()
+	{
+		return array (
+  'PRIMARY' => 
+  array (
+    'unique' => true,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'publisherId',
+      1 => 'name',
+    ),
+  ),
+  'typeAndTitle' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'publisherId',
+      1 => 'type',
+      2 => 'title',
+    ),
+  ),
+  'byInvitedCount' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'invitedCount',
+    ),
+  ),
+  'byArrivedRatio' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'arrivedRatio',
+    ),
+  ),
+  'byInvitedRatio' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'joinedRatio',
+    ),
+  ),
+);
+	}
+
+	/**
+	 * Returns true if a left-prefix index exists for the given columns
+	 * @method hasIndexOn
+	 * @static
+	 * @param {array} $columns
+	 * @return {boolean}
+	 */
+	static function hasIndexOn(array $columns)
+	{
+		foreach (self::indexes() as $idx) {
+			if (array_slice($idx['columns'], 0, count($columns)) === $columns) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -1492,6 +1576,61 @@ return array (
 	}
 
 	/**
+	 * Method is called before setting the field and verifies if value is string of length within acceptable limit.
+	 * Optionally accept numeric value which is converted to string
+	 * @method beforeSet_fork
+	 * @param {string} $value
+	 * @return {array} An array of field name and value
+	 * @throws {Exception} An exception is thrown if $value is not string or is exceedingly long
+	 */
+	function beforeSet_fork($value)
+	{
+		if (!isset($value)) {
+			return array('fork', $value);
+		}
+		if ($value instanceof Db_Expression
+               or $value instanceof Db_Range) {
+			return array('fork', $value);
+		}
+		if (!is_string($value) and !is_numeric($value))
+			throw new Exception('Must pass a string to '.$this->getTable().".fork");
+		if (strlen($value) > 4095)
+			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".fork");
+		return array('fork', $value);			
+	}
+
+	/**
+	 * Returns the maximum string length that can be assigned to the fork field
+	 * @return {integer}
+	 */
+	function maxSize_fork()
+	{
+
+		return 4095;			
+	}
+
+	/**
+	 * Returns schema information for fork column
+	 * @return {array} [[typeName, displayRange, modifiers, unsigned], isNull, key, default]
+	 */
+	static function column_fork()
+	{
+
+return array (
+  0 => 
+  array (
+    0 => 'varbinary',
+    1 => '4095',
+    2 => '',
+    3 => false,
+  ),
+  1 => true,
+  2 => '',
+  3 => NULL,
+);			
+	}
+
+	/**
 	 * Method is called before setting the field and normalize the DateTime string
 	 * @method beforeSet_closedTime
 	 * @param {string} $value
@@ -1585,7 +1724,7 @@ return array (
 	 */
 	static function fieldNames($table_alias = null, $field_alias_prefix = null)
 	{
-		$field_names = array('publisherId', 'name', 'insertedTime', 'updatedTime', 'type', 'title', 'icon', 'content', 'attributes', 'readLevel', 'writeLevel', 'adminLevel', 'permissions', 'inheritAccess', 'messageCount', 'invitedCount', 'arrivedCount', 'participatingCount', 'leftCount', 'arrivedRatio', 'joinedRatio', 'closedTime');
+		$field_names = array('publisherId', 'name', 'insertedTime', 'updatedTime', 'type', 'title', 'icon', 'content', 'attributes', 'readLevel', 'writeLevel', 'adminLevel', 'permissions', 'inheritAccess', 'messageCount', 'invitedCount', 'arrivedCount', 'participatingCount', 'leftCount', 'arrivedRatio', 'joinedRatio', 'fork', 'closedTime');
 		$result = $field_names;
 		if (!empty($table_alias)) {
 			$temp = array();

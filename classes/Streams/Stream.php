@@ -2679,12 +2679,12 @@ class Streams_Stream extends Base_Streams_Stream
 	}
 	
 	/**
-	 * Fetch messages of the stream.
+	 * Fetch messages of the stream, transparently following the fork chain.
 	 * @method getMessages
 	 * @param {array} [$options=array()] An array of options determining how messages will be fetched, which can include:
 	 * @param {integer} [options.min] Minimum ordinal of the message to select from (inclusive). Defaults to minimum ordinal of existing messages (if any).
 	 * @param {integer} [options.max] Maximum ordinal of the message to select to (inclusive). Defaults to maximum ordinal of existing messages (if any).
-	 *   Can also be negative, then the value will be substracted from maximum number of existing messages and +1 will be added
+	 *   Can also be negative, then the value will be subtracted from maximum number of existing messages and +1 will be added
 	 *   to guarantee that $max = -1 means highest message ordinal.
 	 * @param {integer} [options.limit=100] Maximum number of messages to select and return.
 	 *   If min + limit < (max || messageCount) then the whole range of messages won't be returned.
@@ -2700,65 +2700,138 @@ class Streams_Stream extends Base_Streams_Stream
 	 */
 	function getMessages($options)
 	{
-		// preparing default query
-		$criteria = array(
-			'publisherId' => $this->publisherId,
-			'streamName' => $this->name
-		);
-		if (!empty($options['type'])) {
-			$criteria['type'] = $options['type'];
-		}
-		$q = Streams_Message::select()->where($criteria);
-		
-		// getting $min and $max
-		$result = Streams_Message::select("MIN(ordinal) min, MAX(ordinal) max")
-				->where($criteria)
-				->fetchAll(PDO::FETCH_ASSOC);
-		if (!$result[0]) return array();
-		$min = (integer) $result[0]['min'];
-		$max = (integer) $result[0]['max'];
-		
-		// default sorting is 'ORDER BY `ordinal` ASC', but it can be changed depending on options
+		$type      = Q::ifset($options, 'type', null);
 		$ascending = true;
+
+		// Get the effective min/max ordinals across the full fork chain.
+		// For a non-forked stream this is a plain select; for a forked stream
+		// Streams_Message::fetch() handles the chain transparently.
+		// We need the actual min/max to resolve negative max values and defaults,
+		// so we query the aggregate across all chain segments first.
+		$segments = Streams_Message::forkChain($this->publisherId, $this->name);
+
+		if (empty($segments)) {
+			return array();
+		}
+
+		// Build aggregate MIN/MAX query across all chain segments
+		$qAgg     = Streams_Message::select('*');
+		$first    = true;
+		foreach ($segments as $seg) {
+			$where = array(
+				'publisherId' => $seg['publisherId'],
+				'streamName'  => $seg['streamName']
+			);
+			$hasMin = $seg['ordinalMin'] > 0;
+			$hasMax = $seg['ordinalMax'] !== null;
+			if ($hasMin || $hasMax) {
+				$where['ordinal'] = new Db_Range(
+					$hasMin ? $seg['ordinalMin'] : null,
+					true,
+					true,
+					$seg['ordinalMax']
+				);
+			}
+			if ($type) {
+				$where['type'] = $type;
+			}
+			if ($first) {
+				$qAgg->where($where);
+				$first = false;
+			} else {
+				$qAgg->orWhere($where);
+			}
+		}
+
+		// Wrap as subquery to get MIN/MAX across the OR'd segments
+		$aggSql = "SELECT MIN(ordinal) min, MAX(ordinal) max FROM ("
+			. $qAgg->getSQL()
+			. ") _agg";
+		$result = Streams_Message::db()->rawQuery($aggSql)->fetchAll(PDO::FETCH_ASSOC);
+
+		if (empty($result[0]) || $result[0]['min'] === null) {
+			return array();
+		}
+
+		$chainMin = (int)$result[0]['min'];
+		$chainMax = (int)$result[0]['max'];
+
+		// Resolve min
 		if (!isset($options['min'])) {
-			$options['min'] = $min;
-			// if 'min' is not given, assume 'reverse' fetching, so $ascending is false
+			$options['min'] = $chainMin;
+			// if min not given, assume reverse fetching
 			$ascending = false;
-		} else if ($options['min'] < $min) {
-			$options['min'] = $min;
+		} else if ($options['min'] < $chainMin) {
+			$options['min'] = $chainMin;
 		}
+
+		// Resolve max — including negative offset support
 		if (!isset($options['max'])) {
-			$options['max'] = $max;
-		} else if ($options['max'] > $max) {
-			$options['max'] = $max;
+			$options['max'] = $chainMax;
+		} else if ($options['max'] > $chainMax) {
+			$options['max'] = $chainMax;
 		} else if ($options['max'] < 0) {
-			// if 'max' is negative, subtract value from existing maximum
-			$options['max'] = $max + $options['max'] + 1;
+			// negative means offset from the top
+			$options['max'] = $chainMax + $options['max'] + 1;
 		}
+
+		if ($options['min'] > $options['max']) {
+			return array();
+		}
+
 		$limit = isset($options['limit']) ? $options['limit'] : 1000000;
 		if (empty($options['skipLimiting'])) {
 			$limit = min($limit, self::getConfigField($this->type, 'getMessagesLimit', 100));
 		}
-		
-		if ($options['min'] > $options['max']) {
-			return array();
+
+		// Delegate to Streams_Message::fetch() which handles the fork chain,
+		// passing the resolved min/max as ordinalMin/ordinalMax
+		$fetchOptions = array(
+			'ordinalMin' => $options['min'],
+			'ordinalMax' => $options['max'],
+			'limit'      => $limit,
+			'ascending'  => isset($options['ascending']) ? $options['ascending'] : $ascending
+		);
+		if ($type) {
+			$fetchOptions['type'] = $type;
 		}
-		
-		$q->where(array(
-			'ordinal >=' => $options['min'],
-			'ordinal <=' => $options['max']
-		));
-		$q->limit($limit);
-		$q->orderBy('ordinal', isset($options['ascending']) ? $options['ascending'] : $ascending);
-		$rows = $q->fetchDbRows(null, '', 'ordinal');
+
+		$rows = Streams_Message::fetch(
+			$this->publisherId,
+			$this->name,
+			$fetchOptions
+		);
+
+		// Re-index by ordinal to match original return contract
+		$indexed = array();
+		foreach ($rows as $row) {
+			$indexed[$row->ordinal] = $row;
+		}
+
 		if (empty($options['updateSeen'])) {
-			return $rows;
+			return $indexed;
 		}
-		$max = 0;
-		foreach ($rows as $ordinal => $r) {
-			$max = max($max, $ordinal);
+
+		// updateSeen: find the highest ordinal returned and update seenOrdinal
+		$maxSeen = 0;
+		foreach ($indexed as $ordinal => $r) {
+			$maxSeen = max($maxSeen, $ordinal);
 		}
-		return $rows;
+		if ($maxSeen) {
+			$user = Users::loggedInUser();
+			if ($user) {
+				Streams_Participant::update()
+					->set(array('seenOrdinal' => $maxSeen))
+					->where(array(
+						'publisherId' => $this->publisherId,
+						'streamName'  => $this->name,
+						'userId'      => $user->id
+					))
+					->execute();
+			}
+		}
+
+		return $indexed;
 	}
 
 	/**

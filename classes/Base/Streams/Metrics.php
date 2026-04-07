@@ -126,6 +126,65 @@ abstract class Base_Streams_Metrics extends Db_Row
 	}
 
 	/**
+	 * Returns index metadata for the table
+	 * @method indexes
+	 * @static
+	 * @return {array}
+	 */
+	static function indexes()
+	{
+		return array (
+  'PRIMARY' => 
+  array (
+    'unique' => true,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'publisherId',
+      1 => 'streamName',
+      2 => 'userId',
+    ),
+  ),
+  'userId' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'userId',
+    ),
+  ),
+  'stream' => 
+  array (
+    'unique' => false,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'publisherId',
+      1 => 'streamName',
+    ),
+  ),
+);
+	}
+
+	/**
+	 * Returns true if a left-prefix index exists for the given columns
+	 * @method hasIndexOn
+	 * @static
+	 * @param {array} $columns
+	 * @return {boolean}
+	 */
+	static function hasIndexOn(array $columns)
+	{
+		foreach (self::indexes() as $idx) {
+			if (array_slice($idx['columns'], 0, count($columns)) === $columns) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Create SELECT query to the class table
 	 * @method select
 	 * @static

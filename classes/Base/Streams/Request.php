@@ -52,7 +52,7 @@ abstract class Base_Streams_Request extends Db_Row
 	 * @property $readLevel
 	 * @type integer
 	 * @default 0
-	 * 0=none, 10='see', 15='teaser', 23='fields', 25='content', 30='participants', 35='messages', 40='receipts'
+	 * 0=none, 10='see', 20='content', 30='participants', 40='messages'
 	 */
 	/**
 	 * @property $writeLevel
@@ -158,6 +158,46 @@ abstract class Base_Streams_Request extends Db_Row
 	static function connectionName()
 	{
 		return 'Streams';
+	}
+
+	/**
+	 * Returns index metadata for the table
+	 * @method indexes
+	 * @static
+	 * @return {array}
+	 */
+	static function indexes()
+	{
+		return array (
+  'PRIMARY' => 
+  array (
+    'unique' => true,
+    'type' => 'BTREE',
+    'columns' => 
+    array (
+      0 => 'publisherId',
+      1 => 'streamName',
+      2 => 'userId',
+    ),
+  ),
+);
+	}
+
+	/**
+	 * Returns true if a left-prefix index exists for the given columns
+	 * @method hasIndexOn
+	 * @static
+	 * @param {array} $columns
+	 * @return {boolean}
+	 */
+	static function hasIndexOn(array $columns)
+	{
+		foreach (self::indexes() as $idx) {
+			if (array_slice($idx['columns'], 0, count($columns)) === $columns) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

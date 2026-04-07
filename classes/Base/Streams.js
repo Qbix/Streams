@@ -46,7 +46,8 @@ Base.tableClasses = [
 	"Streams_Stream",
 	"Streams_Subscription",
 	"Streams_SubscriptionRule",
-	"Streams_Task"
+	"Streams_Task",
+	"Streams_Workspace"
 ];
 
 /**
@@ -207,3 +208,10 @@ Base.SubscriptionRule = Q.require('Streams/SubscriptionRule');
  * @type Streams.Task
  */
 Base.Task = Q.require('Streams/Task');
+
+/**
+ * Link to Streams.Workspace model
+ * @property Workspace
+ * @type Streams.Workspace
+ */
+Base.Workspace = Q.require('Streams/Workspace');
