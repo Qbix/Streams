@@ -22,7 +22,8 @@ Q.Tool.define("Streams/gallery", function (options) {
 		throw new Q.Error("Streams/gallery: You are not logged in.");
 	}
 	if ((!state.publisherId || !state.streamName)
-		&& (!state.stream || Q.typeOf(state.stream) !== 'Streams.Stream')) {
+		&& (!state.stream || Q.typeOf(state.stream) !== 'Streams.Stream')
+		&& Q.isEmpty(state.streams)) {
 		throw new Q.Error("Streams/gallery: missing publisherId or streamName");
 	}
 
@@ -33,6 +34,7 @@ Q.Tool.define("Streams/gallery", function (options) {
 	publisherId: null,
 	streamName: null,
 	relationType: "Streams/images",
+	streams: [],
 	params: {
 		transition: { duration: 1000, ease: "smooth", type: "crossfade" },
 		interval:   { duration: 3000, ease: "smooth", type: "" },
@@ -49,34 +51,25 @@ Q.Tool.define("Streams/gallery", function (options) {
 	}
 }, {
 	refresh: function () {
-		var tool = this, state = tool.state, $toolElement = $(this.element);
+		var tool = this, state = tool.state;
+
+		if (!Q.isEmpty(state.streams)) {
+			return tool.createGallery(state.streams);
+		}
 
 		Streams.get(state.publisherId, state.streamName).then(function (stream) {
 			var relatedMethod = state.related.forceUpdate ? Streams.related.force : Streams.related;
 			state.related.forceUpdate = false;
 			relatedMethod(state.publisherId, state.streamName, state.relationType, true, state.related.options, function (err) {
-				if (err) return console.warn(err);
+				if (err) {
+					return console.warn(err);
+				}
 
-				var images = [];
-				var self = this;
-				Q.each(self.relatedStreams, function (_, imgStream) {
-					var overrides = imgStream.getAttribute(tool.name) || {};
-					images.push(Q.extend({}, 2, {
-						src: imgStream.iconUrl(state.images.size),
-						caption: state.images.skipCaption ? "" : imgStream.fields.title || ""
-					}, 2, overrides));
-				});
-
-				// clear element
-				$toolElement.plugin("Q/gallery", "remove");
-				$toolElement.empty();
-
-				const options = {
-					images
-				};
+				let self = this;
+				let galleryOptions = {};
 
 				if (stream.testWriteLevel("relations")) {
-					options.onInvoke = new Q.Event(function ($img) {
+					galleryOptions.onInvoke = new Q.Event(function ($img) {
 						Q.each(self.relatedStreams, function (_, imgStream) {
 							if ($img.prop("src") !== imgStream.iconUrl(state.images.size)) {
 								return;
@@ -87,12 +80,59 @@ Q.Tool.define("Streams/gallery", function (options) {
 					});
 				}
 
-				// mount Q/gallery
-				$(tool.element).plugin("Q/gallery", Q.extend({}, 2, state.params, options));
+				tool.createGallery(this.relatedStreams, galleryOptions);
 			});
 		});
 	},
+	createGallery: function (streams, options = {}) {
+		let tool = this;
+		let $toolElement = $(this.element);
+		let state = this.state;
 
+		let keys = [];
+		if (Array.isArray(streams)) {
+			keys = streams.map((_, index) => String(index));
+		} else if (typeof streams === 'object' && streams !== null) {
+			keys = Object.keys(streams);
+		} else {
+			throw new Error('streams must be array or object');
+		}
+
+		let pipe = new Q.Pipe(keys, function () {
+			// clear element
+			$toolElement.plugin("Q/gallery", "remove");
+			$toolElement.empty();
+
+			// mount Q/gallery
+			$toolElement.plugin("Q/gallery", Q.extend(options, 2, state.params));
+		});
+
+		options.images = [];
+		Q.each(streams, function _processStream (key, imgStream) {
+			if (!Q.Streams.isStream(imgStream)) {
+				const publisherId = Q.getObject("publisherId", imgStream);
+				const streamName = Q.getObject("streamName", imgStream);
+
+				publisherId && streamName && Streams.get(publisherId, streamName, function (err) {
+					if (err) {
+						return;
+					}
+
+					_processStream(key, this);
+				});
+
+				return;
+			}
+
+			let overrides = imgStream.getAttribute(tool.name) || {};
+			options.images.push(Q.extend({}, 2, {
+				src: imgStream.iconUrl(state.images.size),
+				caption: state.images.skipCaption ? "" : imgStream.fields.title || ""
+			}, 2, overrides));
+
+			pipe.fill(String(key))();
+		});
+	},
 	openImageEditor: function (imageStream) {
 		var tool = this;
 		var overrides = imageStream.getAttribute(tool.name) || {};
