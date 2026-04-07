@@ -1665,26 +1665,10 @@ abstract class Streams extends Base_Streams
 			)
 		), true);
 
-		// Copy relatedTo rows — fork inherits source's folder memberships.
-		// The Streams/fork row itself was already created by Streams::create() above.
-		$rtRows = Streams_RelatedTo::select()->where(array(
-			'fromPublisherId' => $publisherId,
-			'fromStreamName'  => $streamName
-		))->fetchDbRows();
-		foreach ($rtRows as $rt) {
-			if ($rt->type === 'Streams/fork') continue;
-			Streams::relate(
-				$asUserId,
-				$rt->toPublisherId, $rt->toStreamName,
-				$rt->type,
-				$toPublisherId, $toStreamName,
-				array('skipAccess' => true)
-			);
-		}
-
-		// relatedFrom (children) intentionally NOT copied.
-		// They fall through via workspace cascade in Streams::related()
-		// once that method is made workspace-aware in 1.3.1.
+		// relatedTo and relatedFrom both fall through via workspace cascade in
+		// Streams::related(). No eager copying needed — the overlay merge handles
+		// inheritance transparently, and relate()/unrelate() write to the workspace
+		// publisher when a workspace stack is active.
 
 		/**
 		 * @event Streams/fork {after}
@@ -2382,6 +2366,17 @@ abstract class Streams extends Base_Streams
 				'messagesFrom' => array()
 			);
 		}
+
+		// Redirect writes to the top workspace publisher when a stack is active.
+		// Must happen before getRelations() so access checks use the correct publisher.
+		if (!empty($options['workspaces']) || Q_Request::special('Streams.workspaces', null)) {
+			$workspaces = Streams_Workspace::fromRequest($options);
+			if ($workspaces) {
+				$stacked = Streams_Workspace::stackedPublisherIds($toPublisherId, $workspaces);
+				$toPublisherId = $stacked[0];
+			}
+		}
+
 		self::getRelations(
 			$asUserId,
 			$toPublisherId,
@@ -2800,6 +2795,14 @@ abstract class Streams extends Base_Streams
 			$options
 		);
 
+		$workspaces = Streams_Workspace::fromRequest($options);
+		if ($workspaces) {
+			$stacked = Streams_Workspace::stackedPublisherIds($toPublisherId, $workspaces);
+			$topPublisherId = $stacked[0];
+		} else {
+			$topPublisherId = null;
+		}
+
 		$types = is_array($type) ? $type : array($type);
 
 		if (!$relatedTo && !$relatedFrom) {
@@ -2814,7 +2817,6 @@ abstract class Streams extends Base_Streams
 			}
 		}
 
-		// Now, clean up the relation.
 		/**
 		 * @event Streams/unrelateTo/$streamType {before}
 		 * @param {string} relatedTo
@@ -2871,8 +2873,21 @@ abstract class Streams extends Base_Streams
 				$stream          = $streams[$fromStreamName];
 				$weight          = isset($rt->weight) ? $rt->weight : null;
 
-				if ($rt && $rt->remove()) {
+				// If the relation belongs to a lower layer than the top workspace,
+				// write a tombstone instead of deleting — the base relation must be preserved
+				// so other workspace views can still see it.
+				$needsTombstone = $topPublisherId && $rt->toPublisherId !== $topPublisherId;
 
+				if ($needsTombstone) {
+					Streams::relate(
+						$asUserId,
+						$topPublisherId, $rt->toStreamName,
+						'Streams/-/' . $rt->type,
+						$rt->fromPublisherId, $rt->fromStreamName,
+						array('skipAccess' => true)
+					);
+					// Don't actually delete the underlying row
+				} else if ($rt && $rt->remove()) {
 					if (isset($weight) && !empty($options['adjustWeights'])) {
 						$adjustWeights = ($options['adjustWeights'] === true)
 							? -1 // backward compatibility
@@ -2934,8 +2949,21 @@ abstract class Streams extends Base_Streams
 				$category        = $categories[$toStreamName];
 				$stream          = $streams[$fromStreamName];
 
-				if ($rf && $rf->remove()) {
+				// If the relation belongs to a lower layer than the top workspace,
+				// write a tombstone instead of deleting — the base relation must be preserved
+				// so other workspace views can still see it.
+				$needsTombstone = $topPublisherId && $rf->toPublisherId !== $topPublisherId;
 
+				if ($needsTombstone) {
+					Streams::relate(
+						$asUserId,
+						$topPublisherId, $rf->toStreamName,
+						'Streams/-/' . $rf->type,
+						$rf->fromPublisherId, $rf->fromStreamName,
+						array('skipAccess' => true)
+					);
+					// Don't actually delete the underlying row
+				} else if ($rf && $rf->remove()) {
 					self::recordRelationTransition($stream, $category, $type, 'remove');
 
 					Streams_RelatedFromTotal::update()
@@ -3217,7 +3245,7 @@ abstract class Streams extends Base_Streams
 			}
 		} else {
 			$query = $query->where(array(
-				$prefix . 'fromPublisherId' => $workspacePublisherIds,
+				$prefix . 'fromPublisherId' => $publisherId,
 				$prefix . 'fromStreamName'  => $streamName
 			));
 			if (!empty($options['criteria'])) {
@@ -3300,18 +3328,18 @@ abstract class Streams extends Base_Streams
 		// Workspace overlay: for each (otherStreamName, baseType) tuple, keep only the
 		// highest-priority relation (lowest index in $workspacePublisherIds).
 		// Tombstone rows (type prefixed with "Streams/-/") suppress the relation entirely.
+		// replace the entire overlay merge block with:
 		if (count($workspacePublisherIds) > 1) {
 			$priorityMap = array_flip($workspacePublisherIds);
-			$anchorCol = $isCategory ? 'toPublisherId' : 'fromPublisherId';
 			$seen = array();
 			$filtered = array();
-			$self = $relations; // copy for usort
-			usort($self, function($a, $b) use ($priorityMap, $anchorCol) {
-				$pa = isset($priorityMap[$a->$anchorCol])
-					? $priorityMap[$a->$anchorCol]
+			$self = $relations;
+			usort($self, function($a, $b) use ($priorityMap) {
+				$pa = isset($priorityMap[$a->toPublisherId])
+					? $priorityMap[$a->toPublisherId]
 					: PHP_INT_MAX;
-				$pb = isset($priorityMap[$b->$anchorCol])
-					? $priorityMap[$b->$anchorCol]
+				$pb = isset($priorityMap[$b->toPublisherId])
+					? $priorityMap[$b->toPublisherId]
 					: PHP_INT_MAX;
 				return $pa - $pb;
 			});
@@ -3323,13 +3351,16 @@ abstract class Streams extends Base_Streams
 					: $r->type;
 				$key = $otherName . "\t" . $baseType;
 				if (isset($seen[$key])) {
-					continue; // lower-priority row, skip
+					continue; // already resolved at a higher priority level
 				}
 				$seen[$key] = true;
 				if (!$isTombstone) {
 					$filtered[] = $r;
 				}
-				// tombstone: mark seen but don't add — suppresses lower-priority rows
+				// tombstone at this level: mark seen, suppress everything below
+				// a relation at a higher level would have already set $seen[$key]
+				// and added itself to $filtered before we get to a lower tombstone,
+				// so higher-level relations correctly override lower-level tombstones
 			}
 			$relations = $filtered;
 		}
