@@ -85,52 +85,53 @@ Q.Tool.define("Streams/gallery", function (options) {
 		});
 	},
 	createGallery: function (streams, options = {}) {
-		let tool = this;
-		let $toolElement = $(this.element);
-		let state = this.state;
+		const tool = this;
+		const $toolElement = $(this.element);
+		const state = this.state;
 
-		let keys = [];
-		if (Array.isArray(streams)) {
-			keys = streams.map((_, index) => String(index));
-		} else if (typeof streams === 'object' && streams !== null) {
-			keys = Object.keys(streams);
-		} else {
-			throw new Error('streams must be array or object');
+		if (Q.isEmpty(streams)) {
+			return;
 		}
 
-		let pipe = new Q.Pipe(keys, function () {
-			// clear element
-			$toolElement.plugin("Q/gallery", "remove");
-			$toolElement.empty();
+		const entries = Array.isArray(streams) ? streams : Object.values(streams);
+		if (!entries) {
+			return console.warn('streams must be array or object');
+		}
 
-			// mount Q/gallery
-			$toolElement.plugin("Q/gallery", Q.extend(options, 2, state.params));
-		});
-
-		options.images = [];
-		Q.each(streams, function _processStream (key, imgStream) {
-			if (!Q.Streams.isStream(imgStream)) {
-				const publisherId = Q.getObject("publisherId", imgStream);
-				const streamName = Q.getObject("streamName", imgStream);
-
-				publisherId && streamName && Streams.get(publisherId, streamName, function (err) {
-					if (err) {
-						return;
-					}
-
-					_processStream(key, this);
-				});
-
-				return;
+		const resolveStream = (imgStream) => new Promise((resolve) => {
+			if (Q.Streams.isStream(imgStream)) {
+				return resolve(imgStream);
 			}
 
-			let overrides = imgStream.getAttribute(tool.name) || {};
-			options.images.push(Q.extend({}, 2, {
-				src: imgStream.iconUrl(state.images.size),
-				caption: state.images.skipCaption ? "" : imgStream.fields.title || ""
-			}, 2, overrides));
+			const publisherId = Q.getObject("publisherId", imgStream);
+			const streamName = Q.getObject("streamName", imgStream);
 
-			pipe.fill(String(key))();
+			if (!(publisherId && streamName)) {
+				return resolve(null);
+			}
+
+			Streams.get(publisherId, streamName, function (err) {
+				if (err) {
+					return resolve(null);
+				}
+				resolve(this);
+			});
+		});
+
+		return Promise.all(entries.map(resolveStream)).then(resolvedStreams => {
+			options.images = resolvedStreams
+				.filter(Boolean)
+				.map(stream => {
+					const overrides = stream.getAttribute(tool.name) || {};
+					return Q.extend({}, 2, {
+						src: stream.iconUrl(state.images.size),
+						caption: state.images.skipCaption ? "" : stream.fields.title || ""
+					}, 2, overrides);
+				});
+
+			$toolElement.plugin("Q/gallery", "remove");
+			$toolElement.empty();
+			$toolElement.plugin("Q/gallery", Q.extend(options, 2, state.params));
 		});
 	},
 	openImageEditor: function (imageStream) {
