@@ -18,9 +18,6 @@ Q.Tool.define("Streams/gallery", function (options) {
 	var tool = this;
 	var state = tool.state;
 
-	if (!Users.loggedInUser) {
-		throw new Q.Error("Streams/gallery: You are not logged in.");
-	}
 	if ((!state.publisherId || !state.streamName)
 		&& (!state.stream || Q.typeOf(state.stream) !== 'Streams.Stream')
 		&& Q.isEmpty(state.streams)) {
