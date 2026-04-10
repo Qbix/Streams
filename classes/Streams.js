@@ -1691,8 +1691,25 @@ Streams.relationCriteria = function (
 	return query;
 };
 
+/**
+ * @static
+ * @method batchFunction
+ * @param {String} baseUrl
+ * @param {String} action
+ * @return {Function}
+ */
+Streams.batchFunction = function Streams_batchFunction(baseUrl, action) {
+	action = action || 'batch';
+	return Q.batcher.factory(Streams.batchFunction.functions, baseUrl,
+		"/action.php/Streams/"+action, "batch", "batch",
+		_Streams_batchFunction_options[action]
+	);
+};
+Streams.batchFunction.functions = {};
+
 Streams.Mentions = require('Streams/Mentions');
 Streams.Ephemeral = require('Streams/Ephemeral');
+Streams.Actions = require('Streams/Actions');
 
 /**
  * @property _messageHandlers
