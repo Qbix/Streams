@@ -360,6 +360,10 @@
 			"displayType": "T\u00e9ma",
 			"description": "t\u00e9mafolyam",
 			"newItem": "T\u00e9ma hozz\u00e1ad\u00e1sa elemre"
+		},
+		"Streams/outgoing": {
+			"displayType": "Kimen\u0151",
+			"description": "m\u00e1s felhaszn\u00e1l\u00f3knak vagy k\u00fcls\u0151 rendszereknek k\u00fcld\u00f6tt \u00fczenetek r\u00f6gz\u00edt\u00e9s\u00e9nek c\u00e9lhelye"
 		}
 	},
 	"menu": {

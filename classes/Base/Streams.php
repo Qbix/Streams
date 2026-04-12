@@ -40,6 +40,7 @@ abstract class Base_Streams
   17 => 'Streams_Subscription',
   18 => 'Streams_SubscriptionRule',
   19 => 'Streams_Task',
+  20 => 'Streams_Workspace',
 );
 
 	/**

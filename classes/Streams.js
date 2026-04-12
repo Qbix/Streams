@@ -176,6 +176,13 @@ Streams.READ_LEVEL = {
  * @final
  */
 /**
+ * Can fork the stream, to make progress on a fork
+ * @property $WRITE_LEVEL.fork
+ * @type integer
+ * @default 19
+ * @final
+ */
+/**
  * Can post durable messages which appear immediately
  * @property WRITE_LEVEL.messages
  * @type integer
@@ -232,6 +239,7 @@ Streams.WRITE_LEVEL = {
 	'suggest':	    15,		// can suggest actions, but manage must approve
 	'ephemeral':    16, 	// can send ephemeral payloads to the stream to be broadcast
 	'contribute':   18,		// can contribute to the stream (e.g. "join the stage")
+	'fork':         19,		// can contribute to the stream (e.g. "join the stage")
 	'post':			20,		// can post durable messages which take effect immediately
 	'relate':       23,		// can relate other streams to this one
 	'relations':    25,		// can update weights and relations directly
@@ -1093,8 +1101,24 @@ Streams.fetch = function (asUserId, publisherId, streamName, callback, fields, o
 		fields = '*';
 	}
 	fields = fields || '*';
+	options = options || {};
+
+	// Workspace cascade: expand publisherId to workspace stack
+	var workspaces = options.workspaces || [];
+	if (typeof workspaces === 'string') {
+		workspaces = workspaces.split(',');
+	}
+	var publisherIds = [publisherId];
+	if (workspaces.length) {
+		publisherIds = [];
+		for (var i = 0; i < workspaces.length; i++) {
+			publisherIds.push(publisherId + '~' + workspaces[i]);
+		}
+		publisherIds.push(publisherId);
+	}
+
 	Streams.Stream.SELECT(fields)
-	.where({publisherId: publisherId, name: streamName})
+	.where({publisherId: publisherIds, name: streamName})
 	.options(options)
 	.execute(function(err, res) {
 		if (err) {
@@ -1103,15 +1127,40 @@ Streams.fetch = function (asUserId, publisherId, streamName, callback, fields, o
 		if (!res.length) {
 		    return callback(null, []);
 		}
+
+		// Priority-select: for each name keep highest-priority publisherId
+		if (publisherIds.length > 1) {
+			var priorityMap = {};
+			for (var i = 0; i < publisherIds.length; i++) {
+				priorityMap[publisherIds[i]] = i;
+			}
+			var best = {};
+			for (var i = 0; i < res.length; i++) {
+				var row = res[i];
+				var name = row.fields.name;
+				var pri = priorityMap.hasOwnProperty(row.fields.publisherId)
+					? priorityMap[row.fields.publisherId]
+					: Number.MAX_VALUE;
+				if (!best.hasOwnProperty(name)
+				|| pri < priorityMap[best[name].fields.publisherId]) {
+					best[name] = row;
+				}
+			}
+			res = [];
+			for (var name in best) {
+				res.push(best[name]);
+			}
+		}
+
 		var p = new Q.Pipe(res.map(function(a) { return a.fields.name; }),
 		function(params, subjects) {
 			for (var name in params) {
 				if (params[name][0]) {
-					callback(params[name][0]); // there was an error
+					callback(params[name][0]);
 					return;
 				}
 			}
-			callback(null, subjects); // success
+			callback(null, subjects);
 		});
 		for (var i=0; i<res.length; i++) {
 			res[i].calculateAccess(asUserId, p.fill(res[i].fields.name));
@@ -1316,6 +1365,20 @@ Streams.related = function (
 	options = options || {};
 	if (isCategory === undefined) isCategory = true;
 
+	// Workspace cascade
+	var workspaces = options.workspaces || [];
+	if (typeof workspaces === 'string') {
+		workspaces = workspaces.split(',');
+	}
+	var workspacePublisherIds = [publisherId];
+	if (workspaces.length) {
+		workspacePublisherIds = [];
+		for (var i = 0; i < workspaces.length; i++) {
+			workspacePublisherIds.push(publisherId + '~' + workspaces[i]);
+		}
+		workspacePublisherIds.push(publisherId);
+	}
+
 	var db = Base.db();
 	var table = isCategory
 		? Base.RelatedTo.table()
@@ -1325,10 +1388,12 @@ Streams.related = function (
 
 	if (isCategory) {
 		query.where({
-			toPublisherId: publisherId,
+			toPublisherId: workspacePublisherIds,
 			toStreamName: streamName
 		});
 	} else {
+		// For isCategory=false, don't expand fromPublisherId —
+		// workspace overlay rows are anchored on toPublisherId (category side)
 		query.where({
 			fromPublisherId: publisherId,
 			fromStreamName: streamName
@@ -1356,6 +1421,44 @@ Streams.related = function (
 				return;
 			}
 
+			// Workspace overlay merge — same logic as PHP Streams::related()
+			if (workspacePublisherIds.length > 1) {
+				var priorityMap = {};
+				for (var i = 0; i < workspacePublisherIds.length; i++) {
+					priorityMap[workspacePublisherIds[i]] = i;
+				}
+				rows = rows.slice().sort(function (a, b) {
+					var pa = priorityMap.hasOwnProperty(a.fields.toPublisherId)
+						? priorityMap[a.fields.toPublisherId]
+						: Number.MAX_VALUE;
+					var pb = priorityMap.hasOwnProperty(b.fields.toPublisherId)
+						? priorityMap[b.fields.toPublisherId]
+						: Number.MAX_VALUE;
+					return pa - pb;
+				});
+				var seen = {};
+				var filtered = [];
+				for (var i = 0; i < rows.length; i++) {
+					var r = rows[i];
+					var otherName = isCategory
+						? r.fields.fromStreamName
+						: r.fields.toStreamName;
+					var isTombstone = r.fields.type.indexOf('Streams/-/') === 0;
+					var baseType = isTombstone
+						? r.fields.type.slice('Streams/-/'.length)
+						: r.fields.type;
+					var key = otherName + '\t' + baseType;
+					if (seen.hasOwnProperty(key)) {
+						continue;
+					}
+					seen[key] = true;
+					if (!isTombstone) {
+						filtered.push(r);
+					}
+				}
+				rows = filtered;
+			}
+
 			if (options.relationsOnly) {
 				resolve(rows);
 				return;
@@ -1366,8 +1469,7 @@ Streams.related = function (
 				: 'toStreamName';
 
 			var names = [];
-
-			for (var i=0; i<rows.length; ++i) {
+			for (var i = 0; i < rows.length; i++) {
 				names.push(rows[i].fields[nameField]);
 			}
 
@@ -1379,7 +1481,9 @@ Streams.related = function (
 			Base.Stream.fetch(
 				asUserId,
 				publisherId,
-				names
+				names,
+				null,
+				{ workspaces: workspaces }
 			).then(function (streams) {
 
 				if (options.streamsOnly) {
@@ -1587,8 +1691,25 @@ Streams.relationCriteria = function (
 	return query;
 };
 
+/**
+ * @static
+ * @method batchFunction
+ * @param {String} baseUrl
+ * @param {String} action
+ * @return {Function}
+ */
+Streams.batchFunction = function Streams_batchFunction(baseUrl, action) {
+	action = action || 'batch';
+	return Q.batcher.factory(Streams.batchFunction.functions, baseUrl,
+		"/action.php/Streams/"+action, "batch", "batch",
+		_Streams_batchFunction_options[action]
+	);
+};
+Streams.batchFunction.functions = {};
+
 Streams.Mentions = require('Streams/Mentions');
 Streams.Ephemeral = require('Streams/Ephemeral');
+Streams.Actions = require('Streams/Actions');
 
 /**
  * @property _messageHandlers

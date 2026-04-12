@@ -360,6 +360,10 @@
 			"displayType": "Gaia",
 			"description": "gaiaren korrontea",
 			"newItem": "Gehitu gaia"
+		},
+		"Streams/outgoing": {
+			"displayType": "Irteerakoa",
+			"description": "beste erabiltzaileei edo kanpoko sistemetara bidalitako mezuak grabatzeko helmuga"
 		}
 	},
 	"menu": {

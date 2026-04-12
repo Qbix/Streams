@@ -1,5 +1,20 @@
 <?php
 
+/**
+ * @module Streams
+ */
+
+/**
+ * Used to remove a relation between streams
+ * @class HTTP Streams related
+ * @method delete
+ * @param {array} [$_REQUEST] Parameters that can come from the request
+ *   @param {string} $_REQUEST.toPublisherId The publisher of the 'to' stream
+ *   @param {string} $_REQUEST.toStreamName The name of the 'to' stream
+ *   @param {string} $_REQUEST.type The type of the relation to remove
+ *   @param {string} $_REQUEST.fromPublisherId The publisher of the 'from' stream
+ *   @param {string} $_REQUEST.fromStreamName The name of the 'from' stream
+ */
 function Streams_related_delete($params) {
 	$user = Users::loggedInUser(true);
 	$asUserId = $user->id;

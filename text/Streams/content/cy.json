@@ -360,6 +360,10 @@
 			"displayType": "Testun",
 			"description": "ffrwd pwnc",
 			"newItem": "Ychwanegu Pwnc"
+		},
+		"Streams/outgoing": {
+			"displayType": "Allanol",
+			"description": "cyrchfan ar gyfer recordio negeseuon a anfonir at ddefnyddwyr eraill neu systemau allanol"
 		}
 	},
 	"menu": {

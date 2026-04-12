@@ -360,6 +360,10 @@
 			"displayType": "T\u0113ma",
 			"description": "t\u0113mu straume",
 			"newItem": "Pievienot t\u0113mu"
+		},
+		"Streams/outgoing": {
+			"displayType": "Izejo\u0161ais",
+			"description": "galam\u0113r\u0137is citiem lietot\u0101jiem vai \u0101r\u0113j\u0101m sist\u0113m\u0101m nos\u016bt\u012bto zi\u0146ojumu ierakst\u012b\u0161anai"
 		}
 	},
 	"menu": {

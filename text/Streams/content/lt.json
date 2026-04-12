@@ -360,6 +360,10 @@
 			"displayType": "Tema",
 			"description": "temos srautas",
 			"newItem": "Prid\u0117ti tem\u0105"
+		},
+		"Streams/outgoing": {
+			"displayType": "I\u0161einantis",
+			"description": "paskirties vieta, skirta \u012fra\u0161yti prane\u0161imus, siun\u010diamus kitiems vartotojams arba i\u0161orin\u0117ms sistemoms"
 		}
 	},
 	"menu": {

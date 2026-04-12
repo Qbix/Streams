@@ -227,15 +227,15 @@ Streams.READ_LEVEL = {
  * @final
  */
 /**
- * Can send ephemeral payloads to the stream to be broadcast
- * @property WRITE_LEVEL.ephemeral
+ * Can fork the stream, to make progress on a fork
+ * @property $WRITE_LEVEL.fork
  * @type integer
  * @default 19
  * @final
  */
 /**
  * Can post durable messages which appear immediately
- * @property WRITE_LEVEL.messages
+ * @property WRITE_LEVEL.post
  * @type integer
  * @default 20
  * @final

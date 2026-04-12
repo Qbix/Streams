@@ -36,7 +36,82 @@ class Streams_Message extends Base_Streams_Message
 			: '';
 		return $result;
 	}
-	
+
+	/**
+	 * Fetch messages for a stream, transparently following the fork chain.
+	 * Returns a continuous ordered sequence by ordinal across all ancestors.
+	 * @method fetch
+	 * @static
+	 * @param {string} $publisherId
+	 * @param {string} $streamName
+	 * @param {array} [$options=array()]
+	 * @param {integer} [$options.ordinalMin] Minimum ordinal inclusive
+	 * @param {integer} [$options.ordinalMax] Maximum ordinal inclusive
+	 * @param {integer} [$options.limit]
+	 * @param {boolean} [$options.ascending=true]
+	 * @param {integer} [$options.maxDepth=50] Safety limit on fork chain depth
+	 * @return {array} Streams_Message objects ordered by ordinal
+	 */
+	static function fetch(
+		$publisherId,
+		$streamName,
+		$options = array())
+	{
+		$limit     = Q::ifset($options, 'limit', null);
+		$ascending = Q::ifset($options, 'ascending', true);
+
+		$segments = self::forkChain($publisherId, $streamName, $options);
+
+		if (empty($segments)) {
+			return array();
+		}
+
+		// NOTE: orWhere() is used here to build a single ORM query spanning
+		// all fork chain segments, each with its own (publisherId, streamName, ordinal)
+		// constraints. This is preferable to raw UNION ALL because the ORM handles
+		// quoting, parameter binding, and query logging correctly.
+		//
+		// SHARDING CAVEAT: orWhere() only passes the first where() criteria to the
+		// shard router. If Streams_Message is ever sharded by publisherId, shard
+		// routing will only see the tip segment's publisherId, potentially missing
+		// ancestor segments on other shards. If that becomes a concern, replace this
+		// with per-segment fetches merged and sorted in PHP.
+		$q     = Streams_Message::select('*');
+		$first = true;
+
+		foreach ($segments as $seg) {
+			$where = array(
+				'publisherId' => $seg['publisherId'],
+				'streamName'  => $seg['streamName']
+			);
+			if (!empty($options['type'])) {
+				$where['type'] = $options['type'];
+			}
+			$hasMin = $seg['ordinalMin'] > 0;
+			$hasMax = $seg['ordinalMax'] !== null;
+			if ($hasMin || $hasMax) {
+				$where['ordinal'] = new Db_Range(
+					$hasMin ? $seg['ordinalMin'] : null,
+					true,
+					true,
+					$seg['ordinalMax']
+				);
+			}
+			if ($first) {
+				$q->where($where);
+				$first = false;
+			} else {
+				$q->orWhere($where);
+			}
+		}
+
+		$q->orderBy('ordinal', $ascending);
+		if ($limit) {
+			$q->limit($limit);
+		}
+		return $q->fetchDbRows();
+	}
+
 	/**
 	 * Post a message to stream
  	 * @method post
@@ -424,6 +499,142 @@ class Streams_Message extends Base_Streams_Message
 		$instr = $this->getAllInstructions();
 		unset($instr[$instructionName]);
 		$this->instructions = Q::json_encode($instr, Q::JSON_FORCE_OBJECT);
+	}
+
+	/**
+	 * Walk the fork chain for a stream, returning ordered segment descriptors
+	 * for use in message fetch queries. Single DB query — all chain metadata
+	 * lives in the tip stream's fork field as a compact positional array.
+	 * Segments are returned root-first (oldest ancestor first, tip last).
+	 * @method forkChain
+	 * @static
+	 * @param {string} $publisherId The tip stream's publisher
+	 * @param {string} $streamName The tip stream's name
+	 * @param {array} [$options=array()]
+	 * @param {integer} [$options.ordinalMin] If set, trim segments below this ordinal
+	 *   and clamp the floor of the first remaining segment.
+	 * @param {integer} [$options.ordinalMax] If set, trim segments above this ordinal
+	 *   and clamp the ceiling of the last remaining segment.
+	 * @param {integer} [$options.maxDepth=50] Safety limit on chain length.
+	 * @return {array} Array of segment descriptors, each:
+	 *   array('publisherId', 'streamName', 'ordinalMin', 'ordinalMax', 'closedTime')
+	 *   ordinalMax null means no upper bound (tip segment).
+	 */
+	static function forkChain($publisherId, $streamName, $options = array())
+	{
+		$reqMin   = Q::ifset($options, 'ordinalMin', null);
+		$reqMax   = Q::ifset($options, 'ordinalMax', null);
+		$maxDepth = Q::ifset($options, 'maxDepth', 50);
+
+		// Single query — all chain metadata lives in the tip stream's fork field
+		$row = Streams_Stream::select('publisherId, name, fork, closedTime')
+			->where(array(
+				'publisherId' => $publisherId,
+				'name'        => $streamName
+			))
+			->limit(1)
+			->fetchDbRow();
+
+		if (!$row) return array();
+
+		if (!$row->fork) {
+			// Not a forked stream — single segment
+			$segments = array(array(
+				'publisherId' => $publisherId,
+				'streamName'  => $streamName,
+				'ordinalMin'  => 0,
+				'ordinalMax'  => null,
+				'closedTime'  => $row->closedTime
+			));
+		} else {
+			$forkData = Q::json_decode($row->fork, true);
+
+			if (empty($forkData['chain'])) {
+				// Malformed fork field — fall back to single segment at fork ordinal
+				$segments = array(array(
+					'publisherId' => $publisherId,
+					'streamName'  => $streamName,
+					'ordinalMin'  => isset($forkData['ordinal']) ? (int)$forkData['ordinal'] : 0,
+					'ordinalMax'  => null,
+					'closedTime'  => $row->closedTime
+				));
+			} else {
+				$chain    = array_slice($forkData['chain'], 0, $maxDepth);
+				$count    = count($chain);
+				$segments = array();
+
+				foreach ($chain as $i => $entry) {
+					// entry: [publisherId|null, ordinalMin, ordinalMax|null]
+					// null publisherId = this stream's own publisherId (tip entry)
+					$entryPublisherId = ($entry[0] === null) ? $publisherId : $entry[0];
+					$segments[] = array(
+						'publisherId' => $entryPublisherId,
+						'streamName'  => $streamName, // always the same across chain
+						'ordinalMin'  => (int)$entry[1],
+						'ordinalMax'  => (isset($entry[2]) && $entry[2] !== null)
+							? (int)$entry[2]
+							: null,
+						'closedTime'  => ($i === $count - 1) ? $row->closedTime : null
+					);
+				}
+			}
+		}
+
+		// Apply reqMin / reqMax filters, trimming impossible segments
+		if ($reqMin !== null || $reqMax !== null) {
+			$filtered = array();
+			foreach ($segments as $seg) {
+				$rMin = ($reqMin !== null)
+					? max($seg['ordinalMin'], $reqMin)
+					: $seg['ordinalMin'];
+				$rMax = null;
+				if ($seg['ordinalMax'] !== null && $reqMax !== null) {
+					$rMax = min($seg['ordinalMax'], $reqMax);
+				} elseif ($seg['ordinalMax'] !== null) {
+					$rMax = $seg['ordinalMax'];
+				} elseif ($reqMax !== null) {
+					$rMax = $reqMax;
+				}
+				// Skip segments where the effective range is impossible
+				if ($rMax !== null && $rMin > $rMax) continue;
+				$filtered[] = array(
+					'publisherId' => $seg['publisherId'],
+					'streamName'  => $seg['streamName'],
+					'ordinalMin'  => $rMin,
+					'ordinalMax'  => $rMax,
+					'closedTime'  => $seg['closedTime']
+				);
+			}
+			$segments = $filtered;
+		}
+
+		return $segments;
+	}
+
+	/**
+	 * Compute the effective ordinal range for a fork segment,
+	 * intersected with caller-requested min/max.
+	 * Returns null if no range constraint, false if range is impossible,
+	 * or array($rMin, $rMax) for a bounded range.
+	 * @method _ordinalRange
+	 * @private
+	 */
+	private static function _ordinalRange($segMin, $segMax, $reqMin, $reqMax)
+	{
+		$rMin = ($reqMin !== null) ? max($segMin, $reqMin) : $segMin;
+		$rMax = null;
+		if ($segMax !== null && $reqMax !== null) {
+			$rMax = min($segMax, $reqMax);
+		} elseif ($segMax !== null) {
+			$rMax = $segMax;
+		} elseif ($reqMax !== null) {
+			$rMax = $reqMax;
+		}
+
+		if ($rMax !== null && $rMin > $rMax) {
+			return false; // impossible, skip segment
+		}
+		return array($rMin, $rMax); // always return the pair
 	}
 	
 	/* * * */

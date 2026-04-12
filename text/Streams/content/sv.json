@@ -360,6 +360,10 @@
 			"displayType": "\u00c4mne",
 			"description": "\u00e4mnesstr\u00f6m",
 			"newItem": "L\u00e4gg till \u00e4mne"
+		},
+		"Streams/outgoing": {
+			"displayType": "Utg\u00e5ende",
+			"description": "destination f\u00f6r inspelning av meddelanden som skickas till andra anv\u00e4ndare eller externa system"
 		}
 	},
 	"menu": {

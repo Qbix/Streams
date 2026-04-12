@@ -360,6 +360,10 @@
 			"displayType": "Teema",
 			"description": "teemavoog",
 			"newItem": "Lisa teema"
+		},
+		"Streams/outgoing": {
+			"displayType": "V\u00e4ljaminev",
+			"description": "teistele kasutajatele v\u00f5i v\u00e4listele s\u00fcsteemidele saadetud s\u00f5numite salvestamise sihtkoht"
 		}
 	},
 	"menu": {

@@ -360,6 +360,10 @@
 			"displayType": "T\u00f3pico",
 			"description": "fluxo de t\u00f3picos",
 			"newItem": "Adicionar T\u00f3pico"
+		},
+		"Streams/outgoing": {
+			"displayType": "Extrovertido",
+			"description": "Destino para grava\u00e7\u00e3o de mensagens enviadas a outros usu\u00e1rios ou sistemas externos."
 		}
 	},
 	"menu": {

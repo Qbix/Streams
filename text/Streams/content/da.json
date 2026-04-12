@@ -360,6 +360,10 @@
 			"displayType": "Emne",
 			"description": "emnestr\u00f8m",
 			"newItem": "Tilf\u00f8j emne"
+		},
+		"Streams/outgoing": {
+			"displayType": "Udg\u00e5ende",
+			"description": "destination til optagelse af beskeder sendt til andre brugere eller eksterne systemer"
 		}
 	},
 	"menu": {

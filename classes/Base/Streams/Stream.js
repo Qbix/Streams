@@ -42,6 +42,7 @@ var Row = Q.require('Db/Row');
  * @param {Integer} [fields.leftCount] defaults to 0
  * @param {Number} [fields.arrivedRatio] defaults to 0
  * @param {Number} [fields.joinedRatio] defaults to 0
+ * @param {String|Buffer} [fields.fork] defaults to null
  * @param {String|Db.Expression} [fields.closedTime] defaults to null
  */
 function Base (fields) {
@@ -108,19 +109,19 @@ Q.mixin(Base, Row);
  * @property readLevel
  * @type Integer
  * @default 40
- * 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 40='messages'
+ * 0=none, 10='see', 15='teaser', 20='relations', 23='content', 25='fields', 30='participants', 35='messages', 40='receipts'
  */
 /**
  * @property writeLevel
  * @type Integer
  * @default 10
- * 0=self, 10=join, 13=vote, 15=suggest, 18=contribute, 20=post, 23=relate, 30=edit, 40=close
+ * 0=none, 10=join, 13=vote, 15=suggest, 18=contribute, 19=fork, 20=post, 23=relate, 30=edit, 40=close
  */
 /**
  * @property adminLevel
  * @type Integer
  * @default 20
- * 10='publish', 20='invite', 30='manage', 40='own'
+ * 0=none, 10='publish', 20='invite', 30='manage', 40='own'
  */
 /**
  * @property permissions
@@ -175,6 +176,12 @@ Q.mixin(Base, Row);
  * @type Number
  * @default 0
  * 
+ */
+/**
+ * @property fork
+ * @type String|Buffer
+ * @default null
+ * JSON: {publisherId, streamName, ordinal, time} — immutable fork origin
  */
 /**
  * @property closedTime
@@ -412,6 +419,7 @@ Base.fieldNames = function () {
 		"leftCount",
 		"arrivedRatio",
 		"joinedRatio",
+		"fork",
 		"closedTime"
 	];
 };
@@ -1131,6 +1139,42 @@ Base.prototype.beforeSet_joinedRatio = function (value) {
 Base.column_joinedRatio = function () {
 
 return [["decimal","10,4","",false],true,"MUL",null];
+};
+
+/**
+ * Method is called before setting the field and verifies if value is string of length within acceptable limit.
+ * Optionally accept numeric value which is converted to string
+ * @method beforeSet_fork
+ * @param {string} value
+ * @return {string} The value
+ * @throws {Error} An exception is thrown if 'value' is not string or is exceedingly long
+ */
+Base.prototype.beforeSet_fork = function (value) {
+		if (value == undefined) return value;
+		if (value instanceof Db.Expression) return value;
+		if (typeof value !== "string" && typeof value !== "number" && !(value instanceof Buffer))
+			throw new Error('Must pass a String or Buffer to '+this.table()+".fork");
+		if (typeof value === "string" && value.length > 4095)
+			throw new Error('Exceedingly long value being assigned to '+this.table()+".fork");
+		return value;
+};
+
+	/**
+	 * Returns the maximum string length that can be assigned to the fork field
+	 * @return {integer}
+	 */
+Base.prototype.maxSize_fork = function () {
+
+		return 4095;
+};
+
+	/**
+	 * Returns schema information for fork column
+	 * @return {array} [[typeName, displayRange, modifiers, unsigned], isNull, key, default]
+	 */
+Base.column_fork = function () {
+
+return [["varbinary","4095","",false],true,"",null];
 };
 
 /**

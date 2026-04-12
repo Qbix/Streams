@@ -360,6 +360,10 @@
 			"displayType": "Topik",
 			"description": "aliran topik",
 			"newItem": "Tambah Topik"
+		},
+		"Streams/outgoing": {
+			"displayType": "Keluar",
+			"description": "destinasi untuk merakam mesej yang dihantar kepada pengguna lain atau sistem luaran"
 		}
 	},
 	"menu": {

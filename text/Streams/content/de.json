@@ -360,6 +360,10 @@
 			"displayType": "Thema",
 			"description": "Themenstream",
 			"newItem": "Thema hinzuf\u00fcgen"
+		},
+		"Streams/outgoing": {
+			"displayType": "Ausgehend",
+			"description": "Ziel f\u00fcr die Aufzeichnung von Nachrichten, die an andere Benutzer oder externe Systeme gesendet werden"
 		}
 	},
 	"menu": {

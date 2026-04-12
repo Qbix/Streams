@@ -360,6 +360,10 @@
 			"displayType": "Tema",
 			"description": "rrjedha e tem\u00ebs",
 			"newItem": "Shto tem\u00eb"
+		},
+		"Streams/outgoing": {
+			"displayType": "Dal\u00ebse",
+			"description": "destinacion p\u00ebr regjistrimin e mesazheve t\u00eb d\u00ebrguara p\u00ebrdoruesve t\u00eb tjer\u00eb ose sistemeve t\u00eb jashtme"
 		}
 	},
 	"menu": {

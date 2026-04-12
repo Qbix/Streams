@@ -360,6 +360,10 @@
 			"displayType": "Paksa",
 			"description": "stream ng paksa",
 			"newItem": "Magdagdag ng Paksa"
+		},
+		"Streams/outgoing": {
+			"displayType": "Palabas",
+			"description": "destinasyon para sa pagtatala ng mga mensaheng ipinadala sa ibang mga gumagamit o mga panlabas na sistema"
 		}
 	},
 	"menu": {

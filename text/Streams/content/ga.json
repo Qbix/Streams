@@ -360,6 +360,10 @@
 			"displayType": "Topaic",
 			"description": "sruth \u00e1bhar",
 			"newItem": "Cuir Topaic leis"
+		},
+		"Streams/outgoing": {
+			"displayType": "Ag imeacht",
+			"description": "ceann scr\u00edbe le haghaidh teachtaireachta\u00ed a sheoltar chuig \u00fas\u00e1ideoir\u00ed eile n\u00f3 c\u00f3rais sheachtracha a thaifeadadh"
 		}
 	},
 	"menu": {

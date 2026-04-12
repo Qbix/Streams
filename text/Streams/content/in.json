@@ -360,6 +360,10 @@
 			"displayType": "Topik",
 			"description": "aliran topik",
 			"newItem": "Tambahkan Topik"
+		},
+		"Streams/outgoing": {
+			"displayType": "Ramah",
+			"description": "Tujuan untuk merekam pesan yang dikirim ke pengguna lain atau sistem eksternal."
 		}
 	},
 	"menu": {

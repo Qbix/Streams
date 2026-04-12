@@ -360,6 +360,10 @@
 			"displayType": "Tema",
 			"description": "corrent del tema",
 			"newItem": "Afegeix tema"
+		},
+		"Streams/outgoing": {
+			"displayType": "Sortint",
+			"description": "destinaci\u00f3 per enregistrar missatges enviats a altres usuaris o sistemes externs"
 		}
 	},
 	"menu": {

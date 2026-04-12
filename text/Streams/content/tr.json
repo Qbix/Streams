@@ -360,6 +360,10 @@
 			"displayType": "Ba\u015fl\u0131k",
 			"description": "konu ak\u0131\u015f\u0131",
 			"newItem": "Konu Ekle"
+		},
+		"Streams/outgoing": {
+			"displayType": "D\u0131\u015fa d\u00f6n\u00fck",
+			"description": "Di\u011fer kullan\u0131c\u0131lara veya harici sistemlere g\u00f6nderilen mesajlar\u0131n kaydedilece\u011fi yer."
 		}
 	},
 	"menu": {

@@ -360,6 +360,10 @@
 			"displayType": "Sujet",
 			"description": "flux de sujets",
 			"newItem": "Ajouter un sujet"
+		},
+		"Streams/outgoing": {
+			"displayType": "Sortant",
+			"description": "destination pour l&#39;enregistrement des messages envoy\u00e9s \u00e0 d&#39;autres utilisateurs ou \u00e0 des syst\u00e8mes externes"
 		}
 	},
 	"menu": {

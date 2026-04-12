@@ -131,7 +131,7 @@ abstract class Streams extends Base_Streams
 	 * @default 13
 	 * @final
 	 */
-/**
+	/**
 	 * Can privately suggest actions for stream managers to consider
 	 * @property $WRITE_LEVEL['suggest']
 	 * @type integer
@@ -150,6 +150,13 @@ abstract class Streams extends Base_Streams
 	 * @property $WRITE_LEVEL['contribute']
 	 * @type integer
 	 * @default 18
+	 * @final
+	 */
+	/**
+	 * Can fork the stream, to make progress on a fork
+	 * @property $WRITE_LEVEL['fork']
+	 * @type integer
+	 * @default 19
 	 * @final
 	 */
 	/**
@@ -209,10 +216,10 @@ abstract class Streams extends Base_Streams
 		'suggest' => 15,	
 		'ephemeral' => 16,
 		'contribute' => 18,	
+		'fork' => 19,
 		'post' => 20,
 		'relate' => 23,
 		'relations' => 25,
-		'suggest' => 28,
 		'edit' => 30,
 		'closePending' => 35,
 		'close' => 40,
@@ -367,6 +374,31 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
+	 * Check if a publisherId is a virtual workspace publisher (contains "~")
+	 * @method isWorkspacePublisherId
+	 * @static
+	 * @param {string} $publisherId
+	 * @return {boolean}
+	 */
+	static function isWorkspacePublisherId($publisherId)
+	{
+		return strpos($publisherId, '~') !== false;
+	}
+
+	/**
+	 * Get the base publisherId from a workspace publisherId.
+	 * e.g. "alice~ws2" => "alice"
+	 * @method basePublisherId
+	 * @static
+	 * @param {string} $publisherId
+	 * @return {string}
+	 */
+	static function basePublisherId($publisherId)
+	{
+		return strstr($publisherId, '~', true) ?: $publisherId;
+	}
+
+	/**
 	 * Fetches streams from the database.
 	 * @method fetch
 	 * @static
@@ -467,8 +499,12 @@ abstract class Streams extends Base_Streams
 		} else {
 			$namesToFetch = $name;
 		}
+		$workspacePublisherIds = Streams_Workspace::stackedPublisherIds(
+			$publisherId,
+			Streams_Workspace::fromRequest($options)
+		);
 		$results['criteria'] = $criteria = array(
-			'publisherId' => $publisherId,
+			'publisherId' => $workspacePublisherIds,
 			'name' => $namesToFetch
 		);
 
@@ -478,13 +514,33 @@ abstract class Streams extends Base_Streams
 			$prevCaching = Db::allowCaching(false);
 			$restoreCaching = true;
 		}
-		$allRetrieved = $namesToFetch
-			? Streams_Stream::select($fields)
+		$allRetrieved = array();
+		if ($namesToFetch) {
+			$rows = Streams_Stream::select($fields)
 				->where($criteria)
 				->ignoreCache()
 				->options($options)
-				->fetchDbRows(null, '', 'name')
-			: array();
+				->fetchDbRows(null, '', 'name');
+			// Workspace cascade: for each name, keep only the row from the
+			// highest-priority publisherId (first match in stack order).
+			$priorityMap = array_flip($workspacePublisherIds); // publisherId => priority index
+			foreach ($rows as $name => $row) {
+				if (!isset($allRetrieved[$name])) {
+					$allRetrieved[$name] = $row;
+				} else {
+					$existing = $allRetrieved[$name];
+					$existingPriority = isset($priorityMap[$existing->publisherId])
+						? $priorityMap[$existing->publisherId]
+						: PHP_INT_MAX;
+					$newPriority = isset($priorityMap[$row->publisherId])
+						? $priorityMap[$row->publisherId]
+						: PHP_INT_MAX;
+					if ($newPriority < $existingPriority) {
+						$allRetrieved[$name] = $row;
+					}
+				}
+			}
+		}
 		
 		if (!empty($options['withParticipant']) and $asUserId) {
 			$prows = Streams_Participant::select()->where(array(
@@ -794,6 +850,11 @@ abstract class Streams extends Base_Streams
 		}
 		if (!isset($actualPublisherId)) {
 			$actualPublisherId = $publisherId;
+		}
+		// For workspace publishers, resolve labels/grants against the base publisher
+		$publisherIdForAccess = self::basePublisherId($publisherId);
+		if ($publisherIdForAccess !== $publisherId) {
+			$actualPublisherId = $publisherIdForAccess;
 		}
 		if ($recalculate) {
 			$streams2 = $streams;
@@ -1271,7 +1332,7 @@ abstract class Streams extends Base_Streams
 		}
 
 		$accessProfileInherit = array();
-		if ($accessProfileName) {
+		if ($accessProfileName and empty($options['skipTemplates'])) {
 			$ap = Streams_Stream::getConfigField($stream->type, array('access', 'profiles', $accessProfileName), null);
 			Q::take($ap, array(
 				'readLevel', 'writeLevel', 'adminLevel', 'permissions'
@@ -1281,12 +1342,17 @@ abstract class Streams extends Base_Streams
 			}
 		}
 
-		// extend with any config defaults for this stream type
-		$fieldNames = Streams::getExtendFieldNames($stream->type);
-		$fieldNames[] = 'name';
-		foreach ($fieldNames as $f) {
-			if (isset($fields[$f])) {
-				$stream->$f = $fields[$f];
+		// extend with any config defaults for this stream type,
+		// unless caller has already provided authoritative field values (e.g. fork)
+		if (empty($options['skipTemplates'])) {
+			$fieldNames = Streams::getExtendFieldNames($stream->type);
+			$fieldNames[] = 'name';
+			foreach ($fieldNames as $fn) {
+				if (isset($fields[$fn])
+				&& $fn !== 'insertedTime'
+				&& $fn !== 'updatedTime') {
+					$stream->$fn = $fields[$fn];
+				}
 			}
 		}
 	
@@ -1410,14 +1476,17 @@ abstract class Streams extends Base_Streams
 				}
 			}
 
-			// extend with any config defaults for this stream type
-			$fieldNames = Streams::getExtendFieldNames($f['type']);
-			$fieldNames[] = 'name';
-			foreach ($fieldNames as $fn) {
-				if (isset($f[$fn])
-				&& $fn !== 'insertedTime'
-				&& $fn !== 'updatedTime') {
-					$tc[$fn] = $f[$fn];
+			// extend with any config defaults for this stream type,
+			// unless caller has already provided authoritative field values (e.g. fork)
+			if (empty($options['skipTemplates'])) {
+				$fieldNames = Streams::getExtendFieldNames($stream->type);
+				$fieldNames[] = 'name';
+				foreach ($fieldNames as $fn) {
+					if (isset($f[$fn])
+					&& $fn !== 'insertedTime'
+					&& $fn !== 'updatedTime') {
+						$tc[$fn] = $f[$fn];
+					}
 				}
 			}
 			
@@ -1449,6 +1518,223 @@ abstract class Streams extends Base_Streams
 		}
 		
 		return $streams;
+	}
+
+	/**
+	 * Fork a stream into a workspace (or any target publisher),
+	 * copying all fields, attributes, and content from the source.
+	 * Uses Streams::create() with skipTemplates for proper access control,
+	 * inheritAccess, Streams/created message, and Streams/fork relation.
+	 * relatedFrom (children) are NOT copied — they fall through via workspace
+	 * cascade in Streams::related() once that is made workspace-aware (1.3.1).
+	 * @method fork
+	 * @static
+	 * @param {string} $asUserId
+	 * @param {string} $publisherId Source publisher
+	 * @param {string} $streamName Source stream name
+	 * @param {integer} $ordinal Messages from this ordinal onward belong to the fork
+	 * @param {string} $toPublisherId Target publisher (typically "$publisherId~$workspaceId")
+	 * @param {string} [$toStreamName=null] Defaults to same as $streamName
+	 * @param {array} [$options=array()]
+	 * @param {boolean} [$options.skipAccess=false] Skip all access checks
+	 * @return {Streams_Stream|false}
+	 */
+	static function fork(
+		$asUserId,
+		$publisherId,
+		$streamName,
+		$ordinal,
+		$toPublisherId,
+		$toStreamName = null,
+		$options = array())
+	{
+		if (!isset($asUserId)) {
+			$asUserId = Users::loggedInUser(true)->id;
+		}
+		if (!isset($toStreamName)) {
+			$toStreamName = $streamName;
+		}
+		$skipAccess = Q::ifset($options, 'skipAccess', false);
+
+		// Fetch source stream — respects workspace cascade
+		$source = Streams_Stream::fetch($asUserId, $publisherId, $streamName, true);
+
+		if (!$skipAccess) {
+			// Gate 1: source stream governance.
+			// The source publisher controls who can fork via public writeLevel
+			// or per-user/per-label access rows. writeLevel >= 'fork' (19).
+			if (!$source->testWriteLevel('fork')) {
+				throw new Users_Exception_NotAuthorized();
+			}
+			// Gate 2: destination authorization is handled inside Streams::create()
+			// via canCreateStreamType() with the Streams/fork relate path.
+		}
+
+		/**
+		 * @event Streams/fork {before}
+		 */
+		if (Q::event("Streams/fork/{$source->type}", compact(
+			'asUserId', 'publisherId', 'streamName', 'ordinal',
+			'toPublisherId', 'toStreamName', 'options'
+		), 'before') === false) {
+			return false;
+		}
+
+		// Copy all fields from source except identity, timestamps, and the
+		// fields we set explicitly below. create() will set publisherId,
+		// insertedTime, updatedTime. We set name, messageCount, fork, closedTime.
+		$skipFields = array(
+			'publisherId', 'name', 'insertedTime', 'updatedTime',
+			'messageCount', 'closedTime', 'fork'
+		);
+		$fields = array('name' => $toStreamName);
+		foreach (Base_Streams_Stream::fieldNames() as $f) {
+			if (!in_array($f, $skipFields)) {
+				$fields[$f] = $source->$f;
+			}
+		}
+
+		// Build compact fork chain: each entry is [publisherId|null, ordinalMin, ordinalMax|null]
+		// null publisherId = this stream's own publisherId (always the tip entry)
+		$sourceChain = array();
+		if ($source->fork) {
+			$sourceForkData = Q::json_decode($source->fork, true);
+			if (!empty($sourceForkData['chain'])) {
+				$sourceChain = $sourceForkData['chain'];
+			}
+		}
+		if (!empty($sourceChain)) {
+			// Close the inherited tip segment at $ordinal - 1
+			$sourceChain[count($sourceChain) - 1][2] = $ordinal - 1;
+		} else {
+			// Source is root — starts at ordinal 0
+			$sourceChain[] = array($publisherId, 0, $ordinal - 1);
+		}
+		// Append new open-ended tip
+		$sourceChain[] = array(null, $ordinal, null);
+
+		$db  = Streams_Stream::db();
+		$now = $db->toDateTime($db->getCurrentTimestamp());
+		$fields['fork'] = Q::json_encode(array(
+			'publisherId' => $publisherId,
+			'streamName'  => $streamName,
+			'ordinal'     => $ordinal,
+			'time'        => $now,
+			'chain'       => $sourceChain
+		));
+
+		// New messages on the fork continue the ordinal sequence from the split point
+		$fields['messageCount'] = $ordinal;
+
+		// Streams::create() handles:
+		// - canCreateStreamType() with Streams/fork relate path (destination auth)
+		// - access profile application (skipped via skipTemplates)
+		// - template field merging (skipped via skipTemplates — source fields are authoritative)
+		// - inheritAccess from source stream
+		// - Streams/created message
+		// - the Streams/fork relatedTo row
+		// weight = $ordinal gives the fork graph a meaningful sort key
+		// (forks ordered by where they split off, useful for governance tooling)
+		$fork = Streams::create(
+			$asUserId,
+			$toPublisherId,
+			$source->type,
+			$fields,
+			array(
+				'skipAccess'    => $skipAccess,
+				'skipTemplates' => true,
+				'relate'        => array(
+					'publisherId'   => $publisherId,
+					'streamName'    => $streamName,
+					'type'          => 'Streams/fork',
+					'inheritAccess' => true,
+					'weight'        => $ordinal
+				)
+			)
+		);
+
+		// Post Streams/forked on the fork to record provenance.
+		// Streams::create() already posted Streams/created above.
+		$fork->post($asUserId, array(
+			'type'         => 'Streams/forked',
+			'content'      => '',
+			'instructions' => array(
+				'fromPublisherId' => $publisherId,
+				'fromStreamName'  => $streamName,
+				'ordinal'         => $ordinal
+			)
+		), true);
+
+		// relatedTo and relatedFrom both fall through via workspace cascade in
+		// Streams::related(). No eager copying needed — the overlay merge handles
+		// inheritance transparently, and relate()/unrelate() write to the workspace
+		// publisher when a workspace stack is active.
+
+		/**
+		 * @event Streams/fork {after}
+		 */
+		Q::event("Streams/fork/{$source->type}", compact(
+			'asUserId', 'publisherId', 'streamName', 'ordinal',
+			'toPublisherId', 'toStreamName', 'fork', 'options'
+		), 'after');
+
+		return $fork;
+	}
+
+	/**
+	 * Walk the fork chain of a stream upward via the `fork` JSON field.
+	 * Returns an ordered array of segment descriptors for UNION message fetch,
+	 * from root (oldest) to tip (newest).
+	 * Each entry: array('publisherId', 'streamName', 'ordinalMin', 'ordinalMax', 'closedTime')
+	 * ordinalMax null means no upper bound (the tip).
+	 * @method forkChain
+	 * @static
+	 * @param {string} $publisherId
+	 * @param {string} $streamName
+	 * @return {array}
+	 */
+	static function forkChain($publisherId, $streamName)
+	{
+		$segments = array();
+		$currentPublisherId = $publisherId;
+		$currentStreamName  = $streamName;
+		$ordinalMax         = null;
+		$seen               = array();
+
+		while (true) {
+			$key = "$currentPublisherId\t$currentStreamName";
+			if (isset($seen[$key])) break; // cycle guard
+			$seen[$key] = true;
+
+			$row = Streams_Stream::select('publisherId, name, fork, closedTime')
+				->where(array(
+					'publisherId' => $currentPublisherId,
+					'name'        => $currentStreamName
+				))
+				->limit(1)
+				->fetchDbRow();
+
+			if (!$row) break;
+
+			$forkData   = $row->fork ? Q::json_decode($row->fork, true) : null;
+			$ordinalMin = $forkData ? (int)$forkData['ordinal'] : 0;
+
+			array_unshift($segments, array(
+				'publisherId' => $currentPublisherId,
+				'streamName'  => $currentStreamName,
+				'ordinalMin'  => $ordinalMin,
+				'ordinalMax'  => $ordinalMax,
+				'closedTime'  => $row->closedTime
+			));
+
+			if (!$forkData) break; // reached the root
+
+			$ordinalMax         = $ordinalMin - 1;
+			$currentPublisherId = $forkData['publisherId'];
+			$currentStreamName  = $forkData['streamName'];
+		}
+
+		return $segments;
 	}
 
 	/**
@@ -2080,6 +2366,17 @@ abstract class Streams extends Base_Streams
 				'messagesFrom' => array()
 			);
 		}
+
+		// Redirect writes to the top workspace publisher when a stack is active.
+		// Must happen before getRelations() so access checks use the correct publisher.
+		if (!empty($options['workspaces']) || Q_Request::special('Streams.workspaces', null)) {
+			$workspaces = Streams_Workspace::fromRequest($options);
+			if ($workspaces) {
+				$stacked = Streams_Workspace::stackedPublisherIds($toPublisherId, $workspaces);
+				$toPublisherId = $stacked[0];
+			}
+		}
+
 		self::getRelations(
 			$asUserId,
 			$toPublisherId,
@@ -2498,6 +2795,14 @@ abstract class Streams extends Base_Streams
 			$options
 		);
 
+		$workspaces = Streams_Workspace::fromRequest($options);
+		if ($workspaces) {
+			$stacked = Streams_Workspace::stackedPublisherIds($toPublisherId, $workspaces);
+			$topPublisherId = $stacked[0];
+		} else {
+			$topPublisherId = null;
+		}
+
 		$types = is_array($type) ? $type : array($type);
 
 		if (!$relatedTo && !$relatedFrom) {
@@ -2512,7 +2817,6 @@ abstract class Streams extends Base_Streams
 			}
 		}
 
-		// Now, clean up the relation.
 		/**
 		 * @event Streams/unrelateTo/$streamType {before}
 		 * @param {string} relatedTo
@@ -2569,8 +2873,21 @@ abstract class Streams extends Base_Streams
 				$stream          = $streams[$fromStreamName];
 				$weight          = isset($rt->weight) ? $rt->weight : null;
 
-				if ($rt && $rt->remove()) {
+				// If the relation belongs to a lower layer than the top workspace,
+				// write a tombstone instead of deleting — the base relation must be preserved
+				// so other workspace views can still see it.
+				$needsTombstone = $topPublisherId && $rt->toPublisherId !== $topPublisherId;
 
+				if ($needsTombstone) {
+					Streams::relate(
+						$asUserId,
+						$topPublisherId, $rt->toStreamName,
+						'Streams/-/' . $rt->type,
+						$rt->fromPublisherId, $rt->fromStreamName,
+						array('skipAccess' => true)
+					);
+					// Don't actually delete the underlying row
+				} else if ($rt && $rt->remove()) {
 					if (isset($weight) && !empty($options['adjustWeights'])) {
 						$adjustWeights = ($options['adjustWeights'] === true)
 							? -1 // backward compatibility
@@ -2632,8 +2949,21 @@ abstract class Streams extends Base_Streams
 				$category        = $categories[$toStreamName];
 				$stream          = $streams[$fromStreamName];
 
-				if ($rf && $rf->remove()) {
+				// If the relation belongs to a lower layer than the top workspace,
+				// write a tombstone instead of deleting — the base relation must be preserved
+				// so other workspace views can still see it.
+				$needsTombstone = $topPublisherId && $rf->toPublisherId !== $topPublisherId;
 
+				if ($needsTombstone) {
+					Streams::relate(
+						$asUserId,
+						$topPublisherId, $rf->toStreamName,
+						'Streams/-/' . $rf->type,
+						$rf->fromPublisherId, $rf->fromStreamName,
+						array('skipAccess' => true)
+					);
+					// Don't actually delete the underlying row
+				} else if ($rf && $rf->remove()) {
 					self::recordRelationTransition($stream, $category, $type, 'remove');
 
 					Streams_RelatedFromTotal::update()
@@ -2782,7 +3112,14 @@ abstract class Streams extends Base_Streams
 		}
 		$skipTypes = Q::ifset($options, 'skipTypes', array());
 
-		$fetchOptions = isset($options['fetchOptions']) ? $options['fetchOptions'] : null;
+		$workspaces = Streams_Workspace::fromRequest($options);
+		$workspacePublisherIds = Streams_Workspace::stackedPublisherIds($publisherId, $workspaces);
+
+		$fetchOptions = isset($options['fetchOptions']) ? $options['fetchOptions'] : array();
+		if ($workspaces) {
+			$fetchOptions['workspaces'] = $workspaces;
+		}
+
 		if (empty($options['relationsOnly']) or empty($options['skipAccess'])) {
 			// Check access to stream
 			$rows = Streams::fetch($asUserId, $publisherId, $streamName, '*', $fetchOptions);
@@ -2885,17 +3222,9 @@ abstract class Streams extends Base_Streams
 
 		if ($isCategory) {
 			$query = $query->where(array(
-				$prefix . 'toPublisherId' => $publisherId,
+				$prefix . 'toPublisherId' => $workspacePublisherIds,
 				$prefix . 'toStreamName'  => $streamName
 			));
-		} else {
-			$query = $query->where(array(
-				$prefix . 'fromPublisherId' => $publisherId,
-				$prefix . 'fromStreamName'  => $streamName
-			));
-		}
-
-		if ($isCategory) {
 			if (!empty($options['criteria'])) {
 				if ($relevance) {
 					$query->orderBy('relevance', false);
@@ -2914,8 +3243,14 @@ abstract class Streams extends Base_Streams
 					));
 				}
 			}
-		} else if (!empty($options['criteria'])) {
-			$query->orderBy('relevance', false);
+		} else {
+			$query = $query->where(array(
+				$prefix . 'fromPublisherId' => $publisherId,
+				$prefix . 'fromStreamName'  => $streamName
+			));
+			if (!empty($options['criteria'])) {
+				$query = $query->orderBy('relevance', false);
+			}
 		}
 
 		if (isset($options['prefix'])) {
@@ -2989,6 +3324,46 @@ abstract class Streams extends Base_Streams
 		}
 
 		$relations = $query->fetchDbRows();
+
+		// Workspace overlay: for each (otherStreamName, baseType) tuple, keep only the
+		// highest-priority relation (lowest index in $workspacePublisherIds).
+		// Tombstone rows (type prefixed with "Streams/-/") suppress the relation entirely.
+		// replace the entire overlay merge block with:
+		if (count($workspacePublisherIds) > 1) {
+			$priorityMap = array_flip($workspacePublisherIds);
+			$seen = array();
+			$filtered = array();
+			$self = $relations;
+			usort($self, function($a, $b) use ($priorityMap) {
+				$pa = isset($priorityMap[$a->toPublisherId])
+					? $priorityMap[$a->toPublisherId]
+					: PHP_INT_MAX;
+				$pb = isset($priorityMap[$b->toPublisherId])
+					? $priorityMap[$b->toPublisherId]
+					: PHP_INT_MAX;
+				return $pa - $pb;
+			});
+			foreach ($self as $r) {
+				$otherName = $isCategory ? $r->fromStreamName : $r->toStreamName;
+				$isTombstone = (strpos($r->type, 'Streams/-/') === 0);
+				$baseType = $isTombstone
+					? substr($r->type, strlen('Streams/-/'))
+					: $r->type;
+				$key = $otherName . "\t" . $baseType;
+				if (isset($seen[$key])) {
+					continue; // already resolved at a higher priority level
+				}
+				$seen[$key] = true;
+				if (!$isTombstone) {
+					$filtered[] = $r;
+				}
+				// tombstone at this level: mark seen, suppress everything below
+				// a relation at a higher level would have already set $seen[$key]
+				// and added itself to $filtered before we get to a lower tombstone,
+				// so higher-level relations correctly override lower-level tombstones
+			}
+			$relations = $filtered;
+		}
 
 		foreach ($relations as $k => $v) {
 			if (empty($options['includeTemplates'])) {
@@ -3079,7 +3454,7 @@ abstract class Streams extends Base_Streams
 			if (!isset($facetMap[$name])) {
 				$facetMap[$name] = array(
 					'types'   => array(),
-					'weights' => array() // keyed by type when weight is meaningful
+					'weights' => array()
 				);
 			}
 			$facetMap[$name]['types'][] = $r->type;
@@ -3111,7 +3486,6 @@ abstract class Streams extends Base_Streams
 		if (!empty($options['streamsOnly'])) {
 			return $relatedStreams;
 		}
-
 
 		return array(
 			$relations,
@@ -5813,6 +6187,187 @@ abstract class Streams extends Base_Streams
 			$userInviteUrl = $stream->getAttribute('userInviteUrl');
 		}
 		return $userInviteUrl . '?' . http_build_query($fields, '', '&');
+	}
+
+	/**
+	 * Get a bunch of user ids in a given community,
+	 * starting with contacts of the logged-in user (if any).
+	 * Useful for passing to the Users/list tool, to render
+	 * a list of users in a community.
+	 * @method userIds
+	 * @param {array} [$options=array()]
+	 * @param {integer} [$options.limit=100] The maximum number to return
+	 * @param {integer} [$options.offset=0] The offfset
+	 * @param {string} [$options.communityId=null] The community from which to get stream participants, defaults to main community
+	 * @param {string} [$options.experienceId='main'] Can be used to override the name of the experience
+	 * @param {Users_User|false} [$options.userId=Users::loggedInUser()->id] The user, if any, whose contacts to get
+	 * @param {boolean} [$options.includeUser=false] Whether to include the specified user in the list
+	 * @param {boolean} [$options.includeCommunities=false] Whether to include community users
+	 * @param {boolean} [$options.includeReverseContacts=false] Whether to show users who have you in their contacts already
+	 * @param {boolean} [$options.includeFutureUsers=false] Whether to include users who have not yet signed in even once, but who have a custom icon at least
+	 * @param {array} [$options.filterByRoles] you can pass an array of roles, user must have at least one
+	 * @param {boolean} [$options.customIconsFirst=false] Whether to sort the non-contact users in a way to have the ones with custom photos be listed first.
+	 * @param {array} [$options.idPrefixes]
+	 * @param {array} [$options.idPrefixes.require] Only return users with this id prefix
+	 * @param {array} [$options.idPrefixes.exclude] Exclude users with this id prefix
+	 */
+	static function userIds($options = array())
+	{
+		$options = Q::take($options, array(
+			'limit' => 100,
+			'offset' => 0,
+			'communityId' => Users::currentCommunityId(true),
+			'experienceId' => 'main',
+			'userId' => null,
+			'includeUser' => false,
+			'includeCommunities' => false,
+			'includeReverseContacts' => false,
+			'includeFutureUsers' => false,
+			'customIconsFirst' => false,
+			'customIconsOnly' => false,
+			'idPrefixes' => array()
+		));
+		if (isset($options['limit'])) {
+			$maxLimit = Q_Config::get('Users', 'people', 'userIds', 'maxLimit', 1000);
+			$options['limit'] = min($options['limit'], $maxLimit);
+		}
+
+		$user = Users::loggedInUser();
+		if (!isset($options['userId'])) {
+			$options['userId'] = $user ? $user->id : '';
+		}
+		if (!isset($options['communityId'])) {
+			$options['communityId'] = Users::currentCommunityId(true);
+		}
+		$criteria = array(
+			'p.publisherId' => $options['communityId'],
+			'p.streamName' => "Streams/experience/".$options['experienceId'],
+			'p.state' => 'participating'
+		);
+		$orCriteria = null;
+		if (!empty($options['idPrefixes']['require'])) {
+			$criteria['u.id'] = new Db_Range($options['idPrefixes']['require'], true, false, true);
+		} else if (!empty($options['idPrefixes']['exclude'])) {
+			$ope = $options['idPrefixes']['exclude'];
+			$criteria['u.id <'] = $ope;
+			$orCriteria = array('u.id >' => $ope);
+		}
+		if ($options['userId']) {
+			$rows = Users_Contact::select('u.id, u.sessionCount, u.icon', 'c')
+				->join(Streams_Participant::table(true, 'p'), array(
+					'c.userId' => 'p.userId'
+				))->join(Users_User::table(true, 'u'), array(
+					'c.contactUserId' => 'u.id'
+				))->where(array('c.userId' => $options['userId']))
+				->andWhere($criteria, $orCriteria)
+				// ->groupBy('u.id')
+				->orderBy('c.label', false)
+				->orderBy('u.sessionCount', false)
+				->limit($options['limit'], $options['offset'])
+				->fetchDbRows(null, '', 'id');
+			if ($options['includeReverseContacts']) {
+				$rows2 = Users_Contact::select('u.id, u.sessionCount, u.icon', 'c')
+					->join(Streams_Participant::table(true, 'p'), array(
+						'c.contactUserId' => 'p.userId'
+					))->join(Users_User::table(true, 'u'), array(
+						'c.userId' => 'u.id'
+					))->where(array('c.contactUserId' => $options['userId']))
+					->andWhere($criteria)
+					// ->groupBy('u.id')
+					->orderBy('c.label', false)
+					->orderBy('u.sessionCount', false)
+					->limit($options['limit'])
+					->fetchDbRows(null, '', 'id');
+				$rows = array_merge($rows, $rows2);
+			}
+		} else {
+			$rows = array();
+		}
+		$contactsCount = count($rows);
+		$m = 2;
+		$o = 0;
+		// try finding more up to 10 times
+		for ($i=0; $i<10; ++$i) {
+			if (!empty($options['customIconsOnly'])) {
+				$temp = array();
+				foreach ($rows as $uid => $row) {
+					if (Users::isCustomIcon($row->icon)) {
+						$temp[$uid] = $row;
+					}
+				}
+				$rows = $temp;
+			} elseif (!empty($options['customIconsFirst'])) {
+				// sort array with custom icons first
+				$temp = array();
+				foreach ($rows as $uid => $row) {
+					if (Users::isCustomIcon($row->icon)) {
+						$temp[$uid] = $row;
+					}
+				}
+				foreach ($rows as $uid => $row) {
+					if (empty($temp[$uid])) {
+						$temp[$uid] = $row;
+					}
+				}
+				$rows = $temp;
+			}
+
+			// filter futureUsers and Community users and current user
+			$includeFutureUsers = !empty($options['includeFutureUsers']);
+			$includeCommunities = !empty($options['includeCommunities']);
+			$temp = array();
+			foreach ($rows as $uid => $row) {
+				if ($row->sessionCount == 0
+				&& (!$includeFutureUsers && !Users::isCustomIcon($row->icon))) {
+					continue;	
+				}
+				if ((!$includeCommunities && Users::isCommunityId($uid))) {
+					continue;
+				}
+				if (empty($options['includeUser']) and $user and $uid === $options['userId']) {
+					continue;
+				}
+				$temp[$uid] = $row;
+			}
+			$b = count($rows);
+			$rows = $temp;
+			$c = count($rows);
+			if ($c) {
+				$m = ceil($b/$c); // try to guess how many might be filtered in the next pass
+			}
+			if ($c >= $options['limit']) {
+				break; // we got enough results to return
+			}
+			// get multiple times as many rows, since some may be removed
+			$rows3 = Streams_Participant::select('u.id, u.sessionCount, u.icon', 'p')
+				->join(Users_User::table(true, 'u'), array(
+					'p.userId' => 'u.id'
+				))
+				->join(Users_Contact::table(true, 'c'), array(
+					'p.userId' => 'c.contactUserId'
+				), "LEFT")
+				->where($criteria)
+				->orWhere($orCriteria)
+				->orderBy('c.label', false)
+				->orderBy('u.sessionCount', false)
+				->orderBy('p.insertedTime', false)
+				->limit(
+					$options['limit'] * $m - $contactsCount,
+					$o + max(0, $options['offset'] - $contactsCount)
+				)
+				->caching(true)
+				->fetchDbRows(null, '', 'id');
+			if (empty($rows3)) {
+				break; // no more userIds are coming by
+			}
+			$o += count($rows3);
+			$rows = array_merge($rows, $rows3);
+		}
+		$userIds = array_slice(array_keys($rows), 0, $options['limit']);
+		$userIds = Q::event('Users/filter/users', array(
+			'from' => 'Streams::userIds'
+		), 'after', false, $userIds);
+		return $userIds;
 	}
 	
 	protected static function afterFetchExtended($publisherId, $streams)

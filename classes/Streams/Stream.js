@@ -538,12 +538,19 @@ Sp.calculateAccess = function(asUserId, callback) {
 	this.set('permissions_source', public_source);
 
 	if (!asUserId) {
-		return callback.call(subj); // No need to fetch further access info. Just return what we got.
+		return callback.call(subj);
 	}
 
-	if (asUserId && asUserId === this.fields.publisherId) {
-		// The publisher should have full access to every one of their streams.
-		// Streams which are "required", though, won't be deleted by the system.
+	// For workspace publishers (e.g. "alice~ws1"), resolve access against
+	// the base publisher ("alice") so the owner still gets full access to
+	// their own workspace streams, and label/contact lookups work correctly.
+	var publisherIdForAccess = this.fields.publisherId;
+	var tildePos = publisherIdForAccess.indexOf('~');
+	if (tildePos !== -1) {
+		publisherIdForAccess = publisherIdForAccess.slice(0, tildePos);
+	}
+
+	if (asUserId && asUserId === publisherIdForAccess) {
 		var required = Q.Config.get(['Streams', 'requiredUserStreams', this.fields.name], false);
 		this.set('isRequired', required);
 		this.set('readLevel', Streams.READ_LEVEL['max']);
@@ -693,17 +700,25 @@ Sp.calculateAccess = function(asUserId, callback) {
 		}
 	});
 
+	// For workspace publishers (e.g. "alice~ws1"), resolve access against
+	// the base publisher ("alice") so label/contact lookups work correctly.
+	var publisherIdForAccess = this.fields.publisherId;
+	var tildePos = publisherIdForAccess.indexOf('~');
+	if (tildePos !== -1) {
+		publisherIdForAccess = publisherIdForAccess.slice(0, tildePos);
+	}
+
 	// Get the per-label access data
 	// Avoid making a join to allow more flexibility for sharding
 	Streams.Access.SELECT('*').where({
-		'publisherId': this.fields.publisherId,
+		'publisherId': publisherIdForAccess,
 		'streamName': this.fields.name, // exact stream
 		'ofUserId': this.fields.name.substr(-1) === '/' ? asUserId : ['', asUserId]
 			// and either generic or specific user, if check template access use only specific
 	}).execute(p.fill('rows1'));
 
 	Streams.Access.SELECT('*').where({
-		'publisherId': ['', this.fields.publisherId],
+		'publisherId': ['', publisherIdForAccess],
 		'streamName': this.fields.type+"*",	// generic stream
 		'ofUserId': ['', asUserId]				// and specific user
 	}).execute(p.fill('rows2'));

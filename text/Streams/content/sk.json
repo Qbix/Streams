@@ -360,6 +360,10 @@
 			"displayType": "T\u00e9ma",
 			"description": "tematick\u00fd pr\u00fad",
 			"newItem": "Prida\u0165 t\u00e9mu"
+		},
+		"Streams/outgoing": {
+			"displayType": "Odch\u00e1dzaj\u00face",
+			"description": "cie\u013e na zaznamen\u00e1vanie spr\u00e1v odoslan\u00fdch in\u00fdm pou\u017e\u00edvate\u013eom alebo extern\u00fdm syst\u00e9mom"
 		}
 	},
 	"menu": {

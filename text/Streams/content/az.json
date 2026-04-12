@@ -360,6 +360,10 @@
 			"displayType": "M\u00f6vzu",
 			"description": "m\u00f6vzu ax\u0131n\u0131",
 			"newItem": "M\u00f6vzu \u0259lav\u0259 edin"
+		},
+		"Streams/outgoing": {
+			"displayType": "Ged\u0259n",
+			"description": "dig\u0259r istifad\u0259\u00e7il\u0259r\u0259 v\u0259 ya xarici sisteml\u0259r\u0259 g\u00f6nd\u0259ril\u0259n mesajlar\u0131 qeyd etm\u0259k \u00fc\u00e7\u00fcn t\u0259yinat yeri"
 		}
 	},
 	"menu": {

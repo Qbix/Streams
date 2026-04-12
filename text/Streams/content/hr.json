@@ -360,6 +360,10 @@
 			"displayType": "Tema",
 			"description": "tok teme",
 			"newItem": "Dodaj temu"
+		},
+		"Streams/outgoing": {
+			"displayType": "Odlazni",
+			"description": "odredi\u0161te za snimanje poruka poslanih drugim korisnicima ili vanjskim sustavima"
 		}
 	},
 	"menu": {

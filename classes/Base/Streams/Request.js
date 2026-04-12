@@ -61,7 +61,7 @@ Q.mixin(Base, Row);
  * @property readLevel
  * @type Integer
  * @default 0
- * 0=none, 10='see', 15='teaser', 23='fields', 25='content', 30='participants', 35='messages', 40='receipts'
+ * 0=none, 10='see', 20='content', 30='participants', 40='messages'
  */
 /**
  * @property writeLevel
