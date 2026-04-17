@@ -280,10 +280,7 @@ Q.Tool.define("Streams/image/preview", "Streams/preview", function(options, prev
 		var $container = this.$('.Streams_preview_container');
 		// override the fastclick handler that the Streams/preview tool set
 		$container.off([Q.Pointer.fastclick, '.Streams_image_preview']);
-		$container.on([Q.Pointer.fastclick, '.Streams_image_preview'], function () {
-			return;
-			tool.create.bind(tool);
-		});	
+		$container.off([Q.Pointer.fastclick, '.Streams_preview']);
 		return false;
 	}
 }
@@ -302,7 +299,7 @@ Q.Template.set('Streams/image/preview/view',
 
 Q.Template.set('Streams/image/preview/edit',
 	'<div class="Streams_preview_container Streams_preview_edit Q_clearfix">'
-	+ '<img alt="{{alt}}" class="Streams_image_preview_icon">'
+	+ '<img alt="{{alt}}" class="Streams_image_preview_icon Q_no_lazyload">'
 	+ '<div class="Streams_image_preview_title {{titleClass}}">'
 	+ '{{#if showTitle}}'
 	+ '<{{titleTag}} class="Streams_preview_title">{{{inplace}}}</{{titleTag}}>'
@@ -312,7 +309,7 @@ Q.Template.set('Streams/image/preview/edit',
 
 Q.Template.set('Streams/image/preview/create',
 	'<div class="Streams_preview_container Streams_preview_create Q_clearfix">'
-	+ '<img alt="{{alt}}" class="Streams_preview_add">'
+	+ '<img alt="{{alt}}" class="Streams_preview_add Q_no_lazyload">'
 	+ '<div class="Streams_image_preview_title {{titleClass}}">'
 	+ '<{{titleTag}} class="Streams_preview_title">{{title}}</{{titleTag}}>'
 	+ '</div></div>'
