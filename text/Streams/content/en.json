@@ -369,6 +369,11 @@
 			"displayType": "Topic",
 			"description": "topic stream",
 			"newItem": "Add Topic"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontology",
+			"description": "ontology",
+			"newItem": "Add Ontology"
 		}
 	},
 	"menu": {
