@@ -11,6 +11,10 @@ var Streams = Q.Streams;
  * Renders a bunch of Stream/preview tools for streams related to the given stream.
  * Has options for adding new related streams, as well as sorting the relations, etc.
  * Also can integrate with Q/tabs tool to render tabs "related" to some category.
+ * When Q/coverflow is activated on the same element, automatically switches to
+ * a lightweight renderer mode: preview tools are retained (realtime, onInvoke, access
+ * control all work) but are kept hidden, and a per-stream rendered element (img, video,
+ * or custom) is fed to Q/coverflow instead of the full preview DOM.
  * @class Streams related
  * @constructor
  * @param {Object} [options] options for the tool
@@ -36,8 +40,15 @@ var Streams = Q.Streams;
  *   @param {Boolean} [options.tabsOptions.useStreamURLs] Whether to use the stream URLs instead of Streams.key() and tab names
  *   @param {String} [options.tabsOptions.streamType] You can manually enter the type of all related streams, to be used with Streams.Stream.url()
  *   @param {Object} [options.activate] Options for activating the preview tools that are loaded inside
- *   @param {Boolean|Object} [infinitescroll=false] If true or object, enables loading more related streams on demand, by activate Q/infinitescroll tool on closest scrolling ancestor (if tool.element non scrollable). If object, set it as Q/infinitescroll params. 
+ *   @param {Boolean|Object} [infinitescroll=false] If true or object, enables loading more related streams on demand, by activate Q/infinitescroll tool on closest scrolling ancestor (if tool.element non scrollable). If object, set it as Q/infinitescroll params.
  *   @param {Object} [options.updateOptions] Options for onUpdate such as duration of the animation, etc.
+ *   @param {Function|String} [options.renderer=null] Optional renderer for each related stream, used instead of the
+ *     full Streams/preview DOM. Accepts either a compiled function or a Handlebars template string.
+ *     Signature: function(stream, previewTool, callback) where callback receives a single DOM element.
+ *     When Q/coverflow is co-activated on the same element, a built-in renderer is supplied automatically
+ *     (producing an img or video element per stream) unless you override this option explicitly.
+ *     A Handlebars template string receives: {publisherId, streamName, streamType, title, icon, url}.
+ *     Note: Handlebars template renderers cannot do async icon loading; use a function renderer for that.
  *   @param {Object} [options.beforeRenderPreview] Event occurs before Streams/preview tool rendered inside related tool.
  *      If a handler returns false, the preview tool won't be added to the related list
  *   @param {Q.Event} [options.onUpdate] Event that receives parameters "data", "entering", "exiting", "updating"
@@ -45,7 +56,6 @@ var Streams = Q.Streams;
  *      Parameters are (previews, map, entering, exiting, updating).
  */
 Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
-	// check for required options
 	var tool = this;
 	var state = this.state;
 	if ((!state.publisherId || !state.streamName)
@@ -68,12 +78,82 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 
 	state.publisherId = state.publisherId || state.stream.fields.publisherId;
 	state.streamName = state.streamName || state.stream.fields.name;
-	
+
 	if (this.element.classList.contains("Streams_related_participant")) {
 		state.mode = "participant";
 	} else if (state.mode === "participant" && !this.element.classList.contains("Streams_related_participant")) {
 		this.element.classList.add("Streams_related_participant");
 	}
+
+	// ---- coverflow detection ------------------------------------------------
+	// If Q/coverflow is co-activated on the same element, switch to renderer mode.
+	// The renderer can be overridden explicitly via state.renderer; if not, the
+	// built-in coverflow renderer is used (img/video per stream, async icon load).
+	var coverflowToolName = Q.normalize('Q/coverflow'); // → 'Q_coverflow'
+	var hasCoverflow = !!(tool.element.Q
+		&& tool.element.Q.toolNames
+		&& tool.element.Q.toolNames.indexOf(coverflowToolName) >= 0);
+
+	if (hasCoverflow && !state.renderer) {
+		state.renderer = 'coverflow'; // resolved to built-in function below
+	}
+
+	// Normalise renderer option:
+	//   'coverflow'      → built-in async function (img or video, uses preview.icon())
+	//   other string     → compiled as Handlebars template (static fields only)
+	//   function         → used as-is: function(stream, previewTool, callback)
+	//   null / undefined → normal preview-tool path, no renderer used
+	if (state.renderer === 'coverflow') {
+		state.renderer = function _coverflowRenderer(stream, previewTool, callback) {
+			var type = stream.fields.type || '';
+			var isVideo = (type.indexOf('video') >= 0);
+			var el;
+
+			if (isVideo) {
+				el = document.createElement('video');
+				el.setAttribute('playsinline', '');
+				el.setAttribute('muted', '');
+				el.setAttribute('loop', '');
+				el.setAttribute('autoplay', '');
+				var attrs = {};
+				try { attrs = JSON.parse(stream.fields.attributes || '{}'); } catch(e) {}
+				if (attrs.url) { el.src = attrs.url; }
+			} else {
+				el = document.createElement('img');
+			}
+
+			el.setAttribute('title', stream.fields.title || '');
+			el.setAttribute('alt',   stream.fields.title || '');
+
+			if (!isVideo) {
+				previewTool.icon(el, function () {
+					callback(el);
+				});
+			} else {
+				callback(el);
+			}
+		};
+	} else if (typeof state.renderer === 'string') {
+		var _compiled = Handlebars.compile(state.renderer);
+		state.renderer = function _handlebarsRenderer(stream, previewTool, callback) {
+			var html = _compiled({
+				publisherId: stream.fields.publisherId,
+				streamName:  stream.fields.name,
+				streamType:  stream.fields.type,
+				title:       stream.fields.title,
+				icon:        Q.Streams.iconUrl(stream.fields.icon, 200),
+				url:         Q.Streams.Stream.url(
+					stream.fields.publisherId,
+					stream.fields.name,
+					stream.fields.type
+				)
+			});
+			var wrapper = document.createElement('div');
+			wrapper.innerHTML = html;
+			callback(wrapper.firstChild);
+		};
+	}
+	// If state.renderer is already a function, use it as-is.
 
 	tool.Q.onStateChanged('relationType').set(function () {
 		if (Q.isEmpty(tool.state.result)) {
@@ -82,7 +162,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 
 		// remove all old previews and clear cache
 		Q.handle(state.onUpdate, tool, [tool.state.result, {}, tool.state.result.relatedStreams, {}]);
-		tool.state.result= {};
+		tool.state.result = {};
 		tool.previewElements = {};
 		tool.refresh();
 	}, tool);
@@ -181,6 +261,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	realtime: false,
 	infinitescroll: false,
 	composerPosition: null,
+	renderer: null,
 	activate: {
 		batchSize: {
 			start: 20,
@@ -242,6 +323,128 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	}, "Streams/related"),
 	onUpdate: new Q.Event(
 	function _Streams_related_onUpdate(result, entering, exiting, updating) {
+
+		var tool = this;
+		var state = tool.state;
+		var $te = $(tool.element);
+		var $container = $te;
+		var isTabs = $te.hasClass('Q_tabs_tool');
+		if (isTabs) {
+			$container = $te.find('.Q_tabs_tabs');
+		}
+
+		var ascending = Q.getObject("ascending", state.relatedOptions) || false;
+
+		// ---- renderer / coverflow path --------------------------------------
+		// When state.renderer is a function (including the built-in coverflow
+		// renderer resolved in the constructor), preview tools are activated but
+		// kept hidden. The renderer is called per stream to produce a lightweight
+		// DOM element (img, video, or anything custom) which is passed to
+		// Q/coverflow. The full preview machinery (retain, realtime, onInvoke,
+		// access control) remains intact on the hidden elements.
+		if (typeof state.renderer === 'function') {
+			var coverflow = Q.Tool.from(tool.element, 'Q/coverflow');
+
+			// Remove exiting items from the hidden preview map
+			Q.each(exiting, function () {
+				var publisherId = this.fields.publisherId;
+				var streamName  = this.fields.name;
+				var element = Q.getObject([publisherId, streamName], tool.previewElements);
+				if (element) {
+					Q.removeElement(element, true);
+				}
+			});
+
+			// Build a keyed lookup so we can skip exiting streams below
+			var exitingKeys = {};
+			Q.each(exiting, function () {
+				if (this.fields) {
+					exitingKeys[this.fields.publisherId + "\t" + this.fields.name] = true;
+				}
+			});
+
+			// Build hidden preview elements for all entering relations
+			var enteringEntries = [];
+			Q.each(result.relations, function () {
+				var direction = state.isCategory ? this.from : this.to;
+				if (!direction) {
+					return;
+				}
+				var tff = direction.fields;
+
+				if (exitingKeys[tff.publisherId + "\t" + tff.name]) {
+					return;
+				}
+				if (Q.getObject([tff.publisherId, tff.name], tool.previewElements)) {
+					return;
+				}
+
+				var element = tool.elementForStream(
+					tff.publisherId, tff.name, tff.type,
+					this.weight,
+					state.previewOptions,
+					state.specificOptions
+				);
+
+				// Keep preview elements alive but hidden from the visible DOM
+				element.style.display = 'none';
+				tool.element.appendChild(element);
+				Q.setObject([tff.publisherId, tff.name], element, tool.previewElements);
+				enteringEntries.push({ element: element, fields: tff, weight: this.weight });
+			});
+
+			if (!enteringEntries.length && Q.isEmpty(exiting)) {
+				return;
+			}
+
+			// Activate preview tools, then call the renderer for each stream
+			var elementsToActivate = enteringEntries.map(function(e) { return e.element; });
+			Q.activate(elementsToActivate, null, function () {
+				var pending = enteringEntries.length;
+				if (!pending) {
+					return tool._updateCoverflow(result, enteringEntries, exiting);
+				}
+
+				enteringEntries.forEach(function(entry) {
+					var previewTool = Q.Tool.from(entry.element, 'Streams/preview');
+					if (!previewTool) {
+						if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
+						return;
+					}
+
+					function _render(stream) {
+						state.renderer(stream, previewTool, function(renderedEl) {
+							entry.renderedEl = renderedEl;
+							// Wire fastclick on rendered element to previewTool's onInvoke
+							$(renderedEl).on(Q.Pointer.fastclick, function() {
+								Q.handle(previewTool.state.onInvoke, previewTool, []);
+							});
+							if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
+						});
+					}
+
+					// Use cached stream if available, otherwise fetch
+					var cached = Q.Streams.get.cache.get([entry.fields.publisherId, entry.fields.name]);
+					var stream = cached && cached.subject;
+					if (stream) {
+						_render(stream);
+					} else {
+						Q.Streams.get(entry.fields.publisherId, entry.fields.name, function(err, s) {
+							if (err || !s) {
+								if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
+								return;
+							}
+							_render(s);
+						});
+					}
+				});
+			});
+
+			return; // skip the normal preview-tool path entirely
+		}
+
+		// ---- normal preview-tool path ---------------------------------------
+
 		function _placeRelatedTool (element) {
 			// select closest larger weight
 			var closestLargerWeight = null;
@@ -313,7 +516,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			if (Q.handle(state.beforeRenderPreview, tool, [tff, element]) === false) {
 				return;
 			}
-			
+
 			tool.element.addClass('Streams_related_hasComposers');
 
 			if (tool.tabs) {
@@ -367,17 +570,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				Q.handle(state.onComposer, tool, [preview]);
 			});
 		}
-		
-		var tool = this;
-		var state = tool.state;
-		var $te = $(tool.element);
-		var $container = $te;
-		var isTabs = $te.hasClass('Q_tabs_tool');
-		if (isTabs) {
-			$container = $te.find('.Q_tabs_tabs');
-		}
-
-		var ascending = Q.getObject("ascending", state.relatedOptions) || false;
 
 		if (result.stream.testWriteLevel('relate')) {
 			Q.each(state.creatable, addComposer);
@@ -434,6 +626,14 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			Q.removeElement(element, true);
 		});
 
+		// Build a keyed lookup for exiting in the normal path too
+		var exitingKeysNormal = {};
+		Q.each(exiting, function () {
+			if (this.fields) {
+				exitingKeysNormal[this.fields.publisherId + "\t" + this.fields.name] = true;
+			}
+		});
+
 		var elements = [];
 		Q.each(result.relations, function (i) {
 			var direction = state.isCategory ? this.from : this.to;
@@ -444,7 +644,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			var tff = direction.fields;
 
 			// skip if stream exists in exiting
-			if (Q.getObject(tff.publisherId+"\t"+tff.name, exiting)) {
+			if (exitingKeysNormal[tff.publisherId + "\t" + tff.name]) {
 				return;
 			}
 
@@ -454,8 +654,8 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			}
 
 			var element = tool.elementForStream(
-				tff.publisherId, 
-				tff.name, 
+				tff.publisherId,
+				tff.name,
 				tff.type,
 				this.weight,
 				state.previewOptions,
@@ -538,10 +738,10 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		var streamName = state.streamName || Q.getObject("stream.fields.name", state);
 
 		Streams.retainWith(tool).related.force(
-			publisherId, 
-			streamName, 
-			state.relationType, 
-			state.isCategory, 
+			publisherId,
+			streamName,
+			state.relationType,
+			state.isCategory,
 			state.relatedOptions,
 			function (errorMessage) {
 				if (errorMessage) {
@@ -666,8 +866,27 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	 * @param {String} streamName
 	 */
 	removeRelation: function (publisherId, streamName) {
+		var tool = this;
 		var result = this.state.result;
 
+		// In renderer mode, preview tools are hidden and may not be found by children().
+		// Try previewElements directly first.
+		var previewEl = Q.getObject([publisherId, streamName], tool.previewElements);
+		if (previewEl) {
+			var pt = Q.Tool.from(previewEl, 'Streams/preview');
+			if (pt) {
+				Q.Tool.remove(previewEl, true, true);
+				delete result.relatedStreams[publisherId + "\t" + streamName];
+				Q.each(result.relations, function (j, relation) {
+					if (relation.fromPublisherId === publisherId && relation.fromStreamName === streamName) {
+						result.relations.splice(j, 1);
+					}
+				});
+				return;
+			}
+		}
+
+		// Normal path: search visible child preview tools
 		var previewTools = this.children("Streams/preview");
 		Q.each(previewTools, function (i, previewTool) {
 			previewTool = Q.getObject("streams_preview", previewTool);
@@ -690,13 +909,13 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				if (relation.fromPublisherId === publisherId && relation.fromStreamName === streamName) {
 					result.relations.splice(j, 1);
 				}
-			})
+			});
 		});
 	},
 	/**
 	 * You don't normally have to call this method, since it's called automatically.
 	 * Sets up an element for the stream with the tag and toolName provided to the
-	 * Streams/related tool. Also populates "publisherId", "streamName" and "related" 
+	 * Streams/related tool. Also populates "publisherId", "streamName" and "related"
 	 * options for the tool.
 	 * @method elementForStream
 	 * @param {String } publisherId
@@ -710,7 +929,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	 * @return {HTMLElement} An element ready for Q.activate
 	 */
 	elementForStream: function (
-		publisherId, streamName, streamType, weight, 
+		publisherId, streamName, streamType, weight,
 		previewOptions, specificOptions
 	) {
 		var tool = this;
@@ -773,17 +992,17 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		}
 
 		var e = Q.Tool.setUpElement(
-			state.tag || 'div', 
+			state.tag || 'div',
 			toolNames,
 			toolOptions,
 			null, this.prefix
 		);
-		// we need these attributes to check if this preview tool already exists to avoid doublicated previews
+		// we need these attributes to check if this preview tool already exists to avoid duplicated previews
 		e.setAttribute('data-publisherId', publisherId);
 		e.setAttribute('data-streamName', streamName);
 		e.setAttribute('data-streamType', streamType);
 		e.setAttribute('data-weight', weight);
- 		return e;
+		return e;
 	},
 
 	/**
@@ -846,6 +1065,147 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			tabs.refresh();
 		}
 	},
+
+	/**
+	 * Rebuilds the Q/coverflow element set from the current previewElements map,
+	 * preserving relation order. Called internally after renderer activations complete.
+	 * Only relevant when state.renderer is set and Q/coverflow is co-activated.
+	 * @method _updateCoverflow
+	 * @private
+	 */
+	_updateCoverflow: function (result, enteringEntries, exiting) {
+		var tool = this;
+		var state = tool.state;
+		var coverflow = Q.Tool.from(tool.element, 'Q/coverflow');
+		if (!coverflow) {
+			return;
+		}
+
+		// Build a keyed lookup for exiting so we can skip them below.
+		// exiting is an array of stream objects from Q.diff.
+		var exitingMap = {};
+		Q.each(exiting, function () {
+			if (this.fields) {
+				exitingMap[this.fields.publisherId + "\t" + this.fields.name] = true;
+			}
+		});
+		// Walk relations in their server-defined order to preserve weight ordering
+		var allElements = [];
+		Q.each(result.relations, function () {
+			var direction = state.isCategory ? this.from : this.to;
+			if (!direction) { return; }
+			var pId = direction.fields.publisherId;
+			var sName = direction.fields.name;
+
+			if (exitingMap[pId + "\t" + sName]) { return; }
+
+			var previewEl = Q.getObject([pId, sName], tool.previewElements);
+			if (!previewEl) { return; }
+
+			// Find the rendered element: check enteringEntries first, then cached
+			var renderedEl = null;
+			for (var i = 0; i < enteringEntries.length; i++) {
+				if (enteringEntries[i].fields.publisherId === pId
+					&& enteringEntries[i].fields.name === sName) {
+					renderedEl = enteringEntries[i].renderedEl;
+					break;
+				}
+			}
+			if (!renderedEl) {
+				renderedEl = previewEl._coverflowRenderedEl;
+			}
+			if (!renderedEl) { return; }
+
+			// Cache rendered element on hidden preview node for future partial updates
+			previewEl._coverflowRenderedEl = renderedEl;
+			allElements.push(renderedEl);
+		});
+
+		coverflow.state.elements = allElements;
+
+		// Rebuild covers unless a sort drag is active — rebuilding innerHTML
+		// during a drag would destroy the li the user is holding.
+		if (!coverflow._covers || !coverflow._covers._sortableLifted) {
+			coverflow.refresh();
+		}
+
+		var covers = coverflow._covers;
+
+		// Apply Q/sortable to covers ul only once (first populate).
+		// Subsequent calls to _updateCoverflow rebuild the li contents via
+		// coverflow.refresh() above; sortable re-queries children dynamically
+		// on each drag, so no re-init is needed.
+		if (state.sortable && covers && !tool._coverflowSortableApplied
+		&& tool.stream && tool.stream.testWriteLevel('edit')) {
+			if (state.realtime) {
+				console.warn("Streams/related: can't mix realtime and sortable options yet");
+			} else {
+				tool._coverflowSortableApplied = true;
+				var $covers = $(covers);
+				var coverflowTool = Q.Tool.from(tool.element, 'Q/coverflow');
+				var coverflowSortableOpts = coverflowTool
+					? coverflowTool.sortableOptions()
+					: { draggable: 'li', droppable: 'li' };
+				// Q.extend would overwrite Q.Event instances (onLift, onDrop, onIndicate)
+				// from state.sortable with coverflow's versions, silently dropping any
+				// user-supplied handlers. Instead: extend only non-Event properties, then
+				// wire coverflow's event handlers via .set() after plugin() runs.
+				var coversSortableOptions = Q.extend({}, state.sortable, {
+					draggable: coverflowSortableOpts.draggable,
+					droppable: coverflowSortableOpts.droppable
+				});
+				$covers.plugin('Q/sortable', coversSortableOptions, function () {
+					// Wire coverflow event handlers after init so they coexist with
+					// any user-supplied handlers from state.sortable.
+					// Reuse coverflowSortableOpts from above — no need to call sortableOptions() again.
+					if (coverflowTool) {
+						var coversSortableState = $covers.state('Q/sortable');
+						coversSortableState.onLift.set(coverflowSortableOpts._onLift, 'Q/coverflow');
+						coversSortableState.onDrop.set(coverflowSortableOpts._onDrop, 'Q/coverflow');
+						coversSortableState.onIndicate.set(coverflowSortableOpts._onIndicate, 'Q/coverflow');
+					}
+					$covers.state('Q/sortable').onSuccess.set(function ($item, data) {
+						if (!data.direction) return;
+						var renderedEl = $item[0].querySelector('img, video');
+						if (!renderedEl) return;
+						var targetRenderedEl = data.target && $(data.target).find('img, video')[0];
+						if (!targetRenderedEl) return;
+						var draggedPreviewEl = null, targetPreviewEl = null;
+						Q.each(tool.previewElements, function () {
+							Q.each(this, function () {
+								if (this._coverflowRenderedEl === renderedEl) draggedPreviewEl = this;
+								if (this._coverflowRenderedEl === targetRenderedEl) targetPreviewEl = this;
+							});
+						});
+						if (!draggedPreviewEl || !targetPreviewEl) return;
+						var iState = Q.Tool.from(draggedPreviewEl, 'Streams/preview').state;
+						var sState = Q.Tool.from(targetPreviewEl,  'Streams/preview').state;
+						if (!iState || !sState) return;
+						var r = iState.related;
+						var p = new Q.Pipe(['timeout', 'updated'], function () {
+							Streams.related.cache.removeEach(
+								[state.publisherId, state.streamName]
+							);
+							tool.refresh();
+						});
+						setTimeout(p.fill('timeout'), $covers.state('Q/sortable').drop.duration);
+						Streams.updateRelation(
+							r.publisherId, r.streamName, r.type,
+							iState.publisherId, iState.streamName,
+							sState.related.weight,
+							1,
+							p.fill('updated')
+						);
+					}, tool);
+				});
+			}
+		}
+
+		// Pass actual entering/exiting to onRefresh matching normal-path signature.
+		var enteringFields = enteringEntries.map(function(e) { return e.fields; });
+		state.onRefresh.handle.call(tool, [], {}, enteringFields, exiting, []);
+	},
+
 	previewElement: function (publisherId, streamName) {
 		return Q.getObject([publisherId, streamName], this.previewElements);
 	},
@@ -854,12 +1214,19 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	},
 	Q: {
 		beforeRemove: function () {
+			// Remove sortable from the tool element (normal mode)
 			$(this.element).plugin('Q/sortable', 'remove');
+			// Remove sortable from coverflow's ul if it was applied there (renderer mode)
+			var covers = this.element.querySelector('.Q_coverflow_covers');
+			if (covers) {
+				$(covers).plugin('Q/sortable', 'remove');
+			}
+			this._coverflowSortableApplied = false;
 			this.state.onUpdate.remove("Streams/related");
 			if (this.mutationObserver) {
 				this.mutationObserver.disconnect();
 			}
-			if (this.intersetionObserver) {
+			if (this.intersectionObserver) {
 				this.intersectionObserver.disconnect();
 			}
 		}
