@@ -847,9 +847,9 @@ Q.Tool.define({
 	"Streams/activity"	 : "{{Streams}}/js/tools/activity.js",
 	"Streams/fileManager"  : "{{Streams}}/js/tools/fileManager.js",
 	"Streams/image/album": "{{Streams}}/js/tools/image/album.js",
-	"Streams/image/gallery": {
-		js: "{{Streams}}/js/tools/image/gallery.js",
-		css: "{{Streams}}/css/tools/image/gallery.css"
+	"Streams/gallery": {
+		js: "{{Streams}}/js/tools/gallery.js",
+		css: "{{Streams}}/css/tools/gallery.css"
 	},
 	"Streams/default/preview": "{{Streams}}/js/tools/default/preview.js",
 	"Streams/question/preview": "{{Streams}}/js/tools/question/preview.js",

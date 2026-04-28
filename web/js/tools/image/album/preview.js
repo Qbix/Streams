@@ -288,7 +288,7 @@
 
 	Q.Template.set('Streams/image/album/preview/create',
 		'<div class="Streams_preview_container Streams_preview_create Q_clearfix">'
-		+ '<img alt="{{alt}}" class="Streams_preview_add">'
+		+ '<img alt="{{alt}}" class="Streams_preview_add Q_no_lazyload">'
 		+ '<div class="Streams_album_preview_title {{titleClass}}">'
 		+ '<{{titleTag}} class="Streams_preview_title">Add Image</{{titleTag}}>'
 		+ '</div></div>'

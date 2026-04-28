@@ -469,6 +469,18 @@
 					"adminLevel": 0
 				}
 			},
+			"Streams/ontology": {
+				"emoji": "📚",
+				"create": true,
+				"edit": true,
+				"defaults": {
+				"title": "Untitled Ontology",
+				"icon": "Streams/ontology",
+				"readLevel": 40,
+				"writeLevel": 30,
+				"adminLevel": 30
+				}
+			},
 			"Streams/text": {
 				"emoji": "✍️",
 				"create": true, 

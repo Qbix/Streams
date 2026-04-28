@@ -1306,6 +1306,12 @@ Q.Tool.define('Streams/chat', function(options) {
 			var c = $composer[0];
 			if (c) {
 				var m = c.scrollIntoViewIfNeeded || c.scrollIntoView;
+				// Save window scroll position before scrollIntoView,
+				// which can scroll ancestors including the window
+				// when the chat column hasn't established its own
+				// scroll context yet
+				var wScrollTop = window.scrollY
+					|| document.documentElement.scrollTop;
 				if (recursive) {
 					m.call(c, {
 						behavior: "instant",
@@ -1313,6 +1319,7 @@ Q.Tool.define('Streams/chat', function(options) {
 						inline: "nearest"
 					});
 					s.scrollTop = scrollHeight;
+					window.scrollTo(0, wScrollTop);
 					_stayAtComposer();
 				} else {
 					m.call(c, {
@@ -1320,7 +1327,9 @@ Q.Tool.define('Streams/chat', function(options) {
 						block: "nearest",
 						inline: "nearest"
 					});
+					window.scrollTo(0, wScrollTop);
 					setTimeout(function () {
+						window.scrollTo(0, wScrollTop);
 						stopScrollingToComposer = false;
 						_stayAtComposer();
 						Q.handle(callback, $(s), [s]);

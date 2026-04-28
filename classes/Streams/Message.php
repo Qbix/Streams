@@ -527,7 +527,7 @@ class Streams_Message extends Base_Streams_Message
 		$maxDepth = Q::ifset($options, 'maxDepth', 50);
 
 		// Single query — all chain metadata lives in the tip stream's fork field
-		$row = Streams_Stream::select('publisherId, name, fork, closedTime')
+		$row = Streams_Stream::select()
 			->where(array(
 				'publisherId' => $publisherId,
 				'name'        => $streamName

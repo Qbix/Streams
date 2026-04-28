@@ -449,8 +449,11 @@ Streams.listen = function (options, servers) {
 	}
 	
 	// Start internal server
-	var server = Q.listen();	
-	server.attached.express.post('/Q/node', Streams_request_handler);
+	var server = Q.listen();
+
+	// Register Q/method handlers via the framework's IPC dispatcher.
+	// The legacy /Q/node mount point has been replaced by server.addMethod().
+	_registerStreamsMethods(server);
 
 	// Start external socket server
 	var node = Q.Config.get(['Q', 'node']);
@@ -634,89 +637,128 @@ Streams.observers = {};
  */ 
 Streams.observing = {};
 
-function Streams_request_handler (req, res, next) {
-	var parsed = req.body;
-	if (!parsed || !parsed['Q/method']
-	|| !req.internal || !req.validated) {
-		return next();
-	}
-	var participant, msg, posted, streams, k;
-	var userIds, invitingUserId, username, appUrl, label, addLabel, addMyLabel, alwaysSend;
-	var readLevel, writeLevel, adminLevel, permissions, displayName, expireTime, logKey;
-	var clientId = parsed["Q.clientId"];
-	var stream = parsed.stream
-		&& Streams.Stream.construct(JSON.parse(parsed.stream), true);
-	var userId = parsed.userId;
-	var participated = false;
-	switch (parsed['Q/method']) {
-		case 'Streams/Stream/join':
-			participant = new Streams.Participant(JSON.parse(parsed.participant));
-			participant.fillMagicFields();
-			userId = participant.fields.userId;
-			if (Q.Config.get(['Streams', 'logging'], false)) {
-				Q.log('Streams.listen: Streams/Stream/join {'
-					+ '"publisherId": "' + stream.fields.publisherId
-					+ '", "name": "' + stream.fields.name
-					+ '"}'
-				);
-			}
-			// invalidate cache for this stream
-//				Streams.getParticipants.forget(stream.fields.publisherId, stream.fields.name);
-			// inform user's clients about change
-			Users.Socket.emitToUser(userId, 'Streams/join', participant);
-			Streams.Stream.emit('join', stream, userId, clientId);
-			break;
-		case 'Streams/Stream/visit':
-			participant = JSON.parse(parsed.participant);
-			userId = participant.userId;
-			Streams.Stream.emit('visit', stream, userId, clientId);
-			break;
-		case 'Streams/Stream/leave':
-			participant = new Streams.Participant(JSON.parse(parsed.participant));
-			participant.fillMagicFields();
-			userId = participant.fields.userId;
-			if (Q.Config.get(['Streams', 'logging'], false)) {
-				Q.log('Streams.listen: Streams/Stream/leave {'
-					+ '"publisherId": "' + stream.fields.publisherId
-					+ '", "name": "' + stream.fields.name
-					+ '"}'
-				);
-			}
-			// invalidate cache for this stream
-//				Streams.getParticipants.forget(stream.fields.publisherId, stream.fields.name);
-			// inform user's clients about change
-			Users.Socket.emitToUser(userId, 'Streams/leave', participant);
-			Streams.Stream.emit('leave', stream, userId, clientId);
-			break;
-		case 'Streams/Stream/remove':
-			if (Q.Config.get(['Streams', 'logging'], false)) {
-				Q.log('Streams.listen: Streams/Stream/remove {'
-					+ '"publisherId": "' + stream.fields.publisherId
-					+ '", "name": "' + stream.fields.name
-					+ '"}'
-				);
-			}
-			// invalidate cache
-			stream.notifyParticipants('Streams/remove', null, {
-				publisherId: stream.fields.publisherId, 
-				name: stream.fields.name
-			});
-			Streams.Stream.emit('remove', stream, clientId);
-			break;
-		case 'Streams/Stream/create':
-			if (Q.Config.get(['Streams', 'logging'], false)) {
-				Q.log('Streams.listen: Streams/Stream/create {'
-					+ '"publisherId": "' + stream.fields.publisherId
-					+ '", "name": "' + stream.fields.name
-					+ '"}'
-				);
-			}
-			Streams.Stream.emit('create', stream, clientId);
-			// no need to notify anyone
-			break;
-		case 'Streams/Message/post':
-			msg = Streams.Message.construct(JSON.parse(parsed.message), true);
+// Register all Streams/* Q/method handlers against the server's IPC dispatcher.
+// Each case in the legacy Streams_request_handler switch is now a declarative
+// onMethod() registration. Shared top-level locals have been scoped per handler;
+// no handler depended on state bleeding from another case.
+function _registerStreamsMethods(server) {
+
+	// Streams/Stream/join — a user joined a stream; fan out to their clients.
+	server.addMethod('Streams/Stream/join', function (parsed) {
+		var clientId = parsed["Q.clientId"];
+		var stream = parsed.stream
+			&& Streams.Stream.construct(JSON.parse(parsed.stream), true);
+		var participant = new Streams.Participant(JSON.parse(parsed.participant));
+		participant.fillMagicFields();
+		var userId = participant.fields.userId;
+		if (Q.Config.get(['Streams', 'logging'], false)) {
+			Q.log('Streams.listen: Streams/Stream/join {'
+				+ '"publisherId": "' + stream.fields.publisherId
+				+ '", "name": "' + stream.fields.name
+				+ '"}'
+			);
+		}
+		// invalidate cache for this stream
+		// Streams.getParticipants.forget(stream.fields.publisherId, stream.fields.name);
+		Users.Socket.emitToUser(userId, 'Streams/join', participant);
+		Streams.Stream.emit('join', stream, userId, clientId);
+	});
+
+	// Streams/Stream/visit — a user visited a stream.
+	server.addMethod('Streams/Stream/visit', function (parsed) {
+		var clientId = parsed["Q.clientId"];
+		var stream = parsed.stream
+			&& Streams.Stream.construct(JSON.parse(parsed.stream), true);
+		var participant = JSON.parse(parsed.participant);
+		var userId = participant.userId;
+		Streams.Stream.emit('visit', stream, userId, clientId);
+	});
+
+	// Streams/Stream/leave — a user left a stream; fan out to their clients.
+	server.addMethod('Streams/Stream/leave', function (parsed) {
+		var clientId = parsed["Q.clientId"];
+		var stream = parsed.stream
+			&& Streams.Stream.construct(JSON.parse(parsed.stream), true);
+		var participant = new Streams.Participant(JSON.parse(parsed.participant));
+		participant.fillMagicFields();
+		var userId = participant.fields.userId;
+		if (Q.Config.get(['Streams', 'logging'], false)) {
+			Q.log('Streams.listen: Streams/Stream/leave {'
+				+ '"publisherId": "' + stream.fields.publisherId
+				+ '", "name": "' + stream.fields.name
+				+ '"}'
+			);
+		}
+		// invalidate cache for this stream
+		// Streams.getParticipants.forget(stream.fields.publisherId, stream.fields.name);
+		Users.Socket.emitToUser(userId, 'Streams/leave', participant);
+		Streams.Stream.emit('leave', stream, userId, clientId);
+	});
+
+	// Streams/Stream/remove — a stream was removed; notify participants.
+	server.addMethod('Streams/Stream/remove', function (parsed) {
+		var clientId = parsed["Q.clientId"];
+		var stream = parsed.stream
+			&& Streams.Stream.construct(JSON.parse(parsed.stream), true);
+		if (Q.Config.get(['Streams', 'logging'], false)) {
+			Q.log('Streams.listen: Streams/Stream/remove {'
+				+ '"publisherId": "' + stream.fields.publisherId
+				+ '", "name": "' + stream.fields.name
+				+ '"}'
+			);
+		}
+		stream.notifyParticipants('Streams/remove', null, {
+			publisherId: stream.fields.publisherId,
+			name: stream.fields.name
+		});
+		Streams.Stream.emit('remove', stream, clientId);
+	});
+
+	// Streams/Stream/create — a stream was created; emit local event.
+	server.addMethod('Streams/Stream/create', function (parsed) {
+		var clientId = parsed["Q.clientId"];
+		var stream = parsed.stream
+			&& Streams.Stream.construct(JSON.parse(parsed.stream), true);
+		if (Q.Config.get(['Streams', 'logging'], false)) {
+			Q.log('Streams.listen: Streams/Stream/create {'
+				+ '"publisherId": "' + stream.fields.publisherId
+				+ '", "name": "' + stream.fields.name
+				+ '"}'
+			);
+		}
+		Streams.Stream.emit('create', stream, clientId);
+	});
+
+	// Streams/Message/post — a single message was posted.
+	server.addMethod('Streams/Message/post', function (parsed) {
+		var clientId = parsed["Q.clientId"];
+		var stream = parsed.stream
+			&& Streams.Stream.construct(JSON.parse(parsed.stream), true);
+		var msg = Streams.Message.construct(JSON.parse(parsed.message), true);
+		msg.fillMagicFields();
+		if (Q.Config.get(['Streams', 'logging'], false)) {
+			Q.log('Streams.listen: Streams/Message/post {'
+				+ '"publisherId": "' + stream.fields.publisherId
+				+ '", "name": "' + stream.fields.name
+				+ '", "msg.type": "' + msg.fields.type
+				+ '"}'
+			);
+		}
+		Streams.Stream.emit('post', stream, msg, clientId);
+	});
+
+	// Streams/Message/postMessages — a batch of messages was posted across streams.
+	server.addMethod('Streams/Message/postMessages', function (parsed) {
+		var clientId = parsed["Q.clientId"];
+		var posted = JSON.parse(parsed.posted);
+		var streams = parsed.streams && JSON.parse(parsed.streams);
+		if (!streams) return;
+		for (var k in posted) {
+			var msg = Streams.Message.construct(posted[k], true);
 			msg.fillMagicFields();
+			var stream = Streams.Stream.construct(
+				streams[msg.fields.publisherId][msg.fields.streamName], true
+			);
 			if (Q.Config.get(['Streams', 'logging'], false)) {
 				Q.log('Streams.listen: Streams/Message/post {'
 					+ '"publisherId": "' + stream.fields.publisherId
@@ -726,272 +768,291 @@ function Streams_request_handler (req, res, next) {
 				);
 			}
 			Streams.Stream.emit('post', stream, msg, clientId);
-			break;
-		case 'Streams/Message/postMessages':
-			posted = JSON.parse(parsed.posted);
-			streams = parsed.streams && JSON.parse(parsed.streams);
-			if (!streams) break;
-			for (k in posted) {
-				msg = Streams.Message.construct(posted[k], true);
-				msg.fillMagicFields();
-				stream = Streams.Stream.construct(
-					streams[msg.fields.publisherId][msg.fields.streamName], true
-				);
-				if (Q.Config.get(['Streams', 'logging'], false)) {
-					Q.log('Streams.listen: Streams/Message/post {'
-						+ '"publisherId": "' + stream.fields.publisherId
-						+ '", "name": "' + stream.fields.name
-						+ '", "msg.type": "' + msg.fields.type
-						+ '"}'
-					);
-				}
-				Streams.Stream.emit('post', stream, msg, clientId);
-			}
-			break;
-		case 'Streams/Stream/invite':
-			try {
-				userIds = JSON.parse(parsed.userIds);
-				invitingUserId = parsed.invitingUserId;
-				username = parsed.username;
-				appUrl = parsed.appUrl;
-				readLevel = parsed.readLevel || null;
-				writeLevel = parsed.writeLevel || null;
-				adminLevel = parsed.adminLevel || null;
-				permissions = parsed.permissions || null;
-				displayName = parsed.displayName || '';
-				label = parsed.label || '';
-				addLabel = parsed.addLabel || [];
-				addMyLabel = parsed.addMylabel || [];
-				alwaysSend = parsed.alwaysSend || false;
-				expireTime = parsed.expireTime ? new Date(parsed.expireTime*1000) : null;
-			} catch (e) {
-				return res.send({data: false});
-			}
-			res.send({data: true});
-			if (logKey = Q.Config.get(['Streams', 'logging'], false)) {
-				Q.log(
-				    'Streams.listen: Streams/Stream/invite {'
-					+ '"publisherId": "' + stream.fields.publisherId
-					+ '", "name": "' + stream.fields.name
-					+ '", "userIds": ' + parsed.userIds
-					+ '}',
-					logKey
-				);
-			}
+		}
+	});
 
-			if (expireTime && expireTime <= new Date()) {
-			    break;
-			}
-			
-			persist();
-			
+	// Streams/Stream/invite — synchronously acks, then persists invitations async.
+	// This is the one handler that responds with res.send() before doing async work.
+	server.addMethod('Streams/Stream/invite', function (parsed, req, res) {
+		var stream = parsed.stream
+			&& Streams.Stream.construct(JSON.parse(parsed.stream), true);
+		var userIds, invitingUserId, username, appUrl;
+		var readLevel, writeLevel, adminLevel, permissions;
+		var displayName, label, addLabel, addMyLabel, alwaysSend, expireTime;
+		var logKey;
+
+		try {
+			userIds = JSON.parse(parsed.userIds);
+			invitingUserId = parsed.invitingUserId;
+			username = parsed.username;
+			appUrl = parsed.appUrl;
+			readLevel = parsed.readLevel || null;
+			writeLevel = parsed.writeLevel || null;
+			adminLevel = parsed.adminLevel || null;
+			permissions = parsed.permissions || null;
+			displayName = parsed.displayName || '';
+			label = parsed.label || '';
+			addLabel = parsed.addLabel || [];
+			addMyLabel = parsed.addMylabel || [];
+			alwaysSend = parsed.alwaysSend || false;
+			expireTime = parsed.expireTime ? new Date(parsed.expireTime*1000) : null;
+		} catch (e) {
+			return res.send({data: false});
+		}
+		res.send({data: true});
+
+		if (logKey = Q.Config.get(['Streams', 'logging'], false)) {
+			Q.log(
+				'Streams.listen: Streams/Stream/invite {'
+				+ '"publisherId": "' + stream.fields.publisherId
+				+ '", "name": "' + stream.fields.name
+				+ '", "userIds": ' + parsed.userIds
+				+ '}',
+				logKey
+			);
+		}
+
+		if (expireTime && expireTime <= new Date()) {
 			return;
-		case "Streams/Notification/pause":
-			Streams.Notification.paused = true;
-			break;
-		case "Streams/Notification/resume":
-			Streams.Notification.paused = false;
-			break;
-		default:
-			break;
-	}
-	return next();
-	
-	function persist () {
-	
-		Q.each(userIds, function (i, userId) {
-			var token = null;
-			var user = null;
-			
-		    // TODO: Change this to a getter, so that we can do throttling in case there are too many userIds
-			
-			(new Users.User({
-				"userId": userId
-			})).retrieve(_user);
-			
-			function _user(err, rows) {
-				if (!rows || !rows.length) {
-					// User wan't found in the dtabase
+		}
+
+		_persistInvite(parsed, stream, {
+			userIds: userIds,
+			invitingUserId: invitingUserId,
+			appUrl: appUrl,
+			readLevel: readLevel,
+			writeLevel: writeLevel,
+			adminLevel: adminLevel,
+			permissions: permissions,
+			displayName: displayName,
+			label: label,
+			addLabel: addLabel,
+			addMyLabel: addMyLabel,
+			alwaysSend: alwaysSend,
+			expireTime: expireTime
+		});
+	});
+
+	// Streams/Notification/pause — pause notifications.
+	server.addMethod('Streams/Notification/pause', function () {
+		Streams.Notification.paused = true;
+	});
+
+	// Streams/Notification/resume — resume notifications.
+	server.addMethod('Streams/Notification/resume', function () {
+		Streams.Notification.paused = false;
+	});
+}
+
+// Extracted from the legacy Streams_request_handler#persist() closure.
+// Accepts `parsed` (original request body) and a pre-constructed `stream`
+// along with an args bag of everything the closure used to capture from
+// the switch scope. Behavior is preserved verbatim.
+function _persistInvite(parsed, stream, args) {
+	var userIds        = args.userIds;
+	var invitingUserId = args.invitingUserId;
+	var appUrl         = args.appUrl;
+	var readLevel      = args.readLevel;
+	var writeLevel     = args.writeLevel;
+	var adminLevel     = args.adminLevel;
+	var permissions    = args.permissions;
+	var displayName    = args.displayName;
+	var label          = args.label;
+	var addLabel       = args.addLabel;
+	var addMyLabel     = args.addMyLabel;
+	var alwaysSend     = args.alwaysSend;
+	var expireTime     = args.expireTime;
+
+	Q.each(userIds, function (i, userId) {
+		var token = null;
+		var user = null;
+		var invite;
+		var participated = false;
+
+		// TODO: Change this to a getter, so that we can do throttling in case there are too many userIds
+		(new Users.User({
+			"userId": userId
+		})).retrieve(_user);
+
+		function _user(err, rows) {
+			if (!rows || !rows.length) {
+				// User wasn't found in the database
+				return;
+			}
+			user = rows[0];
+
+			(new Streams.Participant({
+				"publisherId": stream.fields.publisherId,
+				"streamName": stream.fields.name,
+				"userId": userId,
+				"state": "participating"
+			})).retrieve(_participant);
+		}
+
+		function _participant(err, rows) {
+			if (rows && rows.length) {
+				participated = true;
+
+				// if alwaysSend do further
+				if (!alwaysSend) {
+					// User is already a participant in the stream.
 					return;
 				}
-				user = rows[0];
+			}
+			var extra = {};
+			if (label) {
+				extra.label = label;
+			}
+			if (addLabel) {
+				extra.addLabel = addLabel;
+			}
+			if (addMyLabel) {
+				extra.addMyLabel = addMyLabel;
+			}
+			(new Streams.Invite({
+				"userId": userId,
+				"state": "pending",
+				"publisherId": stream.fields.publisherId,
+				"streamName": stream.fields.name,
+				"invitingUserId": invitingUserId,
+				"displayName": displayName,
+				"appUrl": appUrl,
+				"readLevel": readLevel,
+				"writeLevel": writeLevel,
+				"adminLevel": adminLevel,
+				"permissions": permissions,
+				"expireTime": expireTime,
+				"extra": JSON.stringify(extra)
+			})).save(_inviteSaved);
+		}
 
+		function _inviteSaved(err) {
+			if (err) {
+				Q.log("ERROR: Failed to save Streams.Invite for user '"+userId+"' during invite");
+				Q.log(err);
+				return;
+			}
+			token = this.fields.token;
+			invite = this;
+			// now ready to save Streams.Invited row
+			(new Streams.Invited({
+				"token": token,
+				"userId": userId,
+				"state": "pending",
+				"expireTime": expireTime
+			})).save(_invitedSaved);
+		}
+
+		function _invitedSaved(err) {
+			if (err) {
+				Q.log("ERROR: Failed to save Streams.Invited for user '"+userId+"' during invite");
+				Q.log(err);
+				return;
+			}
+			if (participated) {
+				_participantSaved();
+			} else {
 				(new Streams.Participant({
 					"publisherId": stream.fields.publisherId,
 					"streamName": stream.fields.name,
+					"streamType": stream.fields.type,
 					"userId": userId,
-					"state": "participating"
-				})).retrieve(_participant);
-			}
-			
-			function _participant(err, rows) {
-				if (rows && rows.length) {
-					participated = true;
-
-					// if alwaysSend do further
-					if (!alwaysSend) {
-						// User is already a participant in the stream.
-						return;
-					}
-				}
-				var extra = {};
-				if (label) {
-					extra.label = label;
-				}
-				if (addLabel) {
-					extra.addLabel = addLabel;
-				}
-				if (addMyLabel) {
-					extra.addMyLabel = addMyLabel;
-				}
-				(new Streams.Invite({
-					"userId": userId,
-					"state": "pending",
-					"publisherId": stream.fields.publisherId,
-					"streamName": stream.fields.name,
-					"invitingUserId": invitingUserId,
-					"displayName": displayName,
-					"appUrl": appUrl,
-					"readLevel": readLevel,
-					"writeLevel": writeLevel,
-					"adminLevel": adminLevel,
-					"permissions": permissions,
-					"expireTime": expireTime,
-					"extra": JSON.stringify(extra)
-				})).save(_inviteSaved);
-			}
-			
-			var invite;
-
-			function _inviteSaved(err) {
-				if (err) {
-					Q.log("ERROR: Failed to save Streams.Invite for user '"+userId+"' during invite");
-					Q.log(err);
-					return;
-				}
-				token = this.fields.token;
-				invite = this;
-				// now ready to save Streams.Invited row
-				(new Streams.Invited({
-					"token": token,
-					"userId": userId,
-					"state": "pending",
-					"expireTime": expireTime
-				})).save(_invitedSaved);
+					"state": "invited",
+					"reason": ""
+				})).save(true, _participantSaved);
 			}
 
-			function _invitedSaved(err) {
-				if (err) {
-					Q.log("ERROR: Failed to save Streams.Invited for user '"+userId+"' during invite");
-					Q.log(err);
-					return;
-				}
-				if (participated) {
-					_participantSaved();
-				} else {
-					(new Streams.Participant({
-						"publisherId": stream.fields.publisherId,
-						"streamName": stream.fields.name,
-						"streamType": stream.fields.type,
-						"userId": userId,
-						"state": "invited",
-						"reason": ""
-					})).save(true, _participantSaved);
-				}
-
-				// Write some files, if requested
-				// SECURITY: Here we trust the input, which should only be sent internally
-				if (parsed.template) {
-					new Users.User({id: userId})
-					.retrieve(function () {
-						var fields = Q.extend({}, parsed, {
-							stream: stream,
-							user: this,
-							invite: invite,
-							link: invite.url(),
-							app: Q.app.name,
-							communityId: Users.communityId(),
-							communityName: Users.communityName(),
-							appRootUrl: Q.Config.expect(['Q', 'web', 'appRootUrl'])
-						});
-						var html = Q.Handlebars.render(parsed.template, fields);
-						var path = Streams.invitationsPath(invitingUserId)
-							+'/'+parsed.batchName;
-						var filename = path + '/'
-							+ Q.normalize(stream.fields.publisherId) + '-'
-							+ Q.normalize(stream.fields.name) + '-'
-							+ this.fields.id + '.html';
-						fs.writeFile(filename, html, function (err) {
-							if (err) {
-								Q.log(err);
-							}
-						});
+			// Write some files, if requested
+			// SECURITY: Here we trust the input, which should only be sent internally
+			if (parsed.template) {
+				new Users.User({id: userId})
+				.retrieve(function () {
+					var fields = Q.extend({}, parsed, {
+						stream: stream,
+						user: this,
+						invite: invite,
+						link: invite.url(),
+						app: Q.app.name,
+						communityId: Users.communityId(),
+						communityName: Users.communityName(),
+						appRootUrl: Q.Config.expect(['Q', 'web', 'appRootUrl'])
 					});
-				}
-			}
-
-			function _participantSaved(err) {
-				if (err) {
-					Q.log("ERROR: Failed to save Streams.Participant for user '"+userId+"' during invite");
-					Q.log(err);
-					return;
-				}
-
-				// Now post a message to Streams/invited stream
-				Streams.fetchOne(invitingUserId, userId, 'Streams/invited', _stream);
-			}
-
-			function _stream(err, invited) {
-				if (err) {
-					Q.log("ERROR: Failed to get invited stream for user '"+userId+"' during invite");
-					Q.log(err);
-					return;
-				}
-				Streams.Stream.emit('invite', invited.getFields(), userId, stream);
-				if (!invited.testWriteLevel('post')) {
-					Q.log("ERROR: Not authorized to post to invited stream for user '"+userId+"' during invite");
-					return;
-				}
-				var inviteUrl = Streams.inviteUrl(token);
-				displayName = displayName || "Someone";
-				var text = Q.Text.get('Streams/content', { 
-					language: user.fields.preferredLanguage
-				});
-				var msg = {
-					publisherId: invited.fields.publisherId,
-					streamName: invited.fields.name,
-					byUserId: invitingUserId,
-					type: 'Streams/invited',
-					sentTime: new Db.Expression("CURRENT_TIMESTAMP"),
-					state: 'posted',
-					content: text.invite.messageContent.interpolate({
-						displayName: displayName,
-						inviteUrl: inviteUrl
-					}),
-					instructions: JSON.stringify({
-						token: token,
-						displayName: displayName,
-						label: label,
-						appUrl: appUrl,
-						userId: userId,
-						inviteUrl: inviteUrl,
-						type: stream.fields.type,
-						title: stream.fields.title,
-						content: stream.fields.content,
-						template: parsed.template,
-						templateName: parsed.templateName
-					})
-				};
-				invited.post(msg, function (err) {
-					if (err) {
-						Q.log("ERROR: Failed to save message for user '"+userId+"' during invite");
-						Q.log(err);
-					}
+					var html = Q.Handlebars.render(parsed.template, fields);
+					var path = Streams.invitationsPath(invitingUserId)
+						+'/'+parsed.batchName;
+					var filename = path + '/'
+						+ Q.normalize(stream.fields.publisherId) + '-'
+						+ Q.normalize(stream.fields.name) + '-'
+						+ this.fields.id + '.html';
+					fs.writeFile(filename, html, function (err) {
+						if (err) {
+							Q.log(err);
+						}
+					});
 				});
 			}
-		});
+		}
 
-    }
+		function _participantSaved(err) {
+			if (err) {
+				Q.log("ERROR: Failed to save Streams.Participant for user '"+userId+"' during invite");
+				Q.log(err);
+				return;
+			}
+
+			// Now post a message to Streams/invited stream
+			Streams.fetchOne(invitingUserId, userId, 'Streams/invited', _stream);
+		}
+
+		function _stream(err, invited) {
+			if (err) {
+				Q.log("ERROR: Failed to get invited stream for user '"+userId+"' during invite");
+				Q.log(err);
+				return;
+			}
+			Streams.Stream.emit('invite', invited.getFields(), userId, stream);
+			if (!invited.testWriteLevel('post')) {
+				Q.log("ERROR: Not authorized to post to invited stream for user '"+userId+"' during invite");
+				return;
+			}
+			var inviteUrl = Streams.inviteUrl(token);
+			displayName = displayName || "Someone";
+			var text = Q.Text.get('Streams/content', {
+				language: user.fields.preferredLanguage
+			});
+			var msg = {
+				publisherId: invited.fields.publisherId,
+				streamName: invited.fields.name,
+				byUserId: invitingUserId,
+				type: 'Streams/invited',
+				sentTime: new Db.Expression("CURRENT_TIMESTAMP"),
+				state: 'posted',
+				content: text.invite.messageContent.interpolate({
+					displayName: displayName,
+					inviteUrl: inviteUrl
+				}),
+				instructions: JSON.stringify({
+					token: token,
+					displayName: displayName,
+					label: label,
+					appUrl: appUrl,
+					userId: userId,
+					inviteUrl: inviteUrl,
+					type: stream.fields.type,
+					title: stream.fields.title,
+					content: stream.fields.content,
+					template: parsed.template,
+					templateName: parsed.templateName
+				})
+			};
+			invited.post(msg, function (err) {
+				if (err) {
+					Q.log("ERROR: Failed to save message for user '"+userId+"' during invite");
+					Q.log(err);
+				}
+			});
+		}
+	});
 }
 
 // Connection from socket.io
