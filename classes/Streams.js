@@ -1085,49 +1085,6 @@ Users.on('disconnected', function (userId) {
 });
 
 /**
- * Retrieve stream participants
- * @method getParticipants
- * @static
- * @param {String} publisherId The publisher Id
- * @param {String} streamName The name of the stream
- * @param {Function} [callback=null] Callback receives a map of {userId: participant} pairs
- */
-Streams.getParticipants = function(publisherId, streamName, callback) {
-	var args = arguments;
-	if (!callback) return;
-	Streams.Participant.SELECT('*').where({
-		publisherId: publisherId,
-		streamName: streamName
-	}).execute(function (err, rows) {
-		if (err) {
-			Q.log(err);
-//			Streams.getParticipants.forget(publisherId, streamName);
-			callback({});
-		} else {
-			var result = {};
-			for (var i=0; i<rows.length; ++i) {
-				result [ rows[i].fields.userId ] = rows[i];
-			}
-			callback(result);
-		}
-	});
-};
-
-/**
- * Retrieve socket.io clients registered to observe the stream
- * by sending "Streams/join" events through the socket.
- * @method getObservers
- * @static
- * @param {String} publisherId The publisher Id
- * @param {String} streamName The name of the stream
- * @param {Function} [callback=null] Callback receives a map of {clientId: socketClient} pairs
- */
-Streams.getObservers = function(publisherId, streamName, callback) {
-	var observers = Q.getObject([publisherId, streamName], Streams.observers);
-	callback && callback(observers || {});
-};
-
-/**
  * Retrieve stream with calculated access rights
  * @method fetch
  * @static

@@ -449,8 +449,8 @@ Sp.notifyParticipants = function (event, messageOrEphemeral, dontNotifyObservers
 	var stream = this;
 
 	// messageOrEphemeral.stream = stream;
-	
-	Streams.getParticipants(fields.publisherId, fields.name, function (participants) {
+
+	this.getParticipants(function (err, participants) {
 		var userIds = Object.keys(participants) || [];
 		for (var i = 0; i < userIds.length; i++) {
 			var userId = userIds[i];
@@ -483,7 +483,7 @@ Sp.notifyParticipants = function (event, messageOrEphemeral, dontNotifyObservers
 Sp.notifyObservers = function (event, messageOrEphemeral) {
 	var stream = this;
 	var fields = this.fields;
-	Streams.getObservers(fields.publisherId, fields.name, function (observers) {
+	this.getObservers(function (err, observers) {
 		var p = Object.getPrototypeOf(messageOrEphemeral);
 		var f;
 		for (var clientId in observers) {
@@ -1580,6 +1580,184 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 	} else {
 		this.testReadLevel(Streams.READ_LEVEL[readLevel], _notify);
 	}
+};
+
+/**
+ * Fetch participants of the stream. Does testReadLevel('participants')
+ *
+ * @method getParticipants
+ * @param {Object} [options={}] Options to control fetching
+ * @param {String} [options.state] Filter by participant state:
+ *   "invited", "participating", or "left"
+ * @param {Number} [options.limit=1000000] Maximum number of participants to return
+ * @param {Number} [options.offset=0] Offset for pagination
+ * @param {Boolean} [options.ascending=false]
+ *   If true, sort by insertedTime ascending, else descending
+ * @param {Boolean} [options.skipAccess=false]
+ *   Pass true to skip checking readLevel
+ * @param {Boolean} [options.skipFiltering=false]
+ *   If true, skip Users/filter/users hook
+ * @param {Boolean} [options.skipLimiting=false]
+ *   If true, do not cap limit using config getParticipantsLimit
+ * @param {Function} callback
+ *   Callback receives (err, participants)
+ * @return {void}
+ * @throws {Error} If access is denied or invalid state is provided
+ */
+Sp.getParticipants = function (options, callback) {
+	var stream = this;
+
+	if (typeof options === "function") {
+		callback = options;
+		options = {};
+	}
+	options = options || {};
+
+	// Access check (parity with PHP)
+	if (!options.skipAccess && !stream.testReadLevel('participants')) {
+		return callback && callback(new Error("Not authorized to read participants"), []);
+	}
+
+	var criteria = {
+		publisherId: stream.fields.publisherId,
+		streamName: stream.fields.name
+	};
+
+	if (options.state) {
+		var allowed = ['invited', 'participating', 'left'];
+		if (allowed.indexOf(options.state) < 0) {
+			return callback && callback(new Error(
+				'Invalid state, must be one of "' + allowed.join('", "') + '"'
+			));
+		}
+		criteria.state = options.state;
+	}
+
+	var q = Streams.Participant.SELECT('*').where(criteria);
+
+	var limit = options.limit != null ? options.limit : 1000000;
+	var offset = options.offset || 0;
+
+	if (!options.skipLimiting) {
+		var max = Streams_Stream.getConfigField(
+			stream.fields.type,
+			['getParticipantsLimit'],
+			100
+		);
+		limit = Math.min(limit, max);
+	}
+
+	q.limit(limit, offset);
+
+	q.orderBy(
+		'insertedTime',
+		options.ascending === true
+	);
+
+	q.execute(function (err, rows) {
+		if (err) {
+			return callback && callback(err);
+		}
+
+		var participants = {};
+		for (var i = 0; i < rows.length; i++) {
+			var r = rows[i];
+			participants[r.fields.userId] = r;
+		}
+
+		if (options.skipFiltering) {
+			return callback && callback(null, participants);
+		}
+
+		var userIds = Object.keys(participants);
+
+		userIds = Q.event(
+			'Users/filter/users',
+			{ from: 'Streams_Stream.getParticipants' },
+			'after',
+			false,
+			userIds
+		);
+
+		var filtered = {};
+		for (var j = 0; j < userIds.length; j++) {
+			var uid = userIds[j];
+			if (participants[uid]) {
+				filtered[uid] = participants[uid];
+			}
+		}
+
+		callback && callback(null, filtered);
+	});
+};
+
+/**
+ * Fetch a particular participant in the stream, if it exists.
+ * Meant to be called internally. Doesn't perform access checks.
+ *
+ * @method getParticipant
+ * @param {String} [userId]
+ *   The id of the user to fetch. Defaults to logged-in user.
+ * @param {Function} callback
+ *   Callback receives (err, participant|null)
+ * @return {void}
+ *
+ * @throws {Error} If access is denied or user cannot be determined
+ */
+Sp.getParticipant = function (userId, callback) {
+	var stream = this;
+
+	if (typeof userId === "function") {
+		callback = userId;
+		userId = null;
+	}
+
+	if (!userId) {
+		var u = Users.loggedInUser && Users.loggedInUser(true);
+		if (!u) {
+			return callback && callback(new Error("No userId provided"));
+		}
+		userId = u.id;
+	}
+
+	Streams.Participant.SELECT('*').where({
+		publisherId: stream.fields.publisherId,
+		streamName: stream.fields.name,
+		userId: userId
+	}).limit(1).execute(function (err, rows) {
+		if (err) return callback && callback(err);
+		callback && callback(null, rows.length ? rows[0] : null);
+	});
+};
+
+/**
+ * Retrieve socket clients observing the stream.
+ * Meant to be called internally. Doesn't perform access checks.
+ * Observers are clients (not necessarily users) subscribed via sockets,
+ * typically through "Streams/join" events.
+ *
+ * @method getObservers
+ * @param {Function} callback
+ *   Callback receives (err, observers)
+ *   where observers is a map: {clientId: socketClient}
+ * @return {void}
+ *
+ * @throws {Error} If access is denied
+ */
+Sp.getObservers = function (callback) {
+	var stream = this;
+
+	// Access check (observers can receive messages → messages-level access)
+	if (!stream.testReadLevel('messages')) {
+		return callback && callback(new Error("Not authorized to read observers"));
+	}
+
+	var observers = Q.getObject(
+		[stream.fields.publisherId, stream.fields.name],
+		Streams.observers
+	);
+
+	callback && callback(null, observers || {});
 };
 
 /**

@@ -2835,7 +2835,7 @@ class Streams_Stream extends Base_Streams_Stream
 	}
 
 	/**
-	 * Fetch participants of the stream.
+	 * Fetch participants of the stream. Does testReadLevel('participants')
 	 * @method getParticipants
 	 * @param {array} [$options=array()] An array of options determining how messages will be fetched, which can include:
 	 * @param {string} [$options.state] One of "invited", "participating", "left"
@@ -2843,6 +2843,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {string} [$options.offset=0] Number of the messages to be selected.
 	 * @param {string} [$options.ascending] Sorting of fetched participants by insertedTime. If true, sorting is ascending, if false - descending. Defaults to false.
 	 * @param {string} [$options.type] Optional string specifying the particular type of messages to get
+	 * @param {string} [$options.skipAccess] Pass true to skip checking readLevel
 	 * @param {string} [$options.skipFiltering] Pass true to skip filtering using Users/filter/users handlers
 	 * @param {boolean} [$options.skipLimiting=false] Pass true to not cut the limit off by the max getParticipantsLimit from config. It's here to protect against excessively large queries.
 	 * @return {array}
@@ -2862,6 +2863,10 @@ class Streams_Stream extends Base_Streams_Stream
 				));
 			}
 			$criteria['state'] = $options['state'];
+		}
+		if (empty($options['skipAccess'])
+		and !$this->testReadLevel('participants')) {
+			return array();
 		}
 		$q = Streams_Participant::select()->where($criteria);
 		$ascending = false;
@@ -2887,6 +2892,7 @@ class Streams_Stream extends Base_Streams_Stream
 	
 	/**
 	 * Fetch a particular participant in the stream, if it exists.
+	 * Don't do access control checks.
 	 * @method getParticipant
 	 * @param {string} [$userId=Users::loggedInUser(true)->id] The id of the user who may or may not be participating in the stream
 	 * @return {Db_Row|null}
