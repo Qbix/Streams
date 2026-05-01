@@ -908,6 +908,9 @@ Q.Tool.define({
 		js: "{{Streams}}/js/tools/video/animatedThumbnail.js",
 		css: "{{Streams}}/css/tools/video/animatedThumbnail.css"
 	},
+	"Streams/image/coverflow": {
+		js: "{{Streams}}/js/tools/image/coverflow.js"
+	}
 });
 
 Streams.Chat = {
