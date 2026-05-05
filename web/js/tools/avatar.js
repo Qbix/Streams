@@ -90,7 +90,7 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 			var $img = tool.$('.Users_avatar_icon');
 			var iconSize = state.icon || $img.width();
 			$img.attr('src', 
-				Q.url(Streams.iconUrl(fields.icon, iconSize), null, {
+				Q.url(Streams.iconUrl(fields.icon, iconSize, 'png'), null, {
 					cacheBust: state.cacheBustOnUpdate
 				})
 			);

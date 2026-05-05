@@ -2,13 +2,22 @@
 
 function Users_after_Q_image_save($params, &$authorized)
 {
-    extract($params);
+	$path = $params['path'];
+	$subpath = $params['subpath'];
+	$save = $params['save'];
+	
     /**
      * @var string $path
      * @var string $subpath
      * @var Users_User $user
      */
-    $user = Q::ifset(Users::$cache, 'user', Users::loggedInUser(false, false));
+	if ($save == "Users/icon" && strpos($subpath, '/icon/')) {
+		$userId = str_replace('/', '', substr($subpath, 0, strpos($subpath, 'icon')));
+		$user = Users::fetch($userId);
+	} else {
+		$user = Q::ifset(Users::$cache, 'user', Users::loggedInUser(false, false));
+	}	
+    
     if (!$user) {
         return;
     }
