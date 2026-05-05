@@ -413,9 +413,10 @@ Streams.define = function (type, ctor, methods) {
  * @param {String|Number|false} [size=40] The last part after the slash, such as "50.jpg" or "50".
  *  Setting it to false skips appending "/size".
  *  Setting it to "largestWidth"or "largestHeight" gets the size with largest explicit width or height, respectively.
+ * @param {String} [ext="jpg"] default image extension
  * @return {String} the url
  */
-Streams.iconUrl = function(icon, size) {
+Streams.iconUrl = function(icon, size, ext="jpg") {
 	if (!icon) {
 		console.warn("Streams.iconUrl: icon is empty");
 		return '';
@@ -427,8 +428,8 @@ Streams.iconUrl = function(icon, size) {
 	if (size === 'largestWidth' || size === 'largestHeight') {
 		size = Q.largestSize(Q.image.sizes['Streams/image'], size === 'largestHeight');
 	}
-	size = (String(size).match(/\.\w+$/g)) ? size : size+'.jpg';
-	icon = icon.match(/\w+\/\w+\.\w+$/g) ? icon : icon + (size ? '/' + size : '');
+	size = (String(size).match(/\.\w+$/g)) ? size : `${size}.${ext}`;
+	icon = icon.match(/\w+\/\w+\.\w+$/g) ? icon : `${icon}${size ? '/'+size : ''}`;
 	var src = Q.interpolateUrl(icon);
 	return src.isUrl() || icon.substring(0, 2) == '{{'
 		? Q.url(src)
