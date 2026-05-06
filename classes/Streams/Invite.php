@@ -302,6 +302,7 @@ class Streams_Invite extends Base_Streams_Invite
 				}
 			}
 		}
+		$addLabel = Q::ifset($extra, 'addLabel', null);
 
 		Users_Contact::addContact($this->invitingUserId, "Streams/invited", $userId, null, false, true);
 		Users_Contact::addContact($this->invitingUserId, "Streams/invited/{$stream->type}", $userId, null, false, true);
@@ -334,8 +335,8 @@ class Streams_Invite extends Base_Streams_Invite
 						'invite', 'extra'
 					), array());
 					$participantExtra = array_merge($configExtra, $participantExtra);
-					if (Q::ifset($extra, 'addLabel', null)) {
-						$participantExtra["roles"] = $extra['addLabel'];
+					if ($addLabel) {
+						$participantExtra["role"] = $addLabel;
 					}
 					$options['extra'] = $participantExtra;
 					$stream->subscribe($options);
@@ -343,12 +344,19 @@ class Streams_Invite extends Base_Streams_Invite
 					// Swallow this exception. If the caller wanted to catch
 					// this exception, they could have written this code block themselves.
 				}
+			} else {
+				if ($addLabel) {
+					$participant->grantRoles($addLabel)->save();
+				}
 			}
 		} else if (Q::ifset($options, "join", true)) {
-			$stream->join($userId, $this->publisherId, $this->streamName, array(
+			$participant = $stream->join($userId, $this->publisherId, $this->streamName, array(
 				'extra' => array('Streams/invitingUserId' => $this->invitingUserId),
 				'noVisit' => true
 			));
+			if ($participant && $addLabel) {
+				$participant->grantRoles($addLabel)->save();
+			}
 		}
 
 		/**

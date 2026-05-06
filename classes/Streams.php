@@ -6255,7 +6255,7 @@ abstract class Streams extends Base_Streams
 		if ($options['userId']) {
 			$rows = Users_Contact::select('u.id, u.sessionCount, u.icon', 'c')
 				->join(Streams_Participant::table(true, 'p'), array(
-					'c.userId' => 'p.userId'
+					'c.contactUserId' => 'p.userId'
 				))->join(Users_User::table(true, 'u'), array(
 					'c.contactUserId' => 'u.id'
 				))->where(array('c.userId' => $options['userId']))
