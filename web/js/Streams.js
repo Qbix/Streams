@@ -4743,6 +4743,10 @@ Q.onInit.add(function _Streams_onInit() {
 						? params.prompt
 						: Q.getObject('Q.text.Streams.invite.complete.prompt')
 				});
+				let url = params.stream.fields.icon;
+				if (/\.\w{3,4}$/.test(url)) {
+					params.stream.fields.icon = url.substring(0, url.lastIndexOf('/'));
+				}
 				Q.Template.render(explanationTemplateName, params, function (err, html) {
 					params.explanation = html;
 					if (Q.Users.loggedInUserId()) {
