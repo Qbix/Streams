@@ -1614,8 +1614,13 @@ class Streams_Stream extends Base_Streams_Stream
 	function getReadLevel($options = array())
 	{
 		$readLevel = $this->get('readLevel', $this->readLevel);
-		$fields = Q::ifset($_SESSION, 'Streams', 'invite', array());
-		$invite = $fields ? new Streams_Invite($fields) : Streams_Invite::$followed;
+		if ($fields = Q::ifset($_SESSION, 'Streams', 'invite', array())) {
+			$invite = new Streams_Invite($fields);
+		} else if (Streams_Invite::$followed) {
+			$invite = Streams_Invite::$followed;
+		} else if ($token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null)) {
+			$invite = Streams_Invite::fromToken($token);
+		}
 		if (empty($options['ignoreInvite'])
 		and $invite
 		and $invite->publisherId == $this->publisherId
