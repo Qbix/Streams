@@ -63,6 +63,7 @@ function Streams_after_Q_objects () {
 		'nameIsMissing' => $nameIsMissing,
 		'action' => 'Streams/basic',
 		'icon' => $user && $user->iconUrl(false),
+		'icon' => $user->iconUrl(false),
 		'token' => $invite->token,
 		'invitingUser' => array(
 			'id' => $invitingUser->id,
