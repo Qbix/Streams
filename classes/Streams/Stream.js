@@ -450,15 +450,15 @@ Sp.notifyParticipants = function (event, messageOrEphemeral, dontNotifyObservers
 
 	// messageOrEphemeral.stream = stream;
 
-	this.getParticipants(function (err, participants) {
+	this.getParticipants({ skipAccess: true }, function (err, participants) {
 		var userIds = Object.keys(participants) || [];
 		for (var i = 0; i < userIds.length; i++) {
 			var userId = userIds[i];
 			var participant = participants[userId];
-			stream.notify(participant, event, messageOrEphemeral, function(err) {
+			stream.notify(participant, event, messageOrEphemeral, function (err) {
 				callback && callback(err, participants);
 				if (!err) return;
-				var debug = Q.Config.get(['Streams', 'notifications', 'debug'], false);
+				var debug = Q.Config.get(["Streams", "notifications", "debug"], false);
 				if (debug) {
 					Q.log("Failed to notify user '" + participant.fields.userId + "': ");
 					Q.log(err);
@@ -1671,14 +1671,6 @@ Sp.getParticipants = function (options, callback) {
 
 		var userIds = Object.keys(participants);
 
-		userIds = Q.event(
-			'Users/filter/users',
-			{ from: 'Streams_Stream.getParticipants' },
-			'after',
-			false,
-			userIds
-		);
-
 		var filtered = {};
 		for (var j = 0; j < userIds.length; j++) {
 			var uid = userIds[j];
@@ -1775,7 +1767,7 @@ Sp.post = function (byUserId, fields, callback) {
 	if (typeof byUserId !== 'string') {
 		callback = fields;
 		fields = byUserId;
-		asUserId = fields && fields.byUserId;
+		byUserId = fields && fields.byUserId;
 		if (!byUserId) {
 			throw new Q.Exception("Streams.Stream.prototype.post needs byUserId");
 		}
