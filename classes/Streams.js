@@ -1725,6 +1725,70 @@ Streams.batchFunction = function Streams_batchFunction(baseUrl, action) {
 };
 Streams.batchFunction.functions = {};
 
+/**
+ * Returns the parsed ontology object from a module's config/ontology.json,
+ * or null if the module doesn't ship one.
+ *
+ * Uses Q.Tree to parse the file (handles comment stripping, trailing
+ * commas, error reporting). Caches per-process per moduleName; the
+ * cache holds null entries for modules without ontology files so we
+ * don't re-stat the filesystem on every call.
+ *
+ * Add this method to the Streams module alongside other static methods.
+ *
+ * @method ontology
+ * @static
+ * @param {String} moduleName  Plugin name (matches a key in Q.pluginInfo)
+ *                             or app name (matches Q.app.name).
+ * @return {Promise<Object|null>}  Resolves to the parsed ontology object,
+ *   or null if the module doesn't ship one or isn't loaded. Rejects only
+ *   if the file exists but Q.Tree.load reports an error parsing it.
+ */
+Streams.ontology = function (moduleName) {
+	if (typeof moduleName !== 'string' || !moduleName) {
+		return Promise.reject(new Error(
+			'Streams.ontology: moduleName must be a non-empty string'));
+	}
+	if (Object.prototype.hasOwnProperty.call(Streams.ontology._cache, moduleName)) {
+		return Promise.resolve(Streams.ontology._cache[moduleName]);
+	}
+	var dirname;
+	if (moduleName === Q.app.name) {
+		dirname = Q.app.CONFIG_DIR;
+	} else if (Q.pluginInfo[moduleName] && Q.pluginInfo[moduleName].CONFIG_DIR) {
+		dirname = Q.pluginInfo[moduleName].CONFIG_DIR;
+	}
+	if (!dirname) {
+		// Module not loaded or unknown. Cache null so repeat calls don't
+		// keep checking; if the plugin gets installed later, Q reloads
+		// the process anyway.
+		Streams.ontology._cache[moduleName] = null;
+		return Promise.resolve(null);
+	}
+	var filename = dirname + Q.DS + 'ontology.json';
+	return new Promise(function (resolve, reject) {
+		// Probe existence first so a missing file is null, not error.
+		// (Q.Tree.load would callback with an ENOENT err otherwise.)
+		fs.access(filename, fs.constants.R_OK, function (accessErr) {
+			if (accessErr) {
+				Streams.ontology._cache[moduleName] = null;
+				return resolve(null);
+			}
+			var tree = new Q.Tree();
+			tree.load(filename, function (err, data) {
+				if (err) {
+					return reject(new Error(
+						'Streams.ontology: failed to load ' + filename
+						+ ': ' + (err.message || err)));
+				}
+				Streams.ontology._cache[moduleName] = data;
+				resolve(data);
+			});
+		});
+	});
+};
+Streams.ontology._cache = {};
+
 Streams.Mentions = require('Streams/Mentions');
 Streams.Ephemeral = require('Streams/Ephemeral');
 Streams.Actions = require('Streams/Actions');
