@@ -287,11 +287,10 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 							saveSizeName: 'Users/icon',
 							showSize: state.icon || $img.width(),
 							path: 'Q/uploads/Users',
+							save: "Users/icon",
 							preprocess: function (callback) {
 								callback({
-									subpath: state.userId.splitId()+'/icon/'
-										+Math.floor(Date.now()/1000),
-									save: "Users/icon"
+									subpath: state.userId.splitId()+'/icon/'+Math.floor(Date.now()/1000)
 								});
 							},
 							onSuccess: {"Users/avatar": function () {
