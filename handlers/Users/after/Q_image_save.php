@@ -11,17 +11,15 @@ function Users_after_Q_image_save($params, &$authorized)
      * @var string $subpath
      * @var Users_User $user
      */
-	if ($save == "Users/icon" && strpos($subpath, '/icon/')) {
-		$userId = str_replace('/', '', substr($subpath, 0, strpos($subpath, 'icon')));
-		$user = Users::fetch($userId);
-	} else {
-		$user = Q::ifset(Users::$cache, 'user', Users::loggedInUser(false, false));
-	}	
-    
+	$user = Q::ifset(Users::$cache, 'user', Users::loggedInUser(false, false));
     if (!$user) {
         return;
     }
 
+	if (is_string($user)) {
+		$user = Users::fetch($user, true);
+	}
+	
     $fullpath = $path.($subpath ? DS.$subpath : '');
     Q_Utils::normalizePath($fullpath);
 
