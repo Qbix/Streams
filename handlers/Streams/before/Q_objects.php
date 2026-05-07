@@ -65,6 +65,10 @@ function Streams_before_Q_objects()
 		}
 	}
 	
+	// INVITE: now that user may have logged in (or still not)
+	// save the token for Streams_Invite::$followed in the session
+	$_SESSION['Streams']['inviteFollowedToken'] = $invite->token;
+
 	// user just landed on a page, don't expect nonce from client
 	Q_Session::setNonce();
 	$liu = Users::loggedInUser();	
@@ -99,15 +103,15 @@ function Streams_before_Q_objects()
 		}
 	}
 
-	// INVITE: now that user may have logged in (or still not)
-	// save the token for Streams_Invite::$followed in the session
-	$_SESSION['Streams']['inviteFollowedToken'] = $invite->token;
-
 	Streams_before_Q_objects_handle_acceptInvite(); 
 }
 
 function Streams_before_Q_objects_handle_acceptInvite()
 {
+	if (!Q_Request::special('Streams.acceptInvite')) {
+		return;
+	}
+
 	// INVITE: potentially accept the invite
 	$token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null);
 	if (!$token) {
