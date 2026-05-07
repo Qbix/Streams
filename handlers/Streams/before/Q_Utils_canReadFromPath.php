@@ -22,7 +22,7 @@ function Streams_before_Q_Utils_canReadFromPath($params, &$result)
 		$len = strlen($prefix);
 
 		if (substr($sp, 0, $len) === $prefix) {
-			$splitId = Q_Utils::splitId($userId, 3, '/');
+			$splitId = Q_Utils::splitId($userId, 3, '/', '/', null);
 			$prefix2 = $prefix."invitations/$splitId";
 			if ($userId and substr($sp, 0, strlen($prefix2)) === $prefix2) {
 				$result = true; // user can read any invitations here
