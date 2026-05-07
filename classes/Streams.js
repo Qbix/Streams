@@ -455,6 +455,17 @@ Streams.listen = function (options, servers) {
 	// The legacy /Q/node mount point has been replaced by server.addMethod().
 	_registerStreamsMethods(server);
 
+	// Restore the legacy /Q/node Express endpoint as a fallback so that
+	// any other plugins which mounted their own handlers on it continue to work.
+	server.attached.express.post('/Q/node', function (req, res, next) {
+		var parsed = req.body;
+		if (!parsed || !parsed['Q/method']
+		|| !req.internal || !req.validated) {
+			return next();
+		}
+		next();
+	});
+
 	// Start external socket server
 	var node = Q.Config.get(['Q', 'node']);
 	if (!node) {
@@ -598,7 +609,7 @@ Streams.listen = function (options, servers) {
 					return (typeof fn == 'function') && fn(err2, false);
 				}
 				var ephemeral = new Streams.Ephemeral(payload, Date.now() / 1000);
-				this.notifyParticipants(
+				stream.notifyParticipants(  // was: this.notifyParticipants
 					'Streams/ephemeral', ephemeral, dontNotifyObservers, fn
 				);
 			});
