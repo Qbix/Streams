@@ -6255,7 +6255,7 @@ abstract class Streams extends Base_Streams
 		if ($options['userId']) {
 			$rows = Users_Contact::select('u.id, u.sessionCount, u.icon', 'c')
 				->join(Streams_Participant::table(true, 'p'), array(
-					'c.userId' => 'p.userId'
+					'c.contactUserId' => 'p.userId'
 				))->join(Users_User::table(true, 'u'), array(
 					'c.contactUserId' => 'u.id'
 				))->where(array('c.userId' => $options['userId']))
@@ -7130,6 +7130,46 @@ abstract class Streams extends Base_Streams
 		Streams_Stream::commit($transactionKey)->execute();
 		return $errors;
 	}
+
+    /**
+     * Returns the parsed ontology array from a module's config/ontology.json,
+     * or null if the module doesn't ship one.
+     *
+     * Uses Q_Tree to parse the file — handles comment stripping, trailing
+     * commas, and Q_Cache integration. Repeat calls hit Q_Tree's internal
+     * cache.
+     *
+     * @method ontology
+     * @static
+     * @param {string} $moduleName  Plugin name (e.g. "Streams", "Safebox")
+     *                              or app name (matches Q::app()).
+     * @return {array|null}  Parsed ontology, or null if the module doesn't
+     *   ship one or isn't loaded. Returns null silently — does not throw
+     *   on missing file.
+     * @throws {Q_Exception_InvalidInput}  If the file exists but Q_Tree
+     *   can't parse it as JSON.
+     */
+    static function ontology($moduleName)
+    {
+        if (!is_string($moduleName) || $moduleName === '') {
+            throw new Q_Exception_RequiredField(array('field' => 'moduleName'));
+        }
+        $dirname = ($moduleName === Q::app())
+            ? APP_CONFIG_DIR
+            : Q::pluginDir($moduleName, 'CONFIG');
+        if (!$dirname) {
+            return null;
+        }
+        $filename = $dirname . DS . 'ontology.json';
+        if (!file_exists($filename)) {
+            return null;
+        }
+        // dontThrow=false: if the file exists but is malformed JSON,
+        // we want the Q_Exception_InvalidInput to surface so authors
+        // see exactly which file is broken.
+        $tree = Q_Tree::createAndLoad($filename);
+        return $tree->getAll();
+    }
 
 	/**
 	 * @property $fetch

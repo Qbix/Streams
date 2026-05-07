@@ -109,14 +109,17 @@ function Streams_before_Q_objects()
 function Streams_before_Q_objects_handle_acceptInvite()
 {
 	// INVITE: potentially accept the invite
-	if (Q_Request::special('Streams.acceptInvite')) {
-		if ($token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null)) {
-			// accept invite and autosubscribe if first time and possible
-			$invite = Streams_Invite::fromToken($token);
-			if ($invite->accept(array(
-				'access' => true,
-				'subscribe' => true
-			)));	
-		}
+	$token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null);
+	if (!$token) {
+		return;
+	}
+
+	// accept invite and autosubscribe if first time and possible
+	$invite = Streams_Invite::fromToken($token);
+	if ($invite) {
+		$invite->accept(array(
+			'access' => true,
+			'subscribe' => true
+		));
 	}
 }

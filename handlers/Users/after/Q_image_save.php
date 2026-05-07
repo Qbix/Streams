@@ -2,17 +2,24 @@
 
 function Users_after_Q_image_save($params, &$authorized)
 {
-    extract($params);
+	$path = $params['path'];
+	$subpath = $params['subpath'];
+	$save = $params['save'];
+	
     /**
      * @var string $path
      * @var string $subpath
      * @var Users_User $user
      */
-    $user = Q::ifset(Users::$cache, 'user', Users::loggedInUser(false, false));
+	$user = Q::ifset(Users::$cache, 'user', Users::loggedInUser(false, false));
     if (!$user) {
         return;
     }
 
+	if (is_string($user)) {
+		$user = Users::fetch($user, true);
+	}
+	
     $fullpath = $path.($subpath ? DS.$subpath : '');
     Q_Utils::normalizePath($fullpath);
 

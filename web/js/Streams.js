@@ -413,9 +413,10 @@ Streams.define = function (type, ctor, methods) {
  * @param {String|Number|false} [size=40] The last part after the slash, such as "50.jpg" or "50".
  *  Setting it to false skips appending "/size".
  *  Setting it to "largestWidth"or "largestHeight" gets the size with largest explicit width or height, respectively.
+ * @param {String} [ext="jpg"] default image extension
  * @return {String} the url
  */
-Streams.iconUrl = function(icon, size) {
+Streams.iconUrl = function(icon, size, ext="jpg") {
 	if (!icon) {
 		console.warn("Streams.iconUrl: icon is empty");
 		return '';
@@ -427,8 +428,8 @@ Streams.iconUrl = function(icon, size) {
 	if (size === 'largestWidth' || size === 'largestHeight') {
 		size = Q.largestSize(Q.image.sizes['Streams/image'], size === 'largestHeight');
 	}
-	size = (String(size).match(/\.\w+$/g)) ? size : size+'.jpg';
-	icon = icon.match(/\w+\/\w+\.\w+$/g) ? icon : icon + (size ? '/' + size : '');
+	size = (String(size).match(/\.\w+$/g)) ? size : `${size}.${ext}`;
+	icon = icon.match(/\w+\/\w+\.\w+$/g) ? icon : `${icon}${size ? '/'+size : ''}`;
 	var src = Q.interpolateUrl(icon);
 	return src.isUrl() || icon.substring(0, 2) == '{{'
 		? Q.url(src)
@@ -838,6 +839,7 @@ Q.Tool.define({
 		js: "{{Streams}}/js/tools/image/chat.js",
 		css: "{{Streams}}/css/tools/previews.css"
 	},
+	"Streams/tree": "{{Streams}}/js/tools/tree.js",
 	"Streams/markdown/chat": "{{Streams}}/js/tools/markdown/chat.js",
 	"Streams/file/preview" : "{{Streams}}/js/tools/file/preview.js",
 	"Streams/category/preview" : "{{Streams}}/js/tools/category/preview.js",
@@ -908,6 +910,9 @@ Q.Tool.define({
 		js: "{{Streams}}/js/tools/video/animatedThumbnail.js",
 		css: "{{Streams}}/css/tools/video/animatedThumbnail.css"
 	},
+	"Streams/image/coverflow": {
+		js: "{{Streams}}/js/tools/image/coverflow.js"
+	}
 });
 
 Streams.Chat = {
@@ -4738,6 +4743,10 @@ Q.onInit.add(function _Streams_onInit() {
 						? params.prompt
 						: Q.getObject('Q.text.Streams.invite.complete.prompt')
 				});
+				let url = params.stream.fields.icon;
+				if (/\.\w{3,4}$/.test(url)) {
+					params.stream.fields.icon = url.substring(0, url.lastIndexOf('/'));
+				}
 				Q.Template.render(explanationTemplateName, params, function (err, html) {
 					params.explanation = html;
 					if (Q.Users.loggedInUserId()) {

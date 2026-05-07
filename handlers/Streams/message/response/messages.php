@@ -29,6 +29,7 @@ function Streams_message_response_messages()
 	}
 	$maxLimit = Streams_Stream::getConfigField($type, 'getMessagesLimit', 100);
 	$limit = min($maxLimit, Q::ifset($_REQUEST, 'limit', $maxLimit));
+	$min = 0;
 	if (isset($_REQUEST['ordinal'])) {
 		$min = $_REQUEST['ordinal'];
 		$limit = 1;
@@ -37,6 +38,7 @@ function Streams_message_response_messages()
 		$min = $_REQUEST['min'];
 	}
 	$max = isset($_REQUEST['max']) ? $_REQUEST['max'] : -1;
+	$ascending = true;
 	if (isset($_REQUEST['ascending'])) {
 		$ascending = $_REQUEST['ascending'];
 	}
