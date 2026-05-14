@@ -1,13 +1,9 @@
 CREATE TABLE `{{prefix}}workspace` (
+    `publisherId` varbinary(31) NOT NULL DEFAULT '' COMMENT 'id of user that publishes the workspace',
     `name` varbinary(15) NOT NULL,
     `parentName` varbinary(15) NULL DEFAULT NULL,
-    `insertedTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `updatedTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (`name`),
-    KEY `byParent` (`parentName`)
+    `insertedTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'saved on shard of publisherId',
+    `updatedTime` timestamp NULL DEFAULT NULL COMMENT 'the time that this row has last changed for whatever reason',
+    PRIMARY KEY (`publisherId`, `name`),
+    KEY `byParent` (`publisherId`, `parentName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-ALTER TABLE `{{prefix}}stream`
-ADD COLUMN `fork` varbinary(4095) NULL DEFAULT NULL
-COMMENT 'JSON: {publisherId, streamName, ordinal, time} — immutable fork origin'
-AFTER `joinedRatio`;

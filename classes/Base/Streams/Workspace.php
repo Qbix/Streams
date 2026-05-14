@@ -16,13 +16,20 @@
  *
  * @param {array} [$fields=array()] The fields values to initialize table row as 
  * an associative array of $column => $value pairs
+ * @param {string} [$fields.publisherId] defaults to ""
  * @param {string} [$fields.name] defaults to ""
  * @param {string} [$fields.parentName] defaults to null
  * @param {string|Db_Expression} [$fields.insertedTime] defaults to new Db_Expression("CURRENT_TIMESTAMP")
- * @param {string|Db_Expression} [$fields.updatedTime] defaults to new Db_Expression("CURRENT_TIMESTAMP")
+ * @param {string|Db_Expression} [$fields.updatedTime] defaults to null
  */
 abstract class Base_Streams_Workspace extends Db_Row
 {
+	/**
+	 * @property $publisherId
+	 * @type string
+	 * @default ""
+	 * id of user that publishes the workspace
+	 */
 	/**
 	 * @property $name
 	 * @type string
@@ -39,13 +46,13 @@ abstract class Base_Streams_Workspace extends Db_Row
 	 * @property $insertedTime
 	 * @type string|Db_Expression
 	 * @default new Db_Expression("CURRENT_TIMESTAMP")
-	 * 
+	 * saved on shard of publisherId
 	 */
 	/**
 	 * @property $updatedTime
 	 * @type string|Db_Expression
-	 * @default new Db_Expression("CURRENT_TIMESTAMP")
-	 * 
+	 * @default null
+	 * the time that this row has last changed for whatever reason
 	 */
 	/**
 	 * The setUp() method is called the first time
@@ -58,7 +65,8 @@ abstract class Base_Streams_Workspace extends Db_Row
 		$this->setTable(self::table());
 		$this->setPrimaryKey(
 			array (
-			  0 => 'name',
+			  0 => 'publisherId',
+			  1 => 'name',
 			)
 		);
 	}
@@ -124,7 +132,8 @@ abstract class Base_Streams_Workspace extends Db_Row
     'type' => 'BTREE',
     'columns' => 
     array (
-      0 => 'name',
+      0 => 'publisherId',
+      1 => 'name',
     ),
   ),
   'byParent' => 
@@ -133,7 +142,8 @@ abstract class Base_Streams_Workspace extends Db_Row
     'type' => 'BTREE',
     'columns' => 
     array (
-      0 => 'parentName',
+      0 => 'publisherId',
+      1 => 'parentName',
     ),
   ),
 );
@@ -310,6 +320,61 @@ abstract class Base_Streams_Workspace extends Db_Row
 	/**
 	 * Method is called before setting the field and verifies if value is string of length within acceptable limit.
 	 * Optionally accept numeric value which is converted to string
+	 * @method beforeSet_publisherId
+	 * @param {string} $value
+	 * @return {array} An array of field name and value
+	 * @throws {Exception} An exception is thrown if $value is not string or is exceedingly long
+	 */
+	function beforeSet_publisherId($value)
+	{
+		if (!isset($value)) {
+			$value='';
+		}
+		if ($value instanceof Db_Expression
+               or $value instanceof Db_Range) {
+			return array('publisherId', $value);
+		}
+		if (!is_string($value) and !is_numeric($value))
+			throw new Exception('Must pass a string to '.$this->getTable().".publisherId");
+		if (strlen($value) > 31)
+			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".publisherId");
+		return array('publisherId', $value);			
+	}
+
+	/**
+	 * Returns the maximum string length that can be assigned to the publisherId field
+	 * @return {integer}
+	 */
+	function maxSize_publisherId()
+	{
+
+		return 31;			
+	}
+
+	/**
+	 * Returns schema information for publisherId column
+	 * @return {array} [[typeName, displayRange, modifiers, unsigned], isNull, key, default]
+	 */
+	static function column_publisherId()
+	{
+
+return array (
+  0 => 
+  array (
+    0 => 'varbinary',
+    1 => '31',
+    2 => '',
+    3 => false,
+  ),
+  1 => false,
+  2 => 'PRI',
+  3 => '',
+);			
+	}
+
+	/**
+	 * Method is called before setting the field and verifies if value is string of length within acceptable limit.
+	 * Optionally accept numeric value which is converted to string
 	 * @method beforeSet_name
 	 * @param {string} $value
 	 * @return {array} An array of field name and value
@@ -412,7 +477,7 @@ return array (
     3 => false,
   ),
   1 => true,
-  2 => 'MUL',
+  2 => '',
   3 => NULL,
 );			
 	}
@@ -473,6 +538,9 @@ return array (
 	 */
 	function beforeSet_updatedTime($value)
 	{
+		if (!isset($value)) {
+			return array('updatedTime', $value);
+		}
 		if ($value instanceof Db_Expression
                or $value instanceof Db_Range) {
 			return array('updatedTime', $value);
@@ -505,9 +573,9 @@ return array (
     2 => NULL,
     3 => NULL,
   ),
-  1 => false,
+  1 => true,
   2 => '',
-  3 => 'CURRENT_TIMESTAMP',
+  3 => NULL,
 );			
 	}
 
@@ -527,7 +595,9 @@ return array (
 					throw new Exception("the field $table.$name needs a value, because it is NOT NULL, not auto_increment, and lacks a default value.");
 				}
 			}
-		}
+		}						
+		// convention: we'll have updatedTime = insertedTime if just created.
+		$this->updatedTime = $value['updatedTime'] = new Db_Expression('CURRENT_TIMESTAMP');
 		if (!isset($this->fields["name"]) and !isset($value["name"])) {
 			$this->name = $value["name"] = "";
 		}
@@ -544,7 +614,7 @@ return array (
 	 */
 	static function fieldNames($table_alias = null, $field_alias_prefix = null)
 	{
-		$field_names = array('name', 'parentName', 'insertedTime', 'updatedTime');
+		$field_names = array('publisherId', 'name', 'parentName', 'insertedTime', 'updatedTime');
 		$result = $field_names;
 		if (!empty($table_alias)) {
 			$temp = array();
