@@ -7,3 +7,8 @@ CREATE TABLE `{{prefix}}workspace` (
     PRIMARY KEY (`publisherId`, `name`),
     KEY `byParent` (`publisherId`, `parentName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `{{prefix}}stream`
+ADD COLUMN `fork` varbinary(4095) NULL DEFAULT NULL
+COMMENT 'JSON: {publisherId, streamName, ordinal, time} — immutable fork origin'
+AFTER `joinedRatio`;
