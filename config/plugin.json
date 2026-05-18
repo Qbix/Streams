@@ -35,6 +35,7 @@
 			"Db/Row/Users_User/saveExecute": ["Streams/after/Users_User_saveExecute"],
 			"Db/Row/Users_Contact/saveExecute": ["Streams/after/Users_Contact_saveExecute"],
 			"Db/Row/Users_Label/saveExecute": ["Streams/after/Users_Label_saveExecute"],
+			"Db/Row/Users_Total/saveExecute": ["Streams/after/Users_Total_saveExecute"],
 			"Db/Row/Users_Contact/removeExecute": ["Streams/after/Users_Contact_removeExecute"],
 			"Db/Row/Users_Label/removeExecute": ["Streams/after/Users_Label_removeExecute"],
 			"Users/saveContactsFromLinks": ["Streams/after/Users_saveContactsFromLinks"],

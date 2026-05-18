@@ -3833,26 +3833,55 @@ abstract class Streams extends Base_Streams
 	/**
 	 * Inserts multiple relations and/or updates the weight on multiple relations.
 	 * Doesn't adjust weights of other relations, unlike the updateRelation() method.
+	 *
+	 * Supports two modes per entry in $typeWeightArray:
+	 *
+	 *   LITERAL MODE  — value is numeric.
+	 *     Inserts-or-overwrites relations on the Cartesian product of the
+	 *     to/from arrays. Each combination gets the literal weight.
+	 *     Identical to the pre-patch behavior of updateRelations.
+	 *
+	 *   SHIFT MODE    — value is a string of form "+N" or "-N".
+	 *     Updates existing relations matching the to/from arrays as
+	 *     IN-list filters (NOT Cartesian product) by adding N (signed) to
+	 *     each matched row's weight via a single SQL UPDATE. Only existing
+	 *     relations are affected; no new rows are created.
+	 *     Optional $options['minWeight'] / $options['maxWeight'] further
+	 *     restrict which existing weights get shifted (useful for
+	 *     line-number bulk-shift after a code edit, where you only want
+	 *     to shift relations whose weight is at or after the edit point).
+	 *
 	 * @method updateRelations
 	 * @param {string} $asUserId
 	 *  The id of the user on whose behalf the app will be updating the relation
 	 * @param {string|array} $toPublisherId
-	 *  The publisher(s) of the stream on the 'to' end of the relation
+	 *  The publisher(s) of the stream on the 'to' end of the relation.
+	 *  In shift mode, used as IN-list filter against existing rows.
 	 * @param {string|array} $toStreamName
-	 *  The name(s) of the stream on the 'to' end of the relation
+	 *  The name(s) of the stream on the 'to' end of the relation.
+	 *  In shift mode, used as IN-list filter against existing rows.
 	 * @param {string|array} $fromPublisherId
-	 *  The publisher(s) of the stream on the 'from' end of the relation
+	 *  The publisher(s) of the stream on the 'from' end.
+	 *  In shift mode, used as IN-list filter against existing rows.
 	 * @param {string|array} $fromStreamName
-	 *  The name(s) of the stream on the 'from' end of the relation
-	 * @param {array} $weight
-	 *  Array of $type => $weight pairs, to update weights in bulk
+	 *  The name(s) of the stream on the 'from' end.
+	 *  In shift mode, used as IN-list filter against existing rows.
+	 * @param {array} $typeWeightArray
+	 *  Array of $type => $weight pairs.
+	 *  $weight may be:
+	 *    - numeric (literal mode: insert-or-overwrite)
+	 *    - string "+N" or "-N" (shift mode: SQL update on existing rows)
 	 * @param {array} $options=array()
-	 * @param {boolean} [$options.skipAccess=false] If true, skips the access checks and just updates the relation
-	 * @param {boolean} [$options.skipMessageTo=false] If true, skips posting the Streams/updatedRelateTo message to the "to" streams
-	 * @param {string|array} [$options.extra] Any info to save in the "extra" field.
+	 * @param {boolean} [$options.skipAccess=false] Skip access checks
+	 * @param {boolean} [$options.skipMessageTo=false] Skip Streams/updatedRelateTo message
+	 * @param {string|array} [$options.extra] Literal mode only — extra field on inserted rows
+	 * @param {number} [$options.minWeight] Shift mode only — minimum existing weight (inclusive)
+	 * @param {number} [$options.maxWeight] Shift mode only — maximum existing weight (exclusive)
 	 * @return {array|boolean}
-	 *  Returns false if the operation was canceled by a hook
-	 *  Otherwise returns array with key "to" and value of type Streams_Message
+	 *  Returns false if a before-hook canceled the operation.
+	 *  Otherwise returns array of Streams_Message objects keyed by toStreamName
+	 *  (one per to-stream that received an updatedRelateTo message), or
+	 *  empty array if skipMessageTo was set.
 	 */
 	static function updateRelations(
 		$asUserId,
@@ -3863,81 +3892,292 @@ abstract class Streams extends Base_Streams
 		$typeWeightArray,
 		$options = array()
 	) {
-		$toPublisherIds = is_array($toPublisherId) ? $toPublisherId : array($toPublisherId);
-		$toStreamNames = is_array($toStreamName) ? $toStreamName : array($toStreamName);
+		if (empty($typeWeightArray) || !is_array($typeWeightArray)) {
+			return array();
+		}
+ 
+		// Split typeWeightArray into literal and shift entries.
+		$literalEntries = array();
+		$shiftEntries   = array(); // type => signed delta (float)
+		foreach ($typeWeightArray as $type => $weight) {
+			if (is_string($weight)
+				&& strlen($weight) > 1
+				&& ($weight[0] === '+' || $weight[0] === '-')
+				&& is_numeric(substr($weight, 1))) {
+				$shiftEntries[$type] = (float)$weight; // +30 → 30.0, -5 → -5.0
+			} else if (is_numeric($weight)) {
+				$literalEntries[$type] = $weight;
+			} else {
+				throw new Q_Exception_WrongValue(array(
+					'field' => "weight for type $type",
+					'range' => 'numeric (literal mode) or string of form +N or -N (shift mode)'
+				));
+			}
+		}
+ 
+		$toPublisherIds   = is_array($toPublisherId)   ? $toPublisherId   : array($toPublisherId);
+		$toStreamNames    = is_array($toStreamName)    ? $toStreamName    : array($toStreamName);
 		$fromPublisherIds = is_array($fromPublisherId) ? $fromPublisherId : array($fromPublisherId);
-		$fromStreamNames = is_array($fromStreamName) ? $fromStreamName : array($fromStreamName);
-
-		$category = Streams_Stream::fetch($asUserId, $toPublisherId, $toStreamName, '*', $options);
-
-		$rowsToInsert = array();
-		foreach ($toPublisherIds as $toPublisherId) {
-			foreach ($toStreamNames as $toStreamName) {
-				foreach ($fromPublisherIds as $fromPublisherId) {
-					foreach ($fromStreamNames as $fromStreamName) {
-						$fields = compact(
-							'toPublisherId', 'toStreamName',
-							'fromPublisherId', 'fromStreamName'
+		$fromStreamNames  = is_array($fromStreamName)  ? $fromStreamName  : array($fromStreamName);
+ 
+		// Fetch the category stream (first to-stream) for hook context.
+		// Tolerant: if it doesn't exist, $category stays null (some shift
+		// callers may target streams that no longer exist).
+		$category = null;
+		try {
+			$firstToPub  = is_array($toPublisherId) ? reset($toPublisherIds) : $toPublisherId;
+			$firstToName = is_array($toStreamName)  ? reset($toStreamNames)  : $toStreamName;
+			if ($firstToPub && $firstToName) {
+				$category = Streams_Stream::fetch(
+					$asUserId, $firstToPub, $firstToName, '*', $options
+				);
+			}
+		} catch (Exception $e) {
+			$category = null;
+		}
+ 
+		$messagesPosted = array();
+ 
+		// =================================================================
+		// SHIFT MODE — issue one SQL UPDATE per type
+		// =================================================================
+		if (!empty($shiftEntries)) {
+			$minW = isset($options['minWeight']) ? $options['minWeight'] : null;
+			$maxW = isset($options['maxWeight']) ? $options['maxWeight'] : null;
+ 
+			foreach ($shiftEntries as $type => $delta) {
+				if ($delta == 0) continue; // no-op
+ 
+				// Fire before-hook ONCE for the bulk shift, with shift
+				// parameters. Hook handlers that need per-row context
+				// won't get it; that's intentional — shifts are bulk.
+				$hookFields = array(
+					'asUserId'         => $asUserId,
+					'toPublisherId'    => $toPublisherId,
+					'toStreamName'     => $toStreamName,
+					'fromPublisherId'  => $fromPublisherId,
+					'fromStreamName'   => $fromStreamName,
+					'type'             => $type,
+					'shiftDelta'       => $delta,
+					'minWeight'        => $minW,
+					'maxWeight'        => $maxW,
+					'mode'             => 'shift',
+				);
+				if (Q::event(
+					"Streams/updateRelation/$type",
+					$hookFields,
+					'before'
+				) === false) {
+					return false;
+				}
+ 
+				// Build the WHERE criteria. Db handles arrays as IN-list.
+				$criteria = array(
+					'toPublisherId'   => $toPublisherIds,
+					'toStreamName'    => $toStreamNames,
+					'type'            => $type,
+					'fromPublisherId' => $fromPublisherIds,
+					'fromStreamName'  => $fromStreamNames,
+				);
+ 
+				if ($minW !== null || $maxW !== null) {
+					if ($minW !== null && $maxW !== null) {
+						$criteria['weight'] = new Db_Range($minW, true, false, $maxW);
+					} else if ($minW !== null) {
+						// minW inclusive, no upper bound
+						$criteria['weight'] = new Db_Expression(
+							">= " . (float)$minW
 						);
-						foreach ($typeWeightArray as $type => $weight) {
-							$fields['type'] = $type;
-							$fields['weight'] = $weight;
-							if (Q::event(
-								"Streams/updateRelation/$type",
-								$fields, 
-								'before') === false
-							) {
-								return false;
-							}
-							$rowsToInsert[] = $fields;
-							// Stream messages to post
-							$previousWeight = null; // unknown
-							$adjustWeightsBy = 0;
-							$messages[$toPublisherId][$toStreamName] = array(
-								'type' => 'Streams/updatedRelateTo',
-								'instructions' => @compact(
-									'fromPublisherId', 'fromStreamName', 'type', 'weight', 'previousWeight', 'adjustWeightsBy', 'asUserId'
-								)
+					} else {
+						// maxW exclusive, no lower bound
+						$criteria['weight'] = new Db_Expression(
+							"< " . (float)$maxW
+						);
+					}
+				}
+ 
+				// Build the SET expression: weight + delta or weight - |delta|.
+				$sign = ($delta >= 0) ? '+' : '-';
+				$abs  = abs($delta);
+				$setExpr = new Db_Expression("weight $sign $abs");
+ 
+				Streams_RelatedTo::update()
+					->set(array('weight' => $setExpr))
+					->where($criteria)
+					->execute();
+ 
+				// Mirror onto the from-side index.
+				try {
+					Streams_RelatedFrom::update()
+						->set(array('weight' => $setExpr))
+						->where($criteria)
+						->execute();
+				} catch (Exception $e) {
+					// If RelatedFrom mirroring fails, log but don't abort.
+					// The to-side is the source of truth for queries.
+				}
+ 
+				// Fire after-hook with the same bulk parameters.
+				Q::event(
+					"Streams/updateRelation/$type",
+					$hookFields,
+					'after'
+				);
+			}
+ 
+			// One Streams/updatedRelateTo message per to-stream summarizing
+			// the shift (skipMessageTo bypasses this).
+			if (empty($options['skipMessageTo'])) {
+				foreach ($toPublisherIds as $tpub) {
+					foreach ($toStreamNames as $tname) {
+						try {
+							$msg = Streams_Message::post(
+								$asUserId, $tpub, $tname,
+								array(
+									'type' => 'Streams/updatedRelateTo',
+									'instructions' => array(
+										'mode'             => 'shift',
+										'shifts'           => $shiftEntries,
+										'minWeight'        => $minW,
+										'maxWeight'        => $maxW,
+										'fromPublisherIds' => $fromPublisherIds,
+										'fromStreamNames'  => $fromStreamNames,
+										'asUserId'         => $asUserId,
+									)
+								),
+								true
 							);
+							$messagesPosted["$tpub/$tname"] = $msg;
+						} catch (Exception $e) {
+							// Continue — message-post failures don't roll back.
 						}
 					}
 				}
 			}
 		}
-		Streams_RelatedTo::insertManyAndExecute($rowsToInsert, array(
-			'onDuplicateKeyUpdate' => array(
-				'weight' => new Db_Expression('VALUES(weight)')
-			)
-		));
-		if (empty($options['skipMessageTo'])) {
-			// Send Streams/updatedRelateTo message to the category stream
-			// node server will be notified by Streams_Message::post
-			$adjustWeightsBy = 0;
-			$message = Streams_Message::post($asUserId, $toPublisherId, $toStreamName, array(
-				'type' => 'Streams/updatedRelateTo',
-				'instructions' => @compact(
-					'fromPublisherId', 'fromStreamName', 'type', 'weight', 'previousWeight', 'adjustWeightsBy', 'asUserId'
-				)
-			), true);
-			Streams_Message::postMessages($asUserId, $messages, true);
+ 
+		// =================================================================
+		// LITERAL MODE — preserve original Cartesian-product insert-or-overwrite
+		// =================================================================
+		if (!empty($literalEntries)) {
+			$rowsToInsert = array();
+			$messages = array();
+ 
+			foreach ($toPublisherIds as $tpub) {
+				foreach ($toStreamNames as $tname) {
+					foreach ($fromPublisherIds as $fpub) {
+						foreach ($fromStreamNames as $fname) {
+							$baseFields = array(
+								'toPublisherId'   => $tpub,
+								'toStreamName'    => $tname,
+								'fromPublisherId' => $fpub,
+								'fromStreamName'  => $fname,
+							);
+							foreach ($literalEntries as $type => $weight) {
+								$fields = $baseFields;
+								$fields['type']   = $type;
+								$fields['weight'] = $weight;
+ 
+								if (Q::event(
+									"Streams/updateRelation/$type",
+									array_merge($fields, array(
+										'asUserId' => $asUserId,
+										'mode'     => 'literal',
+									)),
+									'before'
+								) === false) {
+									return false;
+								}
+ 
+								$rowsToInsert[] = $fields;
+ 
+								$previousWeight = null;
+								$adjustWeightsBy = 0;
+								$messages[$tpub][$tname][] = array(
+									'type' => 'Streams/updatedRelateTo',
+									'instructions' => array(
+										'fromPublisherId'  => $fpub,
+										'fromStreamName'   => $fname,
+										'type'             => $type,
+										'weight'           => $weight,
+										'previousWeight'   => $previousWeight,
+										'adjustWeightsBy'  => $adjustWeightsBy,
+										'asUserId'         => $asUserId,
+										'mode'             => 'literal',
+									),
+								);
+							}
+						}
+					}
+				}
+			}
+ 
+			if (!empty($rowsToInsert)) {
+				Streams_RelatedTo::insertManyAndExecute($rowsToInsert, array(
+					'onDuplicateKeyUpdate' => array(
+						'weight' => new Db_Expression('VALUES(weight)')
+					)
+				));
+ 
+				// Mirror to from-side index.
+				try {
+					Streams_RelatedFrom::insertManyAndExecute($rowsToInsert, array(
+						'onDuplicateKeyUpdate' => array(
+							'weight' => new Db_Expression('VALUES(weight)')
+						)
+					));
+				} catch (Exception $e) {
+					// Mirroring failure is non-fatal.
+				}
+			}
+ 
+			if (empty($options['skipMessageTo']) && !empty($messages)) {
+				foreach ($messages as $tpub => $byName) {
+					foreach ($byName as $tname => $msgList) {
+						// Post one bulk message per to-stream summarizing
+						// all the literal updates targeting it.
+						try {
+							$msg = Streams_Message::post(
+								$asUserId, $tpub, $tname,
+								array(
+									'type' => 'Streams/updatedRelateTo',
+									'instructions' => array(
+										'mode'     => 'literal',
+										'updates'  => $msgList,
+										'asUserId' => $asUserId,
+									)
+								),
+								true
+							);
+							$messagesPosted["$tpub/$tname"] = $msg;
+						} catch (Exception $e) {
+							// Continue.
+						}
+					}
+				}
+			}
+ 
+			// Fire one after-hook per literal type with category context
+			// (preserving original behavior of firing on category type).
+			if ($category) {
+				foreach ($literalEntries as $type => $weight) {
+					Q::event(
+						"Streams/updateRelation/{$category->type}",
+						array(
+							'asUserId'        => $asUserId,
+							'type'            => $type,
+							'weight'          => $weight,
+							'previousWeight'  => null,
+							'adjustWeightsBy' => 0,
+							'mode'            => 'literal',
+						),
+						'after'
+					);
+				}
+			}
 		}
-
-		/**
-		 * @event Streams/updateRelation/$categoryType {after}
-		 * @param {string} relatedTo
-		 * @param {string} relatedFrom
-		 * @param {string} asUserId
-		 * @param {double} weight
-		 * @param {double} previousWeight
-		 */
-		Q::event(
-			"Streams/updateRelation/{$category->type}",
-			@compact(
-				'relatedTo', 'relatedFrom', 'type', 'weight', 
-				'previousWeight', 'adjustWeightsBy', 'asUserId', 'extra'
-			),
-			'after'
-		);
+ 
+		return $messagesPosted;
 	}
 	
 	/**

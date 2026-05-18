@@ -21,10 +21,11 @@ var Row = Q.require('Db/Row');
  * @constructor
  * @param {Object} [fields={}] The fields values to initialize table row as 
  * an associative array of {column: value} pairs
+ * @param {String|Buffer} [fields.publisherId] defaults to ""
  * @param {String|Buffer} [fields.name] defaults to ""
  * @param {String|Buffer} [fields.parentName] defaults to null
  * @param {String|Db.Expression} [fields.insertedTime] defaults to new Db.Expression("CURRENT_TIMESTAMP")
- * @param {String|Db.Expression} [fields.updatedTime] defaults to new Db.Expression("CURRENT_TIMESTAMP")
+ * @param {String|Db.Expression} [fields.updatedTime] defaults to null
  */
 function Base (fields) {
 	Base.constructors.apply(this, arguments);
@@ -32,6 +33,12 @@ function Base (fields) {
 
 Q.mixin(Base, Row);
 
+/**
+ * @property publisherId
+ * @type String|Buffer
+ * @default ""
+ * id of user that publishes the workspace
+ */
 /**
  * @property name
  * @type String|Buffer
@@ -48,13 +55,13 @@ Q.mixin(Base, Row);
  * @property insertedTime
  * @type String|Db.Expression
  * @default new Db.Expression("CURRENT_TIMESTAMP")
- * 
+ * saved on shard of publisherId
  */
 /**
  * @property updatedTime
  * @type String|Db.Expression
- * @default new Db.Expression("CURRENT_TIMESTAMP")
- * 
+ * @default null
+ * the time that this row has last changed for whatever reason
  */
 
 /**
@@ -243,6 +250,7 @@ Base.prototype.table = function () {
  */
 Base.prototype.primaryKey = function () {
 	return [
+		"publisherId",
 		"name"
 	];
 };
@@ -264,11 +272,50 @@ Base.prototype.fieldNames = function () {
  */
 Base.fieldNames = function () {
 	return [
+		"publisherId",
 		"name",
 		"parentName",
 		"insertedTime",
 		"updatedTime"
 	];
+};
+
+/**
+ * Method is called before setting the field and verifies if value is string of length within acceptable limit.
+ * Optionally accept numeric value which is converted to string
+ * @method beforeSet_publisherId
+ * @param {string} value
+ * @return {string} The value
+ * @throws {Error} An exception is thrown if 'value' is not string or is exceedingly long
+ */
+Base.prototype.beforeSet_publisherId = function (value) {
+		if (value == null) {
+			value='';
+		}
+		if (value instanceof Db.Expression) return value;
+		if (typeof value !== "string" && typeof value !== "number" && !(value instanceof Buffer))
+			throw new Error('Must pass a String or Buffer to '+this.table()+".publisherId");
+		if (typeof value === "string" && value.length > 31)
+			throw new Error('Exceedingly long value being assigned to '+this.table()+".publisherId");
+		return value;
+};
+
+	/**
+	 * Returns the maximum string length that can be assigned to the publisherId field
+	 * @return {integer}
+	 */
+Base.prototype.maxSize_publisherId = function () {
+
+		return 31;
+};
+
+	/**
+	 * Returns schema information for publisherId column
+	 * @return {array} [[typeName, displayRange, modifiers, unsigned], isNull, key, default]
+	 */
+Base.column_publisherId = function () {
+
+return [["varbinary","31","",false],false,"PRI",""];
 };
 
 /**
@@ -342,7 +389,7 @@ Base.prototype.maxSize_parentName = function () {
 	 */
 Base.column_parentName = function () {
 
-return [["varbinary","15","",false],true,"MUL",null];
+return [["varbinary","15","",false],true,"",null];
 };
 
 /**
@@ -377,6 +424,7 @@ return [["timestamp",null,null,null],false,"","CURRENT_TIMESTAMP"];
  * @return {Date|Db.Expression} If 'value' is not Db.Expression the current date is returned
  */
 Base.prototype.beforeSet_updatedTime = function (value) {
+		if (value == undefined) return value;
 		if (value instanceof Db.Expression) return value;
 		if (typeof value !== 'object' && !isNaN(value)) {
 			value = parseInt(value);
@@ -392,7 +440,7 @@ Base.prototype.beforeSet_updatedTime = function (value) {
 	 */
 Base.column_updatedTime = function () {
 
-return [["timestamp",null,null,null],false,"","CURRENT_TIMESTAMP"];
+return [["timestamp",null,null,null],true,"",null];
 };
 
 /**
@@ -413,6 +461,8 @@ Base.prototype.beforeSave = function (value) {
 			}
 		}
 	}
+	// convention: we'll have updatedTime = insertedTime if just created.
+	this['updatedTime'] = value['updatedTime'] = new Db.Expression('CURRENT_TIMESTAMP');
 	if (this.fields["name"] == undefined && value["name"] == undefined) {
 		this.fields["name"] = value["name"] = "";
 	}

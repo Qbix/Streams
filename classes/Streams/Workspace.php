@@ -45,17 +45,17 @@ class Streams_Workspace extends Base_Streams_Workspace
      * @method stackedPublisherIds
      * @static
      * @param {string} $publisherId The base publisher id
-     * @param {array} $workspaces Ordered workspace names, top of stack first
+     * @param {array} $workspaceNames Ordered workspace names, top of stack first
      * @return {array} Publisher ids in cascade order
      */
-    static function stackedPublisherIds($publisherId, array $workspaces)
+    static function stackedPublisherIds($publisherId, array $workspaceNames)
     {
-        if (empty($workspaces)) {
+        if (empty($workspaceNames)) {
             return array($publisherId);
         }
         $ids = array();
-        foreach ($workspaces as $ws) {
-            $ids[] = $publisherId . '~' . $ws;
+        foreach ($workspaceNames as $wsname) {
+            $ids[] = "$publisherId~$wsname";
         }
         $ids[] = $publisherId;
         return $ids;
