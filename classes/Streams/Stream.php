@@ -931,7 +931,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {array} [$wasInserted]
 	 * @return {Db_Result}
 	 */
-	function afterSaveExecute($result, $query, $modifiedFields, $where, $wasInserted = null)
+	function afterSaveExecute($result, $query, $modifiedFields, $where, $inserting = null)
 	{
 		$stream = $this;
 
@@ -941,7 +941,7 @@ class Streams_Stream extends Base_Streams_Stream
 			$asUserId = $user ? $user->id : '';
 		}
 		
-		if ($stream->inserted) {
+		if ($inserting) {
 			// The stream was just saved
 			Q_Utils::sendToNode(array(
 				"Q/method" => "Streams/Stream/create",
