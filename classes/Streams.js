@@ -1800,6 +1800,174 @@ Streams.ontology = function (moduleName) {
 };
 Streams.ontology._cache = {};
 
+/**
+ * Look up streams by type(s) and title prefix/pattern.
+ * Mirrors PHP Streams::lookup().
+ *
+ * The `title` column has a composite B-tree index on (publisherId, type, title).
+ * Prefix patterns like "Karpathy%" hit the index. Leading-wildcard patterns
+ * like "%Karpathy%" do not — which is why requireTitleIndex (default true)
+ * rejects titles starting with '%'.
+ *
+ * The where key `'title LIKE '` is intentional. Db.Query.Mysql's
+ * criteria_internal detects the trailing space as a non-word character,
+ * sets eq='', and produces:
+ *   `title` LIKE :_criteria_N
+ * with the value safely bound as a parameter.
+ *
+ * @method lookup
+ * @static
+ * @param {String} publisherId
+ *   The publisher whose streams to search. Pass null or '' to search all publishers.
+ * @param {String|Array} types
+ *   A stream type string, or an array of types. Array produces IN(...).
+ * @param {String} title
+ *   SQL LIKE pattern matched against the title column, e.g. "Elon%" or "Andrej K%".
+ *   Leading-wildcard patterns are rejected by default (see requireTitleIndex config).
+ * @param {Boolean} [orderByTitle=false]
+ *   Pass true to ORDER BY title. Default orders by type, title.
+ * @param {Function} callback
+ *   Receives (err, Streams_Stream[]).
+ */
+Streams.lookup = function (publisherId, types, title, orderByTitle, callback) {
+	if (typeof orderByTitle === 'function') {
+		callback     = orderByTitle;
+		orderByTitle = false;
+	}
+	if (!types || !title) {
+		return callback(new Error('Streams.lookup: types and title are required'));
+	}
+	var fc = title[0];
+	if (fc === '%' && title.length > 1
+	&& Q.Config.get(['Streams', 'lookup', 'requireTitleIndex'], true)) {
+		return callback(new Q.Exception(
+			"Streams.lookup: title must not start with '%' " +
+			"(Streams/lookup/requireTitleIndex is enabled)"
+		));
+	}
+	var limit = Q.Config.get(['Streams', 'lookup', 'limit'], 10);
+	var where = {
+		'type':        types,
+		'title LIKE ': title,
+		'closedTime':  null
+	};
+	if (publisherId) {
+		where['publisherId'] = publisherId;
+	}
+	Streams.Stream.SELECT('*').where(where)
+	.orderBy(orderByTitle ? 'title' : 'type, title')
+	.limit(limit)
+	.execute(function (err, rows) {
+		if (err) return callback(err);
+		callback(null, rows || []);
+	});
+};
+
+/**
+ * Get a structured, sorted object with all interests in a community.
+ * Mirrors PHP Streams::interests().
+ *
+ * Merges two sources in order:
+ *   1. JSON file at APP/files/Streams/interests/{communityId}/{locale}.json,
+ *      loaded via Q.Tree so it respects the same path conventions as PHP.
+ *   2. DB rows of type 'Streams/interest' published under communityId,
+ *      unless skipStreams is true.
+ *
+ * Return shape (same as PHP):
+ *   { category: { subcategory: { interestLabel: {} } } }
+ * Each level is sorted alphabetically, mirroring PHP's ksort().
+ *
+ * @method interests
+ * @static
+ * @param {String} [communityId]
+ *   The community whose interests to load. Defaults to Users.communityId().
+ * @param {Boolean} [skipStreams=false]
+ *   If true, skip the DB query and return JSON contents only.
+ * @param {Function} callback
+ *   Receives (err, interests{}).
+ */
+Streams.interests = function (communityId, skipStreams, callback) {
+	if (typeof communityId === 'function') {
+		callback    = communityId;
+		skipStreams  = false;
+		communityId  = null;
+	} else if (typeof skipStreams === 'function') {
+		callback    = skipStreams;
+		skipStreams  = false;
+	}
+	communityId = communityId || Users.communityId();
+	var locale  = Q.Text.basename();
+	var tree    = new Q.Tree();
+	tree.load('files/Streams/interests/' + communityId + '/' + locale + '.json');
+	var interests = tree.getAll();
+	if (skipStreams) {
+		_sortInterests(interests);
+		return callback(null, interests);
+	}
+	Streams.Stream.SELECT('*').where({
+		'publisherId': communityId,
+		'type':        'Streams/interest'
+	}).execute(function (err, interestsStreams) {
+		if (err) return callback(err);
+		interestsStreams = interestsStreams || [];
+		interestsStreams.forEach(function (stream) {
+			var name = stream.fields.name || '';
+			for (var category in interests) {
+				var prefix = 'Streams/interest/' + category + '_';
+				if (name.toLowerCase().indexOf(prefix.toLowerCase()) !== 0) {
+					continue;
+				}
+				// Strip "Category: " prefix from title if present
+				var interestLabel = (stream.fields.title || '').replace(
+					new RegExp('^' + category + ':\\s*', 'i'), ''
+				).trim();
+				if (!interestLabel) continue;
+				if (!interests[category])      interests[category]      = {};
+				if (!interests[category][''])  interests[category]['']  = {};
+				if (!interests[category][''][interestLabel]) {
+					interests[category][''][interestLabel] = {};
+				}
+			}
+		});
+		_sortInterests(interests);
+		callback(null, interests);
+	});
+};
+
+/**
+ * Sort an interests object in-place at each level.
+ * Mirrors PHP's ksort() calls in Streams::interests().
+ * @method _sortInterests
+ * @private
+ */
+function _sortInterests(interests) {
+	Q.each(interests, function (category, v1) {
+		if (!Q.isPlainObject(v1)) return;
+		if (!Q.isAssociative(v1)) {
+			interests[category] = _ksort(v1);
+			return;
+		}
+		Q.each(v1, function (k2, v2) {
+			if (Q.isAssociative(v2)) {
+				v1[k2] = _ksort(v2);
+			}
+		});
+		interests[category] = _ksort(v1);
+	});
+}
+
+/**
+ * Return a new object with keys sorted alphabetically.
+ * Mirrors PHP ksort() with default string comparison.
+ * @method _ksort
+ * @private
+ */
+function _ksort(obj) {
+	var sorted = {};
+	Object.keys(obj).sort().forEach(function (k) { sorted[k] = obj[k]; });
+	return sorted;
+}
+
 Streams.Mentions = require('Streams/Mentions');
 Streams.Ephemeral = require('Streams/Ephemeral');
 Streams.Actions = require('Streams/Actions');
