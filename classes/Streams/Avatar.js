@@ -140,14 +140,96 @@ Streams_Avatar.fetch = function (toUserId, publisherId, callback) {
 	});
 };
 
- /**
+/**
+ * Fetch avatars whose firstName, lastName, or username starts with prefix.
+ * Mirrors PHP Streams_Avatar::fetchByPrefix().
+ *
+ * @static
+ * @method fetchByPrefix
+ * @param {String}   asUserId           The user performing the lookup
+ * @param {String}   prefix             Prefix string to match (whitespace-split for multi-word)
+ * @param {Object}   [options]
+ * @param {Number}   [options.limit=10]
+ * @param {Boolean}  [options.communities=false]  Include community ids
+ * @param {Function} callback           (err, { publisherId: avatarRow })
+ */
+Streams_Avatar.fetchByPrefix = function (asUserId, prefix, options, callback) {
+	if (typeof options === 'function') {
+		callback = options; options = {};
+	}
+	options = options || {};
+	var limit       = options.limit || 10;
+	var communities = options.communities || false;
+
+	if (!prefix || !prefix.trim()) {
+		return callback(null, {});
+	}
+
+	var toUserIds = asUserId ? [asUserId, ''] : [''];
+	var parts = prefix.trim().split(/\s+/);
+	var p0    = parts[0];
+	var p1    = parts[1] || null;
+
+	var criteria;
+	if (!p1) {
+		criteria = [
+			{ firstName: new Db.Range(p0, true, false, true) },
+			{ lastName:  new Db.Range(p0, true, false, true) },
+			{ username:  new Db.Range(p0, true, false, true) },
+		];
+	} else {
+		criteria = [
+			{ firstName: new Db.Range(p0, true, false, true), lastName:  new Db.Range(p1, true, false, true) },
+			{ firstName: new Db.Range(p0, true, false, true), username:  new Db.Range(p1, true, false, true) },
+			{ username:  new Db.Range(p0, true, false, true), lastName:  new Db.Range(p1, true, false, true) },
+		];
+	}
+
+	var avatars   = {};
+	var remaining = limit;
+	var pending   = criteria.length;
+	var done      = false;
+
+	criteria.forEach(function (where) {
+		if (done) { pending--; return; }
+
+		Streams_Avatar.SELECT('*')
+			.where({ toUserId: toUserIds })
+			.andWhere(where)
+			.orderBy('firstName')
+			.limit(remaining)
+			.execute(function (err, rows) {
+				if (done) return;
+				if (err) {
+					done = true;
+					return callback(err);
+				}
+				rows.forEach(function (row) {
+					var pid = row.fields.publisherId;
+					if (!communities && Q.Users && Q.Users.isCommunityId
+					&& Q.Users.isCommunityId(pid)) return;
+					if (!avatars[pid] || row.fields.toUserId !== '') {
+						avatars[pid] = row;
+					}
+				});
+				remaining = limit - Object.keys(avatars).length;
+				pending--;
+				if (pending <= 0) {
+					done = true;
+					callback(null, avatars);
+				}
+			});
+	});
+};
+
+/**
   * The setUp() method is called the first time
   * an object of this class is constructed.
   * @method setUp
   */
- Streams_Avatar.prototype.setUp = function () {
- 	// put any code here
- 	// overrides the Base class
- };
+Streams_Avatar.prototype.setUp = function () {
+	// put any code here
+	// overrides the Base class
+};
 
 module.exports = Streams_Avatar;

@@ -1,0 +1,939 @@
+{
+  "_comment": "Control intent patterns for the voice classifier in AI/socket.js.",
+  "_format": "Each intent has an array of pattern groups per locale.",
+  "_matching": "Lowercase, trim, test each pattern (string = substring, /regex/ = regex).",
+  "_intents": {
+    "slide/next": "Advance to next slide or card. Emits Streams/slide {slideIndex: current+1}.",
+    "slide/prev": "Go back to previous slide. Emits Streams/slide {slideIndex: current-1}.",
+    "slide/first": "Jump to first slide. Emits Streams/slide {slideIndex: 0}.",
+    "slide/last": "Jump to last slide.",
+    "video/play": "Play video. Emits Streams/play {pos: optional}.",
+    "video/pause": "Pause video. Emits Streams/pause {}.",
+    "video/seek": "Seek to time. Emits Streams/seek {pos: seconds}. Needs _extractTime().",
+    "gallery/next": "Advance gallery one image. Emits Streams/gallery/next.",
+    "gallery/pause": "Pause gallery. Emits Streams/gallery/pause.",
+    "gallery/resume": "Resume gallery. Emits Streams/gallery/resume.",
+    "highlight": "Highlight a bar/row/element. Emits Streams/highlight {elementId}. Needs _extractTarget().",
+    "zoom/in": "Zoom in on chart. Emits Streams/zoom {scale: current*1.5}.",
+    "zoom/out": "Zoom out. Emits Streams/zoom {scale: current/1.5}.",
+    "zoom/reset": "Reset zoom. Emits Streams/zoom {scale: 1}.",
+    "scroll/up": "Scroll up. Emits Q/scroll {top: '-20%'}.",
+    "scroll/down": "Scroll down. Emits Q/scroll {top: '+20%'}.",
+    "scroll/top": "Scroll to top. Emits Q/scroll {top: '0%'}.",
+    "scroll/bottom": "Scroll to bottom. Emits Q/scroll {top: '100%'}.",
+    "reveal/next": "Reveal next element on card. Emits Streams/reveal {revealIndex: current+1}.",
+    "fullscreen": "Toggle fullscreen on presentation element."
+  },
+  "en": {
+    "slide/next": [
+      "next slide",
+      "next card",
+      "go forward",
+      "move on",
+      "advance",
+      "next please",
+      "next one",
+      "show next",
+      "/^next$/"
+    ],
+    "slide/prev": [
+      "previous slide",
+      "previous card",
+      "go back",
+      "back one",
+      "last slide",
+      "prior slide",
+      "step back",
+      "/^back$/"
+    ],
+    "slide/first": [
+      "first slide",
+      "go to the beginning",
+      "start over",
+      "from the top",
+      "beginning please"
+    ],
+    "slide/last": [
+      "last slide",
+      "go to the end",
+      "final slide",
+      "jump to end"
+    ],
+    "video/play": [
+      "play",
+      "play video",
+      "play the video",
+      "start video",
+      "resume video",
+      "unpause",
+      "/^play$/"
+    ],
+    "video/pause": [
+      "pause",
+      "pause video",
+      "stop video",
+      "hold on",
+      "/^pause$/"
+    ],
+    "video/seek": [
+      "go to",
+      "seek to",
+      "jump to",
+      "skip to",
+      "fast forward to",
+      "rewind to"
+    ],
+    "gallery/next": [
+      "next image",
+      "next photo",
+      "next picture",
+      "skip image",
+      "change the background"
+    ],
+    "gallery/pause": [
+      "pause background",
+      "stop background",
+      "freeze background",
+      "hold the background",
+      "pause the images"
+    ],
+    "gallery/resume": [
+      "resume background",
+      "continue background",
+      "start background again",
+      "unpause background"
+    ],
+    "highlight": [
+      "highlight",
+      "point to",
+      "show me",
+      "emphasize",
+      "focus on",
+      "mark",
+      "call out"
+    ],
+    "zoom/in": [
+      "zoom in",
+      "zoom",
+      "bigger",
+      "enlarge",
+      "magnify",
+      "make it bigger",
+      "closer"
+    ],
+    "zoom/out": [
+      "zoom out",
+      "smaller",
+      "shrink",
+      "pull back",
+      "make it smaller",
+      "step back",
+      "wider view"
+    ],
+    "zoom/reset": [
+      "reset zoom",
+      "zoom reset",
+      "normal size",
+      "fit to screen",
+      "zoom to fit"
+    ],
+    "scroll/down": [
+      "scroll down",
+      "keep going",
+      "more",
+      "continue down",
+      "page down",
+      "below"
+    ],
+    "scroll/up": [
+      "scroll up",
+      "go up",
+      "back up",
+      "upward",
+      "page up",
+      "above"
+    ],
+    "scroll/top": [
+      "scroll to top",
+      "go to top",
+      "back to top",
+      "beginning of page",
+      "top of page"
+    ],
+    "scroll/bottom": [
+      "scroll to bottom",
+      "go to bottom",
+      "end of page",
+      "bottom of page"
+    ],
+    "reveal/next": [
+      "reveal",
+      "show more",
+      "next point",
+      "continue",
+      "and",
+      "next bullet"
+    ],
+    "fullscreen": [
+      "fullscreen",
+      "full screen",
+      "maximize",
+      "fill screen",
+      "make it full"
+    ],
+    "gallery/caption/remove": [
+      "remove caption",
+      "hide caption",
+      "clear caption",
+      "remove the caption",
+      "hide the caption"
+    ],
+    "gallery/remove": [
+      "remove this image",
+      "skip this image",
+      "hide this photo",
+      "remove current image",
+      "remove this photo"
+    ],
+    "image/generate": [
+      "generate an image of {prompt}",
+      "create an image of {prompt}",
+      "show me {prompt}",
+      "visualize {prompt}",
+      "draw {prompt}",
+      "make a picture of {prompt}"
+    ],
+    "tool/generate": [
+      "build a {prompt}",
+      "create a {prompt}",
+      "build me a {prompt}",
+      "generate a {prompt} widget",
+      "make a {prompt} tool",
+      "create a {prompt} tool"
+    ],
+    "stream/create": [
+      "create a {prompt} stream",
+      "make a {prompt} stream",
+      "start a {prompt}",
+      "create a {prompt} game",
+      "let's play {prompt}",
+      "set up a {prompt}"
+    ],
+    "stream/grantAccess": [
+      "give {name} access to post",
+      "let {name} post",
+      "give {name} write access",
+      "allow {name} to post",
+      "add {name} as a guest",
+      "invite {name} to post"
+    ],
+    "stream/revokeAccess": [
+      "remove {name}'s access",
+      "revoke {name}'s access",
+      "take away {name}'s access",
+      "remove {name} from the stream",
+      "block {name} from posting"
+    ],
+    "slide/navigate": [
+      "go to {query}",
+      "show me {query}",
+      "find {query}",
+      "jump to {query}",
+      "navigate to {query}",
+      "take me to {query}",
+      "open the {query}",
+      "show the {query} slide",
+      "find the {query} slide",
+      "go to the {query} slide"
+    ],
+    "video/seek/relative": [
+      "go back {time}",
+      "back {time}",
+      "rewind {time}",
+      "skip back {time}",
+      "go forward {time}",
+      "skip forward {time}",
+      "skip ahead {time}",
+      "fast forward {time}",
+      "forward {time}"
+    ]
+  },
+  "es": {
+    "slide/next": [
+      "siguiente diapositiva",
+      "siguiente",
+      "avanzar",
+      "adelante",
+      "pr\u00f3xima",
+      "la siguiente",
+      "/^siguiente$/"
+    ],
+    "slide/prev": [
+      "diapositiva anterior",
+      "atr\u00e1s",
+      "regresar",
+      "anterior",
+      "volver",
+      "/^atr\u00e1s$/"
+    ],
+    "slide/first": [
+      "primera diapositiva",
+      "al principio",
+      "desde el inicio",
+      "empezar de nuevo"
+    ],
+    "slide/last": [
+      "\u00faltima diapositiva",
+      "al final",
+      "diapositiva final"
+    ],
+    "video/play": [
+      "reproducir",
+      "play",
+      "iniciar video",
+      "continuar",
+      "/^reproducir$/"
+    ],
+    "video/pause": [
+      "pausar",
+      "pausa",
+      "detener video",
+      "/^pausar$/"
+    ],
+    "video/seek": [
+      "ir a",
+      "saltar a",
+      "avanzar hasta",
+      "retroceder hasta"
+    ],
+    "gallery/next": [
+      "siguiente imagen",
+      "otra imagen",
+      "cambiar fondo"
+    ],
+    "gallery/pause": [
+      "pausar fondo",
+      "detener fondo",
+      "congelar im\u00e1genes"
+    ],
+    "gallery/resume": [
+      "continuar fondo",
+      "reanudar fondo"
+    ],
+    "highlight": [
+      "resaltar",
+      "se\u00f1alar",
+      "mostrar",
+      "marcar",
+      "enfatizar"
+    ],
+    "zoom/in": [
+      "acercar",
+      "zoom in",
+      "m\u00e1s grande",
+      "ampliar",
+      "agrandar"
+    ],
+    "zoom/out": [
+      "alejar",
+      "zoom out",
+      "m\u00e1s peque\u00f1o",
+      "reducir"
+    ],
+    "zoom/reset": [
+      "restablecer zoom",
+      "tama\u00f1o normal",
+      "ajustar pantalla"
+    ],
+    "scroll/down": [
+      "desplazar abajo",
+      "bajar",
+      "m\u00e1s abajo",
+      "continuar abajo"
+    ],
+    "scroll/up": [
+      "desplazar arriba",
+      "subir",
+      "m\u00e1s arriba"
+    ],
+    "scroll/top": [
+      "ir arriba del todo",
+      "inicio de p\u00e1gina",
+      "parte superior"
+    ],
+    "scroll/bottom": [
+      "ir abajo del todo",
+      "final de p\u00e1gina",
+      "parte inferior"
+    ],
+    "reveal/next": [
+      "revelar",
+      "mostrar m\u00e1s",
+      "siguiente punto",
+      "continuar"
+    ],
+    "fullscreen": [
+      "pantalla completa",
+      "maximizar",
+      "pantalla llena"
+    ],
+    "gallery/caption/remove": [
+      "remove caption",
+      "hide caption",
+      "clear caption",
+      "remove the caption",
+      "hide the caption"
+    ],
+    "image/generate": [
+      "generate an image of {prompt}",
+      "create an image of {prompt}",
+      "show me {prompt}",
+      "visualize {prompt}",
+      "draw {prompt}",
+      "make a picture of {prompt}"
+    ],
+    "tool/generate": [
+      "build a {prompt}",
+      "create a {prompt}",
+      "build me a {prompt}",
+      "generate a {prompt} widget",
+      "make a {prompt} tool",
+      "create a {prompt} tool"
+    ],
+    "stream/create": [
+      "create a {prompt} stream",
+      "make a {prompt} stream",
+      "start a {prompt}",
+      "create a {prompt} game",
+      "let's play {prompt}",
+      "set up a {prompt}"
+    ],
+    "stream/grantAccess": [
+      "give {name} access to post",
+      "let {name} post",
+      "give {name} write access",
+      "allow {name} to post",
+      "add {name} as a guest",
+      "invite {name} to post"
+    ],
+    "stream/revokeAccess": [
+      "remove {name}'s access",
+      "revoke {name}'s access",
+      "take away {name}'s access",
+      "remove {name} from the stream",
+      "block {name} from posting"
+    ],
+    "slide/navigate": [
+      "go to {query}",
+      "show me {query}",
+      "find {query}",
+      "jump to {query}",
+      "navigate to {query}",
+      "take me to {query}",
+      "open the {query}",
+      "show the {query} slide",
+      "find the {query} slide",
+      "go to the {query} slide"
+    ],
+    "video/seek/relative": [
+      "go back {time}",
+      "back {time}",
+      "rewind {time}",
+      "skip back {time}",
+      "go forward {time}",
+      "skip forward {time}",
+      "skip ahead {time}",
+      "fast forward {time}",
+      "forward {time}"
+    ]
+  },
+  "fr": {
+    "slide/next": [
+      "diapositive suivante",
+      "suivant",
+      "avancer",
+      "diapo suivante",
+      "/^suivant$/"
+    ],
+    "slide/prev": [
+      "diapositive pr\u00e9c\u00e9dente",
+      "pr\u00e9c\u00e9dent",
+      "retour",
+      "en arri\u00e8re",
+      "/^pr\u00e9c\u00e9dent$/"
+    ],
+    "slide/first": [
+      "premi\u00e8re diapositive",
+      "au d\u00e9but",
+      "recommencer"
+    ],
+    "slide/last": [
+      "derni\u00e8re diapositive",
+      "\u00e0 la fin"
+    ],
+    "video/play": [
+      "lire",
+      "lecture",
+      "jouer la vid\u00e9o",
+      "/^lire$/"
+    ],
+    "video/pause": [
+      "pause",
+      "mettre en pause",
+      "arr\u00eater la vid\u00e9o"
+    ],
+    "video/seek": [
+      "aller \u00e0",
+      "sauter \u00e0",
+      "avancer jusqu'\u00e0"
+    ],
+    "gallery/next": [
+      "image suivante",
+      "prochaine image",
+      "changer le fond"
+    ],
+    "gallery/pause": [
+      "pause fond",
+      "arr\u00eater le fond",
+      "figer les images"
+    ],
+    "gallery/resume": [
+      "reprendre le fond",
+      "continuer le fond"
+    ],
+    "highlight": [
+      "mettre en \u00e9vidence",
+      "surligner",
+      "montrer",
+      "souligner"
+    ],
+    "zoom/in": [
+      "zoomer",
+      "agrandir",
+      "plus grand",
+      "zoom avant"
+    ],
+    "zoom/out": [
+      "d\u00e9zoomer",
+      "r\u00e9duire",
+      "plus petit",
+      "zoom arri\u00e8re"
+    ],
+    "zoom/reset": [
+      "r\u00e9initialiser zoom",
+      "taille normale",
+      "ajuster \u00e0 l'\u00e9cran"
+    ],
+    "scroll/down": [
+      "d\u00e9filer vers le bas",
+      "descendre",
+      "plus bas"
+    ],
+    "scroll/up": [
+      "d\u00e9filer vers le haut",
+      "monter",
+      "plus haut"
+    ],
+    "scroll/top": [
+      "haut de page",
+      "retour en haut"
+    ],
+    "scroll/bottom": [
+      "bas de page",
+      "fin de page"
+    ],
+    "reveal/next": [
+      "r\u00e9v\u00e9ler",
+      "afficher plus",
+      "point suivant"
+    ],
+    "fullscreen": [
+      "plein \u00e9cran",
+      "maximiser"
+    ],
+    "image/generate": [
+      "generate an image of {prompt}",
+      "create an image of {prompt}",
+      "show me {prompt}",
+      "visualize {prompt}",
+      "draw {prompt}",
+      "make a picture of {prompt}"
+    ],
+    "tool/generate": [
+      "build a {prompt}",
+      "create a {prompt}",
+      "build me a {prompt}",
+      "generate a {prompt} widget",
+      "make a {prompt} tool",
+      "create a {prompt} tool"
+    ],
+    "stream/create": [
+      "create a {prompt} stream",
+      "make a {prompt} stream",
+      "start a {prompt}",
+      "create a {prompt} game",
+      "let's play {prompt}",
+      "set up a {prompt}"
+    ],
+    "stream/grantAccess": [
+      "give {name} access to post",
+      "let {name} post",
+      "give {name} write access",
+      "allow {name} to post",
+      "add {name} as a guest",
+      "invite {name} to post"
+    ],
+    "stream/revokeAccess": [
+      "remove {name}'s access",
+      "revoke {name}'s access",
+      "take away {name}'s access",
+      "remove {name} from the stream",
+      "block {name} from posting"
+    ],
+    "slide/navigate": [
+      "go to {query}",
+      "show me {query}",
+      "find {query}",
+      "jump to {query}",
+      "navigate to {query}",
+      "take me to {query}",
+      "open the {query}",
+      "show the {query} slide",
+      "find the {query} slide",
+      "go to the {query} slide"
+    ],
+    "video/seek/relative": [
+      "go back {time}",
+      "back {time}",
+      "rewind {time}",
+      "skip back {time}",
+      "go forward {time}",
+      "skip forward {time}",
+      "skip ahead {time}",
+      "fast forward {time}",
+      "forward {time}"
+    ]
+  },
+  "de": {
+    "slide/next": [
+      "n\u00e4chste folie",
+      "weiter",
+      "vorw\u00e4rts",
+      "n\u00e4chste",
+      "/^weiter$/"
+    ],
+    "slide/prev": [
+      "vorherige folie",
+      "zur\u00fcck",
+      "r\u00fcckw\u00e4rts",
+      "vorherige",
+      "/^zur\u00fcck$/"
+    ],
+    "slide/first": [
+      "erste folie",
+      "zum anfang",
+      "von vorne"
+    ],
+    "slide/last": [
+      "letzte folie",
+      "zum ende"
+    ],
+    "video/play": [
+      "abspielen",
+      "wiedergabe",
+      "video starten",
+      "/^abspielen$/"
+    ],
+    "video/pause": [
+      "pause",
+      "pausieren",
+      "video stoppen"
+    ],
+    "video/seek": [
+      "gehe zu",
+      "springe zu",
+      "vorspulen bis"
+    ],
+    "gallery/next": [
+      "n\u00e4chstes bild",
+      "n\u00e4chstes foto",
+      "hintergrund wechseln"
+    ],
+    "gallery/pause": [
+      "hintergrund pausieren",
+      "bilder stoppen"
+    ],
+    "gallery/resume": [
+      "hintergrund fortsetzen",
+      "bilder fortsetzen"
+    ],
+    "highlight": [
+      "hervorheben",
+      "markieren",
+      "zeigen",
+      "betonen"
+    ],
+    "zoom/in": [
+      "heranzoomen",
+      "vergr\u00f6\u00dfern",
+      "zoom rein"
+    ],
+    "zoom/out": [
+      "rauszoomen",
+      "verkleinern",
+      "zoom raus"
+    ],
+    "zoom/reset": [
+      "zoom zur\u00fccksetzen",
+      "normale gr\u00f6\u00dfe",
+      "an bildschirm anpassen"
+    ],
+    "scroll/down": [
+      "nach unten scrollen",
+      "runter",
+      "weiter unten"
+    ],
+    "scroll/up": [
+      "nach oben scrollen",
+      "rauf",
+      "weiter oben"
+    ],
+    "scroll/top": [
+      "zum seitenanfang",
+      "ganz oben"
+    ],
+    "scroll/bottom": [
+      "zum seitenende",
+      "ganz unten"
+    ],
+    "reveal/next": [
+      "enth\u00fcllen",
+      "mehr anzeigen",
+      "n\u00e4chster punkt"
+    ],
+    "fullscreen": [
+      "vollbild",
+      "maximieren",
+      "bildschirm f\u00fcllen"
+    ],
+    "image/generate": [
+      "generate an image of {prompt}",
+      "create an image of {prompt}",
+      "show me {prompt}",
+      "visualize {prompt}",
+      "draw {prompt}",
+      "make a picture of {prompt}"
+    ],
+    "tool/generate": [
+      "build a {prompt}",
+      "create a {prompt}",
+      "build me a {prompt}",
+      "generate a {prompt} widget",
+      "make a {prompt} tool",
+      "create a {prompt} tool"
+    ],
+    "stream/create": [
+      "create a {prompt} stream",
+      "make a {prompt} stream",
+      "start a {prompt}",
+      "create a {prompt} game",
+      "let's play {prompt}",
+      "set up a {prompt}"
+    ],
+    "stream/grantAccess": [
+      "give {name} access to post",
+      "let {name} post",
+      "give {name} write access",
+      "allow {name} to post",
+      "add {name} as a guest",
+      "invite {name} to post"
+    ],
+    "stream/revokeAccess": [
+      "remove {name}'s access",
+      "revoke {name}'s access",
+      "take away {name}'s access",
+      "remove {name} from the stream",
+      "block {name} from posting"
+    ],
+    "slide/navigate": [
+      "go to {query}",
+      "show me {query}",
+      "find {query}",
+      "jump to {query}",
+      "navigate to {query}",
+      "take me to {query}",
+      "open the {query}",
+      "show the {query} slide",
+      "find the {query} slide",
+      "go to the {query} slide"
+    ],
+    "video/seek/relative": [
+      "go back {time}",
+      "back {time}",
+      "rewind {time}",
+      "skip back {time}",
+      "go forward {time}",
+      "skip forward {time}",
+      "skip ahead {time}",
+      "fast forward {time}",
+      "forward {time}"
+    ]
+  },
+  "he": {
+    "slide/next": [
+      "\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d1\u05d0\u05d4",
+      "\u05d4\u05d1\u05d0",
+      "\u05e7\u05d3\u05d9\u05de\u05d4",
+      "/^\u05d4\u05d1\u05d0$/"
+    ],
+    "slide/prev": [
+      "\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05e7\u05d5\u05d3\u05de\u05ea",
+      "\u05d0\u05d7\u05d5\u05e8\u05d4",
+      "\u05d7\u05d6\u05d5\u05e8",
+      "/^\u05d0\u05d7\u05d5\u05e8\u05d4$/"
+    ],
+    "slide/first": [
+      "\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05e8\u05d0\u05e9\u05d5\u05e0\u05d4",
+      "\u05dc\u05d4\u05ea\u05d7\u05dc\u05d4",
+      "\u05de\u05d7\u05d3\u05e9"
+    ],
+    "slide/last": [
+      "\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d0\u05d7\u05e8\u05d5\u05e0\u05d4",
+      "\u05dc\u05e1\u05d5\u05e3"
+    ],
+    "video/play": [
+      "\u05e0\u05d2\u05df",
+      "\u05d4\u05e4\u05e2\u05dc",
+      "\u05d4\u05e4\u05e2\u05dc \u05e1\u05e8\u05d8\u05d5\u05df"
+    ],
+    "video/pause": [
+      "\u05e2\u05e6\u05d5\u05e8",
+      "\u05d4\u05e9\u05d4\u05d4",
+      "\u05e4\u05d0\u05d5\u05d6"
+    ],
+    "video/seek": [
+      "\u05e2\u05d1\u05d5\u05e8 \u05dc",
+      "\u05e7\u05e4\u05d5\u05e5 \u05dc"
+    ],
+    "gallery/next": [
+      "\u05ea\u05de\u05d5\u05e0\u05d4 \u05d4\u05d1\u05d0\u05d4",
+      "\u05ea\u05de\u05d5\u05e0\u05d4 \u05d0\u05d7\u05e8\u05ea",
+      "\u05e9\u05e0\u05d4 \u05e8\u05e7\u05e2"
+    ],
+    "gallery/pause": [
+      "\u05e2\u05e6\u05d5\u05e8 \u05e8\u05e7\u05e2",
+      "\u05d4\u05e7\u05e4\u05d0 \u05ea\u05de\u05d5\u05e0\u05d5\u05ea"
+    ],
+    "gallery/resume": [
+      "\u05d4\u05de\u05e9\u05da \u05e8\u05e7\u05e2",
+      "\u05d7\u05d3\u05e9 \u05e8\u05e7\u05e2"
+    ],
+    "highlight": [
+      "\u05d4\u05d3\u05d2\u05e9",
+      "\u05d4\u05e6\u05d2",
+      "\u05e1\u05de\u05df",
+      "\u05d4\u05d1\u05dc\u05d8"
+    ],
+    "zoom/in": [
+      "\u05d4\u05d2\u05d3\u05dc",
+      "\u05e7\u05e8\u05d1",
+      "\u05d6\u05d5\u05dd \u05e4\u05e0\u05d9\u05de\u05d4"
+    ],
+    "zoom/out": [
+      "\u05d4\u05e7\u05d8\u05df",
+      "\u05e8\u05d7\u05e7",
+      "\u05d6\u05d5\u05dd \u05d4\u05d7\u05d5\u05e6\u05d4"
+    ],
+    "zoom/reset": [
+      "\u05d0\u05e4\u05e1 \u05d6\u05d5\u05dd",
+      "\u05d2\u05d5\u05d3\u05dc \u05e8\u05d2\u05d9\u05dc"
+    ],
+    "scroll/down": [
+      "\u05d2\u05dc\u05d5\u05dc \u05dc\u05de\u05d8\u05d4",
+      "\u05dc\u05de\u05d8\u05d4"
+    ],
+    "scroll/up": [
+      "\u05d2\u05dc\u05d5\u05dc \u05dc\u05de\u05e2\u05dc\u05d4",
+      "\u05dc\u05de\u05e2\u05dc\u05d4"
+    ],
+    "scroll/top": [
+      "\u05dc\u05e8\u05d0\u05e9 \u05d4\u05d3\u05e3",
+      "\u05dc\u05de\u05e2\u05dc\u05d4 \u05dc\u05d2\u05de\u05e8\u05d9"
+    ],
+    "scroll/bottom": [
+      "\u05dc\u05ea\u05d7\u05ea\u05d9\u05ea \u05d4\u05d3\u05e3",
+      "\u05dc\u05de\u05d8\u05d4 \u05dc\u05d2\u05de\u05e8\u05d9"
+    ],
+    "reveal/next": [
+      "\u05d2\u05dc\u05d4",
+      "\u05d4\u05e6\u05d2 \u05e2\u05d5\u05d3",
+      "\u05e0\u05e7\u05d5\u05d3\u05d4 \u05d4\u05d1\u05d0\u05d4"
+    ],
+    "fullscreen": [
+      "\u05de\u05e1\u05da \u05de\u05dc\u05d0",
+      "\u05d4\u05d2\u05d3\u05dc \u05d7\u05dc\u05d5\u05df"
+    ],
+    "image/generate": [
+      "generate an image of {prompt}",
+      "create an image of {prompt}",
+      "show me {prompt}",
+      "visualize {prompt}",
+      "draw {prompt}",
+      "make a picture of {prompt}"
+    ],
+    "tool/generate": [
+      "build a {prompt}",
+      "create a {prompt}",
+      "build me a {prompt}",
+      "generate a {prompt} widget",
+      "make a {prompt} tool",
+      "create a {prompt} tool"
+    ],
+    "stream/create": [
+      "create a {prompt} stream",
+      "make a {prompt} stream",
+      "start a {prompt}",
+      "create a {prompt} game",
+      "let's play {prompt}",
+      "set up a {prompt}"
+    ],
+    "stream/grantAccess": [
+      "give {name} access to post",
+      "let {name} post",
+      "give {name} write access",
+      "allow {name} to post",
+      "add {name} as a guest",
+      "invite {name} to post"
+    ],
+    "stream/revokeAccess": [
+      "remove {name}'s access",
+      "revoke {name}'s access",
+      "take away {name}'s access",
+      "remove {name} from the stream",
+      "block {name} from posting"
+    ],
+    "slide/navigate": [
+      "go to {query}",
+      "show me {query}",
+      "find {query}",
+      "jump to {query}",
+      "navigate to {query}",
+      "take me to {query}",
+      "open the {query}",
+      "show the {query} slide",
+      "find the {query} slide",
+      "go to the {query} slide"
+    ],
+    "video/seek/relative": [
+      "go back {time}",
+      "back {time}",
+      "rewind {time}",
+      "skip back {time}",
+      "go forward {time}",
+      "skip forward {time}",
+      "skip ahead {time}",
+      "fast forward {time}",
+      "forward {time}"
+    ]
+  }
+}
