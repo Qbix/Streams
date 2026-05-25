@@ -1739,11 +1739,6 @@ Sp.getParticipant = function (userId, callback) {
 Sp.getObservers = function (callback) {
 	var stream = this;
 
-	// Access check (observers can receive messages → messages-level access)
-	if (!stream.testReadLevel('messages')) {
-		return callback && callback(new Error("Not authorized to read observers"));
-	}
-
 	var observers = Q.getObject(
 		[stream.fields.publisherId, stream.fields.name],
 		Streams.observers
