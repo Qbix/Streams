@@ -122,7 +122,7 @@ function _Streams_participants(options) {
 		invite: {
 			name: 'Streams/participants/invite',
 			fields: { 
-				src: Q.Streams.iconUrl('labels/Streams/invited', 40), 
+				src: Q.Streams.iconUrl('labels/Streams/invited', 40, 'png'), 
 				alt: 'Invite',
 				title: 'Invite'
 			}
