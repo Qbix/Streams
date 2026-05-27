@@ -1405,7 +1405,7 @@ abstract class Streams extends Base_Streams
 
 		return $stream;
 	}
-	
+
 	/**
 	 * Creates multiple streams in the system. Skips access control checks.
 	 * @method createStreams
@@ -1476,17 +1476,14 @@ abstract class Streams extends Base_Streams
 				}
 			}
 
-			// extend with any config defaults for this stream type,
-			// unless caller has already provided authoritative field values (e.g. fork)
-			if (empty($options['skipTemplates'])) {
-				$fieldNames = Streams::getExtendFieldNames($stream->type);
-				$fieldNames[] = 'name';
-				foreach ($fieldNames as $fn) {
-					if (isset($f[$fn])
-					&& $fn !== 'insertedTime'
-					&& $fn !== 'updatedTime') {
-						$tc[$fn] = $f[$fn];
-					}
+			// extend with any config defaults for this stream type
+			$fieldNames = Streams::getExtendFieldNames($f['type']);
+			$fieldNames[] = 'name';
+			foreach ($fieldNames as $fn) {
+				if (isset($f[$fn])
+				&& $fn !== 'insertedTime'
+				&& $fn !== 'updatedTime') {
+					$tc[$fn] = $f[$fn];
 				}
 			}
 			
@@ -1518,6 +1515,26 @@ abstract class Streams extends Base_Streams
 		}
 		
 		return $streams;
+	}
+
+	/**
+	 * Returns the Q_Branch for a stream's file attachments.
+	 * @method branch
+	 * @static
+	 * @param {string} $publisherId
+	 * @param {string} $streamName
+	 * @param {array}  [$options]
+	 * @param {string} [$options.directory]  Path relative to APP_FILES_DIR.
+	 *   Defaults to 'Q/uploads'.
+	 * @return {Q_Branch}
+	 */
+	static function branch($publisherId, $streamName, $options = array())
+	{
+		$splitId = str_replace(DS, '/', Q_Utils::splitId($publisherId));
+		return new Q_Branch(
+			"Streams/$splitId/$streamName",
+			array('directory' => Q::ifset($options, 'directory', 'Q' . DS . 'uploads'))
+		);
 	}
 
 	/**
@@ -1669,6 +1686,18 @@ abstract class Streams extends Base_Streams
 		// Streams::related(). No eager copying needed — the overlay merge handles
 		// inheritance transparently, and relate()/unrelate() write to the workspace
 		// publisher when a workspace stack is active.
+
+		// Fork file attachments if the source stream has any.
+		// O(N files), zero bytes copied: real files move to {dir}~store/,
+		// source gets symlinks back, fork gets symlinks to the same store.
+		// Subsequent writes to either branch via Q_Branch::write() / ::place()
+		// are copy-on-write — store files are never modified after creation.
+		$sourceBranch = Streams::branch($publisherId, $streamName);
+		if ($sourceBranch->exists()) {
+			$sourceBranch->fork(
+				Streams::branch($toPublisherId, $toStreamName)->name()
+			);
+		}
 
 		/**
 		 * @event Streams/fork {after}
