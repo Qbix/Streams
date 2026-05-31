@@ -6469,12 +6469,12 @@ abstract class Streams extends Base_Streams
 	 * @param {integer} [$options.offset=0] The offfset
 	 * @param {string} [$options.communityId=null] The community from which to get stream participants, defaults to main community
 	 * @param {string} [$options.experienceId='main'] Can be used to override the name of the experience
-	 * @param {Users_User|false} [$options.userId=Users::loggedInUser()->id] The user, if any, whose contacts to get
+	 * @param {Users_User|false} [$options.userId=Users::loggedInUserId()] The user, if any, whose contacts to get
 	 * @param {boolean} [$options.includeUser=false] Whether to include the specified user in the list
 	 * @param {boolean} [$options.includeCommunities=false] Whether to include community users
 	 * @param {boolean} [$options.includeReverseContacts=false] Whether to show users who have you in their contacts already
 	 * @param {boolean} [$options.includeFutureUsers=false] Whether to include users who have not yet signed in even once, but who have a custom icon at least
-	 * @param {array} [$options.filterByRoles] you can pass an array of roles, user must have at least one
+	 * @param {array} [$options.filterByLabels] you can pass an array of roles, user must have at least one
 	 * @param {boolean} [$options.customIconsFirst=false] Whether to sort the non-contact users in a way to have the ones with custom photos be listed first.
 	 * @param {array} [$options.idPrefixes]
 	 * @param {array} [$options.idPrefixes.require] Only return users with this id prefix
@@ -6488,6 +6488,7 @@ abstract class Streams extends Base_Streams
 			'communityId' => Users::currentCommunityId(true),
 			'experienceId' => 'main',
 			'userId' => null,
+			'filterByLabels' => array(),
 			'includeUser' => false,
 			'includeCommunities' => false,
 			'includeReverseContacts' => false,
@@ -6501,9 +6502,8 @@ abstract class Streams extends Base_Streams
 			$options['limit'] = min($options['limit'], $maxLimit);
 		}
 
-		$user = Users::loggedInUser();
 		if (!isset($options['userId'])) {
-			$options['userId'] = $user ? $user->id : '';
+			$options['userId'] = Users::loggedInUserId();
 		}
 		if (!isset($options['communityId'])) {
 			$options['communityId'] = Users::currentCommunityId(true);
@@ -6520,6 +6520,9 @@ abstract class Streams extends Base_Streams
 			$ope = $options['idPrefixes']['exclude'];
 			$criteria['u.id <'] = $ope;
 			$orCriteria = array('u.id >' => $ope);
+		}
+		if ($options['filterByLabels']) {
+			$criteria['c.label'] = $orCriteria['c.label'] = $options['filterByLabels'];
 		}
 		if ($options['userId']) {
 			$rows = Users_Contact::select('u.id, u.sessionCount, u.icon', 'c')
