@@ -11,6 +11,7 @@ table.Streams_participating_stream {
 }
 .Streams_participating_stream div[data-type=tr] {
 	background-color: #eeeeff;
+	color: black;
 	border: 1px solid #e1e1e1;
 	white-space: nowrap;
 }
