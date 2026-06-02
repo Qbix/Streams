@@ -3523,7 +3523,6 @@ abstract class Streams extends Base_Streams
 		);
 	}
 
-
 	/**
 	 * Build Db_Range objects for relation type existence, value filtering,
 	 * and optional weight ranges.
@@ -7015,6 +7014,7 @@ abstract class Streams extends Base_Streams
 		}
 		return $path . DS . $subpath;
 	}
+
 	/**
 	 * Remove streams from the system, including all related rows.
 	 * @method remove
