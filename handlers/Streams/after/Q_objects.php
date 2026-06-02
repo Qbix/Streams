@@ -1,6 +1,18 @@
 <?php
 
-function Streams_after_Q_objects () {
+function Streams_after_Q_objects ()
+{
+	$uri = Q_Dispatcher::uri();
+	if ($uri->module === 'Users' and $uri->action === 'unsubscribe') {
+		if (!Users::loggedInUser()) {
+			$address = Q::ifset($_REQUEST, 'e', '');
+			$authCode = Q::ifset($_REQUEST, 'authCode', '');
+			$email = new Users_Email(compact("address"));
+			if ($email->retrieve() and $email->authCode === $authCode) {
+				Users::setLoggedInUser($email->userId);
+			}
+		}
+	}
 	$invite = Streams_Invite::$followed;
 	if (!$invite) {
 		return;
