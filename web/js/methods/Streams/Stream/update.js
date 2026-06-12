@@ -110,6 +110,7 @@ Q.exports(function(priv){
         // Now time to replace the fields in the stream with the incoming fields
         Q.extend(stream.fields, fields);
         priv.prepareStream(stream);
+        priv.syncStreamInstances(stream);
         priv.updateMessageTotalsCache(publisherId, streamName, stream.messageTotals);
         priv.updateStreamCache(stream);
         priv.updateAvatarCache(stream);
