@@ -5646,8 +5646,8 @@ abstract class Streams extends Base_Streams
 					throw new Q_Exception_InvalidInput(array('source' => 'token'));
 				}
 				$token = $t['token'];
-			} else if (is_string($token)) {
-				$token = $t['token'];
+			} else if (is_string($t)) {
+				$token = $t;
 			}
 			if ($token) {
 				$invite->token = $token;
