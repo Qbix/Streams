@@ -48,7 +48,7 @@ class Streams_RelatedTo extends Base_Streams_RelatedTo
 	
 	/**
 	 * @method setExtra
-	 * @param {string} $extraName The name of the extra to set,
+	 * @param {string|array} $extraName The name of the extra to set,
 	 *  or an array of $extraName => $extraValue pairs
 	 * @param {mixed} $value The value to set the extra to
 	 * @return Streams_RelatedTo
