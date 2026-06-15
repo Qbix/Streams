@@ -29,9 +29,21 @@ function Streams_after_Q_image_save($params)
 		$stream->setAttribute('sizes', array_keys($sizes));
 	}
 
+	/**
+	 * @event Streams/image/save {before}
+	 */
+	Q::event("Streams/image/save", compact('stream'), 'before');
+
 	if (empty(Streams::$beingSavedQuery)) {
 		$stream->changed($user->id);
 	} else {
 		$stream->save();
 	}
+
+	/**
+	 * @event Streams/image/save {after}
+	 */
+	Q::event("Streams/image/save", compact('stream'), 'after');
+
+	$params['stream'] = $stream;
 }

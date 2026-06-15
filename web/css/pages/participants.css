@@ -11,6 +11,7 @@ table.Streams_participating_stream {
 }
 .Streams_participating_stream div[data-type=tr] {
 	background-color: #eeeeff;
+	color: black;
 	border: 1px solid #e1e1e1;
 	white-space: nowrap;
 }
@@ -64,6 +65,7 @@ table.Streams_participating_stream {
 .Streams_participating .Streams_participating_item {
 	padding: 10px;
 	background-color: rgba(180, 200, 220, 0.7);
+	color: black;
 	font-weight: 400;
 	font-size: 20px;
 	border-radius: 10px;
@@ -90,7 +92,7 @@ table.Streams_participating_stream {
 	float: right;
 }
 .Streams_participating .Streams_participating_item:before {
-	color: #919191;
+	color: black;
 	font-size: 24px;
 	vertical-align: middle;
 	font-family: 'qplatform-communities' !important;
