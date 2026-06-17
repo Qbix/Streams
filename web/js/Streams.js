@@ -537,6 +537,24 @@ var priv = {
             }
         );
     },
+    syncStreamInstances: function priv_syncStreamInstances(canonical) {
+        if (!canonical || !canonical.fields) {
+            return;
+        }
+        var publisherId = canonical.fields.publisherId;
+        var streamName = canonical.fields.name;
+        Q.Streams.get.cache.each([publisherId, streamName], function (k, cached) {
+            var subject = cached && cached.subject;
+            if (!subject || subject === canonical) {
+                return;
+            }
+            Q.extend(subject.fields, canonical.fields);
+            priv.prepareStream(subject);
+            if (canonical.messageTotals) {
+                subject.messageTotals = Q.extend({}, canonical.messageTotals);
+            }
+        });
+    },
     updateAvatarCache: function priv_updateAvatarCache(stream) {
         var avatarStreamNames = {
             'Streams/user/firstName': true,
@@ -2731,7 +2749,23 @@ Sp.retain = function _Stream_prototype_retain (key, options) {
 	var ps = Streams.key(publisherId, streamName);
 	key = Q.calculateKey(key);
 	var wasRetained = !!priv._retainedStreams[ps];
-	var stream = priv._retainedStreams[ps] = this;
+	var canonical = priv._retainedStreams[ps];
+	if (!canonical) {
+		canonical = this;
+	} else if (canonical !== this) {
+		var incCount = parseInt(this.fields.messageCount) || 0;
+		var canCount = parseInt(canonical.fields.messageCount) || 0;
+		if (incCount >= canCount) {
+			Q.extend(canonical.fields, this.fields);
+			priv.prepareStream(canonical);
+		}
+		Q.extend(this.fields, canonical.fields);
+		priv.prepareStream(this);
+		if (canonical.messageTotals) {
+			this.messageTotals = Q.extend({}, canonical.messageTotals);
+		}
+	}
+	var stream = priv._retainedStreams[ps] = canonical;
 	var nodeUrl = Q.nodeUrl({
 		publisherId: publisherId,
 		streamName: streamName
@@ -5099,12 +5133,21 @@ Q.onInit.add(function _Streams_onInit() {
 			}
 
 			function _update(publisherId, streamName, fields, onlyChangedFields) {
+				var ps = Streams.key(publisherId, streamName);
+				var retained = priv._retainedStreams[ps];
+				var cached = Q.Streams.get.cache.get([publisherId, streamName]);
+				var stream = retained || (cached && cached.subject);
+				if (stream) {
+					Stream.update(stream, fields, onlyChangedFields);
+					return;
+				}
 				Q.Streams.get(publisherId, streamName, function (err) {
 					var fem = Q.firstErrorMessage(err);
 					if (fem) {
 						throw new Q.Exception("Streams.update: " + fem);
 					}
-					Stream.update(this, fields, onlyChangedFields);
+					stream = priv._retainedStreams[ps] || this;
+					Stream.update(stream, fields, onlyChangedFields);
 				});
 			}
 		}
