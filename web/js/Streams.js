@@ -3666,24 +3666,23 @@ Mp.seen = function _Message_seen (messageTotal) {
  * @return {Integer}
  */
 Message.latestOrdinal = function _Message_latestOrdinal (publisherId, streamName, checkMessageCache) {
-	var found = false;
 	var latest = 0;
 	if (checkMessageCache) {
 		Message.get.cache.each([publisherId, streamName], function (k, v) {
 			if (!v.params[0] && v.subject.ordinal > 0) {
 				latest = Math.max(latest, v.subject.ordinal);
-				found = true;
 			}
 		});
+
+		return parseInt(latest) || 0;
 	}
 	Streams.get.cache.each([publisherId, streamName], function (k, v) {
 		if (!v.params[0] && v.subject.fields.messageCount > 0) {
-			latest = v.subject.fields.messageCount;
-			found = true;
+			latest = Math.max(latest, v.subject.fields.messageCount);
 			return false;
 		}
 	});
-	return found ? parseInt(latest) : 0;
+	return parseInt(latest) || 0;
 };
 
 /**
