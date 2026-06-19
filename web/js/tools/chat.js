@@ -758,7 +758,8 @@ Q.Tool.define('Streams/chat', function(options) {
 			max  : state.earliest ? state.earliest - 1 : state.stream.fields.messageCount,
 			limit: state.messagesToLoad,
 			type: ["Streams/chat/message", "Streams/relatedTo"],
-			withMessageTotals: ["Streams/chat/message", "Streams/relatedTo"]
+			withMessageTotals: ["Streams/chat/message", "Streams/relatedTo"],
+			ascending: false
 		};
 		if (params.max - params.limit <= 0) {
 			$(tool.element).addClass('Streams_chat_reachedEarliest');
