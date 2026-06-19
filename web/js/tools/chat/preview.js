@@ -25,6 +25,7 @@
 
 	{
 		mode: 'document',
+		title: null,
 		hideIfNoParticipants: false,
 		onInvoke: new Q.Event(),
 		onRefresh: new Q.Event()
@@ -35,6 +36,8 @@
 			var tool = this;
 			var state = tool.state;
 			var $te = $(tool.element);
+
+			stream.retain(tool);
 
 			if (state.hideIfNoParticipants
 				&& stream.fields.participatingCount === 0) {
@@ -50,7 +53,7 @@
 
 			var fields = {
 				src: stream.iconUrl('80'),
-				title: stream.fields.title,
+				title: state.title || stream.fields.title,
 				info: info
 			};
 			Q.Template.render('Streams/chat/preview', fields, function (err, html) {
@@ -105,7 +108,7 @@
 							userIds.push(userId);
 						});
 
-						var $participantsElement = $(".streams_chat_participants", tool.element);
+						var $participantsElement = $(".Streams_chat_participants", tool.element);
 						if (userIds.length) {
 							$participantsElement.tool("Users/pile", {
 								avatar: {
@@ -134,7 +137,7 @@
 		'		<h3 class="Streams_preview_title Streams_preview_view">{{title}}</h3>' +
 		'		<div class="Streams_chat_preview_info Streams_aspect_interests">{{info}}</div>' +
 		'	</div>' +
-		'	<div class="streams_chat_participants"></div>' +
+		'	<div class="Streams_chat_participants"></div>' +
 		'	<div class="Streams_chat_unseen"></div>' +
 		'</div>'
 	);
