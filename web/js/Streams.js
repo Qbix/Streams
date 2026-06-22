@@ -5393,6 +5393,7 @@ function _clearCaches() {
 	priv._retainedByStream = {};
 	priv._retainedStreams = {};
 	priv._retainedNodes = {};
+	priv._connectedNodes = {};
 }
 
 function _scheduleUpdate() {
