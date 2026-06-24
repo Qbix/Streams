@@ -128,6 +128,7 @@ Q.Tool.define('Streams/chat', function(options) {
 		}
 	}, tool);
 	Q.Users.onLogin.set(function () {
+		tool.element.removeAttribute('data-Q-retain');
 		tool.refresh();
 	}, this);
 	Q.Users.onLogout.set(function () {
@@ -288,7 +289,7 @@ Q.Tool.define('Streams/chat', function(options) {
 	seen: function (value) {
 		var state = this.state;
 		state.seen = value;
-		if (value) {
+		if (value && this._isDisplayed()) {
 			Q.Streams.Message.Total.seen(
 				state.publisherId,
 				state.streamName,
@@ -297,6 +298,10 @@ Q.Tool.define('Streams/chat', function(options) {
 			);
 		}
 		return state.seen;
+	},
+	_isDisplayed: function () {
+		var el = this.element;
+		return !!(el && (el.isConnected !== undefined ? el.isConnected : document.body.contains(el)));
 	},
 	/**
 	 * Disables the textarea, preventing the user from writing
@@ -680,7 +685,7 @@ Q.Tool.define('Streams/chat', function(options) {
 			callback(items, messages);
 		}).run();
 
-		if (state.seen) {
+		if (state.seen && tool._isDisplayed()) {
 			Q.Streams.Message.Total.seen(
 				state.publisherId,
 				state.streamName,
@@ -910,6 +915,9 @@ Q.Tool.define('Streams/chat', function(options) {
 		// new message arrived
 		Q.Streams.Stream.onMessage(state.publisherId, state.streamName, 'Streams/chat/message')
 		.set(function (message) {
+			if (!tool._isDisplayed()) {
+				return;
+			}
 			Q.Streams.get(message.publisherId, message.streamName, function (err) {
 				state.stream = err ? null : this;
 			});
@@ -918,6 +926,9 @@ Q.Tool.define('Streams/chat', function(options) {
 		// a new stream was related (including a call)
 		Q.Streams.Stream.onMessage(state.publisherId, state.streamName, 'Streams/relatedTo')
 		.set(function(message) {
+			if (!tool._isDisplayed()) {
+				return;
+			}
 			Q.Streams.get(message.publisherId, message.streamName, function (err) {
 				state.stream = err ? null : this;
 			});
@@ -1055,12 +1066,14 @@ Q.Tool.define('Streams/chat', function(options) {
 				Q.Users.login({
 					onSuccess: { "Streams/chat": _postMessage },
 					onCancel: { "Streams/chat": function () {
+						tool.element.removeAttribute('data-Q-retain');
 						if (!Q.info.isTouchscreen && state.hadFocus) {
 							$this.plugin('Q/clickfocus');
 						}
 						state.hadFocus = false;
 					}},
 					onResult: { "Streams/chat": function () {
+						tool.element.removeAttribute('data-Q-retain');
 						blocked = false;
 						$this.removeAttr('disabled');
 					}},
@@ -1102,7 +1115,7 @@ Q.Tool.define('Streams/chat', function(options) {
 						$this.blur();
 					}
 					state.hadFocus = false;
-					if (state.seen) {
+					if (state.seen && tool._isDisplayed()) {
 						Q.Streams.Message.Total.seen(
 							state.publisherId,
 							state.streamName,

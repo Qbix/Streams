@@ -10,6 +10,7 @@
 	 * @param {Object} [options] options to pass besides the ones to Streams/preview tool
 	 *   @param {string} [options.mode=document] This option regulates tool layout. Can be 'title' and 'document'.
 	 *   @param {Boolean} [options.hideIfNoParticipants] If there are no participants in the chat, hide this preview.
+	 *   @param {Boolean} [options.skipParticipants] If true, don't show participants in the preview.
 	 *   @param {Q.Event} [options.onRefresh] Event occurs when tool element has rendered with content
 	 */
 	Q.Tool.define("Streams/chat/preview", "Streams/preview", function _Streams_chat_preview(options, preview) {
@@ -26,6 +27,7 @@
 	{
 		mode: 'document',
 		title: null,
+		skipParticipants: false,
 		hideIfNoParticipants: false,
 		onInvoke: new Q.Event(),
 		onRefresh: new Q.Event()
@@ -109,7 +111,7 @@
 						});
 
 						var $participantsElement = $(".Streams_chat_participants", tool.element);
-						if (userIds.length) {
+						if (userIds.length && !state.skipParticipants) {
 							$participantsElement.tool("Users/pile", {
 								avatar: {
 									contents: false
