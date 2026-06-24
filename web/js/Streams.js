@@ -3988,8 +3988,8 @@ var MTotal = Streams.Message.Total = {
 		var n = streamName;
 		var m = messageType;
 		MTotal.get(p, n, m, _unseen);
-		Stream.onMessage(p, n, m).add(_unseen);
-		MTotal.onSeen(p, n, m).set(_unseen);
+		Stream.onMessage(p, n, m).add(_unseen, key);
+		MTotal.onSeen(p, n, m).set(_unseen, key);
 		function _unseen() {
 			var c = MTotal.unseen(p, n, m);
 			var unseenClass = (options && options.unseenClass) || 'Streams_unseen_nonzero';
