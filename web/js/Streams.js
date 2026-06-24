@@ -455,6 +455,7 @@ var priv = {
     _messageHandlers: {},
     _ephemeralHandlers: {},
     _seenHandlers: {},
+    _unseenClassHandlers: {},
     _avatarHandlers: {},
     _constructHandlers: {},
     _refreshHandlers: {},
@@ -3995,6 +3996,7 @@ var MTotal = Streams.Message.Total = {
 			var unseenClass = (options && options.unseenClass) || 'Streams_unseen_nonzero';
 			element.innerHTML = c;
 			element.setClassIf(c, unseenClass);
+			Q.handle(MTotal.onUnseenClass(p, n, m), MTotal, [c, unseenClass, element]);
 		}
 	},
 
@@ -4007,7 +4009,18 @@ var MTotal = Streams.Message.Total = {
 	 * @param {String} messageType
 	 * @return {Q.Event}
 	 */
-	onSeen: Q.Event.factory(priv._seenHandlers, ["", "", ""])
+	onSeen: Q.Event.factory(priv._seenHandlers, ["", "", ""]),
+
+	/**
+	 * Occurs when setUpElement adds or removes unseenClass on an element,
+	 * including the first update after setUpElement is called.
+	 * @event onUnseenClass
+	 * @param {String} publisherId
+	 * @param {String} streamName
+	 * @param {String} messageType
+	 * @return {Q.Event}
+	 */
+	onUnseenClass: Q.Event.factory(priv._unseenClassHandlers, ["", "", ""])
 };
 var _seen = {};
 /**
