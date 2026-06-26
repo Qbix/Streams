@@ -48,6 +48,7 @@
  */
 Q.Tool.define('Streams/chat', function(options) {
 	var tool = this;
+	var $toolElement = $(tool.element);
 	var state = tool.state;
 
 	state.more = {};
@@ -67,7 +68,7 @@ Q.Tool.define('Streams/chat', function(options) {
 		throw new Q.Error("Streams/chat: missing streamName option");
 	}
 	if (!Q.isEmpty(state.vote)) {
-		$(this).addClass('Streams_chat_with_vote');
+		$toolElement.addClass('Streams_chat_with_vote');
 		for (var k in state.vote) {
 			state.vote[k].src = Q.url(state.vote[k].src);
 			state.vote[k].activeSrc = Q.url(state.vote[k].activeSrc);
@@ -138,7 +139,7 @@ Q.Tool.define('Streams/chat', function(options) {
 	}, this);
 
 	// close chat button handler
-	$(tool.element).on(Q.Pointer.fastclick, "button[name=close]", function (event) {
+	$toolElement.on(Q.Pointer.fastclick, "button[name=close]", function (event) {
 		event.stopPropagation();
 		event.preventDefault();
 
@@ -317,12 +318,20 @@ Q.Tool.define('Streams/chat', function(options) {
 	},
 	_implementAddons: function () {
 		var tool = this;
+		var $toolElement = $(tool.element);
 		var state = tool.state;
 		var $placeholder = tool.$('.Streams_chat_addons[data-placeholder="true"]');
 		if (!$placeholder.length) {
 			return;
 		}
 
+		// Activate extensions
+		Q.each(Q.Streams.Chat.extensions, function (i, name) {
+			$toolElement.tool(name);
+		});
+		$toolElement.activate();
+
+		// Render subscription button
 		var subscribed = ('yes' === Q.getObject('stream.participant.subscribed', state));
 		var touchlabel = subscribed ? tool.text.chat.Subscribed : tool.text.chat.Unsubscribed;
 
