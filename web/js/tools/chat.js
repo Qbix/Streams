@@ -128,8 +128,7 @@ Q.Tool.define('Streams/chat', function(options) {
 		}
 	}, tool);
 	Q.Users.onLogin.set(function () {
-		tool.element.removeAttribute('data-Q-retain');
-		tool.refresh();
+		tool.updateOnLogin();
 	}, this);
 	Q.Users.onLogout.set(function () {
 		tool.refresh();
@@ -303,6 +302,81 @@ Q.Tool.define('Streams/chat', function(options) {
 		var el = this.element;
 		return !!(el && (el.isConnected !== undefined ? el.isConnected : document.body.contains(el)));
 	},
+	_implementCloseButton: function () {
+		var tool = this;
+		var $placeholder = tool.$('.Streams_chat_close[data-placeholder=true]');
+		if (!$placeholder.length) {
+			return;
+		}
+		Q.Template.render('Streams/chat/close', {
+			text: tool.text.chat
+		}, function (err, html) {
+			if (err) { return; }
+			$placeholder.replaceWith(html);
+		});
+	},
+	_implementAddons: function () {
+		var tool = this;
+		var state = tool.state;
+		var $placeholder = tool.$('.Streams_chat_addons[data-placeholder="true"]');
+		if (!$placeholder.length) {
+			return;
+		}
+
+		var subscribed = ('yes' === Q.getObject('stream.participant.subscribed', state));
+		var touchlabel = subscribed ? tool.text.chat.Subscribed : tool.text.chat.Unsubscribed;
+
+		Q.Template.render('Streams/chat/addons', {}, function (err, html) {
+			if (err) { return; }
+			$placeholder.replaceWith(html);
+
+			Q.addScript("{{Q}}/js/contextual.js", function () {
+				tool.$('.Streams_chat_addons').plugin('Q/contextual', {
+					className: "Streams_chat_addons",
+					fadeTime: 300,
+					doubleBlink: true,
+					onConstruct: function (contextual) {
+						tool.addonsContextual = this;
+						Q.handle(state.onContextualCreated, tool, [contextual]);
+					}
+				});
+		
+				tool.addMenuItem('subscription', {
+					title: touchlabel,
+					className: "Streams_chat_subscription",
+					attributes: {
+						"data-subscribed": subscribed,
+						"data-hide": false
+					},
+					handler: function (element) {
+						var $this = $(element);
+						var status = $this.attr('data-subscribed');
+						var callback = function (err, participant) {
+							if (err) {
+								return console.warn(err);
+							}
+		
+							$(".Streams_chat_addon_title", $this).html(participant.subscribed === 'yes' ? tool.text.chat.Subscribed : tool.text.chat.Unsubscribed);
+							$this.attr({'data-subscribed': participant.subscribed === 'yes'});
+						};
+		
+						$this.attr('data-subscribed', 'loading');
+		
+						if (status === 'true') {
+							state.stream.unsubscribe(callback);
+						} else {
+							state.stream.subscribe(callback);
+						}
+		
+						return false;
+					}
+				});
+
+				$(".Streams_chat_addon_title", tool.$('.Streams_chat_subscription')).html(touchlabel);
+				tool.$('.Streams_chat_subscription').attr({'data-subscribed': subscribed});	
+			});
+		});
+	},
 	/**
 	 * Disables the textarea, preventing the user from writing
 	 * a message using the provided interface. They are still able to POST
@@ -368,16 +442,10 @@ Q.Tool.define('Streams/chat', function(options) {
 		var state = tool.state;
 		var loggedInUserId = Q.Users.loggedInUserId();
 		var isPublisher = loggedInUserId === Q.getObject("stream.fields.publisherId", state);
-		var subscribed = ('yes' === Q.getObject('stream.participant.subscribed', state));
-		var what = subscribed ? 'on' : 'off';
-		var touchlabel = subscribed ? tool.text.chat.Subscribed : tool.text.chat.Unsubscribed;
 		var fields = Q.extend({}, state.more, state.templates.main.fields);
 		fields.textarea = (state.inputType === 'textarea');
-		fields.loggedIn = loggedInUserId;
 		fields.text = tool.text.chat;
-		fields.closeable = state.closeable && isPublisher;
 		fields.earlierSrc = Q.url('{{Streams}}/img/chat/earlier.png');
-		fields.subscriptionSrc = Q.url('{{Communities}}/img/subscription/'+what+'/80.png');
 		
 		if (!fields.placeholder) {
 			var isPrivate = state.stream && !state.stream.inviteIsAllowed();
@@ -402,51 +470,15 @@ Q.Tool.define('Streams/chat', function(options) {
 					}
 				});
 
-				Q.addScript("{{Q}}/js/contextual.js", function () {
-					$te.find(".Streams_chat_addons").plugin('Q/contextual', {
-						className: "Streams_chat_addons",
-						fadeTime: 300,
-						doubleBlink: true,
-						onConstruct: function (contextual) {
-							tool.addonsContextual = this;
-							Q.handle(state.onContextualCreated, tool, [contextual]);
-						}
-					});
+				if (state.closeable && isPublisher) {
+					tool._implementCloseButton();
+				}
 
-					tool.addMenuItem('subscription', {
-						title: touchlabel,
-						className: "Streams_chat_subscription",
-						attributes: {
-							"data-subscribed": subscribed,
-							"data-hide": false
-						},
-						handler: function (element) {
-							var $this = $(element);
-							var status = $this.attr('data-subscribed');
-							var callback = function (err, participant) {
-								if (err) {
-									return console.warn(err);
-								}
+				if (loggedInUserId) {
+					tool._implementAddons();
+				}
 
-								$(".Streams_chat_addon_title", $this).html(participant.subscribed === 'yes' ? tool.text.chat.Subscribed : tool.text.chat.Unsubscribed);
-								$this.attr({'data-subscribed': participant.subscribed === 'yes'});
-							};
-
-							$this.attr('data-subscribed', 'loading');
-
-							if (status === 'true') {
-								state.stream && state.stream.unsubscribe(callback);
-							} else {
-								state.stream && state.stream.subscribe(callback);
-							}
-
-							return false;
-						}
-					});
-				});
-
-				if (Q.Users.loggedInUser
-				&& !(state.stream && state.stream.testWriteLevel('post'))) {
+				if (loggedInUserId && !state.stream.testWriteLevel('post')) {
 					tool.$('.Streams_chat_composer').hide();
 				}
 
@@ -571,15 +603,23 @@ Q.Tool.define('Streams/chat', function(options) {
 					$element = $($element);
 				}
 				$('.Streams_chat_avatar_icon', $element).each(function () {
+					var byUserId = $(this).attr('data-byUserId');
+					if (byUserId == null || byUserId === 'null') {
+						byUserId = '';
+					}
 					Q.Tool.setUpElement(this, 'Users/avatar', {
-						userId: $(this).attr('data-byUserId'),
+						userId: byUserId,
 						icon: true,
 						contents: false
 					}, null, tool.prefix);
 				});
 				$('.Streams_chat_avatar_name', $element).each(function () {
+					var byUserId = $(this).attr('data-byUserId');
+					if (byUserId == null || byUserId === 'null') {
+						byUserId = '';
+					}
 					Q.Tool.setUpElement(this, 'Users/avatar', {
-						userId: $(this).attr('data-byUserId'),
+						userId: byUserId,
 						icon: false,
 						short: true
 					}, null, tool.prefix);
@@ -702,8 +742,8 @@ Q.Tool.define('Streams/chat', function(options) {
 		var m = Q.extend({
 			time: Date.now() / 1000
 		}, message);
-		Q.Streams.Avatar.get(message.byUserId, function (err, avatar) {
-			m.displayName = avatar.displayName();
+
+		function _renderNotification() {
 			m.notificationHTML = notificationTemplate.interpolate(m);
 			Q.Template.render(
 				state.templates.message.notification.name,
@@ -716,6 +756,18 @@ Q.Tool.define('Streams/chat', function(options) {
 				},
 				state.templates.message.notification
 			);
+		}
+
+		if (!message.byUserId) {
+			m.displayName = Q.text.Users && Q.text.Users.avatar
+				? Q.text.Users.avatar.Someone
+				: 'Someone';
+			return _renderNotification();
+		}
+
+		Q.Streams.Avatar.get(message.byUserId, function (err, avatar) {
+			m.displayName = avatar.displayName();
+			_renderNotification();
 		});
 	},
 
@@ -1063,10 +1115,16 @@ Q.Tool.define('Streams/chat', function(options) {
 				_postMessage();
 			} else {
 				tool.element.setAttribute('data-Q-retain', '');
+				$this.addClass('Streams_chat_waiting');
 				Q.Users.login({
-					onSuccess: { "Streams/chat": _postMessage },
+					onSuccess: {
+						"Streams/chat": function () {
+							_postMessage();
+						}
+					},
 					onCancel: { "Streams/chat": function () {
 						tool.element.removeAttribute('data-Q-retain');
+						$this.removeClass('Streams_chat_waiting');
 						if (!Q.info.isTouchscreen && state.hadFocus) {
 							$this.plugin('Q/clickfocus');
 						}
@@ -1077,7 +1135,6 @@ Q.Tool.define('Streams/chat', function(options) {
 						blocked = false;
 						$this.removeAttr('disabled');
 					}},
-					successUrl: window.location,
 					calledBy: tool
 				});
 			}
@@ -1095,6 +1152,7 @@ Q.Tool.define('Streams/chat', function(options) {
 				Q.Streams.Message.post(fields, function(err, message, messages, extras) {
 					blocked = false;
 					$this.removeAttr('disabled');
+					$this.removeClass('Streams_chat_waiting');
 					if (err) {
 						tool.renderError(err, message, messages, extras);
 						tool.scrollToComposer();
@@ -1422,6 +1480,75 @@ Q.Tool.define('Streams/chat', function(options) {
 		state.hadFocus = false;
 	},
 
+	updateOnLogin: function () {
+		var tool = this;
+		var state = tool.state;
+
+		tool.element.removeAttribute('data-Q-retain');
+
+		if (!state.stream) {
+			return;
+		}
+
+		Q.Streams.retainWith(tool)
+		.get.force(state.publisherId, state.streamName, function (err) {
+			if (err) {
+				return;
+			}
+			var stream = state.stream = this;
+
+			var loggedInUserId = Q.Users.loggedInUserId();
+			var isPublisher = loggedInUserId === stream.fields.publisherId;
+			var $composer = tool.$('.Streams_chat_composer');
+			var canPost = stream.testWriteLevel('post');
+
+			if (canPost) {
+				$composer.show();
+			} else {
+				$composer.hide();
+			}
+
+			if (loggedInUserId) {
+				tool._implementAddons();
+			}
+
+			if (state.closeable) {
+				var $close = tool.$('button[name=close]');
+				if (isPublisher) {
+					if (!$close.length) {
+						tool._implementCloseButton();
+					}
+				} else {
+					$close.remove();
+				}
+			}
+
+			var $input = state.$inputElement;
+			if ($input && $input.length) {
+				var isPrivate = !stream.inviteIsAllowed();
+				var placeholderKey = isPrivate ? 'Private' : 'Public';
+				$input.attr('placeholder', Q.text.Streams.chat.placeholders[placeholderKey]).trigger('Q_refresh');
+			}
+
+			if (state.seen && tool._isDisplayed()) {
+				Q.Streams.Message.Total.seen(
+					state.publisherId,
+					state.streamName,
+					'Streams/chat/message',
+					true
+				);
+			}
+
+			stream.refresh(null, {
+				messages: true,
+				unlessSocket: true,
+				evenIfNotRetained: true
+			});
+		}, {
+			withParticipant: true
+		});
+	},
+
 	refresh: function (callback, useCached) {
 		var tool = this;
 		var state = tool.state;
@@ -1560,6 +1687,14 @@ Q.Template.set('Streams/chat/Streams_chat_noMessages',
 	'<i class="Streams_chat_noMessages">{{text.noOneSaid}}</i>'
 );
 
+Q.Template.set('Streams/chat/addons',
+	'<div class="Streams_chat_addons">+</div>'
+);
+
+Q.Template.set('Streams/chat/close',
+	'<button class="Q_button Q_tool Q_clickable_tool" style="display: block; margin: 0 auto;" name="close">{{text.closeChatButton}}</button>'
+);
+
 Q.Template.set('Streams/chat/main',
 	'<div class="Q_clear"></div>'+
 	'<div class="Streams_chat_messages">'+
@@ -1571,9 +1706,7 @@ Q.Template.set('Streams/chat/main',
 		'<!-- messages -->'+
 	'</div>'+
 	'<form class="Streams_chat_composer" action="" method="post">'+
-		'{{#if loggedIn}}' +
-		'<div class="Streams_chat_addons">+</div>' +
-		'{{/if}}' +
+		'<div class="Streams_chat_addons" data-placeholder="true" style="display:none"></div>' +
 		'{{#if textarea}}' +
 			'<textarea placeholder="{{placeholder}}"></textarea>'+
 		'{{else}}' +
@@ -1582,9 +1715,7 @@ Q.Template.set('Streams/chat/main',
 		'<div class="Streams_chat_submit Q_disappear"></div>' +
 	'</form>'+
 	'<hr />'+
-	'{{#if closeable}}' +
-		'<button class="Q_button Q_tool Q_clickable_tool" style="display: block; margin: 0 auto;" name="close">{{text.closeChatButton}}</button>' +
-	'{{/if}}' +
+	'<div class="Streams_chat_close" data-placeholder="true" style="display:none"></div>' +
 	'<div class="Q_clear"></div>'
 );
 
