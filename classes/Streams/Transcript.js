@@ -23,9 +23,9 @@
  */
 
 var Q               = require('Q');
-var Session         = require('./Transcript/Session');  // session bag, now in Streams
-var StreamProxy     = require('./StreamProxy');            // server-side stream stand-in for ephemerals
-var transcriptEmitter = require('./TranscriptEmitter').transcriptEmitter;
+var Session         = Q.require('Streams/Transcript/Session');  // session bag, now in Streams
+var StreamProxy     = Q.require('Streams/Transcription/StreamProxy');            // server-side stream stand-in for ephemerals
+var transcriptEmitter = Q.require('Streams/TranscriptEmitter').transcriptEmitter;
 
 function Transcript() {}
 
