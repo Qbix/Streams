@@ -5224,6 +5224,95 @@ Q.onInit.add(function _Streams_onInit() {
 	});
 }, 'Streams');
 
+function _qEmit(event, data) {
+	var qs = Q.Socket.get('/Q', '');
+	if (qs) { qs.socket.emit(event, data); }
+}
+
+/**
+ * Browser-side transcript session.
+ * @class Q.Streams.Transcript
+ */
+Streams.Transcript = {
+
+	/**
+	 * Fires for every final utterance, just before it is sent, with the
+	 * mutable context object and the raw chunk. Plugins add properties to
+	 * the context here — Media attaches slideIndex and the PDF page delta.
+	 * @event onContext
+	 */
+	onContext: new Q.Event(),
+
+	_active: false,
+
+	/**
+	 * Begin a session: announce it to the server and start forwarding final
+	 * results. Call inside a user gesture on iOS Safari (recognition start
+	 * is gesture-bound; this only wires the result handler and the socket).
+	 * @method start
+	 * @param {Object} options { publisherId, streamName, role, lang, modes }
+	 */
+	start: function (options) {
+		if (this._active) { return; }
+		this._active = true;
+		var o = options || {};
+
+		_qEmit('Streams/transcript/session/start', {
+			lang:        o.lang || 'en-US',
+			sampleRate:  o.sampleRate || 16000,
+			publisherId: o.publisherId,
+			streamName:  o.streamName,
+			role:        o.role || 'participant',
+			modes:       o.modes || {}
+		});
+
+		var self = this;
+		Q.Speech.Recognition.onResult.set(function (chunk) {
+			if (!chunk || !chunk.isFinal) { return; }
+			self.send(chunk);
+		}, 'Streams.Transcript');
+	},
+
+	/**
+	 * Build the context for one final utterance, let plugins enrich it, and
+	 * send it. Returns the context that was sent.
+	 * @method send
+	 * @param {Object} chunk { transcript, isFinal, confidence }
+	 * @return {Object}
+	 */
+	send: function (chunk) {
+		var context = {
+			transcript: chunk.transcript,
+			isFinal:    true,
+			confidence: chunk.confidence,
+			speaker:    Q.Users.loggedInUserId()
+		};
+		this.onContext.handle(context, chunk);
+		_qEmit('Streams/utterance', context);
+		return context;
+	},
+
+	/**
+	 * Toggle modes on the live session (composition / navigation / transcription).
+	 * @method setModes
+	 */
+	setModes: function (modes) {
+		if (!this._active) { return; }
+		_qEmit('Streams/transcript/session/modes', modes || {});
+	},
+
+	/**
+	 * End the session and stop forwarding results.
+	 * @method stop
+	 */
+	stop: function () {
+		if (!this._active) { return; }
+		this._active = false;
+		_qEmit('Streams/transcript/session/stop');
+		Q.Speech.Recognition.onResult.remove('Streams.Transcript');
+	}
+};
+
 Q.Tool.beforeRemove("").set(function (tool) {
 	Streams.release(this);
 }, 'Streams');
@@ -5421,6 +5510,7 @@ function _scheduleUpdate() {
 		setTimeout(_scheduleUpdate, ms);
 	}, ms);
 }
+
 
 
 _scheduleUpdate.delay = 5000;

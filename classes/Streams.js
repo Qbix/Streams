@@ -10,6 +10,10 @@ var fs = require('fs');
 var path = require('path');
 var child_process = require('child_process');
 
+var Transcript        = Q.require('Streams/Transcript');
+var TranscriptSession = Q.require('Streams/Transcript/Session');
+var transcriptEmitter = Q.require('Streams/TranscriptEmitter').transcriptEmitter;
+
 /**
  * Static methods for the Streams model
  * @class Streams
@@ -614,7 +618,53 @@ Streams.listen = function (options, servers) {
 				);
 			});
 		});
+
+		// A transcript session begins. Creates the session bag and fires 'sessionStart',
+		// which AI (pipeline) and Media (presentation start record) react to.
+		client.on('Streams/transcript/session/start', function (data) {
+			var userId = client.capability && client.capability.userId;
+			if (!userId) return;
+			var session = TranscriptSession.create(client, userId, data, Q);
+			transcriptEmitter.emitSessionStart(session, Q);
+		});
+		
+		// Runtime mode toggle (composition / navigation / transcription).
+		client.on('Streams/transcript/session/modes', function (data) {
+			var session = TranscriptSession.get(client.id);
+			if (!session || !data) return;
+			['composition', 'navigation', 'transcription'].forEach(function (m) {
+				if (data[m] !== undefined) session.modes[m] = !!data[m];
+			});
+		});
+		
+		client.on('Streams/transcript/session/stop', function () {
+			var session = TranscriptSession.get(client.id);
+			if (session) TranscriptSession.close(session);
+		});
+		
+		// Single handler for every utterance source — native SpeechRecognition, an AI
+		// adapter's results, typed text. Shape: { transcript, isFinal, confidence,
+		// speaker, slideIndex?, pdf? }. Interim chunks are dropped inside process();
+		// each final fires Streams.Transcript's 'processed' event, which is how the AI
+		// pipeline runs.
+		client.on('Streams/utterance', function (data) {
+			var session = TranscriptSession.get(client.id);
+			if (!session) return;
+			Transcript.process(session, data, Q, Users);
+		});
+		
+		// Session teardown. emitSessionEnd fires before removal, so AI/Media handlers
+		// still see the live session (AI re-broadcasts; Media posts the end record).
+		// If Streams.js already has a disconnect handler in this block, add these three
+		// lines to it rather than registering a second one.
 		client.on('disconnect', function () {
+			var session = TranscriptSession.get(client.id);
+			if (session) {
+				TranscriptSession.close(session);
+				transcriptEmitter.emitSessionEnd(session);
+				TranscriptSession.remove(client.id);
+			}
+
 			var observing = Streams.observing[client.id];
 			if (!observing) {
 				return;
