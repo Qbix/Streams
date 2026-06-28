@@ -4,8 +4,8 @@
  * @module AI
  */
 
-var Session = require('Streams/Session');
-var transcriptEmitter = require('Streams/TranscriptEmitter').transcriptEmitter;
+var Session = Q.require('Streams/Transcript/Session');
+var transcriptEmitter = Q.require('Streams/TranscriptEmitter').transcriptEmitter;
 
 /**
  * Adapter that lets Media's `CommandsClassifier` (which expects a `stream`

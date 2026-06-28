@@ -10,10 +10,6 @@ var fs = require('fs');
 var path = require('path');
 var child_process = require('child_process');
 
-var Transcript        = Q.require('Streams/Transcript');
-var TranscriptSession = Q.require('Streams/Transcript/Session');
-var transcriptEmitter = Q.require('Streams/TranscriptEmitter').transcriptEmitter;
-
 /**
  * Static methods for the Streams model
  * @class Streams
@@ -451,6 +447,10 @@ Streams.listen = function (options, servers) {
 	if (Streams.listen.result) {
 		return Streams.listen.result;
 	}
+
+	var Transcript        = Q.require('Streams/Transcript');
+	var TranscriptSession = Q.require('Streams/Transcript/Session');
+	var transcriptEmitter = Q.require('Streams/TranscriptEmitter').transcriptEmitter;
 	
 	// Start internal server
 	var server = Q.listen();
