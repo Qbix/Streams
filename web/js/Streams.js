@@ -5257,14 +5257,20 @@ Streams.Transcript = {
 		this._active = true;
 		var o = options || {};
 
-		_qEmit('Streams/transcript/session/start', {
+		var payload = {
 			lang:        o.lang || 'en-US',
 			sampleRate:  o.sampleRate || 16000,
 			publisherId: o.publisherId,
 			streamName:  o.streamName,
 			role:        o.role || 'participant',
 			modes:       o.modes || {}
+		};
+		// Forward optional session fields when the caller supplies them (the
+		// control page passes mode/isOwnLivestream/tool* that Session.create reads).
+		['mode', 'isOwnLivestream', 'toolStreamName', 'toolPublisherId'].forEach(function (k) {
+			if (o[k] !== undefined) { payload[k] = o[k]; }
 		});
+		_qEmit('Streams/transcript/session/start', payload);
 
 		var self = this;
 		Q.Speech.Recognition.onResult.set(function (chunk) {
