@@ -23,6 +23,9 @@ function Streams_before_Q_responseExtras()
 	Q_Response::setScriptData('Q.plugins.Streams.notifications.notices', Q_Config::get(
 		"Streams", "notifications", "notices", null
 	));
+	Q_Response::setScriptData('Q.plugins.Streams.commands', Q_Config::get(
+		"Streams", "commands", array()
+	));
 
 	// collect url for all stream types and return to client
 	$types = Q_Config::get("Streams", "types", array());
