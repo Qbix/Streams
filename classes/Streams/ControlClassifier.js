@@ -8,8 +8,13 @@
  * On a match, emits the appropriate ephemeral directly and returns true,
  * so the caller can skip the expensive LLM path entirely.
  *
- * Pattern data lives in Streams/data/controlPhrases.json — edit that file
- * to add phrases, fix false positives, or add new locales. No code change needed.
+ * Pattern data lives in per-locale files under
+ *   plugins/Streams/text/Streams/controlPhrases/<locale>.json
+ * Edit those files to add phrases, fix false positives, or add new locales.
+ * No code change needed.
+ *
+ * The frontend reads the same files (one per locale, fetched on demand)
+ * so backend and client classifiers always operate on identical pattern sets.
  *
  * Usage in AI/socket.js:
  *   const classifier = new ControlClassifier({ locale: 'en' });
@@ -29,17 +34,16 @@ class ControlClassifier {
     /**
      * @param {Object} [options]
      * @param {String} [options.locale='en']     BCP-47 language tag, e.g. 'en', 'es', 'he'
-     * @param {String} [options.dataFile]        Override path to controlPhrases.json
+     * @param {String} [options.dataDir]         Override base directory for phrase files
+     *                                           (default: plugins/Streams/text/Streams/controlPhrases)
      * @param {Object} [options.Q]               Q server object for logging
      */
     constructor(options = {}) {
-        this.locale        = options.locale   || 'en';
-        this.Q             = options.Q        || null;
-        // dataFile: explicit override only. null means _resolveCandidates() picks the path.
-        // Priority: Q.pluginDir('Media','TEXT') → env var → filesystem walk → bundled data.
-        this.dataFile      = options.dataFile || null;
-        this._fallbackFile = path.join(__dirname, '../../data/controlPhrases.json');
-        this._patterns     = null; // loaded lazily
+        this.locale  = options.locale || 'en';
+        this.Q       = options.Q      || null;
+        // dataDir: explicit override only. null means _resolveDataDir() picks it.
+        this.dataDir = options.dataDir || null;
+        this._patterns = null; // loaded lazily
     }
 
     // ── Public ────────────────────────────────────────────────────────────────
@@ -57,20 +61,19 @@ class ControlClassifier {
      *   @param {Number}  state.zoomScale   Current zoom scale (default 1)
      * @return {Boolean} true if handled
      */
-    classify(text, stream, state) {
+    classify(text, stream, state, allowedIntents) {
         const patterns = this._load();
         const t = text.trim().toLowerCase();
         if (!t) return false;
 
-        const match = this._match(t, patterns);
+        const match = this._match(t, patterns, allowedIntents);
         if (!match) return false;
-
         return this._emit(match.intent, match.captures, stream, state);
     }
 
     /**
-     * Reload patterns from disk. Call after editing controlPhrases.json
-     * to pick up changes without restarting Node.
+     * Reload patterns from disk. Call after editing the locale's phrase
+     * file to pick up changes without restarting Node.
      */
     reload() {
         this._patterns = null;
@@ -80,165 +83,147 @@ class ControlClassifier {
     // ── Private ───────────────────────────────────────────────────────────────
 
     /**
-     * Build the ordered list of file paths to try for pattern data.
-     * Checks for Media plugin presence via Q.pluginDir equivalent —
-     * reads the MEDIA_PLUGIN_DIR environment variable or walks up from
-     * __dirname to find plugins/Media/text/Media/commands/{locale}.json.
-     * AI does not hard-depend on Media; this is an optional runtime check.
+     * Resolve the base directory containing per-locale phrase files.
+     * Priority:
+     *   1. Explicit dataDir from constructor
+     *   2. Streams plugin's text directory: plugins/Streams/text/Streams/controlPhrases
+     *      (located by walking up from __dirname, which is .../Streams/classes/Streams/)
+     *
      * @private
+     * @return {String}  Absolute path to the controlPhrases directory
+     */
+    _resolveDataDir() {
+        if (this.dataDir) return this.dataDir;
+
+        // __dirname is .../plugins/Streams/classes/Streams
+        // Walk up two levels to reach .../plugins/Streams/
+        // then into text/Streams/controlPhrases/
+        const streamsPluginDir = path.resolve(__dirname, '..', '..');
+        return path.join(streamsPluginDir, 'text', 'Streams', 'controlPhrases');
+    }
+
+    /**
+     * Build the ordered list of file paths to try for pattern data.
+     * Each file represents a single locale, named <locale>.json.
+     *
+     * For locale "en-US": try en_US.json, then en.json (language fallback).
+     * For locale "en":    try en.json.
+     *
+     * @private
+     * @return {Array<String>}  Ordered list of candidate file paths
      */
     _resolveCandidates() {
-        const locale   = this.locale;
-        const fallback = 'en';
+        const dir = this._resolveDataDir();
+        const locale = this.locale;
         const candidates = [];
 
-        // 1. Explicit override from constructor
-        if (this.dataFile) {
-            candidates.push(this.dataFile);
-            if (locale !== fallback) {
-                candidates.push(this._fallbackFile);
-            }
-            return candidates;
+        // Specific locale (e.g. en-US → en_US.json or en_AS.json)
+        // BCP-47 uses hyphens; filenames use underscores.
+        const fileSafe = locale.replace(/-/g, '_');
+        candidates.push(path.join(dir, fileSafe + '.json'));
+
+        // Language fallback (e.g. en-US → en.json)
+        const lang = locale.split(/[-_]/)[0];
+        if (lang !== fileSafe) {
+            candidates.push(path.join(dir, lang + '.json'));
         }
 
-        // 2. Media plugin text directory — optional, checked at runtime
-        //    Mirrors PHP's Q::pluginDir('Media', 'WEB') pattern but for text files.
-        //    Walk up from AI/classes/AI/ to find plugins/Media/text/Media/commands/
-        const mediaTextDir = this._findMediaTextDir();
-        if (mediaTextDir) {
-            candidates.push(path.join(mediaTextDir, locale + '.json'));
-            if (locale !== fallback) {
-                candidates.push(path.join(mediaTextDir, fallback + '.json'));
-            }
+        // Ultimate fallback to English if the locale's language differs
+        if (lang !== 'en') {
+            candidates.push(path.join(dir, 'en.json'));
         }
-
-        // 3. Streams plugin's own bundled fallback
-        const streamsDataDir = path.join(__dirname, '../../data');
-        candidates.push(path.join(streamsDataDir, 'controlPhrases.json'));
 
         return candidates;
     }
 
     /**
-     * Locate Media/text/Media/commands/ via Q.pluginDir('Media', 'TEXT').
-     * On Node, Q.pluginDir reads MEDIA_PLUGIN_TEXT_DIR env var, which Qbix
-     * sets alongside the PHP constant of the same name.
-     * Falls back to filesystem walk for dev environments without env vars.
+     * Load and compile patterns. Reads the first candidate file that
+     * exists in the locale fallback chain — this is the canonical source
+     * of phrases. No multi-file merging: one locale = one file.
+     *
+     * Frontend and backend share these files, so editing en.json updates
+     * both classifiers automatically.
+     *
      * @private
      */
-    _findMediaTextDir() {
-        // Primary: Q.pluginDir('Media', 'TEXT') — mirrors PHP Q::pluginDir()
-        // Requires Q.node.patch.js merged into Q/classes/Q.js
-        if (this.Q && typeof this.Q.pluginDir === 'function') {
-            const textDir = this.Q.pluginDir('Media', 'TEXT');
-            if (textDir) {
-                const candidate = path.join(textDir, 'Media', 'commands');
-                try {
-                    if (require('fs').statSync(candidate).isDirectory()) return candidate;
-                } catch (e) {}
-            }
-        }
-
-        // Secondary: raw env var (before Q.js patch is merged)
-        const envDir = process.env.MEDIA_PLUGIN_TEXT_DIR;
-        if (envDir) {
-            const candidate = path.join(envDir, 'Media', 'commands');
-            try {
-                if (require('fs').statSync(candidate).isDirectory()) return candidate;
-            } catch (e) {}
-        }
-
-        // Fallback: walk up from AI/classes/AI/ to find sibling Media plugin
-        let dir = __dirname;
-        for (let i = 0; i < 3; i++) dir = path.dirname(dir);
-        const fallback = path.join(dir, 'Media', 'text', 'Media', 'commands');
-        try {
-            if (require('fs').statSync(fallback).isDirectory()) return fallback;
-        } catch (e) {}
-        return null;
-    }
-
     _load() {
         if (this._patterns) return this._patterns;
-        let raw;
-        // Try candidate paths in order:
-        //   1. Explicitly configured dataFile (constructor option)
-        //   2. Media plugin text directory, if Media plugin is installed
-        //      (optional dependency — AI doesn't require Media)
-        //   3. Streams plugin's own bundled data (controlPhrases.json)
+
         const candidates = this._resolveCandidates();
-        let loaded = false;
+        let raw = null;
+        let loadedFrom = null;
+
         for (const filePath of candidates) {
             try {
                 raw = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                loaded = true;
+                loadedFrom = filePath;
                 break;
             } catch (e) {
-                // try next candidate
+                // File missing or malformed — try next in fallback chain
             }
         }
-        if (!loaded) {
-            throw new Error('ControlClassifier: no pattern file found in: ' + candidates.join(', '));
+
+        if (!raw) {
+            throw new Error(
+                'ControlClassifier: no pattern file found for locale "' +
+                this.locale + '" in: ' + candidates.join(', ')
+            );
         }
-        // Detect file format:
-        //   Locale-keyed: { en: { 'slide/next': ['phrase',...], ... }, es: {...} }
-        //   This is the format of both Media/commands/en.json (single-locale)
-        //   and AI/data/controlPhrases.json (multi-locale).
-        //   Legacy: { patterns: { SlideNext: ['phrase',...] } } (old format)
-        let patternMap;
-        if (raw[this.locale]) {
-            // Multi-locale or single-locale file — pick our locale
-            patternMap = raw[this.locale];
-        } else if (raw['en']) {
-            // Has locales but not ours — fall back to English
-            patternMap = raw['en'];
-        } else if (raw.patterns) {
-            // Legacy format: { patterns: { SlideNext: [...] } }
-            // Map PascalCase keys to intent strings
-            const keyToIntent = {
-                SlideNext: 'slide/next', SlidePrev: 'slide/prev',
-                SlideNavigate: 'slide/navigate',
-                SlideFirst: 'slide/first', SlideLast: 'slide/last',
-                VideoPlay: 'video/play', VideoPause: 'video/pause', VideoSeek: 'video/seek', VideoSeekRelative: 'video/seek/relative',
-                GalleryNext: 'gallery/next', GalleryPause: 'gallery/pause',
-                GalleryResume: 'gallery/resume',
-                Highlight: 'highlight',
-                ZoomIn: 'zoom/in', ZoomOut: 'zoom/out', ZoomReset: 'zoom/reset',
-                ScrollDown: 'scroll/down', ScrollUp: 'scroll/up',
-                ScrollTop: 'scroll/top', ScrollBottom: 'scroll/bottom',
-                RevealNext: 'reveal/next', Fullscreen: 'fullscreen'
-            };
-            // Remap keys before compiling
-            const remapped = {};
-            for (const [k, v] of Object.entries(raw.patterns)) {
-                remapped[keyToIntent[k] || k] = v;
-            }
-            patternMap = remapped;
-        } else {
-            // Raw object is the pattern map (intent → phrases)
-            patternMap = raw;
-        }
+
+        this._log('loaded patterns from: ' + loadedFrom);
+
+        // ── File format ───────────────────────────────────────────────
+        // Each per-locale file contains a flat object mapping intents to
+        // arrays of phrases. Phrases are either substring patterns or
+        // regex patterns wrapped in slashes:
+        //
+        //   {
+        //     "_intents": "...documentation comment...",
+        //     "slide/next": ["next slide", "advance", "/^next$/"],
+        //     "slide/prev": ["previous slide", "go back"],
+        //     ...
+        //   }
+        //
+        // Keys starting with "_" are metadata (documentation) and skipped.
+
         const compiled = [];
-        for (const [key, phrases] of Object.entries(patternMap)) {
-            if (key.startsWith('_')) continue; // skip metadata keys
-            const intent = key; // patternMap keys are already intent strings
+        for (const [intent, phrases] of Object.entries(raw)) {
+            if (intent.startsWith('_')) continue;
+            if (!Array.isArray(phrases)) continue;
             for (const phrase of phrases) {
-                if (typeof phrase === 'string' && phrase.startsWith('/') && phrase.endsWith('/')) {
+                if (typeof phrase === 'string'
+                    && phrase.startsWith('/') && phrase.endsWith('/')) {
                     // Regex pattern: "/^next$/"
                     const rx = new RegExp(phrase.slice(1, -1), 'i');
                     compiled.push({ intent, test: t => rx.test(t), regex: rx });
                 } else {
                     // Substring pattern
-                    compiled.push({ intent, test: t => t.includes(phrase) });
+                    //compiled.push({ intent, test: t => t.includes(phrase) });
+
+                    function escapeRegex(str) {
+                        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    }
+
+                    var phraseRe = new RegExp(
+                        '^\\s*' + escapeRegex(phrase) + '\\s*[.!?]?\\s*$',
+                        'i'
+                    );
+
+                    compiled.push({
+                        intent,
+                        test: t => phraseRe.test(t)
+                    });
                 }
             }
         }
+
         this._patterns = compiled;
         return compiled;
     }
 
-    _match(text, patterns) {
+    _match(text, patterns, allowedIntents) {
         for (const p of patterns) {
+            if (allowedIntents && !allowedIntents.has(p.intent)) continue;
             if (p.test(text)) {
                 return { intent: p.intent, captures: this._captures(p.intent, text) };
             }
@@ -293,7 +278,10 @@ class ControlClassifier {
 
         const map = {
             'slide/next':     () => stream.ephemeral('Streams/slide',          { slideIndex: si + 1 }),
-            'slide/prev':     () => stream.ephemeral('Streams/slide',          { slideIndex: Math.max(0, si - 1) }),
+            'slide/prev':     () => {
+                let slideToSwitch = Math.max(0, si - 1);
+                stream.ephemeral('Streams/slide', { slideIndex: slideToSwitch })
+            },
             'slide/first':    () => stream.ephemeral('Streams/slide',          { slideIndex: 0 }),
             'slide/last':     () => stream.ephemeral('Streams/slide',          { slideIndex: 9999 }), // presentation tool caps at max
             'video/play':     () => stream.ephemeral('Streams/play',           {}),
@@ -380,6 +368,7 @@ class ControlClassifier {
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+// (Unchanged from previous version — all _extract* functions identical.)
 
 /**
  * Extract a time value in seconds from a natural-language string.
@@ -389,7 +378,6 @@ class ControlClassifier {
  * "three minutes" → 180
  */
 function _extractTime(text) {
-    // HH:MM:SS or MM:SS
     const colonMatch = text.match(/(\d+):(\d+)(?::(\d+))?/);
     if (colonMatch) {
         const [, a, b, c] = colonMatch;
@@ -423,12 +411,6 @@ function _extractTime(text) {
     return total > 0 ? total : null;
 }
 
-/**
- * Extract a highlight target from the utterance.
- * "highlight the second bar" → "1" (0-indexed)
- * "highlight OpenAI" → "openai" (label substring)
- * "highlight bar 3" → "2" (0-indexed)
- */
 function _extractTarget(text) {
     const ordinals = {
         first:0, second:1, third:2, fourth:3, fifth:4,
@@ -440,22 +422,14 @@ function _extractTarget(text) {
         if (text.includes(word)) return String(idx);
     }
 
-    // "bar 3" / "row 3" / "item 3"
     const numMatch = text.match(/(?:bar|row|item|column|entry|line)\s+(\d+)/i);
-    if (numMatch) return String(parseInt(numMatch[1]) - 1); // 1-indexed to 0-indexed
+    if (numMatch) return String(parseInt(numMatch[1]) - 1);
 
-    // Fallback: grab the longest word after the trigger verb
-    // "highlight OpenAI" → "openai"
     const afterVerb = text.replace(/highlight|point to|show me|emphasize|focus on|mark/gi, '').trim();
     const words = afterVerb.split(/\s+/).filter(w => w.length > 2);
     return words[0] ? words[0].toLowerCase() : null;
 }
 
-/**
- * Extract a prompt/subject after known trigger verbs.
- * "generate an image of quantum computing" → "quantum computing"
- * "build a chess board" → "chess board"
- */
 function _extractPrompt(intent, text) {
     const triggers = {
         'image/generate': ['generate an image of', 'create an image of', 'show me', 'visualize',
@@ -465,7 +439,6 @@ function _extractPrompt(intent, text) {
         'stream/create':  ['create a', 'make a', "let's play", 'start a', 'set up a']
     };
     const list = triggers[intent] || [];
-    // Sort longest-first so more specific phrases match first
     const sorted = list.slice().sort((a, b) => b.length - a.length);
     const lower = text.toLowerCase();
     for (const t of sorted) {
@@ -477,42 +450,23 @@ function _extractPrompt(intent, text) {
     return text.trim();
 }
 
-/**
- * Extract a person's name from an access command utterance.
- * "give Robert access to post" → "Robert"
- * "remove John Smith's access" → "John Smith"
- */
 function _extractPersonName(text) {
-    // After give/let/allow/add/remove/revoke, grab capitalized run before possessive/'s or "access"
     const m = text.match(
         /(?:give|let|allow|add|invite|remove|revoke|take away)\s+([A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+)?)/
     );
     if (m) return m[1].replace(/'s$/, '').trim();
-    // Fallback: first capitalized word
     const cap = text.match(/\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\b/);
     return cap ? cap[1] : '';
 }
 
-/**
- * Extract write level from access grant command.
- * "give Robert access to edit" → "edit"
- * "let John contribute" → "contribute"
- */
 function _extractWriteLevel(text) {
     const levels = ['edit', 'post', 'contribute', 'ephemeral', 'relate'];
     for (const l of levels) {
         if (text.toLowerCase().includes(l)) return l;
     }
-    return 'post'; // default
+    return 'post';
 }
 
-
-/**
- * Extract a relative time offset from a seek phrase.
- * "go back 10 seconds" → { delta: 10, forward: false }
- * "skip forward 30 seconds" → { delta: 30, forward: true }
- * "rewind two minutes" → { delta: 120, forward: false }
- */
 function _extractRelativeTime(text) {
     var t = _extractTime(text);
     if (!t) return { delta: null, forward: false };
@@ -520,14 +474,7 @@ function _extractRelativeTime(text) {
     return { delta: t, forward: forwardRe.test(text) };
 }
 
-/**
- * Extract the search query from a navigation phrase.
- * "go to the product roadmap" → "product roadmap"
- * "show me the intro slide" → "intro"
- * "find climate change" → "climate change"
- */
 function _extractQuery(text) {
-    // Strip leading navigation verbs and filler words
     var stripped = text
         .replace(/^(go to|show me|find|jump to|navigate to|take me to|open the|show the|find the|go to the)\s+/i, '')
         .replace(/\s+(slide|card|page|section|part)\s*$/i, '')
