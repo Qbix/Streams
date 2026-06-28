@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams command text. 'commands' = display labels (UI); 'phrases' = recognized phrases, keyed by command. Phrase forms: \"substring\", \"/regex/\", or templated \"give {{name}} access\" — each {{token}} compiles to a capture. Streams now owns the access-control and restyle commands (handlers Streams/commands/streamCommand and Streams/commands/cssUpdate); Media ships navigation; AI ships generation.",
+	"commands": {
+		"tool/cssUpdate": "Restyle tool",
+		"stream/create": "Create stream",
+		"stream/grantAccess": "Grant access",
+		"stream/revokeAccess": "Revoke access"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"change the color to {{prompt}}",
+			"change the colors to {{prompt}}",
+			"recolor it {{prompt}}",
+			"restyle the tool {{prompt}}",
+			"make the colors {{prompt}}"
+		],
+		"stream/create": [
+			"create a {{prompt}} stream",
+			"make a {{prompt}} stream",
+			"start a {{prompt}}",
+			"create a {{prompt}} game",
+			"let's play {{prompt}}",
+			"set up a {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"give {{name}} access to post",
+			"let {{name}} post",
+			"give {{name}} write access",
+			"allow {{name}} to post",
+			"add {{name}} as a guest",
+			"invite {{name}} to post"
+		],
+		"stream/revokeAccess": [
+			"remove {{name}}'s access",
+			"revoke {{name}}'s access",
+			"take away {{name}}'s access",
+			"remove {{name}} from the stream",
+			"block {{name}} from posting"
+		]
+	}
+}

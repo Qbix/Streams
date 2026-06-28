@@ -329,6 +329,14 @@
 	color: black;
 	padding-right: 40px;
 }
+input.Streams_chat_waiting,
+textarea.Streams_chat_waiting {
+	background-image: url(/Q/plugins/Q/img/throbbers/long_bar.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 250%;
+	opacity: 0.5;
+}
 .Streams_chat_composer .Streams_chat_submit,
 .Streams_chat_composer .Streams_chat_call,
 .Streams_chat_composer .Streams_calls_tool {

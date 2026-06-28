@@ -895,6 +895,26 @@
 		"chat": {
 			"allowedRelatedStreams": ["Streams/video", "Streams/audio", "Streams/pdf", "Streams/image", "Streams/question"],
 			"delay": 20 /* delay between chat messages in seconds */
+		},
+		"commands": {
+			"Streams": {
+				"stream/create": {
+					"handler": "Streams/commands/streamCommand",
+					"routing": "immediate"
+				},
+				"stream/grantAccess": {
+					"handler": "Streams/commands/streamCommand",
+					"routing": "immediate"
+				},
+				"stream/revokeAccess": {
+					"handler": "Streams/commands/streamCommand",
+					"routing": "immediate"
+				},
+				"tool/cssUpdate": {
+					"handler": "Streams/commands/cssUpdate",
+					"routing": "immediate"
+				}
+			}
 		}
 	}
 }

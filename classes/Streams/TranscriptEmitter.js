@@ -84,7 +84,7 @@ class TranscriptEmitter extends EventEmitter {
      */
     /**
      * @param {Object} [options]
-     * @param {Boolean} [options.control]  True if this chunk was handled by ControlClassifier.
+     * @param {Boolean} [options.control]  True if this chunk was handled by CommandsClassifier.
      *   Adds .control class to the VTT <c> tag and marks the message instructions
      *   so the player knows not to speak this cue during replay.
      */

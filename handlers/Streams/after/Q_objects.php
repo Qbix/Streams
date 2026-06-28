@@ -17,6 +17,9 @@ function Streams_after_Q_objects ()
 	if (!$invite) {
 		return;
 	}
+	if (filter_var($invite->getExtra('skipLogin'), FILTER_VALIDATE_BOOLEAN)) {
+		return;
+	}
 	$nameIsMissing = true;
 	if ($user = Users::loggedInUser()) {
 		$displayName = $user->displayName(array('show' => 'flu'));

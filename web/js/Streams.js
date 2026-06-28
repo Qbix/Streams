@@ -455,6 +455,7 @@ var priv = {
     _messageHandlers: {},
     _ephemeralHandlers: {},
     _seenHandlers: {},
+    _unseenClassHandlers: {},
     _avatarHandlers: {},
     _constructHandlers: {},
     _refreshHandlers: {},
@@ -943,16 +944,6 @@ Streams.Chat = {
 		'Streams/image/chat'
 	]
 };
-
-Q.Tool.onActivate("Streams/chat").set(function () {
-	var $e = $(this.element);
-	setTimeout(function () {
-		Q.each(Streams.Chat.extensions, function (i, name) {
-			$e.tool(name);
-		});
-		$e.activate();
-	}, 0);
-}, 'Streams');
 
 /**
  * Used to mark some streams as public, so that Streams.get()
@@ -3666,24 +3657,23 @@ Mp.seen = function _Message_seen (messageTotal) {
  * @return {Integer}
  */
 Message.latestOrdinal = function _Message_latestOrdinal (publisherId, streamName, checkMessageCache) {
-	var found = false;
 	var latest = 0;
 	if (checkMessageCache) {
 		Message.get.cache.each([publisherId, streamName], function (k, v) {
 			if (!v.params[0] && v.subject.ordinal > 0) {
 				latest = Math.max(latest, v.subject.ordinal);
-				found = true;
 			}
 		});
+
+		return parseInt(latest) || 0;
 	}
 	Streams.get.cache.each([publisherId, streamName], function (k, v) {
 		if (!v.params[0] && v.subject.fields.messageCount > 0) {
-			latest = v.subject.fields.messageCount;
-			found = true;
+			latest = Math.max(latest, v.subject.fields.messageCount);
 			return false;
 		}
 	});
-	return found ? parseInt(latest) : 0;
+	return parseInt(latest) || 0;
 };
 
 /**
@@ -3989,13 +3979,14 @@ var MTotal = Streams.Message.Total = {
 		var n = streamName;
 		var m = messageType;
 		MTotal.get(p, n, m, _unseen);
-		Stream.onMessage(p, n, m).add(_unseen);
-		MTotal.onSeen(p, n, m).set(_unseen);
+		Stream.onMessage(p, n, m).add(_unseen, key);
+		MTotal.onSeen(p, n, m).set(_unseen, key);
 		function _unseen() {
 			var c = MTotal.unseen(p, n, m);
 			var unseenClass = (options && options.unseenClass) || 'Streams_unseen_nonzero';
 			element.innerHTML = c;
 			element.setClassIf(c, unseenClass);
+			Q.handle(MTotal.onUnseenClass(p, n, m), MTotal, [c, unseenClass, element]);
 		}
 	},
 
@@ -4008,7 +3999,18 @@ var MTotal = Streams.Message.Total = {
 	 * @param {String} messageType
 	 * @return {Q.Event}
 	 */
-	onSeen: Q.Event.factory(priv._seenHandlers, ["", "", ""])
+	onSeen: Q.Event.factory(priv._seenHandlers, ["", "", ""]),
+
+	/**
+	 * Occurs when setUpElement adds or removes unseenClass on an element,
+	 * including the first update after setUpElement is called.
+	 * @event onUnseenClass
+	 * @param {String} publisherId
+	 * @param {String} streamName
+	 * @param {String} messageType
+	 * @return {Q.Event}
+	 */
+	onUnseenClass: Q.Event.factory(priv._unseenClassHandlers, ["", "", ""])
 };
 var _seen = {};
 /**
@@ -5222,6 +5224,102 @@ Q.onInit.add(function _Streams_onInit() {
 	});
 }, 'Streams');
 
+function _qEmit(event, data) {
+	var qs = Q.Socket.get('/Q', '');
+	if (qs) { qs.socket.emit(event, data); }
+}
+
+/**
+ * Browser-side transcript session.
+ * @class Q.Streams.Transcript
+ */
+Streams.Transcript = {
+
+	/**
+	 * Fires for every final utterance, just before it is sent, with the
+	 * mutable context object and the raw chunk. Plugins add properties to
+	 * the context here — Media attaches slideIndex and the PDF page delta.
+	 * @event onContext
+	 */
+	onContext: new Q.Event(),
+
+	_active: false,
+
+	/**
+	 * Begin a session: announce it to the server and start forwarding final
+	 * results. Call inside a user gesture on iOS Safari (recognition start
+	 * is gesture-bound; this only wires the result handler and the socket).
+	 * @method start
+	 * @param {Object} options { publisherId, streamName, role, lang, modes }
+	 */
+	start: function (options) {
+		if (this._active) { return; }
+		this._active = true;
+		var o = options || {};
+
+		var payload = {
+			lang:         o.lang || 'en-US',
+			sampleRate:   o.sampleRate || 16000,
+			publisherId:  o.publisherId,
+			streamName:   o.streamName,
+			role:         o.role || 'participant',
+			modes:        o.modes || {},
+			sessionToken: o.sessionToken || Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10)
+		};
+		// Forward optional session fields when the caller supplies them (the
+		// control page passes mode/isOwnLivestream/tool* that Session.create reads).
+		['mode', 'isOwnLivestream', 'toolStreamName', 'toolPublisherId'].forEach(function (k) {
+			if (o[k] !== undefined) { payload[k] = o[k]; }
+		});
+		_qEmit('Streams/transcript/session/start', payload);
+
+		var self = this;
+		Q.Speech.Recognition.onResult.set(function (chunk) {
+			if (!chunk || !chunk.isFinal) { return; }
+			self.send(chunk);
+		}, 'Streams.Transcript');
+	},
+
+	/**
+	 * Build the context for one final utterance, let plugins enrich it, and
+	 * send it. Returns the context that was sent.
+	 * @method send
+	 * @param {Object} chunk { transcript, isFinal, confidence }
+	 * @return {Object}
+	 */
+	send: function (chunk) {
+		var context = {
+			transcript: chunk.transcript,
+			isFinal:    true,
+			confidence: chunk.confidence,
+			speaker:    Q.Users.loggedInUserId()
+		};
+		this.onContext.handle(context, chunk);
+		_qEmit('Streams/utterance', context);
+		return context;
+	},
+
+	/**
+	 * Toggle modes on the live session (composition / navigation / transcription).
+	 * @method setModes
+	 */
+	setModes: function (modes) {
+		if (!this._active) { return; }
+		_qEmit('Streams/transcript/session/modes', modes || {});
+	},
+
+	/**
+	 * End the session and stop forwarding results.
+	 * @method stop
+	 */
+	stop: function () {
+		if (!this._active) { return; }
+		this._active = false;
+		_qEmit('Streams/transcript/session/stop');
+		Q.Speech.Recognition.onResult.remove('Streams.Transcript');
+	}
+};
+
 Q.Tool.beforeRemove("").set(function (tool) {
 	Streams.release(this);
 }, 'Streams');
@@ -5394,6 +5492,7 @@ function _clearCaches() {
 	priv._retainedByStream = {};
 	priv._retainedStreams = {};
 	priv._retainedNodes = {};
+	priv._connectedNodes = {};
 }
 
 function _scheduleUpdate() {
@@ -5418,6 +5517,7 @@ function _scheduleUpdate() {
 		setTimeout(_scheduleUpdate, ms);
 	}, ms);
 }
+
 
 
 _scheduleUpdate.delay = 5000;
