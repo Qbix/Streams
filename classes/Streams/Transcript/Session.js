@@ -17,7 +17,7 @@
 
 var Q       = require('Q');
 var Streams = require('Streams');
-
+var CommandsClassifier = require(Q.PLUGINS_DIR + '/Streams/classes/Streams/CommandsClassifier');
 function Session() {}
 
 /**
@@ -100,7 +100,7 @@ Session.create = function (client, userId, data, Q) {
         sessionStartMs:   Date.now(),
         isOwnLivestream:  !!(data && data.isOwnLivestream),
         // The classifier reads its phrase sources by locale; no Q handle threaded in.
-        classifier:       new Streams.CommandsClassifier({ locale: lang.split('-')[0] }),
+        classifier:       new CommandsClassifier({ locale: lang.split('-')[0] }),
         // Slots filled by the AI plugin at runtime.
         pipeline:         null,
         vetoQueue:        [],
@@ -213,11 +213,12 @@ Session.relSec = function (session) {
 };
 
 /**
- * Post a durable message to a session's stream. Fire-and-forget — errors logged.
+ * Post a durable message to a session's presentation stream.
+ * Fire-and-forget — errors are logged.
  * @method postMessage
  * @static
  * @param {Object} Q
- * @param {Object} fields      Streams.Message.post fields
+ * @param {Object} fields  Streams.Message.post fields
  * @param {Function} [callback]  (err, message)
  */
 Session.postMessage = function (Q, fields, callback) {
@@ -227,13 +228,121 @@ Session.postMessage = function (Q, fields, callback) {
             byClientId: '',
             weight: 1
         }, fields), function (err, message) {
-            if (err) Q.log && Q.log('Streams.Transcription: message post error', err.message || err);
+            if (err) Q.log && Q.log('AI: message post error', err.message || err);
             if (callback) callback(err, message);
         });
     } catch (e) {
-        Q.log && Q.log('Streams.Transcription: postMessage exception', e.message);
+        Q.log && Q.log('AI: postMessage exception', e.message);
         if (callback) callback(e);
     }
+};
+
+/**
+ * Post an ephemeral to a stream, broadcasting to all participants
+ * via Streams.Stream.notifyParticipants. Use for transient events
+ * (gallery queries, zoom updates, play/pause toggles) where late
+ * joiners don't need to reconstruct from history.
+ *
+ * Caches the fetched Stream object per (publisherId, streamName)
+ * to avoid re-fetching on every call — the pipeline emits gallery
+ * queries multiple times per session and we don't want a DB round
+ * trip each time.
+ *
+ * @method postEphemeral
+ * @static
+ * @param {Object}   Q
+ * @param {Object}   fields
+ *   @param {String} fields.publisherId
+ *   @param {String} fields.streamName
+ *   @param {String} fields.asUserId       userId to fetch under (host typically)
+ *   @param {String} fields.type           ephemeral type, e.g. 'Streams/gallery/query'
+ *   @param {Object} [fields.payload]      additional payload fields
+ * @param {Function} [callback]            (err)
+ */
+Session.postEphemeral = function (fields,  callback) {
+    if (!fields || !fields.publisherId || !fields.streamName || !fields.type) {
+        var err = new Error('Session.postEphemeral: missing required fields');
+        if (callback) callback(err);
+        return;
+    }
+
+    Session._getStream(fields.publisherId, fields.streamName, fields.asUserId,
+        function (err, stream) {
+            if (err) {
+                Q.log && Q.log('Session.postEphemeral: stream fetch error', err.message || err);
+                if (callback) callback(err);
+                return;
+            }
+            try {
+                var payload = Q.extend({}, fields.payload || {}, { type: fields.type });
+                stream.ephemeral(payload.type, payload, false, function (notifyErr) {
+                    if (notifyErr) {
+                        Q.log && Q.log('Session.postEphemeral: notify error', notifyErr.message || notifyErr);
+                    }
+                    if (callback) callback(notifyErr || null);
+                });
+            } catch (e) {
+                Q.log && Q.log('Session.postEphemeral exception', e.message);
+                if (callback) callback(e);
+            }
+        }
+    );
+};
+
+// ── Internal: stream cache ─────────────────────────────────────────────
+// Keyed by 'publisherId/streamName' → Stream instance.
+// Cache survives for the process lifetime. For a long-running node with
+// many distinct presentations, you may want LRU eviction; for the demo
+// scope this Map is fine.
+Session._streamCache = new Map();
+Session._streamPromises = new Map();   // in-flight fetches
+
+Session._getStream = function (publisherId, streamName, asUserId, callback) {
+    var key = publisherId + '/' + streamName;
+
+    var cached = Session._streamCache.get(key);
+    if (cached) return callback(null, cached);
+
+    var pending = Session._streamPromises.get(key);
+    if (pending) {
+        // Another caller is already fetching; piggyback on the same promise
+        pending.then(function (stream) { callback(null, stream); })
+            .catch(function (err) { callback(err); });
+        return;
+    }
+
+    var promise = new Promise(function (resolve, reject) {
+        var Streams = Q.require('Streams');
+        Streams.fetchOne(
+            asUserId || null,
+            publisherId, streamName,
+            function (err, stream) {
+                Session._streamPromises.delete(key);
+                if (err || !stream) {
+                    return reject(err || new Error('Stream not found: ' + key));
+                }
+                Session._streamCache.set(key, stream);
+                resolve(stream);
+            }
+        );
+    });
+    Session._streamPromises.set(key, promise);
+
+    promise.then(function (stream) { callback(null, stream); })
+        .catch(function (err) { callback(err); });
+};
+
+/**
+ * Invalidate the cached Stream for a given (publisherId, streamName).
+ * Call when a stream is deleted or you have reason to believe its
+ * attributes have changed in a way that matters to subsequent
+ * notify operations.
+ *
+ * @method invalidateStreamCache
+ * @static
+ */
+Session.invalidateStreamCache = function (publisherId, streamName) {
+    Session._streamCache.delete(publisherId + '/' + streamName);
 };
 
 module.exports = Session;

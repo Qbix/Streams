@@ -54,7 +54,8 @@ Transcript.process = async function (session, chunk, Q, Users) {
         ts:      Date.now(),
         relSec:  Session.relSec(session),
         speaker: chunk.speaker || session.userId,
-        isFinal: true
+        isFinal: true,
+        payload: chunk.payload
     };
     session.transcriptBuffer.push(entry);
     if (session.transcriptBuffer.length > 8) session.transcriptBuffer.shift();
@@ -78,13 +79,46 @@ Transcript.process = async function (session, chunk, Q, Users) {
     var isControl = false;
     if (session.role === 'host' && session.modes.navigation !== false) {
         var state = Transcript._classifyState(session, Q, Users);
+        state.entry = entry;
         var proxy = session.publisherId ? StreamProxy.make(session, Q, Users) : null;
         if (proxy) {
             // classify() is async — await it. A command is handled here and skips
             // both the NER pass and the LLM pipeline.
-            var handled = await session.classifier.classify(recent3, proxy, state);
+            /* var handled = await session.classifier.classify(recent3, proxy, state);
             if (handled) {
                 isControl = true;
+            } else {
+                // Plain narration — let the entity pass surface avatars and
+                // streams the speaker named, without consuming the utterance.
+                try {
+                    await session.classifier.recognize(entry.text, proxy, state);
+                } catch (e) {
+                    Q.log && Q.log('Streams.Transcript: recognize error', e && e.message);
+                }
+            } */
+
+
+
+            // Pass 1: match against the current chunk alone. This is the
+            // common case — a clean single-utterance command like
+            // "next slide" or "zoom in". No buffer contamination possible.
+            if (session.classifier.classify(text, proxy, state)) {
+                isControl = true;
+            } else if (session.transcriptBuffer.length > 1) {
+                // Pass 2: rolling-context fallback for multi-chunk commands
+                // where the parameter arrives in a later isFinal=true chunk
+                // than the trigger verb. Restricted to capture-needing
+                // intents so simple commands can't match stale buffer
+                // entries (the "previous slide" → matched lingering
+                // "next slide" bug).
+                var recent3 = session.transcriptBuffer
+                    .slice(-3)
+                    .map(function (e) { return e.text; })
+                    .join(' ');
+                if (recent3 !== text &&
+                    session.classifier.classify(recent3, proxy, state, CAPTURE_INTENTS)) {
+                    isControl = true;
+                }
             } else {
                 // Plain narration — let the entity pass surface avatars and
                 // streams the speaker named, without consuming the utterance.
