@@ -1063,7 +1063,7 @@ Q.Tool.define('Streams/chat', function(options) {
 						blocked = false;
 						$this.removeAttr('disabled');
 					}},
-					successUrl: window.location,
+					successUrl: window.location.href,
 					calledBy: tool
 				});
 			}
