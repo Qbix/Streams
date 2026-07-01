@@ -183,12 +183,6 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 			var icon = state.icon ? params.icon[0] : '';
 			var contents = state.contents ? params.contents[0] : '';
 			tool.element.innerHTML = icon + contents;
-			var img = tool.element.querySelector('img');
-			if (img) {
-				img.addEventListener('error', function () {
-					img.setAttribute('src', Users.iconUrl("{{Users}}/img/icons/default", 400));
-				});
-			}
 			setTimeout(function () {
 				Q.handle(state.onRefresh, tool);
 			}, 0);
@@ -243,6 +237,7 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 		}
 	
 		function _present() {
+			_setFallbackImage(tool);
 			Q.Text.get('Streams/content', function (err, text) {
 				Q.handle(state.onRefresh, tool, []);
 				if (!state.editable) return;
@@ -382,6 +377,15 @@ function _renderAvatar(tool, avatar) {
 		Q.Template.render(state.templates.blank.contents.name, fields,
 		function (err, html) {
 			tool.pipe.fill('contents')(html);
+		});
+	}
+}
+
+function _setFallbackImage(tool) {
+	var img = tool.element.querySelector('img');
+	if (img) {
+		img.addEventListener('error', function () {
+			img.setAttribute('src', Users.iconUrl("{{Users}}/img/icons/default", 400));
 		});
 	}
 }
