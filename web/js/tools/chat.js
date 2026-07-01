@@ -1562,8 +1562,6 @@ Q.Tool.define('Streams/chat', function(options) {
 	refresh: function (callback, useCached) {
 		var tool = this;
 		var state = tool.state;
-		var $more = tool.$('.Streams_chat_more');
-		$more.hide(); // we will show it if at least one chat messages is encountered
 		tool.menuItems = {};
 		state.earliest = null;
 		state.latest = null;
@@ -1583,7 +1581,7 @@ Q.Tool.define('Streams/chat', function(options) {
 			if (!state.stream) {
 				return;
 			}
-			var shownMessageCount = 0;
+			state.shownMessageCount = 0;
 			Q.each(messages, function (ordinal, message) {
 				state.earliest = state.earliest 
 					? Math.min(state.earliest, ordinal)
@@ -1608,6 +1606,10 @@ Q.Tool.define('Streams/chat', function(options) {
 						tool.addEvents();
 						Q.handle(callback, tool);
 
+						// whether to show the 
+						var $more = tool.$('.Streams_chat_more');
+						$more[0] && $more[0].setClassIf(state.shownMessageCount > state.messagesToLoad, 'Q_hidden');
+
 						// if startWebRTC is true, start webrtc
 						if (state.startWebRTC
 						|| (location.href.indexOf(state.stream.url() >= 0)
@@ -1617,10 +1619,6 @@ Q.Tool.define('Streams/chat', function(options) {
 						}
 					}
 				);
-				if (shownMessageCount > state.messagesToLoad
-				&& state.loadMore === 'click') {
-					$more.show();	
-				}
 			});
 		}
 
