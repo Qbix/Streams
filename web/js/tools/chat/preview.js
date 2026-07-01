@@ -10,6 +10,7 @@
 	 * @param {Object} [options] options to pass besides the ones to Streams/preview tool
 	 *   @param {string} [options.mode=document] This option regulates tool layout. Can be 'title' and 'document'.
 	 *   @param {Boolean} [options.hideIfNoParticipants] If there are no participants in the chat, hide this preview.
+	 *   @param {Boolean} [options.skipParticipants] If true, don't show participants in the preview.
 	 *   @param {Q.Event} [options.onRefresh] Event occurs when tool element has rendered with content
 	 */
 	Q.Tool.define("Streams/chat/preview", "Streams/preview", function _Streams_chat_preview(options, preview) {
@@ -25,6 +26,8 @@
 
 	{
 		mode: 'document',
+		title: null,
+		skipParticipants: false,
 		hideIfNoParticipants: false,
 		onInvoke: new Q.Event(),
 		onRefresh: new Q.Event()
@@ -35,6 +38,8 @@
 			var tool = this;
 			var state = tool.state;
 			var $te = $(tool.element);
+
+			stream.retain(tool);
 
 			if (state.hideIfNoParticipants
 				&& stream.fields.participatingCount === 0) {
@@ -50,7 +55,7 @@
 
 			var fields = {
 				src: stream.iconUrl('80'),
-				title: stream.fields.title,
+				title: state.title || stream.fields.title,
 				info: info
 			};
 			Q.Template.render('Streams/chat/preview', fields, function (err, html) {
@@ -105,8 +110,8 @@
 							userIds.push(userId);
 						});
 
-						var $participantsElement = $(".streams_chat_participants", tool.element);
-						if (userIds.length) {
+						var $participantsElement = $(".Streams_chat_participants", tool.element);
+						if (userIds.length && !state.skipParticipants) {
 							$participantsElement.tool("Users/pile", {
 								avatar: {
 									contents: false
@@ -134,7 +139,7 @@
 		'		<h3 class="Streams_preview_title Streams_preview_view">{{title}}</h3>' +
 		'		<div class="Streams_chat_preview_info Streams_aspect_interests">{{info}}</div>' +
 		'	</div>' +
-		'	<div class="streams_chat_participants"></div>' +
+		'	<div class="Streams_chat_participants"></div>' +
 		'	<div class="Streams_chat_unseen"></div>' +
 		'</div>'
 	);

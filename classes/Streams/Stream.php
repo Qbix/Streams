@@ -350,6 +350,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 *	@param {array} [$options.html] an array of ($template, $batchName) such as ("MyApp/foo.handlebars", "foo") for generating html snippets which can then be viewed from and printed via the action Streams/invitations?batchName=$batchName&invitingUserId=$asUserId&limit=$limit&offset=$offset
 	 * @param {string} [$options.asUserId=Users::loggedInUser(true)->id] Invite as this user id, defaults to logged-in user
 	 * @param {boolean} [$options.skipAccess] whether to skip access checks when adding labels and contacts
+	 * @param {boolean} [$options.skipLogin=false] if true, skip the login dialog when someone follows the invite link. Stored in the invite's extra field.
 	 * @see Users::addLink()
 	 * @return {array} Returns array with keys 
 	 *  "success", "userIds", "statuses", "identifierTypes", "alreadyParticipating".
