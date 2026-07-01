@@ -1562,6 +1562,8 @@ Q.Tool.define('Streams/chat', function(options) {
 	refresh: function (callback, useCached) {
 		var tool = this;
 		var state = tool.state;
+		var $more = tool.$('.Streams_chat_more');
+		$more.hide(); // we will show it if at least one chat messages is encountered
 		tool.menuItems = {};
 		state.earliest = null;
 		state.latest = null;
@@ -1581,14 +1583,22 @@ Q.Tool.define('Streams/chat', function(options) {
 			if (!state.stream) {
 				return;
 			}
-			Q.each(messages, function (ordinal) {
+			var shownMessageCount = 0;
+			Q.each(messages, function (ordinal, message) {
 				state.earliest = state.earliest 
 					? Math.min(state.earliest, ordinal)
 					: ordinal;
 				state.latest = Math.max(state.latest, ordinal);
-				return false;
+				if (message.type === 'Streams/chat/message'
+				|| message.type === 'Streams/relatedTo'
+				) {
+					++shownMessageCount;
+				}
 			}, {ascending: true, numeric: true});
-
+			if (shownMessageCount > state.messagesToLoad
+			&& state.loadMore === 'click') {
+				$more.show();	
+			}
 			tool.render(function() {
 				tool.renderMessages(
 					tool.prepareMessages(messages),
