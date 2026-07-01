@@ -1608,7 +1608,7 @@ Q.Tool.define('Streams/chat', function(options) {
 
 						// whether to show the 
 						var $more = tool.$('.Streams_chat_more');
-						$more[0] && $more[0].setClassIf(state.shownMessageCount > state.messagesToLoad, 'Q_hidden');
+						$more[0] && $more[0].setClassIf(state.shownMessageCount < state.messagesToLoad, 'Q_hidden');
 
 						// if startWebRTC is true, start webrtc
 						if (state.startWebRTC
