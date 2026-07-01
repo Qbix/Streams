@@ -1589,16 +1589,7 @@ Q.Tool.define('Streams/chat', function(options) {
 					? Math.min(state.earliest, ordinal)
 					: ordinal;
 				state.latest = Math.max(state.latest, ordinal);
-				if (message.type === 'Streams/chat/message'
-				|| message.type === 'Streams/relatedTo'
-				) {
-					++shownMessageCount;
-				}
 			}, {ascending: true, numeric: true});
-			if (shownMessageCount > state.messagesToLoad
-			&& state.loadMore === 'click') {
-				$more.show();	
-			}
 			tool.render(function() {
 				tool.renderMessages(
 					tool.prepareMessages(messages),
@@ -1608,6 +1599,7 @@ Q.Tool.define('Streams/chat', function(options) {
 						Q.each(items, function (key, $html) {
 							$html.appendTo($scm);
 						});
+						++shownMessageCount;
 						$scm.off('scroll.Streams_chat')
 						.on('scroll.Streams_chat', function () {
 							state.lastScrollTop = $scm.scrollTop();
@@ -1625,6 +1617,10 @@ Q.Tool.define('Streams/chat', function(options) {
 						}
 					}
 				);
+				if (shownMessageCount > state.messagesToLoad
+				&& state.loadMore === 'click') {
+					$more.show();	
+				}
 			});
 		}
 
