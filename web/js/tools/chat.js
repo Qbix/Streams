@@ -1596,7 +1596,7 @@ Q.Tool.define('Streams/chat', function(options) {
 						var $scm = tool.$('.Streams_chat_messages');
 						Q.each(items, function (key, $html) {
 							$html.appendTo($scm);
-							++shownMessageCount;
+							++state.shownMessageCount;
 						});
 						$scm.off('scroll.Streams_chat')
 						.on('scroll.Streams_chat', function () {
