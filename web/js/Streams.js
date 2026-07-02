@@ -5234,6 +5234,9 @@ function _qEmit(event, data) {
  * @class Q.Streams.Transcript
  */
 Streams.Transcript = {
+    sendInterval: 10_000,
+    latestFinalAt: null,
+    finalTranscript: '',
 
 	/**
 	 * Fires for every final utterance, just before it is sent, with the
@@ -5253,17 +5256,25 @@ Streams.Transcript = {
 	 * @param {Object} options { publisherId, streamName, role, lang, modes }
 	 */
 	start: function (options) {
-		if (this._active) { return; }
+		if (this._active) {
+            if(options.restart) {
+                this.stop();
+            } else {
+                return; 
+            }
+        }
+
 		this._active = true;
 		var o = options || {};
 
 		var payload = {
-			lang:        o.lang || 'en-US',
-			sampleRate:  o.sampleRate || 16000,
-			publisherId: o.publisherId,
-			streamName:  o.streamName,
-			role:        o.role || 'participant',
-			modes:       o.modes || {}
+			lang:         o.lang || 'en-US',
+			sampleRate:   o.sampleRate || 16000,
+			publisherId:  o.publisherId,
+			streamName:   o.streamName,
+			role:         o.role || 'participant',
+			modes:        o.modes || {},
+			sessionToken: o.sessionToken || Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10)
 		};
 		// Forward optional session fields when the caller supplies them (the
 		// control page passes mode/isOwnLivestream/tool* that Session.create reads).
@@ -5273,11 +5284,43 @@ Streams.Transcript = {
 		_qEmit('Streams/transcript/session/start', payload);
 
 		var self = this;
-		Q.Speech.Recognition.onResult.set(function (chunk) {
-			if (!chunk || !chunk.isFinal) { return; }
-			self.send(chunk);
-		}, 'Streams.Transcript');
-	},
+		Q.Speech.Recognition.onResult.set(function (e) {
+            self.procesTranscript(e);
+			//self.send(chunk);
+        }, 'Streams.Transcript');
+    },
+
+    procesTranscript: function (event) {
+        var self = this;
+        let interimTranscript = null;
+        let finalTranscript = null;
+        let confidence = null;
+
+        if (self.latestFinalAt == null) {
+            self.latestFinalAt = Date.now();
+        }
+
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+                if (event.results[i][0].transcript.trim() != '') finalTranscript = event.results[i][0].transcript;
+            } else {
+                if (event.results[i][0].transcript.trim() != '') interimTranscript = event.results[i][0].transcript;
+            }
+            confidence = event.results[i][0].confidence;
+        }
+
+        let isFinal = finalTranscript != null;
+        let prevFinalAt = self.latestFinalAt;
+        if (isFinal) self.latestFinalAt = Date.now();
+        let chunkToSend = finalTranscript || interimTranscript;
+        if (chunkToSend.trim() == '') return;
+        self.send({
+            isFinal: isFinal,
+            transcript: finalTranscript || interimTranscript,
+            confidence: confidence,
+            latestFinalAt: prevFinalAt,
+        });
+    },
 
 	/**
 	 * Build the context for one final utterance, let plugins enrich it, and
@@ -5287,10 +5330,13 @@ Streams.Transcript = {
 	 * @return {Object}
 	 */
 	send: function (chunk) {
+        var self = this;
+        self.lastSentAt = Date.now();
 		var context = {
 			transcript: chunk.transcript,
-			isFinal:    true,
+			isFinal:    chunk.isFinal,
 			confidence: chunk.confidence,
+			latestFinalAt: chunk.latestFinalAt,
 			speaker:    Q.Users.loggedInUserId()
 		};
 		this.onContext.handle(context, chunk);

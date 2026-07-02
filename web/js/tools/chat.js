@@ -1147,6 +1147,7 @@ Q.Tool.define('Streams/chat', function(options) {
 						blocked = false;
 						$this.removeAttr('disabled');
 					}},
+					successUrl: window.location.href,
 					calledBy: tool
 				});
 			}
@@ -1583,14 +1584,13 @@ Q.Tool.define('Streams/chat', function(options) {
 			if (!state.stream) {
 				return;
 			}
-			Q.each(messages, function (ordinal) {
+			state.shownMessageCount = 0;
+			Q.each(messages, function (ordinal, message) {
 				state.earliest = state.earliest 
 					? Math.min(state.earliest, ordinal)
 					: ordinal;
 				state.latest = Math.max(state.latest, ordinal);
-				return false;
 			}, {ascending: true, numeric: true});
-
 			tool.render(function() {
 				tool.renderMessages(
 					tool.prepareMessages(messages),
@@ -1599,6 +1599,7 @@ Q.Tool.define('Streams/chat', function(options) {
 						var $scm = tool.$('.Streams_chat_messages');
 						Q.each(items, function (key, $html) {
 							$html.appendTo($scm);
+							++state.shownMessageCount;
 						});
 						$scm.off('scroll.Streams_chat')
 						.on('scroll.Streams_chat', function () {
@@ -1607,6 +1608,10 @@ Q.Tool.define('Streams/chat', function(options) {
 						tool.processDOM();
 						tool.addEvents();
 						Q.handle(callback, tool);
+
+						// whether to show the 
+						var $more = tool.$('.Streams_chat_more');
+						$more[0] && $more[0].setClassIf(state.shownMessageCount < state.messagesToLoad, 'Q_hidden');
 
 						// if startWebRTC is true, start webrtc
 						if (state.startWebRTC

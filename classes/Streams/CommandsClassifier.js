@@ -98,6 +98,17 @@ Cp.classify = async function (text, stream, state) {
 
     return await this._emit(match.command, match.captures, stream, state);
 };
+/**
+ * @method recognize
+ * @async
+ * @param {String} text
+ * @param {Object} stream
+ * @param {Object} state
+ * @return {Promise<Boolean>} true if handled
+ */
+Cp.recognize = async function (text, stream, state) {
+    return Promise.resolve();
+};
 
 /**
  * Drop the compiled-pattern and registry caches so the next classify() re-reads.
@@ -146,7 +157,7 @@ Cp._load = function () {
     } else {
         var locale = this.locale;
         plugins.forEach(function (plugin) {
-            var dir = Q.pluginDir(plugin, 'TEXT');
+            var dir = Q.PLUGINS_DIR + '/' + plugin + '/text';
             if (!dir) return;
             var files = [dir + '/' + plugin + '/commands/' + locale + '.json'];
             if (locale !== 'en') {
