@@ -95,6 +95,7 @@ Session.create = function (client, userId, data, Q) {
         zoomScale:        1,
         transcription:    null,
         transcriptBuffer: [],
+        transcriptBufferMap: new Map(),
         transcriptFile:   null,
         _displayNames:    {},
         sessionStartMs:   Date.now(),
@@ -134,8 +135,6 @@ Session.markDisconnected = function (session, Q, onFinalize) {
     if (!session) return;
     Session.all.delete(session.socketId);
     // Keep session in Session.byToken so a reconnect resume can find it.
-
-    if(session.pipeline) session.pipeline.destroy();
 
     var token = session.sessionToken;
     // Defensive: if a previous markDisconnected was somehow still pending

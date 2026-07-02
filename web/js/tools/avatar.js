@@ -27,28 +27,23 @@ var Streams = Q.Streams;
  *   @param {Number} [options.cacheBust=null] Number of milliseconds to use for combating the re-use of cached images when they are first loaded.
  *   @param {Object} [options.templates]
  *     @param {Object} [options.templates.icon]
- *       @param {String} [options.templates.icon.dir='{{Users}}/views']
  *       @param {String} [options.templates.icon.name='Users/avatar/icon']
  *       @param {Object} [options.templates.icon.fields]
  *         @param {String} [options.templates.icon.fields.alt="user icon"]
  *     @param {Object} [options.templates.contents]
- *       @param {String} [options.templates.contents.dir='{{Users}}/views']
  *       @param {String} [options.templates.contents.name='Users/avatar/contents']
  *       @param {Object} [options.templates.contents.fields]
  *         @param {String} [options.templates.contents.fields.tag="span"]
  *     @param {Object} [options.templates.loading]
- *       @param {String} [options.templates.loading.dir='{{Users}}/views']
  *       @param {String} [options.templates.loading.name='Users/avatar/loading']
  *       @param {Object} [options.templates.loading.fields]
  *         @param {String} [options.templates.loading.fields.tag="span"]
 *     @param {Object} [options.templates.blank]
  *     @param {Object} [options.templates.blank.icon]
- *       @param {String} [options.templates.blank.icon.dir='{{Users}}/views']
  *       @param {String} [options.templates.blank.icon.name='Users/avatar/blank/icon']
  *       @param {Object} [options.templates.blank.icon.fields]
  *         @param {String} [options.templates.blank.icon.fields.tag="span"]
  *     @param {Object} [options.templates.blank.contents]
- *       @param {String} [options.templates.blank.contents.dir='{{Users}}/views']
  *       @param {String} [options.templates.blank.contents.name='Users/avatar/blank/icon']
  *       @param {Object} [options.templates.blank.contents.fields]
  *         @param {String} [options.templates.blank.contents.fields.tag="span"]
@@ -242,6 +237,7 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 		}
 	
 		function _present() {
+			_setFallbackImage(tool);
 			Q.Text.get('Streams/content', function (err, text) {
 				Q.handle(state.onRefresh, tool, []);
 				if (!state.editable) return;
@@ -381,6 +377,15 @@ function _renderAvatar(tool, avatar) {
 		Q.Template.render(state.templates.blank.contents.name, fields,
 		function (err, html) {
 			tool.pipe.fill('contents')(html);
+		});
+	}
+}
+
+function _setFallbackImage(tool) {
+	var img = tool.element.querySelector('img');
+	if (img) {
+		img.addEventListener('error', function () {
+			img.setAttribute('src', Users.iconUrl("{{Users}}/img/icons/default", 400));
 		});
 	}
 }

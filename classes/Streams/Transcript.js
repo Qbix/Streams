@@ -46,7 +46,7 @@ Q.makeEventEmitter(Transcript);
  *   chunk is interim/empty and nothing was done.
  */
 Transcript.process = async function (session, chunk, Q, Users) {
-    if (!chunk.isFinal || !chunk.transcript || !chunk.transcript.trim()) return null;
+    if (!chunk.transcript || !chunk.transcript.trim()) return null;
 
     var text = chunk.transcript.trim();
     var entry = {
@@ -54,11 +54,44 @@ Transcript.process = async function (session, chunk, Q, Users) {
         ts:      Date.now(),
         relSec:  Session.relSec(session),
         speaker: chunk.speaker || session.userId,
-        isFinal: true,
+        isFinal: chunk.isFinal,
+        latestFinalAt: chunk.latestFinalAt,
         payload: chunk.payload
     };
-    session.transcriptBuffer.push(entry);
-    if (session.transcriptBuffer.length > 8) session.transcriptBuffer.shift();
+    
+    if(session.transcriptBufferMap.has(chunk.latestFinalAt)) {
+        let entryToUpdate = session.transcriptBufferMap.get(chunk.latestFinalAt);
+        if(entryToUpdate.isWakeUp && session.wakeState != 'listening') {
+            //console.log('Transcript: handle ended wake')
+            if(entryToUpdate.wakeUpTextLength == null) {
+                entryToUpdate.wakeUpTextLength = entryToUpdate.text ? entryToUpdate.text.length : 0;
+            }
+            if(entryToUpdate.isWakeUpStartEntry && entryToUpdate.isWakeUpEndEntry) {
+                //console.log('Transcript: handle ended wake 1')
+                entryToUpdate.text = text.slice(entryToUpdate.wakeUpTextLength);
+            } else if (entryToUpdate.isWakeUpEndEntry) {
+                //console.log('Transcript: handle ended wake 2')
+                entryToUpdate.text = text.slice(entryToUpdate.wakeUpTextLength);
+            } else if (entryToUpdate.isWakeUpStartEntry) {
+                //console.log('Transcript: handle ended wake 3')
+                entryToUpdate.text = text.slice(entryToUpdate.wakeUpTextLength);
+            } 
+        } else if (entryToUpdate.isWakeUp && session.wakeState == 'listening' && entryToUpdate.wakeUpTextLength != null) {
+            entryToUpdate.text = text.slice(entryToUpdate.wakeUpTextLength);
+        } else {
+            entryToUpdate.text = text;
+        }
+       
+        entry = entryToUpdate;
+        if(chunk.isFinal) entryToUpdate.isFinal = true;
+    } else {
+        session.transcriptBufferMap.set(chunk.latestFinalAt, entry)
+        session.transcriptBuffer.push(entry);
+    }
+    
+    /* if (session.transcriptBuffer.length > 8) {
+        session.transcriptBuffer.shift();
+    } */
 
     // The browser enriches the utterance with what only it has: the PDF page
     // corpus it already rendered, and the slide it is on. Stash both so the
@@ -77,7 +110,7 @@ Transcript.process = async function (session, chunk, Q, Users) {
     // 1) Classifier, then NER — host-driven, instant, zero LLM cost. Runs first
     //    so the control flag is known when we write the durable record and cue.
     var isControl = false;
-    if (session.role === 'host' && session.modes.navigation !== false) {
+    if (session.role === 'host' && session.modes.navigation !== false && entry.isFinal && text.length <= 25) {
         var state = Transcript._classifyState(session, Q, Users);
         state.entry = entry;
         var proxy = session.publisherId ? StreamProxy.make(session, Q, Users) : null;
@@ -102,7 +135,7 @@ Transcript.process = async function (session, chunk, Q, Users) {
             // Pass 1: match against the current chunk alone. This is the
             // common case — a clean single-utterance command like
             // "next slide" or "zoom in". No buffer contamination possible.
-            if (session.classifier.classify(text, proxy, state)) {
+            if (await session.classifier.classify(text, proxy, state)) {
                 isControl = true;
             } else if (session.transcriptBuffer.length > 1) {
                 // Pass 2: rolling-context fallback for multi-chunk commands
@@ -116,7 +149,7 @@ Transcript.process = async function (session, chunk, Q, Users) {
                     .map(function (e) { return e.text; })
                     .join(' ');
                 if (recent3 !== text &&
-                    session.classifier.classify(recent3, proxy, state, CAPTURE_INTENTS)) {
+                    await session.classifier.classify(recent3, proxy, state)) {
                     isControl = true;
                 }
             } else {
@@ -156,22 +189,6 @@ Transcript.process = async function (session, chunk, Q, Users) {
         transcriptEmitter.emitChunk(session, entry, ordinal, { control: isControl });
     } else {
         transcriptEmitter.emitChunk(session, entry, null, { control: isControl });
-    }
-
-    // 3) Chat-style transcript post — each person posts under their own userId.
-    if (session.modes.transcription !== false && session.publisherId && session.streamName) {
-        Session.postMessage(Q, {
-            publisherId:  session.publisherId,
-            streamName:   session.streamName,
-            byUserId:     entry.speaker || session.userId,
-            type:         'Streams/chat/message',
-            content:      entry.text,
-            instructions: JSON.stringify({
-                isTranscript: true,
-                relSec:       entry.relSec,
-                control:      isControl || undefined
-            })
-        });
     }
 
     // 4) Fan the final utterance out to the speaker's other devices.
