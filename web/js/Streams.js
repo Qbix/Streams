@@ -5313,7 +5313,7 @@ Streams.Transcript = {
         let prevFinalAt = self.latestFinalAt;
         if (isFinal) self.latestFinalAt = Date.now();
         let chunkToSend = finalTranscript || interimTranscript;
-        if (chunkToSend.trim() == '') return;
+        if (!chunkToSend || chunkToSend.trim() == '') return;
         self.send({
             isFinal: isFinal,
             transcript: finalTranscript || interimTranscript,
