@@ -718,8 +718,11 @@ Q.Tool.define('Streams/chat', function(options) {
 							});
 
 							element = Q.Tool.setUpElement(element, toolName, fields);
+							var defaultTitle = Q.info.isTouchscreen
+								? Q.text.Q.imagepicker.cropping.touchscreen
+								: Q.text.Q.imagepicker.cropping.notTouchscreen;
 							Q.invoke(Q.extend({
-								title: stream.fields.title,
+								title: stream.fields.title || defaultTitle,
 								className: "Streams_chat_" + Q.normalize(stream.fields.type),
 								content: element,
 								trigger: $toolElement[0],
