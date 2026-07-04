@@ -4955,8 +4955,12 @@ Q.onInit.add(function _Streams_onInit() {
 		if (!msg) {
 			throw new Q.Error("Q.Socket.onEvent('Streams/post') msg is empty");
 		}
-		var latest = Message.latestOrdinal(msg.publisherId, msg.streamName);
-		if (latest && parseInt(msg.ordinal) <= latest) {
+
+		var ptn = Streams.key(msg.publisherId, msg.streamName);
+		// Skip only if this ordinal was already processed through _message(),
+		// not merely because stream.messageCount was updated in cache
+		// (e.g. by Message.get before _simulatePosting replays the message).
+		if ((Message.latest[ptn] || 0) >= parseInt(msg.ordinal)) {
 			return;
 		}
 		// Wait until the previous message has been posted, then process this one.
@@ -4973,8 +4977,7 @@ Q.onInit.add(function _Streams_onInit() {
 			_message();
 		}
 		function _message() {
-			var ptn = msg.publisherId+"\t"+msg.streamName;
-			if (Message.latest[ptn] >= parseInt(msg.ordinal)) {
+			if ((Message.latest[ptn] || 0) >= parseInt(msg.ordinal)) {
 				return; // it was already processed
 			}
 
