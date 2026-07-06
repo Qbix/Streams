@@ -3719,7 +3719,7 @@ Message.post = new Q.Method({
  *   @param {Number} [options.timeout=1000] The maximum amount of time to wait and hope the messages will arrive via sockets. After this we just request them again.
  *   @param {Number} [options.unlessSocket=true] Whether to avoid doing any requests when a socket is attached and user is a participant in the stream
  *   @param {Boolean} [options.evenIfNotRetained] Set this to true to wait for messages posted to the stream, in the event that it wasn't cached or retained.
- *   @param {Boolean} [options.checkMessageCache] Set this to true to also the message cache 
+ *   @param {Boolean} [options.checkMessageCache] If true, use Message.latest (processed ordinals) for ordering; otherwise use stream.fields.messageCount (known watermark).
  * @return {Boolean|null|Q.Pipe}
  *   Returns false if the cached stream already got this message.
  *   Returns true if we decided to send a request for the messages.
@@ -3730,15 +3730,18 @@ Message.post = new Q.Method({
 Message.wait = function _Streams_Message_wait (publisherId, streamName, ordinal, callback, options) {
 	var o = Q.extend({}, Message.wait.options, options);
 	var alreadyCalled = false, handlerKey;
-	var latest = Q.Streams.Message.latestOrdinal(publisherId, streamName, o.checkMessageCache);
-	var ps = Q.Streams.key(publisherId, streamName);
+	var ps = Streams.key(publisherId, streamName);
+	var processed = Message.latest[ps] || 0;
+	var known = Message.latestOrdinal(publisherId, streamName, false);
+	// Processed ordinals for Streams/post ordering; messageCount watermark for refresh catch-up.
+	var latest = o.checkMessageCache ? processed : known;
 	var wasRetained = priv._retainedStreams[ps];
 	if (!latest || (!wasRetained && !o.evenIfNotRetained)) {
 		// There is no cache for this stream, so we won't wait for previous messages.
 		return null;
 	}
 	if (ordinal >= 0 && ordinal <= latest && latest > 0) {
-		// The cached stream already got this message, or the message arrived on the client
+		// The previous ordinal was already processed (or known to the client for refresh).
 		Q.handle(callback, this, [[]]);
 		return false;
 	}
@@ -3825,11 +3828,9 @@ Message.wait = function _Streams_Message_wait (publisherId, streamName, ordinal,
 			if (err) {
 				return Q.handle(callback, this, [null, err]);
 			}
-			if (latest) {
-				// Don't simulate messages if latest = 0 because
-				// cache was either lost or evicted,
-				// Instead, we should just load latest stream state
-				// and trigger the onRefresh event.
+			if (o.checkMessageCache ? processed : known) {
+				// Don't simulate if there is no watermark (processed or messageCount),
+				// e.g. cache was lost or evicted — just load stream state via onRefresh.
 				priv._simulatePosting(messages, extras);
 			}
 			ordinal = parseInt(ordinal);
@@ -4963,17 +4964,13 @@ Q.onInit.add(function _Streams_onInit() {
 		if ((Message.latest[ptn] || 0) >= parseInt(msg.ordinal)) {
 			return;
 		}
-		// Wait until the previous message has been posted, then process this one.
-		// Will return immediately if previous message is already cached
-		// (e.g. from a post or retrieving a stream, or because there was no cache yet)
+		// Wait until the previous message has been processed, then process this one.
+		// Will return immediately if the previous ordinal is already in Message.latest.
 		var ret = Message.wait(msg.publisherId, msg.streamName, msg.ordinal-1, _message, {
 			checkMessageCache: true
 		});
 		if (ret == null) {
-			// There was no retained stream or message cache.
-			// Let's just call this anyway, and it will update the message cache.
-			// So next time latestOrdinal will be nonzero and we will only
-			// process messages in order of increasing ordinal.
+			// No retained stream or nothing processed yet — process directly.
 			_message();
 		}
 		function _message() {
@@ -4990,8 +4987,6 @@ Q.onInit.add(function _Streams_onInit() {
 			var message = (msg instanceof Message)
 				? msg
 				: Message.construct(msg, true);
-
-			Message.latest[ptn] = parseInt(msg.ordinal);
 
 			// update fields.messageCount of cached stream across caches
 			Streams.get.cache.each([msg.publisherId, msg.streamName], function (k, cached) {
@@ -5037,7 +5032,7 @@ Q.onInit.add(function _Streams_onInit() {
 					break;
 				case 'Streams/changed':
 					if (Q.isEmpty(instructions.changes)) {
-						return;
+						break;
 					}
 					var doRefresh = false;
 					for (var f in instructions.changes) {
@@ -5104,6 +5099,7 @@ Q.onInit.add(function _Streams_onInit() {
 			var streamType = Q.getObject("streamType", extras);
 			if (streamType) {
 				_handlers(streamType, msg, params);
+				_markMessageProcessed();
 			} else {
 				Q.Streams.get(msg.publisherId, msg.streamName, function (err) {
 					if (err) {
@@ -5111,7 +5107,12 @@ Q.onInit.add(function _Streams_onInit() {
 					}
 
 					_handlers(this.fields.type, msg, params);
+					_markMessageProcessed();
 				});
+			}
+
+			function _markMessageProcessed() {
+				Message.latest[ptn] = parseInt(msg.ordinal);
 			}
 
 			if (usingCached && priv._messageShouldRefreshStream[msg.type]) {
@@ -5515,7 +5516,7 @@ function _updateRelatedCache(msg, instructions) {
 		);
 		Streams.Stream.refresh(
 			instructions.toPublisherId, instructions.toStreamName,
-			null, { messages: true, unlessSocket: true }
+			null, { messages: true, unlessSocket: true, evenIfNotRetained: true }
 		);
 	} else if (instructions.fromPublisherId) {
 		Streams.related.cache.removeEach(
@@ -5523,7 +5524,7 @@ function _updateRelatedCache(msg, instructions) {
 		);
 		Streams.Stream.refresh(
 			instructions.fromPublisherId, instructions.fromStreamName,
-			null, { messages: true, unlessSocket: true }
+			null, { messages: true, unlessSocket: true, evenIfNotRetained: true }
 		);
 	}
 }
