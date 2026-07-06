@@ -644,6 +644,8 @@ Streams.onEphemeral = Q.Event.factory(priv._ephemeralHandlers, ["", ""]);
  * By the time this event happens, the platform has already taken any default actions
  * for standard events such as "Streams/joined", etc. so the stream and all caches
  * are up-to-date, e.g. the participants include the newly joined participant, etc.
+ * Handlers are called with the up-to-date stream as `this` when it is cached or retained,
+ * otherwise `this` is the Streams namespace.
  * @event onMessage
  * @param {String} streamType type of the stream to which a message is posted, pass "" for all types
  * @param {String} messageType type of the message, pass "" for all types
@@ -2847,6 +2849,8 @@ Stream.onEphemeral = Q.Event.factory(priv._streamEphemeralHandlers, ["", "", ""]
  * By the time this event happens, the platform has already taken any default actions
  * for standard events such as "Streams/joined", etc. so the stream and all caches
  * are up-to-date, e.g. the participants include the newly joined participant, etc.
+ * Handlers are called with the up-to-date stream as `this` when it is cached or retained,
+ * otherwise `this` is the Streams namespace.
  * @event onMessage
  * @static
  * @param {String} [publisherId] id of publisher which is publishing the stream
@@ -3028,6 +3032,8 @@ Stream.onRelease = Q.Event.factory(priv._streamReleaseHandlers, ["", ""]);
  * By the time this event happens, the platform has already taken any default actions
  * for standard events such as "Streams/joined", etc. so the stream and all caches
  * are up-to-date, e.g. the participants include the newly joined participant, etc.
+ * Handlers are called with the up-to-date stream as `this` when it is cached or retained,
+ * otherwise `this` is the Streams namespace.
  * @event onMessage
  * @param {String} [messageType] type of the message, or its ordinal, pass "" for all types
  */
@@ -5170,35 +5176,39 @@ Q.onInit.add(function _Streams_onInit() {
 	
 	function _handlers(streamType, msg, params) {
 		var prefixes = _messageTypePrefixes(msg.type);
-		Q.handle(Q.getObject(['', ''], priv._messageHandlers), Streams, params);
-		Q.handle(Q.getObject([streamType, msg.type], priv._messageHandlers), Streams, params);
-		Q.handle(Q.getObject(['', msg.type], priv._messageHandlers), Streams, params);
-		Q.handle(Q.getObject([streamType, ''], priv._messageHandlers), Streams, params);
+		var ps = Streams.key(msg.publisherId, msg.streamName);
+		var cached = Q.Streams.get.cache.get([msg.publisherId, msg.streamName]);
+		var stream = priv._retainedStreams[ps] || (cached && cached.subject);
+		var ctx = stream || Streams;
+		Q.handle(Q.getObject(['', ''], priv._messageHandlers), ctx, params);
+		Q.handle(Q.getObject([streamType, msg.type], priv._messageHandlers), ctx, params);
+		Q.handle(Q.getObject(['', msg.type], priv._messageHandlers), ctx, params);
+		Q.handle(Q.getObject([streamType, ''], priv._messageHandlers), ctx, params);
 		Q.each(prefixes, function (i, prefix) {
-			Q.handle(Q.getObject([streamType, prefix], priv._messageHandlers), Streams, params);
-			Q.handle(Q.getObject(['', prefix], priv._messageHandlers), Streams, params);
+			Q.handle(Q.getObject([streamType, prefix], priv._messageHandlers), ctx, params);
+			Q.handle(Q.getObject(['', prefix], priv._messageHandlers), ctx, params);
 		});
 		Q.each([msg.publisherId, ''], function (i, publisherId) {
 			Q.each([msg.streamName, ''], function (ordinal, streamName) {
 				Q.handle(
 					Q.getObject([publisherId, streamName, ordinal], priv._streamMessageHandlers),
-					Streams,
+					ctx,
 					params
 				);
 				Q.handle(
 					Q.getObject([publisherId, streamName, msg.type], priv._streamMessageHandlers),
-					Streams,
+					ctx,
 					params
 				);
 				Q.handle(
 					Q.getObject([publisherId, streamName, ''], priv._streamMessageHandlers),
-					Streams,
+					ctx,
 					params
 				);
 				Q.each(prefixes, function (i, prefix) {
 					Q.handle(
 						Q.getObject([publisherId, streamName, prefix], priv._streamMessageHandlers),
-						Streams,
+						ctx,
 						params
 					);
 				});
