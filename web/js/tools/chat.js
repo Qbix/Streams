@@ -519,8 +519,12 @@ Q.Tool.define('Streams/chat', function(options) {
 		}
 
 		var $element = $("<li class='Streams_chat_addon'></li>");
-
-		$("<div class='Streams_chat_addon_icon'><img src='" + Q.url(params.icon) + "' /></div>").appendTo($element);
+		var $div = $("<div class='Streams_chat_addon_icon'>").appendTo($element);
+		if (params.icon) {
+			$div.append($('<img />').attr('src', Q.url(params.icon)));
+		} else if (params.emoji) {
+			$div.append($('<span class="Streams_chat_addon_emoji">').text(params.emoji));
+		}
 
 		$("<span class='Streams_chat_addon_title'>" + params.title + "</span>").appendTo($element);
 
