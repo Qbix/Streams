@@ -644,6 +644,8 @@ Streams.onEphemeral = Q.Event.factory(priv._ephemeralHandlers, ["", ""]);
  * By the time this event happens, the platform has already taken any default actions
  * for standard events such as "Streams/joined", etc. so the stream and all caches
  * are up-to-date, e.g. the participants include the newly joined participant, etc.
+ * Handlers are called with the up-to-date stream as `this` when it is cached or retained,
+ * otherwise `this` is the Streams namespace.
  * @event onMessage
  * @param {String} streamType type of the stream to which a message is posted, pass "" for all types
  * @param {String} messageType type of the message, pass "" for all types
@@ -2847,6 +2849,8 @@ Stream.onEphemeral = Q.Event.factory(priv._streamEphemeralHandlers, ["", "", ""]
  * By the time this event happens, the platform has already taken any default actions
  * for standard events such as "Streams/joined", etc. so the stream and all caches
  * are up-to-date, e.g. the participants include the newly joined participant, etc.
+ * Handlers are called with the up-to-date stream as `this` when it is cached or retained,
+ * otherwise `this` is the Streams namespace.
  * @event onMessage
  * @static
  * @param {String} [publisherId] id of publisher which is publishing the stream
@@ -3028,6 +3032,8 @@ Stream.onRelease = Q.Event.factory(priv._streamReleaseHandlers, ["", ""]);
  * By the time this event happens, the platform has already taken any default actions
  * for standard events such as "Streams/joined", etc. so the stream and all caches
  * are up-to-date, e.g. the participants include the newly joined participant, etc.
+ * Handlers are called with the up-to-date stream as `this` when it is cached or retained,
+ * otherwise `this` is the Streams namespace.
  * @event onMessage
  * @param {String} [messageType] type of the message, or its ordinal, pass "" for all types
  */
@@ -3719,7 +3725,7 @@ Message.post = new Q.Method({
  *   @param {Number} [options.timeout=1000] The maximum amount of time to wait and hope the messages will arrive via sockets. After this we just request them again.
  *   @param {Number} [options.unlessSocket=true] Whether to avoid doing any requests when a socket is attached and user is a participant in the stream
  *   @param {Boolean} [options.evenIfNotRetained] Set this to true to wait for messages posted to the stream, in the event that it wasn't cached or retained.
- *   @param {Boolean} [options.checkMessageCache] Set this to true to also the message cache 
+ *   @param {Boolean} [options.checkMessageCache] If true, use Message.latest (processed ordinals) for ordering; otherwise use stream.fields.messageCount (known watermark).
  * @return {Boolean|null|Q.Pipe}
  *   Returns false if the cached stream already got this message.
  *   Returns true if we decided to send a request for the messages.
@@ -3730,15 +3736,18 @@ Message.post = new Q.Method({
 Message.wait = function _Streams_Message_wait (publisherId, streamName, ordinal, callback, options) {
 	var o = Q.extend({}, Message.wait.options, options);
 	var alreadyCalled = false, handlerKey;
-	var latest = Q.Streams.Message.latestOrdinal(publisherId, streamName, o.checkMessageCache);
-	var ps = Q.Streams.key(publisherId, streamName);
+	var ps = Streams.key(publisherId, streamName);
+	var processed = Message.latest[ps] || 0;
+	var known = Message.latestOrdinal(publisherId, streamName, false);
+	// Processed ordinals for Streams/post ordering; messageCount watermark for refresh catch-up.
+	var latest = o.checkMessageCache ? processed : known;
 	var wasRetained = priv._retainedStreams[ps];
 	if (!latest || (!wasRetained && !o.evenIfNotRetained)) {
 		// There is no cache for this stream, so we won't wait for previous messages.
 		return null;
 	}
 	if (ordinal >= 0 && ordinal <= latest && latest > 0) {
-		// The cached stream already got this message, or the message arrived on the client
+		// The previous ordinal was already processed (or known to the client for refresh).
 		Q.handle(callback, this, [[]]);
 		return false;
 	}
@@ -3825,11 +3834,9 @@ Message.wait = function _Streams_Message_wait (publisherId, streamName, ordinal,
 			if (err) {
 				return Q.handle(callback, this, [null, err]);
 			}
-			if (latest) {
-				// Don't simulate messages if latest = 0 because
-				// cache was either lost or evicted,
-				// Instead, we should just load latest stream state
-				// and trigger the onRefresh event.
+			if (o.checkMessageCache ? processed : known) {
+				// Don't simulate if there is no watermark (processed or messageCount),
+				// e.g. cache was lost or evicted — just load stream state via onRefresh.
 				priv._simulatePosting(messages, extras);
 			}
 			ordinal = parseInt(ordinal);
@@ -4955,26 +4962,25 @@ Q.onInit.add(function _Streams_onInit() {
 		if (!msg) {
 			throw new Q.Error("Q.Socket.onEvent('Streams/post') msg is empty");
 		}
-		var latest = Message.latestOrdinal(msg.publisherId, msg.streamName);
-		if (latest && parseInt(msg.ordinal) <= latest) {
+
+		var ptn = Streams.key(msg.publisherId, msg.streamName);
+		// Skip only if this ordinal was already processed through _message(),
+		// not merely because stream.messageCount was updated in cache
+		// (e.g. by Message.get before _simulatePosting replays the message).
+		if ((Message.latest[ptn] || 0) >= parseInt(msg.ordinal)) {
 			return;
 		}
-		// Wait until the previous message has been posted, then process this one.
-		// Will return immediately if previous message is already cached
-		// (e.g. from a post or retrieving a stream, or because there was no cache yet)
+		// Wait until the previous message has been processed, then process this one.
+		// Will return immediately if the previous ordinal is already in Message.latest.
 		var ret = Message.wait(msg.publisherId, msg.streamName, msg.ordinal-1, _message, {
 			checkMessageCache: true
 		});
 		if (ret == null) {
-			// There was no retained stream or message cache.
-			// Let's just call this anyway, and it will update the message cache.
-			// So next time latestOrdinal will be nonzero and we will only
-			// process messages in order of increasing ordinal.
+			// No retained stream or nothing processed yet — process directly.
 			_message();
 		}
 		function _message() {
-			var ptn = msg.publisherId+"\t"+msg.streamName;
-			if (Message.latest[ptn] >= parseInt(msg.ordinal)) {
+			if ((Message.latest[ptn] || 0) >= parseInt(msg.ordinal)) {
 				return; // it was already processed
 			}
 
@@ -4987,8 +4993,6 @@ Q.onInit.add(function _Streams_onInit() {
 			var message = (msg instanceof Message)
 				? msg
 				: Message.construct(msg, true);
-
-			Message.latest[ptn] = parseInt(msg.ordinal);
 
 			// update fields.messageCount of cached stream across caches
 			Streams.get.cache.each([msg.publisherId, msg.streamName], function (k, cached) {
@@ -5034,7 +5038,7 @@ Q.onInit.add(function _Streams_onInit() {
 					break;
 				case 'Streams/changed':
 					if (Q.isEmpty(instructions.changes)) {
-						return;
+						break;
 					}
 					var doRefresh = false;
 					for (var f in instructions.changes) {
@@ -5101,6 +5105,7 @@ Q.onInit.add(function _Streams_onInit() {
 			var streamType = Q.getObject("streamType", extras);
 			if (streamType) {
 				_handlers(streamType, msg, params);
+				_markMessageProcessed();
 			} else {
 				Q.Streams.get(msg.publisherId, msg.streamName, function (err) {
 					if (err) {
@@ -5108,7 +5113,12 @@ Q.onInit.add(function _Streams_onInit() {
 					}
 
 					_handlers(this.fields.type, msg, params);
+					_markMessageProcessed();
 				});
+			}
+
+			function _markMessageProcessed() {
+				Message.latest[ptn] = parseInt(msg.ordinal);
 			}
 
 			if (usingCached && priv._messageShouldRefreshStream[msg.type]) {
@@ -5166,35 +5176,39 @@ Q.onInit.add(function _Streams_onInit() {
 	
 	function _handlers(streamType, msg, params) {
 		var prefixes = _messageTypePrefixes(msg.type);
-		Q.handle(Q.getObject(['', ''], priv._messageHandlers), Streams, params);
-		Q.handle(Q.getObject([streamType, msg.type], priv._messageHandlers), Streams, params);
-		Q.handle(Q.getObject(['', msg.type], priv._messageHandlers), Streams, params);
-		Q.handle(Q.getObject([streamType, ''], priv._messageHandlers), Streams, params);
+		var ps = Streams.key(msg.publisherId, msg.streamName);
+		var cached = Q.Streams.get.cache.get([msg.publisherId, msg.streamName]);
+		var stream = priv._retainedStreams[ps] || (cached && cached.subject);
+		var ctx = stream || Streams;
+		Q.handle(Q.getObject(['', ''], priv._messageHandlers), ctx, params);
+		Q.handle(Q.getObject([streamType, msg.type], priv._messageHandlers), ctx, params);
+		Q.handle(Q.getObject(['', msg.type], priv._messageHandlers), ctx, params);
+		Q.handle(Q.getObject([streamType, ''], priv._messageHandlers), ctx, params);
 		Q.each(prefixes, function (i, prefix) {
-			Q.handle(Q.getObject([streamType, prefix], priv._messageHandlers), Streams, params);
-			Q.handle(Q.getObject(['', prefix], priv._messageHandlers), Streams, params);
+			Q.handle(Q.getObject([streamType, prefix], priv._messageHandlers), ctx, params);
+			Q.handle(Q.getObject(['', prefix], priv._messageHandlers), ctx, params);
 		});
 		Q.each([msg.publisherId, ''], function (i, publisherId) {
 			Q.each([msg.streamName, ''], function (ordinal, streamName) {
 				Q.handle(
 					Q.getObject([publisherId, streamName, ordinal], priv._streamMessageHandlers),
-					Streams,
+					ctx,
 					params
 				);
 				Q.handle(
 					Q.getObject([publisherId, streamName, msg.type], priv._streamMessageHandlers),
-					Streams,
+					ctx,
 					params
 				);
 				Q.handle(
 					Q.getObject([publisherId, streamName, ''], priv._streamMessageHandlers),
-					Streams,
+					ctx,
 					params
 				);
 				Q.each(prefixes, function (i, prefix) {
 					Q.handle(
 						Q.getObject([publisherId, streamName, prefix], priv._streamMessageHandlers),
-						Streams,
+						ctx,
 						params
 					);
 				});
@@ -5234,6 +5248,9 @@ function _qEmit(event, data) {
  * @class Q.Streams.Transcript
  */
 Streams.Transcript = {
+    sendInterval: 10_000,
+    latestFinalAt: null,
+    finalTranscript: '',
 
 	/**
 	 * Fires for every final utterance, just before it is sent, with the
@@ -5253,17 +5270,25 @@ Streams.Transcript = {
 	 * @param {Object} options { publisherId, streamName, role, lang, modes }
 	 */
 	start: function (options) {
-		if (this._active) { return; }
+		if (this._active) {
+            if(options.restart) {
+                this.stop();
+            } else {
+                return; 
+            }
+        }
+
 		this._active = true;
 		var o = options || {};
 
 		var payload = {
-			lang:        o.lang || 'en-US',
-			sampleRate:  o.sampleRate || 16000,
-			publisherId: o.publisherId,
-			streamName:  o.streamName,
-			role:        o.role || 'participant',
-			modes:       o.modes || {}
+			lang:         o.lang || 'en-US',
+			sampleRate:   o.sampleRate || 16000,
+			publisherId:  o.publisherId,
+			streamName:   o.streamName,
+			role:         o.role || 'participant',
+			modes:        o.modes || {},
+			sessionToken: o.sessionToken || Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10)
 		};
 		// Forward optional session fields when the caller supplies them (the
 		// control page passes mode/isOwnLivestream/tool* that Session.create reads).
@@ -5273,11 +5298,43 @@ Streams.Transcript = {
 		_qEmit('Streams/transcript/session/start', payload);
 
 		var self = this;
-		Q.Speech.Recognition.onResult.set(function (chunk) {
-			if (!chunk || !chunk.isFinal) { return; }
-			self.send(chunk);
-		}, 'Streams.Transcript');
-	},
+		Q.Speech.Recognition.onResult.set(function (e) {
+            self.procesTranscript(e);
+			//self.send(chunk);
+        }, 'Streams.Transcript');
+    },
+
+    procesTranscript: function (event) {
+        var self = this;
+        let interimTranscript = null;
+        let finalTranscript = null;
+        let confidence = null;
+
+        if (self.latestFinalAt == null) {
+            self.latestFinalAt = Date.now();
+        }
+
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+                if (event.results[i][0].transcript.trim() != '') finalTranscript = event.results[i][0].transcript;
+            } else {
+                if (event.results[i][0].transcript.trim() != '') interimTranscript = event.results[i][0].transcript;
+            }
+            confidence = event.results[i][0].confidence;
+        }
+
+        let isFinal = finalTranscript != null;
+        let prevFinalAt = self.latestFinalAt;
+        if (isFinal) self.latestFinalAt = Date.now();
+        let chunkToSend = finalTranscript || interimTranscript;
+        if (!chunkToSend || chunkToSend.trim() == '') return;
+        self.send({
+            isFinal: isFinal,
+            transcript: finalTranscript || interimTranscript,
+            confidence: confidence,
+            latestFinalAt: prevFinalAt,
+        });
+    },
 
 	/**
 	 * Build the context for one final utterance, let plugins enrich it, and
@@ -5287,10 +5344,13 @@ Streams.Transcript = {
 	 * @return {Object}
 	 */
 	send: function (chunk) {
+        var self = this;
+        self.lastSentAt = Date.now();
 		var context = {
 			transcript: chunk.transcript,
-			isFinal:    true,
+			isFinal:    chunk.isFinal,
 			confidence: chunk.confidence,
+			latestFinalAt: chunk.latestFinalAt,
 			speaker:    Q.Users.loggedInUserId()
 		};
 		this.onContext.handle(context, chunk);
@@ -5466,7 +5526,7 @@ function _updateRelatedCache(msg, instructions) {
 		);
 		Streams.Stream.refresh(
 			instructions.toPublisherId, instructions.toStreamName,
-			null, { messages: true, unlessSocket: true }
+			null, { messages: true, unlessSocket: true, evenIfNotRetained: true }
 		);
 	} else if (instructions.fromPublisherId) {
 		Streams.related.cache.removeEach(
@@ -5474,7 +5534,7 @@ function _updateRelatedCache(msg, instructions) {
 		);
 		Streams.Stream.refresh(
 			instructions.fromPublisherId, instructions.fromStreamName,
-			null, { messages: true, unlessSocket: true }
+			null, { messages: true, unlessSocket: true, evenIfNotRetained: true }
 		);
 	}
 }

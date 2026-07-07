@@ -2021,6 +2021,7 @@ function _ksort(obj) {
 Streams.Mentions = require('Streams/Mentions');
 Streams.Ephemeral = require('Streams/Ephemeral');
 Streams.Actions = require('Streams/Actions');
+Streams.Commands =  Q.require('Streams/Commands');
 
 /**
  * @property _messageHandlers

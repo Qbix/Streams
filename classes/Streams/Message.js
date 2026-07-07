@@ -41,7 +41,6 @@ Streams_Message.handlers = {};
 
 Streams_Message.construct = function Streams_Message_construct(fields, retrieved) {
 	if (Q.isEmpty(fields)) {
-		Q.handle(callback, this, ["Streams.Message constructor: fields are missing"]);
 		return false;
 	}
 	if (fields.fields) {

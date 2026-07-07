@@ -5,6 +5,7 @@
  */
 var Q = require('Q');
 var Db = Q.require('Db');
+var Users = Q.require('Users');
 var Streams = Q.require('Streams');
 
 /**
@@ -35,7 +36,6 @@ Q.mixin(Streams_Subscription, Q.require('Base/Streams/Subscription'));
  * @method test
  * @static
  * @param {String} userId
- * @param {String} publisherId
  * @param {Q.Streams.Stream} stream
  * @param {Function} callback First argument is any possible error, second is array of delivery methods
  */
@@ -152,7 +152,7 @@ Streams_Subscription.test = function _Subscription_test(userId, stream, msgType,
 							userId: userId,
 							"insertedTime >": timeOnline,
 							publisherId: stream.fields.publisherId,
-							streamName: stream.fields.streamName,
+							streamName: stream.fields.name,
 							type: msgType
 						}).execute(function (err, res) {
 							if (err) return p.fill(o)(err);
@@ -191,7 +191,7 @@ Streams_Subscription.test = function _Subscription_test(userId, stream, msgType,
 				}
 				Users.Contact.SELECT('*').where({
 					userId: userId,
-					contactUserId: publisherId,
+					contactUserId: stream.fields.publisherId,
 					label: labels
 				}).execute(function (err, contacts) {
 					if (err) {

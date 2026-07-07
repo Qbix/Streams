@@ -3,7 +3,6 @@
 /**
  * @module AI
  */
-
 var Q = require('Q');
 var Session = Q.require('Streams/Transcript/Session');
 var transcriptEmitter = Q.require('Streams/TranscriptEmitter').transcriptEmitter;

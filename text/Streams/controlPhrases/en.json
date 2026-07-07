@@ -1,0 +1,156 @@
+{
+  "_locale": "en",
+  "_intents": {
+    "slide/next": "Advance to next slide. Emits Streams/slide {slideIndex: current+1}.",
+    "slide/prev": "Go back to previous slide. Emits Streams/slide {slideIndex: current-1}.",
+    "slide/first": "Jump to first slide. Emits Streams/slide {slideIndex: 0}.",
+    "slide/last": "Jump to last slide. Emits Streams/slide {slideIndex: 9999}.",
+    "slide/navigate": "Jump to a slide by content query. Captures {query}.",
+    "reveal/next": "Reveal next progressive element. Emits Streams/reveal {revealIndex: current+1}.",
+    "video/play": "Play video. Emits Streams/play {}.",
+    "video/pause": "Pause video. Emits Streams/pause {}.",
+    "video/seek": "Seek to absolute time. Emits Streams/seek {pos: seconds}. Captures {time}.",
+    "video/seek/relative": "Seek by offset. Emits Streams/seek {pos: '+/-seconds'}. Captures {time}.",
+    "gallery/next": "Next b-roll image. Emits Streams/gallery/next.",
+    "gallery/pause": "Freeze b-roll. Emits Streams/gallery/pause.",
+    "gallery/resume": "Resume b-roll. Emits Streams/gallery/resume.",
+    "gallery/remove": "Hide current b-roll image. Emits Streams/gallery/remove.",
+    "gallery/caption/remove": "Hide b-roll caption. Emits Streams/gallery/caption {remove: true}.",
+    "highlight": "Highlight chart element. Emits Streams/highlight {elementId}. Captures {target}.",
+    "zoom/in": "Zoom in 1.5x. Emits Streams/zoom {scale: current*1.5}.",
+    "zoom/out": "Zoom out 1.5x. Emits Streams/zoom {scale: current/1.5}.",
+    "zoom/reset": "Reset zoom to 1. Emits Streams/zoom {scale: 1}.",
+    "scroll/down": "Scroll down 20%. Emits Q/scroll {top: '+20%'}.",
+    "scroll/up": "Scroll up 20%. Emits Q/scroll {top: '-20%'}.",
+    "scroll/top": "Scroll to top. Emits Q/scroll {top: '0%'}.",
+    "scroll/bottom": "Scroll to bottom. Emits Q/scroll {top: '100%'}.",
+    "fullscreen": "Toggle fullscreen.",
+    "image/generate": "LLM-generated image. Captures {prompt}.",
+    "tool/generate": "LLM-generated widget. Captures {prompt}.",
+    "stream/create": "Create new stream (chess, poll, etc). Captures {prompt}.",
+    "stream/grantAccess": "Grant write access. Captures {name, writeLevel}.",
+    "stream/revokeAccess": "Revoke access. Captures {name}."
+  },
+
+  "slide/next": [
+    "next slide", "next card", "go forward", "move on", "advance",
+    "next please", "next one", "show next", "/^next$/"
+  ],
+  "slide/prev": [
+    "previous slide", "previous card", "go back", "back one",
+    "prior slide", "step back", "/^back$/"
+  ],
+  "slide/first": [
+    "first slide", "go to the beginning", "start over",
+    "from the top", "beginning please"
+  ],
+  "slide/last": [
+    "last slide", "go to the end", "final slide", "jump to end"
+  ],
+  "slide/navigate": [
+    "go to {query}", "show me {query}", "find {query}",
+    "jump to {query}", "navigate to {query}", "take me to {query}",
+    "open the {query}", "show the {query} slide", "find the {query} slide",
+    "go to the {query} slide"
+  ],
+  "reveal/next": [
+    "reveal", "show more", "next point", "continue", "next bullet"
+  ],
+  "video/play": [
+    "play", "play video", "play the video", "start video",
+    "resume video", "unpause", "/^play$/"
+  ],
+  "video/pause": [
+    "pause", "pause video", "stop video", "hold on", "/^pause$/"
+  ],
+  "video/seek": [
+    "go to", "seek to", "jump to", "skip to",
+    "fast forward to", "rewind to"
+  ],
+  "video/seek/relative": [
+    "go back {time}", "back {time}", "rewind {time}", "skip back {time}",
+    "go forward {time}", "skip forward {time}", "skip ahead {time}",
+    "fast forward {time}", "forward {time}"
+  ],
+  "gallery/next": [
+    "next image", "next photo", "next picture",
+    "skip image", "change the background"
+  ],
+  "gallery/pause": [
+    "pause background", "stop background", "freeze background",
+    "hold the background", "pause the images"
+  ],
+  "gallery/resume": [
+    "resume background", "continue background",
+    "start background again", "unpause background"
+  ],
+  "gallery/remove": [
+    "remove this image", "skip this image", "hide this photo",
+    "remove current image", "remove this photo"
+  ],
+  "gallery/caption/remove": [
+    "remove caption", "hide caption", "clear caption",
+    "remove the caption", "hide the caption"
+  ],
+  "highlight": [
+    "highlight", "point to", "show me", "emphasize",
+    "focus on", "mark", "call out"
+  ],
+  "zoom/in": [
+    "zoom in", "zoom", "bigger", "enlarge",
+    "magnify", "make it bigger", "closer"
+  ],
+  "zoom/out": [
+    "zoom out", "smaller", "shrink", "pull back",
+    "make it smaller", "step back", "wider view"
+  ],
+  "zoom/reset": [
+    "reset zoom", "zoom reset", "normal size",
+    "fit to screen", "zoom to fit"
+  ],
+  "scroll/down": [
+    "scroll down", "keep going", "more",
+    "continue down", "page down", "below"
+  ],
+  "scroll/up": [
+    "scroll up", "go up", "back up",
+    "upward", "page up", "above"
+  ],
+  "scroll/top": [
+    "scroll to top", "go to top", "back to top",
+    "beginning of page", "top of page"
+  ],
+  "scroll/bottom": [
+    "scroll to bottom", "go to bottom",
+    "end of page", "bottom of page"
+  ],
+  "fullscreen": [
+    "fullscreen", "full screen", "maximize",
+    "fill screen", "make it full"
+  ],
+  "image/generate": [
+    "generate an image of {prompt}", "create an image of {prompt}",
+    "show me {prompt}", "visualize {prompt}", "draw {prompt}",
+    "make a picture of {prompt}"
+  ],
+  "tool/generate": [
+    "build a {prompt}", "create a {prompt}", "build me a {prompt}",
+    "generate a {prompt} widget", "make a {prompt} tool",
+    "create a {prompt} tool"
+  ],
+  "stream/create": [
+    "create a {prompt} stream", "make a {prompt} stream",
+    "start a {prompt}", "create a {prompt} game",
+    "let's play {prompt}", "set up a {prompt}"
+  ],
+  "stream/grantAccess": [
+    "give {name} access to post", "let {name} post",
+    "give {name} write access", "allow {name} to post",
+    "add {name} as a guest", "invite {name} to post"
+  ],
+  "stream/revokeAccess": [
+    "remove {name}'s access", "revoke {name}'s access",
+    "take away {name}'s access", "remove {name} from the stream",
+    "block {name} from posting"
+  ]
+}
