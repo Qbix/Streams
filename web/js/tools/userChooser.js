@@ -81,6 +81,10 @@ Q.Tool.define("Streams/userChooser", function(o) {
 	tool.interval = setInterval(function () {
 		if ($te.is(':visible')) {
 			tool.$results.removeClass('Streams_userChooser_hidden');
+			// keep repositioning results if needed
+			tool.$results.css({
+				top: tool.$input.offset().top + tool.$input.outerHeight() + 'px',
+			});
 		} else {
 			tool.$results.addClass('Streams_userChooser_hidden');
 		}
@@ -274,7 +278,7 @@ Q.Tool.define("Streams/userChooser", function(o) {
 						tool.$results.css({
 							top: tool.$input.offset().top + tool.$input.outerHeight() + 'px',
 						});
-					})
+					});
 				}
 			} else {
 				tool.$results.remove();
