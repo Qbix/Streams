@@ -13,6 +13,10 @@ Q.exports(function(Users, Streams) {
 	 * @param {String} [options.userChooser=false] If true allow to invite registered users with Streams/userChooser tool.
 	 * @param {String} [options.sendBy] Set this to immediately invoke a specific method for the invite as soon as the dialog appears (e.g., 'contactPicker', 'sms', 'email', 'copyLink', 'QR')
      * @param {String|Function} [options.appUrl] Can be used to override the URL to which the invited user will be redirected and receive "Q.Streams.token" in the querystring.
+	 * @param {object} [options.hide] Different options to hide elements in the dialog
+	 * @param {boolean} [options.hide.contacts] If true, hide the contacts option
+	 * @param {boolean} [options.hide.qr] If true, hide the QR code option
+	 * @param {boolean} [options.hide.link] If true, hide the share link option
 	 */
     return function Streams_Dialogs_invite(publisherId, streamName, callback, options) {
 		var stream = null;
@@ -338,7 +342,8 @@ Q.exports(function(Users, Streams) {
 							QR: text.QR.interpolate({ClickOrTap: Q.text.Q.words.ClickOrTap}),
 							QRIcon: Q.url("{{Users}}/img/qr-code-scan.svg"),
 							contactBookIcon: Q.url("{{Users}}/img/contact-book.svg"),
-							shareIcon: Q.url("{{Users}}/img/share.svg")
+							shareIcon: Q.url("{{Users}}/img/share.svg"),
+							hide: options.hide || {}
 						}
 					},
 					stylesheet: '{{Streams}}/css/Streams/modern_invite.css',

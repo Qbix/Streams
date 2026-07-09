@@ -3,6 +3,7 @@
         <span>{{{description}}}</span>
     </div>
     <div class="Streams_invite_modern_dialog_buttons">
+        {{#unless hide.contacts}}
         <div class="Streams_invite_select_contacts Streams_invite_option" data-sendBy="contactPicker">
             <div class="Streams_invite_select_contacts_inner Streams_invite_option_inner">
                 <div class="Streams_invite_option_icon">
@@ -11,6 +12,8 @@
                 <div class="Streams_invite_option_caption">{{text.selectContacts}}</div>
             </div>
          </div>
+         {{/unless}}
+         {{#unless hide.qr}}
          <div class="Streams_invite_scan_qr Streams_invite_option" data-sendBy="QR">
              <div class="Streams_invite_scan_qr_inner Streams_invite_option_inner">
                 <div class="Streams_invite_option_icon">
@@ -19,6 +22,8 @@
                 <div class="Streams_invite_option_caption">{{text.scanQRCode}}</div>
              </div>
          </div>
+        {{/unless}}
+        {{#unless hide.link}}
          <div class="Streams_invite_share_link Streams_invite_option" data-sendBy="copyLink">
              <div class="Streams_invite_share_link_inner Streams_invite_option_inner">
                 <div class="Streams_invite_option_icon">
@@ -27,6 +32,7 @@
                 <div class="Streams_invite_option_caption">{{text.shareLink}}</div>
              </div>
          </div>
+         {{/unless}}
     </div>
     <div class="Q_buttons Streams_invite_social_buttons">
         <button class="Q_button Streams_invite_button_sms" data-sendBy="sms">

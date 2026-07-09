@@ -529,7 +529,7 @@ Q.exports(function() {
                     var dialogOptions = Q.take(o, [
                         'title', 'description', 'identifierTypes', 'userChooser',
                         'appUrl', 'showGrantRolesButton', 'showGrantRelationshipsButton',
-                        'addLabel', 'addMyLabel'
+                        'addLabel', 'addMyLabel', 'hide'
                     ]);
                     dialogOptions.showGrantRolesDialog = function() {
                         _showGrantRolesDialog(_showInviteDialog);
