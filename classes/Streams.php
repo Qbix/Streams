@@ -2132,24 +2132,36 @@ abstract class Streams extends Base_Streams
 		$fallback = Q::ifset($options, 'fallback', array(
 			'Streams/content', array('avatar', 'Someone')
 		));
+		$fallbackName = Q::interpolate($fallback);
 		$avatar = Streams_Avatar::fetch($asUserId, $userId);
+		// Avatar rows are often keyed to the viewer; with fullAccess also try the logged-in viewer.
+		if (!$avatar && !empty($options['fullAccess'])) {
+			$viewer = Users::loggedInUser();
+			if ($viewer && $viewer->id !== $asUserId) {
+				$avatar = Streams_Avatar::fetch($viewer->id, $userId);
+			}
+		}
 		if ($avatar) {
-			return $avatar->displayName($options, Q::interpolate($fallback));
+			return $avatar->displayName($options, $fallbackName);
 		}
 
+		// Fetch name streams as subject/viewer — not null (null becomes logged-in user
+		// and cannot read another user's private firstName/lastName).
+		$streamAsUserId = empty($asUserId) ? false : $asUserId;
 		$displayName = array();
 		try {
-			if ($fnStream = Streams::fetchOne(null, $userId, "Streams/user/firstName")) {
+			if ($fnStream = Streams::fetchOne($streamAsUserId, $userId, "Streams/user/firstName")) {
 				$displayName['firstName'] = $fnStream->content;
 			}
 		} catch (Exception $e) {}
 		try {
-			if ($lnStream = Streams::fetchOne(null, $userId, "Streams/user/lastName")) {
+			if ($lnStream = Streams::fetchOne($streamAsUserId, $userId, "Streams/user/lastName")) {
 				$displayName['lastName'] = $lnStream->content;
 			}
 		} catch (Exception $e) {}
 
-		return empty($displayName) ? $fallback : implode(' ', $displayName);
+		$name = trim(implode(' ', array_filter($displayName)));
+		return empty($name) ? $fallbackName : $name;
 	}
 
 	/**
