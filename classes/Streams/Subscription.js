@@ -37,10 +37,12 @@ Q.mixin(Streams_Subscription, Q.require('Base/Streams/Subscription'));
  * @static
  * @param {String} userId
  * @param {Q.Streams.Stream} stream
+ * @param {Q.Streams.Message|Q.Streams.Ephemeral} messageOrEphemeral
  * @param {Function} callback First argument is any possible error, second is array of delivery methods
  */
-Streams_Subscription.test = function _Subscription_test(userId, stream, msgType, callback) {
+Streams_Subscription.test = function _Subscription_test(userId, stream, messageOrEphemeral, callback) {
 	if (!callback) return;
+	var msgType = messageOrEphemeralOrEphemeral.getType();
 	(new Streams.Subscription({
 		ofUserId: userId,
 		publisherId: stream.fields.publisherId,
@@ -90,9 +92,22 @@ Streams_Subscription.test = function _Subscription_test(userId, stream, msgType,
 				break;
 			}
 		}
+		var instructions = (filter && filter.instructions);
+		var allInstructions = messageOrEphemeral.getAllInstructions();
+		var matchedInstructions = true;
+		if (instructions) {
+			for (var instruction in instructions) {
+				var p = instructions[instruction];
+				var v = Q.getObject(instruction, allInstructions);
+				if (v !== undefined && !String(v).match(p)) {
+					matchedInstructions = false;
+					break;
+				}
+			}
+		}
 		var notifications = filter.notifications;
-		if (!matched) {
-			return callback(null, []); // not subscribed to this message type
+		if (!matched || !matchedInstructions) {
+			return callback(null, []); // not subscribed to this message type or instructions do not match
 		}
 		Streams.SubscriptionRule.SELECT('*').where({
 			ofUserId: userId,

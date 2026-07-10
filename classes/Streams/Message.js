@@ -113,7 +113,7 @@ var Mp = Streams_Message.prototype;
 /**
  * Get all the instructions from a message.
  * 
- * @method getAll
+ * @method getAllInstructions
  */
 Mp.getAllInstructions = function _Message_prototype_getAllInstructions () {
 	try {
