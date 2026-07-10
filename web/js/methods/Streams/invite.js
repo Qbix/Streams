@@ -159,6 +159,7 @@ Q.exports(function() {
                             window.location = url;
                         });
                     break;
+                case "sms":
                 case "text":
                     var content = Q.getObject(['invite', 'mobile', 'content'], text)
                         .interpolate({
