@@ -343,6 +343,7 @@ telegram
 	flex: 1;
 	font-size: 1em;
 	border: solid 1px rgba(150, 150, 150, 0.5);
+    background: none;
 }
 .Streams_invite_label_buttons .Streams_invite_button_add_rels{
 	flex: 2;
