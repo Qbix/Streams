@@ -21,7 +21,7 @@ function Streams_Ephemeral (payload, timestamp) {
     this.timestamp = timestamp || Date.now() / 1000;
 }
 
-Streams_Ephemeral.prototype = {
+var Ep = Streams_Ephemeral.prototype = {
     className: "Streams_Ephemeral",
 };
 
@@ -30,7 +30,7 @@ Streams_Ephemeral.prototype = {
  * @method getType
  * @return {string}
  */
-Streams_Ephemeral.prototype.getType = function () {
+Ep.getType = function () {
     return this.payload.type;
 };
 
@@ -39,7 +39,7 @@ Streams_Ephemeral.prototype.getType = function () {
  * @method getFields
  * @return {string}
  */
-Streams_Ephemeral.prototype.getFields = function () {
+Ep.getFields = function () {
     return Q.copy(this.payload);
 };
 

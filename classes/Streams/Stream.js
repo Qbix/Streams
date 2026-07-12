@@ -1434,9 +1434,11 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 				}
 			}
 			var p = Object.getPrototypeOf(messageOrEphemeral);
-			if (p.className === 'Streams_Ephemeral') { // a Streams_Ephemeral
+			if (p.className === 'Streams_Ephemeral') {
+				// a Streams_Ephemeral isn't processed beyond this point
 				return callback && callback(null, false);
 			}
+			
 			// 3) if user has no socket connected, send offline notifications
 			//      to users who subscribed and filters match
 			/*

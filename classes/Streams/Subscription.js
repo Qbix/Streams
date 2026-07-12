@@ -37,12 +37,12 @@ Q.mixin(Streams_Subscription, Q.require('Base/Streams/Subscription'));
  * @static
  * @param {String} userId
  * @param {Q.Streams.Stream} stream
- * @param {Q.Streams.Message|Q.Streams.Ephemeral} messageOrEphemeral
+ * @param {Q.Streams.Messagel} message
  * @param {Function} callback First argument is any possible error, second is array of delivery methods
  */
-Streams_Subscription.test = function _Subscription_test(userId, stream, messageOrEphemeral, callback) {
+Streams_Subscription.test = function _Subscription_test(userId, stream, message, callback) {
 	if (!callback) return;
-	var msgType = messageOrEphemeralOrEphemeral.getType();
+	var msgType = message.getType();
 	(new Streams.Subscription({
 		ofUserId: userId,
 		publisherId: stream.fields.publisherId,
@@ -93,7 +93,7 @@ Streams_Subscription.test = function _Subscription_test(userId, stream, messageO
 			}
 		}
 		var instructions = (filter && filter.instructions);
-		var allInstructions = messageOrEphemeral.getAllInstructions();
+		var allInstructions = message.getAllInstructions();
 		var matchedInstructions = true;
 		if (instructions) {
 			for (var instruction in instructions) {
