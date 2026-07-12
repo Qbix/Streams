@@ -157,7 +157,7 @@ function Streams_stream_post($params = array())
 	if ($streamName) {
 		$stream = Streams_Stream::fetch($user->id, $publisherId, $fields['name']);
 
-		// if stream exists - clear closedTime (resurrection)
+		// if stream exists - clear closedTime (reopen stream)
 		if ($stream instanceof Streams_Stream) {
 			$stream->closedTime = null;
 			$stream->save();
