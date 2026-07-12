@@ -5268,7 +5268,8 @@ abstract class Streams extends Base_Streams
 	 * @param {string} [$options.asUserId=Users::loggedInUser(true)->id] Invite as this user id, defaults to logged-in user
 	 * @param {boolean} [$options.alwaysSend=false] Send invitation message even if already sent.
 	 * @param {boolean} [$options.skipAccess] whether to skip access checks when adding labels and contacts
-	 * @param {boolean} [$options.skipLogin=false] if true, skip the login dialog when someone follows the invite link. Stored in the invite's extra field.
+	 * @param {boolean} [$options.dontAutoLogin=false] if true, skip the login dialog when someone follows the invite link. Stored in the invite's extra field.
+	 * @param {boolean} [$options.dontAutoAccept] Tell Streams not to try to have recipient user auto-accept invite
 	 * @param {string} [$options.baseUrl] Override the base url when making the invite url
 	 * @see Users::addLink()
 	 * @throws Users_Exception_NotAuthorized
@@ -5288,7 +5289,7 @@ abstract class Streams extends Base_Streams
 	{
 		$options = Q::take($options, array(
 			'readLevel', 'writeLevel', 'adminLevel', 'permissions', 'expires', 'asUserId', 'html',
-			'addLabel', 'addMyLabel', 'displayName', 'appUrl', 'alwaysSend', 'skipAccess', 'skipLogin',
+			'addLabel', 'addMyLabel', 'displayName', 'appUrl', 'alwaysSend', 'skipAccess', 'dontAutoLogin',
 			'templateName', 'userId', 'assign'
 		));
 		
@@ -5597,8 +5598,10 @@ abstract class Streams extends Base_Streams
 				if (!empty($addMyLabel)) {
 					$invite->setExtra('addMyLabel', $addMyLabel);
 				}
-				if (filter_var(Q::ifset($options, 'skipLogin', false), FILTER_VALIDATE_BOOLEAN)) {
-					$invite->setExtra('skipLogin', true);
+				foreach (array('dontAutoLogin', 'dontAutoAccept') as $extra) {
+					if (filter_var(Q::ifset($options, $extra, false), FILTER_VALIDATE_BOOLEAN)) {
+						$invite->setExtra($extra, true);
+					}
 				}
 				$invite->save();
 				$return['invite'] = $invite;

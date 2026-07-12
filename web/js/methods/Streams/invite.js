@@ -27,6 +27,8 @@ Q.exports(function() {
      * @param {String} [options.adminLevel] the admin level to grant those who are invited
      * @param {String} [options.callback] Also can be used to provide callbacks, which are called before the followup.
      * @param {Boolean} [options.followup="future"] Whether to set up a followup email or sms for the user to send. Set to true to always send followup, or false to never send it. Set to "future" to send followups only to users who haven't registered yet.
+     * @param {Boolean} [options.dontAutoLogin=false] if true, skip the login dialog when someone follows the invite link
+     * @param {Boolean} [options.dontAutoAccept=false] Tell Streams not to try to have recipient user auto-accept invite
      * @param {String} [options.uri] If you need to hit a custom "Module/action" endpoint
      * @param {String} [options.title] Custom dialog title.
      * @param {String} [options.userChooser=false] If true allow to invite registered users with Streams/userChooser tool.
@@ -56,7 +58,8 @@ Q.exports(function() {
             'appUrl', 'identifier', 
             'platform', 'xid', 
             'label', 'addLabel', 'addMyLabel',
-            'readLevel', 'writeLevel', 'adminLevel'
+            'readLevel', 'writeLevel', 'adminLevel',
+            'dontAutoLogin', 'dontAutoAccept'
         ]);
         fields.publisherId = publisherId;
         fields.streamName = streamName;
