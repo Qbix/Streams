@@ -1458,7 +1458,7 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 				return false;
 			}
 
-			Streams.Subscription.test(userId, stream, messageOrEphemeral.getType(), _continue2);
+			Streams.Subscription.test(userId, stream, messageOrEphemeral, _continue2);
 		}
 		function _continue2(err, deliveries) {
 			var message = messageOrEphemeral;
