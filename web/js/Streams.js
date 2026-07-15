@@ -3513,7 +3513,6 @@ Sp.unrelate = Sp.unrelateFrom = function _Stream_prototype_unrelateFrom (fromPub
  * @class Streams
  */
 
-
 /**
  * Constructs a message from fields, which are typically returned from the server.
  * @class Streams.Message

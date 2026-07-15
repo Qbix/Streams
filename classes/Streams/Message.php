@@ -171,6 +171,10 @@ class Streams_Message extends Base_Streams_Message
 	
 	/**
 	 * Post (potentially) multiple messages to multiple streams.
+	 * Supports operational transforms: if a message array contains a 'baseOrdinal'
+	 * key, concurrent messages (from baseOrdinal+1 to current messageCount) are
+	 * fetched and passed to a "Streams/transform/$messageType" event handler,
+	 * which may modify or reject the message before it is inserted.
 	 * @method postMessages
 	 * @static
 	 * @param {string} $asUserId
@@ -180,6 +184,13 @@ class Streams_Message extends Base_Streams_Message
 	 *  array($publisherId => array($streamName => $message))
 	 *  where $message are either Streams_Message objects, 
 	 *  or arrays containing all the fields of messages that will need to be posted.
+	 *  Each message array may contain:
+	 *  @param {integer} [$message.baseOrdinal] If set, enables OT transform.
+	 *    The message is considered to have been composed against the stream state
+	 *    at this ordinal. Any messages posted after baseOrdinal will be passed to
+	 *    the "Streams/transform/$type" event handler for operational transformation.
+	 *    The handler receives ('message', 'concurrent', 'stream', 'baseOrdinal')
+	 *    and must return the transformed message array, or false to reject.
 	 * @param {booleam} $skipAccess=false
 	 *  If true, skips the access checks and just posts the message.
 	 * @return {array|null}
@@ -275,6 +286,11 @@ class Streams_Message extends Base_Streams_Message
 				$count = count($messages3);
 				$updates[$publisherId][$count][] = $streamName;
 				$i = 0;
+
+				// OT: accumulate transformed messages within this batch,
+				// so message N's transform can see messages 1..N-1
+				$batchPrior = array();
+
 				foreach ($messages3 as $message) {
 					++$i;
 					$type = isset($message['type']) ? $message['type'] : 'text/small';
@@ -289,6 +305,74 @@ class Streams_Message extends Base_Streams_Message
 					}
 					$byClientId = $message['byClientId'];
 					$stream = $fetched[$streamName];
+
+					// --- OT transform ---
+					// If the caller says "I wrote this against ordinal N",
+					// fetch messages N+1..current and let a handler transform
+					$baseOrdinal = isset($message['baseOrdinal'])
+						? (int)$message['baseOrdinal'] : null;
+					if ($baseOrdinal !== null) {
+						$concurrent = array();
+						if ($baseOrdinal < $stream->messageCount) {
+							$concurrent = Streams_Message::select()
+								->where(array(
+									'publisherId' => $publisherId,
+									'streamName' => $streamName,
+									'ordinal' => new Db_Range(
+										$baseOrdinal + 1, true,
+										true, $stream->messageCount
+									)
+								))
+								->orderBy('ordinal', true)
+								->fetchDbRows();
+						}
+						// Include already-transformed messages from this batch
+						if (!empty($batchPrior)) {
+							$concurrent = array_merge($concurrent, $batchPrior);
+						}
+						if ($concurrent) {
+							/**
+							 * @event Streams/transform/$messageType {before}
+							 * @param {array} message with keys: type, content, instructions, weight
+							 * @param {array} concurrent Array of Streams_Message objects
+							 * @param {Streams_Stream} stream
+							 * @param {integer} baseOrdinal
+							 * @return {array|false} Transformed message array, or false to reject
+							 */
+							$transformed = Q::event(
+								"Streams/transform/$type",
+								array(
+									'message' => @compact(
+										'type', 'content', 'instructions', 'weight'
+									),
+									'concurrent' => $concurrent,
+									'stream' => $stream,
+									'baseOrdinal' => $baseOrdinal
+								),
+								'before',
+								false, // don't skip if not handled
+								@compact('type', 'content', 'instructions', 'weight')
+							);
+							if ($transformed === false) {
+								$p[] = new Q_Exception(
+									"OT conflict for message type $type"
+									. " at baseOrdinal $baseOrdinal"
+								);
+								continue;
+							}
+							// Apply transformed fields
+							$type = $transformed['type'];
+							$content = $transformed['content'];
+							$instructions = $transformed['instructions'];
+							$weight = $transformed['weight'];
+							if (is_array($instructions)) {
+								$instructions = Q::json_encode(
+									$instructions, Q::JSON_FORCE_OBJECT
+								);
+							}
+						}
+					}
+					// --- end OT transform ---
 				
 					// Make a Streams_Message object
 					$message = new Streams_Message();
@@ -353,6 +437,11 @@ class Streams_Message extends Base_Streams_Message
 					// if we are still here, mark the message as "in the database"
 					$message->wasRetrieved(true);
 					$p[] = $message;
+
+					// OT: track this message for subsequent batch transforms
+					if ($baseOrdinal !== null) {
+						$batchPrior[] = $message;
+					}
 
 					// build the arrays of rows to insert
 					$messages2[] = $message->fields;

@@ -26,6 +26,8 @@
  * @param {string} [$_POST.writeLevel] the write level to grant those who are invited
  * @param {string} [$_POST.adminLevel] the admin level to grant those who are invited
  * @param {array} [$options.permissions] array of additional permissions to grant
+ * @param {boolean} [$options.dontAutoLogin=false] if true, skip the login dialog when someone follows the invite link
+ * @param {boolean} [$options.dontAutoAccept=false] Tell Streams not to try to have recipient user auto-accept invite
  * @param {timestamp} [$_POST.expires] you can pass a timestamp that takes place in the future
  * @param {string} [$_POST.appUrl] Can be used to override the URL to which the invited user will be redirected and receive "Q.Streams.token" in the querystring.
  */
@@ -37,7 +39,8 @@ function Streams_invite_post()
 	$r = Q::take($_POST, array(
 		'readLevel', 'writeLevel', 'adminLevel', 'permissions', 'expires',
 		'addLabel', 'addMyLabel', 'appUrl', 'alwaysSend', 'assign',
-		'userId', 'xid', 'platform', 'label', 'identifier', 'token'
+		'userId', 'xid', 'platform', 'label', 'identifier', 'token',
+		'dontAutoLogin', 'dontAutoAccept'
 	));
 
 	$stream = Streams_Stream::fetch(null, $publisherId, $streamName, true);
