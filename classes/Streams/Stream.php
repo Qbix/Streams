@@ -2222,8 +2222,9 @@ class Streams_Stream extends Base_Streams_Stream
 	 * @param {array} [$options=array()] Can include "skipAccess"
 	 * @static
 	 */
-	function close($asUserId, $options = array())
+	function close($asUserId = null, $options = array())
 	{
+		$asUserId = isset($options['asUserId']) ? $options['asUserId'] : null;
 		return Streams::close($asUserId, $this->publisherId, $this->name, $options);
 	}
 	

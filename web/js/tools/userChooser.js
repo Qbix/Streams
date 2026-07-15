@@ -70,6 +70,7 @@ Q.Tool.define("Streams/userChooser", function(o) {
 		'tab-index': 9000
 	}).on(Q.Pointer.start.eventName + ' focusin', function () {
 		tool.focusedResults = true;
+		tool.start();
 	}).appendTo('body');
 
 	tool.Q.onStateChanged('resultsHeight').set(function () {
@@ -78,17 +79,7 @@ Q.Tool.define("Streams/userChooser", function(o) {
 	
 	var lastQuery = null;
 	
-	tool.interval = setInterval(function () {
-		if ($te.is(':visible')) {
-			tool.$results.removeClass('Streams_userChooser_hidden');
-			// keep repositioning results if needed
-			tool.$results.css({
-				top: tool.$input.offset().top + tool.$input.outerHeight() + 'px',
-			});
-		} else {
-			tool.$results.addClass('Streams_userChooser_hidden');
-		}
-	}, 300);
+	tool.start();
 
 	var _byPrefix = Q.debounce(function (onResponse, options) {
 		tool.$input.css({
@@ -220,6 +211,7 @@ Q.Tool.define("Streams/userChooser", function(o) {
 			if (Q.isEmpty(avatars)) {
 				return tool.$results.remove();
 			}
+			tool.start();
 			tool.$results.empty();
 			var show = 0;
 			for (var k in avatars) {
@@ -326,6 +318,21 @@ Q.Tool.define("Streams/userChooser", function(o) {
 },
 
 {
+	start: function () {
+		var tool = this;
+		clearInterval(this.interval);
+		this.interval = setInterval(function () {
+			if (tool.$input.is(':visible')) {
+				tool.$results.removeClass('Streams_userChooser_hidden');
+				// keep repositioning results if needed
+				tool.$results.css({
+					top: tool.$input.offset().top + tool.$input.outerHeight() + 'px',
+				});
+			} else {
+				tool.$results.addClass('Streams_userChooser_hidden');
+			}
+		}, 100);
+	},
 	end: function () {
 		var tool = this;
 		tool.focusedResults = false;
