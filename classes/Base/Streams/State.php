@@ -340,7 +340,7 @@ abstract class Base_Streams_State extends Db_Row
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".hash");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".hash");
 		return array('hash', $value);			
 	}
@@ -531,7 +531,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".extra");
-		if (strlen($value) > 1023)
+		if (mb_strlen($value) > 1023)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".extra");
 		return array('extra', $value);			
 	}
@@ -586,7 +586,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".uri");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".uri");
 		return array('uri', $value);			
 	}

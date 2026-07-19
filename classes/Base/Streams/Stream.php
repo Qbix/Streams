@@ -490,7 +490,7 @@ abstract class Base_Streams_Stream extends Db_Row
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".publisherId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".publisherId");
 		return array('publisherId', $value);			
 	}
@@ -545,7 +545,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".name");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".name");
 		return array('name', $value);			
 	}
@@ -697,7 +697,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".type");
-		if (strlen($value) > 63)
+		if (mb_strlen($value) > 63)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".type");
 		return array('type', $value);			
 	}
@@ -752,7 +752,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".title");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".title");
 		return array('title', $value);			
 	}
@@ -807,7 +807,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".icon");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".icon");
 		return array('icon', $value);			
 	}
@@ -862,7 +862,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".content");
-		if (strlen($value) > 4095)
+		if (mb_strlen($value) > 4095)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".content");
 		return array('content', $value);			
 	}
@@ -917,7 +917,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".attributes");
-		if (strlen($value) > 1023)
+		if (mb_strlen($value) > 1023)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".attributes");
 		return array('attributes', $value);			
 	}
@@ -1137,7 +1137,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".permissions");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".permissions");
 		return array('permissions', $value);			
 	}
@@ -1192,7 +1192,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".inheritAccess");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".inheritAccess");
 		return array('inheritAccess', $value);			
 	}
@@ -1594,7 +1594,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".fork");
-		if (strlen($value) > 4095)
+		if (mb_strlen($value) > 4095)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".fork");
 		return array('fork', $value);			
 	}

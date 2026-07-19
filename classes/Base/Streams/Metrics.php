@@ -354,7 +354,7 @@ abstract class Base_Streams_Metrics extends Db_Row
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".userId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".userId");
 		return array('userId', $value);			
 	}
@@ -409,7 +409,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".publisherId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".publisherId");
 		return array('publisherId', $value);			
 	}
@@ -464,7 +464,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".streamName");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".streamName");
 		return array('streamName', $value);			
 	}
@@ -616,7 +616,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".metrics");
-		if (strlen($value) > 65535)
+		if (mb_strlen($value) > 65535)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".metrics");
 		return array('metrics', $value);			
 	}

@@ -330,7 +330,7 @@ abstract class Base_Streams_RelatedToTotal extends Db_Row
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".toPublisherId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".toPublisherId");
 		return array('toPublisherId', $value);			
 	}
@@ -385,7 +385,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".toStreamName");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".toStreamName");
 		return array('toStreamName', $value);			
 	}
@@ -440,7 +440,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".relationType");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".relationType");
 		return array('relationType', $value);			
 	}
@@ -495,7 +495,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".fromStreamType");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".fromStreamType");
 		return array('fromStreamType', $value);			
 	}

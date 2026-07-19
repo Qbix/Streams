@@ -71,6 +71,12 @@
 				"exclude": ["Streams/batch", "Streams/avatar", "Streams/register"]
 			}
 		},
+		"webserver": {
+			"preload": [
+				"Streams", "Streams_Stream", "Streams_Message", "Streams_Access",
+				"Streams_Participant", "Streams_RelatedTo", "Streams_Avatar"
+			]
+		},
 		"bundle": {
 			"exclude": {
 				"Streams": ["img/icons/Streams/interest", "img/icons/files"]

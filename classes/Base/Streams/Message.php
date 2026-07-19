@@ -390,7 +390,7 @@ abstract class Base_Streams_Message extends Db_Row
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".publisherId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".publisherId");
 		return array('publisherId', $value);			
 	}
@@ -445,7 +445,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".streamName");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".streamName");
 		return array('streamName', $value);			
 	}
@@ -618,7 +618,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".byUserId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".byUserId");
 		return array('byUserId', $value);			
 	}
@@ -673,7 +673,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".byClientId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".byClientId");
 		return array('byClientId', $value);			
 	}
@@ -728,7 +728,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".type");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".type");
 		return array('type', $value);			
 	}
@@ -783,7 +783,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".content");
-		if (strlen($value) > 4095)
+		if (mb_strlen($value) > 4095)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".content");
 		return array('content', $value);			
 	}
@@ -838,7 +838,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".instructions");
-		if (strlen($value) > 8191)
+		if (mb_strlen($value) > 8191)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".instructions");
 		return array('instructions', $value);			
 	}

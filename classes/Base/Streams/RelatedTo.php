@@ -365,7 +365,7 @@ abstract class Base_Streams_RelatedTo extends Db_Row
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".toPublisherId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".toPublisherId");
 		return array('toPublisherId', $value);			
 	}
@@ -420,7 +420,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".toStreamName");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".toStreamName");
 		return array('toStreamName', $value);			
 	}
@@ -475,7 +475,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".type");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".type");
 		return array('type', $value);			
 	}
@@ -530,7 +530,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".fromPublisherId");
-		if (strlen($value) > 31)
+		if (mb_strlen($value) > 31)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".fromPublisherId");
 		return array('fromPublisherId', $value);			
 	}
@@ -585,7 +585,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".fromStreamName");
-		if (strlen($value) > 255)
+		if (mb_strlen($value) > 255)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".fromStreamName");
 		return array('fromStreamName', $value);			
 	}
@@ -720,7 +720,7 @@ return array (
 		}
 		if (!is_string($value) and !is_numeric($value))
 			throw new Exception('Must pass a string to '.$this->getTable().".extra");
-		if (strlen($value) > 1023)
+		if (mb_strlen($value) > 1023)
 			throw new Exception('Exceedingly long value being assigned to '.$this->getTable().".extra");
 		return array('extra', $value);			
 	}
