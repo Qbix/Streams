@@ -43,31 +43,30 @@ Ep.getFields = function () {
     return Q.copy(this.payload);
 };
 
+
 /**
- * This method is here for some ephemerals designed to be compatible with messages.
- * Get all the instructions from an ephemeral, by JSON parsing this.instructions
- * If instructions is not set, or if there is an error, still returns an object, but it's empty.
+ * Get all the instructions from a message.
+ * 
  * @method getAllInstructions
- * @return {Object}
  */
-Ep.getAllInstructions = function _Ephemeral_prototype_getAllInstructions () {
+Ep.getAllInstructions = function _Message_prototype_getAllInstructions () {
     try {
-        return JSON.parse(this.instructions);
+        return JSON.parse(this.fields.instructions);
     } catch (e) {
-        return {};
+        return undefined;
     }
 };
 
 /**
- * This method is here for some ephemerals designed to be compatible with messages.
- * Get the value of an instruction in the ephemeral, if any, otherwise return undefined.
+ * Get the value of an instruction in the message
+ * 
  * @method getInstruction
  * @param {String} instructionName
- * @return {any}
  */
-Ep.getInstruction = function _Ephemeral_prototype_getInstruction (instructionName) {
+Ep.getInstruction = function _Message_prototype_get (instructionName) {
     var instr = this.getAllInstructions();
     return Q.getObject([instructionName], instr);
 };
+
 
 module.exports = Streams_Ephemeral;

@@ -250,7 +250,7 @@ class Streams_Message extends Base_Streams_Message
 		}
 		
 		// Start posting messages, publisher by publisher
-		$dbtime = Db::toDateTime(Streams::db()->getCurrentTimestamp());
+		$dbtime = Streams::db()->toDateTime(Streams::db()->getCurrentTimestamp());
 		$eventParams = array();
 		$posted = array();
 		$streams = array();
@@ -499,6 +499,8 @@ class Streams_Message extends Base_Streams_Message
 		foreach ($posted as $publisherId => $arr) {
 			foreach ($arr as $streamName => $messages3) {
 				$stream = $streams[$publisherId][$streamName];
+				// Invalidate server-side cache for pages depending on this stream
+				Q_Response::invalidateCacheDeps($publisherId . '/' . $streamName);
 				foreach ($messages3 as $i => $message) {
 					$params = $eventParams[$publisherId][$streamName][$i];
 					/**

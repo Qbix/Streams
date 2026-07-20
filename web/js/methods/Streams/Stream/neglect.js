@@ -22,4 +22,4 @@ Q.exports(function(priv, Streams, Stream){
 			Q.handle(callback);
         });
     };
-})
+});

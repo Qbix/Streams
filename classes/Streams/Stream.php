@@ -967,6 +967,9 @@ class Streams_Stream extends Base_Streams_Stream
 		 */
 		$params = array('stream' => $this);
 		Q::event("Streams/Stream/save/{$this->type}", $params, 'after');
+
+		// Invalidate server-side component cache for pages depending on this stream
+		Q_Response::invalidateCacheDeps($this->publisherId . '/' . $this->name);
 		
 		if ($wasInserted !== 'insertManyAndExecute'
 		or $asUserId === $this->publisherId) {

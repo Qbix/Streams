@@ -177,7 +177,13 @@
 					"Users/owners": 1000,
 					"Users/admins": 1000
 				}
-			}
+			},
+			"Streams/check": {
+				"60": { 
+					"": 100, 
+					"Users/admins": 1000
+				}
+            }
 		},
 		"referred": {
 			"Streams/invite/accept": {
