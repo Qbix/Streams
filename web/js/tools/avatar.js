@@ -287,8 +287,7 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 								stream.refresh(function () {
 									state.onUpdate.handle.call(tool, this);
 								}, {
-									unlessSocket: true,
-									changed: { icon: true }
+									unlessSocket: true
 								});
 							}},
 							cacheBust: state.cacheBust
