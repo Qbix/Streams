@@ -159,6 +159,14 @@
 		"writeLevel": 0,
 		"adminLevel": 0
 	},
+	"Streams/user/phoneNumber": {
+		"type": "Streams/text/phoneNumber",
+		"title": "Phone Number",
+		"icon": "",
+		"readLevel": 0,
+		"writeLevel": 0,
+		"adminLevel": 0
+	},
 	"Streams/user/xid/web3": {
 		"type": "Streams/xid/web3",
 		"title": "Web3 Address",

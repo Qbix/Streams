@@ -514,6 +514,7 @@
 			"Streams/text/url": {"emoji": "🔗", "create": true, "edit": true},
 			"Streams/text/emailAddress": {"emoji": "📧", "create": true, "edit": true},
 			"Streams/text/mobileNumber": {"emoji": "📱", "create": true, "edit": true},
+			"Streams/text/phoneNumber": {"emoji": "📱", "create": true, "edit": true},
 			"Streams/date": {"emoji": "📆", "create": true, "edit": true},
 			"Streams/number": {"emoji": "🔢", "create": true, "edit": true},
 			"Streams/xid/web3": {"emoji": "🆔", "create": true, "edit": true},
