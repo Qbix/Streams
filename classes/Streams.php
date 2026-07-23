@@ -1250,7 +1250,10 @@ abstract class Streams extends Base_Streams
 		if (!isset($fields)) {
 			$fields = array();
 		}
-		$relate = isset($options['relate']) ? $options['relate'] : null;
+		$relate = Q::ifset($options, 'relate', null);
+		if (!empty($relate) && empty($relate['publisherId'])) {
+			$relate['publisherId'] = $publisherId;
+		}
 		$skipAccess = Q::ifset($options, 'skipAccess', false);
 		$private = Q::ifset($options, 'private', false);
 		$accessProfileName = Q::ifset($options, 'accessProfileName', null);
