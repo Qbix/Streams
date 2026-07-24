@@ -1946,7 +1946,10 @@ var Stream = Streams.Stream = function (fields) {
 			if (k === 'access') {
 				this.access = Q.copy(v);
 			} else if (k === 'participant') {
-				this.participant = new Q.Streams.Participant(v);
+				var p = this.participant = new Q.Streams.Participant(v);
+				Q.Streams.Participant.get.cache.set(
+					[v.publisherId, v.streamName, v.userId], 0, p, [null, p]
+				);
 			}
 			delete this.fields[k];
 		}
@@ -2219,6 +2222,7 @@ Stream.release = function _Stream_release (publisherId, streamName) {
  *   @param {Number} [options.unlessSocket] Whether to avoid doing any requests when a socket is attached
  *   @param {Object} [options.changed=null] An Object of {fieldName: true} pairs naming fields to trigger change events for, even if their values stayed the same.
  *   @param {Boolean} [options.evenIfNotRetained] If the stream wasn't retained (for example because it was missing last time), then refresh anyway
+ *   @param {Object} [options.getOptions] Any extra options to pass to Q.Streams.get when called
  *   @param {Object} [options.extra] Any extra parameters to pass to the callback
  * @return {boolean} Returns false if refresh was canceled because stream was not retained
  */
@@ -2254,7 +2258,7 @@ Stream.refresh = function _Stream_refresh (publisherId, streamName, callback, op
 						}
 					}
 				}
-			});
+			}, o.getOptions || {});
 		}, options);
 		if (result === null || result instanceof Q.Pipe) {
 			// We didn't even try to wait for messages,
