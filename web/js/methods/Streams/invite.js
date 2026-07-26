@@ -8,7 +8,7 @@ Q.exports(function() {
      * @param {String} streamName The name of the stream you are inviting to
      * @param {Object} [options] More options that are passed to the API, which can include:
      * @param {String|Array} [options.identifier] An email address or mobile number to invite. Might not belong to an existing user yet. Can also be an array of identifiers.
-     * @param {String|Array} [options.description] Description of what user can do when they invite others.
+     * @param {String} [options.description] Customize description of what user can do when they invite others.
      * @param {boolean} [options.token=false] Pass true here to generate an invite
      *	which you can then send to anyone however you like. When they show up with the token
      *	and presents it via "Q.Streams.token" querystring parameter, the Streams plugin
@@ -31,6 +31,7 @@ Q.exports(function() {
      * @param {Boolean} [options.dontAutoAccept=false] Tell Streams not to try to have recipient user auto-accept invite
      * @param {String} [options.uri] If you need to hit a custom "Module/action" endpoint
      * @param {String} [options.title] Custom dialog title.
+     * @param {String} [options.className] Custom dialog CSS class
      * @param {String} [options.userChooser=false] If true allow to invite registered users with Streams/userChooser tool.
      * @param {Function} callback Called with (err, result) .
      *   In this way you can obtain the invite token, email addresses, etc.
@@ -533,7 +534,7 @@ Q.exports(function() {
                     var dialogOptions = Q.take(o, [
                         'title', 'description', 'identifierTypes', 'userChooser',
                         'appUrl', 'showGrantRolesButton', 'showGrantRelationshipsButton',
-                        'addLabel', 'addMyLabel', 'hide'
+                        'addLabel', 'addMyLabel', 'hide', 'className'
                     ]);
                     dialogOptions.showGrantRolesDialog = function() {
                         _showGrantRolesDialog(_showInviteDialog);

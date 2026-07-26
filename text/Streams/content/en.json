@@ -182,6 +182,9 @@
 		},
 		"chat": {
 			"prompt": "You'll be inviting people to a conversation where you can stay in touch, share photos together, and more. Give it a name:"
+		},
+		"inperson": {
+			"description": "Generate a QR code and pass it around, to be scanned. Everyone who scans it will stay connected with each other:"
 		}
 	},
 	"messages": {

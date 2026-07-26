@@ -371,3 +371,9 @@ telegram
 .Streams_invite_option {
 	border-color: var(--dialog-color);
 }
+
+
+.Streams_inperson_invite .Streams_invite_select_contacts ,
+.Streams_inperson_invite .Streams_invite_share_link {
+	display: none;
+}

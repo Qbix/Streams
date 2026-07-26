@@ -9,6 +9,8 @@ Q.exports(function(Users, Streams) {
 	 *  It is passed an object with keys "suggestion", "stream", "data"
 	 * @param {object} [options] Different options
 	 * @param {string} [options.title] Custom dialog title
+     * @param {String} [options.description] Customize description of what user can do when they invite others.
+	 * @param {String} [options.className] Custom dialog CSS class
 	 * @param {string} [options.token] Use to set the invite token, if you have enough permissions
 	 * @param {String} [options.userChooser=false] If true allow to invite registered users with Streams/userChooser tool.
 	 * @param {String} [options.sendBy] Set this to immediately invoke a specific method for the invite as soon as the dialog appears (e.g., 'contactPicker', 'sms', 'email', 'copyLink', 'QR')
@@ -151,6 +153,7 @@ Q.exports(function(Users, Streams) {
 			if(options.templateName == 'Streams/templates/invite/classicDialog'){
 				dialog = Q.Dialogs.push({
 					title: options.title || text.title,
+					className: options.className,
 					template: {
 						name: 'Streams/templates/invite/dialog',
 						fields: {
