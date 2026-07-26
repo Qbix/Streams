@@ -1943,9 +1943,9 @@ var Stream = Streams.Stream = function (fields) {
 	for (var k in Streams.Stream.properties) {
 		if (k in fields) {
 			var v = this[k] = fields[k];
-			if (k === 'access') {
+			if (k === 'access' && v) {
 				this.access = Q.copy(v);
-			} else if (k === 'participant') {
+			} else if (k === 'participant' && v) {
 				var p = this.participant = new Q.Streams.Participant(v);
 				Q.Streams.Participant.get.cache.set(
 					[v.publisherId, v.streamName, v.userId], 0, p, [null, p]
