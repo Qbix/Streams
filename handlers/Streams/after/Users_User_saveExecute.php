@@ -14,7 +14,9 @@ function Streams_after_Users_User_saveExecute($params)
 	$modifiedFields = $params['modifiedFields'];
 	$user = $params['row'];
 	$updates = array();
-	if (isset($modifiedFields['username'])) {
+	if (isset($modifiedFields['username'])
+	&& $modifiedFields['username'] !== null
+	&& $modifiedFields['username'] !== '') {
 		$updates['username'] = $modifiedFields['username'];
 	}
 	if (isset($modifiedFields['icon'])) {
@@ -316,10 +318,16 @@ function Streams_after_Users_User_saveExecute($params)
 					Streams::$beingSavedQuery = $stream->changed($user->id);
 				}
 			} else {
-				$stream = isset(Streams::$beingSaved[$field])
-					? Streams::$beingSaved[$field]
-					: Streams_Stream::fetch($user->id, $user->id, $name);
+				$stream = Q::ifset(Streams::$beingSaved, $field, null);
+				if (!($stream instanceof Streams_Stream)) {
+					$stream = Streams_Stream::fetch($user->id, $user->id, $name);
+				}
 				if (!$stream) { // it should probably already be in the db
+					continue;
+				}
+
+				// Do not blank Streams/user/username when Users.username was cleared on conflict
+				if ($field === 'username' && ($value === null || $value === '')) {
 					continue;
 				}
 
