@@ -7038,7 +7038,8 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
-	 * Remove streams from the system, including all related rows.
+	 * Remove streams from the system, including all related rows
+	 * and their upload directories under Q/uploads/Streams.
 	 * @method remove
 	 * @static
 	 * @param {string} $publisherId
@@ -7090,6 +7091,10 @@ abstract class Streams extends Base_Streams
 		Streams_Stream::delete()
 			->where(array('publisherId' => $publisherId, 'name' => $streamNames))
 			->execute();
+
+		foreach ($streamNames as $streamName) {
+			Q_Utils::rmdir(self::uploadsDirectory($publisherId, $streamName));
+		}
 		
 		/**
 		 * @event Streams/remove {after}

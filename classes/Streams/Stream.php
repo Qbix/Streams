@@ -891,14 +891,7 @@ class Streams_Stream extends Base_Streams_Stream
 				// unless we're already handling saving a user
 				$user = Users_User::fetch($this->publisherId, true);
 				$user->$publicField = $modifiedFields[$field];
-				try {
-					// attempt to save user with the username
-					$user->save(false, false, true);
-				} catch (Users_Exception_UsernameExists $e) {
-					// fallback to a null username, but still save the user')
-					$user->username = null;
-					$user->save(false, false, true);
-				}
+				$user->save(false, false, true);
 			} catch (Exception $e) {
 				Streams::$beingSaved[$publicField] = array();
 				throw $e;
