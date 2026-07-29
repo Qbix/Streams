@@ -1399,7 +1399,7 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 		    return callback && callback(err);
 		}
 		if (!access) {
-			return;
+			return callback && callback(null, false)
 		}
 		
 		// 1) check for socket clients which are online
@@ -1453,10 +1453,10 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 
 			// don't send offline notifications if paused
 			if (Streams.Notification.paused) {
-				return false;
+				return callback && callback(null, false)
 			}
 
-			Streams.Subscription.test(userId, stream, messageOrEphemeral, _continue2);
+			Streams.Subscription.test(userId, stream, messageOrEphemeral, participant, _continue2);
 		}
 		function _continue2(err, deliveries) {
 			var message = messageOrEphemeral;
@@ -1483,6 +1483,9 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 			// actually notify according to the deliveriy rules
 			var byUserId = message.fields.byUserId;
 			Streams.Avatar.fetch(userId, byUserId, function (err, avatar) {
+				if (err) {
+					callback && callback(err, []);
+				}
 				var logfile = Q.Config.get(
 					['Streams', 'types', '*', 'messages', '*', 'log'],
 					false
@@ -1504,7 +1507,10 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 					});
 				}
 				// This is only for "Streams/invited"
-				var instructions = JSON.parse(message.fields.instructions);
+				var instructions = {};
+				try {
+					instructions = JSON.parse(message.fields.instructions);
+				} catch (e) {}
 				new Streams.Invite({
 					token: instructions.token
 				}).retrieve(function(err, rows) {
@@ -1560,7 +1566,7 @@ Sp.notify = function(participant, event, messageOrEphemeral, callback) {
 				for (var platform in devices) {
 					for (var i=0; i<devices[platform].length; i++) {
 						var d = devices[platform][i];
-						var clients = Users.User.clientsOnline(userId, d[i].sessionId);
+						var clients = Users.User.clientsOnline(userId, d.sessionId);
 						if (!Q.isEmpty(clients)) {
 							return _continue(true);
 						}

@@ -40,7 +40,21 @@ Q.mixin(Streams_Subscription, Q.require('Base/Streams/Subscription'));
  * @param {Q.Streams.Messagel} message
  * @param {Function} callback First argument is any possible error, second is array of delivery methods
  */
-Streams_Subscription.test = function _Subscription_test(userId, stream, message, callback) {
+/**
+ * Test message according to filters set up for the user and generate array of subscription rules
+ * @method test
+ * @static
+ * @param {String} userId
+ * @param {Q.Streams.Stream} stream
+ * @param {Q.Streams.Message} message
+ * @param {Function} callback First argument is any possible error, second is array of delivery methods
+ * @param {Streams_Participant} [participant] Pass the participant row if you already
+ *   have it, to avoid re-querying it when the subscription has a "participant" filter.
+ *   Ignored unless it matches userId, publisherId and streamName.
+ */
+Streams_Subscription.test = function _Subscription_test(
+	userId, stream, message, participant, callback
+) {
 	if (!callback) return;
 	var msgType = message.getType();
 	(new Streams.Subscription({
@@ -80,10 +94,6 @@ Streams_Subscription.test = function _Subscription_test(userId, stream, message,
 		} catch (err) {
 			return callback(err);
 		}
-		if (!filter) {
-			console.log('debugger');
-			debugger;
-		}
 		var types = (filter && filter.types) || [];
 		var matched = false;
 		for (var i=0, l=types.length; i<l; ++i) {
@@ -99,126 +109,177 @@ Streams_Subscription.test = function _Subscription_test(userId, stream, message,
 			for (var instruction in instructions) {
 				var p = instructions[instruction];
 				var v = Q.getObject(instruction, allInstructions);
-				if (v !== undefined && !String(v).match(p)) {
+				if (v === undefined || !String(v).match(p)) {
 					matchedInstructions = false;
 					break;
 				}
 			}
 		}
-		var notifications = filter.notifications;
 		if (!matched || !matchedInstructions) {
 			return callback(null, []); // not subscribed to this message type or instructions do not match
 		}
-		Streams.SubscriptionRule.SELECT('*').where({
-			ofUserId: userId,
-			publisherId: stream.fields.publisherId,
-			streamName: stream.fields.name
-		}).execute(function(err, rules) {
+
+		// only trust a passed-in participant row if it's actually for this
+		// user and stream, otherwise treat it as if it wasn't passed at all
+		var known = (participant
+			&& participant.fields.userId === userId
+			&& participant.fields.publisherId === stream.fields.publisherId
+			&& participant.fields.streamName === stream.fields.name
+		) ? participant : null;
+
+		var fp = (filter && filter.participant);
+		if (known) {
+			return _testParticipant(known);
+		}
+		if (!fp) {
+			return _proceed(); // nothing needs the row, so don't query for it
+		}
+		stream.getParticipant(userId, function (err, row) {
 			if (err) return callback(err);
-			var waitFor = rules.map(function(r){ return r.fields.ordinal; });
-			var p = new Q.Pipe(waitFor, 1, function (params) {
-				var deliveries = [], ordinal, param;
-				for (ordinal in params) {
-					param = params[ordinal];
-					if (param[0]) {
-						return callback(param[0]);
-					}
-					if (param[1]) {
-						deliveries.push(param[1]);
-					}
+			if (!row) return callback(null, []); // no longer a participant
+			_testParticipant(row);
+		});
+
+		function _testParticipant(participant) {
+			if (participant.fields.state !== 'participating') {
+				return callback(null, []);
+			}
+			if (!fp) {
+				return _proceed();
+			}
+			var allExtras = participant.getAllExtras() || {};
+			for (var extra in fp) {
+				var v = Q.getObject(extra, allExtras);
+				if (v === undefined || !_matchesExtra(v, fp[extra])) {
+					return callback(null, []);
 				}
-				callback(null, deliveries);
-			});
-			p.run();
-			rules.forEach(function (rule) {
-				var o = rule.fields.ordinal;
-				var readyTime = rule.fields.readyTime;
-				var filter;
-				try {
-					filter = rule.fields.filter ? JSON.parse(rule.fields.filter) : {};
-				} catch (e) {
-					return p.fill(o)(e);
-				}
-				var types = filter.types;
-				function _checkNotifications() {
-					if (!notifications) {
-						return _checkDelivery();
+			}
+			_proceed();
+		}
+
+		function _matchesExtra(value, pattern) {
+			if (Array.isArray(value)) {
+				return value.some(function (item) {
+					return String(item).match(pattern);
+				});
+			}
+			return !!String(value).match(pattern);
+		}
+
+		function _proceed() {
+			var notifications = filter.notifications;
+			Streams.SubscriptionRule.SELECT('*').where({
+				ofUserId: userId,
+				publisherId: stream.fields.publisherId,
+				streamName: stream.fields.name
+			}).execute(function(err, rules) {
+				if (err) return callback(err);
+				if (!rules.length) return callback(null, []); // nothing to wait on
+				var waitFor = rules.map(function(r){ return r.fields.ordinal; });
+				var p = new Q.Pipe(waitFor, 1, function (params) {
+					var deliveries = [], ordinal, param;
+					for (ordinal in params) {
+						param = params[ordinal];
+						if (param[0]) {
+							return callback(param[0]);
+						}
+						if (param[1]) {
+							deliveries.push(param[1]);
+						}
 					}
-					// get last disconnection time
-					Streams.Message.SELECT('publisherId, streamName, type, sentTime')
-					.where({
-						publisherId: userId,
-						streamName: 'Streams/participating',
-						type: 'Streams/disconnected'
-					}).orderBy('sentTime', false)
-					.limit(1)
-					.execute(function(err, res) {
+					callback(null, deliveries);
+				});
+				p.run();
+				rules.forEach(function (rule) {
+					var o = rule.fields.ordinal;
+					var readyTime = rule.fields.readyTime;
+					var filter;
+					try {
+						filter = rule.fields.filter ? JSON.parse(rule.fields.filter) : {};
+					} catch (e) {
+						return p.fill(o)(e);
+					}
+					var types = filter.types;
+					function _checkNotifications() {
+						if (!notifications) {
+							return _checkDelivery();
+						}
+						// get last disconnection time
+						Streams.Message.SELECT('publisherId, streamName, type, sentTime')
+						.where({
+							publisherId: userId,
+							streamName: 'Streams/participating',
+							type: 'Streams/disconnected'
+						}).orderBy('sentTime', false)
+						.limit(1)
+						.execute(function(err, res) {
+							if (err) {
+								return p.fill(o)(err);
+							}
+							// NOTE: all Streams/participating for a given stream must be on the same shard
+							var timeOnline = res.length
+								? res.reduce(function(pv, cv) {
+									return pv > cv ? pv : cv;
+								}, res[0].sentTime)
+								: (readyTime ? readyTime : 0);
+							// now check notifications since timeOnline
+							Streams.Notification.SELECT('COUNT(1) as count').where({
+								userId: userId,
+								"insertedTime >": timeOnline,
+								publisherId: stream.fields.publisherId,
+								streamName: stream.fields.name,
+								type: msgType
+							}).execute(function (err, res) {
+								if (err) return p.fill(o)(err);
+								// to support counting in shards
+								var count = res.reduce(function(pv, cv) { 
+									return pv + Number(cv.count); 
+								}, 0);
+								if (count < notifications) {
+									_checkDelivery();
+								} else {
+									p.fill(o)();
+								}
+							}, {plain: true});
+						}, { plain: true });
+					}
+					function _checkDelivery() {
+						var deliver;
+						try {
+							deliver = rule.fields.deliver ? JSON.parse(rule.fields.deliver) : null;
+						} catch (e) {
+							return p.fill(o)(e);
+						}
+						p.fill(o)(null, deliver);
+					}
+					var notFound = (
+						types && Q.typeOf(types) === 'array'
+						&& types.length && types.indexOf(msgType) < 0
+					);
+					if (notFound || (Date.fromTimestamp(readyTime) > new Date())) {
+						// type and readyTime filters not passed
+						return p.fill(o)();
+					}					
+					var labels = filter.labels;
+					if (!labels || Q.typeOf(labels) !== "array" || !labels.length) {
+						return _checkNotifications();
+					}
+					Users.Contact.SELECT('*').where({
+						userId: userId,
+						contactUserId: stream.fields.publisherId,
+						label: labels
+					}).execute(function (err, contacts) {
 						if (err) {
 							return p.fill(o)(err);
 						}
-						// NOTE: all Streams/participating for a given stream must be on the same shard
-						var timeOnline = res.length
-							? res.reduce(function(pv, cv) {
-								return pv > cv ? pv : cv;
-							}, res[0].sentTime)
-							: (readyTime ? readyTime : 0);
-						// now check notifications since timeOnline
-						Streams.Notification.SELECT('COUNT(1) as count').where({
-							userId: userId,
-							"insertedTime >": timeOnline,
-							publisherId: stream.fields.publisherId,
-							streamName: stream.fields.name,
-							type: msgType
-						}).execute(function (err, res) {
-							if (err) return p.fill(o)(err);
-							// to support counting in shards
-							var count = res.reduce(function(pv, cv) { 
-								return pv + Number(cv.count); 
-							}, 0);
-							if (count < notifications) {
-								_checkDelivery();
-							} else {
-								p.fill(o)();
-							}
-						}, {plain: true});
-					}, { plain: true });
-				}
-				function _checkDelivery() {
-					var deliver;
-					try {
-						deliver = rule.fields.deliver ? JSON.parse(rule.fields.deliver) : null;
-					} catch (e) {
-						p.fill(o)(e);
-					}
-					p.fill(o)(null, deliver);
-				}
-				var notFound = (
-					types && Q.typeOf(types) === 'array'
-					&& types.length && types.indexOf(msgType) < 0
-				);
-				if (notFound || (Date.fromTimestamp(readyTime) > new Date())) {
-					// type and readyTime filters not passed
-					return p.fill(o)();
-				}					
-				var labels = filter.labels;
-				if (!labels || Q.typeOf(labels) !== "array" || !labels.length) {
-					return _checkNotifications();
-				}
-				Users.Contact.SELECT('*').where({
-					userId: userId,
-					contactUserId: stream.fields.publisherId,
-					label: labels
-				}).execute(function (err, contacts) {
-					if (err) {
-						return p.fill(o)(err);
-					}
-					if (!contacts.length) {
-						return p.fill(o)();
-					}
-					_checkNotifications();
+						if (!contacts.length) {
+							return p.fill(o)();
+						}
+						_checkNotifications();
+					});
 				});
 			});
-		});
+		}
 	});
 
 	/* * * */

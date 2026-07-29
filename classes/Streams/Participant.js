@@ -75,7 +75,7 @@ var Pp = Streams_Participant.prototype;
  */
 Pp.getAllExtras = function _Participant_prototype_getAllExtras () {
 	try {
-		return JSON.parse(this.fields.extra);
+		return JSON.parse(this.fields.extra) || {};
 	} catch (e) {
 		return {};
 	}
