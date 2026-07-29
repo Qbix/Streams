@@ -2254,7 +2254,7 @@ class Streams_Stream extends Base_Streams_Stream
 	 */
 	function close($asUserId = null, $options = array())
 	{
-		$asUserId = isset($options['asUserId']) ? $options['asUserId'] : null;
+		$asUserId = Q::ifset($options, 'asUserId', $asUserId);
 		return Streams::close($asUserId, $this->publisherId, $this->name, $options);
 	}
 	
