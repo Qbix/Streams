@@ -555,7 +555,7 @@ class Streams_Invite extends Base_Streams_Invite
 	static function tokenInSession($onlyAccepted = false)
 	{
 		$followed = Q::ifset($_SESSION, 'Streams', 'invite', 'token', null);
-		$accepted = Q::ifset($_SESSION, 'Streams', 'inviteFollowed', null);
+		$accepted = Q::ifset($_SESSION, 'Streams', 'inviteFollowed', 'token', null);
 		return $onlyAccepted ? $accepted : ($accepted ? $accepted : $followed);
 	}
 	
