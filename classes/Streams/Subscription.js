@@ -52,6 +52,41 @@ Q.mixin(Streams_Subscription, Q.require('Base/Streams/Subscription'));
  *   have it, to avoid re-querying it when the subscription has a "participant" filter.
  *   Ignored unless it matches userId, publisherId and streamName.
  */
+/**
+ * Test message according to filters set up for the user and generate array of subscription rules
+ *
+ * The filter can contain:
+ *
+ *   {
+ *     "types": [ ...patterns matched against the message type... ],
+ *     "instructions": { "<path>": "<pattern>" },   // applied to every type
+ *     "participant":  { "<path>": "<pattern>" },   // applied to every type
+ *     "messages": {
+ *       "<messageType>": {
+ *         "instructions": { ... },   // applies to this type only
+ *         "participant":  { ... }    // applies to this type only
+ *       }
+ *     },
+ *     "notifications": 0
+ *   }
+ *
+ * A "messages" section REPLACES the corresponding top-level filter for that
+ * message type rather than merging with it, so a type can opt out of a global
+ * rule by setting the key to null. Top-level "instructions" and "participant"
+ * apply to every message type that passed "types" — a message lacking one of
+ * the named instruction paths is filtered out, so prefer the per-type form
+ * unless the rule genuinely applies to everything.
+ *
+ * @method test
+ * @static
+ * @param {String} userId
+ * @param {Q.Streams.Stream} stream
+ * @param {Q.Streams.Message} message
+ * @param {Streams_Participant} [participant] Pass the participant row if you already
+ *   have it, to avoid re-querying it when the subscription has a "participant" filter.
+ *   Ignored unless it matches userId, publisherId and streamName.
+ * @param {Function} callback First argument is any possible error, second is array of delivery methods
+ */
 Streams_Subscription.test = function _Subscription_test(
 	userId, stream, message, participant, callback
 ) {
@@ -76,7 +111,7 @@ Streams_Subscription.test = function _Subscription_test(
 				filter = JSON.parse(sub.fields.filter);
 			}
 			if (!filter) {
-				// even if bad JSON, let's just do this as a fallback
+				// even if bad JSON, let's just do this as a fallback.
 				filter = Streams.Stream.getConfigField(
 					stream.fields.type, 
 					['subscriptions', 'filter'],
@@ -102,7 +137,13 @@ Streams_Subscription.test = function _Subscription_test(
 				break;
 			}
 		}
-		var instructions = (filter && filter.instructions);
+
+		// per-message-type overrides, if any
+		var mf = Q.getObject(['messages', msgType], filter) || {};
+
+		var instructions = ('instructions' in mf)
+			? mf.instructions
+			: (filter && filter.instructions);
 		var allInstructions = message.getAllInstructions();
 		var matchedInstructions = true;
 		if (instructions) {
@@ -127,7 +168,9 @@ Streams_Subscription.test = function _Subscription_test(
 			&& participant.fields.streamName === stream.fields.name
 		) ? participant : null;
 
-		var fp = (filter && filter.participant);
+		var fp = ('participant' in mf)
+			? mf.participant
+			: (filter && filter.participant);
 		if (known) {
 			return _testParticipant(known);
 		}

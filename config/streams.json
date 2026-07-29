@@ -36,7 +36,7 @@
 		"readLevel": 0,
 		"writeLevel": 20,
 		"adminLevel": 0,
-		"subscribe": {
+		"subscriptions": {
 			"filter": {
 				"types": ["Streams/invited"],
 				"notifications": 0
@@ -55,7 +55,7 @@
 		"readLevel": 0,
 		"writeLevel": 20,
 		"adminLevel": 0,
-		"subscribe": {
+		"subscriptions": {
 			"filter": {
 				"types": ["Streams/mention"],
 				"notifications": 0
