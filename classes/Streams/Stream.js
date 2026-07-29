@@ -567,60 +567,50 @@ Sp.calculateAccess = function(asUserId, callback) {
 		return callback.call(subj);
 	}
 
-	var p = new Q.Pipe(['rows1', 'rows2'], function (res) {
-		var i, j, row;
-		var err = res.rows1[0] || res.rows2[0];
+	// Get the per-label access data — match PHP Streams::calculateAccess:
+	// publisherId may be '' (template) or the stream publisher; streamName may be
+	// the exact name or type* mutable template.
+	Streams.Access.SELECT('*').where({
+		'publisherId': ['', publisherIdForAccess],
+		'streamName': [this.fields.name, this.fields.type + '*'],
+		'ofUserId': this.fields.name.substr(-1) === '/' ? asUserId : ['', asUserId]
+	}).execute(function (err, accesses) {
 		if (err) {
 			return callback.call(subj, err);
 		}
-		var rows1 = res.rows1[1];
-		var rows2 = res.rows2[1];
-		for (i = 0; i < rows2.length; ++i) {
-			var access = rows2[i].fields;
+		accesses = accesses || [];
+		var i, j, row;
+		var exactName = subj.fields.name;
+		var mutableName = subj.fields.type + '*';
+		var hasExact = false;
+		for (i = 0; i < accesses.length; ++i) {
+			if (accesses[i].fields.streamName === exactName) {
+				hasExact = true;
+				break;
+			}
+		}
+		// Match PHP: drop mutable type* rows when an explicit streamName row exists
+		var rows = [];
+		for (i = 0; i < accesses.length; ++i) {
+			row = accesses[i];
+			if (hasExact && row.fields.streamName === mutableName) {
+				continue;
+			}
+			rows.push(row);
+		}
+		for (i = 0; i < rows.length; ++i) {
+			var access = rows[i].fields;
 			if (
 				access.ofUserId === '' &&
 				!access.ofContactLabel &&
 				!access.ofParticipantRole
 			) {
-				var head = access.streamName.slice(0, -1);
-				if (subj.fields.type === head) {
-					_setStreamAccess(subj, rows2[i], Streams.ACCESS_SOURCES['public']);
-				}
+				_setStreamAccess(subj, rows[i], Streams.ACCESS_SOURCES['public']);
 			}
-		}
-		// Apply universal access overrides for concrete (non-mutable) rules
-		for (i = 0; i < rows1.length; ++i) {
-			var access = rows1[i].fields;
-			if (
-				access.publisherId === '' &&
-				access.ofUserId === '' &&
-				!access.ofContactLabel &&
-				!access.ofParticipantRole
-			) {
-				// Concrete universal rule: matches this exact stream name
-				if (access.streamName === subj.fields.name) {
-					_setStreamAccess(subj, rows1[i], Streams.ACCESS_SOURCES['public']);
-				}
-			}
-		}
-		var rows = rows1.concat([]);
-		theloop:
-		for (i=0; i<rows2.length; ++i) {
-			var row2 = rows2[i];
-			for (j=0; j<rows1.length; ++j) {
-				var row1 = rows1[j];
-				if (row2.fields.streamName
-				=== row1.fields.streamName + '*') {
-					// skip the mutable access, because
-					// explicit stream access overrides it
-					continue theloop;
-				}
-			}
-			rows.push(row2);
 		}
 		var labels = [];
 		var fetchParticipantRow = false;
-		for (i=0; i<rows.length; i++) {
+		for (i = 0; i < rows.length; i++) {
 			row = rows[i];
 			if (row.fields.ofContactLabel) {
 				labels.push(row.fields.ofContactLabel);
@@ -634,23 +624,22 @@ Sp.calculateAccess = function(asUserId, callback) {
 		}
 		var p = new Q.Pipe(['contacts', 'participants'], function (res) {
 			if (res.contacts[0] || res.participants[0]) {
-				return callback.call(subj, err);
+				return callback.call(subj, res.contacts[0] || res.participants[0]);
 			}
 
 			var contacts = res.contacts[1];
 			var participants = res.participants[1];
 
 			// NOTE: we load arrays into memory and hope they are not too large
-			var i, j;
-			for (i=0; i<rows.length; ++i) {
-				var row = rows[i];
-				for (j=0; j<contacts.length; j++) {
+			for (i = 0; i < rows.length; ++i) {
+				row = rows[i];
+				for (j = 0; j < contacts.length; j++) {
 					if (row.fields.ofContactLabel === contacts[j].fields.label) {
 						_setStreamAccess(subj, rows[i], Streams.ACCESS_SOURCES['contact']);
 					}
 				}
-				var p = participants[0];
-				if (p && p.testRoles(row.fields.ofParticipantRole)) {
+				var participant = participants[0];
+				if (participant && participant.testRoles(row.fields.ofParticipantRole)) {
 					_setStreamAccess(subj, rows[i], Streams.ACCESS_SOURCES['participant']);
 				}
 			}
@@ -658,7 +647,7 @@ Sp.calculateAccess = function(asUserId, callback) {
 		});
 		if (labels.length > 0) {
 			Users.Contact.SELECT('*').where({
-				'userId':  subj.fields.publisherId,
+				'userId': publisherIdForAccess,
 				'label': labels,
 				'contactUserId': asUserId
 			}).execute(p.fill('contacts'));
@@ -674,81 +663,70 @@ Sp.calculateAccess = function(asUserId, callback) {
 		} else {
 			p.fill('participants')(null, []);
 		}
-		function _setStreamAccess(stream, access, source) {
-			var readLevel =  stream.get('readLevel', 0);
-			var writeLevel = stream.get('writeLevel', 0);
-			var adminLevel = stream.get('adminLevel', 0);
-			if (access.fields.readLevel >= 0 && access.fields.readLevel > readLevel) {
-				stream.set('readLevel', access.fields.readLevel);
-				stream.set('readLevel_source', source);
-			}
-			if (access.fields.writeLevel >= 0 && access.fields.writeLevel > writeLevel) {
-				stream.set('writeLevel', access.fields.writeLevel);
-				stream.set('writeLevel_source', source);
-			}
-			if (access.fields.adminLevel >= 0 && access.fields.adminLevel > adminLevel) {
-				stream.set('adminLevel', access.fields.adminLevel);
-				stream.set('adminLevel_source', source);
-			}
-			var p1 = stream.get('permissions', []);
-			var p2 = access.getAllPermissions();
-			var p3 = [].concat(p1);
-			for (var k=0; k<p2.length; ++k) {
-				if (p3.indexOf(p2[k]) < 0) {
-					p3.push(p2[k]);
-				}
-			}
-			stream.set('permissions', p3);
-			stream.set('permissions_source', source);
-			 // NOTE: permissions are merged from more than one source
-		}
 	});
 
-	// For workspace publishers (e.g. "alice~ws1"), resolve access against
-	// the base publisher ("alice") so label/contact lookups work correctly.
-	var publisherIdForAccess = this.fields.publisherId;
-	var tildePos = publisherIdForAccess.indexOf('~');
-	if (tildePos !== -1) {
-		publisherIdForAccess = publisherIdForAccess.slice(0, tildePos);
+	function _setStreamAccess(stream, access, source) {
+		// Match PHP Streams::_setStreamAccess: only apply rows for this stream
+		var accessStreamName = access.fields.streamName;
+		if (accessStreamName !== stream.fields.name
+		&& accessStreamName !== stream.fields.type + '*') {
+			return;
+		}
+		var readLevel = stream.get('readLevel', 0);
+		var writeLevel = stream.get('writeLevel', 0);
+		var adminLevel = stream.get('adminLevel', 0);
+		if (access.fields.readLevel >= 0 && access.fields.readLevel > readLevel) {
+			stream.set('readLevel', access.fields.readLevel);
+			stream.set('readLevel_source', source);
+		}
+		if (access.fields.writeLevel >= 0 && access.fields.writeLevel > writeLevel) {
+			stream.set('writeLevel', access.fields.writeLevel);
+			stream.set('writeLevel_source', source);
+		}
+		if (access.fields.adminLevel >= 0 && access.fields.adminLevel > adminLevel) {
+			stream.set('adminLevel', access.fields.adminLevel);
+			stream.set('adminLevel_source', source);
+		}
+		var p1 = stream.get('permissions', []);
+		var p2perm = access.getAllPermissions();
+		var p3 = [].concat(p1);
+		for (var k = 0; k < p2perm.length; ++k) {
+			if (p3.indexOf(p2perm[k]) < 0) {
+				p3.push(p2perm[k]);
+			}
+		}
+		stream.set('permissions', p3);
+		stream.set('permissions_source', source);
+		 // NOTE: permissions are merged from more than one source
 	}
-
-	// Get the per-label access data
-	// Avoid making a join to allow more flexibility for sharding
-	Streams.Access.SELECT('*').where({
-		'publisherId': publisherIdForAccess,
-		'streamName': this.fields.name, // exact stream
-		'ofUserId': this.fields.name.substr(-1) === '/' ? asUserId : ['', asUserId]
-			// and either generic or specific user, if check template access use only specific
-	}).execute(p.fill('rows1'));
-
-	Streams.Access.SELECT('*').where({
-		'publisherId': ['', publisherIdForAccess],
-		'streamName': this.fields.type+"*",	// generic stream
-		'ofUserId': ['', asUserId]				// and specific user
-	}).execute(p.fill('rows2'));
 
 	function _perUserData(subj, rows, callback) {
 		var row, i;
 		var direct_source = Streams.ACCESS_SOURCES['direct'];
-		for (i=0; i<rows.length; i++) {
+		for (i = 0; i < rows.length; i++) {
 			row = rows[i];
-			if (row.fields.ofUserId === asUserId) {
-				if (row.fields.readLevel >= 0) {
-					subj.set('readLevel', row.fields.readLevel);
-					subj.set('readLevel_source', direct_source);
-				}
-				if (row.fields.writeLevel >= 0) {
-					subj.set('writeLevel', row.fields.writeLevel);
-					subj.set('writeLevel_source', direct_source);
-				}
-				if (row.fields.adminLevel >= 0) {
-					subj.set('adminLevel', row.fields.adminLevel);
-					subj.set('adminLevel_source', direct_source);
-				}
-				if (row.fields.permissions != null) {
-					subj.set('permissions', row.getAllPermissions());
-					subj.set('permissions_source', direct_source);
-				}
+			if (row.fields.ofUserId !== asUserId) {
+				continue;
+			}
+			if (row.fields.streamName !== subj.fields.name
+			&& row.fields.streamName !== subj.fields.type + '*') {
+				continue;
+			}
+			if (row.fields.readLevel >= 0) {
+				subj.set('readLevel', row.fields.readLevel);
+				subj.set('readLevel_source', direct_source);
+			}
+			if (row.fields.writeLevel >= 0) {
+				subj.set('writeLevel', row.fields.writeLevel);
+				subj.set('writeLevel_source', direct_source);
+			}
+			if (row.fields.adminLevel >= 0) {
+				subj.set('adminLevel', row.fields.adminLevel);
+				subj.set('adminLevel_source', direct_source);
+			}
+			if (row.fields.permissions != null) {
+				subj.set('permissions', row.getAllPermissions());
+				subj.set('permissions_source', direct_source);
 			}
 		}
 		callback.call(subj);
