@@ -545,16 +545,18 @@ class Streams_Invite extends Base_Streams_Invite
 	}
 
 	/**
-	 * Returns the latest invite that was accepted in this session.
-	 * Doesn't return Streams_Invite::$followedInvite unless accept()
-	 * was called on it, and it became the latest invite in this session.
-	 * @method tokenAcceptedInSession
+	 * Returns the latest invite that was accepted in this session
+	 * or set to be accepted when user logs in;
+	 * or if that is missing, the invite that was followed (but not accepted yet).
+	 * @method tokenInSession
 	 * @static
 	 * @return {Streams_Invite|null}
 	 */
-	static function tokenAcceptedInSession()
+	static function tokenInSession($onlyAccepted = false)
 	{
-		return Q::ifset($_SESSION, 'Streams', 'invite', 'token', null);
+		$followed = Q::ifset($_SESSION, 'Streams', 'invite', 'token', null);
+		$accepted = Q::ifset($_SESSION, 'Streams', 'inviteFollowed', null);
+		return $onlyAccepted ? $accepted : ($accepted ? $accepted : $followed);
 	}
 	
 	static protected $cache = array();
