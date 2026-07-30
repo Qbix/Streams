@@ -848,6 +848,10 @@ Q.Tool.define({
 	},
 	"Streams/subscription" : "{{Streams}}/js/tools/subscription.js",
 	"Streams/interests"	: "{{Streams}}/js/tools/interests.js",
+	"Streams/markdown": {
+		js: "{{Streams}}/js/tools/markdown.js",
+		css: "{{Streams}}/css/tools/markdown.css"
+	},
 	"Streams/lookup"	   : "{{Streams}}/js/tools/lookup.js",
 	"Streams/relate"	   : "{{Streams}}/js/tools/relate.js",
 	"Streams/related"	  : "{{Streams}}/js/tools/related.js",
