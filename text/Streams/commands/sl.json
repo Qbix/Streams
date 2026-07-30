@@ -1,0 +1,41 @@
+{
+	"_comment": "Besedilo ukaza Streams. &#39;commands&#39; = oznake za prikaz (UI); &#39;phrases&#39; = prepoznane fraze, povezane z ukazom. Oblike fraz: &quot;substring&quot;, &quot;/regex/&quot; ali predloga &quot;give {{name}} access&quot; \u2013 vsakih {{token}} se prevede v zajem. Streams zdaj poseduje ukaze za nadzor dostopa in preoblikovanje (obdelovalca Streams/commands/streamCommand in Streams/commands/cssUpdate); navigacijo z mediji; generiranje z umetno inteligenco.",
+	"commands": {
+		"tool/cssUpdate": "Orodje za preoblikovanje",
+		"stream/create": "Ustvari tok",
+		"stream/grantAccess": "Odobri dostop",
+		"stream/revokeAccess": "Prekli\u010di dostop"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"spremeni barvo na {{prompt}}",
+			"spremenite barve na {{prompt}}",
+			"prebarvaj {{prompt}}",
+			"preoblikujte orodje {{prompt}}",
+			"naredite barve {{prompt}}"
+		],
+		"stream/create": [
+			"ustvari tok {{prompt}}",
+			"ustvari {{prompt}} stream",
+			"za\u010dni {{prompt}}",
+			"ustvari igro {{prompt}}",
+			"Igrajmo {{prompt}}",
+			"vzpostaviti {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"omogo\u010di {{name}} dostop do objave",
+			"Naj {{name}} objavi",
+			"dodeli {{name}} dostop za pisanje",
+			"dovoli {{name}} objavo",
+			"dodaj {{name}} kot gosta",
+			"povabi {{name}} k objavi"
+		],
+		"stream/revokeAccess": [
+			"odstranite dostop uporabnika {{name}}",
+			"prekli\u010di dostop uporabnika {{name}}",
+			"odvzemite dostop uporabniku {{name}}",
+			"odstranite {{name}} iz toka",
+			"blokiraj {{name}} pri objavljanju"
+		]
+	}
+}

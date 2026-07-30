@@ -1,0 +1,41 @@
+{
+	"_comment": "Texte des commandes Streams. \u00ab\u00a0commandes\u00a0\u00bb = \u00e9tiquettes d&#39;affichage (interface utilisateur)\u00a0; \u00ab\u00a0phrases\u00a0\u00bb = phrases reconnues, index\u00e9es par commande. Formes de phrases\u00a0: \u00ab\u00a0substring\u00a0\u00bb, \u00ab\u00a0/regex/\u00a0\u00bb, ou mod\u00e8le \u00ab\u00a0give {{name}} access\u00a0\u00bb \u2014 chaque tranche {{token}} est compil\u00e9e en une capture. Streams g\u00e8re d\u00e9sormais les commandes de contr\u00f4le d&#39;acc\u00e8s et de personnalisation (gestionnaires Streams/commands/streamCommand et Streams/commands/cssUpdate)\u00a0; navigation des m\u00e9dias\u00a0; g\u00e9n\u00e9ration des IA.",
+	"commands": {
+		"tool/cssUpdate": "Outil de restyle",
+		"stream/create": "Cr\u00e9er un flux",
+		"stream/grantAccess": "Accorder l&#39;acc\u00e8s",
+		"stream/revokeAccess": "R\u00e9voquer l&#39;acc\u00e8s"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"changer la couleur en {{prompt}}",
+			"Changez les couleurs \u00e0 {{prompt}}",
+			"recolorez-le {{prompt}}",
+			"Repenser l&#39;outil {{prompt}}",
+			"Rendez les couleurs {{prompt}}"
+		],
+		"stream/create": [
+			"cr\u00e9er un flux {{prompt}}",
+			"cr\u00e9er un flux {{prompt}}",
+			"d\u00e9marrer un {{prompt}}",
+			"cr\u00e9er un jeu {{prompt}}",
+			"Jouons {{prompt}}",
+			"configurer un {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"Donner {{name}} l&#39;acc\u00e8s \u00e0 la publication",
+			"Laissez {{name}} messages",
+			"accorder l&#39;acc\u00e8s en \u00e9criture {{name}}",
+			"autoriser {{name}} \u00e0 publier",
+			"Ajouter {{name}} comme invit\u00e9",
+			"inviter {{name}} \u00e0 publier"
+		],
+		"stream/revokeAccess": [
+			"supprimer l&#39;acc\u00e8s de {{name}}",
+			"r\u00e9voquer l&#39;acc\u00e8s de {{name}}",
+			"Supprimer l&#39;acc\u00e8s au {{name}}",
+			"supprimer {{name}} du flux",
+			"Bloquer {{name}} pour emp\u00eacher la publication"
+		]
+	}
+}

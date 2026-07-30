@@ -160,7 +160,8 @@
 			"HasInvitedYou": "thug s\u00e9 cuireadh duit:",
 			"HasInvitedYouToTheirProfile": "thug cuireadh duit ceangal a dh\u00e9anamh.",
 			"prompt": "Lig do chairde t\u00fa a aithint:",
-			"accept": "Glac le Cuireadh"
+			"accept": "Glac le Cuireadh",
+			"RolesOffered": "R\u00f3lanna at\u00e1 \u00e1 dtairiscint duit:"
 		},
 		"email": {
 			"subject": "Hey, seice\u00e1il seo amach",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Beidh t\u00fa ag tabhairt cuireadh do dhaoine chuig comhr\u00e1 inar f\u00e9idir leat fanacht i dteagmh\u00e1il, grianghraif a roinnt le ch\u00e9ile agus tuilleadh. Tabhair ainm d\u00f3:"
 		},
-		"Participants": "Tabhair cuireadh do Dhaoine"
+		"Participants": "Tabhair cuireadh do Dhaoine",
+		"inperson": {
+			"description": "Gin c\u00f3d QR agus cuir timpeall \u00e9, le go scanfar \u00e9. Fanfaidh gach duine a scanfaidh \u00e9 ceangailte lena ch\u00e9ile:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Ag imeacht",
 			"description": "ceann scr\u00edbe le haghaidh teachtaireachta\u00ed a sheoltar chuig \u00fas\u00e1ideoir\u00ed eile n\u00f3 c\u00f3rais sheachtracha a thaifeadadh"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontola\u00edocht",
+			"description": "ontola\u00edocht",
+			"newItem": "Cuir Ontola\u00edocht leis"
 		}
 	},
 	"menu": {

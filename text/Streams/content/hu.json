@@ -160,7 +160,8 @@
 			"HasInvitedYou": "megh\u00edvott t\u00e9ged a k\u00f6vetkez\u0151kre:",
 			"HasInvitedYouToTheirProfile": "megh\u00edvta \u00d6nt, hogy csatlakozzon.",
 			"prompt": "Hagyd, hogy bar\u00e1taid felismerjenek:",
-			"accept": "Megh\u00edv\u00e1s elfogad\u00e1sa"
+			"accept": "Megh\u00edv\u00e1s elfogad\u00e1sa",
+			"RolesOffered": "Felk\u00edn\u00e1lt szerepk\u00f6r\u00f6k:"
 		},
 		"email": {
 			"subject": "H\u00e9, ezt n\u00e9zd meg",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Megh\u00edvja az embereket egy besz\u00e9lget\u00e9sre, ahol kapcsolatban maradhat, k\u00f6z\u00f6s fot\u00f3kat oszthat meg, \u00e9s \u00edgy tov\u00e1bb. Adj neki nevet:"
 		},
-		"Participants": "Emberek megh\u00edv\u00e1sa"
+		"Participants": "Emberek megh\u00edv\u00e1sa",
+		"inperson": {
+			"description": "Gener\u00e1lj egy QR-k\u00f3dot, \u00e9s add tov\u00e1bb, hogy beolvashass\u00e1k. Mindenki, aki beolvassa, kapcsolatban maradhat egym\u00e1ssal:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Kimen\u0151",
 			"description": "m\u00e1s felhaszn\u00e1l\u00f3knak vagy k\u00fcls\u0151 rendszereknek k\u00fcld\u00f6tt \u00fczenetek r\u00f6gz\u00edt\u00e9s\u00e9nek c\u00e9lhelye"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontol\u00f3gia",
+			"description": "ontol\u00f3gia",
+			"newItem": "Ontol\u00f3gia hozz\u00e1ad\u00e1sa"
 		}
 	},
 	"menu": {

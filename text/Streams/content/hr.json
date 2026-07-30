@@ -160,7 +160,8 @@
 			"HasInvitedYou": "vas je pozvao na:",
 			"HasInvitedYouToTheirProfile": "vas je pozvao da se pove\u017eete.",
 			"prompt": "Neka vas prijatelji prepoznaju:",
-			"accept": "Prihvatite poziv"
+			"accept": "Prihvatite poziv",
+			"RolesOffered": "Uloge koje vam se nude:"
 		},
 		"email": {
 			"subject": "Hej, vidi ovo",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Pozvat \u0107ete ljude u razgovor u kojem mo\u017eete ostati u kontaktu, dijeliti zajedni\u010dke fotografije i jo\u0161 mnogo toga. Dajte mu ime:"
 		},
-		"Participants": "Pozovite ljude"
+		"Participants": "Pozovite ljude",
+		"inperson": {
+			"description": "Generirajte QR kod i proslijedite ga dalje radi skeniranja. Svi koji ga skeniraju ostat \u0107e povezani jedni s drugima:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Odlazni",
 			"description": "odredi\u0161te za snimanje poruka poslanih drugim korisnicima ili vanjskim sustavima"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologija",
+			"description": "ontologija",
+			"newItem": "Dodaj ontologiju"
 		}
 	},
 	"menu": {

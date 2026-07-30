@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams geeft tekst weer. &#39;commands&#39; = labels weergeven (UI); &#39;phrases&#39; = herkende zinnen, gekoppeld aan een commando. Zinsvormen: &quot;substring&quot;, &quot;/regex/&quot;, of sjabloon &quot;give {{name}} access&quot; \u2014 elke {{token}} wordt gecompileerd tot een capture. Streams beheert nu de toegangscontrole- en restyle-commando&#39;s (handlers Streams/commands/streamCommand en Streams/commands/cssUpdate); Media verzorgt de navigatie; AI verzorgt de generatie.",
+	"commands": {
+		"tool/cssUpdate": "Restyle-tool",
+		"stream/create": "Stream maken",
+		"stream/grantAccess": "Toegang verlenen",
+		"stream/revokeAccess": "Toegang intrekken"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"verander de kleur naar {{prompt}}",
+			"verander de kleuren naar {{prompt}}",
+			"kleur het opnieuw {{prompt}}",
+			"Geef het gereedschap {{prompt}} een nieuwe look.",
+			"maak de kleuren {{prompt}}"
+		],
+		"stream/create": [
+			"een {{prompt}} stream cre\u00ebren",
+			"maak een {{prompt}} stream",
+			"start een {{prompt}}",
+			"maak een {{prompt}} spel",
+			"Laten we {{prompt}} spelen.",
+			"een {{prompt}} instellen"
+		],
+		"stream/grantAccess": [
+			"Geef {{name}} toegang tot het bericht",
+			"laat {{name}} berichten",
+			"Geef schrijftoegang aan {{name}}",
+			"Sta {{name}} toe om te posten",
+			"Voeg {{name}} toe als gast",
+			"Nodig {{name}} uit om te posten"
+		],
+		"stream/revokeAccess": [
+			"Verwijder de toegang van {{name}}",
+			"{{name}} &#39;s toegang intrekken",
+			"neem de toegang van {{name}} weg",
+			"verwijder {{name}} uit de stream",
+			"Blokkeer {{name}} om te voorkomen dat het geplaatst wordt"
+		]
+	}
+}

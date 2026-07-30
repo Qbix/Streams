@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams-kommandotext. &#39;commands&#39; = displayetiketter (UI); &#39;phrases&#39; = igenk\u00e4nda fraser, knappade in av kommandot. Frasformer: &quot;substring&quot;, &quot;/regex/&quot;, eller mallbaserad &quot;give {{name}} access&quot; \u2014 varje {{token}} kompileras till en avbildning. Streams \u00e4ger nu kommandona f\u00f6r \u00e5tkomstkontroll och omformulering (hanterare Streams/commands/streamCommand och Streams/commands/cssUpdate); navigering av medialeveranser; generering av AI-leveranser.",
+	"commands": {
+		"tool/cssUpdate": "Omformningsverktyg",
+		"stream/create": "Skapa str\u00f6m",
+		"stream/grantAccess": "Bevilja \u00e5tkomst",
+		"stream/revokeAccess": "\u00c5terkalla \u00e5tkomst"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"\u00e4ndra f\u00e4rgen till {{prompt}}",
+			"\u00e4ndra f\u00e4rgerna till {{prompt}}",
+			"f\u00e4rgl\u00e4gg om det {{prompt}}",
+			"omforma verktyget {{prompt}}",
+			"g\u00f6r f\u00e4rgerna {{prompt}}"
+		],
+		"stream/create": [
+			"skapa en {{prompt}} str\u00f6m",
+			"skapa en {{prompt}} stream",
+			"starta en {{prompt}}",
+			"skapa ett {{prompt}} -spel",
+			"l\u00e5t oss spela {{prompt}}",
+			"st\u00e4lla in en {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"ge {{name}} tillg\u00e5ng till post",
+			"l\u00e5t {{name}} posta",
+			"ge {{name}} skriv\u00e5tkomst",
+			"till\u00e5t {{name}} att posta",
+			"l\u00e4gg till {{name}} som g\u00e4st",
+			"bjud in {{name}} att posta"
+		],
+		"stream/revokeAccess": [
+			"ta bort {{name}} :s \u00e5tkomst",
+			"\u00e5terkalla {{name}} :s \u00e5tkomst",
+			"ta bort {{name}} :s \u00e5tkomst",
+			"ta bort {{name}} fr\u00e5n str\u00f6mmen",
+			"blockera {{name}} fr\u00e5n bokf\u00f6ring"
+		]
+	}
+}

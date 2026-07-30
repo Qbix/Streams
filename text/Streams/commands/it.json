@@ -1,0 +1,41 @@
+{
+	"_comment": "Testo dei comandi di Streams. &#39;comandi&#39; = etichette di visualizzazione (interfaccia utente); &#39;frasi&#39; = frasi riconosciute, indicizzate dal comando. Forme delle frasi: &quot;sottostringa&quot;, &quot;/regex/&quot;, o con modello &quot;dai accesso {{name}} &quot; \u2014 ogni {{token}} viene compilato in una cattura. Streams ora possiede i comandi di controllo degli accessi e di restyle (gestori Streams/commands/streamCommand e Streams/commands/cssUpdate); Media gestisce la navigazione; AI gestisce la generazione.",
+	"commands": {
+		"tool/cssUpdate": "Strumento di restyling",
+		"stream/create": "Crea stream",
+		"stream/grantAccess": "Concessione dell&#39;accesso",
+		"stream/revokeAccess": "Revoca l&#39;accesso"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"cambia il colore in {{prompt}}",
+			"cambia i colori a {{prompt}}",
+			"ricoloralo {{prompt}}",
+			"rimodella lo strumento {{prompt}}",
+			"rendere i colori {{prompt}}"
+		],
+		"stream/create": [
+			"creare un flusso {{prompt}}",
+			"creare uno streaming {{prompt}}",
+			"avviare un {{prompt}}",
+			"crea un gioco {{prompt}}",
+			"giochiamo {{prompt}}",
+			"impostare un {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"dare accesso al post {{name}}",
+			"lasciare che {{name}} pubblichi",
+			"concedere l&#39;accesso in scrittura {{name}}",
+			"consentire {{name}} di pubblicare",
+			"aggiungi {{name}} come ospite",
+			"invitare {{name}} a pubblicare"
+		],
+		"stream/revokeAccess": [
+			"rimuovere l&#39;accesso di {{name}}",
+			"revocare l&#39;accesso al {{name}}",
+			"togliere l&#39;accesso al {{name}}",
+			"rimuovere {{name}} dal flusso",
+			"bloccare {{name}} dalla pubblicazione"
+		]
+	}
+}

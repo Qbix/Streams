@@ -160,7 +160,8 @@
 			"HasInvitedYou": "sizi d\u0259v\u0259t etdi:",
 			"HasInvitedYouToTheirProfile": "qo\u015fulma\u011fa d\u0259v\u0259t etdi.",
 			"prompt": "Dostlar sizi tan\u0131s\u0131n:",
-			"accept": "D\u0259v\u0259ti q\u0259bul edin"
+			"accept": "D\u0259v\u0259ti q\u0259bul edin",
+			"RolesOffered": "Siz\u0259 t\u0259klif olunan rollar:"
 		},
 		"email": {
 			"subject": "Hey, bunu yoxlay\u0131n",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Siz insanlar\u0131 s\u00f6hb\u0259t\u0259 d\u0259v\u0259t ed\u0259c\u0259ksiniz, burada \u0259laq\u0259 saxlaya bil\u0259rsiniz, foto\u015f\u0259kill\u0259ri birlikd\u0259 payla\u015fa v\u0259 s. Bir ad verin:"
 		},
-		"Participants": "\u0130nsanlar\u0131 D\u0259v\u0259t Et"
+		"Participants": "\u0130nsanlar\u0131 D\u0259v\u0259t Et",
+		"inperson": {
+			"description": "QR kodu yarad\u0131n v\u0259 skan edilm\u0259si \u00fc\u00e7\u00fcn \u00f6t\u00fcr\u00fcn. Onu skan ed\u0259n h\u0259r k\u0259s bir-biri il\u0259 \u0259laq\u0259d\u0259 qalacaq:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Ged\u0259n",
 			"description": "dig\u0259r istifad\u0259\u00e7il\u0259r\u0259 v\u0259 ya xarici sisteml\u0259r\u0259 g\u00f6nd\u0259ril\u0259n mesajlar\u0131 qeyd etm\u0259k \u00fc\u00e7\u00fcn t\u0259yinat yeri"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologiya",
+			"description": "ontologiya",
+			"newItem": "Ontologiya \u0259lav\u0259 edin"
 		}
 	},
 	"menu": {

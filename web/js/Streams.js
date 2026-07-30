@@ -1070,7 +1070,7 @@ Streams.Dialogs = Q.Method.define({
             templateName: "Streams/templates/invite/dialog",
             photo: true
         }       
-    }),
+    })
 }, '{{Streams}}/js/methods/Streams/Dialogs', function () {
 	return [Users, Streams];
 });
@@ -4752,103 +4752,101 @@ Q.onInit.add(function _Streams_onInit() {
 		_connectSockets(true);
 	}, 'Streams');
 
-	function _Streams_onInvited() {
-		var params = Q.getObject("Q.plugins.Streams.invited.dialog");
-		if (!params || _Streams_onInvited.showed) {
-			return;
+	/**
+	 * Fill in everything the invited templates need, and render the
+	 * explanation into params.explanation. Both entry points (page load, and
+	 * after login when the server hands the payload back) need this, and it's
+	 * idempotent so calling it twice on the same params object is free.
+	 * @param {Object} params Q.plugins.Streams.invited.dialog
+	 * @param {Function} [callback] Receives (params)
+	 */
+	function _prepareInvitedParams(params, callback) {
+		if (params._prepared) {
+			return Q.handle(callback, Streams, [params]);
 		}
-		if (Q.Users.loggedInUser && Q.Users.loggedInUser.sessionCount > 1) {
-			// return; // in this case, skip the dialog for now
-		}
-		_Streams_onInvited.showed = true;
-		var delay = params.delay || 2000;
-		var mask = Q.Masks.show('Streams.onInvited', {
-			fadeIn: 0
-		});
-		var t;
-		$(mask.element).on('click', function () {
-			_showWelcomeFlow();
-			t && clearInterval(t);
-		});
-		Q.onReady.addOnce(function () {
-			// don't use "load" event because it might not fire on the page
-			// if some image is broken for example
-			t = setTimeout(_showWelcomeFlow, delay);
-		});
-		function _showWelcomeFlow() {
-			Q.Masks.hide('Streams.onInvited');
-			var explanationTemplateName = params.explanationTemplateName || 'Streams/templates/invited/explanation';
-			Stream.construct(params.stream, function () {
-				Q.extend(params, {
-					stream: this,
-					communityId: params.communityId || Q.Users.communityId,
-					communityName: params.communityName || Q.Users.communityName,
-					button: Q.getObject('Q.text.Streams.invite.complete.accept')
-						 || Q.getObject('Q.text.Users.login.registerButton'),
-					prompt: (params.prompt !== undefined)
-						? params.prompt
-						: Q.getObject('Q.text.Streams.invite.complete.prompt')
-				});
-				let url = params.stream.fields.icon;
-				if (/\.\w{3,4}$/.test(url)) {
-					params.stream.fields.icon = url.substring(0, url.lastIndexOf('/'));
-				}
-				Q.Template.render(explanationTemplateName, params, function (err, html) {
-					params.explanation = html;
-					if (Q.Users.loggedInUserId()) {
-						_showDialog();
-					} else {
-						params.loggedInFirst = true;
-						Q.Users.login({
-							onSuccess: {'Users': _inviteComplete},
-							noClose: true,
-							explanation: html,
-							wasInvited: true
-						});
-					}
-				});
-			}, true);
-		}
-		function _inviteComplete() {
-			var params = {
-				evenIfNotRetained: true,
-				unlessSocket: true
-			};
-			var p = new Q.Pipe(['first', 'last'], function (params) {
-				Q.handle(Streams.onInviteComplete, Streams, [params.first[0], params.last[0]]);
+		var explanationTemplateName = params.explanationTemplateName
+			|| 'Streams/templates/invited/explanation';
+		Stream.construct(params.stream, function () {
+			Q.extend(params, {
+				stream: this,
+				communityId: params.communityId || Q.Users.communityId,
+				communityName: params.communityName || Q.Users.communityName,
+				button: Q.getObject('Q.text.Streams.invite.complete.accept')
+					|| Q.getObject('Q.text.Users.login.registerButton'),
+				prompt: (params.prompt !== undefined)
+					? params.prompt
+					: Q.getObject('Q.text.Streams.invite.complete.prompt')
 			});
-			Stream.refresh(Users.loggedInUser.id,
-				'Streams/user/firstName', p.fill('first'), params
-			);
-			Stream.refresh(Users.loggedInUser.id,
-				'Streams/user/lastName', p.fill('last'), params
-			);
-		}
-		function _showDialog() {
-			var templateName = params.templateName || 'Streams/templates/invited/complete';
-			Q.Template.render(templateName, params, function(err, html) {
-				var dialog = $(html);
-				var interval;
-				Q.Dialogs.push({
-					dialog: dialog,
-					className: 'Streams_completeInvited_dialog',
-					mask: true,
-					noClose: true,
-					closeOnEsc: false,
-					beforeClose: function () {
-						if (interval) {
-							clearInterval(interval);
-						}
-					},
-					onActivate: {'Streams.completeInvited': function _Streams_completeInvited() {
-						Streams.onInvitedDialog.handle.call(Streams, [dialog]);
+			var url = params.stream.fields.icon;
+			if (/\.\w{3,4}$/.test(url)) {
+				params.stream.fields.icon = url.substring(0, url.lastIndexOf('/'));
+			}
+			Q.Template.render(explanationTemplateName, params, function (err, html) {
+				params.explanation = html;
+				params._prepared = true;
+				Q.handle(callback, Streams, [params]);
+			});
+		}, true);
+	}
+
+	/**
+	 * Show the "you were invited" dialog. Submitting the form accepts the
+	 * invite, via the Q.Streams.acceptInvite hidden field the template carries.
+	 *
+	 * Someone with no name yet is brand new and is forced through — registering
+	 * is the consent. Someone who already has a name has an account, so they can
+	 * close it instead, which leaves the invite pending exactly as declining
+	 * would (nothing persists a decline).
+	 *
+	 * @param {Object} params Prepared by _prepareInvitedParams
+	 * @param {Function} [callback] Receives (err, accepted). Fires once, from
+	 *   either the accept path or onClose, so callers can resume a login flow.
+	 */
+	function _showInvitedDialog(params, callback) {
+		var templateName = params.templateName || 'Streams/templates/invited/complete';
+		Q.Template.render(templateName, params, function (err, html) {
+			if (err) {
+				return Q.handle(callback, Streams, [err, null]);
+			}
+			var dialog = $(html);
+			var interval;
+			var accepted = false;
+			Q.Dialogs.push({
+				dialog: dialog,
+				className: 'Streams_completeInvited_dialog',
+				mask: true,
+				noClose: !!params.nameIsMissing,
+				closeOnEsc: !params.nameIsMissing,
+				beforeClose: function () {
+					if (interval) {
+						clearInterval(interval);
+					}
+				},
+				onClose: function () {
+					if (!accepted) {
+						// left pending — same outcome as declining
+						Q.handle(callback, Streams, [null, false]);
+					}
+				},
+				onActivate: {'Streams.completeInvited': function _Streams_completeInvited() {
+					Streams.onInvitedDialog.handle.call(Streams, [dialog]);
+
+					// closing is how you decline; a template may offer a button
+					// for it, which must be type="button" so it doesn't submit
+					dialog.find('.Streams_invited_decline')
+						.on(Q.Pointer.fastclick, function () {
+							dialog.data('Q/dialog').close();
+							return false;
+						});
+
+					if (params.nameIsMissing) {
 						var l = Q.text.Users.login;
 						dialog.find('#Streams_login_fullname')
 							.attr('maxlength', l.maxlengths.fullName)
 							.attr('placeholder', l.placeholders.fullName)
 							.plugin('Q/placeholders');
 						if (!Q.info.isTouchscreen) {
-							var $input = $('input', dialog).eq(0);
+							var $input = dialog.find('#Streams_login_fullname');
 							$input.plugin('Q/clickfocus');
 							interval = setInterval(function () {
 								if ($input.val() || $input[0] === document.activeElement) {
@@ -4857,49 +4855,148 @@ Q.onInit.add(function _Streams_onInit() {
 								$input.plugin('Q/clickfocus');
 							}, 100);
 						}
-						var $complete_form = dialog.find('form')
-							.plugin('Q/validator')
-							.submit(function(e) {
-								e.preventDefault();
-								var baseUrl = Q.baseUrl({
-									publisherId: Q.plugins.Users.loggedInUser.id,
-									streamName: "Streams/user/firstName"
-								});
-								var url = 'Streams/basic?' + $(this).serialize();
-								Q.req(url, ['data'], function _Streams_basic(err, data) {
-									var msg = Q.firstErrorMessage(err, data);
-									if (data && data.errors) {
-										$complete_form.plugin('validator', 'invalidate',
-											Q.ajaxErrors(data.errors, ['fullName'])
-										);
-										$('input', $complete_form).eq(0)
-											.plugin('Q/clickfocus');
-										return;
-									} else if (msg) {
-										return alert(msg);
-									}
-									$complete_form.plugin('Q/validator', 'reset');
-									dialog.data('Q/dialog').close();
-									_inviteComplete();
-								}, {method: "post", quietly: true, baseUrl: baseUrl});
-							}).on('submit keydown', Q.debounce(function (e) {
-								if (e.type === 'keydown'
-									&& (e.keyCode || e.which) !== 13) {
+					}
+
+					var $complete_form = dialog.find('form')
+						.plugin('Q/validator')
+						.submit(function (e) {
+							e.preventDefault();
+							var baseUrl = Q.baseUrl({
+								publisherId: Q.plugins.Users.loggedInUser.id,
+								streamName: "Streams/user/firstName"
+							});
+							var url = $(this).attr('action') + '?' + $(this).serialize();
+							Q.req(url, ['data'], function _Streams_basic(err, data) {
+								var msg = Q.firstErrorMessage(err, data);
+								if (data && data.errors) {
+									$complete_form.plugin('validator', 'invalidate',
+										Q.ajaxErrors(data.errors, ['fullName'])
+									);
+									dialog.find('#Streams_login_fullname')
+										.plugin('Q/clickfocus');
 									return;
+								} else if (msg) {
+									return alert(msg);
 								}
-								var val = dialog.find('#Streams_login_fullname').val();
-								Streams.onInvitedUserAction.handle.call(
-									[val, dialog]
-								);
-							}, 0));
-						$('button', $complete_form).on('touchstart', function () {
-							$(this).submit();
-						});
-					}}
-				});
+								$complete_form.plugin('Q/validator', 'reset');
+								accepted = true;
+								dialog.data('Q/dialog').close();
+								_inviteComplete();
+								Q.handle(callback, Streams, [null, true]);
+							}, {method: "post", quietly: true, baseUrl: baseUrl});
+						}).on('submit keydown', Q.debounce(function (e) {
+							if (e.type === 'keydown'
+								&& (e.keyCode || e.which) !== 13) {
+								return;
+							}
+							var val = dialog.find('#Streams_login_fullname').val();
+							Streams.onInvitedUserAction.handle.call(
+								Streams, [val, dialog]
+							);
+						}, 0));
+					$('button[type=submit]', $complete_form).on('touchstart', function () {
+						$complete_form.submit();
+					});
+				}}
+			});
+		});
+	}
+
+	/**
+	 * Refresh the name streams and announce that the invite flow finished.
+	 * Guarded so onboarding isn't kicked off twice in one page lifetime; on a
+	 * fresh page load firing again is fine, since onboarding steps skip
+	 * whatever is already done.
+	 */
+	function _inviteComplete() {
+		var o = {
+			evenIfNotRetained: true,
+			unlessSocket: true
+		};
+		var p = new Q.Pipe(['first', 'last'], function (params) {
+			if (Streams.onInviteComplete.occurred) {
+				return;
+			}
+			Q.handle(Streams.onInviteComplete, Streams, [
+				params.first[0], params.last[0]
+			]);
+		});
+		Stream.refresh(Users.loggedInUser.id,
+			'Streams/user/firstName', p.fill('first'), o
+		);
+		Stream.refresh(Users.loggedInUser.id,
+			'Streams/user/lastName', p.fill('last'), o
+		);
+	}
+
+	/**
+	 * Page-load entry point. Only fires when the server put a payload in
+	 * script data, which it does for an invite followed in this session that
+	 * still needs explicit consent.
+	 */
+	function _Streams_onInvited() {
+		var params = Q.getObject("Q.plugins.Streams.invited.dialog");
+		if (!params || _Streams_onInvited.showed) {
+			return;
+		}
+		_Streams_onInvited.showed = true;
+		var delay = params.delay || 2000;
+		var mask = Q.Masks.show('Streams.onInvited', {
+			fadeIn: 0
+		});
+		var t;
+		var flowed = false;
+		$(mask.element).on('click', function () {
+			t && clearTimeout(t);
+			_showWelcomeFlow();
+		});
+		Q.onReady.addOnce(function () {
+			// don't use "load" event because it might not fire on the page
+			// if some image is broken for example
+			t = setTimeout(_showWelcomeFlow, delay);
+		});
+		function _showWelcomeFlow() {
+			if (flowed) {
+				return;
+			}
+			flowed = true;
+			Q.Masks.hide('Streams.onInvited');
+			_prepareInvitedParams(params, function () {
+				if (Q.Users.loggedInUserId()) {
+					// already logged in, so nothing will call setLoggedInUser
+					// and this is the only chance to ask
+					_showInvitedDialog(params);
+				} else {
+					// after they log in or register, the server decides whether
+					// consent is still needed and sets script data again;
+					// the onActivated handler below picks that up
+					params.loggedInFirst = true;
+					Q.Users.login({
+						noClose: !!params.nameIsMissing,
+						explanation: params.explanation,
+						wasInvited: true
+					});
+				}
 			});
 		}
 	}
+
+	// After login or registration, Q.Response.processScriptDataAndLines() has
+	// already applied whatever Streams_after_Users_setLoggedInUser set. A
+	// payload being present is the server saying "this one needs asking" —
+	// auto-accept types are handled server-side and send nothing.
+	Users.login.options.onActivated.set(function (proceed, user, o, p) {
+		var params = Q.getObject('Q.plugins.Streams.invited.dialog');
+		if (!Q.getObject('token', params)) {
+			return; // accepted server-side, or nothing pending
+		}
+		_prepareInvitedParams(params, function () {
+			_showInvitedDialog(params, function () {
+				proceed(); // continue on to onRequireComplete either way
+			});
+		});
+		return false;
+	}, 'Streams');
 
 	// set up invite complete dialog
 	Q.Page.onLoad('').add(_Streams_onInvited, "Streams.invited");

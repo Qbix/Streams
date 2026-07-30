@@ -160,7 +160,8 @@
 			"HasInvitedYou": "pakviet\u0117 jus \u012f:",
 			"HasInvitedYouToTheirProfile": "pakviet\u0117 jus prisijungti.",
 			"prompt": "Leisk draugams tave atpa\u017einti:",
-			"accept": "Priimti kvietim\u0105"
+			"accept": "Priimti kvietim\u0105",
+			"RolesOffered": "Jums si\u016blomos pareigos:"
 		},
 		"email": {
 			"subject": "Ei, patikrink tai",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Pakviesite \u017emones \u012f pokalb\u012f, kuriame gal\u0117site palaikyti ry\u0161\u012f, dalytis nuotraukomis kartu ir dar daugiau. Suteikite jam pavadinim\u0105:"
 		},
-		"Participants": "Pakvieskite \u017emones"
+		"Participants": "Pakvieskite \u017emones",
+		"inperson": {
+			"description": "Sugeneruokite QR kod\u0105 ir perduokite j\u012f nuskaitymui. Visi, kurie j\u012f nuskaitys, palaikys ry\u0161\u012f tarpusavyje:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "I\u0161einantis",
 			"description": "paskirties vieta, skirta \u012fra\u0161yti prane\u0161imus, siun\u010diamus kitiems vartotojams arba i\u0161orin\u0117ms sistemoms"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologija",
+			"description": "ontologija",
+			"newItem": "Prid\u0117ti ontologij\u0105"
 		}
 	},
 	"menu": {

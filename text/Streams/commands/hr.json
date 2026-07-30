@@ -1,0 +1,41 @@
+{
+	"_comment": "Tekst naredbe streama. &#39;commands&#39; = oznake prikaza (UI); &#39;phrases&#39; = prepoznate fraze, klju\u010dne po naredbi. Oblici fraza: &quot;substring&quot;, &quot;/regex/&quot; ili predlo\u017eak &quot;give {{name}} access&quot; - svaki {{token}} se kompajlira u snimanje. Streams sada posjeduje naredbe za kontrolu pristupa i preoblikovanje (rukovatelji Streams/commands/streamCommand i Streams/commands/cssUpdate); Navigacija medijskih brodova; Generiranje brodova umjetnom inteligencijom.",
+	"commands": {
+		"tool/cssUpdate": "Alat za preoblikovanje",
+		"stream/create": "Izradi stream",
+		"stream/grantAccess": "Odobri pristup",
+		"stream/revokeAccess": "Opoziv pristupa"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"promijeni boju na {{prompt}}",
+			"promijenite boje na {{prompt}}",
+			"preboji to {{prompt}}",
+			"preoblikujte alat {{prompt}}",
+			"napravi boje {{prompt}}"
+		],
+		"stream/create": [
+			"stvori {{prompt}} stream",
+			"napravi {{prompt}} stream",
+			"zapo\u010dnite {{prompt}}",
+			"stvorite igru {{prompt}}",
+			"Igrajmo {{prompt}}",
+			"postaviti {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"dati {{name}} pristup objavi",
+			"neka {{name}} objavi",
+			"dati {{name}} pristup pisanju",
+			"dopusti {{name}} da objavi",
+			"dodajte {{name}} kao gosta",
+			"pozovite {{name}} da objavi"
+		],
+		"stream/revokeAccess": [
+			"ukloni pristup korisniku {{name}}",
+			"opozovi pristup korisnika {{name}}",
+			"oduzeti pristup {{name}}",
+			"ukloni {{name}} iz streama",
+			"blokirati {{name}} od objavljivanja"
+		]
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"_comment": "Tekst polecenia Streams. \u201ecommands\u201d = wy\u015bwietlanie etykiet (UI); \u201ephrases\u201d = rozpoznawane frazy, kluczowane przez polecenie. Formy fraz: \u201esubstring\u201d, \u201e/regex/\u201d lub szablonowe \u201egive {{name}} access\u201d \u2014 ka\u017cde {{token}} jest kompilowane do przechwytywania. Streams jest teraz w\u0142a\u015bcicielem polece\u0144 kontroli dost\u0119pu i zmiany stylu (obs\u0142uguje Streams/commands/streamCommand i Streams/commands/cssUpdate); Media dostarcza nawigacj\u0119; AI dostarcza generowanie.",
+	"commands": {
+		"tool/cssUpdate": "Narz\u0119dzie do zmiany stylu",
+		"stream/create": "Utw\u00f3rz strumie\u0144",
+		"stream/grantAccess": "Udziel dost\u0119pu",
+		"stream/revokeAccess": "Odwo\u0142aj dost\u0119p"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"zmie\u0144 kolor na {{prompt}}",
+			"zmie\u0144 kolory na {{prompt}}",
+			"przekoloruj to {{prompt}}",
+			"zmie\u0144 styl narz\u0119dzia {{prompt}}",
+			"zr\u00f3b kolory {{prompt}}"
+		],
+		"stream/create": [
+			"utw\u00f3rz strumie\u0144 {{prompt}}",
+			"zr\u00f3b strumie\u0144 {{prompt}}",
+			"rozpocz\u0105\u0107 {{prompt}}",
+			"stw\u00f3rz gr\u0119 {{prompt}}",
+			"zagrajmy {{prompt}}",
+			"za\u0142o\u017cy\u0107 {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"udziel {{name}} dost\u0119pu do poczty",
+			"niech {{name}} wy\u015ble",
+			"przyznaj {{name}} dost\u0119p do zapisu",
+			"zezw\u00f3l {{name}} na wys\u0142anie",
+			"dodaj {{name}} jako go\u015bcia",
+			"zapro\u015b {{name}} do postowania"
+		],
+		"stream/revokeAccess": [
+			"usu\u0144 dost\u0119p {{name}}",
+			"odwo\u0142a\u0107 dost\u0119p {{name}}",
+			"zabierz dost\u0119p {{name}}",
+			"usu\u0144 {{name}} ze strumienia",
+			"blok {{name}} przed publikacj\u0105"
+		]
+	}
+}

@@ -1,0 +1,264 @@
+{
+	"_locale": "pl",
+	"_intents": {
+		"slide/next": "Przejd\u017a do nast\u0119pnego slajdu. Wy\u015bwietla strumienie/slajd {slideIndex: current+1}.",
+		"slide/prev": "Wr\u00f3\u0107 do poprzedniego slajdu. Emituje strumienie/slajd {slideIndex: current-1}.",
+		"slide/first": "Przejd\u017a do pierwszego slajdu. Emituje strumienie/slajd {slideIndex: 0}.",
+		"slide/last": "Przejd\u017a do ostatniego slajdu. Emituje strumienie/slajd {slideIndex: 9999}.",
+		"slide/navigate": "Przejd\u017a do slajdu wed\u0142ug zapytania o zawarto\u015b\u0107. Przechwytuje {query}.",
+		"reveal/next": "Ujawnij kolejny element progresywny. Emituje strumienie/ujawnij {revealIndex: current+1}.",
+		"video/play": "Odtw\u00f3rz wideo. Emituje strumienie/odtw\u00f3rz {}.",
+		"video/pause": "Wstrzymaj wideo. Emituje strumienie/wstrzymaj {}.",
+		"video/seek": "Przeszukaj do czasu absolutnego. Wysy\u0142a strumienie/przeszukaj {pos: sekund}. Przechwytuje {czas}.",
+		"video/seek/relative": "Przeszukiwanie wed\u0142ug przesuni\u0119cia. Wysy\u0142a strumienie/przeszukiwanie {pos: &#39;+/-sekundy&#39;}. Przechwytuje {czas}.",
+		"gallery/next": "Nast\u0119pny obraz B-roll. Emituje strumienie/galeria/nast\u0119pny.",
+		"gallery/pause": "Zatrzymaj materia\u0142. Emituje strumienie/galeri\u0119/pauz\u0119.",
+		"gallery/resume": "Wzn\u00f3w materia\u0142 B-roll. Emituje strumienie/galeria/wzn\u00f3w.",
+		"gallery/remove": "Ukryj aktualny obraz B-roll. Emituje strumienie/galeria/usu\u0144.",
+		"gallery/caption/remove": "Ukryj podpis do filmu. Emituje strumienie/galeri\u0119/podpis {usu\u0144: prawda}.",
+		"highlight": "Pod\u015bwietl element wykresu. Emituj strumienie/pod\u015bwietl {elementId}. Przechwy\u0107 {target}.",
+		"zoom/in": "Powi\u0119kszenie 1,5x. Emituje strumienie/powi\u0119kszenie {skala: bie\u017c\u0105ca*1,5}.",
+		"zoom/out": "Oddal o 1,5x. Emituje strumienie/powi\u0119kszenie {skala: bie\u017c\u0105ca/1,5}.",
+		"zoom/reset": "Zresetuj powi\u0119kszenie do 1. Emituje strumienie/powi\u0119kszenie {skala: 1}.",
+		"scroll/down": "Przewi\u0144 w d\u00f3\u0142 o 20%. Emituje Q/przewi\u0144 {top: &#39;+20%&#39;}.",
+		"scroll/up": "Przewi\u0144 w g\u00f3r\u0119 o 20%. Emituje Q/scroll {top: &#39;-20%&#39;}.",
+		"scroll/top": "Przewi\u0144 do g\u00f3ry. Emituje Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Przewi\u0144 na d\u00f3\u0142. Emituje Q/scroll {top: &#39;100%&#39;}.",
+		"fullscreen": "Prze\u0142\u0105cz na pe\u0142ny ekran.",
+		"image/generate": "Obraz wygenerowany przez LLM. Przechwytuje {prompt}.",
+		"tool/generate": "Wid\u017cet wygenerowany przez LLM. Przechwytuje {prompt}.",
+		"stream/create": "Utw\u00f3rz nowy strumie\u0144 (szachy, ankieta itp.). Przechwytuje {prompt}.",
+		"stream/grantAccess": "Przyznaj uprawnienia do zapisu. Przechwytuje {name, writeLevel}.",
+		"stream/revokeAccess": "Cofnij dost\u0119p. Przechwytuje {name}."
+	},
+	"slide/next": [
+		"nast\u0119pny slajd",
+		"nast\u0119pna karta",
+		"i\u015b\u0107 naprz\u00f3d",
+		"p\u00f3j\u015b\u0107 dalej",
+		"osi\u0105gni\u0119cie",
+		"nast\u0119pny prosz\u0119",
+		"nast\u0119pny",
+		"poka\u017c nast\u0119pny",
+		"/^nast\u0119pny$/"
+	],
+	"slide/prev": [
+		"poprzedni slajd",
+		"poprzednia karta",
+		"wraca\u0107",
+		"z powrotem jeden",
+		"poprzedni slajd",
+		"cofa\u0107 si\u0119",
+		"/^wstecz$/"
+	],
+	"slide/first": [
+		"pierwszy slajd",
+		"przejd\u017a na pocz\u0105tek",
+		"zacz\u0105\u0107 od nowa",
+		"od g\u00f3ry",
+		"prosz\u0119 zacz\u0105\u0107"
+	],
+	"slide/last": [
+		"ostatni slajd",
+		"przejd\u017a do ko\u0144ca",
+		"ostatni slajd",
+		"przejd\u017a do ko\u0144ca"
+	],
+	"slide/navigate": [
+		"przejd\u017a do {zapytania}",
+		"poka\u017c mi {zapytanie}",
+		"znajd\u017a {zapytanie}",
+		"przejd\u017a do {zapytania}",
+		"przejd\u017a do {query}",
+		"zabierz mnie do {zapytanie}",
+		"otw\u00f3rz {zapytanie}",
+		"poka\u017c slajd {query}",
+		"znajd\u017a slajd {query}",
+		"przejd\u017a do slajdu {query}"
+	],
+	"reveal/next": [
+		"ujawni\u0107",
+		"poka\u017c wi\u0119cej",
+		"nast\u0119pny punkt",
+		"Kontynuowa\u0107",
+		"nast\u0119pny pocisk"
+	],
+	"video/play": [
+		"gra\u0107",
+		"odtw\u00f3rz wideo",
+		"odtw\u00f3rz wideo",
+		"rozpocznij wideo",
+		"wideo z CV",
+		"wzn\u00f3w",
+		"/^odtwarzaj$/"
+	],
+	"video/pause": [
+		"pauza",
+		"wstrzymaj wideo",
+		"zatrzymaj wideo",
+		"trzyma\u0107 si\u0119",
+		"/^pauza$/"
+	],
+	"video/seek": [
+		"i\u015b\u0107 do",
+		"d\u0105\u017cy\u0107 do",
+		"skok do",
+		"przejd\u017a do",
+		"przewi\u0144 do przodu",
+		"przewi\u0144 do"
+	],
+	"video/seek/relative": [
+		"cofnij si\u0119 {w czasie}",
+		"wstecz {czas}",
+		"cofn\u0105\u0107 czas",
+		"cofnij si\u0119 o {czas}",
+		"i\u015b\u0107 do przodu {czas}",
+		"przewi\u0144 do przodu {czas}",
+		"przeskocz do przodu {czas}",
+		"przewi\u0144 do przodu {czas}",
+		"do przodu {czas}"
+	],
+	"gallery/next": [
+		"nast\u0119pny obraz",
+		"nast\u0119pne zdj\u0119cie",
+		"nast\u0119pne zdj\u0119cie",
+		"pomi\u0144 obraz",
+		"zmie\u0144 t\u0142o"
+	],
+	"gallery/pause": [
+		"wstrzymaj t\u0142o",
+		"zatrzymaj t\u0142o",
+		"zamro\u017a t\u0142o",
+		"utrzyma\u0107 t\u0142o",
+		"wstrzymaj obrazy"
+	],
+	"gallery/resume": [
+		"t\u0142o CV",
+		"kontynuuj t\u0142o",
+		"rozpocznij ponownie t\u0142o",
+		"wzn\u00f3w t\u0142o"
+	],
+	"gallery/remove": [
+		"usu\u0144 ten obraz",
+		"pomi\u0144 ten obraz",
+		"ukryj to zdj\u0119cie",
+		"usu\u0144 aktualny obraz",
+		"usu\u0144 to zdj\u0119cie"
+	],
+	"gallery/caption/remove": [
+		"usu\u0144 podpis",
+		"ukryj podpis",
+		"wyra\u017any podpis",
+		"usu\u0144 podpis",
+		"ukryj podpis"
+	],
+	"highlight": [
+		"atrakcja",
+		"wskazywa\u0107 na",
+		"poka\u017c mi",
+		"podkre\u015bli\u0107",
+		"skupi\u0107 si\u0119 na",
+		"ocena",
+		"zawo\u0142a\u0107"
+	],
+	"zoom/in": [
+		"powi\u0119ksz",
+		"brz\u0119czenie",
+		"wi\u0119kszy",
+		"powi\u0119ksza\u0107",
+		"powi\u0119ksza\u0107",
+		"zr\u00f3b to wi\u0119kszym",
+		"bli\u017cszy"
+	],
+	"zoom/out": [
+		"pomniejsz",
+		"mniejszy",
+		"kurczy\u0107 si\u0119",
+		"przyhamowa\u0107",
+		"zr\u00f3b to mniejszym",
+		"cofa\u0107 si\u0119",
+		"szerszy widok"
+	],
+	"zoom/reset": [
+		"zresetuj zoom",
+		"resetowanie powi\u0119kszenia",
+		"normalny rozmiar",
+		"dopasowanie do ekranu",
+		"powi\u0119ksz, aby dopasowa\u0107"
+	],
+	"scroll/down": [
+		"przewi\u0144 w d\u00f3\u0142",
+		"kontynuowa\u0107",
+		"wi\u0119cej",
+		"kontynuuj w d\u00f3\u0142",
+		"strona w d\u00f3\u0142",
+		"poni\u017cej"
+	],
+	"scroll/up": [
+		"przewi\u0144 w g\u00f3r\u0119",
+		"wchodzi\u0107",
+		"kopia zapasowa",
+		"w g\u00f3r\u0119",
+		"strona w g\u00f3r\u0119",
+		"powy\u017cej"
+	],
+	"scroll/top": [
+		"przewi\u0144 do g\u00f3ry",
+		"przejd\u017a na g\u00f3r\u0119",
+		"powr\u00f3t na g\u00f3r\u0119",
+		"pocz\u0105tek strony",
+		"g\u00f3ra strony"
+	],
+	"scroll/bottom": [
+		"przewi\u0144 na d\u00f3\u0142",
+		"przejd\u017a na d\u00f3\u0142",
+		"koniec strony",
+		"d\u00f3\u0142 strony"
+	],
+	"fullscreen": [
+		"pe\u0142ny ekran",
+		"pe\u0142ny ekran",
+		"wyolbrzymia\u0107",
+		"wype\u0142nij ekran",
+		"zr\u00f3b to pe\u0142ne"
+	],
+	"image/generate": [
+		"wygeneruj obraz {prompt}",
+		"utw\u00f3rz obraz {prompt}",
+		"poka\u017c mi {prompt}",
+		"wizualizuj {prompt}",
+		"narysuj {prompt}",
+		"zr\u00f3b zdj\u0119cie {prompt}"
+	],
+	"tool/generate": [
+		"zbuduj {prompt}",
+		"utw\u00f3rz {prompt}",
+		"zbuduj mi {prompt}",
+		"wygeneruj wid\u017cet {prompt}",
+		"utw\u00f3rz narz\u0119dzie {prompt}",
+		"utw\u00f3rz narz\u0119dzie {prompt}"
+	],
+	"stream/create": [
+		"utw\u00f3rz strumie\u0144 {prompt}",
+		"utw\u00f3rz strumie\u0144 {prompt}",
+		"rozpocznij {prompt}",
+		"stw\u00f3rz gr\u0119 {prompt}",
+		"zagrajmy w {prompt}",
+		"skonfiguruj {prompt}"
+	],
+	"stream/grantAccess": [
+		"udziel u\u017cytkownikowi {name} dost\u0119pu do postu",
+		"pozw\u00f3l {name} opublikowa\u0107",
+		"udziel u\u017cytkownikowi {name} dost\u0119pu do zapisu",
+		"zezw\u00f3l {name} na publikowanie",
+		"dodaj {name} jako go\u015bcia",
+		"zapro\u015b {name} do posta"
+	],
+	"stream/revokeAccess": [
+		"usu\u0144 dost\u0119p u\u017cytkownika {name}",
+		"odwo\u0142aj dost\u0119p u\u017cytkownika {name}",
+		"odbierz {name} dost\u0119p",
+		"usu\u0144 {name} ze strumienia",
+		"zablokuj {name} przed publikowaniem"
+	]
+}

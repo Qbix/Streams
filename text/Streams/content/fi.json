@@ -160,7 +160,8 @@
 			"HasInvitedYou": "on kutsunut sinut:",
 			"HasInvitedYouToTheirProfile": "on kutsunut sinut muodostamaan yhteyden.",
 			"prompt": "Anna yst\u00e4vien tunnistaa sinut:",
-			"accept": "Hyv\u00e4ksy kutsu"
+			"accept": "Hyv\u00e4ksy kutsu",
+			"RolesOffered": "Sinulle tarjottavat roolit:"
 		},
 		"email": {
 			"subject": "Hei, tarkista t\u00e4m\u00e4",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Kutsut ihmisi\u00e4 keskusteluun, jossa voit pit\u00e4\u00e4 yhteytt\u00e4, jakaa valokuvia yhdess\u00e4 ja paljon muuta. Anna sille nimi:"
 		},
-		"Participants": "Kutsu ihmisi\u00e4"
+		"Participants": "Kutsu ihmisi\u00e4",
+		"inperson": {
+			"description": "Luo QR-koodi ja l\u00e4het\u00e4 se eteenp\u00e4in skannattavaksi. Kaikki sen skannaavat pysyv\u00e4t yhteydess\u00e4 toisiinsa:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "L\u00e4htev\u00e4",
 			"description": "muille k\u00e4ytt\u00e4jille tai ulkoisille j\u00e4rjestelmille l\u00e4hetettyjen viestien tallennuskohde"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologia",
+			"description": "ontologia",
+			"newItem": "Lis\u00e4\u00e4 ontologia"
 		}
 	},
 	"menu": {

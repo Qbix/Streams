@@ -160,7 +160,8 @@
 			"HasInvitedYou": "har bjudit in dig till:",
 			"HasInvitedYouToTheirProfile": "har bjudit in dig att ansluta.",
 			"prompt": "L\u00e5t v\u00e4nner k\u00e4nna igen dig:",
-			"accept": "Acceptera inbjudan"
+			"accept": "Acceptera inbjudan",
+			"RolesOffered": "Roller du erbjuds:"
 		},
 		"email": {
 			"subject": "Hej, kolla in det h\u00e4r",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Du kommer att bjuda in m\u00e4nniskor till en konversation d\u00e4r ni kan h\u00e5lla kontakten, dela foton tillsammans och mer. Ge det ett namn:"
 		},
-		"Participants": "Bjuda folk"
+		"Participants": "Bjuda folk",
+		"inperson": {
+			"description": "Generera en QR-kod och skicka den runt f\u00f6r att skannas. Alla som skannar den kommer att h\u00e5lla kontakten med varandra:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Utg\u00e5ende",
 			"description": "destination f\u00f6r inspelning av meddelanden som skickas till andra anv\u00e4ndare eller externa system"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologi",
+			"description": "ontologi",
+			"newItem": "L\u00e4gg till ontologi"
 		}
 	},
 	"menu": {

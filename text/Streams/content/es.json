@@ -160,7 +160,8 @@
 			"HasInvitedYou": "te ha invitado a:",
 			"HasInvitedYouToTheirProfile": "te ha invitado a conectarte.",
 			"prompt": "Deja que tus amigos te reconozcan:",
-			"accept": "Aceptar invitaci\u00f3n"
+			"accept": "Aceptar invitaci\u00f3n",
+			"RolesOffered": "Puestos que te est\u00e1n ofreciendo:"
 		},
 		"email": {
 			"subject": "Hey mira esto",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Invitar\u00e1s a personas a una conversaci\u00f3n en la que podr\u00e1n mantenerse en contacto, compartir fotos y m\u00e1s. Dale un nombre:"
 		},
-		"Participants": "Invitar a la gente"
+		"Participants": "Invitar a la gente",
+		"inperson": {
+			"description": "Genera un c\u00f3digo QR y p\u00e1salo para que lo escaneen. Todos los que lo escaneen permanecer\u00e1n conectados entre s\u00ed."
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Extrovertido",
 			"description": "Destino para registrar los mensajes enviados a otros usuarios o sistemas externos."
+		},
+		"Streams/ontology": {
+			"displayType": "Ontolog\u00eda",
+			"description": "ontolog\u00eda",
+			"newItem": "Agregar ontolog\u00eda"
 		}
 	},
 	"menu": {

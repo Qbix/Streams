@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Passa alla diapositiva successiva. Emette flussi/diapositiva {slideIndex: current+1}.",
+		"slide/prev": "Torna alla diapositiva precedente. Emette flussi/diapositiva {slideIndex: current-1}.",
+		"slide/first": "Vai alla prima diapositiva. Emette flussi/diapositiva {slideIndex: 0}.",
+		"slide/last": "Vai all&#39;ultima diapositiva. Emette flussi/diapositiva {slideIndex: 9999}.",
+		"slide/navigate": "Passa a una diapositiva tramite query di contenuto. Cattura {query}.",
+		"reveal/next": "Mostra l&#39;elemento progressivo successivo. Emette flussi/reveal {revealIndex: current+1}.",
+		"video/play": "Riproduci video. Emette flussi/riproduci {}.",
+		"video/pause": "Metti in pausa il video. Emette Streams/pause {}.",
+		"video/seek": "Cerca il tempo assoluto. Emette flussi/cerca {pos: secondi}. Cattura {tempo}.",
+		"video/seek/relative": "Ricerca tramite offset. Emette flussi/ricerca {pos: &#39;+/-secondi&#39;}. Cattura {tempo}.",
+		"gallery/next": "Prossima immagine di repertorio. Emette flussi/galleria/successivo.",
+		"gallery/pause": "Fermo le riprese di repertorio. Emette flussi/galleria/pausa.",
+		"gallery/resume": "Riprendi le riprese di repertorio. Emette flussi/galleria/riprendi.",
+		"gallery/remove": "Nascondi l&#39;immagine B-roll corrente. Emette flussi/galleria/rimuovi.",
+		"gallery/caption/remove": "Nascondi la didascalia del b-roll. Emette Streams/gallery/caption {remove: true}.",
+		"highlight": "Evidenzia l&#39;elemento del grafico. Emette flussi/evidenzia {elementId}. Cattura {target}.",
+		"zoom/in": "Ingrandisci di 1,5x. Emette flussi/zoom {scala: corrente*1,5}.",
+		"zoom/out": "Riduci lo zoom di 1,5x. Emette flussi/zoom {scala: corrente/1,5}.",
+		"zoom/reset": "Reimposta lo zoom a 1. Emette flussi/zoom {scala: 1}.",
+		"scroll/down": "Scorri verso il basso del 20%. Emette Q/scorri {top: &#39;+20%&#39;}.",
+		"scroll/up": "Scorri verso l&#39;alto del 20%. Emette Q/scroll {top: &#39;-20%&#39;}.",
+		"scroll/top": "Scorri verso l&#39;alto. Emette Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Scorri fino in fondo. Emette Q/scroll {top: &#39;100%&#39;}.",
+		"fullscreen": "Attiva/disattiva la modalit\u00e0 a schermo intero.",
+		"image/generate": "Immagine generata da LLM. Cattura {prompt}.",
+		"tool/generate": "Widget generato da LLM. Cattura {prompt}.",
+		"stream/create": "Crea un nuovo flusso (scacchi, sondaggio, ecc.). Cattura {prompt}.",
+		"stream/grantAccess": "Concedi l&#39;accesso in scrittura. Cattura {nome, livello di scrittura}.",
+		"stream/revokeAccess": "Revoca l&#39;accesso. Cattura {nome}."
+	},
+	"slide/next": [
+		"diapositiva successiva",
+		"Prossima carta",
+		"andare avanti",
+		"Vai avanti",
+		"anticipo",
+		"il prossimo, per favore",
+		"il prossimo",
+		"mostra successivo",
+		"/^next$/"
+	],
+	"slide/prev": [
+		"diapositiva precedente",
+		"carta precedente",
+		"torna indietro",
+		"uno indietro",
+		"diapositiva precedente",
+		"fare un passo indietro",
+		"/^indietro$/"
+	],
+	"slide/first": [
+		"prima diapositiva",
+		"vai all&#39;inizio",
+		"ricominciare",
+		"dall&#39;alto",
+		"inizio per favore"
+	],
+	"slide/last": [
+		"ultima diapositiva",
+		"vai alla fine",
+		"diapositiva finale",
+		"vai alla fine"
+	],
+	"slide/navigate": [
+		"vai a {query}",
+		"mostrami {query}",
+		"trova {query}",
+		"vai a {query}",
+		"vai a {query}",
+		"portami a {query}",
+		"apri la {query}",
+		"mostra la diapositiva {query}",
+		"trova la diapositiva {query}",
+		"vai alla diapositiva {query}"
+	],
+	"reveal/next": [
+		"svelare",
+		"mostra altro",
+		"punto successivo",
+		"continuare",
+		"prossimo proiettile"
+	],
+	"video/play": [
+		"giocare",
+		"riproduci il video",
+		"riproduci il video",
+		"avviare il video",
+		"video di presentazione",
+		"riprendere",
+		"/^play$/"
+	],
+	"video/pause": [
+		"pausa",
+		"metti in pausa i video",
+		"interrompi il video",
+		"aspettare",
+		"/^pausa$/"
+	],
+	"video/seek": [
+		"andare a",
+		"cercare di",
+		"saltare a",
+		"passa a",
+		"avanza velocemente a",
+		"riavvolgere a"
+	],
+	"video/seek/relative": [
+		"tornare indietro nel tempo",
+		"indietro {tempo}",
+		"riavvolgere {tempo}",
+		"torna indietro di {tempo}",
+		"andare avanti {tempo}",
+		"avanza di {tempo}",
+		"salta avanti {tempo}",
+		"avanza velocemente {tempo}",
+		"avanti {tempo}"
+	],
+	"gallery/next": [
+		"immagine successiva",
+		"foto successiva",
+		"immagine successiva",
+		"salta l&#39;immagine",
+		"cambia lo sfondo"
+	],
+	"gallery/pause": [
+		"pausa sfondo",
+		"interrompere lo sfondo",
+		"sfondo congelato",
+		"tenere lo sfondo",
+		"mettere in pausa le immagini"
+	],
+	"gallery/resume": [
+		"curriculum vitae",
+		"continuazione dello sfondo",
+		"riavviare lo sfondo",
+		"riprendere lo sfondo"
+	],
+	"gallery/remove": [
+		"rimuovi questa immagine",
+		"salta questa immagine",
+		"nascondi questa foto",
+		"rimuovere l&#39;immagine corrente",
+		"rimuovi questa foto"
+	],
+	"gallery/caption/remove": [
+		"rimuovere la didascalia",
+		"nascondi didascalia",
+		"didascalia chiara",
+		"rimuovere la didascalia",
+		"nascondi la didascalia"
+	],
+	"highlight": [
+		"evidenziare",
+		"indicare",
+		"fammi vedere",
+		"sottolineare",
+		"concentrarsi su",
+		"segno",
+		"chiamata"
+	],
+	"zoom/in": [
+		"ingrandire",
+		"zoom",
+		"ri",
+		"ingrandire",
+		"ingrandire",
+		"ingrandiscilo",
+		"pi\u00f9 vicino"
+	],
+	"zoom/out": [
+		"rimpicciolire",
+		"pi\u00f9 piccolo",
+		"Restringersi",
+		"tirare indietro",
+		"rimpiccioliscilo",
+		"fare un passo indietro",
+		"visione pi\u00f9 ampia"
+	],
+	"zoom/reset": [
+		"ripristina lo zoom",
+		"ripristino dello zoom",
+		"dimensioni normali",
+		"adatto allo schermo",
+		"ingrandire per adattare"
+	],
+	"scroll/down": [
+		"scorrere verso il basso",
+		"continuare",
+		"Di pi\u00f9",
+		"continua verso il basso",
+		"pagina gi\u00f9",
+		"sotto"
+	],
+	"scroll/up": [
+		"scorri verso l&#39;alto",
+		"salire",
+		"backup",
+		"positivamente",
+		"pagina su",
+		"Sopra"
+	],
+	"scroll/top": [
+		"scorri verso l&#39;alto",
+		"torna in alto",
+		"torna all&#39;inizio",
+		"inizio pagina",
+		"inizio pagina"
+	],
+	"scroll/bottom": [
+		"scorri fino in fondo",
+		"vai in fondo",
+		"fine pagina",
+		"in fondo alla pagina"
+	],
+	"fullscreen": [
+		"a schermo intero",
+		"a schermo intero",
+		"ciliegia",
+		"schermo di riempimento",
+		"rendilo pieno"
+	],
+	"image/generate": [
+		"genera un&#39;immagine di {prompt}",
+		"crea un&#39;immagine di {prompt}",
+		"mostrami {prompt}",
+		"visualizza {prompt}",
+		"disegnare {prompt}",
+		"realizzare un&#39;immagine di {prompt}"
+	],
+	"tool/generate": [
+		"costruire un {prompt}",
+		"crea un {prompt}",
+		"costruiscimi un {prompt}",
+		"genera un widget {prompt}",
+		"creare uno strumento {prompt}",
+		"crea uno strumento {prompt}"
+	],
+	"stream/create": [
+		"crea un flusso {prompt}",
+		"creare uno stream {prompt}",
+		"avviare un {prompt}",
+		"crea un gioco {prompt}",
+		"giochiamo {prompt}",
+		"impostare un {prompt}"
+	],
+	"stream/grantAccess": [
+		"dare a {nome} l&#39;accesso al post",
+		"lascia che {nome} pubblichi",
+		"concedere l&#39;accesso in scrittura a {nome}",
+		"consentire a {nome} di pubblicare",
+		"aggiungi {nome} come ospite",
+		"invitare {nome} a pubblicare"
+	],
+	"stream/revokeAccess": [
+		"rimuovere l&#39;accesso di {nome}",
+		"revocare l&#39;accesso di {nome}",
+		"togliere l&#39;accesso a {nome}",
+		"rimuovere {nome} dal flusso",
+		"bloccare {nome} dalla pubblicazione"
+	]
+}

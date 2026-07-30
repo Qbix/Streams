@@ -160,7 +160,8 @@
 			"HasInvitedYou": "zaprosi\u0142 Ci\u0119 do:",
 			"HasInvitedYouToTheirProfile": "zaprosi\u0142 Ci\u0119 do po\u0142\u0105czenia.",
 			"prompt": "Pozw\u00f3l znajomym Ci\u0119 rozpozna\u0107:",
-			"accept": "Zaakceptuj zaproszenie"
+			"accept": "Zaakceptuj zaproszenie",
+			"RolesOffered": "Oferowane Ci role:"
 		},
 		"email": {
 			"subject": "Hej, sprawd\u017a to",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "B\u0119dziesz zaprasza\u0107 ludzi do rozm\u00f3w, podczas kt\u00f3rych b\u0119dziesz m\u00f3g\u0142 pozosta\u0107 w kontakcie, udost\u0119pnia\u0107 wsp\u00f3lne zdj\u0119cia i nie tylko. Daj temu imi\u0119:"
 		},
-		"Participants": "Zapro\u015b ludzi"
+		"Participants": "Zapro\u015b ludzi",
+		"inperson": {
+			"description": "Wygeneruj kod QR i przeka\u017c go dalej do zeskanowania. Wszyscy, kt\u00f3rzy go zeskanuj\u0105, pozostan\u0105 ze sob\u0105 w kontakcie:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Towarzyski",
 			"description": "miejsce do nagrywania wiadomo\u015bci wysy\u0142anych do innych u\u017cytkownik\u00f3w lub system\u00f3w zewn\u0119trznych"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologia",
+			"description": "ontologia",
+			"newItem": "Dodaj ontologi\u0119"
 		}
 	},
 	"menu": {

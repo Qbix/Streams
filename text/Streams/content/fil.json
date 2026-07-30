@@ -160,7 +160,8 @@
 			"HasInvitedYou": "ay nag-imbita sa iyo sa:",
 			"HasInvitedYouToTheirProfile": "ay inimbitahan kang kumonekta.",
 			"prompt": "Hayaang makilala ka ng mga kaibigan:",
-			"accept": "Tanggapin ang Imbitasyon"
+			"accept": "Tanggapin ang Imbitasyon",
+			"RolesOffered": "Mga tungkuling iniaalok sa iyo:"
 		},
 		"email": {
 			"subject": "Hoy, tingnan mo ito",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Mag-iimbita ka ng mga tao sa isang pag-uusap kung saan maaari kang makipag-ugnayan, magbahagi ng mga larawan nang magkasama, at higit pa. Bigyan ito ng pangalan:"
 		},
-		"Participants": "Mag-imbita ng mga tao"
+		"Participants": "Mag-imbita ng mga tao",
+		"inperson": {
+			"description": "Gumawa ng QR code at ipasa ito para ma-scan. Ang lahat ng mag-i-scan nito ay mananatiling konektado sa isa&#39;t isa:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Palabas",
 			"description": "destinasyon para sa pagtatala ng mga mensaheng ipinadala sa ibang mga gumagamit o mga panlabas na sistema"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontolohiya",
+			"description": "ontolohiya",
+			"newItem": "Magdagdag ng Ontolohiya"
 		}
 	},
 	"menu": {

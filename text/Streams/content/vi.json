@@ -160,7 +160,8 @@
 			"HasInvitedYou": "\u0111\u00e3 m\u1eddi b\u1ea1n:",
 			"HasInvitedYouToTheirProfile": "\u0111\u00e3 m\u1eddi b\u1ea1n k\u1ebft n\u1ed1i.",
 			"prompt": "H\u00e3y \u0111\u1ec3 b\u1ea1n b\u00e8 nh\u1eadn ra b\u1ea1n:",
-			"accept": "Ch\u1ea5p nh\u1eadn l\u1eddi m\u1eddi"
+			"accept": "Ch\u1ea5p nh\u1eadn l\u1eddi m\u1eddi",
+			"RolesOffered": "C\u00e1c v\u1ecb tr\u00ed b\u1ea1n \u0111ang \u0111\u01b0\u1ee3c \u0111\u1ec1 ngh\u1ecb:"
 		},
 		"email": {
 			"subject": "N\u00e0y, xem n\u00e0y",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "B\u1ea1n s\u1ebd m\u1eddi m\u1ecdi ng\u01b0\u1eddi tham gia cu\u1ed9c tr\u00f2 chuy\u1ec7n n\u01a1i b\u1ea1n c\u00f3 th\u1ec3 gi\u1eef li\u00ean l\u1ea1c, chia s\u1ebb \u1ea3nh c\u00f9ng nhau v\u00e0 h\u01a1n th\u1ebf n\u1eefa. \u0110\u1eb7t t\u00ean cho n\u00f3:"
 		},
-		"Participants": "M\u1eddi m\u1ecdi ng\u01b0\u1eddi"
+		"Participants": "M\u1eddi m\u1ecdi ng\u01b0\u1eddi",
+		"inperson": {
+			"description": "H\u00e3y t\u1ea1o m\u00e3 QR v\u00e0 chia s\u1ebb cho m\u1ecdi ng\u01b0\u1eddi qu\u00e9t. T\u1ea5t c\u1ea3 nh\u1eefng ai qu\u00e9t m\u00e3 s\u1ebd gi\u1eef li\u00ean l\u1ea1c v\u1edbi nhau:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "H\u01b0\u1edbng ngo\u1ea1i",
 			"description": "N\u01a1i l\u01b0u tr\u1eef c\u00e1c tin nh\u1eafn \u0111\u01b0\u1ee3c g\u1eedi \u0111\u1ebfn ng\u01b0\u1eddi d\u00f9ng kh\u00e1c ho\u1eb7c h\u1ec7 th\u1ed1ng b\u00ean ngo\u00e0i."
+		},
+		"Streams/ontology": {
+			"displayType": "B\u1ea3n th\u1ec3 h\u1ecdc",
+			"description": "b\u1ea3n th\u1ec3 lu\u1eadn",
+			"newItem": "Th\u00eam Ontology"
 		}
 	},
 	"menu": {

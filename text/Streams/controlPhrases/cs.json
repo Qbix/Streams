@@ -1,0 +1,264 @@
+{
+	"_locale": "cs",
+	"_intents": {
+		"slide/next": "P\u0159ej\u00edt na dal\u0161\u00ed sn\u00edmek. Vygeneruje Streams/slide {slideIndex: current+1}.",
+		"slide/prev": "Zp\u011bt na p\u0159edchoz\u00ed sn\u00edmek. Vygeneruje Streams/slide {slideIndex: current-1}.",
+		"slide/first": "P\u0159ej\u00edt na prvn\u00ed sn\u00edmek. Vygeneruje Streams/slide {slideIndex: 0}.",
+		"slide/last": "P\u0159ej\u00edt na posledn\u00ed sn\u00edmek. Vygeneruje Streams/slide {slideIndex: 9999}.",
+		"slide/navigate": "P\u0159ej\u00edt na sn\u00edmek pomoc\u00ed dotazu na obsah. Zachyt\u00ed {query}.",
+		"reveal/next": "Odhal\u00ed dal\u0161\u00ed progresivn\u00ed prvek. Vygeneruje Streams/reveal {revealIndex: current+1}.",
+		"video/play": "P\u0159ehr\u00e1t video. Vys\u00edl\u00e1 streamy/p\u0159ehr\u00e1t {}.",
+		"video/pause": "Pozastavit video. Vys\u00edl\u00e1 streamy/pauza {}.",
+		"video/seek": "Hled\u00e1 absolutn\u00ed \u010das. Vys\u00edl\u00e1 Streams/seek {pozice: sekundy}. Zachycuje {\u010das}.",
+		"video/seek/relative": "Vyhled\u00e1v\u00e1n\u00ed podle posunu. Vys\u00edl\u00e1 Streams/seek {pos: &#39;+/-seconds&#39;}. Zachycuje {time}.",
+		"gallery/next": "Dal\u0161\u00ed obr\u00e1zek b-roll. Vys\u00edl\u00e1 Streams/gallery/next.",
+		"gallery/pause": "Zmrazit dopl\u0148kov\u00fd z\u00e1znam. Vys\u00edl\u00e1 streamy/galerie/pozastavit.",
+		"gallery/resume": "Pokra\u010dov\u00e1n\u00ed v b-rollu. Vys\u00edl\u00e1n\u00ed stream\u016f/galerie/\u017eivotopisu.",
+		"gallery/remove": "Skr\u00fdt aktu\u00e1ln\u00ed obr\u00e1zek b-roll. Vys\u00edl\u00e1 Streamy/galerie/odstranit.",
+		"gallery/caption/remove": "Skr\u00fdt titulky k vedlej\u0161\u00edm vide\u00edm. Vys\u00edl\u00e1 Streams/gallery/caption {remove: true}.",
+		"highlight": "Zv\u00fdrazn\u00ed prvek grafu. Vygeneruje Streams/highlight {elementId}. Zachyt\u00ed {target}.",
+		"zoom/in": "P\u0159ibl\u00ed\u017een\u00ed 1,5x. Vys\u00edl\u00e1 streamy/p\u0159ibl\u00ed\u017een\u00ed {m\u011b\u0159\u00edtko: aktu\u00e1ln\u00ed*1,5}.",
+		"zoom/out": "Odd\u00e1len\u00ed 1,5x. Vys\u00edl\u00e1 streamy/zoom {m\u011b\u0159\u00edtko: aktu\u00e1ln\u00ed/1,5}.",
+		"zoom/reset": "Obnovit zoom na 1. Vys\u00edl\u00e1 streamy/zoom {scale: 1}.",
+		"scroll/down": "Posu\u0148 se dol\u016f o 20 %. Vyd\u00e1v\u00e1 Q/posu\u0148 se {top: &#39;+20 %&#39;}.",
+		"scroll/up": "Posu\u0148 nahoru o 20 %. Vyd\u00e1v\u00e1 Q/posu\u0148 {top: &#39;-20 %&#39;}.",
+		"scroll/top": "P\u0159ejd\u011bte nahoru. Vyd\u00e1 Q/posunout {top: &#39;0%&#39;}.",
+		"scroll/bottom": "P\u0159ejd\u011bte dol\u016f. Vyd\u00e1 Q/posunout {top: &#39;100%&#39;}.",
+		"fullscreen": "P\u0159epnout na celou obrazovku.",
+		"image/generate": "Obr\u00e1zek generovan\u00fd LLM. Zachycuje {prompt}.",
+		"tool/generate": "Widget generovan\u00fd LLM. Zachyt\u00ed {prompt}.",
+		"stream/create": "Vytvo\u0159it nov\u00fd stream (\u0161achy, anketa atd.). Zachyt\u00ed {prompt}.",
+		"stream/grantAccess": "Ud\u011blit p\u0159\u00edstup k z\u00e1pisu. Zachyt\u00ed {name, writeLevel}.",
+		"stream/revokeAccess": "Zru\u0161it p\u0159\u00edstup. Zachyt\u00ed {name}."
+	},
+	"slide/next": [
+		"dal\u0161\u00ed sn\u00edmek",
+		"dal\u0161\u00ed karta",
+		"jdi vp\u0159ed",
+		"j\u00edt d\u00e1l",
+		"z\u00e1loha",
+		"dal\u0161\u00ed pros\u00edm",
+		"dal\u0161\u00ed",
+		"zobrazit dal\u0161\u00ed",
+		"/^dal\u0161\u00ed$/"
+	],
+	"slide/prev": [
+		"p\u0159edchoz\u00ed sn\u00edmek",
+		"p\u0159edchoz\u00ed karta",
+		"vr\u00e1tit se",
+		"zadn\u00ed",
+		"p\u0159edchoz\u00ed sn\u00edmek",
+		"krok zp\u011bt",
+		"/^zp\u011bt$/"
+	],
+	"slide/first": [
+		"prvn\u00ed sn\u00edmek",
+		"j\u00edt na za\u010d\u00e1tek",
+		"za\u010d\u00edt znovu",
+		"shora",
+		"za\u010d\u00e1tek pros\u00edm"
+	],
+	"slide/last": [
+		"posledn\u00ed sn\u00edmek",
+		"j\u00edt a\u017e do konce",
+		"posledn\u00ed sn\u00edmek",
+		"skok na konec"
+	],
+	"slide/navigate": [
+		"p\u0159ej\u00edt na {query}",
+		"uka\u017e mi {dotaz}",
+		"naj\u00edt {dotaz}",
+		"p\u0159ej\u00edt na {dotaz}",
+		"p\u0159ejd\u011bte na {query}",
+		"p\u0159esm\u011brovat m\u011b na {query}",
+		"otev\u0159\u00edt {query}",
+		"zobrazit sn\u00edmek {query}",
+		"naj\u00edt sn\u00edmek {query}",
+		"p\u0159ej\u00edt na sn\u00edmek {query}"
+	],
+	"reveal/next": [
+		"odhalit",
+		"zobrazit v\u00edce",
+		"dal\u0161\u00ed bod",
+		"pokra\u010dovat",
+		"dal\u0161\u00ed odr\u00e1\u017eka"
+	],
+	"video/play": [
+		"hr\u00e1t",
+		"p\u0159ehr\u00e1t video",
+		"p\u0159ehr\u00e1t video",
+		"spustit video",
+		"\u017eivotopis videa",
+		"znovu pozastavit",
+		"/^play$/"
+	],
+	"video/pause": [
+		"pauza",
+		"pozastavit video",
+		"zastavit video",
+		"vydr\u017e",
+		"/^pauza$/"
+	],
+	"video/seek": [
+		"j\u00edt do",
+		"sna\u017eit se",
+		"p\u0159ej\u00edt na",
+		"p\u0159esko\u010dit na",
+		"rychle vp\u0159ed k",
+		"p\u0159eto\u010dit zp\u011bt k"
+	],
+	"video/seek/relative": [
+		"vr\u00e1tit se {\u010das}",
+		"zp\u011bt {\u010das}",
+		"p\u0159eto\u010dit {\u010das}",
+		"p\u0159esko\u010dit zp\u011bt {\u010das}",
+		"j\u00edt vp\u0159ed {\u010das}",
+		"p\u0159esko\u010dit vp\u0159ed {\u010das}",
+		"p\u0159esko\u010dit vp\u0159ed {\u010das}",
+		"rychle vp\u0159ed {\u010das}",
+		"vp\u0159ed {\u010das}"
+	],
+	"gallery/next": [
+		"dal\u0161\u00ed obr\u00e1zek",
+		"dal\u0161\u00ed fotka",
+		"dal\u0161\u00ed obr\u00e1zek",
+		"p\u0159esko\u010dit obr\u00e1zek",
+		"zm\u011bnit pozad\u00ed"
+	],
+	"gallery/pause": [
+		"pozastavit pozad\u00ed",
+		"zastavit pozad\u00ed",
+		"zmrazit pozad\u00ed",
+		"dr\u017eet pozad\u00ed",
+		"pozastavit obr\u00e1zky"
+	],
+	"gallery/resume": [
+		"\u017eivotopis pozad\u00ed",
+		"pokra\u010dovat v pozad\u00ed",
+		"znovu spustit pozad\u00ed",
+		"obnovit pozad\u00ed"
+	],
+	"gallery/remove": [
+		"odstranit tento obr\u00e1zek",
+		"p\u0159esko\u010dit tento obr\u00e1zek",
+		"skr\u00fdt tuto fotku",
+		"odstranit aktu\u00e1ln\u00ed obr\u00e1zek",
+		"odstranit tuto fotku"
+	],
+	"gallery/caption/remove": [
+		"odstranit popisek",
+		"skr\u00fdt popisek",
+		"vymazat popisek",
+		"odstranit titulek",
+		"skr\u00fdt titulek"
+	],
+	"highlight": [
+		"zv\u00fdraznit",
+		"pouk\u00e1zat na",
+		"uka\u017e mi",
+		"zd\u016fraznit",
+		"zam\u011b\u0159it se na",
+		"ozna\u010dit",
+		"zavolat"
+	],
+	"zoom/in": [
+		"p\u0159ibl\u00ed\u017eit",
+		"zoom",
+		"v\u011bt\u0161\u00ed",
+		"zv\u011bt\u0161it",
+		"zv\u011bt\u0161it",
+		"zv\u011bt\u0161it to",
+		"bl\u00ed\u017e"
+	],
+	"zoom/out": [
+		"odd\u00e1lit",
+		"men\u0161\u00ed",
+		"zmen\u0161it se",
+		"st\u00e1hni zp\u011bt",
+		"zmen\u0161it to",
+		"krok zp\u011bt",
+		"\u0161ir\u0161\u00ed pohled"
+	],
+	"zoom/reset": [
+		"resetovat zoom",
+		"resetov\u00e1n\u00ed zoomu",
+		"norm\u00e1ln\u00ed velikost",
+		"p\u0159izp\u016fsobit obrazovce",
+		"p\u0159ibl\u00ed\u017eit, aby se ve\u0161lo"
+	],
+	"scroll/down": [
+		"srolovat dol\u016f",
+		"pokra\u010duj",
+		"v\u00edce",
+		"pokra\u010dujte dol\u016f",
+		"str\u00e1nka dol\u016f",
+		"n\u00ed\u017ee"
+	],
+	"scroll/up": [
+		"p\u0159ej\u00edt nahoru",
+		"j\u00edt nahoru",
+		"z\u00e1lohovat",
+		"nahoru",
+		"str\u00e1nka nahoru",
+		"v\u00fd\u0161e"
+	],
+	"scroll/top": [
+		"p\u0159ej\u00edt nahoru",
+		"j\u00edt nahoru",
+		"zp\u011bt nahoru",
+		"za\u010d\u00e1tek str\u00e1nky",
+		"horn\u00ed \u010d\u00e1st str\u00e1nky"
+	],
+	"scroll/bottom": [
+		"p\u0159ejd\u011bte dol\u016f",
+		"j\u00edt dol\u016f",
+		"konec str\u00e1nky",
+		"spodn\u00ed \u010d\u00e1st str\u00e1nky"
+	],
+	"fullscreen": [
+		"cel\u00e1 obrazovka",
+		"cel\u00e1 obrazovka",
+		"maximalizovat",
+		"vyplnit obrazovku",
+		"napl\u0148 to"
+	],
+	"image/generate": [
+		"generovat obr\u00e1zek {prompt}",
+		"vytvo\u0159it obraz {prompt}",
+		"uka\u017e mi {v\u00fdzva}",
+		"vizualizovat {v\u00fdzva}",
+		"kreslit {v\u00fdzva}",
+		"vyfo\u0165 {prompt}"
+	],
+	"tool/generate": [
+		"vytvo\u0159it {prompt}",
+		"vytvo\u0159it {v\u00fdzvu}",
+		"postav mi {prompt}",
+		"vygenerovat widget {prompt}",
+		"vytvo\u0159it n\u00e1stroj {prompt}",
+		"vytvo\u0159it n\u00e1stroj {prompt}"
+	],
+	"stream/create": [
+		"vytvo\u0159it stream {prompt}",
+		"vytvo\u0159it stream {prompt}",
+		"spustit {v\u00fdzvu}",
+		"vytvo\u0159it hru {prompt}",
+		"poj\u010fme si hr\u00e1t {v\u00fdzva}",
+		"nastavit {v\u00fdzvu}"
+	],
+	"stream/grantAccess": [
+		"ud\u011blit u\u017eivateli {name} p\u0159\u00edstup k p\u0159\u00edsp\u011bvku",
+		"Nechte {name} publikovat",
+		"ud\u011blit u\u017eivateli {name} p\u0159\u00edstup k z\u00e1pisu",
+		"povolit u\u017eivateli {name} publikovat p\u0159\u00edsp\u011bvky",
+		"p\u0159idat {name} jako hosta",
+		"pozvat {name} k p\u0159\u00edsp\u011bvku"
+	],
+	"stream/revokeAccess": [
+		"odebrat p\u0159\u00edstup u\u017eivateli {name}",
+		"zru\u0161it p\u0159\u00edstup pro {name}",
+		"odebrat p\u0159\u00edstup u\u017eivateli {name}",
+		"odstranit {name} ze streamu",
+		"zablokovat u\u017eivateli {name} zve\u0159ej\u0148ov\u00e1n\u00ed p\u0159\u00edsp\u011bvk\u016f"
+	]
+}

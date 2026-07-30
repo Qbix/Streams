@@ -1,0 +1,41 @@
+{
+	"_comment": "Text de les ordres de Streams. &#39;commands&#39; = etiquetes de visualitzaci\u00f3 (UI); &#39;phrases&#39; = frases reconegudes, amb clau per ordre. Formes de frase: &quot;substring&quot;, &quot;/regex/&quot; o &quot;give {{name}} access&quot; amb plantilla: cada {{token}} es compila en una captura. Streams ara posseeix les ordres de control d&#39;acc\u00e9s i restyle (gestors Streams/commands/streamCommand i Streams/commands/cssUpdate); navegaci\u00f3 de naus multim\u00e8dia; generaci\u00f3 de naus amb IA.",
+	"commands": {
+		"tool/cssUpdate": "Eina de reestil",
+		"stream/create": "Crea un flux",
+		"stream/grantAccess": "Concedir acc\u00e9s",
+		"stream/revokeAccess": "Revoca l&#39;acc\u00e9s"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"canvia el color a {{prompt}}",
+			"canvia els colors a {{prompt}}",
+			"torna&#39;l a pintar {{prompt}}",
+			"redissenyar l&#39;eina {{prompt}}",
+			"fes els colors {{prompt}}"
+		],
+		"stream/create": [
+			"crear un flux {{prompt}}",
+			"fer una transmissi\u00f3 {{prompt}}",
+			"comen\u00e7ar un {{prompt}}",
+			"crear una partida {{prompt}}",
+			"Juguem {{prompt}}",
+			"configurar un {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"donar acc\u00e9s {{name}} a la publicaci\u00f3",
+			"deixa que {{name}} publiqui",
+			"donar acc\u00e9s d&#39;escriptura {{name}}",
+			"permet que {{name}} publiqui",
+			"afegeix {{name}} com a convidat",
+			"convida {{name}} a publicar"
+		],
+		"stream/revokeAccess": [
+			"eliminar l&#39;acc\u00e9s del {{name}}",
+			"revocar l&#39;acc\u00e9s del {{name}}",
+			"treure l&#39;acc\u00e9s al {{name}}",
+			"eliminar {{name}} del flux",
+			"bloqueja {{name}} de la publicaci\u00f3"
+		]
+	}
+}

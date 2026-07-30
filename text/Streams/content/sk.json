@@ -160,7 +160,8 @@
 			"HasInvitedYou": "v\u00e1s pozval na:",
 			"HasInvitedYouToTheirProfile": "v\u00e1s pozval na pripojenie.",
 			"prompt": "Umo\u017enite priate\u013eom, aby v\u00e1s spoznali:",
-			"accept": "Prijmite pozvanie"
+			"accept": "Prijmite pozvanie",
+			"RolesOffered": "Pon\u00fakan\u00e9 poz\u00edcie:"
 		},
 		"email": {
 			"subject": "Hej, skontroluj toto",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Budete poz\u00fdva\u0165 \u013eud\u00ed na konverz\u00e1ciu, kde m\u00f4\u017eete zosta\u0165 v kontakte, zdie\u013ea\u0165 spolo\u010dn\u00e9 fotografie a podobne. Daj tomu n\u00e1zov:"
 		},
-		"Participants": "Pozva\u0165 \u013eud\u00ed"
+		"Participants": "Pozva\u0165 \u013eud\u00ed",
+		"inperson": {
+			"description": "Vygenerujte QR k\u00f3d a po\u0161lite ho \u010falej na naskenovanie. Ka\u017ed\u00fd, kto ho naskenuje, zostane medzi sebou v spojen\u00ed:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Odch\u00e1dzaj\u00face",
 			"description": "cie\u013e na zaznamen\u00e1vanie spr\u00e1v odoslan\u00fdch in\u00fdm pou\u017e\u00edvate\u013eom alebo extern\u00fdm syst\u00e9mom"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontol\u00f3gia",
+			"description": "ontol\u00f3gia",
+			"newItem": "Prida\u0165 ontol\u00f3giu"
 		}
 	},
 	"menu": {

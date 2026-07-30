@@ -1,0 +1,41 @@
+{
+	"_comment": "Teksti i komand\u00ebs s\u00eb Streams. &#39;commands&#39; = etiketat e shfaqjes (UI); &#39;phrases&#39; = frazat e njohura, t\u00eb p\u00ebrcaktuara nga komanda. Format e frazave: &quot;substring&quot;, &quot;/regex/&quot;, ose &quot;jep akses {{name}} &quot; n\u00eb shabllon \u2014 \u00e7do {{token}} kompilohet n\u00eb nj\u00eb kapje. Streams tani zot\u00ebron komandat e kontrollit t\u00eb aksesit dhe ristilit (trajtuesit Streams/commands/streamCommand dhe Streams/commands/cssUpdate); Navigimi i anijeve mediatike; Gjenerimi i anijeve IA.",
+	"commands": {
+		"tool/cssUpdate": "Mjet p\u00ebr rimodelimin",
+		"stream/create": "Krijo transmetim",
+		"stream/grantAccess": "Jep qasje",
+		"stream/revokeAccess": "Anulo qasjen"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"ndrysho ngjyr\u00ebn n\u00eb {{prompt}}",
+			"ndrysho ngjyrat n\u00eb {{prompt}}",
+			"ringjyros at\u00eb {{prompt}}",
+			"rimodifikoni mjetin {{prompt}}",
+			"b\u00ebj ngjyrat {{prompt}}"
+		],
+		"stream/create": [
+			"krijo nj\u00eb transmetim {{prompt}}",
+			"b\u00ebj nj\u00eb transmetim {{prompt}}",
+			"filloni nj\u00eb {{prompt}}",
+			"krijoni nj\u00eb loj\u00eb {{prompt}}",
+			"le t\u00eb luajm\u00eb {{prompt}}",
+			"konfiguroni nj\u00eb {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"jep {{name}} qasje n\u00eb postim",
+			"le t\u00eb postoj\u00eb {{name}}",
+			"jep {{name}} t\u00eb drejt\u00ebn e shkrimit",
+			"lejo {{name}} t\u00eb postoj\u00eb",
+			"shto {{name}} si mysafir",
+			"ftoni {{name}} t\u00eb postoj\u00eb"
+		],
+		"stream/revokeAccess": [
+			"hiq qasjen e {{name}} -\u00ebs",
+			"anuloni aksesin e {{name}} -\u00ebs",
+			"hiq aksesin e {{name}} -\u00ebs",
+			"hiq {{name}} nga transmetimi",
+			"blloku {{name}} nga postimi"
+		]
+	}
+}

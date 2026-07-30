@@ -1,0 +1,264 @@
+{
+	"_locale": "lt",
+	"_intents": {
+		"slide/next": "Pereiti prie kitos skaidr\u0117s. Spaud\u017eia srautus/slide {slideIndex: current+1}.",
+		"slide/prev": "Gr\u012f\u017eti \u012f ankstesn\u0119 skaidr\u0119. I\u0161meta srautus/slide {slideIndex: current-1}.",
+		"slide/first": "Per\u0161okite \u012f pirm\u0105 skaidr\u0119. I\u0161leid\u017eia srautus/slide {slideIndex: 0}.",
+		"slide/last": "Per\u0161oka \u012f paskutin\u0119 skaidr\u0119. Spaud\u017eia srautus/slide {slideIndex: 9999}.",
+		"slide/navigate": "Pereiti \u012f skaidr\u0119 pagal turinio u\u017eklaus\u0105. U\u017efiksuoja {u\u017eklaus\u0105}.",
+		"reveal/next": "Atskleisti kit\u0105 progresyv\u0173 element\u0105. Skleid\u017eia srautus / atskleid\u017eia {revealIndex: current+1}.",
+		"video/play": "Leisti vaizdo \u012fra\u0161\u0105. Perduoda srautus / leisti {}.",
+		"video/pause": "Pristabdyti vaizdo \u012fra\u0161\u0105. Perduoda srautus / pristabdyti {}.",
+		"video/seek": "Ie\u0161koma absoliutaus laiko. Perduoda srautus / ie\u0161koma {pos: seconds}. U\u017efiksuoja {time}.",
+		"video/seek/relative": "Ie\u0161koti pagal poslink\u012f. Perduoda srautus / ie\u0161koti {pos: &#39;+/-sekund\u0117s&#39;}. U\u017efiksuoja {laik\u0105}.",
+		"gallery/next": "Kitas b-roll vaizdas. Perduoda srautus / galerij\u0105 / kit\u0105.",
+		"gallery/pause": "Sustabdyti b-roll&#39;\u0105. Skleisti srautus / galerij\u0105 / pristabdyti.",
+		"gallery/resume": "T\u0119sti b-roll&#39;\u0105. Perduoda srautus / galerij\u0105 / gyvenimo apra\u0161ym\u0105.",
+		"gallery/remove": "Sl\u0117pti dabartin\u012f b-roll vaizd\u0105. Perduoti srautus / galerij\u0105 / pa\u0161alinti.",
+		"gallery/caption/remove": "Sl\u0117pti vaizdo \u012fra\u0161o antra\u0161t\u0119. Perduoda srautus / galerij\u0105 / antra\u0161t\u0119 {remove: true}.",
+		"highlight": "Pary\u0161kinti diagramos element\u0105. Perduoda srautus / pary\u0161kinti {elementId}. U\u017efiksuoja {target}.",
+		"zoom/in": "Priartinkite 1,5 karto. Skleid\u017eia srautus / priartinkite {mastelis: dabartinis * 1,5}.",
+		"zoom/out": "Atitolinti 1,5 karto. Skleid\u017eia srautus / priartinim\u0105 {mastelis: dabartinis / 1,5}.",
+		"zoom/reset": "Atstatyti mastel\u012f \u012f 1. Skleid\u017eia srautus / mastel\u012f {mastelis: 1}.",
+		"scroll/down": "Slinkite \u017eemyn 20 %. Suteikia Q/slinkite {vir\u0161uje: &#39;+20 %&#39;}.",
+		"scroll/up": "Slinkti auk\u0161tyn 20 %. Sukuria Q/slinkti {vir\u0161uje: &#39;-20 %&#39;}.",
+		"scroll/top": "Slinkti \u012f vir\u0161\u0173. Spaud\u017eia Q/slinkti {vir\u0161uje: &#39;0%&#39;}.",
+		"scroll/bottom": "Slinkti \u017eemyn. Spaud\u017eia Q/slinkti {vir\u0161uje: &#39;100%&#39;}.",
+		"fullscreen": "Perjungti viso ekrano re\u017eim\u0105.",
+		"image/generate": "LLM sugeneruotas vaizdas. U\u017efiksuoja {prompt}.",
+		"tool/generate": "LLM sugeneruotas valdiklis. U\u017efiksuoja {prompt}.",
+		"stream/create": "Sukurkite nauj\u0105 sraut\u0105 (\u0161achmatai, apklausa ir kt.). U\u017efiksuokite {u\u017eklaus\u0105}.",
+		"stream/grantAccess": "Suteikti ra\u0161ymo prieig\u0105. U\u017efiksuoja {name, writeLevel}.",
+		"stream/revokeAccess": "At\u0161aukti prieig\u0105. U\u017efiksuoja {name}."
+	},
+	"slide/next": [
+		"kita skaidr\u0117",
+		"kita kortel\u0117",
+		"eik \u012f priek\u012f",
+		"jud\u0117ti toliau",
+		"avansas",
+		"toliau, pra\u0161au",
+		"kitas",
+		"rodyti kit\u0105",
+		"/^toliau$/"
+	],
+	"slide/prev": [
+		"ankstesn\u0117 skaidr\u0117",
+		"ankstesn\u0117 kortel\u0117",
+		"gr\u012f\u017eti",
+		"u\u017epakalinis",
+		"ankstesn\u0117 skaidr\u0117",
+		"\u017eengti \u017eingsn\u012f atgal",
+		"/^atgal$/"
+	],
+	"slide/first": [
+		"pirmoji skaidr\u0117",
+		"eiti \u012f prad\u017ei\u0105",
+		"prad\u0117ti i\u0161 naujo",
+		"i\u0161 vir\u0161aus",
+		"prad\u017eia, pra\u0161au"
+	],
+	"slide/last": [
+		"paskutin\u0117 skaidr\u0117",
+		"eiti iki galo",
+		"paskutin\u0117 skaidr\u0117",
+		"per\u0161okti \u012f pabaig\u0105"
+	],
+	"slide/navigate": [
+		"eiti \u012f {u\u017eklaus\u0105}",
+		"parodyk man {u\u017eklaus\u0105}",
+		"rasti {u\u017eklaus\u0105}",
+		"pereiti prie {u\u017eklausos}",
+		"pereiti \u012f {u\u017eklaus\u0105}",
+		"nukreipti mane \u012f {u\u017eklaus\u0105}",
+		"atidaryti {u\u017eklaus\u0105}",
+		"rodyti {query} skaidr\u0119",
+		"rasti skaidr\u0119 {query}",
+		"eikite \u012f skaidr\u0119 {query}"
+	],
+	"reveal/next": [
+		"atskleisti",
+		"rodyti daugiau",
+		"kitas ta\u0161kas",
+		"t\u0119sti",
+		"kitas \u017eenklelis"
+	],
+	"video/play": [
+		"\u017eaisti",
+		"leisti vaizdo \u012fra\u0161\u0105",
+		"paleisti vaizdo \u012fra\u0161\u0105",
+		"prad\u0117ti vaizdo \u012fra\u0161\u0105",
+		"vaizdo \u012fra\u0161o atnaujinimas",
+		"nutraukti pauz\u0119",
+		"/^\u017eaidimas$/"
+	],
+	"video/pause": [
+		"pauz\u0117",
+		"pristabdyti vaizdo \u012fra\u0161\u0105",
+		"sustabdyti vaizdo \u012fra\u0161\u0105",
+		"palauk",
+		"/^pauz\u0117$/"
+	],
+	"video/seek": [
+		"eiti \u012f",
+		"siekti",
+		"pereiti prie",
+		"pereiti prie",
+		"greitai \u012f priek\u012f",
+		"atsukti atgal"
+	],
+	"video/seek/relative": [
+		"gr\u012f\u017eti {laikas}",
+		"atgal {laikas}",
+		"atsukti {laik\u0105}",
+		"praleisti {laik\u0105} atgal",
+		"eiti \u012f priek\u012f {laikas}",
+		"praleisti \u012f priek\u012f {laikas}",
+		"praleisti \u012f priek\u012f {time}",
+		"greitai persukti \u012f priek\u012f {laikas}",
+		"\u012f priek\u012f {laikas}"
+	],
+	"gallery/next": [
+		"kitas vaizdas",
+		"kita nuotrauka",
+		"kita nuotrauka",
+		"praleisti vaizd\u0105",
+		"pakeisti fon\u0105"
+	],
+	"gallery/pause": [
+		"pristabdyti fon\u0105",
+		"sustabdyti fon\u0105",
+		"u\u017e\u0161aldyti fon\u0105",
+		"i\u0161laikyti fon\u0105",
+		"pristabdyti vaizdus"
+	],
+	"gallery/resume": [
+		"gyvenimo apra\u0161ymo fonas",
+		"t\u0119sti fon\u0105",
+		"paleisti fon\u0105 i\u0161 naujo",
+		"at\u0161aukti fono pristabdym\u0105"
+	],
+	"gallery/remove": [
+		"pa\u0161alinti \u0161\u012f vaizd\u0105",
+		"praleisti \u0161\u012f vaizd\u0105",
+		"sl\u0117pti \u0161i\u0105 nuotrauk\u0105",
+		"pa\u0161alinti dabartin\u012f vaizd\u0105",
+		"pa\u0161alinti \u0161i\u0105 nuotrauk\u0105"
+	],
+	"gallery/caption/remove": [
+		"pa\u0161alinti antra\u0161t\u0119",
+		"sl\u0117pti antra\u0161t\u0119",
+		"ai\u0161ki antra\u0161t\u0117",
+		"pa\u0161alinti antra\u0161t\u0119",
+		"pasl\u0117pti antra\u0161t\u0119"
+	],
+	"highlight": [
+		"pary\u0161kinti",
+		"rodyk \u012f",
+		"parodyk man",
+		"pabr\u0117\u017eti",
+		"sutelkti d\u0117mes\u012f \u012f",
+		"\u017eenklas",
+		"i\u0161kviesti"
+	],
+	"zoom/in": [
+		"priartinti",
+		"priartinimas",
+		"didesnis",
+		"padidinti",
+		"padidinti",
+		"padaryti didesn\u012f",
+		"ar\u010diau"
+	],
+	"zoom/out": [
+		"atitolinti",
+		"ma\u017eesnis",
+		"susitraukti",
+		"atsitraukti",
+		"padaryti j\u012f ma\u017eesn\u012f",
+		"\u017eengti \u017eingsn\u012f atgal",
+		"platesnis vaizdas"
+	],
+	"zoom/reset": [
+		"atkurti priartinim\u0105",
+		"priartinimo atstatymas",
+		"normalus dydis",
+		"pritaikyti prie ekrano",
+		"priartinti, kad tilpt\u0173"
+	],
+	"scroll/down": [
+		"slinkti \u017eemyn",
+		"t\u0119sk",
+		"daugiau",
+		"t\u0119sti \u017eemyn",
+		"puslapis \u017eemyn",
+		"\u017eemiau"
+	],
+	"scroll/up": [
+		"slinkti auk\u0161tyn",
+		"eiti auk\u0161tyn",
+		"atsargin\u0117 kopija",
+		"auk\u0161tyn",
+		"puslapis auk\u0161tyn",
+		"auk\u0161\u010diau"
+	],
+	"scroll/top": [
+		"slinkti \u012f vir\u0161\u0173",
+		"eiti \u012f vir\u0161\u0173",
+		"atgal \u012f vir\u0161\u0173",
+		"puslapio prad\u017eia",
+		"puslapio vir\u0161uje"
+	],
+	"scroll/bottom": [
+		"slinkti \u012f apa\u010di\u0105",
+		"eiti \u012f apa\u010di\u0105",
+		"puslapio pabaiga",
+		"puslapio apa\u010dioje"
+	],
+	"fullscreen": [
+		"viso ekrano",
+		"visas ekranas",
+		"maksimaliai padidinti",
+		"u\u017epildyti ekran\u0105",
+		"padaryti j\u012f piln\u0105"
+	],
+	"image/generate": [
+		"sugeneruoti {prompt} vaizd\u0105",
+		"sukurkite {prompt} vaizd\u0105",
+		"parodyk man {ragin\u0105}",
+		"vizualizuoti {raginti}",
+		"pie\u0161ti {raginti}",
+		"nufotografuokite {u\u017eduot\u012f}"
+	],
+	"tool/generate": [
+		"sukurti {ragin\u0105}",
+		"sukurti {ragin\u0105}",
+		"sukurkite man {u\u017eklaus\u0105}",
+		"sugeneruoti {prompt} valdikl\u012f",
+		"sukurkite {prompt} \u012frank\u012f",
+		"sukurkite {prompt} \u012frank\u012f"
+	],
+	"stream/create": [
+		"sukurti {prompt} sraut\u0105",
+		"sukurkite {prompt} sraut\u0105",
+		"prad\u0117ti {ragin\u0105}",
+		"sukurkite {prompt} \u017eaidim\u0105",
+		"pa\u017eaiskime {prompt}",
+		"nustatyti {prompt}"
+	],
+	"stream/grantAccess": [
+		"suteikti {name} prieig\u0105 prie \u012fra\u0161o",
+		"leisti {name} paskelbti",
+		"suteikti {name} ra\u0161ymo prieig\u0105",
+		"leisti {name} skelbti",
+		"prid\u0117ti {name} kaip sve\u010di\u0105",
+		"pakviesti {name} paskelbti"
+	],
+	"stream/revokeAccess": [
+		"pa\u0161alinti {name} prieig\u0105",
+		"at\u0161aukti {name} prieig\u0105",
+		"atimti {name} prieig\u0105",
+		"pa\u0161alinti {name} i\u0161 srauto",
+		"blokuoti {name} nuo skelbim\u0173 paskelbimo"
+	]
+}

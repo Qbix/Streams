@@ -1,0 +1,41 @@
+{
+	"_comment": "Maandishi ya amri ya mitiririko. &#39;amri&#39; = lebo za kuonyesha (UI); &#39;misemo&#39; = vifungu vinavyotambuliwa, vilivyowekwa kwa amri. Vifungu huundwa: &quot;substring&quot;, &quot;/regex/&quot;, au vilivyowekwa kiolezo &quot;toa ufikiaji {{name}} &quot; \u2014 kila kimoja {{token}} hukusanywa ili kunasa. Mitiririko sasa inamiliki amri za udhibiti wa ufikiaji na urekebishaji wa mitindo (washughulikiaji Mitiririko/amri/streamCommand na Mitiririko/amri/cssUpdate); Urambazaji wa meli za media; Uundaji wa meli za AI.",
+	"commands": {
+		"tool/cssUpdate": "Zana ya kubadilisha mtindo",
+		"stream/create": "Unda mtiririko",
+		"stream/grantAccess": "Ruhusu ufikiaji",
+		"stream/revokeAccess": "Batilisha ufikiaji"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"badilisha rangi kuwa {{prompt}}",
+			"badilisha rangi hadi {{prompt}}",
+			"ipake rangi upya {{prompt}}",
+			"Badilisha mtindo wa kifaa {{prompt}}",
+			"tengeneza rangi {{prompt}}"
+		],
+		"stream/create": [
+			"tengeneza mtiririko {{prompt}}",
+			"tengeneza mtiririko {{prompt}}",
+			"anza {{prompt}}",
+			"tengeneza mchezo wa {{prompt}}",
+			"hebu tucheze {{prompt}}",
+			"anzisha {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"toa ufikiaji {{name}} kwa chapisho",
+			"acha {{name}} ichapishe",
+			"toa idhini ya kuandika {{name}}",
+			"ruhusu {{name}} kuchapisha",
+			"ongeza {{name}} kama mgeni",
+			"mwalike {{name}} kwenye chapisho"
+		],
+		"stream/revokeAccess": [
+			"ondoa ufikiaji wa {{name}}",
+			"ondoa ufikiaji wa {{name}}",
+			"ondoa ufikiaji wa {{name}}",
+			"ondoa {{name}} kutoka kwenye mkondo",
+			"zuia {{name}} kutoka kwa chapisho"
+		]
+	}
+}

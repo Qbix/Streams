@@ -160,7 +160,8 @@
 			"HasInvitedYou": "har inviteret dig til:",
 			"HasInvitedYouToTheirProfile": "har inviteret dig til at oprette forbindelse.",
 			"prompt": "Lad venner genkende dig:",
-			"accept": "Accepter invitation"
+			"accept": "Accepter invitation",
+			"RolesOffered": "Roller du bliver tilbudt:"
 		},
 		"email": {
 			"subject": "Hej, tjek det her ud",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Du vil invitere folk til en samtale, hvor du kan holde kontakten, dele billeder sammen og meget mere. Giv det et navn:"
 		},
-		"Participants": "Inviter folk"
+		"Participants": "Inviter folk",
+		"inperson": {
+			"description": "Generer en QR-kode og send den rundt, s\u00e5 den kan scannes. Alle, der scanner den, vil forblive forbundet med hinanden:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Udg\u00e5ende",
 			"description": "destination til optagelse af beskeder sendt til andre brugere eller eksterne systemer"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologi",
+			"description": "ontologi",
+			"newItem": "Tilf\u00f8j ontologi"
 		}
 	},
 	"menu": {

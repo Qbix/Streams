@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Aurrera hurrengo diapositibara. {slideIndex: current+1} diapositiba-jarioak igortzen ditu.",
+		"slide/prev": "Aurreko diapositibara itzuli. {slideIndex: current-1} diapositibako erreka igortzen du.",
+		"slide/first": "Joan lehenengo diapositibara. {slideIndex: 0} diapositiba-jarioak igortzen ditu.",
+		"slide/last": "Joan azken diapositibara. {slideIndex: 9999} diapositiba-jarioak igortzen ditu.",
+		"slide/navigate": "Joan diapositiba batera edukiaren kontsultaren arabera. {query} kapturatzen du.",
+		"reveal/next": "Hurrengo elementu progresiboa erakutsi. Erreka igortzen du/{revealIndex: current+1} erakutsi.",
+		"video/play": "Bideoa erreproduzitu. Erreproduzitu/erreproduzitu {} igortzen ditu.",
+		"video/pause": "Bideoa pausatu. Erreprodukzioak igortzen ditu/pausatu {}.",
+		"video/seek": "Denbora absolutua bilatu. {pos: segundo} erreka/bilaketa igortzen ditu. {denbora} harrapatzen du.",
+		"video/seek/relative": "Bilatu desplazamenduaren arabera. Igortzen ditu erreka/bilaketa {pos: &#39;+/-segundoak&#39;}. {time} harrapatzen ditu.",
+		"gallery/next": "Hurrengo B-roll irudia. Streams/galeria/hurrengoa igortzen du.",
+		"gallery/pause": "B-roll-a izoztu. Streaming/galeria/pausatu igortzen du.",
+		"gallery/resume": "B-roll-ari jarraipena eman. Streams/galeria/curriculuma igortzen du.",
+		"gallery/remove": "Ezkutatu uneko B-roll irudia. Streams/galeria/kendu igortzen ditu.",
+		"gallery/caption/remove": "Ezkutatu B-roll azpititulua. Streams/galeria/azpititulua igortzen du {kendu: egia}.",
+		"highlight": "Nabarmendu grafikoaren elementua. {elementId} erreka/nabarmenduak igortzen ditu. {target} harrapatzen du.",
+		"zoom/in": "Handiagotu 1,5x. Erreka/zooma igortzen du {eskala: uneko*1,5}.",
+		"zoom/out": "Txikiagotu 1.5x. Erreka/zooma igortzen du {eskala: uneko/1.5}.",
+		"zoom/reset": "Berrezarri zooma 1era. Erreka/zoom {eskala: 1} igortzen du.",
+		"scroll/down": "Joan behera %20ra. Q igortzen du/joan {goian: &#39;+%20&#39;}.",
+		"scroll/up": "Gora joan %20. Q igortzen du/gora joan {goian: &#39;-%20&#39;}.",
+		"scroll/top": "Gora joan. Q igortzen du/gora joan {goian: &#39;0%&#39;}.",
+		"scroll/bottom": "Joan behera. Q igortzen du/joan {goian: &#39;%100&#39;}.",
+		"fullscreen": "Pantaila osoa aktibatu/desaktibatu.",
+		"image/generate": "LLM-k sortutako irudia. {prompt} atzematen du.",
+		"tool/generate": "LLM-k sortutako widgeta. {prompt} harrapatzen du.",
+		"stream/create": "Sortu erreka berria (xakea, inkesta, etab.). {prompt} kapturak egiten ditu.",
+		"stream/grantAccess": "Idazketa baimena eman. {name, writeLevel} hartzen du.",
+		"stream/revokeAccess": "Sarbidea ezeztatu. {name} atzematen du."
+	},
+	"slide/next": [
+		"hurrengo diapositiba",
+		"hurrengo txartela",
+		"aurrera egin",
+		"aurrera egin",
+		"aurrerapen",
+		"hurrengoa mesedez",
+		"hurrengoa",
+		"erakutsi hurrengoa",
+		"/^hurrengoa$/"
+	],
+	"slide/prev": [
+		"aurreko diapositiba",
+		"aurreko txartela",
+		"itzuli",
+		"atzeko bat",
+		"aurreko diapositiba",
+		"atzera egin",
+		"/^atzera$/"
+	],
+	"slide/first": [
+		"lehen diapositiba",
+		"hasierara joan",
+		"berriro hasi",
+		"goitik",
+		"hasiera mesedez"
+	],
+	"slide/last": [
+		"azken diapositiba",
+		"amaierara joan",
+		"azken diapositiba",
+		"amaierara salto egin"
+	],
+	"slide/navigate": [
+		"joan {kontsulta}ra",
+		"erakutsi {kontsulta}",
+		"bilatu {kontsulta}",
+		"joan {kontsulta}ra",
+		"nabigatu {query}ra",
+		"eraman nazazu {query} helbidera",
+		"Ireki {kontsulta}",
+		"erakutsi {query} diapositiba",
+		"aurkitu {query} diapositiba",
+		"joan {query} diapositibara"
+	],
+	"reveal/next": [
+		"agerian utzi",
+		"erakutsi gehiago",
+		"hurrengo puntua",
+		"jarraitu",
+		"hurrengo bala"
+	],
+	"video/play": [
+		"jolastu",
+		"erreproduzitu bideoa",
+		"erreproduzitu bideoa",
+		"hasi bideoa",
+		"curriculumaren bideoa",
+		"berriro eten",
+		"/^jolastu$/"
+	],
+	"video/pause": [
+		"pausatu",
+		"bideoa pausatu",
+		"bideoa gelditu",
+		"eutsi",
+		"/^pausa$/"
+	],
+	"video/seek": [
+		"joan",
+		"bilatu",
+		"salto egin",
+		"saltatu honetara",
+		"aurrera azkar",
+		"atzera egin"
+	],
+	"video/seek/relative": [
+		"atzera egin {denbora}",
+		"atzera {denbora}",
+		"atzera egin {denbora}",
+		"atzera egin {denbora}",
+		"aurrera egin {denbora}",
+		"aurrera egin {denbora}",
+		"aurrera egin {denbora}",
+		"aurrerapen azkarra {denbora}",
+		"aurrera {denbora}"
+	],
+	"gallery/next": [
+		"hurrengo irudia",
+		"hurrengo argazkia",
+		"hurrengo argazkia",
+		"irudia saltatu",
+		"aldatu atzeko planoa"
+	],
+	"gallery/pause": [
+		"pausatu atzeko planoa",
+		"gelditu atzeko planoa",
+		"izoztu atzeko planoa",
+		"eutsi atzeko planoari",
+		"irudiak pausatu"
+	],
+	"gallery/resume": [
+		"curriculumaren atzeko planoa",
+		"jarraitu atzeko planoan",
+		"berriro hasi atzeko planoan",
+		"berriro atzeko planoa"
+	],
+	"gallery/remove": [
+		"kendu irudi hau",
+		"saltatu irudi hau",
+		"ezkutatu argazki hau",
+		"kendu uneko irudia",
+		"kendu argazki hau"
+	],
+	"gallery/caption/remove": [
+		"kendu azpititulua",
+		"ezkutatu azpititulua",
+		"azpititulu garbia",
+		"kendu azpititulua",
+		"ezkutatu azpititulua"
+	],
+	"highlight": [
+		"nabarmendu",
+		"seinalatu",
+		"erakutsi iezadazu",
+		"azpimarratu",
+		"arreta jarri",
+		"markatu",
+		"deitu"
+	],
+	"zoom/in": [
+		"handitu",
+		"zooma",
+		"handiagoa",
+		"handitu",
+		"handitu",
+		"handiagoa egin",
+		"hurbilago"
+	],
+	"zoom/out": [
+		"txikiagotu",
+		"txikiagoa",
+		"txikitu",
+		"atzera egin",
+		"txikiagoa egin",
+		"atzera egin",
+		"ikuspegi zabalagoa"
+	],
+	"zoom/reset": [
+		"berrezarri zooma",
+		"zooma berrezarri",
+		"tamaina normala",
+		"pantailara egokitu",
+		"zooma egokitzeko"
+	],
+	"scroll/down": [
+		"behera joan",
+		"jarraitu aurrera",
+		"gehiago",
+		"jarraitu behera",
+		"orrialdea behera",
+		"behean"
+	],
+	"scroll/up": [
+		"gora joan",
+		"igo",
+		"babeskopia egin",
+		"goranzko",
+		"orrialdea gora",
+		"goian"
+	],
+	"scroll/top": [
+		"gora joan",
+		"gora joan",
+		"gora itzuli",
+		"orrialdearen hasiera",
+		"orriaren goialdea"
+	],
+	"scroll/bottom": [
+		"behera joan",
+		"behera joan",
+		"orrialdearen amaiera",
+		"orrialdearen behealdea"
+	],
+	"fullscreen": [
+		"pantaila osoa",
+		"pantaila osoa",
+		"maximizatu",
+		"pantaila bete",
+		"bete ezazu."
+	],
+	"image/generate": [
+		"sortu {prompt}-ren irudi bat",
+		"sortu {prompt}-ren irudi bat",
+		"erakutsi iezadazu {galdetu}",
+		"bistaratze {galdetu}",
+		"marraztu",
+		"egin {prompt}-ren irudi bat"
+	],
+	"tool/generate": [
+		"eraiki {prompt} bat",
+		"sortu {prompt} bat",
+		"eraiki iezadazu {gonbita} bat",
+		"sortu {prompt} widget bat",
+		"tresna {galdetu} bat egin",
+		"tresna bat sortu {prompt}"
+	],
+	"stream/create": [
+		"sortu {prompt} erreka bat",
+		"egin {prompt} erreka bat",
+		"hasi {prompt} bat",
+		"joko bat sortu {prompt}",
+		"jolastu dezagun {galdetu}",
+		"konfiguratu {prompt} bat"
+	],
+	"stream/grantAccess": [
+		"Eman {name}-ri argitalpenerako sarbidea",
+		"utzi {name}ri argitaratzen",
+		"Eman idazketa baimena {name}-ri",
+		"baimendu {name}ri argitaratzea",
+		"gehitu {name} gonbidatu gisa",
+		"gonbidatu {name} argitaratzera"
+	],
+	"stream/revokeAccess": [
+		"kendu {name}-ren sarbidea",
+		"ezeztatu {name}-ren sarbidea",
+		"kendu {name}-ri sarbidea",
+		"kendu {name} errekatik",
+		"blokeatu {name} argitaratzea saihesteko"
+	]
+}

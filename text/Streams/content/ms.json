@@ -160,7 +160,8 @@
 			"HasInvitedYou": "telah menjemput anda untuk:",
 			"HasInvitedYouToTheirProfile": "telah menjemput anda untuk berhubung.",
 			"prompt": "Biarkan rakan mengenali anda:",
-			"accept": "Terima Jemputan"
+			"accept": "Terima Jemputan",
+			"RolesOffered": "Peranan yang ditawarkan kepada anda:"
 		},
 		"email": {
 			"subject": "Hei, semak ini",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Anda akan menjemput orang ke perbualan yang membolehkan anda terus berhubung, berkongsi foto bersama dan banyak lagi. Beri nama:"
 		},
-		"Participants": "Jemput Orang"
+		"Participants": "Jemput Orang",
+		"inperson": {
+			"description": "Jana kod QR dan sebarkannya untuk diimbas. Setiap orang yang mengimbasnya akan kekal berhubung antara satu sama lain:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Keluar",
 			"description": "destinasi untuk merakam mesej yang dihantar kepada pengguna lain atau sistem luaran"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologi",
+			"description": "ontologi",
+			"newItem": "Tambah Ontologi"
 		}
 	},
 	"menu": {

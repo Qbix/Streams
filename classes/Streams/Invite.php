@@ -277,15 +277,15 @@ class Streams_Invite extends Base_Streams_Invite
 			if (!is_array($labels)) {
 				$labels = array($labels);
 			}
-			$can = Users_Label::can($stream->publisherId, $this->invitingUserId);
-			if ($can["manageContacts"]) {
+			// $can = Users_Label::can($stream->publisherId, $this->invitingUserId);
+			// if (1 or $can["manageContacts"]) { // don't need to check manageContacts here
 				foreach ($labels as $label) {
 					Users_Contact::addContact(
 						$stream->publisherId, $label, $userId,
 						null, $this->invitingUserId, true
 					);
 				}
-			}
+			// }
 		}
 		// add relationships
 		if ($labels = Q::ifset($extra, 'addMyLabel', null)) {
@@ -557,6 +557,225 @@ class Streams_Invite extends Base_Streams_Invite
 		$followed = Q::ifset($_SESSION, 'Streams', 'invite', 'token', null);
 		$accepted = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null);
 		return $onlyAccepted ? $accepted : ($accepted ? $accepted : $followed);
+	}
+
+	/**
+	 * Whether this invite must be accepted explicitly by the user, rather than
+	 * being auto-accepted the moment they log in. Checks the invite's own extra
+	 * first, so a single invite can override its stream type's config either way,
+	 * then falls back to Streams/types/<type>/invite/dontAutoAccept.
+	 * @method needsExplicitConsent
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {Streams_Stream} $stream
+	 * @return {boolean}
+	 */
+	static function needsExplicitConsent($invite, $stream)
+	{
+		$dontAutoAccept = $invite->getExtra('dontAutoAccept');
+		if (isset($dontAutoAccept)) {
+			return filter_var($dontAutoAccept, FILTER_VALIDATE_BOOLEAN);
+		}
+		return (bool)Streams_Stream::getConfigField(
+			$stream->type, array('invite', 'dontAutoAccept'), false
+		);
+	}
+
+	/**
+	 * The roles this invite is offering, resolved to displayable titles and icons.
+	 * These are NOT granted until the invite is accepted, so anything showing them
+	 * must stay future-tense.
+	 *
+	 * Reads the invite's "addLabel" extra against the stream publisher's labels.
+	 * Also reads "addMyLabel" against the inviting user's labels, but only when
+	 * the inviter is a community — for a person, those are their own private
+	 * contact taxonomy rather than roles the invitee receives.
+	 *
+	 * Labels with no resolvable title are skipped rather than shown raw.
+	 *
+	 * @method rolesOffered
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {Streams_Stream} $stream
+	 * @return {array} array of array('label' => ..., 'title' => ..., 'icon' => ...)
+	 */
+	static function rolesOffered($invite, $stream)
+	{
+		$inviterId = $invite->invitingUserId;
+		$labelSpecs = array(
+			array($invite->getExtra('addLabel'), $stream->publisherId)
+		);
+		if (Users::isCommunityId($inviterId)) {
+			$labelSpecs[] = array($invite->getExtra('addMyLabel'), $inviterId);
+		}
+		$roles = array();
+		$seenLabels = array();
+		foreach ($labelSpecs as $labelSpec) {
+			list($spec, $ownerId) = $labelSpec;
+			if (empty($spec)) {
+				continue;
+			}
+			if (is_string($spec)) {
+				$spec = array_map('trim', explode("\t", $spec));
+			}
+			// may be a list of labels, or ($label => array($title, $icon))
+			$labelNames = Q::isAssociative($spec) ? array_keys($spec) : $spec;
+			$rows = Users_Label::fetch($ownerId, $labelNames);
+			foreach ($labelNames as $label) {
+				if (isset($seenLabels[$label])) {
+					continue; // publisher and inviter can name the same label
+				}
+				$row = Q::ifset($rows, $label, null);
+
+				$title = $row ? $row->title : null;
+				if (!$title) {
+					$title = Q_Config::get('Users', 'roles', $label, 'title', null);
+				}
+				if (!$title and Q::isAssociative($spec)) {
+					$title = Q::ifset($spec, $label, 0, null);
+				}
+				if (!$title) {
+					continue; // nothing presentable — don't show a raw label name
+				}
+
+				$icon = $row ? $row->icon : null;
+				if (!$icon) {
+					$icon = Q_Config::get('Users', 'roles', $label, 'icon', null);
+				}
+				if (!$icon and Q::isAssociative($spec)) {
+					$icon = Q::ifset($spec, $label, 1, null);
+				}
+				if (!$icon) {
+					$icon = 'labels/default';
+				}
+
+				$seenLabels[$label] = true;
+				$roles[] = array(
+					'label' => $label,
+					'title' => $title,
+					'icon' => Users::iconUrl($icon, false)
+				);
+			}
+		}
+		return $roles;
+	}
+
+	/**
+	 * Builds the payload for the invited dialog, which the client reads from
+	 * Q.plugins.Streams.invited.dialog: who invited you, the stream, whether
+	 * your name is still missing, any roles being offered, plus whatever hooks
+	 * add on the Streams/Dialogs/invite/complete event (Assets adds "discount").
+	 *
+	 * Called from two places, both of which already have the stream in hand:
+	 * Streams_after_Q_objects for someone who was already logged in when they
+	 * followed the link, and Streams_after_Users_setLoggedInUser for someone who
+	 * logged in or registered afterward.
+	 *
+	 * @method dialogData
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {Streams_Stream} $stream The stream the invite is to
+	 * @param {Users_User} [$user] The invited user, if one is logged in yet
+	 * @return {array|null} null if there is nothing to show
+	 */
+	static function dialogData($invite, $stream, $user = null)
+	{
+		$text = Q_Text::get('Streams/content');
+
+		$nameIsMissing = true;
+		$displayName = '';
+		if ($user) {
+			$displayName = $user->displayName(array('show' => 'flu'));
+			$avatar = Streams_Avatar::fetch($user->id, $user->id);
+			if (Q::ifset($avatar, 'username', null)
+			or Q::ifset($avatar, 'firstName', null)
+			or Q::ifset($avatar, 'lastName', null)) {
+				$nameIsMissing = false;
+			}
+		}
+
+		$invitingUser = Users_User::fetch($invite->invitingUserId);
+		if (!$invitingUser) {
+			return null;
+		}
+
+		$relations = $related = array();
+		if ($user) {
+			list($relations, $related) = Streams::related(
+				$user->id,
+				$stream->publisherId,
+				$stream->name,
+				false
+			);
+		}
+
+		$templateName = Streams_Stream::getConfigField(
+			$stream->type,
+			array('invited', 'dialog', 'templateName'),
+			'Streams/templates/invited/complete'
+		);
+
+		$invitedToProfile = ($stream->name === 'Streams/user/profile');
+		$textKey = $invitedToProfile
+			? 'HasInvitedYouToTheirProfile'
+			: 'HasInvitedYou';
+
+		$params = array(
+			'displayName' => $displayName,
+			'nameIsMissing' => $nameIsMissing,
+			'action' => 'Streams/basic',
+			'icon' => $user ? $user->iconUrl(false) : null,
+			'token' => $invite->token,
+			'invitingUser' => array(
+				'id' => $invitingUser->id,
+				'icon' => $invitingUser->iconUrl(false),
+				'displayName' => $invitingUser->displayName(array(
+					'fullAccess' => true,
+					'show' => 'flu'
+				)),
+				'text' => Q::interpolate(
+					$text['invite']['complete'][$textKey],
+					array('title' => $stream->title)
+				)
+			),
+			'showStreamPreview' => !$invitedToProfile,
+			'templateName' => $templateName,
+			'stream' => $stream->exportArray(),
+			'relations' => !empty($relations) ? Db::exportArray($relations) : array(),
+			'related' => !empty($related) ? Db::exportArray($related) : array()
+		);
+
+		if ($roles = self::rolesOffered($invite, $stream)) {
+			$params['roles'] = $roles;
+			$params['rolesPrompt'] = Q::ifset(
+				$text, 'invite', 'complete', 'RolesOffered',
+				"Roles you're being offered:"
+			);
+		}
+
+		// Hooks add to the payload here. Assets uses this to add "discount",
+		// so this must stay inside dialogData rather than at the call sites,
+		// or the discount silently disappears on one of the two paths.
+		$referrerUserId = $invite->invitingUserId;
+		$params = Q::event('Streams/Dialogs/invite/complete', compact(
+			'stream', 'user', 'referrerUserId', 'invite'
+		), 'before', false, $params);
+
+		if (Users::isCommunityId($stream->publisherId)) {
+			$params['communityId'] = $stream->publisherId;
+			$params['communityName'] = Streams::displayName($stream->publisherId);
+		}
+
+		// merge over any Streams/types/<type>/invited/dialog defaults,
+		// which is where things like "delay" come from
+		$config = Streams_Stream::getConfigField($stream->type, 'invited', array());
+		$defaults = Q::ifset($config, 'dialog', array());
+		$tree = new Q_Tree($defaults);
+		if (!$tree->merge($params)) {
+			return null;
+		}
+		$dialogData = $tree->getAll();
+		return $dialogData ? $dialogData : null;
 	}
 	
 	static protected $cache = array();

@@ -20,4 +20,17 @@
         </div>
     </div>
     {{/if}}
+    {{#if roles}}
+    <div class="Streams_invited_roles">
+        <div class="Streams_invited_roles_prompt">{{rolesPrompt}}</div>
+        <ul>
+        {{#each roles}}
+            <li class="Streams_invited_role" data-label="{{this.label}}">
+                <img src="{{this.icon}}/40.png" alt="">
+                <span>{{this.title}}</span>
+            </li>
+        {{/each}}
+        </ul>
+    </div>
+    {{/if}}
 </div>

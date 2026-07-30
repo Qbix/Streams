@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Zur n\u00e4chsten Folie wechseln. Gibt Streams/slide {slideIndex: current+1} aus.",
+		"slide/prev": "Zur\u00fcck zur vorherigen Folie. Gibt Streams/slide {slideIndex: current-1} aus.",
+		"slide/first": "Springe zur ersten Folie. Gibt Streams/slide {slideIndex: 0} aus.",
+		"slide/last": "Springe zur letzten Folie. Gibt Streams/slide {slideIndex: 9999} aus.",
+		"slide/navigate": "Springe per Inhaltsabfrage zu einer Folie. Erfasst {query}.",
+		"reveal/next": "N\u00e4chstes progressives Element anzeigen. Gibt Streams/reveal {revealIndex: current+1} aus.",
+		"video/play": "Video abspielen. Gibt Streams/play {} aus.",
+		"video/pause": "Video pausieren. Gibt Streams/pause {} aus.",
+		"video/seek": "Positioniert die absolute Zeit. Gibt Streams/seek {pos: Sekunden} aus. Erfasst {time}.",
+		"video/seek/relative": "Positionieren anhand des Offsets. Gibt Streams/seek {pos: &#39;+/-seconds&#39;} aus. Erfasst {time}.",
+		"gallery/next": "N\u00e4chstes B-Roll-Bild. Gibt Streams/gallery/next aus.",
+		"gallery/pause": "B-Roll-Material einfrieren. Gibt Streams/gallery/pause aus.",
+		"gallery/resume": "Fortsetzung des B-Roll-Materials. Gibt Streams/gallery/resume aus.",
+		"gallery/remove": "Das aktuelle B-Roll-Bild ausblenden. Gibt Streams/gallery/remove aus.",
+		"gallery/caption/remove": "Blendet die B-Roll-Untertitel aus. Gibt Streams/gallery/caption {remove: true} aus.",
+		"highlight": "Hervorhebung eines Diagrammelements. Sendet Streams/highlight {elementId}. Erfasst {target}.",
+		"zoom/in": "1,5-fache Vergr\u00f6\u00dferung. Gibt Streams/zoom {scale: current*1.5} aus.",
+		"zoom/out": "1,5-fach herauszoomen. Gibt Streams/zoom {scale: current/1.5} aus.",
+		"zoom/reset": "Zoom auf 1 zur\u00fccksetzen. Gibt Streams/zoom {scale: 1} aus.",
+		"scroll/down": "Scrolle 20 % nach unten. Sendet Q/scroll {top: &#39;+20%&#39;}.",
+		"scroll/up": "Scrolle 20 % nach oben. Gibt Q/scroll {top: &#39;-20%&#39;} aus.",
+		"scroll/top": "Nach oben scrollen. Gibt Q/scroll {top: &#39;0%&#39;} aus.",
+		"scroll/bottom": "Scrolle bis zum Ende. Sendet Q/scroll {top: &#39;100%&#39;}.",
+		"fullscreen": "Vollbildmodus umschalten.",
+		"image/generate": "Vom LLM generiertes Bild. Erfasst {prompt}.",
+		"tool/generate": "Vom LLM generiertes Widget. Erfasst {prompt}.",
+		"stream/create": "Erstelle einen neuen Stream (Schach, Umfrage usw.). Erfasst {Eingabeaufforderung}.",
+		"stream/grantAccess": "Schreibzugriff gew\u00e4hren. Erfasst {Name, Schreibstufe}.",
+		"stream/revokeAccess": "Zugriff entziehen. Erfasst {name}."
+	},
+	"slide/next": [
+		"n\u00e4chste Folie",
+		"n\u00e4chste Karte",
+		"vorw\u00e4rts",
+		"weitergehen",
+		"Vorauszahlung",
+		"Als N\u00e4chstes bitte",
+		"der n\u00e4chste",
+		"N\u00e4chste Anzeige",
+		"/^next$/"
+	],
+	"slide/prev": [
+		"vorherige Folie",
+		"vorherige Karte",
+		"geh zur\u00fcck",
+		"zur\u00fcck",
+		"vorherige Folie",
+		"Schritt zur\u00fcck",
+		"/^back$/"
+	],
+	"slide/first": [
+		"erste Folie",
+		"Gehe zum Anfang",
+		"Von vorne beginnen",
+		"von oben",
+		"Bitte beginnen Sie mit der folgenden Bitte:"
+	],
+	"slide/last": [
+		"letzte Folie",
+		"Gehe bis zum Ende",
+		"letzte Folie",
+		"Zum Ende springen"
+	],
+	"slide/navigate": [
+		"Gehe zu {query}",
+		"Zeig mir {query}",
+		"finde {Abfrage}",
+		"springe zu {query}",
+		"Navigiere zu {query}",
+		"bringe mich zu {query}",
+		"\u00f6ffne die {query}",
+		"Zeige die {query} Folie an",
+		"Finde die {query} Folie",
+		"Gehe zur {query} Folie"
+	],
+	"reveal/next": [
+		"aufdecken",
+		"Mehr anzeigen",
+		"n\u00e4chster Punkt",
+		"weitermachen",
+		"n\u00e4chster Punkt"
+	],
+	"video/play": [
+		"spielen",
+		"Video abspielen",
+		"Video abspielen",
+		"Video starten",
+		"Lebenslauf-Video",
+		"Pause",
+		"/^play$/"
+	],
+	"video/pause": [
+		"Pause",
+		"Video pausieren",
+		"Video stoppen",
+		"festhalten",
+		"/^pause$/"
+	],
+	"video/seek": [
+		"gehe zu",
+		"versuchen",
+		"zu",
+		"springen zu",
+		"Schnellvorlauf zu",
+		"Zur\u00fcckspulen zu"
+	],
+	"video/seek/relative": [
+		"gehe zur\u00fcck {Zeit}",
+		"zur\u00fcck {Zeit}",
+		"zur\u00fcckspulen {Zeit}",
+		"zur\u00fcckspringen {Zeit}",
+		"gehe vorw\u00e4rts {Zeit}",
+		"Zeitsprung vorw\u00e4rts {Zeit}",
+		"Zeitsprung {Zeit}",
+		"Zeit vorspulen",
+		"vorw\u00e4rts {Zeit}"
+	],
+	"gallery/next": [
+		"n\u00e4chstes Bild",
+		"n\u00e4chstes Foto",
+		"n\u00e4chstes Bild",
+		"Bild \u00fcberspringen",
+		"Hintergrund \u00e4ndern"
+	],
+	"gallery/pause": [
+		"Hintergrund pausieren",
+		"Hintergrund stoppen",
+		"Hintergrund einfrieren",
+		"Hintergrund beibehalten",
+		"Bilder anhalten"
+	],
+	"gallery/resume": [
+		"Lebenslauf",
+		"Hintergrund fortsetzen",
+		"Hintergrund erneut starten",
+		"Hintergrund pausieren"
+	],
+	"gallery/remove": [
+		"Dieses Bild entfernen",
+		"Dieses Bild \u00fcberspringen",
+		"Dieses Foto ausblenden",
+		"Aktuelles Bild entfernen",
+		"Dieses Foto entfernen"
+	],
+	"gallery/caption/remove": [
+		"Bildunterschrift entfernen",
+		"Bildunterschrift ausblenden",
+		"klare Bildunterschrift",
+		"Bildunterschrift entfernen",
+		"Bildunterschrift ausblenden"
+	],
+	"highlight": [
+		"Highlight",
+		"zeigen auf",
+		"zeig mir",
+		"betonen",
+		"konzentrieren Sie sich auf",
+		"markieren",
+		"aufbieten, ausrufen, zurufen"
+	],
+	"zoom/in": [
+		"hineinzoomen",
+		"Zoom",
+		"gr\u00f6\u00dfer",
+		"vergr\u00f6\u00dfern",
+		"vergr\u00f6\u00dfern",
+		"mach es gr\u00f6\u00dfer",
+		"n\u00e4her"
+	],
+	"zoom/out": [
+		"Herauszoomen",
+		"kleiner",
+		"schrumpfen",
+		"zur\u00fcckziehen",
+		"verkleinern",
+		"Schritt zur\u00fcck",
+		"Weitwinkelansicht"
+	],
+	"zoom/reset": [
+		"Zoom zur\u00fccksetzen",
+		"Zoom zur\u00fccksetzen",
+		"normale Gr\u00f6\u00dfe",
+		"An Bildschirm anpassen",
+		"Zum Anpassen zoomen"
+	],
+	"scroll/down": [
+		"Scrollen Sie nach unten",
+		"weitermachen",
+		"mehr",
+		"weiter nach unten",
+		"Seite nach unten",
+		"unten"
+	],
+	"scroll/up": [
+		"Nach oben scrollen",
+		"steigen",
+		"Backup",
+		"nach oben",
+		"Seite nach oben",
+		"\u00fcber"
+	],
+	"scroll/top": [
+		"Zum Seitenanfang scrollen",
+		"Nach oben",
+		"Zur\u00fcck nach oben",
+		"Anfang der Seite",
+		"Seitenanfang"
+	],
+	"scroll/bottom": [
+		"Zum Ende scrollen",
+		"Nach unten gehen",
+		"Ende der Seite",
+		"unten auf der Seite"
+	],
+	"fullscreen": [
+		"Vollbildmodus",
+		"Vollbildmodus",
+		"maximieren",
+		"Bildschirm ausf\u00fcllen",
+		"mach es voll"
+	],
+	"image/generate": [
+		"Erstelle ein Bild von {prompt}",
+		"Erstelle ein Bild von {prompt}",
+		"Zeig mir {Eingabeaufforderung}",
+		"visualisieren {Eingabeaufforderung}",
+		"draw {prompt}",
+		"Erstelle ein Bild von {prompt}"
+	],
+	"tool/generate": [
+		"Erstelle eine {Eingabeaufforderung}",
+		"Erstelle eine {Eingabeaufforderung}",
+		"Erstelle mir eine {Aufforderung}",
+		"{prompt}-Widget generieren",
+		"Erstelle ein {prompt}-Tool",
+		"Erstellen Sie ein {prompt}-Tool"
+	],
+	"stream/create": [
+		"Erstelle einen {prompt}-Stream",
+		"Erstelle einen {prompt}-Stream",
+		"start a {prompt}",
+		"Erstelle ein {prompt}-Spiel",
+		"Lass uns spielen {prompt}",
+		"richte eine {prompt} ein"
+	],
+	"stream/grantAccess": [
+		"{name} Zugriff auf den Beitrag gew\u00e4hren",
+		"{name} posten",
+		"{name} Schreibzugriff gew\u00e4hren",
+		"{name} darf posten",
+		"F\u00fcge {name} als Gast hinzu",
+		"{Name} zum Posten einladen"
+	],
+	"stream/revokeAccess": [
+		"{name} den Zugriff entziehen",
+		"{name} den Zugriff entziehen",
+		"{name} den Zugriff entziehen",
+		"Entferne {name} aus dem Stream",
+		"{name} am Posten hindern"
+	]
+}

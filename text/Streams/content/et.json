@@ -160,7 +160,8 @@
 			"HasInvitedYou": "on kutsunud teid:",
 			"HasInvitedYouToTheirProfile": "kutsus teid \u00fchendust v\u00f5tma.",
 			"prompt": "Laske s\u00f5pradel teid \u00e4ra tunda:",
-			"accept": "N\u00f5ustu kutsega"
+			"accept": "N\u00f5ustu kutsega",
+			"RolesOffered": "Rollid, mida sulle pakutakse:"
 		},
 		"email": {
 			"subject": "Hei, vaata seda",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Kutsute inimesi vestlusele, kus saate \u00fchendust hoida, koos fotosid jagada ja palju muud. Andke sellele nimi:"
 		},
-		"Participants": "Kutsuge inimesi"
+		"Participants": "Kutsuge inimesi",
+		"inperson": {
+			"description": "Genereerige QR-kood ja edastage see skannimiseks. K\u00f5ik, kes selle skannivad, j\u00e4\u00e4vad omavahel \u00fchendusse:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "V\u00e4ljaminev",
 			"description": "teistele kasutajatele v\u00f5i v\u00e4listele s\u00fcsteemidele saadetud s\u00f5numite salvestamise sihtkoht"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontoloogia",
+			"description": "ontoloogia",
+			"newItem": "Lisa ontoloogia"
 		}
 	},
 	"menu": {

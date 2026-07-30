@@ -160,7 +160,8 @@
 			"HasInvitedYou": "amekualika kwa:",
 			"HasInvitedYouToTheirProfile": "amekualika kuunganishwa.",
 			"prompt": "Waruhusu marafiki wakutambue:",
-			"accept": "Kubali Mwaliko"
+			"accept": "Kubali Mwaliko",
+			"RolesOffered": "Majukumu unayopewa:"
 		},
 		"email": {
 			"subject": "Haya, angalia hii",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Utakuwa ukialika watu kwenye mazungumzo ambapo unaweza kuwasiliana, kushiriki picha pamoja, na zaidi. Ipe jina:"
 		},
-		"Participants": "Alika Watu"
+		"Participants": "Alika Watu",
+		"inperson": {
+			"description": "Tengeneza msimbo wa QR na uupitishe, ili uchanganuliwe. Kila mtu anayeuchanganua atabaki ameunganishwa na mwenzake:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Anayemaliza muda wake",
 			"description": "mahali pa kurekodi ujumbe uliotumwa kwa watumiaji wengine au mifumo ya nje"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontolojia",
+			"description": "ontolojia",
+			"newItem": "Ongeza Ontolojia"
 		}
 	},
 	"menu": {

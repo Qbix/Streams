@@ -5479,7 +5479,7 @@ abstract class Streams extends Base_Streams
 		$asUserId2 = empty($options['skipAccess']) ? $asUserId : false;
 
 		if ($addLabel = Q::ifset($options, 'addLabel', null)) {
-			if (is_string($label)) {
+			if (is_string($addLabel)) {
 				$addLabel = explode("\t", $addLabel);
 			}
 			Users_Label::addLabel($addLabel, $publisherId, null, null, $asUserId2);

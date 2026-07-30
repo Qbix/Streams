@@ -160,7 +160,8 @@
 			"HasInvitedYou": "v-a invitat la:",
 			"HasInvitedYouToTheirProfile": "v-a invitat s\u0103 v\u0103 conecta\u021bi.",
 			"prompt": "Las\u0103 prietenii s\u0103 te recunoasc\u0103:",
-			"accept": "Accept\u0103 invita\u021bia"
+			"accept": "Accept\u0103 invita\u021bia",
+			"RolesOffered": "Roluri care \u021bi se ofer\u0103:"
 		},
 		"email": {
 			"subject": "Hei, verific\u0103 asta",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Ve\u021bi invita oameni la o conversa\u021bie \u00een care pute\u021bi r\u0103m\u00e2ne \u00een contact, pute\u021bi partaja fotografii \u00eempreun\u0103 \u0219i multe altele. D\u0103-i un nume:"
 		},
-		"Participants": "Invita persoane"
+		"Participants": "Invita persoane",
+		"inperson": {
+			"description": "Genera\u021bi un cod QR \u0219i distribui\u021bi-l mai departe pentru a fi scanat. To\u021bi cei care \u00eel scaneaz\u0103 vor r\u0103m\u00e2ne conecta\u021bi:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Ie\u0219ire",
 			"description": "destina\u021bie pentru \u00eenregistrarea mesajelor trimise c\u0103tre al\u021bi utilizatori sau sisteme externe"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologie",
+			"description": "ontologie",
+			"newItem": "Ad\u0103uga\u021bi ontologie"
 		}
 	},
 	"menu": {

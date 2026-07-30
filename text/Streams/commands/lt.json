@@ -1,0 +1,41 @@
+{
+	"_comment": "Sraut\u0173 komandos tekstas. \u201ekomandos\u201c = rodomos etiket\u0117s (UI); \u201efraz\u0117s\u201c = atpa\u017eintos fraz\u0117s, kurias nustato komanda. Frazi\u0173 formos: \u201esubstring\u201c, \u201e/regex/\u201c arba \u0161ablonas \u201esuteikti {{name}} prieig\u0105\u201c \u2013 kiekvienas {{token}} kompiliuojamas \u012f fiksavimo fail\u0105. Srautams dabar priklauso prieigos kontrol\u0117s ir stiliaus keitimo komandos (tvarkykl\u0117s \u201eStreams/commands/streamCommand\u201c ir \u201eStreams/commands/cssUpdate\u201c); Medija suteikia navigacij\u0105; dirbtinis intelektas suteikia generavim\u0105.",
+	"commands": {
+		"tool/cssUpdate": "Pertvarkymo \u012frankis",
+		"stream/create": "Sukurti sraut\u0105",
+		"stream/grantAccess": "Suteikti prieig\u0105",
+		"stream/revokeAccess": "At\u0161aukti prieig\u0105"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"pakeiskite spalv\u0105 \u012f {{prompt}}",
+			"pakeiskite spalvas \u012f {{prompt}}",
+			"perda\u017eyti {{prompt}}",
+			"perkurkite \u012frank\u012f {{prompt}}",
+			"sukurkite spalvas {{prompt}}"
+		],
+		"stream/create": [
+			"sukurti {{prompt}} sraut\u0105",
+			"sukurti {{prompt}} sraut\u0105",
+			"prad\u0117ti {{prompt}}",
+			"sukurti {{prompt}} \u017eaidim\u0105",
+			"\u017daiskime {{prompt}}",
+			"\u012fsteigti {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"suteikti {{name}} prieig\u0105 prie pa\u0161to",
+			"leiskite {{name}} pa\u0161tui",
+			"suteikti {{name}} ra\u0161ymo prieig\u0105",
+			"leisti {{name}} skelbti",
+			"prid\u0117kite {{name}} kaip sve\u010di\u0105",
+			"pakviesti {{name}} paskelbti"
+		],
+		"stream/revokeAccess": [
+			"pa\u0161alinti {{name}} prieig\u0105",
+			"at\u0161aukti {{name}} prieig\u0105",
+			"atimti prieig\u0105 i\u0161 {{name}}",
+			"pa\u0161alinti {{name}} i\u0161 srauto",
+			"{{name}} blokas nuo paskelbimo"
+		]
+	}
+}

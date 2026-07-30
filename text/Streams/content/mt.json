@@ -160,7 +160,8 @@
 			"HasInvitedYou": "stiedenek biex:",
 			"HasInvitedYouToTheirProfile": "stiedenek biex tikkonnettja.",
 			"prompt": "\u0126alli lill-\u0127bieb jag\u0127rfuk:",
-			"accept": "A\u010b\u010betta Stieden"
+			"accept": "A\u010b\u010betta Stieden",
+			"RolesOffered": "Rwoli li qed ji\u0121u offruti lilek:"
 		},
 		"email": {
 			"subject": "\u0126ej, i\u010b\u010bekkja dan",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Int tkun qed tistieden lin-nies g\u0127al konver\u017cazzjoni fejn tista&#39; tibqa&#39; f&#39;kuntatt, taqsam ritratti flimkien, u aktar. Ag\u0127tiha isem:"
 		},
-		"Participants": "Stieden nies"
+		"Participants": "Stieden nies",
+		"inperson": {
+			"description": "I\u0121\u0121enera kodi\u010bi QR u g\u0127addih lil \u0127addie\u0127or, biex ji\u0121i skennjat. Kull min jiskennjah jibqa&#39; konness ma&#39; xulxin:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "\u0126er\u0121in",
 			"description": "destinazzjoni g\u0127ar-re\u0121istrazzjoni ta&#39; messa\u0121\u0121i mibg\u0127uta lil utenti o\u0127ra jew sistemi esterni"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontolo\u0121ija",
+			"description": "ontolo\u0121ija",
+			"newItem": "\u017bid Ontolo\u0121ija"
 		}
 	},
 	"menu": {

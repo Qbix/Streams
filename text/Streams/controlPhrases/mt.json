@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Avvanza g\u0127all-islajd li jmiss. Jo\u0127ro\u0121 Streams/islajd {slideIndex: current+1}.",
+		"slide/prev": "Mur lura g\u0127as-slajd ta&#39; qabel. Emetti Streams/slajd {slideIndex: current-1}.",
+		"slide/first": "Aqbe\u017c g\u0127all-ewwel slide. Jo\u0127ro\u0121 Streams/slide {slideIndex: 0}.",
+		"slide/last": "Aqbe\u017c g\u0127all-a\u0127\u0127ar slide. Emetti Streams/slide {slideIndex: 9999}.",
+		"slide/navigate": "Aqbe\u017c g\u0127al slide skont il-kontenut. Jaqbad {query}.",
+		"reveal/next": "\u017bvela l-element progressiv li jmiss. Emetti Streams/\u017cvela {revealIndex: current+1}.",
+		"video/play": "Ilg\u0127ab il-vidjo. Jag\u0127mel Streams/play {}.",
+		"video/pause": "Paw\u017ca l-vidjo. Emetti Streams/paw\u017ca {}.",
+		"video/seek": "Fittex g\u0127al \u0127in assolut. Jo\u0127ro\u0121 Flussi/fittex {pos: sekondi}. Jaqbad {\u0127in}.",
+		"video/seek/relative": "Fittex skont l-offset. Jo\u0127ro\u0121 Streams/fittex {pos: &#39;+/-sekondi&#39;}. Jaqbad {time}.",
+		"gallery/next": "Imma\u0121ni b-roll li jmiss. Titfa&#39; Streams/gallerija/li jmiss.",
+		"gallery/pause": "Iffri\u017ca l-b-roll. Jo\u0127ro\u0121 Streams/gallerija/paw\u017ca.",
+		"gallery/resume": "Kompli l-b-roll. Jo\u0127ro\u0121 Streams/gallerija/jer\u0121a&#39; jibda.",
+		"gallery/remove": "A\u0127bi l-imma\u0121ni b-roll kurrenti. Jo\u0127ro\u0121 Streams/gallerija/ne\u0127\u0127i.",
+		"gallery/caption/remove": "A\u0127bi l-caption tal-b-roll. Jo\u0127ro\u0121 Streams/gallerija/caption {ne\u0127\u0127i: veru}.",
+		"highlight": "Jenfasizza l-element ta\u010b-\u010bart. Jo\u0127ro\u0121 Streams/enfasi {elementId}. Jaqbad {target}.",
+		"zoom/in": "\u017bum &#39;il \u0121ewwa 1.5x. Jag\u0127ti Flussi/\u017cum {skala: kurrenti*1.5}.",
+		"zoom/out": "\u017bum &#39;il barra 1.5x. Emetti Flussi/\u017cum {skala: kurrenti/1.5}.",
+		"zoom/reset": "Irrisettja \u017c-\u017cum g\u0127al 1. Jo\u0127ro\u0121 Flussi/\u017cum {skala: 1}.",
+		"scroll/down": "Skrollja &#39;l isfel b&#39;20%. Jo\u0127ro\u0121 Q/skrollja {fuq: &#39;+20%&#39;}.",
+		"scroll/up": "Skrollja &#39;l fuq b&#39;20%. Jo\u0127ro\u0121 Q/skrollja {fuq: &#39;-20%&#39;}.",
+		"scroll/top": "Skrollja &#39;l fuq. Jo\u0127ro\u0121 Q/skrollja {fuq: &#39;0%&#39;}.",
+		"scroll/bottom": "Skrollja &#39;l isfel. Jo\u0127ro\u0121 Q/skrollja {fuq: &#39;100%&#39;}.",
+		"fullscreen": "Ibdel l-iskrin s\u0127i\u0127.",
+		"image/generate": "Imma\u0121ni \u0121\u0121enerata minn LLM. Taqbad {prompt}.",
+		"tool/generate": "Widget i\u0121\u0121enerat minn LLM. Jaqbad {prompt}.",
+		"stream/create": "O\u0127loq nixxieg\u0127a \u0121dida (\u010bess, st\u0127arri\u0121, e\u010b\u010b). Jaqbad {prompt}.",
+		"stream/grantAccess": "Ag\u0127ti a\u010b\u010bess g\u0127all-kitba. Jaqbad {name, writeLevel}.",
+		"stream/revokeAccess": "Irrevoka l-a\u010b\u010bess. Jaqbad {name}."
+	},
+	"slide/next": [
+		"slajd li jmiss",
+		"karta li jmiss",
+		"imxi &#39;l quddiem",
+		"kompli &#39;l quddiem",
+		"avvanz",
+		"li jmiss jekk jog\u0127\u0121bok",
+		"li jmiss",
+		"uri li jmiss",
+		"/^li jmiss$/"
+	],
+	"slide/prev": [
+		"slide ta&#39; qabel",
+		"karta pre\u010bedenti",
+		"mur lura",
+		"wie\u0127ed ta&#39; wara",
+		"slide ta&#39; qabel",
+		"pass lura",
+		"/^lura$/"
+	],
+	"slide/first": [
+		"l-ewwel slide",
+		"mur fil-bidu",
+		"ibda mill-\u0121did",
+		"minn fuq",
+		"jekk jog\u0127\u0121bok ibda"
+	],
+	"slide/last": [
+		"l-a\u0127\u0127ar slide",
+		"mur sal-a\u0127\u0127ar",
+		"slide finali",
+		"aqbe\u017c sat-tmiem"
+	],
+	"slide/navigate": [
+		"mur fuq {mistoqsija}",
+		"urini {mistoqsija}",
+		"sib {mistoqsija}",
+		"aqbe\u017c g\u0127al {mistoqsija}",
+		"naviga lejn {query}",
+		"\u0127udni g\u0127al {query}",
+		"ifta\u0127 il-{mistoqsija}",
+		"uri s-slajd {query}",
+		"sib is-slajd {query}",
+		"mur fis-slajd {query}"
+	],
+	"reveal/next": [
+		"\u017cvela",
+		"uri aktar",
+		"il-punt li jmiss",
+		"kompli",
+		"il-balla li jmiss"
+	],
+	"video/play": [
+		"tilg\u0127ab",
+		"daqq il-vidjo",
+		"daqq il-vidjo",
+		"ibda l-vidjo",
+		"vidjo tas-CV",
+		"er\u0121a&#39; waqqaf il-paw\u017ca",
+		"/^ilg\u0127ab$/"
+	],
+	"video/pause": [
+		"paw\u017ca",
+		"waqqaf il-vidjo",
+		"waqqaf il-vidjo",
+		"\u017comm sod",
+		"/^paw\u017ca$/"
+	],
+	"video/seek": [
+		"mur g\u0127and",
+		"tfittex li",
+		"aqbe\u017c g\u0127al",
+		"aqbe\u017c g\u0127al",
+		"&#39;il quddiem malajr g\u0127al",
+		"lura g\u0127al"
+	],
+	"video/seek/relative": [
+		"mur lura {\u0127in}",
+		"lura {\u0127in}",
+		"rewind {\u0127in}",
+		"aqbe\u017c lura {\u0127in}",
+		"mur &#39;il quddiem {\u0127in}",
+		"aqbe\u017c &#39;il quddiem {\u0127in}",
+		"aqbe\u017c &#39;il quddiem {\u0127in}",
+		"&#39;il quddiem malajr {\u0127in}",
+		"&#39;il quddiem {\u0127in}"
+	],
+	"gallery/next": [
+		"imma\u0121ni li jmiss",
+		"ritratt li jmiss",
+		"stampa li jmiss",
+		"aqbe\u017c l-imma\u0121ni",
+		"ibdel l-isfond"
+	],
+	"gallery/pause": [
+		"paw\u017ca l-isfond",
+		"waqqaf l-isfond",
+		"sfond iffri\u017cat",
+		"\u017comm l-isfond",
+		"waqqaf l-imma\u0121ini"
+	],
+	"gallery/resume": [
+		"sfond tas-CV",
+		"kompli l-isfond",
+		"ibda l-isfond mill-\u0121did",
+		"er\u0121a&#39; waqqaf l-isfond"
+	],
+	"gallery/remove": [
+		"ne\u0127\u0127i din l-imma\u0121ni",
+		"aqbe\u017c din l-imma\u0121ni",
+		"a\u0127bi din ir-ritratt",
+		"ne\u0127\u0127i l-imma\u0121ni attwali",
+		"ne\u0127\u0127i din ir-ritratt"
+	],
+	"gallery/caption/remove": [
+		"ne\u0127\u0127i l-caption",
+		"a\u0127bi l-caption",
+		"sottotitlu \u010bar",
+		"ne\u0127\u0127i l-caption",
+		"a\u0127bi l-caption"
+	],
+	"highlight": [
+		"jenfasizza",
+		"punt lejn",
+		"urini",
+		"jenfasizza",
+		"iffoka fuq",
+		"marka",
+		"sej\u0127a"
+	],
+	"zoom/in": [
+		"\u017cimm &#39;il \u0121ewwa",
+		"\u017cum",
+		"akbar",
+		"kabbar",
+		"tkabbar",
+		"ag\u0127milha akbar",
+		"eqreb"
+	],
+	"zoom/out": [
+		"zoom out",
+		"i\u017cg\u0127ar",
+		"ti\u010bkien",
+		"i\u0121bed lura",
+		"ag\u0127milha i\u017cg\u0127ar",
+		"pass lura",
+		"veduta usa&#39;"
+	],
+	"zoom/reset": [
+		"irrisettja \u017c-\u017cum",
+		"reset ta\u017c-\u017cum",
+		"daqs normali",
+		"tajbin g\u0127all-iskrin",
+		"zoom biex taqbel"
+	],
+	"scroll/down": [
+		"skrollja &#39;l isfel",
+		"kompli sejjer",
+		"aktar",
+		"kompli &#39;l isfel",
+		"pa\u0121na &#39;l isfel",
+		"ta\u0127t"
+	],
+	"scroll/up": [
+		"skrollja &#39;l fuq",
+		"itla&#39;",
+		"backup",
+		"&#39;il fuq",
+		"pa\u0121na &#39;l fuq",
+		"&#39;il fuq"
+	],
+	"scroll/top": [
+		"skrollja &#39;l fuq",
+		"mur fil-qu\u010b\u010bata",
+		"lura g\u0127all-bidu",
+		"bidu tal-pa\u0121na",
+		"fuq nett tal-pa\u0121na"
+	],
+	"scroll/bottom": [
+		"skrollja &#39;l isfel",
+		"mur fil-qieg\u0127",
+		"tmiem tal-pa\u0121na",
+		"qieg\u0127 tal-pa\u0121na"
+	],
+	"fullscreen": [
+		"skrin s\u0127i\u0127",
+		"skrin s\u0127i\u0127",
+		"immassimizza",
+		"imla l-iskrin",
+		"ag\u0127milha s\u0127i\u0127a"
+	],
+	"image/generate": [
+		"i\u0121\u0121enera imma\u0121ni ta&#39; {prompt}",
+		"o\u0127loq imma\u0121ni ta&#39; {prompt}",
+		"urini",
+		"vi\u017cwalizza {pront}",
+		"i\u0121bed",
+		"ag\u0127mel stampa ta&#39; {prompt}"
+	],
+	"tool/generate": [
+		"ibni {pront}",
+		"o\u0127loq {prompt}",
+		"ibni {pront}",
+		"i\u0121\u0121enera widget {prompt}",
+		"ag\u0127mel g\u0127odda {pront}",
+		"o\u0127loq g\u0127odda {prompt}"
+	],
+	"stream/create": [
+		"o\u0127loq nixxieg\u0127a {prompt}",
+		"ag\u0127mel nixxieg\u0127a {pront}",
+		"ibda {prompt}",
+		"o\u0127loq log\u0127ba {prompt}",
+		"ejja nilag\u0127bu",
+		"waqqaf {prompt}"
+	],
+	"stream/grantAccess": [
+		"ag\u0127ti a\u010b\u010bess lil {name} g\u0127all-post",
+		"\u0127alli {isem} jippubblika",
+		"ag\u0127ti a\u010b\u010bess g\u0127all-kitba lil {isem}",
+		"\u0127alli {name} jippubblika",
+		"\u017cid {name} b\u0127ala mistieden",
+		"stieden lil {name} biex jippubblika"
+	],
+	"stream/revokeAccess": [
+		"ne\u0127\u0127i l-a\u010b\u010bess ta&#39; {name}",
+		"irrevoka l-a\u010b\u010bess ta&#39; {name}",
+		"ne\u0127\u0127i l-a\u010b\u010bess ta&#39; {name}",
+		"ne\u0127\u0127i {isem} mill-istreaming",
+		"imblokka lil {name} milli jippubblika"
+	]
+}

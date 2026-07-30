@@ -160,7 +160,8 @@
 			"HasInvitedYou": "telah mengundang Anda untuk:",
 			"HasInvitedYouToTheirProfile": "telah mengundang Anda untuk terhubung.",
 			"prompt": "Biarkan teman mengenali Anda:",
-			"accept": "Terima Undangan"
+			"accept": "Terima Undangan",
+			"RolesOffered": "Posisi yang ditawarkan kepada Anda:"
 		},
 		"email": {
 			"subject": "Hei, lihat ini",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Anda akan mengundang orang-orang ke percakapan di mana Anda dapat tetap berhubungan, berbagi foto bersama, dan banyak lagi. Beri nama:"
 		},
-		"Participants": "Mengundang orang"
+		"Participants": "Mengundang orang",
+		"inperson": {
+			"description": "Buat kode QR dan sebarkan untuk dipindai. Setiap orang yang memindainya akan tetap terhubung satu sama lain:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Ramah",
 			"description": "Tujuan untuk merekam pesan yang dikirim ke pengguna lain atau sistem eksternal."
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologi",
+			"description": "ontologi",
+			"newItem": "Tambahkan Ontologi"
 		}
 	},
 	"menu": {

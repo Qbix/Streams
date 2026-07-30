@@ -1,0 +1,264 @@
+{
+	"_locale": "sk",
+	"_intents": {
+		"slide/next": "Prejs\u0165 na \u010fal\u0161\u00ed slajd. Vygeneruje Streams/slide {slideIndex: current+1}.",
+		"slide/prev": "Sp\u00e4\u0165 na predch\u00e1dzaj\u00faci slajd. Vygeneruje Streams/slide {slideIndex: current-1}.",
+		"slide/first": "Prejs\u0165 na prv\u00fd slajd. Vygeneruje Streams/slide {slideIndex: 0}.",
+		"slide/last": "Prejs\u0165 na posledn\u00fd slajd. Vygeneruje Streams/slide {slideIndex: 9999}.",
+		"slide/navigate": "Presko\u010di\u0165 na sn\u00edmku pomocou dopytu obsahu. Zachyt\u00e1va {dopyt}.",
+		"reveal/next": "Odhal\u00ed \u010fal\u0161\u00ed progres\u00edvny prvok. Vygeneruje Streams/reveal {revealIndex: current+1}.",
+		"video/play": "Prehra\u0165 video. Vysiela streamy/prehra\u0165 {}.",
+		"video/pause": "Pozastavi\u0165 video. Vysiela streamy/pozastavi\u0165 {}.",
+		"video/seek": "H\u013ead\u00e1 absol\u00fatny \u010das. Vysiela streamy/vyh\u013ead\u00e1va {poz\u00edcia: sekundy}. Zachyt\u00e1va {\u010das}.",
+		"video/seek/relative": "Vyh\u013ead\u00e1vanie pod\u013ea posunu. Vysiela streamy/vyh\u013ead\u00e1vanie {poz\u00edcia: &#39;+/- sekundy&#39;}. Zachyt\u00e1va {\u010das}.",
+		"gallery/next": "\u010eal\u0161\u00ed obr\u00e1zok b-rollu. Vysiela Streamy/gal\u00e9ria/\u010fal\u0161\u00ed.",
+		"gallery/pause": "Zmrazi\u0165 ved\u013eaj\u0161\u00ed z\u00e1znam. Vysiela streamy/gal\u00e9riu/pozastavi\u0165.",
+		"gallery/resume": "Pokra\u010dova\u0165 v b-rolle. Vysiela streamy/gal\u00e9riu/\u017eivotopis.",
+		"gallery/remove": "Skry\u0165 aktu\u00e1lny obr\u00e1zok b-roll. Vysiela streamy/gal\u00e9riu/odstr\u00e1ni\u0165.",
+		"gallery/caption/remove": "Skry\u0165 titulok k ved\u013eaj\u0161iemu z\u00e1znamu. Vysiela Streams/gallery/caption {remove: true}.",
+		"highlight": "Zv\u00fdrazni\u0165 prvok grafu. Vygeneruje streamy/zv\u00fdrazn\u00ed {elementId}. Zachyt\u00ed {target}.",
+		"zoom/in": "Pribl\u00ed\u017eenie 1,5x. Vysiela streamy/pribl\u00ed\u017eenie {mierka: aktu\u00e1lna*1,5}.",
+		"zoom/out": "Oddialenie 1,5x. Vysiela streamy/pribl\u00ed\u017eenie {mierka: aktu\u00e1lna/1,5}.",
+		"zoom/reset": "Obnovi\u0165 pribl\u00ed\u017eenie na 1. Vysiela streamy/pribl\u00ed\u017eenie {mierka: 1}.",
+		"scroll/down": "Posu\u0148 sa nadol o 20 %. Vyd\u00e1va Q/posu\u0148 sa {hore: &#39;+20 %&#39;}.",
+		"scroll/up": "Posu\u0148 sa nahor o 20 %. Vyd\u00e1va Q/posu\u0148 sa {top: &#39;-20 %&#39;}.",
+		"scroll/top": "Prejdite nahor. Vyd\u00e1 Q/posun\u00fa\u0165 {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Prejdite nadol. Vygeneruje Q/pos\u00favanie {top: &#39;100%&#39;}.",
+		"fullscreen": "Prepn\u00fa\u0165 na cel\u00fa obrazovku.",
+		"image/generate": "Obr\u00e1zok vygenerovan\u00fd LLM. Zachyt\u00e1va {prompt}.",
+		"tool/generate": "Widget generovan\u00fd LLM. Zachyt\u00e1va {prompt}.",
+		"stream/create": "Vytvori\u0165 nov\u00fd stream (\u0161ach, anketa at\u010f.). Zachyt\u00e1va {prompt}.",
+		"stream/grantAccess": "Udeli\u0165 pr\u00edstup na z\u00e1pis. Zachyt\u00e1va {name, writeLevel}.",
+		"stream/revokeAccess": "Zru\u0161i\u0165 pr\u00edstup. Zachyt\u00e1va {name}."
+	},
+	"slide/next": [
+		"\u010fal\u0161\u00ed slajd",
+		"\u010fal\u0161ia karta",
+		"cho\u010f vpred",
+		"po\u010f \u010falej",
+		"z\u00e1loha",
+		"\u010fal\u0161\u00ed pros\u00edm",
+		"\u010fal\u0161\u00ed",
+		"zobrazi\u0165 \u010fal\u0161ie",
+		"/^\u010fal\u0161\u00ed$/"
+	],
+	"slide/prev": [
+		"predch\u00e1dzaj\u00faci slajd",
+		"predch\u00e1dzaj\u00faca karta",
+		"vr\u00e1ti\u0165 sa",
+		"zadn\u00fd",
+		"predch\u00e1dzaj\u00faci slajd",
+		"krok sp\u00e4\u0165",
+		"/^sp\u00e4\u0165$/"
+	],
+	"slide/first": [
+		"prv\u00fd slajd",
+		"\u00eds\u0165 na za\u010diatok",
+		"za\u010da\u0165 odznova",
+		"zhora",
+		"za\u010diatok pros\u00edm"
+	],
+	"slide/last": [
+		"posledn\u00fd slajd",
+		"\u00eds\u0165 do konca",
+		"z\u00e1vere\u010dn\u00fd slajd",
+		"skok na koniec"
+	],
+	"slide/navigate": [
+		"prejs\u0165 na {dopyt}",
+		"uk\u00e1\u017e mi {dopyt}",
+		"n\u00e1js\u0165 {dopyt}",
+		"prejs\u0165 na {dopyt}",
+		"prejs\u0165 na {query}",
+		"presmerova\u0165 ma na {query}",
+		"otvori\u0165 {query}",
+		"zobrazi\u0165 sn\u00edmku {query}",
+		"n\u00e1js\u0165 sn\u00edmku {query}",
+		"prejs\u0165 na sn\u00edmku {query}"
+	],
+	"reveal/next": [
+		"odhali\u0165",
+		"zobrazi\u0165 viac",
+		"\u010fal\u0161\u00ed bod",
+		"pokra\u010dova\u0165",
+		"\u010fal\u0161ia odr\u00e1\u017eka"
+	],
+	"video/play": [
+		"hra\u0165",
+		"prehra\u0165 video",
+		"prehra\u0165 video",
+		"spusti\u0165 video",
+		"obnovi\u0165 video",
+		"obnovi\u0165 pozastavenie",
+		"/^prehra\u0165$/"
+	],
+	"video/pause": [
+		"pauza",
+		"pozastavi\u0165 video",
+		"zastavi\u0165 video",
+		"vydr\u017e",
+		"/^pauza$/"
+	],
+	"video/seek": [
+		"\u00eds\u0165 do",
+		"sna\u017ei\u0165 sa",
+		"prejs\u0165 na",
+		"prejs\u0165 na",
+		"r\u00fdchlo vpred do",
+		"preto\u010di\u0165 sp\u00e4\u0165 do"
+	],
+	"video/seek/relative": [
+		"vr\u00e1ti\u0165 sa {\u010das}",
+		"sp\u00e4\u0165 {\u010das}",
+		"preto\u010di\u0165 {\u010das}",
+		"presko\u010di\u0165 sp\u00e4\u0165 {\u010das}",
+		"pokra\u010duj {\u010das}",
+		"presko\u010di\u0165 dopredu {\u010das}",
+		"presko\u010di\u0165 dopredu {\u010das}",
+		"r\u00fdchlo dopredu {\u010das}",
+		"dopredu {\u010das}"
+	],
+	"gallery/next": [
+		"\u010fal\u0161\u00ed obr\u00e1zok",
+		"\u010fal\u0161ia fotografia",
+		"\u010fal\u0161\u00ed obr\u00e1zok",
+		"presko\u010di\u0165 obr\u00e1zok",
+		"zmeni\u0165 pozadie"
+	],
+	"gallery/pause": [
+		"pozastavi\u0165 pozadie",
+		"zastavi\u0165 pozadie",
+		"zmrazi\u0165 pozadie",
+		"dr\u017ete pozadie",
+		"pozastavi\u0165 obr\u00e1zky"
+	],
+	"gallery/resume": [
+		"\u017eivotopis pozadie",
+		"pokra\u010dova\u0165 v pozad\u00ed",
+		"znova spusti\u0165 pozadie",
+		"obnovi\u0165 pozadie"
+	],
+	"gallery/remove": [
+		"odstr\u00e1ni\u0165 tento obr\u00e1zok",
+		"presko\u010di\u0165 tento obr\u00e1zok",
+		"skry\u0165 t\u00fato fotku",
+		"odstr\u00e1ni\u0165 aktu\u00e1lny obr\u00e1zok",
+		"odstr\u00e1ni\u0165 t\u00fato fotografiu"
+	],
+	"gallery/caption/remove": [
+		"odstr\u00e1ni\u0165 popis",
+		"skry\u0165 popis",
+		"vymaza\u0165 popis",
+		"odstr\u00e1ni\u0165 titulok",
+		"skry\u0165 titulok"
+	],
+	"highlight": [
+		"zv\u00fdrazni\u0165",
+		"pouk\u00e1za\u0165 na",
+		"uk\u00e1\u017e mi",
+		"zd\u00f4razni\u0165",
+		"zamera\u0165 sa na",
+		"zna\u010dka",
+		"zavola\u0165"
+	],
+	"zoom/in": [
+		"pribl\u00ed\u017ei\u0165",
+		"pribl\u00ed\u017eenie",
+		"v\u00e4\u010d\u0161\u00ed",
+		"zv\u00e4\u010d\u0161i\u0165",
+		"zv\u00e4\u010d\u0161i\u0165",
+		"zv\u00e4\u010d\u0161i\u0165 to",
+		"bli\u017e\u0161ie"
+	],
+	"zoom/out": [
+		"oddiali\u0165",
+		"men\u0161\u00ed",
+		"zmen\u0161i\u0165 sa",
+		"stiahnu\u0165 sa sp\u00e4\u0165",
+		"zmen\u0161i\u0165 to",
+		"krok sp\u00e4\u0165",
+		"\u0161ir\u0161\u00ed poh\u013ead"
+	],
+	"zoom/reset": [
+		"resetova\u0165 pribl\u00ed\u017eenie",
+		"reset pribl\u00ed\u017eenia",
+		"norm\u00e1lna ve\u013ekos\u0165",
+		"prisp\u00f4sobi\u0165 obrazovke",
+		"pribl\u00ed\u017ei\u0165, aby sa prisp\u00f4sobilo"
+	],
+	"scroll/down": [
+		"prejdite nadol",
+		"pokra\u010duj",
+		"viac",
+		"pokra\u010dujte dole",
+		"str\u00e1nka nadol",
+		"ni\u017e\u0161ie"
+	],
+	"scroll/up": [
+		"posun\u00fa\u0165 nahor",
+		"\u00eds\u0165 hore",
+		"z\u00e1lohova\u0165",
+		"smerom nahor",
+		"str\u00e1nka hore",
+		"vy\u0161\u0161ie"
+	],
+	"scroll/top": [
+		"prejdite nahor",
+		"prejs\u0165 nahor",
+		"sp\u00e4\u0165 na za\u010diatok",
+		"za\u010diatok str\u00e1nky",
+		"horn\u00e1 \u010das\u0165 str\u00e1nky"
+	],
+	"scroll/bottom": [
+		"prejdite nadol",
+		"\u00eds\u0165 na spodok",
+		"koniec str\u00e1nky",
+		"spodok str\u00e1nky"
+	],
+	"fullscreen": [
+		"cel\u00e1 obrazovka",
+		"cel\u00e1 obrazovka",
+		"maximalizova\u0165",
+		"vyplni\u0165 obrazovku",
+		"napl\u0148 to"
+	],
+	"image/generate": [
+		"vygenerova\u0165 obr\u00e1zok {prompt}",
+		"vytvori\u0165 obr\u00e1zok {prompt}",
+		"uk\u00e1\u017e mi {v\u00fdzva}",
+		"vizualizova\u0165 {v\u00fdzva}",
+		"kresli\u0165 {v\u00fdzva}",
+		"vyfo\u0165 {prompt}"
+	],
+	"tool/generate": [
+		"vytvori\u0165 {prompt}",
+		"vytvori\u0165 {v\u00fdzvu}",
+		"vytvor mi {prompt}",
+		"vygenerova\u0165 widget {prompt}",
+		"vytvori\u0165 n\u00e1stroj {prompt}",
+		"vytvori\u0165 n\u00e1stroj {prompt}"
+	],
+	"stream/create": [
+		"vytvori\u0165 stream {prompt}",
+		"vytvori\u0165 {prompt} stream",
+		"spusti\u0165 {v\u00fdzvu}",
+		"vytvori\u0165 hru {prompt}",
+		"po\u010fme si zahra\u0165 {prompt}",
+		"nastavi\u0165 {v\u00fdzvu}"
+	],
+	"stream/grantAccess": [
+		"udeli\u0165 pou\u017e\u00edvate\u013eovi {name} pr\u00edstup k pr\u00edspevku",
+		"necha\u0165 {name} uverejni\u0165 pr\u00edspevok",
+		"udeli\u0165 pou\u017e\u00edvate\u013eovi {name} pr\u00edstup na z\u00e1pis",
+		"povoli\u0165 pou\u017e\u00edvate\u013eovi {name} uverej\u0148ova\u0165 pr\u00edspevky",
+		"prida\u0165 {name} ako hos\u0165a",
+		"pozva\u0165 {name} na uverejnenie pr\u00edspevku"
+	],
+	"stream/revokeAccess": [
+		"odobra\u0165 pr\u00edstup pou\u017e\u00edvate\u013eovi {name}",
+		"zru\u0161i\u0165 pr\u00edstup pre {name}",
+		"odobra\u0165 pr\u00edstup pou\u017e\u00edvate\u013eovi {name}",
+		"odstr\u00e1ni\u0165 {name} zo streamu",
+		"zablokova\u0165 {name} v prid\u00e1van\u00ed pr\u00edspevkov"
+	]
+}

@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Sonraki slayta ge\u00e7in. Yay\u0131n Ak\u0131\u015flar\u0131/slayt {slayt\u0130ndeksi: mevcut+1}.",
+		"slide/prev": "\u00d6nceki slayta geri d\u00f6n. Emits Streams/slide {slideIndex: current-1}.",
+		"slide/first": "\u0130lk slayta atla. Yay\u0131nlar/slayt {slayt\u0130ndeksi: 0}.",
+		"slide/last": "Son slayta atla. Yay\u0131n Ak\u0131\u015flar\u0131/slayt {slaytDizin: 9999}.",
+		"slide/navigate": "\u0130\u00e7erik sorgusuna g\u00f6re slayta atla. {sorgu} yakalar.",
+		"reveal/next": "Sonraki ilerleyici \u00f6\u011feyi g\u00f6ster. Streams/reveal {revealIndex: current+1} g\u00f6nderir.",
+		"video/play": "Video oynat. Yay\u0131nlar/oynat {}.",
+		"video/pause": "Videoyu duraklat. Streams/pause {} yayar.",
+		"video/seek": "Mutlak zamana gidin. Streams/seek {pos: saniye} g\u00f6nderir. {zaman} yakalar.",
+		"video/seek/relative": "Uzakl\u0131\u011fa g\u00f6re arama yap. Streams/seek {pos: &#39;+/-seconds&#39;} g\u00f6nderir. {time} de\u011ferini yakalar.",
+		"gallery/next": "Sonraki b-roll g\u00f6r\u00fcnt\u00fcs\u00fc. Yay\u0131nlar/galeri/sonraki.",
+		"gallery/pause": "B-roll&#39;\u00fc dondur. Ak\u0131\u015flar/galeri/duraklatma sa\u011flar.",
+		"gallery/resume": "\u00d6zge\u00e7mi\u015fe ait kamera arkas\u0131 g\u00f6r\u00fcnt\u00fcleri. Yay\u0131n ak\u0131\u015f\u0131/galeri/\u00f6zge\u00e7mi\u015f.",
+		"gallery/remove": "Mevcut b-roll g\u00f6r\u00fcnt\u00fcs\u00fcn\u00fc gizle. Streams/gallery/remove komutunu \u00e7al\u0131\u015ft\u0131r\u0131r.",
+		"gallery/caption/remove": "B-roll alt yaz\u0131s\u0131n\u0131 gizle. Emits Streams/gallery/caption {remove: true}.",
+		"highlight": "Grafik \u00f6\u011fesini vurgula. Streams/highlight {elementId} sinyalini yayar. {target} de\u011ferini yakalar.",
+		"zoom/in": "1,5x yak\u0131nla\u015ft\u0131rma. Ak\u0131\u015flar/yak\u0131nla\u015ft\u0131rma {\u00f6l\u00e7ek: mevcut*1,5} yayar.",
+		"zoom/out": "1,5x k\u00fc\u00e7\u00fcltme. Ak\u0131\u015flar yayar/yak\u0131nla\u015ft\u0131rma {\u00f6l\u00e7ek: mevcut/1,5}.",
+		"zoom/reset": "Yak\u0131nla\u015ft\u0131rma seviyesini 1&#39;e s\u0131f\u0131rla. Ak\u0131\u015flar/yak\u0131nla\u015ft\u0131rma seviyesi {\u00f6l\u00e7ek: 1} yayar.",
+		"scroll/down": "A\u015fa\u011f\u0131ya %20 kayd\u0131r\u0131n. Q/scroll {top: &#39;+20%&#39;} mesaj\u0131n\u0131 yayar.",
+		"scroll/up": "Yukar\u0131 kayd\u0131r %20. Q/scroll {top: &#39;-20%&#39;} mesaj\u0131n\u0131 yayar.",
+		"scroll/top": "Sayfan\u0131n ba\u015f\u0131na kayd\u0131r. Q/scroll komutunu \u00e7al\u0131\u015ft\u0131r\u0131r {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Sayfan\u0131n en alt\u0131na kayd\u0131r\u0131n. Q/scroll komutunu \u00e7al\u0131\u015ft\u0131r\u0131r {top: &#39;100%&#39;}.",
+		"fullscreen": "Tam ekran modunu a\u00e7\u0131p kapat.",
+		"image/generate": "LLM taraf\u0131ndan olu\u015fturulan g\u00f6r\u00fcnt\u00fc. {\u0130stem} yakalan\u0131r.",
+		"tool/generate": "LLM taraf\u0131ndan olu\u015fturulan widget. {prompt} metnini yakalar.",
+		"stream/create": "Yeni bir ak\u0131\u015f olu\u015fturun (satran\u00e7, anket vb.). {\u0130stem}i yakalay\u0131n.",
+		"stream/grantAccess": "Yazma eri\u015fimi verin. {name, writeLevel} de\u011ferlerini yakalar.",
+		"stream/revokeAccess": "Eri\u015fimi iptal et. {name}&#39;i yakalar."
+	},
+	"slide/next": [
+		"sonraki slayt",
+		"sonraki kart",
+		"ileriye gitmek",
+		"Devam et",
+		"ilerlemek",
+		"L\u00fctfen bir sonraki",
+		"bir sonraki",
+		"sonrakini g\u00f6ster",
+		"/^sonraki$/"
+	],
+	"slide/prev": [
+		"\u00f6nceki slayt",
+		"\u00f6nceki kart",
+		"geri gitmek",
+		"arka bir",
+		"\u00f6nceki slayt",
+		"geri ad\u0131m",
+		"/^geri$/"
+	],
+	"slide/first": [
+		"ilk slayt",
+		"ba\u015fa git",
+		"ba\u015ftan ba\u015fla",
+		"yukar\u0131dan",
+		"l\u00fctfen ba\u015flay\u0131n"
+	],
+	"slide/last": [
+		"son slayt",
+		"sona git",
+		"son slayt",
+		"sona atla"
+	],
+	"slide/navigate": [
+		"{sorguya} git",
+		"bana {sorguyu} g\u00f6ster",
+		"{sorguyu} bul",
+		"{sorguya atla}",
+		"{sorguya} git",
+		"Beni {sorgu}ya g\u00f6t\u00fcr",
+		"{sorguyu} a\u00e7",
+		"{sorgu} slayt\u0131n\u0131 g\u00f6ster",
+		"{sorgu} slayt\u0131n\u0131 bul",
+		"{sorgu} slayt\u0131na git"
+	],
+	"reveal/next": [
+		"ortaya \u00e7\u0131karmak",
+		"daha fazlas\u0131n\u0131 g\u00f6ster",
+		"sonraki nokta",
+		"devam etmek",
+		"sonraki madde"
+	],
+	"video/play": [
+		"oynamak",
+		"video oynat",
+		"videoyu oynat",
+		"videoyu ba\u015flat",
+		"\u00f6zge\u00e7mi\u015f videosu",
+		"duraklatmay\u0131 kald\u0131r",
+		"/^play$/"
+	],
+	"video/pause": [
+		"duraklama",
+		"videoyu duraklat",
+		"videoyu durdur",
+		"devam etmek",
+		"/^duraklatma$/"
+	],
+	"video/seek": [
+		"git",
+		"aramak",
+		"atla",
+		"atla",
+		"ileri sar",
+		"geri sar"
+	],
+	"video/seek/relative": [
+		"geri d\u00f6n {zaman}",
+		"geri {zaman}",
+		"zaman\u0131 geri sar",
+		"{zaman} kadar geriye atla",
+		"ileriye git {zaman}",
+		"Zaman\u0131 ileriye atla",
+		"ileriye atla {zaman}",
+		"zaman\u0131 ileri sar",
+		"ileri {zaman}"
+	],
+	"gallery/next": [
+		"sonraki g\u00f6r\u00fcnt\u00fc",
+		"sonraki foto\u011fraf",
+		"sonraki resim",
+		"resmi atla",
+		"arka plan\u0131 de\u011fi\u015ftir"
+	],
+	"gallery/pause": [
+		"duraklat arka plan",
+		"arka plan\u0131 durdur",
+		"dondurma arka plan\u0131",
+		"arka plan\u0131 tut",
+		"G\u00f6r\u00fcnt\u00fcleri duraklat"
+	],
+	"gallery/resume": [
+		"\u00f6zge\u00e7mi\u015f ge\u00e7mi\u015fi",
+		"arka plan\u0131 devam ettirin",
+		"arka plan\u0131 tekrar ba\u015flat",
+		"arka plan\u0131 duraklatmay\u0131 kald\u0131r"
+	],
+	"gallery/remove": [
+		"Bu resmi kald\u0131r",
+		"Bu resmi atla",
+		"Bu foto\u011fraf\u0131 gizle",
+		"mevcut g\u00f6r\u00fcnt\u00fcy\u00fc kald\u0131r",
+		"Bu foto\u011fraf\u0131 kald\u0131r"
+	],
+	"gallery/caption/remove": [
+		"altyaz\u0131y\u0131 kald\u0131r",
+		"altyaz\u0131y\u0131 gizle",
+		"altyaz\u0131y\u0131 temizle",
+		"altyaz\u0131y\u0131 kald\u0131r",
+		"altyaz\u0131y\u0131 gizle"
+	],
+	"highlight": [
+		"vurgu",
+		"i\u015faret etmek",
+		"bana g\u00f6ster",
+		"vurgu",
+		"odaklan",
+		"i\u015faret",
+		"\u00e7a\u011fr\u0131"
+	],
+	"zoom/in": [
+		"yak\u0131nla\u015ft\u0131r",
+		"yak\u0131nla\u015ft\u0131rmak",
+		"daha b\u00fcy\u00fck",
+		"b\u00fcy\u00fct",
+		"b\u00fcy\u00fctmek",
+		"daha b\u00fcy\u00fck yap",
+		"daha yak\u0131n"
+	],
+	"zoom/out": [
+		"uzakla\u015ft\u0131r",
+		"daha k\u00fc\u00e7\u00fck",
+		"\u00e7ekmek",
+		"geri \u00e7ekil",
+		"k\u00fc\u00e7\u00fclt\u00fcn",
+		"geri ad\u0131m",
+		"daha geni\u015f g\u00f6r\u00fcn\u00fcm"
+	],
+	"zoom/reset": [
+		"yak\u0131nla\u015ft\u0131rmay\u0131 s\u0131f\u0131rla",
+		"yak\u0131nla\u015ft\u0131rmay\u0131 s\u0131f\u0131rla",
+		"normal boyut",
+		"ekrana uygun",
+		"s\u0131\u011facak \u015fekilde yak\u0131nla\u015ft\u0131r"
+	],
+	"scroll/down": [
+		"a\u015fa\u011f\u0131 kayd\u0131r\u0131n",
+		"devam etmek",
+		"Daha",
+		"a\u015fa\u011f\u0131 devam et",
+		"a\u015fa\u011f\u0131 sayfa",
+		"alt\u0131nda"
+	],
+	"scroll/up": [
+		"yukar\u0131 kayd\u0131r",
+		"yukar\u0131 \u00e7\u0131kmak",
+		"yedekleme",
+		"yukar\u0131",
+		"yukar\u0131",
+		"\u00fcst\u00fcnde"
+	],
+	"scroll/top": [
+		"Sayfan\u0131n ba\u015f\u0131na kayd\u0131r",
+		"en \u00fcste git",
+		"ba\u015fa d\u00f6n",
+		"sayfan\u0131n ba\u015flang\u0131c\u0131",
+		"sayfan\u0131n \u00fcst\u00fc"
+	],
+	"scroll/bottom": [
+		"a\u015fa\u011f\u0131 kayd\u0131r",
+		"en alta git",
+		"Sayfan\u0131n sonu",
+		"sayfan\u0131n alt k\u0131sm\u0131"
+	],
+	"fullscreen": [
+		"Tam ekran",
+		"Tam ekran",
+		"maksimize etmek",
+		"ekran\u0131 doldur",
+		"dolu hale getirin"
+	],
+	"image/generate": [
+		"{prompt} metninin bir g\u00f6r\u00fcnt\u00fcs\u00fcn\u00fc olu\u015ftur",
+		"{prompt} metninin bir g\u00f6r\u00fcnt\u00fcs\u00fcn\u00fc olu\u015ftur",
+		"bana {prompt} g\u00f6ster",
+		"{prompt} g\u00f6rselle\u015ftir",
+		"\u00e7iz {istek}",
+		"{prompt} konusunun resmini yap"
+	],
+	"tool/generate": [
+		"bir {prompt} olu\u015ftur",
+		"bir {prompt} olu\u015fturun",
+		"bana bir {prompt} olu\u015ftur",
+		"bir {prompt} widget&#39;\u0131 olu\u015ftur",
+		"bir {prompt} arac\u0131 olu\u015fturun",
+		"bir {prompt} arac\u0131 olu\u015fturun"
+	],
+	"stream/create": [
+		"{prompt} ak\u0131\u015f\u0131 olu\u015ftur",
+		"{prompt} ak\u0131\u015f\u0131 olu\u015ftur",
+		"bir {prompt} ba\u015flat",
+		"{prompt} oyunu olu\u015ftur",
+		"Hadi {prompt} oynayal\u0131m.",
+		"bir {prompt} ayarlay\u0131n"
+	],
+	"stream/grantAccess": [
+		"{name}&#39;e g\u00f6nderiye eri\u015fim izni ver",
+		"{name}&#39;in payla\u015f\u0131m yapmas\u0131na izin ver",
+		"{name}&#39;e yazma eri\u015fimi verin",
+		"{name}&#39;in payla\u015f\u0131m yapmas\u0131na izin ver",
+		"{name}&#39;i misafir olarak ekle",
+		"{name}&#39;i payla\u015f\u0131m yapmaya davet et"
+	],
+	"stream/revokeAccess": [
+		"{name}&#39;in eri\u015fimini kald\u0131r",
+		"{name}&#39;in eri\u015fimini iptal et",
+		"{name}&#39;in eri\u015fimini engelle",
+		"{name}&#39;i ak\u0131\u015ftan kald\u0131r",
+		"{name}&#39;in payla\u015f\u0131m yapmas\u0131n\u0131 engelle"
+	]
+}

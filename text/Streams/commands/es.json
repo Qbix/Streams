@@ -1,0 +1,41 @@
+{
+	"_comment": "Texto de comandos de Streams. &#39;commands&#39; = etiquetas de visualizaci\u00f3n (UI); &#39;phrases&#39; = frases reconocidas, indexadas por comando. Formatos de frases: &quot;substring&quot;, &quot;/regex/&quot;, o con plantilla &quot;give {{name}} access&quot; \u2014 cada {{token}} se compila en una captura. Streams ahora posee los comandos de control de acceso y cambio de estilo (manejadores Streams/commands/streamCommand y Streams/commands/cssUpdate); Navegaci\u00f3n de naves multimedia; Generaci\u00f3n de naves de IA.",
+	"commands": {
+		"tool/cssUpdate": "Herramienta de redise\u00f1o",
+		"stream/create": "Crear transmisi\u00f3n",
+		"stream/grantAccess": "Acceso a la subvenci\u00f3n",
+		"stream/revokeAccess": "Revocar el acceso"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"cambia el color a {{prompt}}",
+			"cambia los colores a {{prompt}}",
+			"recolor\u00e9alo {{prompt}}",
+			"redise\u00f1ar la herramienta {{prompt}}",
+			"hacer los colores {{prompt}}"
+		],
+		"stream/create": [
+			"crear una transmisi\u00f3n {{prompt}}",
+			"hacer una transmisi\u00f3n {{prompt}}",
+			"iniciar un {{prompt}}",
+			"crea un juego {{prompt}}",
+			"Juguemos {{prompt}}",
+			"configurar un {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"dar acceso {{name}} para publicar",
+			"dejar {{name}} publicaciones",
+			"otorgar {{name}} accesos de escritura",
+			"permitir {{name}} para publicar",
+			"agregar {{name}} como invitado",
+			"Invitar {{name}} a publicar"
+		],
+		"stream/revokeAccess": [
+			"eliminar el acceso de {{name}}",
+			"revocar el acceso de {{name}}",
+			"quitar el acceso al {{name}}",
+			"eliminar {{name}} de la transmisi\u00f3n",
+			"Bloquear {{name}} para que no publiquen"
+		]
+	}
+}

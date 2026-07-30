@@ -1,5 +1,5 @@
 {
-	"_comment": "Streams command text. 'commands' = display labels (UI); 'phrases' = recognized phrases, keyed by command. Phrase forms: \"substring\", \"/regex/\", or templated \"give {{name}} access\" — each {{token}} compiles to a capture. Streams now owns the access-control and restyle commands (handlers Streams/commands/streamCommand and Streams/commands/cssUpdate); Media ships navigation; AI ships generation.",
+	"_comment": "Streams command text. 'commands' = display labels (UI); 'phrases' = recognized phrases, keyed by command. Phrase forms: \"substring\", \"/regex/\", or templated \"give {{name}} access\" \u2014 each {{token}} compiles to a capture. Streams now owns the access-control and restyle commands (handlers Streams/commands/streamCommand and Streams/commands/cssUpdate); Media ships navigation; AI ships generation.",
 	"commands": {
 		"tool/cssUpdate": "Restyle tool",
 		"stream/create": "Create stream",

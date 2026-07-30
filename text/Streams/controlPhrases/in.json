@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Lanjut ke slide berikutnya. Memancarkan Streams/slide {slideIndex: current+1}.",
+		"slide/prev": "Kembali ke slide sebelumnya. Memancarkan Aliran/slide {slideIndex: current-1}.",
+		"slide/first": "Lompat ke slide pertama. Memancarkan Streams/slide {slideIndex: 0}.",
+		"slide/last": "Lompat ke slide terakhir. Memancarkan Streams/slide {slideIndex: 9999}.",
+		"slide/navigate": "Lompat ke slide berdasarkan kueri konten. Mengambil {kueri}.",
+		"reveal/next": "Ungkapkan elemen progresif berikutnya. Memancarkan Streams/reveal {revealIndex: current+1}.",
+		"video/play": "Putar video. Memancarkan Streams/play {}.",
+		"video/pause": "Jeda video. Memancarkan Streams/pause {}.",
+		"video/seek": "Mencari waktu absolut. Memancarkan Streams/seek {pos: detik}. Menangkap {waktu}.",
+		"video/seek/relative": "Cari berdasarkan offset. Memancarkan Streams/seek {pos: &#39;+/-seconds&#39;}. Menangkap {time}.",
+		"gallery/next": "Gambar b-roll berikutnya. Memancarkan Streams/galeri/berikutnya.",
+		"gallery/pause": "Bekukan cuplikan tambahan. Memancarkan Streaming/galeri/jeda.",
+		"gallery/resume": "Resume b-roll. Memancarkan Streams/gallery/resume.",
+		"gallery/remove": "Sembunyikan gambar b-roll saat ini. Memancarkan Streams/gallery/remove.",
+		"gallery/caption/remove": "Sembunyikan keterangan b-roll. Memancarkan Streams/gallery/caption {remove: true}.",
+		"highlight": "Menyorot elemen grafik. Memancarkan Streams/highlight {elementId}. Menangkap {target}.",
+		"zoom/in": "Perbesar 1,5x. Memancarkan Aliran/zoom {scale: current*1.5}.",
+		"zoom/out": "Perkecil tampilan 1,5x. Memancarkan Aliran/zoom {scale: current/1.5}.",
+		"zoom/reset": "Atur ulang zoom ke 1. Memancarkan Streams/zoom {scale: 1}.",
+		"scroll/down": "Gulir ke bawah 20%. Memancarkan Q/gulir {atas: &#39;+20%&#39;}.",
+		"scroll/up": "Gulir ke atas 20%. Memancarkan Q/gulir {atas: &#39;-20%&#39;}.",
+		"scroll/top": "Gulir ke atas. Memancarkan Q/gulir {atas: &#39;0%&#39;}.",
+		"scroll/bottom": "Gulir ke bawah. Memancarkan Q/gulir {atas: &#39;100%&#39;}.",
+		"fullscreen": "Alihkan ke mode layar penuh.",
+		"image/generate": "Gambar yang dihasilkan LLM. Menangkap {prompt}.",
+		"tool/generate": "Widget yang dihasilkan LLM. Menangkap {prompt}.",
+		"stream/create": "Buat aliran baru (catur, jajak pendapat, dll). Menangkap {prompt}.",
+		"stream/grantAccess": "Berikan akses tulis. Mengambil {nama, writeLevel}.",
+		"stream/revokeAccess": "Cabut akses. Mengambil alih {nama}."
+	},
+	"slide/next": [
+		"slide berikutnya",
+		"kartu berikutnya",
+		"maju",
+		"pindah",
+		"maju",
+		"Selanjutnya, silakan",
+		"selanjutnya",
+		"tampilkan selanjutnya",
+		"/^next$/"
+	],
+	"slide/prev": [
+		"slide sebelumnya",
+		"kartu sebelumnya",
+		"kembali",
+		"kembali satu",
+		"slide sebelumnya",
+		"mundur",
+		"/^back$/"
+	],
+	"slide/first": [
+		"slide pertama",
+		"kembali ke awal",
+		"mulai dari awal",
+		"dari atas",
+		"Silakan mulai"
+	],
+	"slide/last": [
+		"slide terakhir",
+		"pergi ke akhir",
+		"slide terakhir",
+		"lompat ke akhir"
+	],
+	"slide/navigate": [
+		"pergi ke {query}",
+		"tampilkan {query}",
+		"temukan {query}",
+		"lompat ke {query}",
+		"navigasi ke {query}",
+		"bawa saya ke {query}",
+		"buka {query}",
+		"tampilkan slide {query}",
+		"temukan slide {query}",
+		"Buka slide {query}"
+	],
+	"reveal/next": [
+		"mengungkap",
+		"tampilkan lebih banyak",
+		"poin selanjutnya",
+		"melanjutkan",
+		"poin berikutnya"
+	],
+	"video/play": [
+		"bermain",
+		"putar video",
+		"putar videonya",
+		"mulai video",
+		"lanjutkan video",
+		"lanjutkan",
+		"/^mainkan$/"
+	],
+	"video/pause": [
+		"berhenti sebentar",
+		"jeda video",
+		"hentikan video",
+		"tunggu",
+		"/^jeda$/"
+	],
+	"video/seek": [
+		"pergi ke",
+		"berusaha untuk",
+		"lompat ke",
+		"lewati ke",
+		"mempercepat ke",
+		"putar ulang ke"
+	],
+	"video/seek/relative": [
+		"kembali ke {waktu}",
+		"kembali {waktu}",
+		"putar balik {waktu}",
+		"Lewati waktu sebelumnya",
+		"maju {waktu}",
+		"Lewati waktu ke depan",
+		"Lewati {waktu}",
+		"mempercepat waktu",
+		"maju {waktu}"
+	],
+	"gallery/next": [
+		"gambar berikutnya",
+		"foto berikutnya",
+		"gambar selanjutnya",
+		"Lewati gambar",
+		"ubah latar belakang"
+	],
+	"gallery/pause": [
+		"jeda latar belakang",
+		"hentikan latar belakang",
+		"membekukan latar belakang",
+		"mempertahankan latar belakang",
+		"jeda gambar"
+	],
+	"gallery/resume": [
+		"latar belakang resume",
+		"melanjutkan latar belakang",
+		"mulai latar belakang lagi",
+		"melanjutkan latar belakang"
+	],
+	"gallery/remove": [
+		"hapus gambar ini",
+		"Lewati gambar ini",
+		"sembunyikan foto ini",
+		"hapus gambar saat ini",
+		"hapus foto ini"
+	],
+	"gallery/caption/remove": [
+		"hapus keterangan",
+		"sembunyikan keterangan",
+		"keterangan yang jelas",
+		"hapus keterangan",
+		"sembunyikan keterangan"
+	],
+	"highlight": [
+		"menyorot",
+		"arahkan ke",
+		"tunjukkan padaku",
+		"menekankan",
+		"fokus pada",
+		"tanda",
+		"memanggil"
+	],
+	"zoom/in": [
+		"perbesar",
+		"perbesar",
+		"lebih besar",
+		"memperbesar",
+		"memperbesar",
+		"perbesar",
+		"lebih dekat"
+	],
+	"zoom/out": [
+		"perkecil tampilan",
+		"lebih kecil",
+		"menyusut",
+		"menarik kembali",
+		"perkecil ukurannya",
+		"mundur",
+		"pandangan lebih luas"
+	],
+	"zoom/reset": [
+		"atur ulang zoom",
+		"atur ulang zoom",
+		"ukuran normal",
+		"sesuai layar",
+		"perbesar agar sesuai"
+	],
+	"scroll/down": [
+		"gulir ke bawah",
+		"terus berlanjut",
+		"lagi",
+		"terus ke bawah",
+		"halaman ke bawah",
+		"di bawah"
+	],
+	"scroll/up": [
+		"gulir ke atas",
+		"naik",
+		"cadangan",
+		"ke atas",
+		"halaman atas",
+		"di atas"
+	],
+	"scroll/top": [
+		"gulir ke atas",
+		"kembali ke atas",
+		"kembali ke atas",
+		"awal halaman",
+		"kembali ke atas halaman"
+	],
+	"scroll/bottom": [
+		"gulir ke bawah",
+		"kembali ke bawah",
+		"akhir halaman",
+		"bagian bawah halaman"
+	],
+	"fullscreen": [
+		"layar penuh",
+		"layar penuh",
+		"memaksimalkan",
+		"layar penuh",
+		"buatlah penuh"
+	],
+	"image/generate": [
+		"menghasilkan gambar {prompt}",
+		"Buat gambar {prompt}",
+		"tampilkan {prompt}",
+		"visualisasikan {prompt}",
+		"gambar {prompt}",
+		"buat gambar {prompt}"
+	],
+	"tool/generate": [
+		"buat sebuah {prompt}",
+		"buat sebuah {prompt}",
+		"buatkan saya sebuah {prompt}",
+		"menghasilkan widget {prompt}",
+		"buat alat {prompt}",
+		"buat alat {prompt}"
+	],
+	"stream/create": [
+		"buat aliran {prompt}",
+		"buat aliran {prompt}",
+		"mulai {prompt}",
+		"buat sebuah permainan {prompt}",
+		"Ayo bermain {prompt}",
+		"menyiapkan {prompt}"
+	],
+	"stream/grantAccess": [
+		"Berikan akses kepada {nama} untuk memposting",
+		"izinkan {nama} memposting",
+		"Berikan akses tulis kepada {nama}",
+		"izinkan {nama} untuk memposting",
+		"tambahkan {nama} sebagai tamu",
+		"undang {nama} untuk memposting"
+	],
+	"stream/revokeAccess": [
+		"cabut akses {name}",
+		"cabut akses {nama}",
+		"cabut akses {nama}",
+		"hapus {name} dari aliran",
+		"blokir {nama} agar tidak memposting"
+	]
+}

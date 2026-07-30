@@ -160,7 +160,8 @@
 			"HasInvitedYou": "vous a invit\u00e9 \u00e0 :",
 			"HasInvitedYouToTheirProfile": "vous a invit\u00e9 \u00e0 vous connecter.",
 			"prompt": "Laissez vos amis vous reconna\u00eetre :",
-			"accept": "Accepter l&#39;invitation"
+			"accept": "Accepter l&#39;invitation",
+			"RolesOffered": "R\u00f4les qui vous sont propos\u00e9s\u00a0:"
 		},
 		"email": {
 			"subject": "H\u00e9, regarde \u00e7a",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Vous inviterez des personnes \u00e0 une conversation o\u00f9 vous pourrez rester en contact, partager des photos ensemble, et bien plus encore. Donne lui un nom:"
 		},
-		"Participants": "Inviter des gens"
+		"Participants": "Inviter des gens",
+		"inperson": {
+			"description": "G\u00e9n\u00e9rez un code QR et faites-le circuler pour qu&#39;il soit scann\u00e9. Toutes les personnes qui le scanneront resteront connect\u00e9es."
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Sortant",
 			"description": "destination pour l&#39;enregistrement des messages envoy\u00e9s \u00e0 d&#39;autres utilisateurs ou \u00e0 des syst\u00e8mes externes"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologie",
+			"description": "ontologie",
+			"newItem": "Ajouter une ontologie"
 		}
 	},
 	"menu": {

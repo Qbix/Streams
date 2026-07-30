@@ -1,0 +1,41 @@
+{
+	"_comment": "Straumju komandas teksts. &#39;komandas&#39; = att\u0113lo\u0161anas eti\u0137etes (UI); &#39;fr\u0101zes&#39; = atpaz\u012btas fr\u0101zes, ko atsl\u0113ga pie\u0161\u0137ir komandai. Fr\u0101\u017eu formas: &quot;substring&quot;, &quot;/regex/&quot; vai veidne &quot;give {{name}} access&quot; \u2014 katra {{token}} tiek kompil\u0113ta k\u0101 uztver\u0161anas fails. Straum\u0113m tagad pieder piek\u013cuves kontroles un stila mai\u0146as komandas (apstr\u0101d\u0101t\u0101ji Streams/commands/streamCommand un Streams/commands/cssUpdate); Multivide nodro\u0161ina navig\u0101ciju; m\u0101ksl\u012bgais intelekts nodro\u0161ina \u0123ener\u0113\u0161anu.",
+	"commands": {
+		"tool/cssUpdate": "P\u0101rveido\u0161anas r\u012bks",
+		"stream/create": "Izveidot straumi",
+		"stream/grantAccess": "Pie\u0161\u0137irt piek\u013cuvi",
+		"stream/revokeAccess": "Atsaukt piek\u013cuvi"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"main\u012bt kr\u0101su uz {{prompt}}",
+			"main\u012bt kr\u0101sas uz {{prompt}}",
+			"p\u0101rkr\u0101sot to {{prompt}}",
+			"p\u0101rveidojiet instrumentu {{prompt}}",
+			"izveidojiet kr\u0101sas {{prompt}}"
+		],
+		"stream/create": [
+			"izveidot {{prompt}} straumi",
+			"izveidot {{prompt}} straumi",
+			"s\u0101kt {{prompt}}",
+			"Izveidojiet {{prompt}} sp\u0113li",
+			"Sp\u0113l\u0113sim {{prompt}}",
+			"izveidot {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"pie\u0161\u0137irt {{name}} piek\u013cuvi pastam",
+			"\u013caujiet {{name}} ievietot",
+			"pie\u0161\u0137irt {{name}} rakst\u012b\u0161anas piek\u013cuvi",
+			"at\u013caut {{name}} public\u0113t",
+			"pievienot {{name}} k\u0101 viesi",
+			"uzaicin\u0101t {{name}} public\u0113t ierakstu"
+		],
+		"stream/revokeAccess": [
+			"no\u0146emt {{name}} piek\u013cuvi",
+			"atsaukt lietot\u0101ja {{name}} piek\u013cuvi",
+			"at\u0146emt {{name}} piek\u013cuvi",
+			"no\u0146emt {{name}} no straumes",
+			"{{name}} bloka public\u0113\u0161ana"
+		]
+	}
+}

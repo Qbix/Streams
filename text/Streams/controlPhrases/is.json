@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Fara \u00e1 n\u00e6stu gl\u00e6ru. Sendir fr\u00e1 s\u00e9r strauma/gl\u00e6ru {slideIndex: current+1}.",
+		"slide/prev": "Fara aftur \u00e1 fyrri gl\u00e6ru. Sendir fr\u00e1 s\u00e9r strauma/gl\u00e6ru {slideIndex: current-1}.",
+		"slide/first": "Hoppa \u00e1 fyrstu gl\u00e6runa. Sendir fr\u00e1 s\u00e9r strauma/gl\u00e6ru {slideIndex: 0}.",
+		"slide/last": "Hoppa \u00e1 s\u00ed\u00f0ustu gl\u00e6ru. Sendir fr\u00e1 s\u00e9r strauma/gl\u00e6ru {slideIndex: 9999}.",
+		"slide/navigate": "Hoppa \u00e1 gl\u00e6ru eftir efnisfyrirspurn. Tekur {fyrirspurn}.",
+		"reveal/next": "S\u00fdna n\u00e6sta frams\u00e6kna \u00fe\u00e1tt. Sendir fr\u00e1 s\u00e9r strauma/s\u00fdna {s\u00fdnaIndex: n\u00faverandi+1}.",
+		"video/play": "Spila myndband. Sendir fr\u00e1 s\u00e9r strauma/spila {}.",
+		"video/pause": "Gera hl\u00e9 \u00e1 myndbandi. Sendir \u00fat strauma/gera hl\u00e9 {}.",
+		"video/seek": "Leita a\u00f0 algildum t\u00edma. Sendir fr\u00e1 s\u00e9r strauma/leita {st\u00f6\u00f0u: sek\u00fandur}. Tekur {t\u00edma}.",
+		"video/seek/relative": "Leita me\u00f0 offset. Sendir fr\u00e1 s\u00e9r strauma/leit {sta\u00f0a: &#39;+/-sek\u00fandur&#39;}. Tekur {t\u00edma}.",
+		"gallery/next": "N\u00e6sta b-roll mynd. Sendir fr\u00e1 s\u00e9r Streams/gallery/next.",
+		"gallery/pause": "Frysta b-roll. Sendir fr\u00e1 s\u00e9r strauma/myndasafn/hl\u00e9.",
+		"gallery/resume": "Ferilskr\u00e1 \u00ed b-roll. Sendir \u00fat strauma/myndasafn/ferilskr\u00e1.",
+		"gallery/remove": "Fela n\u00faverandi b-roll mynd. Sendir Streams/gallery/fjarl\u00e6gja.",
+		"gallery/caption/remove": "Fela B-roll myndatexta. Sendir \u00fat strauma/myndasafn/myndatexta {fjarl\u00e6gja: satt}.",
+		"highlight": "Au\u00f0kenna \u00fe\u00e1tt \u00ed t\u00f6flu. Sendir fr\u00e1 s\u00e9r strauma/au\u00f0kennir {elementId}. Tekur {target}.",
+		"zoom/in": "A\u00f0dr\u00e1ttur 1,5x. Sendir fr\u00e1 s\u00e9r strauma/a\u00f0dr\u00e1tt {kvar\u00f0i: straumur*1,5}.",
+		"zoom/out": "Minnka\u00f0u um 1,5x. Sendir fr\u00e1 s\u00e9r strauma/a\u00f0dr\u00e1tt {kvar\u00f0i: straumur/1,5}.",
+		"zoom/reset": "Endurstilla a\u00f0dr\u00e1tt \u00e1 1. Sendir fr\u00e1 s\u00e9r strauma/a\u00f0dr\u00e1tt {kvar\u00f0i: 1}.",
+		"scroll/down": "Skruna\u00f0u ni\u00f0ur 20%. Gefur fr\u00e1 s\u00e9r Q/skrun {efst: &#39;+20%&#39;}.",
+		"scroll/up": "Skruna\u00f0u upp 20%. Gefur fr\u00e1 s\u00e9r Q/skrun {efst: &#39;-20%&#39;}.",
+		"scroll/top": "Skruna\u00f0u efst. Sendir fr\u00e1 s\u00e9r Q/skrun {efst: &#39;0%&#39;}.",
+		"scroll/bottom": "Skruna\u00f0u ni\u00f0ur. Sendir fr\u00e1 s\u00e9r Q/skrun {efst: &#39;100%&#39;}.",
+		"fullscreen": "Skipta um allan skj\u00e1inn.",
+		"image/generate": "Mynd b\u00fain til af LLM. Tekur {prompt}.",
+		"tool/generate": "LLM-mynda\u00f0 b\u00fana\u00f0. Tekur upp {prompt}.",
+		"stream/create": "B\u00faa til n\u00fdjan straum (sk\u00e1k, k\u00f6nnun, o.s.frv.). Tekur upp {prompt}.",
+		"stream/grantAccess": "Veita skrifa\u00f0gang. Tekur upp {name, writeLevel}.",
+		"stream/revokeAccess": "Afturkalla a\u00f0gang. Tekur upp {name}."
+	},
+	"slide/next": [
+		"n\u00e6sta gl\u00e6ra",
+		"n\u00e6sta kort",
+		"halda \u00e1fram",
+		"halda \u00e1fram",
+		"fyrirfram",
+		"n\u00e6st vinsamlegast",
+		"n\u00e6sta",
+		"s\u00fdna n\u00e6st",
+		"/^n\u00e6sti$/"
+	],
+	"slide/prev": [
+		"fyrri gl\u00e6ra",
+		"fyrra kort",
+		"fara til baka",
+		"aftari einn",
+		"fyrri gl\u00e6ra",
+		"st\u00edga til baka",
+		"/^til baka$/"
+	],
+	"slide/first": [
+		"fyrsta gl\u00e6ran",
+		"fara \u00ed byrjunina",
+		"byrja upp \u00e1 n\u00fdtt",
+		"fr\u00e1 toppnum",
+		"byrjun takk"
+	],
+	"slide/last": [
+		"s\u00ed\u00f0asta gl\u00e6ran",
+		"fara til enda",
+		"lokagl\u00e6ra",
+		"hoppa til enda"
+	],
+	"slide/navigate": [
+		"fara \u00ed {fyrirspurn}",
+		"s\u00fdndu m\u00e9r {fyrirspurn}",
+		"finna {fyrirspurn}",
+		"hoppa til {fyrirspurn}",
+		"sigla til {fyrirspurn}",
+		"fara me\u00f0 mig \u00e1 {fyrirspurn}",
+		"opna {fyrirspurnina}",
+		"s\u00fdna gl\u00e6runa {query}",
+		"finndu gl\u00e6runa {query}",
+		"fara \u00e1 gl\u00e6runa {fyrirspurn}"
+	],
+	"reveal/next": [
+		"afhj\u00fapa",
+		"s\u00fdna meira",
+		"n\u00e6sti punktur",
+		"halda \u00e1fram",
+		"n\u00e6sta punkt"
+	],
+	"video/play": [
+		"spila",
+		"spila myndband",
+		"spila myndbandi\u00f0",
+		"hefja myndband",
+		"ferilskr\u00e1rmyndband",
+		"taka af sta\u00f0",
+		"/^spila$/"
+	],
+	"video/pause": [
+		"hl\u00e9",
+		"gera hl\u00e9 \u00e1 myndbandi",
+		"st\u00f6\u00f0va myndband",
+		"haltu \u00e1fram",
+		"/^p\u00e1sa$/"
+	],
+	"video/seek": [
+		"fara til",
+		"leitast vi\u00f0 a\u00f0",
+		"hoppa til",
+		"sleppa til",
+		"sp\u00f3la \u00e1fram til",
+		"sp\u00f3la til baka til"
+	],
+	"video/seek/relative": [
+		"fara aftur {t\u00edma}",
+		"aftur {t\u00edma}",
+		"sp\u00f3la til baka {t\u00edma}",
+		"hoppa aftur {t\u00edma}",
+		"fara \u00e1fram {t\u00edma}",
+		"hoppa \u00e1fram {t\u00edma}",
+		"sleppa \u00e1fram {t\u00edma}",
+		"sp\u00f3la \u00e1fram {t\u00edma}",
+		"\u00e1fram {t\u00edma}"
+	],
+	"gallery/next": [
+		"n\u00e6sta mynd",
+		"n\u00e6sta mynd",
+		"n\u00e6sta mynd",
+		"sleppa mynd",
+		"breyta bakgrunninum"
+	],
+	"gallery/pause": [
+		"gera hl\u00e9 \u00e1 bakgrunni",
+		"st\u00f6\u00f0va bakgrunn",
+		"frysta bakgrunn",
+		"halda bakgrunninum",
+		"st\u00f6\u00f0va myndirnar"
+	],
+	"gallery/resume": [
+		"bakgrunnur ferilskr\u00e1r",
+		"halda \u00e1fram bakgrunni",
+		"byrja bakgrunninn aftur",
+		"taka bakgrunninn aftur \u00ed bi\u00f0st\u00f6\u00f0u"
+	],
+	"gallery/remove": [
+		"fjarl\u00e6gja \u00feessa mynd",
+		"sleppa \u00feessari mynd",
+		"fela \u00feessa mynd",
+		"fjarl\u00e6gja n\u00faverandi mynd",
+		"fjarl\u00e6gja \u00feessa mynd"
+	],
+	"gallery/caption/remove": [
+		"fjarl\u00e6gja myndatexta",
+		"fela myndatexta",
+		"sk\u00fdr texti",
+		"fjarl\u00e6gja myndatextann",
+		"fela myndatextann"
+	],
+	"highlight": [
+		"h\u00e1punktur",
+		"benda \u00e1",
+		"s\u00fdndu m\u00e9r",
+		"leggja \u00e1herslu \u00e1",
+		"einbeita s\u00e9r a\u00f0",
+		"merkja",
+		"hringja \u00fat"
+	],
+	"zoom/in": [
+		"a\u00f0dr\u00e1ttur",
+		"a\u00f0dr\u00e1ttur",
+		"st\u00e6rri",
+		"st\u00e6kka",
+		"st\u00e6kka",
+		"gera \u00fea\u00f0 st\u00e6rra",
+		"n\u00e6r"
+	],
+	"zoom/out": [
+		"a\u00f0dr\u00e1ttur",
+		"minni",
+		"minnka",
+		"draga til baka",
+		"gera \u00fea\u00f0 minna",
+		"st\u00edga til baka",
+		"v\u00ed\u00f0ara \u00fats\u00fdni"
+	],
+	"zoom/reset": [
+		"endurstilla a\u00f0dr\u00e1tt",
+		"a\u00f0dr\u00e1ttarstilling",
+		"venjuleg st\u00e6r\u00f0",
+		"a\u00f0lagast skj\u00e1num",
+		"a\u00f0dr\u00e1ttur til a\u00f0 passa"
+	],
+	"scroll/down": [
+		"skrolla ni\u00f0ur",
+		"haltu \u00e1fram",
+		"meira",
+		"halda \u00e1fram ni\u00f0ur",
+		"s\u00ed\u00f0u ni\u00f0ur",
+		"fyrir ne\u00f0an"
+	],
+	"scroll/up": [
+		"skrolla upp",
+		"fara upp",
+		"taka \u00f6ryggisafrit",
+		"upp \u00e1 vi\u00f0",
+		"s\u00ed\u00f0u upp",
+		"fyrir ofan"
+	],
+	"scroll/top": [
+		"fletta efst",
+		"fara efst",
+		"aftur efst",
+		"upphaf s\u00ed\u00f0u",
+		"efst \u00e1 s\u00ed\u00f0u"
+	],
+	"scroll/bottom": [
+		"skruna ni\u00f0ur",
+		"fara ni\u00f0ur",
+		"lok s\u00ed\u00f0u",
+		"ne\u00f0st \u00e1 s\u00ed\u00f0unni"
+	],
+	"fullscreen": [
+		"\u00ed fullri skj\u00e1st\u00e6r\u00f0",
+		"fullur skj\u00e1r",
+		"h\u00e1marka",
+		"fylla skj\u00e1inn",
+		"gera \u00fea\u00f0 fullt"
+	],
+	"image/generate": [
+		"b\u00faa til mynd af {prompt}",
+		"b\u00faa til mynd af {prompt}",
+		"s\u00fdndu m\u00e9r {hva\u00f0a}",
+		"sj\u00e1 fyrir s\u00e9r {hv\u00f6t}",
+		"teikna {hv\u00f6t}",
+		"tek mynd af {hv\u00f6t}"
+	],
+	"tool/generate": [
+		"sm\u00ed\u00f0a {hv\u00f6t}",
+		"b\u00faa til {fyrirm\u00e6li}",
+		"sm\u00ed\u00f0a\u00f0u m\u00e9r {hv\u00f6t}",
+		"b\u00faa til {prompt} b\u00fana\u00f0",
+		"b\u00faa til {prompt} t\u00f3l",
+		"b\u00faa til {prompt} t\u00f3l"
+	],
+	"stream/create": [
+		"b\u00faa til {prompt} straum",
+		"b\u00faa til {prompt} straum",
+		"hefja {hv\u00f6t}",
+		"b\u00faa til {prompt} leik",
+		"vi\u00f0 skulum spila {hv\u00f6t}",
+		"setja upp {hv\u00f6t}"
+	],
+	"stream/grantAccess": [
+		"veita {nafni} a\u00f0gang a\u00f0 f\u00e6rslunni",
+		"l\u00e1ta {nafn} senda inn",
+		"veita {name} skrifa\u00f0gang",
+		"leyfa {nafni} a\u00f0 birta",
+		"b\u00e6ta vi\u00f0 {name} sem gesti",
+		"bj\u00f3\u00f0a {nafni} a\u00f0 senda inn f\u00e6rslu"
+	],
+	"stream/revokeAccess": [
+		"fjarl\u00e6gja a\u00f0gang {name}",
+		"afturkalla a\u00f0gang {name}",
+		"taka a\u00f0gang {name}",
+		"fjarl\u00e6gja {name} \u00far straumnum",
+		"loka fyrir a\u00f0 {nafn} birti f\u00e6rslu"
+	]
+}

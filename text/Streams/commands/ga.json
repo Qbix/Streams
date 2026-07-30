@@ -1,0 +1,41 @@
+{
+	"_comment": "T\u00e9acs ordaithe sruthanna. &#39;orduithe&#39; = lip\u00e9id taispe\u00e1na (UI); &#39;fr\u00e1sa\u00ed&#39; = fr\u00e1sa\u00ed aitheanta, eochraithe ag ord\u00fa. Foirmeacha fr\u00e1sa\u00ed: &quot;substring&quot;, &quot;/regex/&quot;, n\u00f3 teimpl\u00e9adaithe &quot;tabhair rochtain {{name}} &quot; \u2014 tiomsa\u00edtear gach {{token}} chun gabh\u00e1il. Is leis na sruthanna anois na horduithe rialaithe rochtana agus athst\u00edle (l\u00e1imhse\u00e1laithe Streams/commands/streamCommand agus Streams/commands/cssUpdate); Loingseoireacht seolta\u00ed me\u00e1n; gini\u00faint seolta\u00ed AI.",
+	"commands": {
+		"tool/cssUpdate": "Uirlis athst\u00edle",
+		"stream/create": "Cruthaigh sruth",
+		"stream/grantAccess": "Deonaigh rochtain",
+		"stream/revokeAccess": "Cealaigh rochtain"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"athraigh an dath go {{prompt}}",
+			"athraigh na dathanna go {{prompt}}",
+			"athdhath\u00faigh \u00e9 {{prompt}}",
+			"athst\u00edl an uirlis {{prompt}}",
+			"d\u00e9an na dathanna {{prompt}}"
+		],
+		"stream/create": [
+			"sruth {{prompt}} a chruth\u00fa",
+			"sruth {{prompt}} a dh\u00e9anamh",
+			"t\u00fas a chur le {{prompt}}",
+			"cruthaigh cluiche {{prompt}}",
+			"imr\u00edmis {{prompt}}",
+			"{{prompt}} a shocr\u00fa"
+		],
+		"stream/grantAccess": [
+			"tabhair rochtain do {{name}} ar phost\u00e1il",
+			"lig {{name}} post\u00e1il",
+			"tabhair rochtain scr\u00edbhneoireachta {{name}}",
+			"lig {{name}} post\u00e1il",
+			"cuir {{name}} leis mar aoi",
+			"tabhair cuireadh do {{name}} post\u00e1il"
+		],
+		"stream/revokeAccess": [
+			"bain rochtain {{name}}",
+			"rochtain {{name}} a ch\u00falghairm",
+			"bain rochtain {{name}} de",
+			"bain {{name}} den sruth",
+			"bloc\u00e1il {{name}} \u00f3 phost\u00e1il"
+		]
+	}
+}

@@ -162,6 +162,7 @@
 			"WelcomeToCommunity": "Welcome to {{communityName}}",
 			"HasInvitedYou": "has invited you to:",
 			"HasInvitedYouToTheirProfile": "has invited you to connect.",
+			"RolesOffered": "Roles you're being offered:",
 			"prompt": "Let friends recognize you:",
 			"accept": "Accept Invite"
 		},

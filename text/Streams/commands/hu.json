@@ -1,0 +1,41 @@
+{
+	"_comment": "Streamek parancssz\u00f6vege. &#39;commands&#39; = megjelen\u00edt\u00e9si c\u00edmk\u00e9k (UI); &#39;phrases&#39; = felismert kifejez\u00e9sek, parancs \u00e1ltal kulcsolva. Frakci\u00f3form\u00e1k: &quot;substring&quot;, &quot;/regex/&quot;, vagy sablonos &quot; {{name}} hozz\u00e1f\u00e9r\u00e9s megad\u00e1sa&quot; \u2014 minden {{token}} egy r\u00f6gz\u00edt\u00e9ss\u00e9 fordul. A streamek mostant\u00f3l birtokolj\u00e1k az hozz\u00e1f\u00e9r\u00e9s-vez\u00e9rl\u00e9si \u00e9s \u00e1tform\u00e1z\u00e1si parancsokat (kezel\u0151k: Streams/commands/streamCommand \u00e9s Streams/commands/cssUpdate); A m\u00e9dia navig\u00e1ci\u00f3t biztos\u00edt; a mesters\u00e9ges intelligencia gener\u00e1l\u00e1st biztos\u00edt.",
+	"commands": {
+		"tool/cssUpdate": "\u00dajraform\u00e1l\u00f3 eszk\u00f6z",
+		"stream/create": "Stream l\u00e9trehoz\u00e1sa",
+		"stream/grantAccess": "Hozz\u00e1f\u00e9r\u00e9s megad\u00e1sa",
+		"stream/revokeAccess": "Hozz\u00e1f\u00e9r\u00e9s visszavon\u00e1sa"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"v\u00e1ltoztasd meg a sz\u00ednt {{prompt}} re",
+			"v\u00e1ltoztasd meg a sz\u00edneket {{prompt}} re",
+			"sz\u00ednezd \u00e1t {{prompt}}",
+			"form\u00e1zd \u00fajra a {{prompt}} szersz\u00e1mot",
+			"k\u00e9sz\u00edtsd el a sz\u00edneket {{prompt}}"
+		],
+		"stream/create": [
+			"hozz l\u00e9tre egy {{prompt}} streamet",
+			"{{prompt}} es streamet k\u00e9sz\u00edteni",
+			"ind\u00edtson egy {{prompt}}",
+			"hozz l\u00e9tre egy {{prompt}} j\u00e1t\u00e9kot",
+			"j\u00e1tsszunk {{prompt}}",
+			"{{prompt}} et kell be\u00e1ll\u00edtani"
+		],
+		"stream/grantAccess": [
+			"hozz\u00e1f\u00e9r\u00e9st ad {{name}} a bejegyz\u00e9shez",
+			"hagyd, hogy {{name}} posztoljon",
+			"\u00edr\u00e1si hozz\u00e1f\u00e9r\u00e9st ad {{name}}",
+			"enged\u00e9lyezze {{name}} a posztol\u00e1st",
+			"adj hozz\u00e1 {{name}} et vend\u00e9gk\u00e9nt",
+			"{{name}} megh\u00edv\u00e1sa posztol\u00e1sra"
+		],
+		"stream/revokeAccess": [
+			"{{name}} hozz\u00e1f\u00e9r\u00e9s\u00e9nek elt\u00e1vol\u00edt\u00e1sa",
+			"{{name}} hozz\u00e1f\u00e9r\u00e9s\u00e9nek visszavon\u00e1sa",
+			"vedd el {{name}} -es hozz\u00e1f\u00e9r\u00e9s\u00e9t",
+			"{{name}} elt\u00e1vol\u00edt\u00e1sa a streamb\u0151l",
+			"{{name}} es blokk felad\u00e1sa"
+		]
+	}
+}

@@ -20,26 +20,6 @@ function Streams_after_Q_objects ()
 	if (filter_var($invite->getExtra('dontAutoLogin'), FILTER_VALIDATE_BOOLEAN)) {
 		return;
 	}
-	$nameIsMissing = true;
-	if ($user = Users::loggedInUser()) {
-		$displayName = $user->displayName(array('show' => 'flu'));
-		$showDialog = !$displayName;	
-		$avatar = Streams_Avatar::fetch($user->id, $user->id);
-		if (Q::ifset($avatar, 'username', null) || Q::ifset($avatar, 'firstName', null) || Q::ifset($avatar, 'lastName', null)) {
-			$nameIsMissing = false;
-		}
-	} else {
-		$displayName = '';
-		$showDialog = true;
-	}
-
-	$text = Q_Text::get('Streams/content');
-	
-	$p = @compact('user', 'invite', 'displayName');
-	Q::event('Streams/inviteDialog', $p, 'before', false, $showDialog);
-	if (!$showDialog) {
-		return;
-	}
 
 	$stream = new Streams_Stream();
 	$stream->publisherId = $invite->publisherId;
@@ -51,72 +31,35 @@ function Streams_after_Q_objects ()
 		), 'streamName');
 	}
 
-	// Prepare the complete invite dialog
-	$invitingUser = Users_User::fetch($invite->invitingUserId);
-	if ($user) {
-		list($relations, $related) = Streams::related(
-			$user->id,
-			$stream->publisherId,
-			$stream->name,
-			false
-		);
-	}
+	$user = Users::loggedInUser();
 
-	$templateName = Streams_Stream::getConfigField(
-		$stream->type,
-		array('invited', 'dialog', 'templateName'),
-		'Streams/templates/invited/complete'
-	);
-
-	$invitedToProfile = ($stream->name === 'Streams/user/profile');
-	$textKey = $invitedToProfile
-		? 'HasInvitedYouToTheirProfile'
-		: 'HasInvitedYou';
-
-	$params = array(
-		'displayName' => $displayName,
-		'nameIsMissing' => $nameIsMissing,
-		'action' => 'Streams/basic',
-		'icon' => $user && $user->iconUrl(false),
-		'token' => $invite->token,
-		'invitingUser' => array(
-			'id' => $invitingUser->id,
-			'icon' => $invitingUser->iconUrl(false),
-			'displayName' => $invitingUser->displayName(array(
-				'fullAccess' => true,
-				'show' => 'flu'
-			)),
-			'text' => Q::interpolate(
-				$text['invite']['complete'][$textKey],
-				array('title' => $stream->title)
-			)
-		),
-		'showStreamPreview' => !$invitedToProfile,
-		'templateName' => $templateName,
-		'stream' => $stream->exportArray(),
-		'relations' => !empty($relations) ? Db::exportArray($relations) : array(),
-		'related' => !empty($related) ? Db::exportArray($related) : array()
-	);
-
-	$referrerUserId = Q::ifset($invite, 'invitingUserId', null);
-
-	$params = Q::event('Streams/Dialogs/invite/complete', compact(
-		'stream', 'user', 'referrerUserId'
-	), 'before', false, $params);
-
-	if (Users::isCommunityId($stream->publisherId)) {
-		$params['communityId'] = $stream->publisherId;
-		$params['communityName'] = Streams::displayName($stream->publisherId);
-	}
-
-	$config = Streams_Stream::getConfigField($stream->type, 'invite', array());
-	$defaults = Q::ifset($config, 'dialog', array());
-	$tree = new Q_Tree($defaults);
-	if ($tree->merge($params)) {
-		$dialogData = $tree->getAll();
-		if ($dialogData) {
-			Q_Response::setScriptData('Q.plugins.Streams.invited.dialog', $dialogData);
-			Q_Response::addTemplate($templateName);
+	// Someone who was already logged in when they followed the link never
+	// triggers Users::setLoggedInUser, so Streams_after_Users_setLoggedInUser
+	// never ran for them. Do its work here instead, for the types that
+	// auto-accept. The state check keeps this from redoing what that handler
+	// already did on requests where the invite logged the user in.
+	if ($user and $invite->state === 'pending'
+	and !Streams_Invite::needsExplicitConsent($invite, $stream)) {
+		$invite->accept(array('access' => true, 'subscribe' => true));
+		if ($user->displayName(array('show' => 'flu'))) {
+			return;
 		}
+	}
+	
+
+	// Everything below only runs for invites that need explicit consent.
+	$showDialog = true;
+	$displayName = $user ? $user->displayName(array('show' => 'flu')) : '';
+	$p = @compact('user', 'invite', 'displayName');
+	Q::event('Streams/inviteDialog', $p, 'before', false, $showDialog);
+	if (!$showDialog) {
+		return;
+	}
+
+	if ($dialogData = Streams_Invite::dialogData($invite, $stream, $user)) {
+		Q_Response::setScriptData('Q.plugins.Streams.invited.dialog', $dialogData);
+		Q_Response::addTemplate(Q::ifset(
+			$dialogData, 'templateName', 'Streams/templates/invited/complete'
+		));
 	}
 }

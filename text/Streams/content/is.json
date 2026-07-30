@@ -160,7 +160,8 @@
 			"HasInvitedYou": "hefur bo\u00f0i\u00f0 \u00fe\u00e9r a\u00f0:",
 			"HasInvitedYouToTheirProfile": "hefur bo\u00f0i\u00f0 \u00fe\u00e9r a\u00f0 tengjast.",
 			"prompt": "L\u00e1ttu vini \u00feekkja \u00feig:",
-			"accept": "Sam\u00feykkja bo\u00f0"
+			"accept": "Sam\u00feykkja bo\u00f0",
+			"RolesOffered": "Hlutverk sem \u00fe\u00e9r eru bo\u00f0in:"
 		},
 		"email": {
 			"subject": "Hey, athuga\u00f0u \u00feetta",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "\u00de\u00fa munt bj\u00f3\u00f0a f\u00f3lki \u00ed samtal \u00fear sem \u00fe\u00fa getur veri\u00f0 \u00ed sambandi, deilt myndum saman og fleira. Gef\u00f0u \u00fev\u00ed nafn:"
 		},
-		"Participants": "Bj\u00f3ddu f\u00f3lki"
+		"Participants": "Bj\u00f3ddu f\u00f3lki",
+		"inperson": {
+			"description": "B\u00fa\u00f0u til QR k\u00f3\u00f0a og sendu hann \u00e1fram til a\u00f0 skanna hann. Allir sem skanna hann halda sambandi s\u00edn \u00e1 milli:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "\u00datlei\u00f0andi",
 			"description": "\u00e1fangasta\u00f0ur fyrir uppt\u00f6ku skilabo\u00f0a sem send eru til annarra notenda e\u00f0a utana\u00f0komandi kerfa"
+		},
+		"Streams/ontology": {
+			"displayType": "Verufr\u00e6\u00f0i",
+			"description": "verufr\u00e6\u00f0i",
+			"newItem": "B\u00e6ta vi\u00f0 verufr\u00e6\u00f0i"
 		}
 	},
 	"menu": {

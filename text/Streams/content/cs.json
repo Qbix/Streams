@@ -160,7 +160,8 @@
 			"HasInvitedYou": "v\u00e1s pozval na:",
 			"HasInvitedYouToTheirProfile": "v\u00e1s pozval k p\u0159ipojen\u00ed.",
 			"prompt": "Umo\u017en\u011bte p\u0159\u00e1tel\u016fm, aby v\u00e1s poznali:",
-			"accept": "P\u0159ijm\u011bte pozv\u00e1n\u00ed"
+			"accept": "P\u0159ijm\u011bte pozv\u00e1n\u00ed",
+			"RolesOffered": "Nab\u00edzen\u00e9 pozice:"
 		},
 		"email": {
 			"subject": "Hej, pod\u00edvej se na tohle",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Budete zv\u00e1t lidi ke konverzaci, kde m\u016f\u017eete z\u016fstat v kontaktu, sd\u00edlet spole\u010dn\u00e9 fotky a mnoho dal\u0161\u00edho. Pojmenujte to:"
 		},
-		"Participants": "Pozvat lidi"
+		"Participants": "Pozvat lidi",
+		"inperson": {
+			"description": "Vygenerujte QR k\u00f3d a po\u0161lete ho d\u00e1l ke skenov\u00e1n\u00ed. V\u0161ichni, kdo ho naskenuj\u00ed, z\u016fstanou spolu ve spojen\u00ed:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Odchoz\u00ed",
 			"description": "c\u00edl pro z\u00e1znam zpr\u00e1v odeslan\u00fdch jin\u00fdm u\u017eivatel\u016fm nebo extern\u00edm syst\u00e9m\u016fm"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologie",
+			"description": "ontologie",
+			"newItem": "P\u0159idat ontologii"
 		}
 	},
 	"menu": {

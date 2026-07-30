@@ -1,0 +1,41 @@
+{
+	"_comment": "Textul comenzii Streams. &#39;commands&#39; = afi\u0219area etichetelor (UI); &#39;phrases&#39; = fraze recunoscute, introduse prin comand\u0103. Forme de fraze: &quot;substring&quot;, &quot;/regex/&quot; sau \u0219ablonul &quot;give {{name}} access&quot; \u2014 fiecare {{token}} se compileaz\u0103 \u00eentr-o captur\u0103. Streams de\u021bine acum comenzile de control al accesului \u0219i de restyle (handlerele Streams/commands/streamCommand \u0219i Streams/commands/cssUpdate); Navigare cu nave media; Generare de nave AI.",
+	"commands": {
+		"tool/cssUpdate": "Instrument de re-stilizare",
+		"stream/create": "Crea\u021bi flux",
+		"stream/grantAccess": "Acorda\u021bi acces",
+		"stream/revokeAccess": "Revoca\u021bi accesul"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"schimb\u0103 culoarea la {{prompt}}",
+			"schimb\u0103 culorile la {{prompt}}",
+			"recoloreaz\u0103-l {{prompt}}",
+			"re-stilizarea instrumentului {{prompt}}",
+			"creeaz\u0103 culorile {{prompt}}"
+		],
+		"stream/create": [
+			"crea\u021bi un flux {{prompt}}",
+			"face un flux {{prompt}}",
+			"porne\u0219te un {{prompt}}",
+			"creeaz\u0103 un joc {{prompt}}",
+			"Hai s\u0103 juc\u0103m {{prompt}}",
+			"configura\u021bi un {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"acord\u0103 acces la postare c\u0103tre {{name}}",
+			"las\u0103 {{name}} post",
+			"acord\u0103 acces de scriere {{name}}",
+			"permite\u021bi ca {{name}} s\u0103 posteze",
+			"adaug\u0103 {{name}} ca invitat",
+			"Invit\u0103 {{name}} s\u0103 posteze"
+		],
+		"stream/revokeAccess": [
+			"elimina\u021bi accesul lui {{name}}",
+			"revoca\u021bi accesul lui {{name}}",
+			"ia accesul companiei {{name}}",
+			"elimin\u0103 {{name}} din flux",
+			"blocarea {{name}} de la postare"
+		]
+	}
+}

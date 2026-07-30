@@ -160,7 +160,8 @@
 			"HasInvitedYou": "ju ka ftuar n\u00eb:",
 			"HasInvitedYouToTheirProfile": "ju ka ftuar t\u00eb lidheni.",
 			"prompt": "L\u00ebrini miqt\u00eb t&#39;ju njohin:",
-			"accept": "Prano Ftes\u00ebn"
+			"accept": "Prano Ftes\u00ebn",
+			"RolesOffered": "Rolet q\u00eb ju ofrohen:"
 		},
 		"email": {
 			"subject": "Hej, shikoni k\u00ebt\u00eb",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Do t\u00eb ftoni njer\u00ebz n\u00eb nj\u00eb bised\u00eb ku mund t\u00eb q\u00ebndroni n\u00eb kontakt, t\u00eb ndani foto s\u00eb bashku dhe m\u00eb shum\u00eb. Jepini nj\u00eb em\u00ebr:"
 		},
-		"Participants": "Ftoni njer\u00ebzit"
+		"Participants": "Ftoni njer\u00ebzit",
+		"inperson": {
+			"description": "Gjeneroni nj\u00eb kod QR dhe kalojeni at\u00eb p\u00ebr skanim. T\u00eb gjith\u00eb ata q\u00eb e skanojn\u00eb do t\u00eb q\u00ebndrojn\u00eb t\u00eb lidhur me nj\u00ebri-tjetrin:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Dal\u00ebse",
 			"description": "destinacion p\u00ebr regjistrimin e mesazheve t\u00eb d\u00ebrguara p\u00ebrdoruesve t\u00eb tjer\u00eb ose sistemeve t\u00eb jashtme"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologji",
+			"description": "ontologji",
+			"newItem": "Shto Ontologji"
 		}
 	},
 	"menu": {

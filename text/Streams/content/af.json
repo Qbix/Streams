@@ -160,7 +160,8 @@
 			"HasInvitedYou": "het jou genooi om:",
 			"HasInvitedYouToTheirProfile": "het jou genooi om aan te sluit.",
 			"prompt": "Laat vriende jou herken:",
-			"accept": "Aanvaar uitnodiging"
+			"accept": "Aanvaar uitnodiging",
+			"RolesOffered": "Rolle wat aan jou aangebied word:"
 		},
 		"email": {
 			"subject": "Haai, kyk hierna",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Jy sal mense nooi na &#39;n gesprek waar jy in kontak kan bly, foto&#39;s saam kan deel, en meer. Gee dit &#39;n naam:"
 		},
-		"Participants": "Nooi mense"
+		"Participants": "Nooi mense",
+		"inperson": {
+			"description": "Genereer &#39;n QR-kode en stuur dit rond om geskandeer te word. Almal wat dit skandeer, sal met mekaar in verbinding bly:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Uitgaande",
 			"description": "bestemming vir die opname van boodskappe wat na ander gebruikers of eksterne stelsels gestuur word"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologie",
+			"description": "ontologie",
+			"newItem": "Voeg Ontologie by"
 		}
 	},
 	"menu": {

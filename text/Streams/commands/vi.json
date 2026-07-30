@@ -1,0 +1,41 @@
+{
+	"_comment": "V\u0103n b\u1ea3n l\u1ec7nh c\u1ee7a Streams. &#39;commands&#39; = nh\u00e3n hi\u1ec3n th\u1ecb (giao di\u1ec7n ng\u01b0\u1eddi d\u00f9ng); &#39;phrases&#39; = c\u00e1c c\u1ee5m t\u1eeb \u0111\u01b0\u1ee3c nh\u1eadn d\u1ea1ng, \u0111\u01b0\u1ee3c kh\u00f3a theo l\u1ec7nh. C\u00e1c d\u1ea1ng c\u1ee5m t\u1eeb: &quot;chu\u1ed7i con&quot;, &quot;/regex/&quot;, ho\u1eb7c m\u1eabu &quot;c\u1ea5p quy\u1ec1n truy c\u1eadp {{name}} &quot; \u2014 m\u1ed7i {{token}} s\u1ebd \u0111\u01b0\u1ee3c bi\u00ean d\u1ecbch th\u00e0nh m\u1ed9t b\u1ea3n ghi. Streams hi\u1ec7n s\u1edf h\u1eefu c\u00e1c l\u1ec7nh ki\u1ec3m so\u00e1t truy c\u1eadp v\u00e0 \u0111\u1ecbnh ki\u1ec3u l\u1ea1i (tr\u00ecnh x\u1eed l\u00fd Streams/commands/streamCommand v\u00e0 Streams/commands/cssUpdate); Media ships navigation; AI ships generation.",
+	"commands": {
+		"tool/cssUpdate": "C\u00f4ng c\u1ee5 thi\u1ebft k\u1ebf l\u1ea1i",
+		"stream/create": "T\u1ea1o lu\u1ed3ng",
+		"stream/grantAccess": "C\u1ea5p quy\u1ec1n truy c\u1eadp",
+		"stream/revokeAccess": "Thu h\u1ed3i quy\u1ec1n truy c\u1eadp"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"\u0110\u1ed5i m\u00e0u th\u00e0nh {{prompt}}",
+			"\u0110\u1ed5i m\u00e0u th\u00e0nh {{prompt}}",
+			"t\u00f4 l\u1ea1i m\u00e0u {{prompt}}",
+			"thi\u1ebft k\u1ebf l\u1ea1i c\u00f4ng c\u1ee5 {{prompt}}",
+			"T\u1ea1o ra {{prompt}} m\u00e0u s\u1eafc"
+		],
+		"stream/create": [
+			"t\u1ea1o lu\u1ed3ng {{prompt}}",
+			"t\u1ea1o lu\u1ed3ng {{prompt}}",
+			"b\u1eaft \u0111\u1ea7u m\u1ed9t cu\u1ed9c {{prompt}}",
+			"t\u1ea1o tr\u00f2 ch\u01a1i {{prompt}}",
+			"C\u00f9ng ch\u01a1i {{prompt}}",
+			"thi\u1ebft l\u1eadp m\u1ed9t {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"C\u1ea5p quy\u1ec1n truy c\u1eadp b\u00e0i \u0111\u0103ng cho {{name}}",
+			"h\u00e3y \u0111\u1ec3 {{name}} b\u00e0i \u0111\u0103ng",
+			"c\u1ea5p quy\u1ec1n ghi cho {{name}}",
+			"cho ph\u00e9p {{name}} \u0111\u0103ng b\u00e0i",
+			"th\u00eam {{name}} v\u1edbi t\u01b0 c\u00e1ch kh\u00e1ch",
+			"M\u1eddi {{name}} \u0111\u0103ng b\u00e0i"
+		],
+		"stream/revokeAccess": [
+			"Lo\u1ea1i b\u1ecf quy\u1ec1n truy c\u1eadp c\u1ee7a {{name}}",
+			"thu h\u1ed3i quy\u1ec1n truy c\u1eadp c\u1ee7a {{name}}",
+			"t\u01b0\u1edbc quy\u1ec1n truy c\u1eadp c\u1ee7a {{name}}",
+			"x\u00f3a {{name}} kh\u1ecfi lu\u1ed3ng",
+			"ch\u1eb7n {{name}} kh\u1ecfi \u0111\u0103ng b\u00e0i"
+		]
+	}
+}

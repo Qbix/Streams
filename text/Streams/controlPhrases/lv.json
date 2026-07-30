@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "P\u0101riet uz n\u0101kamo slaidu. Izstaro pl\u016bsmas/slaidu {slideIndex: current+1}.",
+		"slide/prev": "Atgriezties iepriek\u0161\u0113j\u0101 slaid\u0101. Izstaro pl\u016bsmas/slide {slideIndex: current-1}.",
+		"slide/first": "P\u0101riet uz pirmo slaidu. Izstaro pl\u016bsmas/slaidu {slideIndex: 0}.",
+		"slide/last": "P\u0101riet uz p\u0113d\u0113jo slaidu. Izstaro pl\u016bsmas/slaidu {slideIndex: 9999}.",
+		"slide/navigate": "P\u0101riet uz slaidu p\u0113c satura vaic\u0101juma. Ietver {vaic\u0101jumu}.",
+		"reveal/next": "Atkl\u0101t n\u0101kamo progres\u012bvo elementu. Izstaro pl\u016bsmas/atkl\u0101j {revealIndex: current+1}.",
+		"video/play": "Atska\u0146ot video. Izstaro straumes/atska\u0146ot {}.",
+		"video/pause": "Pauz\u0113t video. Izraida straumes/pauz\u0113t {}.",
+		"video/seek": "Mekl\u0113 uz absol\u016bto laiku. Izstaro pl\u016bsmas/mekl\u0113 {pos: sekundes}. Uztver {laiku}.",
+		"video/seek/relative": "Mekl\u0113t p\u0113c nob\u012bdes. Izstaro pl\u016bsmas/mekl\u0113t {pos: &#39;+/-sekundes&#39;}. Uztver {laiku}.",
+		"gallery/next": "N\u0101kamais b-roll att\u0113ls. Izstaro pl\u016bsmas/galerija/n\u0101kamais.",
+		"gallery/pause": "Iesald\u0113t beigu ierakstu. Izraid\u012bt straumes/galeriju/pauzi.",
+		"gallery/resume": "Ats\u0101kt beigu ierakstu. Izstaro straumes/galeriju/CV.",
+		"gallery/remove": "Sl\u0113pt pa\u0161reiz\u0113jo otr\u0101 pl\u0101na att\u0113lu. Izstaro straumes/galeriju/no\u0146emt.",
+		"gallery/caption/remove": "Sl\u0113pt b-roll parakstu. Izstaro straumes/galeriju/parakstu {remove: true}.",
+		"highlight": "Izcelt diagrammas elementu. Izstaro pl\u016bsmas/izcelt {elementId}. Tver {target}.",
+		"zoom/in": "Pietuvin\u0101t 1,5x. Izstaro straumes/pietuvin\u0101t {m\u0113rogs: pa\u0161reiz\u0113jais*1,5}.",
+		"zoom/out": "T\u0101lina 1,5x. Izstaro straumes/t\u0101lummai\u0146a {m\u0113rogs: pa\u0161reiz\u0113jais/1,5}.",
+		"zoom/reset": "Atiestat\u012bt t\u0101lummai\u0146u uz 1. Izstaro pl\u016bsmas/t\u0101lummai\u0146a {m\u0113rogs: 1}.",
+		"scroll/down": "Ritin\u0101t uz leju par 20%. Izstaro Q/scroll {aug\u0161\u0101: &#39;+20%&#39;}.",
+		"scroll/up": "Ritin\u0101t uz aug\u0161u par 20%. Izstaro Q/ritin\u0101t {aug\u0161\u0101: &#39;-20%&#39;}.",
+		"scroll/top": "Ritin\u0101t uz aug\u0161u. Izstaro Q/ritin\u0101t {aug\u0161\u0101: &#39;0%&#39;}.",
+		"scroll/bottom": "Ritin\u0101t uz leju. Izstaro Q/scroll {aug\u0161\u0101: &#39;100%&#39;}.",
+		"fullscreen": "P\u0101rsl\u0113gt pilnekr\u0101na re\u017e\u012bmu.",
+		"image/generate": "LLM \u0123ener\u0113ts att\u0113ls. Uztver {uzvedni}.",
+		"tool/generate": "LLM \u0123ener\u0113ts logr\u012bks. Uztver {uzvedni}.",
+		"stream/create": "Izveidot jaunu straumi (\u0161ahs, aptauja utt.). Uztver {uzvedni}.",
+		"stream/grantAccess": "Pie\u0161\u0137irt rakst\u012b\u0161anas piek\u013cuvi. Ietver {name, writeLevel}.",
+		"stream/revokeAccess": "Atsaukt piek\u013cuvi. Uz\u0146em {name}."
+	},
+	"slide/next": [
+		"n\u0101kamais slaids",
+		"n\u0101kam\u0101 karte",
+		"iet uz priek\u0161u",
+		"virz\u012bties t\u0101l\u0101k",
+		"iepriek\u0161",
+		"l\u016bdzu, n\u0101kamais",
+		"n\u0101kamais",
+		"r\u0101d\u012bt n\u0101kamo",
+		"/^n\u0101kamais$/"
+	],
+	"slide/prev": [
+		"iepriek\u0161\u0113jais slaids",
+		"iepriek\u0161\u0113j\u0101 karte",
+		"iet atpaka\u013c",
+		"aizmugur\u0113jais",
+		"iepriek\u0161\u0113jais slaids",
+		"atk\u0101pties",
+		"/^atpaka\u013c$/"
+	],
+	"slide/first": [
+		"pirmais slaids",
+		"doties uz s\u0101kumu",
+		"s\u0101kt no jauna",
+		"no aug\u0161as",
+		"s\u0101kums, l\u016bdzu"
+	],
+	"slide/last": [
+		"p\u0113d\u0113jais slaids",
+		"iet l\u012bdz galam",
+		"p\u0113d\u0113jais slaids",
+		"p\u0101riet uz beig\u0101m"
+	],
+	"slide/navigate": [
+		"dodieties uz {vaic\u0101jumu}",
+		"par\u0101d\u012bt man {vaic\u0101jumu}",
+		"atrast {vaic\u0101jumu}",
+		"p\u0101riet uz {vaic\u0101jumu}",
+		"p\u0101riet uz {vaic\u0101jumu}",
+		"aizvest mani uz {vaic\u0101jumu}",
+		"atv\u0113rt {vaic\u0101jumu}",
+		"par\u0101d\u012bt slaidu {query}",
+		"atrast slaidu {query}",
+		"dodieties uz slaidu {query}"
+	],
+	"reveal/next": [
+		"atkl\u0101t",
+		"r\u0101d\u012bt vair\u0101k",
+		"n\u0101kamais punkts",
+		"turpin\u0101t",
+		"n\u0101kam\u0101 aizz\u012bme"
+	],
+	"video/play": [
+		"sp\u0113l\u0113t",
+		"atska\u0146ot video",
+		"atska\u0146ot video",
+		"s\u0101kt video",
+		"CV video",
+		"p\u0101rtraukt",
+		"/^sp\u0113l\u0113t$/"
+	],
+	"video/pause": [
+		"pauze",
+		"aptur\u0113t video",
+		"aptur\u0113t video",
+		"pagaidi",
+		"/^pauze$/"
+	],
+	"video/seek": [
+		"doties uz",
+		"censties",
+		"p\u0101riet uz",
+		"p\u0101riet uz",
+		"\u0101tri uz priek\u0161u",
+		"att\u012bt atpaka\u013c uz"
+	],
+	"video/seek/relative": [
+		"atgriezties {laiks}",
+		"atpaka\u013c {laiks}",
+		"atpaka\u013c {laiks}",
+		"p\u0101rl\u0113kt atpaka\u013c {laiks}",
+		"iet uz priek\u0161u {laiks}",
+		"p\u0101rl\u0113kt uz priek\u0161u {laiks}",
+		"izlaist uz priek\u0161u {time}",
+		"\u0101tri p\u0101rt\u012bt uz priek\u0161u {laiks}",
+		"uz priek\u0161u {laiks}"
+	],
+	"gallery/next": [
+		"n\u0101kamais att\u0113ls",
+		"n\u0101kamais fotoatt\u0113ls",
+		"n\u0101kamais att\u0113ls",
+		"izlaist att\u0113lu",
+		"main\u012bt fonu"
+	],
+	"gallery/pause": [
+		"pauz\u0113t fonu",
+		"aptur\u0113t fonu",
+		"iesald\u0113t fonu",
+		"notur\u0113t fonu",
+		"aptur\u0113t att\u0113lus"
+	],
+	"gallery/resume": [
+		"CV fons",
+		"turpin\u0101t fonu",
+		"s\u0101kt fonu no jauna",
+		"atcelt fona pauzi"
+	],
+	"gallery/remove": [
+		"no\u0146emt \u0161o att\u0113lu",
+		"izlaist \u0161o att\u0113lu",
+		"pasl\u0113pt \u0161o fotoatt\u0113lu",
+		"no\u0146emt pa\u0161reiz\u0113jo att\u0113lu",
+		"no\u0146emt \u0161o fotoatt\u0113lu"
+	],
+	"gallery/caption/remove": [
+		"no\u0146emt parakstu",
+		"pasl\u0113pt parakstu",
+		"skaidrs paraksts",
+		"no\u0146emt parakstu",
+		"pasl\u0113pt parakstu"
+	],
+	"highlight": [
+		"izcelt",
+		"nor\u0101d\u012bt uz",
+		"par\u0101di man",
+		"uzsv\u0113rt",
+		"koncentr\u0113ties uz",
+		"z\u012bme",
+		"izsaukt"
+	],
+	"zoom/in": [
+		"tuvin\u0101t",
+		"t\u0101lummai\u0146a",
+		"liel\u0101ks",
+		"palielin\u0101t",
+		"palielin\u0101t",
+		"padar\u012bt to liel\u0101ku",
+		"tuv\u0101k"
+	],
+	"zoom/out": [
+		"t\u0101lin\u0101t",
+		"maz\u0101ks",
+		"sarukt",
+		"atvilkt atpaka\u013c",
+		"padar\u012bt to maz\u0101ku",
+		"atk\u0101pties",
+		"pla\u0161\u0101ks skats"
+	],
+	"zoom/reset": [
+		"atiestat\u012bt t\u0101lummai\u0146u",
+		"t\u0101lummai\u0146as atiestat\u012b\u0161ana",
+		"norm\u0101ls izm\u0113rs",
+		"ietilpin\u0101t ekr\u0101n\u0101",
+		"tuvin\u0101t, lai ietilptu"
+	],
+	"scroll/down": [
+		"ritiniet uz leju",
+		"turpini",
+		"vair\u0101k",
+		"turpin\u0101t lejup",
+		"lapa uz leju",
+		"zem\u0101k"
+	],
+	"scroll/up": [
+		"ritin\u0101t uz aug\u0161u",
+		"iet aug\u0161up",
+		"atpaka\u013c",
+		"aug\u0161up",
+		"lapa uz aug\u0161u",
+		"iepriek\u0161"
+	],
+	"scroll/top": [
+		"ritiniet uz aug\u0161u",
+		"iet uz aug\u0161u",
+		"atpaka\u013c uz aug\u0161u",
+		"lapas s\u0101kums",
+		"lapas aug\u0161da\u013c\u0101"
+	],
+	"scroll/bottom": [
+		"ritiniet uz leju",
+		"iet uz leju",
+		"lapas beigas",
+		"lapas apak\u0161\u0101"
+	],
+	"fullscreen": [
+		"pilnekr\u0101na re\u017e\u012bm\u0101",
+		"pilnekr\u0101na re\u017e\u012bm\u0101",
+		"maksimiz\u0113t",
+		"aizpild\u012bt ekr\u0101nu",
+		"padar\u012bt to pilnu"
+	],
+	"image/generate": [
+		"\u0123ener\u0113t {uzvednes} att\u0113lu",
+		"izveidot {uzvednes} att\u0113lu",
+		"par\u0101diet man {uzvedni}",
+		"vizualiz\u0113t {uzvedni}",
+		"z\u012bm\u0113t {uzvedne}",
+		"uztaisiet {uzvednes} att\u0113lu"
+	],
+	"tool/generate": [
+		"izveidot {uzvedni}",
+		"izveidot {uzvedni}",
+		"uztaisi man {uzvedni}",
+		"\u0123ener\u0113t {prompt} logr\u012bku",
+		"izveidot {prompt} r\u012bku",
+		"izveidot {prompt} r\u012bku"
+	],
+	"stream/create": [
+		"izveidot {prompt} straumi",
+		"izveidot {prompt} straumi",
+		"s\u0101kt {uzvedni}",
+		"izveidot {prompt} sp\u0113li",
+		"sp\u0113l\u0113sim {uzdevums}",
+		"iestat\u012bt {uzvedni}"
+	],
+	"stream/grantAccess": [
+		"pie\u0161\u0137irt {name} piek\u013cuvi ierakstam",
+		"\u013caut {name} public\u0113t",
+		"pie\u0161\u0137irt {name} rakst\u012b\u0161anas piek\u013cuvi",
+		"at\u013caut lietot\u0101jam {name} public\u0113t",
+		"pievienot {name} k\u0101 viesi",
+		"uzaicin\u0101t {name} public\u0113t"
+	],
+	"stream/revokeAccess": [
+		"no\u0146emt lietot\u0101ja {name} piek\u013cuvi",
+		"atsaukt lietot\u0101ja {name} piek\u013cuvi",
+		"at\u0146emt lietot\u0101jam {name} piek\u013cuvi",
+		"no\u0146emt {name} no straumes",
+		"blo\u0137\u0113t {name} iesp\u0113ju public\u0113t"
+	]
+}

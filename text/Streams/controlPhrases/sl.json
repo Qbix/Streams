@@ -1,0 +1,264 @@
+{
+	"_locale": "sl",
+	"_intents": {
+		"slide/next": "Naprej na naslednji diapozitiv. Oddaja Streams/slide {slideIndex: current+1}.",
+		"slide/prev": "Nazaj na prej\u0161nji diapozitiv. Oddaja Streams/slide {slideIndex: current-1}.",
+		"slide/first": "Sko\u010di na prvi diapozitiv. Oddaja Streams/slide {slideIndex: 0}.",
+		"slide/last": "Sko\u010di na zadnji diapozitiv. Oddaja Streams/slide {slideIndex: 9999}.",
+		"slide/navigate": "Sko\u010di na diapozitiv s poizvedbo o vsebini. Zajame {query}.",
+		"reveal/next": "Razkrije naslednji progresivni element. Oddaja Streams/reveal {revealIndex: current+1}.",
+		"video/play": "Predvajaj video. Oddaja tokove/predvajaj {}.",
+		"video/pause": "Za\u010dasno ustavi video. Oddaja tokove/za\u010dasno ustavi {}.",
+		"video/seek": "I\u0161\u010di po absolutnem \u010dasu. Oddaja tokove/i\u0161\u010de {poz: sekunde}. Zajame {\u010das}.",
+		"video/seek/relative": "Iskanje z odmikom. Oddaja tokove/iskanje {poz: &#39;+/- sekunde&#39;}. Zajame {\u010das}.",
+		"gallery/next": "Naslednja slika dodatnega posnetka. Oddaja tokove/galerijo/naslednje.",
+		"gallery/pause": "Zamrzni dodatek. Predvaja preto\u010dne posnetke/galerijo/pavzo.",
+		"gallery/resume": "Nadaljuj z b-rollom. Predvaja preto\u010dne prenose/galerijo/\u017eivljenjepis.",
+		"gallery/remove": "Skrij trenutno sliko dodatnega videa. Oddaja tokove/galerijo/odstrani.",
+		"gallery/caption/remove": "Skrij podnapis b-rolla. Oddaja Streams/gallery/caption {remove: true}.",
+		"highlight": "Ozna\u010di element grafikona. Oddaja tokove/ozna\u010di {elementId}. Zajame {target}.",
+		"zoom/in": "Pove\u010daj 1,5x. Oddaja tokove/pove\u010dava {skala: trenutno*1,5}.",
+		"zoom/out": "Pomanj\u0161aj 1,5x. Oddaja tokove/pove\u010dava {skala: trenutno/1,5}.",
+		"zoom/reset": "Ponastavi pove\u010davo na 1. Oddaja tokove/pove\u010davo {skala: 1}.",
+		"scroll/down": "Pomakni se navzdol za 20 %. Oddaja Q/pomakni se {zgoraj: &#39;+20 %&#39;}.",
+		"scroll/up": "Pomakni se navzgor za 20 %. Oddaja Q/pomakni se {zgoraj: &#39;-20 %&#39;}.",
+		"scroll/top": "Pomakni se na vrh. Odda Q/pomakni se {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Pomakni se na dno. Odda Q/pomakni se {top: &#39;100%&#39;}.",
+		"fullscreen": "Preklopi celozaslonski na\u010din.",
+		"image/generate": "Slika, ustvarjena z LLM. Zajame {prompt}.",
+		"tool/generate": "Gradnik, ustvarjen z LLM. Zajame {prompt}.",
+		"stream/create": "Ustvari nov tok (\u0161ah, anketa itd.). Zajame {prompt}.",
+		"stream/grantAccess": "Dodeli dostop za pisanje. Zajame {name, writeLevel}.",
+		"stream/revokeAccess": "Prekli\u010di dostop. Zajame {name}."
+	},
+	"slide/next": [
+		"naslednji diapozitiv",
+		"naslednja karta",
+		"pojdi naprej",
+		"pojdi naprej",
+		"napredovanje",
+		"naslednji prosim",
+		"naslednji",
+		"prika\u017ei naslednje",
+		"/^naslednji$/"
+	],
+	"slide/prev": [
+		"prej\u0161nji diapozitiv",
+		"prej\u0161nja kartica",
+		"pojdi nazaj",
+		"ena nazaj",
+		"prej\u0161nji diapozitiv",
+		"korak nazaj",
+		"/^nazaj$/"
+	],
+	"slide/first": [
+		"prvi diapozitiv",
+		"pojdi na za\u010detek",
+		"za\u010deti znova",
+		"z vrha",
+		"za\u010detek prosim"
+	],
+	"slide/last": [
+		"zadnji diapozitiv",
+		"pojdi do konca",
+		"zadnji diapozitiv",
+		"skok na konec"
+	],
+	"slide/navigate": [
+		"pojdi na {poizvedba}",
+		"poka\u017ei mi {poizvedba}",
+		"najdi {poizvedbo}",
+		"skok na {poizvedba}",
+		"pojdi na {query}",
+		"odpelji me na {query}",
+		"odpri {poizvedbo}",
+		"prika\u017ei diapozitiv {query}",
+		"poi\u0161\u010di diapozitiv {query}",
+		"pojdi na diapozitiv {query}"
+	],
+	"reveal/next": [
+		"razkriti",
+		"prika\u017ei ve\u010d",
+		"naslednja to\u010dka",
+		"nadaljevati",
+		"naslednja alineja"
+	],
+	"video/play": [
+		"igra",
+		"predvajaj video",
+		"predvajaj video",
+		"za\u010dni video",
+		"nadaljevanje videa",
+		"nadaljevanje premora",
+		"/^predvajaj$/"
+	],
+	"video/pause": [
+		"premor",
+		"za\u010dasno ustavi video",
+		"ustavi video",
+		"dr\u017ei se",
+		"/^pavza$/"
+	],
+	"video/seek": [
+		"pojdi na",
+		"si prizadevati",
+		"sko\u010di na",
+		"presko\u010di na",
+		"hitro naprej do",
+		"previjanje nazaj do"
+	],
+	"video/seek/relative": [
+		"vrni se {\u010das}",
+		"nazaj {\u010das}",
+		"previjanje nazaj {\u010das}",
+		"presko\u010di nazaj {\u010das}",
+		"pojdi naprej {\u010das}",
+		"presko\u010di naprej {\u010das}",
+		"presko\u010di naprej {\u010das}",
+		"hitro naprej {\u010das}",
+		"naprej {\u010das}"
+	],
+	"gallery/next": [
+		"naslednja slika",
+		"naslednja fotografija",
+		"naslednja slika",
+		"presko\u010di sliko",
+		"spremeni ozadje"
+	],
+	"gallery/pause": [
+		"za\u010dasno ustavi ozadje",
+		"ustavi ozadje",
+		"zamrznitev ozadja",
+		"dr\u017ei ozadje",
+		"za\u010dasno ustavi slike"
+	],
+	"gallery/resume": [
+		"ozadje \u017eivljenjepisa",
+		"nadaljujte ozadje",
+		"znova za\u017eeni ozadje",
+		"nadaljevanje ozadja"
+	],
+	"gallery/remove": [
+		"odstrani to sliko",
+		"presko\u010di to sliko",
+		"skrij to fotografijo",
+		"odstranite trenutno sliko",
+		"odstrani to fotografijo"
+	],
+	"gallery/caption/remove": [
+		"odstraniti napis",
+		"skrij napis",
+		"jasen napis",
+		"odstranite napis",
+		"skrij napis"
+	],
+	"highlight": [
+		"poudarek",
+		"poka\u017eite na",
+		"poka\u017ei mi",
+		"poudariti",
+		"osredoto\u010diti se na",
+		"oznaka",
+		"poklicati"
+	],
+	"zoom/in": [
+		"pove\u010daj",
+		"pove\u010dava",
+		"ve\u010dji",
+		"pove\u010daj",
+		"pove\u010dati",
+		"naredi ve\u010dje",
+		"bli\u017eje"
+	],
+	"zoom/out": [
+		"pomanj\u0161aj",
+		"manj\u0161i",
+		"skr\u010diti",
+		"potegni nazaj",
+		"naredi ga manj\u0161ega",
+		"korak nazaj",
+		"\u0161ir\u0161i pogled"
+	],
+	"zoom/reset": [
+		"ponastavi pove\u010davo",
+		"ponastavitev pove\u010dave",
+		"normalna velikost",
+		"prilagodi zaslonu",
+		"pove\u010daj, da se prilega"
+	],
+	"scroll/down": [
+		"pomaknite se navzdol",
+		"nadaljuj",
+		"ve\u010d",
+		"nadaljujte navzdol",
+		"stran navzdol",
+		"spodaj"
+	],
+	"scroll/up": [
+		"pomaknite se navzgor",
+		"pojdi gor",
+		"varnostno kopiranje",
+		"navzgor",
+		"stran navzgor",
+		"zgoraj"
+	],
+	"scroll/top": [
+		"pomaknite se na vrh",
+		"pojdi na vrh",
+		"nazaj na vrh",
+		"za\u010detek strani",
+		"vrh strani"
+	],
+	"scroll/bottom": [
+		"pomaknite se na dno",
+		"pojdi na dno",
+		"konec strani",
+		"dno strani"
+	],
+	"fullscreen": [
+		"celozaslonski na\u010din",
+		"celozaslonski na\u010din",
+		"maksimizirati",
+		"zapolni zaslon",
+		"naredi ga polnega"
+	],
+	"image/generate": [
+		"ustvari sliko {prompt}",
+		"ustvari sliko {prompt}",
+		"poka\u017ei mi {poziv}",
+		"vizualiziraj {poziv}",
+		"risati {poziv}",
+		"naredi sliko {prompt}"
+	],
+	"tool/generate": [
+		"zgradi {prompt}",
+		"ustvari {poziv}",
+		"zgradi mi {prompt}",
+		"ustvari gradnik {prompt}",
+		"naredi orodje {prompt}",
+		"ustvari orodje {prompt}"
+	],
+	"stream/create": [
+		"ustvari tok {prompt}",
+		"ustvari {prompt} tok",
+		"za\u010dni {poziv}",
+		"ustvari igro {prompt}",
+		"igrajmo {poziv}",
+		"nastavite {poziv}"
+	],
+	"stream/grantAccess": [
+		"dovoli uporabniku {name} dostop do objave",
+		"naj {name} objavi",
+		"dodeli {name} dostop za pisanje",
+		"dovoli {name} objavljanje",
+		"dodaj {name} kot gosta",
+		"povabi {name} k objavi"
+	],
+	"stream/revokeAccess": [
+		"Odstrani dostop uporabniku {name}",
+		"prekli\u010di dostop uporabnika {name}",
+		"odvzame dostop uporabniku {name}",
+		"odstrani {name} iz toka",
+		"blokiraj objavljanje uporabniku {name}"
+	]
+}

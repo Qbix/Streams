@@ -160,7 +160,8 @@
 			"HasInvitedYou": "uzaicin\u0101ja j\u016bs uz:",
 			"HasInvitedYouToTheirProfile": "uzaicin\u0101ja j\u016bs izveidot savienojumu.",
 			"prompt": "\u013baujiet draugiem j\u016bs atpaz\u012bt:",
-			"accept": "Pie\u0146emt uzaicin\u0101jumu"
+			"accept": "Pie\u0146emt uzaicin\u0101jumu",
+			"RolesOffered": "Jums pied\u0101v\u0101t\u0101s lomas:"
 		},
 		"email": {
 			"subject": "Hei, p\u0101rbaudiet \u0161o",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "J\u016bs uzaicin\u0101sit cilv\u0113kus uz sarunu, kur\u0101 var\u0113sit sazin\u0101ties, koplietot fotoatt\u0113lus un veikt citas darb\u012bbas. Pie\u0161\u0137iriet tai nosaukumu:"
 		},
-		"Participants": "Uzaiciniet cilv\u0113kus"
+		"Participants": "Uzaiciniet cilv\u0113kus",
+		"inperson": {
+			"description": "\u0122ener\u0113jiet QR kodu un nododiet to t\u0101l\u0101k, lai to var\u0113tu nosken\u0113t. Visi, kas to nosken\u0113s, paliks savstarp\u0113ji saist\u012bti:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Izejo\u0161ais",
 			"description": "galam\u0113r\u0137is citiem lietot\u0101jiem vai \u0101r\u0113j\u0101m sist\u0113m\u0101m nos\u016bt\u012bto zi\u0146ojumu ierakst\u012b\u0161anai"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontolo\u0123ija",
+			"description": "ontolo\u0123ija",
+			"newItem": "Pievienot ontolo\u0123iju"
 		}
 	},
 	"menu": {

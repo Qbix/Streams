@@ -160,7 +160,8 @@
 			"HasInvitedYou": "wedi eich gwahodd i:",
 			"HasInvitedYouToTheirProfile": "wedi eich gwahodd i gysylltu.",
 			"prompt": "Gadewch i ffrindiau eich adnabod:",
-			"accept": "Derbyn Gwahoddiad"
+			"accept": "Derbyn Gwahoddiad",
+			"RolesOffered": "R\u00f4lau sy&#39;n cael eu cynnig i chi:"
 		},
 		"email": {
 			"subject": "Hei, edrychwch ar hyn",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Byddwch yn gwahodd pobl i sgwrs lle gallwch gadw mewn cysylltiad, rhannu lluniau gyda&#39;ch gilydd, a mwy. Rhowch enw iddo:"
 		},
-		"Participants": "Gwahodd Pobl"
+		"Participants": "Gwahodd Pobl",
+		"inperson": {
+			"description": "Cynhyrchwch god QR a&#39;i basio o gwmpas, i&#39;w sganio. Bydd pawb sy&#39;n ei sganio yn aros mewn cysylltiad \u00e2&#39;i gilydd:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Allanol",
 			"description": "cyrchfan ar gyfer recordio negeseuon a anfonir at ddefnyddwyr eraill neu systemau allanol"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontoleg",
+			"description": "ontoleg",
+			"newItem": "Ychwanegu Ontoleg"
 		}
 	},
 	"menu": {

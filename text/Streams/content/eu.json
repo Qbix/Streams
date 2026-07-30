@@ -160,7 +160,8 @@
 			"HasInvitedYou": "honetara gonbidatu zaitu:",
 			"HasInvitedYouToTheirProfile": "konektatzera gonbidatu zaitu.",
 			"prompt": "Utzi lagunei ezagutarazten:",
-			"accept": "Onartu Gonbidapena"
+			"accept": "Onartu Gonbidapena",
+			"RolesOffered": "Eskaintzen zaizkizun rolak:"
 		},
 		"email": {
 			"subject": "Aizu, begiratu hau",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Jendea elkarrizketa batera gonbidatuko duzu, non harremanetan egoteko, argazkiak elkarrekin partekatzeko eta abar. Eman izena:"
 		},
-		"Participants": "Gonbidatu jendea"
+		"Participants": "Gonbidatu jendea",
+		"inperson": {
+			"description": "Sortu QR kode bat eta pasa eskaneatu ahal izateko. Eskaneatzen duen oro elkarren artean konektatuta egongo da:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Irteerakoa",
 			"description": "beste erabiltzaileei edo kanpoko sistemetara bidalitako mezuak grabatzeko helmuga"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologia",
+			"description": "ontologia",
+			"newItem": "Gehitu ontologia"
 		}
 	},
 	"menu": {

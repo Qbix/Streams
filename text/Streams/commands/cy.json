@@ -1,0 +1,41 @@
+{
+	"_comment": "Testun gorchymyn Streams. &#39;commands&#39; = labeli arddangos (UI); &#39;phrases&#39; = ymadroddion cydnabyddedig, wedi&#39;u teipio gan orchymyn. Ffurfiau ymadroddion: &quot;substring&quot;, &quot;/regex/&quot;, neu dempled &quot;give {{name}} access&quot; \u2014 mae pob {{token}} yn llunio i gipio. Mae Streams bellach yn berchen ar y gorchmynion rheoli mynediad ac ail-steilio (trinwyr Streams/commands/streamCommand a Streams/commands/cssUpdate); Llywio llongau cyfryngau; cynhyrchu llongau AI.",
+	"commands": {
+		"tool/cssUpdate": "Offeryn ail-steilio",
+		"stream/create": "Creu ffrwd",
+		"stream/grantAccess": "Caniat\u00e1u mynediad",
+		"stream/revokeAccess": "Diddymu mynediad"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"newid y lliw i {{prompt}}",
+			"newid y lliwiau i {{prompt}}",
+			"ei ail-liwio {{prompt}}",
+			"ail-steilio&#39;r offeryn {{prompt}}",
+			"gwnewch y lliwiau {{prompt}}"
+		],
+		"stream/create": [
+			"creu ffrwd {{prompt}}",
+			"gwneud ffrydio {{prompt}}",
+			"dechrau {{prompt}}",
+			"creu g\u00eam {{prompt}}",
+			"gadewch i ni chwarae {{prompt}}",
+			"sefydlu {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"rhoi mynediad {{name}} i bost",
+			"gadewch i {{name}} bostio",
+			"rhoi mynediad ysgrifennu {{name}}",
+			"caniat\u00e1u {{name}} bostio",
+			"ychwanegu {{name}} fel gwestai",
+			"gwahodd {{name}} i bostio"
+		],
+		"stream/revokeAccess": [
+			"dileu mynediad {{name}}",
+			"dirymu mynediad {{name}}",
+			"tynnu mynediad {{name}} i ffwrdd",
+			"tynnu {{name}} o&#39;r ffrwd",
+			"blocio {{name}} rhag postio"
+		]
+	}
+}

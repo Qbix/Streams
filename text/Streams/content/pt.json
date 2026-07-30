@@ -160,7 +160,8 @@
 			"HasInvitedYou": "convidou voc\u00ea para:",
 			"HasInvitedYouToTheirProfile": "convidou voc\u00ea para se conectar.",
 			"prompt": "Permita que seus amigos o reconhe\u00e7am:",
-			"accept": "Aceitar convite"
+			"accept": "Aceitar convite",
+			"RolesOffered": "Cargos que est\u00e3o sendo oferecidos:"
 		},
 		"email": {
 			"subject": "Ei, veja isso",
@@ -180,7 +181,10 @@
 		"chat": {
 			"prompt": "Voc\u00ea convidar\u00e1 pessoas para uma conversa onde poder\u00e1 manter contato, compartilhar fotos e muito mais. D\u00ea um nome:"
 		},
-		"Participants": "Convidar pessoas"
+		"Participants": "Convidar pessoas",
+		"inperson": {
+			"description": "Gere um c\u00f3digo QR e compartilhe-o para que seja escaneado. Todos que o escanearem permanecer\u00e3o conectados uns aos outros:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +368,11 @@
 		"Streams/outgoing": {
 			"displayType": "Extrovertido",
 			"description": "Destino para grava\u00e7\u00e3o de mensagens enviadas a outros usu\u00e1rios ou sistemas externos."
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologia",
+			"description": "ontologia",
+			"newItem": "Adicionar Ontologia"
 		}
 	},
 	"menu": {

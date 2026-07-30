@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams komando testua. &#39;commands&#39; = bistaratzeko etiketak (UI); &#39;phrases&#39; = aitortutako esaldiak, komandoak gakoztatuta. Esaldi formak: &quot;substring&quot;, &quot;/regex/&quot;, edo txantiloidun &quot;give {{name}} access&quot; \u2014 {{token}} bakoitza harrapaketa batean konpilatzen da. Streams-ek orain sarbide-kontrola eta birdiseinu komandoak ditu (Streams/commands/streamCommand eta Streams/commands/cssUpdate kudeatzaileak); multimedia ontzien nabigazioa; AI ontzien sorrera.",
+	"commands": {
+		"tool/cssUpdate": "Estiloz aldatzeko tresna",
+		"stream/create": "Sortu erreka",
+		"stream/grantAccess": "Eman sarbidea",
+		"stream/revokeAccess": "Sarbidea ezeztatu"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"Aldatu kolorea {{prompt}}",
+			"Aldatu koloreak {{prompt}}",
+			"berriro koloreztatu {{prompt}}",
+			"{{prompt}} tresna berriz diseinatu",
+			"egin koloreak {{prompt}}"
+		],
+		"stream/create": [
+			"sortu {{prompt}} erreka bat",
+			"egin {{prompt}} erreprodukzio bat",
+			"hasi {{prompt}} bat",
+			"sortu {{prompt}} joko bat",
+			"Jolastu dezagun {{prompt}}",
+			"{{prompt}} bat ezarri"
+		],
+		"stream/grantAccess": [
+			"Eman {{name}} mezurako sarbidea",
+			"utzi {{name}} mezua",
+			"Eman {{name}} idazketa sarbidea",
+			"baimendu {{name}} argitaratzea",
+			"gehitu {{name}} gonbidatu gisa",
+			"gonbidatu {{name}} argitaratzera"
+		],
+		"stream/revokeAccess": [
+			"kendu {{name}} -ren sarbidea",
+			"{{name}} sarbidea ezeztatu",
+			"kendu {{name}} sarbidea",
+			"kendu {{name}} errekatik",
+			"{{name}} blokeatu argitaratzetik"
+		]
+	}
+}
