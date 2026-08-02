@@ -1188,7 +1188,17 @@ abstract class Streams extends Base_Streams
 					$relatedTo->type = $relate['type'];
 					$relatedTo->fromPublisherId = $template->publisherId;
 					$relatedTo->fromStreamName = $template->name;
-					if ($retrieved = $relatedTo->retrieve()) {
+					$retrieved = Streams_RelatedTo::select()
+						->where(array(
+							'toPublisherId' => array($to_template->publisherId, $to_stream->publisherId),
+							'toStreamName' => array($to_template->name, $to_stream->name),
+							'type' => $relate['type'],
+							'fromPublisherId' => $template->publisherId,
+							'fromStreamName' => $template->name
+						))
+						->limit(1)
+						->fetchDbRow();
+					if ($retrieved) {
 						$authorized = $template;
 					}
 				}
@@ -6252,6 +6262,68 @@ abstract class Streams extends Base_Streams
 			}
 		}
 		return $result[$type] = $classes;
+	}
+
+	/**
+	 * Save a relation between two stream templates,
+	 * authorizing creation of $fromType streams
+	 * related to $toType category streams.
+	 * @method saveTemplateRelation
+	 * @static
+	 * @param {string} $toStreamName Template type ("Websites/page/") or specific stream name
+	 * @param {string} $relationType The relation type (e.g. "Websites/sections")
+	 * @param {string} $fromType The child stream type (e.g. "Websites/section")
+	 * @param {string} [$publisherId='']
+	 * @param {array|boolean} [$options=array()] Pass true for array('directions' => array('to', 'from'))
+	 *   @param {array} [$options.directions=array("to")] Which rows to save: "to", "from", or both
+	 *   @param {string|array} [$options.extra=null] Extra info on the RelatedTo row
+	 *   @param {float} [$options.weight=null] Weight on the RelatedTo row
+	 * @return {array} The saved Streams_RelatedTo and/or Streams_RelatedFrom rows
+	 */
+	static function saveTemplateRelation(
+		$toStreamName,
+		$relationType,
+		$fromType,
+		$publisherId = '',
+		$options = array())
+	{
+		if ($options === true) {
+			$options = array('directions' => array('to', 'from'));
+		}
+		$directions = Q::ifset($options, 'directions', array('to'));
+		$extra = Q::ifset($options, 'extra', null);
+		$weight = Q::ifset($options, 'weight', null);
+		if (is_string($extra)) {
+			$extra = array('extra' => $extra);
+		}
+		$fromStreamName = $fromType . '/';
+		$results = array();
+		foreach ($directions as $dir) {
+			if ($dir === 'to') {
+				$rt = new Streams_RelatedTo();
+				$rt->toPublisherId = $publisherId;
+				$rt->toStreamName = $toStreamName;
+				$rt->type = $relationType;
+				$rt->fromPublisherId = $publisherId;
+				$rt->fromStreamName = $fromStreamName;
+				$rt->retrieve();
+				if (isset($weight)) $rt->weight = $weight;
+				if (isset($extra)) $rt->extra = is_array($extra) ? Q::json_encode($extra) : $extra;
+				$rt->save(true);
+				$results['to'] = $rt;
+			} else if ($dir === 'from') {
+				$rf = new Streams_RelatedFrom();
+				$rf->fromPublisherId = $publisherId;
+				$rf->fromStreamName = $fromStreamName;
+				$rf->type = $relationType;
+				$rf->toPublisherId = $publisherId;
+				$rf->toStreamName = $toStreamName;
+				$rf->retrieve();
+				$rf->save(true);
+				$results['from'] = $rf;
+			}
+		}
+		return $results;
 	}
 	
 	/**

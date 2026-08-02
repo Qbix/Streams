@@ -269,6 +269,15 @@
 	width: 210px;
 }
 
+.Streams_invited_roles {
+	text-align: center;
+}
+
+.Streams_invited_roles ul {
+	list-style-type: none;
+    padding: 0;
+}
+
 .Users_register_form td {
 	vertical-align: middle;
 }

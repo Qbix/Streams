@@ -4969,7 +4969,8 @@ Q.onInit.add(function _Streams_onInit() {
 				if (Q.Users.loggedInUserId()) {
 					// already logged in, so nothing will call setLoggedInUser
 					// and this is the only chance to ask
-					_showInvitedDialog(params);
+					// commented-out for now, because invite may already have been accepted
+					// _showInvitedDialog(params);
 				} else {
 					// after they log in or register, the server decides whether
 					// consent is still needed and sets script data again;
@@ -4984,23 +4985,6 @@ Q.onInit.add(function _Streams_onInit() {
 			});
 		}
 	}
-
-	// After login or registration, Q.Response.processScriptDataAndLines() has
-	// already applied whatever Streams_after_Users_setLoggedInUser set. A
-	// payload being present is the server saying "this one needs asking" —
-	// auto-accept types are handled server-side and send nothing.
-	Users.login.options.onActivated.set(function (proceed, user, o, p) {
-		var params = Q.getObject('Q.plugins.Streams.invited.dialog');
-		if (!Q.getObject('token', params)) {
-			return; // accepted server-side, or nothing pending
-		}
-		_prepareInvitedParams(params, function () {
-			_showInvitedDialog(params, function () {
-				proceed(); // continue on to onRequireComplete either way
-			});
-		});
-		return false;
-	}, 'Streams');
 
 	// set up invite complete dialog
 	Q.Page.onLoad('').add(_Streams_onInvited, "Streams.invited");

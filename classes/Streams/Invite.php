@@ -694,6 +694,14 @@ class Streams_Invite extends Base_Streams_Invite
 			}
 		}
 
+		if ($invited = (new Streams_Invited(array(
+			'userId' => $invite->userId,
+			'token' => $invite->token,
+			'state' => 'accepted'
+		)))->retrieve()) {
+			return null;
+		}
+
 		$invitingUser = Users_User::fetch($invite->invitingUserId);
 		if (!$invitingUser) {
 			return null;

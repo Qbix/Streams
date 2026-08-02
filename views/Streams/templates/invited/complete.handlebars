@@ -7,41 +7,62 @@
 			{{explanation}}
 		</div>
 		<form method="post" action="{{action}}" data-form-type="complete">
-			{{#if nameIsMissing}}
-				{{#if prompt}}
-					<label for="Streams_login_fullname">{{prompt}}</label>
-					<br>
+			<div class="Streams_login_appear"></div>
+			<table>
+				{{#if user}}
+					<tr class="Streams_complete_invitingUser">
+						<td><img src="{{icon}}/50.png" title="{{invitingUser.displayName}} icon"></td>
+						<td><div>{{invitingUser.displayName}}</div><div>{{invitingUser.text}}</div></td>
+					</tr>
 				{{/if}}
-				<input id="Streams_login_fullname" name="fullName" type="text" class="text" />
-			{{/if}}
-			{{#if discount}}
-			<tr class="Streams_complete_discount">
-				<td colspan="2">
-					<div class="Streams_invited_discount">
-						{{discount.description}}
-					</div>
-				</td>
-			</tr>
-			{{/if}}
-			{{#if roles}}
-			<tr class="Streams_complete_roles">
-				<td colspan="2">
-					<div class="Streams_invited_roles">
-						<div class="Streams_invited_roles_prompt">{{rolesPrompt}}</div>
-						<ul>
-						{{#each roles}}
-							<li class="Streams_invited_role" data-label="{{this.label}}">
-								<img src="{{this.icon}}/40.png" alt="">
-								<span>{{this.title}}</span>
-							</li>
-						{{/each}}
-						</ul>
-					</div>
-				</td>
-			</tr>
-			{{/if}}
-			<input type="hidden" name="acceptInvite" value="1"/>
+					<tr class="Streams_complete_stream">
+						<td><img src="{{stream.fields.icon}}/50.png" title="{{stream.title}}"></td>
+						<td>
+							<div>{{stream.fields.title}}</div>
+							{{#if (call "stream.get" "timestamp")}}
+							<div class="Q_tool Q_timestamp_tool"
+								data-q-timestamp="{ &quot;time&quot;: {{call "stream.get" "timestamp"}} }">
+							</div>
+							{{/if}}
+						</td>
+					</tr>
+				{{#if nameIsMissing}}
+					<tr class="Users_register_form">
+						<td class="Streams_login_picture"><img src="{{icon}}/50.png"></td>
+						<td class="Streams_login_fullname_block">
+							<input id="Streams_login_fullname" name="fullName" type="text" class="text" />
+						</td>
+					</tr>
+				{{/if}}
+				{{#if discount.description}}
+				<tr class="Streams_complete_discount">
+					<td colspan="2">
+						<div class="Streams_invited_discount">
+							{{discount.description}}
+						</div>
+					</td>
+				</tr>
+				{{/if}}
+				{{#if roles}}
+				<tr class="Streams_complete_roles">
+					<td colspan="2">
+						<div class="Streams_invited_roles">
+							<div class="Streams_invited_roles_prompt">{{rolesPrompt}}</div>
+							<ul>
+							{{#each roles}}
+								<li class="Streams_invited_role" data-label="{{this.label}}">
+									<img src="{{this.icon}}/40.png" alt="">
+									<span>{{this.title}}</span>
+								</li>
+							{{/each}}
+							</ul>
+						</div>
+					</td>
+				</tr>
+				{{/if}}
+			</table>
 			<input type="hidden" name="token" value="{{token}}"/>
+			<input type="hidden" name="Q.Streams.acceptInvite" value="1">
 			<input type="hidden" name="Q.method" value="get"/>
 			<div class="Streams_login_get_started">
 				<button type="submit" class="Q_button Q_main_button Streams_login_start">{{button}}</button>

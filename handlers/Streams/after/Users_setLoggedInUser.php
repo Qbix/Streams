@@ -5,7 +5,7 @@ function Streams_after_Users_setLoggedInUser($params)
 	$user = $params['user'];
 	if ($token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null)) {
 		$invite = Streams_Invite::fromToken($token);
-		if ($invite and $invite->state === 'pending') {
+		if ($invite) {
 			$stream = Streams_Stream::fetch(
 				$user->id, $invite->publisherId, $invite->streamName
 			);

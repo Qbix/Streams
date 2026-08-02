@@ -547,23 +547,18 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 					previewState.beforeCreate.remove(tool);
 				}, tool);
 				previewState.onCreate.set(function (stream) {
-
 					element.addClass('Streams_related_stream');
-
-					// set data-streamName attribute to mark tool as not composer
 					element.setAttribute("data-streamName", stream.fields.name);
-
-					// set weight to preview tool and to element
 					Q.setObject("options.streams_preview.related.weight", this.state.related.weight, element);
 					element.setAttribute('data-weight', this.state.related.weight);
-
-					// check if such preview already exists before place
+					
+					// Register in previewElements so realtime refresh skips it
+					Q.setObject([stream.fields.publisherId, stream.fields.name], element, tool.previewElements);
+					
 					if (Q.handle(state.beforeRenderPreview, tool, [Q.extend({}, tff, {name: stream.fields.name}), element]) === false) {
 						element.remove();
 					}
-					// place new preview to the valid place in the list
 					_placeRelatedTool(element);
-
 					addComposer(streamType, params);
 				}, tool);
 
@@ -809,7 +804,12 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 						|| msg.ordinal !== tool.state.lastMessageOrdinal + 1) {
 						tool.refresh();
 					} else {
-						tool.refresh(); // TODO: make the weights of the items in between update in the client
+						// Own message — preview was already added (or will be)
+						// by the local onCreate handler. Just invalidate the
+						// cache so the next explicit refresh gets fresh data.
+						Streams.related.cache.removeEach(
+							[state.publisherId, state.streamName]
+						);
 					}
 					tool.state.lastMessageOrdinal = msg.ordinal;
 				}, tool);
