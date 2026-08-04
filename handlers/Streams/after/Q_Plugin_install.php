@@ -42,7 +42,7 @@ function Streams_after_Q_Plugin_install($params)
 	for ($i=1; true; ++$i) {
 		$criteria = $otherStreamsNeedToInstall
 			? 'TRUE'
-			: array('id' => new Db_Range('A', true, false, ord('Z')+1)); // communities only
+			: array('id' => new Db_Range('A', true, false, true)); // communities only
 		$users = Users_User::select()
 			->orderBy('id')
 			->where($criteria)
