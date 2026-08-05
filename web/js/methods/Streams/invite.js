@@ -440,7 +440,7 @@ Q.exports(function() {
                         title: text.invite.roles.title,
                         content: Q.Tool.setUpElementHTML('div', 'Users/labels', {
                             userId: Q.Users.communityId,
-                            filter: canGrantRoles
+                            filter: { replace: canGrantRoles }
                         }),
                         className: 'Streams_invite_labels_dialog',
                         apply: true,
