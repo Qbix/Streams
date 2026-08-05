@@ -4970,7 +4970,7 @@ Q.onInit.add(function _Streams_onInit() {
 					// already logged in, so nothing will call setLoggedInUser
 					// and this is the only chance to ask
 					// commented-out for now, because invite may already have been accepted
-					// _showInvitedDialog(params);
+					_showInvitedDialog(params);
 				} else {
 					// after they log in or register, the server decides whether
 					// consent is still needed and sets script data again;

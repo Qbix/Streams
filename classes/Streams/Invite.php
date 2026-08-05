@@ -561,9 +561,9 @@ class Streams_Invite extends Base_Streams_Invite
 
 	/**
 	 * Whether this invite must be accepted explicitly by the user, rather than
-	 * being auto-accepted the moment they log in. Checks the invite's own extra
-	 * first, so a single invite can override its stream type's config either way,
-	 * then falls back to Streams/types/<type>/invite/dontAutoAccept.
+	 * being auto-accepted the moment they log in. The config 
+	 * "Streams"/"types"/type/invite/dontAutoAccept can be set to true,
+	 * otherwise the invite itself can set it to true.
 	 * @method needsExplicitConsent
 	 * @static
 	 * @param {Streams_Invite} $invite
@@ -572,9 +572,8 @@ class Streams_Invite extends Base_Streams_Invite
 	 */
 	static function needsExplicitConsent($invite, $stream)
 	{
-		$dontAutoAccept = $invite->getExtra('dontAutoAccept');
-		if (isset($dontAutoAccept)) {
-			return filter_var($dontAutoAccept, FILTER_VALIDATE_BOOLEAN);
+		if ($dontAutoAccept = $invite->getExtra('dontAutoAccept')) {
+			return true;
 		}
 		return (bool)Streams_Stream::getConfigField(
 			$stream->type, array('invite', 'dontAutoAccept'), false
@@ -695,7 +694,7 @@ class Streams_Invite extends Base_Streams_Invite
 		}
 
 		if ($invited = (new Streams_Invited(array(
-			'userId' => $invite->userId,
+			'userId' => $user ? $user->id : $invite->userId,
 			'token' => $invite->token,
 			'state' => 'accepted'
 		)))->retrieve()) {
