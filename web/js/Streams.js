@@ -4893,6 +4893,7 @@ Q.onInit.add(function _Streams_onInit() {
 			var interval;
 			var accepted = false;
 			Q.Dialogs.push({
+				title: params.title || Q.text.Streams.invite.dialog.YouWereInvited,
 				dialog: dialog,
 				className: 'Streams_completeInvited_dialog',
 				mask: true,

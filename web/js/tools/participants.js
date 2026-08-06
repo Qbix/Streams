@@ -91,6 +91,7 @@ function _Streams_participants(options) {
 	streamName: null,
 	invite: {
 		userChooser: true,
+		followup: true,
 		appUrl: function () {
 			return location.href;
 		}

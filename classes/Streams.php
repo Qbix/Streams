@@ -5376,7 +5376,7 @@ abstract class Streams extends Base_Streams
 			}
 			$statuses1 = array();
 			$identifier_ids = Users_User::idsFromIdentifiers(
-				$identifiers, $statuses1, $identifierTypes1
+				$identifiers, false, $statuses1, $identifierTypes1
 			);
 			$raw_userIds = array_merge($raw_userIds, $identifier_ids);
 			$statuses = array_merge($statuses, $statuses1);
