@@ -486,7 +486,8 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			}
 
 			var composerPosition = state.composerPosition || (ascending ? "last" : "first");
-			var $composer = $container.find('.Streams_related_composer');
+			// Only this related tool's own composers — not nested Streams/related
+			var $composer = $container.children('.Streams_related_composer');
 				if (composerPosition === "first") {
 					$container.prepend($composer);
 				} else if (composerPosition === "last") {
