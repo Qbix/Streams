@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "L\u00e4gg till roller",
-			"addPersonalRoles": "L\u00e4gg till personliga relationer"
+			"addPersonalRoles": "L\u00e4gg till personliga relationer",
+			"AddCommunityRoles": "L\u00e4gg till communityroller",
+			"AddParticipantRoles": "L\u00e4gg till roller i denna {{streamDisplayType}}",
+			"YouWereInvited": "Du blev inbjuden"
 		},
 		"complete": {
 			"WelcomeToCommunity": "V\u00e4lkommen till {{communityName}}",
 			"HasInvitedYou": "har bjudit in dig till:",
 			"HasInvitedYouToTheirProfile": "har bjudit in dig att ansluta.",
 			"prompt": "L\u00e5t v\u00e4nner k\u00e4nna igen dig:",
-			"accept": "Acceptera inbjudan",
-			"RolesOffered": "Roller du erbjuds:"
+			"accept": "Acceptera",
+			"RolesOffered": "Roller du erbjuds:",
+			"decline": "Nedg\u00e5ng",
+			"ParticipantRolesOffered": "Din roll i denna {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hej, kolla in det h\u00e4r",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervall (ms): ",
 		"IntervalPlaceholder": "t.ex. 3000",
 		"KenburnsInstruction": "St\u00e4ll in b\u00f6rjan och slut f\u00f6r Ken Burns genom att dra och zooma."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "V\u00e4rd",
+				"speaker": "H\u00f6gtalare",
+				"volunteer": "Volont\u00e4r",
+				"moderator": "Moderator",
+				"guest": "G\u00e4st"
+			}
+		}
 	}
 }

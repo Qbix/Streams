@@ -153,15 +153,20 @@
 			"byTelegram": "Telegrami",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Shto role",
-			"addPersonalRoles": "Shtoni Marr\u00ebdh\u00ebniet Personale"
+			"addPersonalRoles": "Shtoni Marr\u00ebdh\u00ebniet Personale",
+			"AddCommunityRoles": "Shto role t\u00eb komunitetit",
+			"AddParticipantRoles": "Shtoni role n\u00eb k\u00ebt\u00eb {{streamDisplayType}}",
+			"YouWereInvited": "Ju ishit t\u00eb ftuar"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Mir\u00eb se vini n\u00eb {{communityName}}",
 			"HasInvitedYou": "ju ka ftuar n\u00eb:",
 			"HasInvitedYouToTheirProfile": "ju ka ftuar t\u00eb lidheni.",
 			"prompt": "L\u00ebrini miqt\u00eb t&#39;ju njohin:",
-			"accept": "Prano Ftes\u00ebn",
-			"RolesOffered": "Rolet q\u00eb ju ofrohen:"
+			"accept": "Prano",
+			"RolesOffered": "Rolet q\u00eb ju ofrohen:",
+			"decline": "Refuzim",
+			"ParticipantRolesOffered": "Roli juaj n\u00eb k\u00ebt\u00eb {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hej, shikoni k\u00ebt\u00eb",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervali (ms): ",
 		"IntervalPlaceholder": "p.sh. 3000",
 		"KenburnsInstruction": "Cakto fillimin dhe fundin e Ken Burns duke zvarritur dhe zmadhuar."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Prit\u00ebs",
+				"speaker": "Fol\u00ebsi",
+				"volunteer": "Vullnetar",
+				"moderator": "Moderator",
+				"guest": "Mysafir"
+			}
+		}
 	}
 }

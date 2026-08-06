@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Magdagdag ng Mga Tungkulin",
-			"addPersonalRoles": "Magdagdag ng Mga Personal na Relasyon"
+			"addPersonalRoles": "Magdagdag ng Mga Personal na Relasyon",
+			"AddCommunityRoles": "Magdagdag ng mga tungkulin sa komunidad",
+			"AddParticipantRoles": "Magdagdag ng mga tungkulin sa {{streamDisplayType}} na ito",
+			"YouWereInvited": "Inimbitahan Ka"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Maligayang pagdating sa {{communityName}}",
 			"HasInvitedYou": "ay nag-imbita sa iyo sa:",
 			"HasInvitedYouToTheirProfile": "ay inimbitahan kang kumonekta.",
 			"prompt": "Hayaang makilala ka ng mga kaibigan:",
-			"accept": "Tanggapin ang Imbitasyon",
-			"RolesOffered": "Mga tungkuling iniaalok sa iyo:"
+			"accept": "Tanggapin",
+			"RolesOffered": "Mga tungkuling iniaalok sa iyo:",
+			"decline": "Tanggihan",
+			"ParticipantRolesOffered": "Ang iyong papel sa {{streamDisplayType}} na ito:"
 		},
 		"email": {
 			"subject": "Hoy, tingnan mo ito",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "hal 3000",
 		"KenburnsInstruction": "Itakda ang pagsisimula at pagtatapos ng Ken Burns sa pamamagitan ng pag-drag at pag-zoom."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Tagapag-alaga",
+				"speaker": "Tagapagsalita",
+				"volunteer": "Magboluntaryo",
+				"moderator": "Tagapamagitan",
+				"guest": "Bisita"
+			}
+		}
 	}
 }

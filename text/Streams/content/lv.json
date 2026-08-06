@@ -153,15 +153,20 @@
 			"byTelegram": "Telegramma",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Pievienojiet lomas",
-			"addPersonalRoles": "Pievienojiet personisk\u0101s attiec\u012bbas"
+			"addPersonalRoles": "Pievienojiet personisk\u0101s attiec\u012bbas",
+			"AddCommunityRoles": "Pievienot kopienas lomas",
+			"AddParticipantRoles": "Pievienot lomas \u0161aj\u0101 {{streamDisplayType}}",
+			"YouWereInvited": "J\u016bs tik\u0101t uzaicin\u0101ti"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Laipni l\u016bdzam {{communityName}}",
 			"HasInvitedYou": "uzaicin\u0101ja j\u016bs uz:",
 			"HasInvitedYouToTheirProfile": "uzaicin\u0101ja j\u016bs izveidot savienojumu.",
 			"prompt": "\u013baujiet draugiem j\u016bs atpaz\u012bt:",
-			"accept": "Pie\u0146emt uzaicin\u0101jumu",
-			"RolesOffered": "Jums pied\u0101v\u0101t\u0101s lomas:"
+			"accept": "Pie\u0146emt",
+			"RolesOffered": "Jums pied\u0101v\u0101t\u0101s lomas:",
+			"decline": "Noraid\u012bt",
+			"ParticipantRolesOffered": "J\u016bsu loma \u0161aj\u0101 {{streamDisplayType}} izsaukum\u0101:"
 		},
 		"email": {
 			"subject": "Hei, p\u0101rbaudiet \u0161o",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interv\u0101ls (ms): ",
 		"IntervalPlaceholder": "piem\u0113ram, 3000",
 		"KenburnsInstruction": "Iestatiet Kena B\u0113rnsa s\u0101kuma un beigu att\u0113lu, velkot un tuvinot att\u0113lu."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Uz\u0146\u0113m\u0113js",
+				"speaker": "Run\u0101t\u0101js",
+				"volunteer": "Br\u012bvpr\u0101t\u012bgais darbs",
+				"moderator": "Moderators",
+				"guest": "Viesis"
+			}
+		}
 	}
 }

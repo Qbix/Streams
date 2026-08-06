@@ -5693,6 +5693,24 @@ abstract class Streams extends Base_Streams
 		}
 		return $invites;
 	}
+
+	/**
+	 * Called once an invite has been resolved one way or the other.
+	 * This is the seam where an app decides what flow comes next (e.g.
+	 * onboarding), independent of the accept/decline outcome.
+	 * @method inviteResolved
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {Streams_Stream} $stream
+	 * @param {Users_User} $user
+	 * @param {boolean} $accepted
+	 */
+	static function inviteResolved($invite, $stream, $user, $accepted)
+	{
+		Q::event('Streams/invite/resolved',
+			@compact('invite', 'stream', 'user', 'accepted'), 'after');
+	}
+
 	
 	/**
 	 * This is for any user to request access to a stream (rather than being invited).

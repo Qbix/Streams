@@ -156,7 +156,10 @@
 			"chooseFromRegistered": "Choose from registered users",
 			"inviteViaEmailOrSms": "Invite via email or SMS",
 			"addRoles": "Add Roles",
-			"addPersonalRoles": "Add Personal Relationships"
+			"addPersonalRoles": "Add Personal Relationships",
+			"AddCommunityRoles": "Add community roles",
+			"AddParticipantRoles": "Add roles in this {{streamDisplayType}}",
+			"YouWereInvited": "You Were Invited"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Welcome to {{communityName}}",
@@ -164,7 +167,9 @@
 			"HasInvitedYouToTheirProfile": "has invited you to connect.",
 			"RolesOffered": "Roles you're being offered:",
 			"prompt": "Let friends recognize you:",
-			"accept": "Accept Invite"
+			"accept": "Accept",
+			"decline": "Decline",
+			"ParticipantRolesOffered": "Your role in this {{streamDisplayType}}:"
 		},
 		"email": {
 			"subject": "Hey, check this out",
@@ -556,5 +561,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "e.g. 3000",
 		"KenburnsInstruction": "Set Ken Burns start and end by dragging and zooming."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Host",
+				"speaker": "Speaker",
+				"volunteer": "Volunteer",
+				"moderator": "Moderator",
+				"guest": "Guest"
+			}
+		}
 	}
 }

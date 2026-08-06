@@ -4,7 +4,7 @@ function Streams_before_Q_objects()
 {
 	$token = Q_Request::special('Streams.token', null);
 	if ($token === null) {
-		Streams_before_Q_objects_handle_acceptInvite();
+		Streams_before_Q_objects_handle_inviteResponse();
 		$field = Q_Config::get('Streams', 'token', 'field', null);
 		$token = Q::ifset($_REQUEST, $field, null);
 		if (!$token) {
@@ -103,27 +103,103 @@ function Streams_before_Q_objects()
 		}
 	}
 
-	Streams_before_Q_objects_handle_acceptInvite(); 
+	Streams_before_Q_objects_handle_inviteResponse(); 
 }
 
-function Streams_before_Q_objects_handle_acceptInvite()
+/**
+ * Handles an explicit Accept or Decline of the invite that was followed
+ * in this session. The client signals which one via the special fields
+ * Q.Streams.acceptInvite or Q.Streams.declineInvite.
+ *
+ * This is the *explicit consent* path -- the person clicked a button --
+ * so it deliberately does NOT consult Streams_Invite::shouldAutoAccept().
+ * That function only decides whether we may skip asking at all.
+ */
+function Streams_before_Q_objects_handle_inviteResponse()
 {
-	if (!Q_Request::special('Streams.acceptInvite')) {
+	$accept = Q_Request::special('Streams.acceptInvite');
+	$decline = Q_Request::special('Streams.declineInvite');
+	if (!$accept and !$decline) {
 		return;
 	}
 
-	// INVITE: potentially accept the invite
+	// Prefer the session, but fall back to the token the form posts. The
+	// session copy is written while handling a followed invite link, and this
+	// handler runs BEFORE that happens on the request that carries the click --
+	// so relying on the session alone left the invite pending after Accept.
+	// The token is itself the credential, which is why it is safe to trust here.
 	$token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null);
+	if (!$token) {
+		$token = Q::ifset($_REQUEST, 'token', null);
+	}
 	if (!$token) {
 		return;
 	}
 
-	// accept invite and autosubscribe if first time and possible
 	$invite = Streams_Invite::fromToken($token);
-	if ($invite) {
-		$invite->accept(array(
-			'access' => true,
-			'subscribe' => true
-		));
+	if (!$invite) {
+		return;
 	}
+
+	$user = Users::loggedInUser();
+	if (!$user) {
+		// nobody to accept or decline on behalf of; leave the token parked
+		// so Streams_after_Users_setLoggedInUser can ask again after login
+		return;
+	}
+
+	// Require the value dialogData() handed to the rendered dialog. Without
+	// this, ANY request carrying Q.Streams.acceptInvite accepted the invite
+	// using the victim's cookie -- including a bare cross-site GET:
+	//   <img src="https://app/?Q.Streams.token=X&Q.Streams.acceptInvite=1">
+	// which defeated the whole point of asking for consent.
+	//
+	// This has to come AFTER loggedInUser(): the signature is bound to the
+	// session id, and no session exists this early in Q/objects -- checking
+	// sooner compares against an HMAC over an empty session id and never
+	// matches.
+	$consent = Q_Request::special('Streams.inviteConsent');
+	if (!$consent
+	or !hash_equals(Streams_Invite::consentSignature($token), (string)$consent)) {
+		return;
+	}
+
+	// per-user: a general link one person already accepted is still pending
+	// for this person, and must remain actionable
+	if (Streams_Invite::stateFor($invite, $user->id) !== 'pending') {
+		return;
+	}
+
+	// Fetch WITHOUT access filtering. The invited user usually has no read
+	// access yet -- granting it is what accept() is about -- so fetching as
+	// them returns null and this used to throw MissingRow, silently leaving
+	// the invite pending after the user clicked Accept.
+	$stream = Streams_Stream::fetch(
+		null, $invite->publisherId, $invite->streamName
+	);
+	if (!$stream) {
+		throw new Q_Exception_MissingRow(array(
+			'table' => 'stream',
+			'criteria' => 'with that name'
+		), 'streamName');
+	}
+
+	if ($decline) {
+		$invite->decline();
+		return;
+	}
+
+	$invite->accept(array(
+		'access' => true,
+		'subscribe' => true
+	));
+}
+
+/**
+ * Kept for backward compatibility with any app code that called it directly.
+ * @deprecated use Streams_before_Q_objects_handle_inviteResponse()
+ */
+function Streams_before_Q_objects_handle_acceptInvite()
+{
+	return Streams_before_Q_objects_handle_inviteResponse();
 }

@@ -741,6 +741,54 @@ Streams.onInvitedUserAction = new Q.Event();
  * when the flow is completed.
  * @event onInviteComplete
  */
+/**
+ * Participant-role helpers.
+ * @class Streams.Participant
+ */
+Streams.Participant = Streams.Participant || {};
+
+/**
+ * Which participant roles the logged-in user may grant on a stream.
+ *
+ * Use this to decide whether to show an "add roles" control at all: it comes
+ * back empty both when the stream type declares no vocabulary and when the
+ * viewer is entitled to grant none of it, so a caller never has to tell those
+ * two apart to know there is nothing to offer.
+ *
+ * Results are cached per (publisherId, streamName) for the page, since the
+ * answer only changes when someone's own roles change.
+ *
+ * @method rolesAvailable
+ * @static
+ * @param {String} publisherId
+ * @param {String} streamName
+ * @param {Function} callback Receives (err, array of {role, title, emoji})
+ */
+Streams.Participant.rolesAvailable = Q.getter(
+function _Streams_Participant_rolesAvailable(publisherId, streamName, callback) {
+	Q.req('Streams/participantRoles', ['data'], function (err, response) {
+		var msg = Q.firstErrorMessage(err, response && response.errors);
+		if (msg) {
+			return Q.handle(callback, this, [msg, []]);
+		}
+		var data = Q.getObject('slots.data', response) || {};
+		Q.handle(callback, this, [null, data.available || []]);
+	}, {
+		fields: { publisherId: publisherId, streamName: streamName }
+	});
+}, {
+	cache: Q.Cache.document('Streams.Participant.rolesAvailable', 100)
+});
+
+/**
+ * Occurs once a followed invite has been resolved, whether the user accepted or
+ * declined, and whether that happened in a dialog or by auto-accept on the
+ * server. First parameter is a Boolean: true if accepted. This is the seam for
+ * whatever flow comes next, e.g. onboarding.
+ * @event onInviteResolved
+ */
+Streams.onInviteResolved = new Q.Event();
+
 Streams.onInviteComplete = new Q.Event(function () {
 	Q.handle(Q.Users.onComplete);
 }, 'Streams');
@@ -4557,6 +4605,19 @@ Q.onInit.add(function _Streams_onInit() {
 	}
 
 	Users.onLogin.set(function (user) {
+		if (!user) { return; }
+		var params = Q.getObject("Q.plugins.Streams.invited.dialog");
+		if (!params) {
+			return; // server auto-accepted, or nothing is pending
+		}
+		_prepareInvitedParams(params, function () {
+			_showInvitedDialog(params, function (err, accepted) {
+				Q.handle(Streams.onInviteResolved, Streams, [!!accepted, params]);
+			});
+		}, true);
+	}, "Streams.invited");
+
+	Users.onLogin.set(function (user) {
 		if (user) { // the user changed
 			Interests.my = {};
 			_clearCaches();
@@ -4764,27 +4825,34 @@ Q.onInit.add(function _Streams_onInit() {
 	 * @param {Object} params Q.plugins.Streams.invited.dialog
 	 * @param {Function} [callback] Receives (params)
 	 */
-	function _prepareInvitedParams(params, callback) {
-		if (params._prepared) {
+	function _prepareInvitedParams(params, callback, force) {
+		if (params._prepared && !force) {
 			return Q.handle(callback, Streams, [params]);
 		}
 		var explanationTemplateName = params.explanationTemplateName
 			|| 'Streams/templates/invited/explanation';
 		Stream.construct(params.stream, function () {
+			var accept = params.acceptButton || params.button
+				|| Q.getObject('Q.text.Streams.invite.complete.accept')
+				|| Q.getObject('Q.text.Users.login.registerButton');
 			Q.extend(params, {
 				stream: this,
 				communityId: params.communityId || Q.Users.communityId,
 				communityName: params.communityName || Q.Users.communityName,
-				button: Q.getObject('Q.text.Streams.invite.complete.accept')
-					|| Q.getObject('Q.text.Users.login.registerButton'),
+				acceptButton: accept,
+				button: accept, // for any app template still using {{button}}
+				declineButton: params.declineButton
+					|| Q.getObject('Q.text.Streams.invite.complete.decline'),
 				prompt: (params.prompt !== undefined)
 					? params.prompt
 					: Q.getObject('Q.text.Streams.invite.complete.prompt')
 			});
-			var url = params.stream.fields.icon;
-			if (/\.\w{3,4}$/.test(url)) {
-				params.stream.fields.icon = url.substring(0, url.lastIndexOf('/'));
-			}
+			// Don't mutate the Stream: it's the cached, retained instance and
+			// icon sizes get appended per-use elsewhere on the page.
+			var url = this.fields.icon;
+			params.streamIcon = /\.\w{3,4}$/.test(url)
+				? url.substring(0, url.lastIndexOf('/'))
+				: url;
 			Q.Template.render(explanationTemplateName, params, function (err, html) {
 				params.explanation = html;
 				params._prepared = true;
@@ -4816,6 +4884,7 @@ Q.onInit.add(function _Streams_onInit() {
 			var interval;
 			var accepted = false;
 			Q.Dialogs.push({
+				title: params.title || Q.text.Streams.invite.dialog.YouWereInvited,
 				dialog: dialog,
 				className: 'Streams_completeInvited_dialog',
 				mask: true,
@@ -4839,7 +4908,27 @@ Q.onInit.add(function _Streams_onInit() {
 					// for it, which must be type="button" so it doesn't submit
 					dialog.find('.Streams_invited_decline')
 						.on(Q.Pointer.fastclick, function () {
-							dialog.data('Q/dialog').close();
+							// declining is durable, not just a dialog close:
+							// Streams_before_Q_objects_handle_inviteResponse
+							// sees the special field at Q/objects time
+							Q.req('Streams/basic', ['data'], function () {
+								accepted = false;
+								dialog.data('Q/dialog').close();
+							}, {
+								method: 'post',
+								quietly: true,
+								fields: {
+									// send the token like the accept form does:
+									// the session copy isn't readable yet on the
+									// request that carries the click
+									token: params.token,
+									// and the one-time consent value, without
+									// which the server ignores this
+									'Q.Streams.inviteConsent': params.consent,
+									'Q.Streams.declineInvite': 1,
+									'Q.method': 'get'
+								}
+							});
 							return false;
 						});
 
@@ -4886,6 +4975,9 @@ Q.onInit.add(function _Streams_onInit() {
 								accepted = true;
 								dialog.data('Q/dialog').close();
 								_inviteComplete();
+								// onInviteResolved is fired by whoever passed the
+								// callback -- firing it here too made it run twice
+								// on accept, so onboarding was pushed twice.
 								Q.handle(callback, Streams, [null, true]);
 							}, {method: "post", quietly: true, baseUrl: baseUrl});
 						}).on('submit keydown', Q.debounce(function (e) {
@@ -4970,12 +5062,14 @@ Q.onInit.add(function _Streams_onInit() {
 					// already logged in, so nothing will call setLoggedInUser
 					// and this is the only chance to ask
 					// commented-out for now, because invite may already have been accepted
-					_showInvitedDialog(params);
+					_showInvitedDialog(params, function (err, accepted) {
+						Q.handle(Streams.onInviteResolved, Streams, [!!accepted, params]);
+					});
 				} else {
 					// after they log in or register, the server decides whether
-					// consent is still needed and sets script data again;
-					// the onActivated handler below picks that up
-					params.loggedInFirst = true;
+					// consent is still needed and sets the script data again.
+					// The Users.onLogin handler registered in Q.onInit picks
+					// that up -- nothing did, before.
 					Q.Users.login({
 						noClose: !!params.nameIsMissing,
 						explanation: params.explanation,

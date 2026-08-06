@@ -153,15 +153,20 @@
 			"byTelegram": "Telegrama",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Agregar roles",
-			"addPersonalRoles": "Agregar relaciones personales"
+			"addPersonalRoles": "Agregar relaciones personales",
+			"AddCommunityRoles": "Agregar roles de la comunidad",
+			"AddParticipantRoles": "Agregar roles en este {{streamDisplayType}}",
+			"YouWereInvited": "Estabas invitado"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Bienvenido a {{communityName}}",
 			"HasInvitedYou": "te ha invitado a:",
 			"HasInvitedYouToTheirProfile": "te ha invitado a conectarte.",
 			"prompt": "Deja que tus amigos te reconozcan:",
-			"accept": "Aceptar invitaci\u00f3n",
-			"RolesOffered": "Puestos que te est\u00e1n ofreciendo:"
+			"accept": "Aceptar",
+			"RolesOffered": "Puestos que te est\u00e1n ofreciendo:",
+			"decline": "Rechazar",
+			"ParticipantRolesOffered": "Tu papel en este {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hey mira esto",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervalo (ms): ",
 		"IntervalPlaceholder": "Por ejemplo, 3000",
 		"KenburnsInstruction": "Ajusta el inicio y el final de Ken Burns arrastrando y haciendo zoom."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Anfitri\u00f3n",
+				"speaker": "Vocero",
+				"volunteer": "Voluntario",
+				"moderator": "Moderador",
+				"guest": "Invitado"
+			}
+		}
 	}
 }

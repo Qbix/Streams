@@ -55,6 +55,8 @@
 			"Streams/close/Streams/video": ["Streams/after/Streams_close_Streams_video"]
 		},
 		"routes@start": {
+			"Streams/participantRoles": { "module": "Streams", "action": "participantRoles" },
+			"Streams/referrals": { "module": "Streams", "action": "referrals" },
 			"s/:publisherId/:streamName[]": {"module": "Streams", "action": "stream"},
 			"i/:token": {"module": "Streams", "action": "invited"},
 			"Streams/participating": {"module": "Streams", "action": "participating"},
@@ -222,6 +224,9 @@
 					"participatingCount",
 					"leftCount"
 				],
+				"participant": {
+					"roles": {}
+				},
 				"access": {
 					"profiles": {
 						"private": {
@@ -260,7 +265,9 @@
 						},
 						"prompt": "Let friends recognize you:",
 						"button": "Get Started",
-						"templateName": "Streams/invited/complete"
+						"acceptButton": "Accept Invite",
+						"declineButton": "Decline Invite",
+						"templateName": "Streams/templates/invited/complete"
 					},
 					"duration": 2592000
 				},

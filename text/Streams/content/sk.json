@@ -153,15 +153,20 @@
 			"byTelegram": "telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Prida\u0165 roly",
-			"addPersonalRoles": "Pridajte osobn\u00e9 vz\u0165ahy"
+			"addPersonalRoles": "Pridajte osobn\u00e9 vz\u0165ahy",
+			"AddCommunityRoles": "Prida\u0165 komunitn\u00e9 role",
+			"AddParticipantRoles": "Prida\u0165 roly v tomto {{streamDisplayType}}",
+			"YouWereInvited": "Boli ste pozvan\u00ed"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Vitajte na {{communityName}}",
 			"HasInvitedYou": "v\u00e1s pozval na:",
 			"HasInvitedYouToTheirProfile": "v\u00e1s pozval na pripojenie.",
 			"prompt": "Umo\u017enite priate\u013eom, aby v\u00e1s spoznali:",
-			"accept": "Prijmite pozvanie",
-			"RolesOffered": "Pon\u00fakan\u00e9 poz\u00edcie:"
+			"accept": "Prija\u0165",
+			"RolesOffered": "Pon\u00fakan\u00e9 poz\u00edcie:",
+			"decline": "Odmietnu\u0165",
+			"ParticipantRolesOffered": "Va\u0161a \u00faloha v tomto {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hej, skontroluj toto",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "napr. 3000",
 		"KenburnsInstruction": "Nastavte za\u010diatok a koniec Kena Burnsa potiahnut\u00edm a pribl\u00ed\u017een\u00edm."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Hostite\u013e",
+				"speaker": "Re\u010dn\u00edk",
+				"volunteer": "Dobrovo\u013en\u00edk",
+				"moderator": "Moder\u00e1tor",
+				"guest": "Hos\u0165"
+			}
+		}
 	}
 }

@@ -153,15 +153,20 @@
 			"byTelegram": "Telegramm",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Lisa rollid",
-			"addPersonalRoles": "Lisage isiklikud suhted"
+			"addPersonalRoles": "Lisage isiklikud suhted",
+			"AddCommunityRoles": "Lisa kogukonna rolle",
+			"AddParticipantRoles": "Lisa rollid sellesse {{streamDisplayType}}",
+			"YouWereInvited": "Sind kutsuti"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Tere tulemast numbrile {{communityName}}",
 			"HasInvitedYou": "on kutsunud teid:",
 			"HasInvitedYouToTheirProfile": "kutsus teid \u00fchendust v\u00f5tma.",
 			"prompt": "Laske s\u00f5pradel teid \u00e4ra tunda:",
-			"accept": "N\u00f5ustu kutsega",
-			"RolesOffered": "Rollid, mida sulle pakutakse:"
+			"accept": "N\u00f5ustu",
+			"RolesOffered": "Rollid, mida sulle pakutakse:",
+			"decline": "Keeldumine",
+			"ParticipantRolesOffered": "Sinu roll selles {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hei, vaata seda",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervall (ms): ",
 		"IntervalPlaceholder": "nt 3000",
 		"KenburnsInstruction": "Ken Burnsi algus- ja l\u00f5pp-punkti m\u00e4\u00e4ramiseks lohista ja suumi."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Host",
+				"speaker": "K\u00f5lar",
+				"volunteer": "Vabatahtlik",
+				"moderator": "Moderaator",
+				"guest": "K\u00fclaline"
+			}
+		}
 	}
 }

@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "Ada apa",
 			"addRoles": "Tambahkan Peran",
-			"addPersonalRoles": "Tambahkan Hubungan Pribadi"
+			"addPersonalRoles": "Tambahkan Hubungan Pribadi",
+			"AddCommunityRoles": "Tambahkan peran komunitas",
+			"AddParticipantRoles": "Tambahkan peran dalam {{streamDisplayType}} ini",
+			"YouWereInvited": "Anda Diundang"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Selamat datang di {{communityName}}",
 			"HasInvitedYou": "telah mengundang Anda untuk:",
 			"HasInvitedYouToTheirProfile": "telah mengundang Anda untuk terhubung.",
 			"prompt": "Biarkan teman mengenali Anda:",
-			"accept": "Terima Undangan",
-			"RolesOffered": "Posisi yang ditawarkan kepada Anda:"
+			"accept": "Menerima",
+			"RolesOffered": "Posisi yang ditawarkan kepada Anda:",
+			"decline": "Menolak",
+			"ParticipantRolesOffered": "Peran Anda dalam {{streamDisplayType}} ini:"
 		},
 		"email": {
 			"subject": "Hei, lihat ini",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (md): ",
 		"IntervalPlaceholder": "misalnya 3000",
 		"KenburnsInstruction": "Atur awal dan akhir Ken Burns dengan menyeret dan memperbesar."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Tuan rumah",
+				"speaker": "Pembicara",
+				"volunteer": "Sukarelawan",
+				"moderator": "Moderator",
+				"guest": "Tamu"
+			}
+		}
 	}
 }

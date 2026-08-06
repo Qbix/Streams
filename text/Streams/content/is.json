@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "B\u00e6ta vi\u00f0 hlutverkum",
-			"addPersonalRoles": "B\u00e6ttu vi\u00f0 pers\u00f3nulegum samb\u00f6ndum"
+			"addPersonalRoles": "B\u00e6ttu vi\u00f0 pers\u00f3nulegum samb\u00f6ndum",
+			"AddCommunityRoles": "B\u00e6ta vi\u00f0 samf\u00e9lagshlutverkum",
+			"AddParticipantRoles": "B\u00e6ta vi\u00f0 hlutverkum \u00ed \u00feessum {{streamDisplayType}}",
+			"YouWereInvited": "\u00de\u00fa varst bo\u00f0inn/bo\u00f0in"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Velkomin \u00ed {{communityName}}",
 			"HasInvitedYou": "hefur bo\u00f0i\u00f0 \u00fe\u00e9r a\u00f0:",
 			"HasInvitedYouToTheirProfile": "hefur bo\u00f0i\u00f0 \u00fe\u00e9r a\u00f0 tengjast.",
 			"prompt": "L\u00e1ttu vini \u00feekkja \u00feig:",
-			"accept": "Sam\u00feykkja bo\u00f0",
-			"RolesOffered": "Hlutverk sem \u00fe\u00e9r eru bo\u00f0in:"
+			"accept": "Sam\u00feykkja",
+			"RolesOffered": "Hlutverk sem \u00fe\u00e9r eru bo\u00f0in:",
+			"decline": "Hafna",
+			"ParticipantRolesOffered": "Hlutverk \u00feitt \u00ed \u00feessu {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hey, athuga\u00f0u \u00feetta",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Millibil (ms): ",
 		"IntervalPlaceholder": "t.d. 3000",
 		"KenburnsInstruction": "Stilltu upphaf og endi Ken Burns me\u00f0 \u00fev\u00ed a\u00f0 draga og st\u00e6kka."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gestgjafi",
+				"speaker": "R\u00e6\u00f0uma\u00f0ur",
+				"volunteer": "Sj\u00e1lfbo\u00f0ali\u00f0i",
+				"moderator": "Umsj\u00f3narma\u00f0ur",
+				"guest": "Gestur"
+			}
+		}
 	}
 }

@@ -153,15 +153,20 @@
 			"byTelegram": "Teileagram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Cuir R\u00f3il leis",
-			"addPersonalRoles": "Cuir Caidrimh Phearsanta leis"
+			"addPersonalRoles": "Cuir Caidrimh Phearsanta leis",
+			"AddCommunityRoles": "Cuir r\u00f3il phobail leis",
+			"AddParticipantRoles": "Cuir r\u00f3il leis sa {{streamDisplayType}} seo",
+			"YouWereInvited": "Tugadh cuireadh duit"
 		},
 		"complete": {
 			"WelcomeToCommunity": "F\u00e1ilte go dt\u00ed {{communityName}}",
 			"HasInvitedYou": "thug s\u00e9 cuireadh duit:",
 			"HasInvitedYouToTheirProfile": "thug cuireadh duit ceangal a dh\u00e9anamh.",
 			"prompt": "Lig do chairde t\u00fa a aithint:",
-			"accept": "Glac le Cuireadh",
-			"RolesOffered": "R\u00f3lanna at\u00e1 \u00e1 dtairiscint duit:"
+			"accept": "Glac leis",
+			"RolesOffered": "R\u00f3lanna at\u00e1 \u00e1 dtairiscint duit:",
+			"decline": "Di\u00faltaigh",
+			"ParticipantRolesOffered": "Do r\u00f3l sa {{streamDisplayType}} seo:"
 		},
 		"email": {
 			"subject": "Hey, seice\u00e1il seo amach",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Eatramh (ms): ",
 		"IntervalPlaceholder": "m.sh. 3000",
 		"KenburnsInstruction": "Socraigh t\u00fas agus deireadh Ken Burns tr\u00ed tharraingt agus z\u00fam\u00e1il isteach."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "\u00d3stach",
+				"speaker": "Cainteoir",
+				"volunteer": "Deonach",
+				"moderator": "Modhn\u00f3ir",
+				"guest": "Aoi"
+			}
+		}
 	}
 }

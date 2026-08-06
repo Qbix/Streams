@@ -153,15 +153,20 @@
 			"byTelegram": "Telegramm",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Rollen hinzuf\u00fcgen",
-			"addPersonalRoles": "Pers\u00f6nliche Beziehungen hinzuf\u00fcgen"
+			"addPersonalRoles": "Pers\u00f6nliche Beziehungen hinzuf\u00fcgen",
+			"AddCommunityRoles": "Community-Rollen hinzuf\u00fcgen",
+			"AddParticipantRoles": "F\u00fcgen Sie Rollen in dieser {{streamDisplayType}} hinzu",
+			"YouWereInvited": "Sie wurden eingeladen"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Willkommen bei {{communityName}}",
 			"HasInvitedYou": "hat Sie eingeladen:",
 			"HasInvitedYouToTheirProfile": "hat Sie eingeladen, sich zu verbinden.",
 			"prompt": "Lassen Sie sich von Freunden erkennen:",
-			"accept": "Einladung annehmen",
-			"RolesOffered": "Ihnen angebotene Rollen:"
+			"accept": "Akzeptieren",
+			"RolesOffered": "Ihnen angebotene Rollen:",
+			"decline": "Abfall",
+			"ParticipantRolesOffered": "Ihre Rolle bei diesem {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hey, sieh dir das an",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervall (ms): ",
 		"IntervalPlaceholder": "z. B. 3000",
 		"KenburnsInstruction": "Start- und Endpunkt der Ken-Burns-Aufnahme k\u00f6nnen durch Ziehen und Zoomen festgelegt werden."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gastgeber",
+				"speaker": "Lautsprecher",
+				"volunteer": "Freiwilliger",
+				"moderator": "Moderator",
+				"guest": "Gast"
+			}
+		}
 	}
 }

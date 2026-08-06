@@ -153,15 +153,20 @@
 			"byTelegram": "Telegramma",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "\u017bid Rwoli",
-			"addPersonalRoles": "\u017bid Relazzjonijiet Personali"
+			"addPersonalRoles": "\u017bid Relazzjonijiet Personali",
+			"AddCommunityRoles": "\u017bid rwoli fil-komunit\u00e0",
+			"AddParticipantRoles": "\u017bid rwoli f&#39;dan id {{streamDisplayType}}",
+			"YouWereInvited": "Int \u0121ejt mistieden"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Mer\u0127ba g\u0127al {{communityName}}",
 			"HasInvitedYou": "stiedenek biex:",
 			"HasInvitedYouToTheirProfile": "stiedenek biex tikkonnettja.",
 			"prompt": "\u0126alli lill-\u0127bieb jag\u0127rfuk:",
-			"accept": "A\u010b\u010betta Stieden",
-			"RolesOffered": "Rwoli li qed ji\u0121u offruti lilek:"
+			"accept": "A\u010b\u010betta",
+			"RolesOffered": "Rwoli li qed ji\u0121u offruti lilek:",
+			"decline": "Tnaqqis",
+			"ParticipantRolesOffered": "Ir-rwol tieg\u0127ek f&#39;dan id {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "\u0126ej, i\u010b\u010bekkja dan",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervall (ms): ",
 		"IntervalPlaceholder": "e\u017c. 3000",
 		"KenburnsInstruction": "Issettja l-bidu u t-tmiem ta&#39; Ken Burns billi tkaxkar u tag\u0127mel zoom."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Ospitanti",
+				"speaker": "Kelliem",
+				"volunteer": "Voluntier",
+				"moderator": "Moderatur",
+				"guest": "Mistieden"
+			}
+		}
 	}
 }

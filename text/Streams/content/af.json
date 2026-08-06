@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Voeg rolle by",
-			"addPersonalRoles": "Voeg persoonlike verhoudings by"
+			"addPersonalRoles": "Voeg persoonlike verhoudings by",
+			"AddCommunityRoles": "Voeg gemeenskapsrolle by",
+			"AddParticipantRoles": "Voeg rolle in hierdie {{streamDisplayType}}",
+			"YouWereInvited": "Jy is genooi"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Welkom by {{communityName}}",
 			"HasInvitedYou": "het jou genooi om:",
 			"HasInvitedYouToTheirProfile": "het jou genooi om aan te sluit.",
 			"prompt": "Laat vriende jou herken:",
-			"accept": "Aanvaar uitnodiging",
-			"RolesOffered": "Rolle wat aan jou aangebied word:"
+			"accept": "Aanvaar",
+			"RolesOffered": "Rolle wat aan jou aangebied word:",
+			"decline": "Weier",
+			"ParticipantRolesOffered": "Jou rol in hierdie {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Haai, kyk hierna",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "bv. 3000",
 		"KenburnsInstruction": "Stel Ken Burns se begin en einde deur te sleep en te zoem."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gasheer",
+				"speaker": "Spreker",
+				"volunteer": "Vrywilliger",
+				"moderator": "Moderator",
+				"guest": "Gas"
+			}
+		}
 	}
 }

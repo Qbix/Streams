@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "\u0160to ima",
 			"addRoles": "Dodajte uloge",
-			"addPersonalRoles": "Dodajte osobne odnose"
+			"addPersonalRoles": "Dodajte osobne odnose",
+			"AddCommunityRoles": "Dodajte uloge u zajednici",
+			"AddParticipantRoles": "Dodajte uloge u ovom {{streamDisplayType}}",
+			"YouWereInvited": "Bili ste pozvani"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Dobro do\u0161li u {{communityName}}",
 			"HasInvitedYou": "vas je pozvao na:",
 			"HasInvitedYouToTheirProfile": "vas je pozvao da se pove\u017eete.",
 			"prompt": "Neka vas prijatelji prepoznaju:",
-			"accept": "Prihvatite poziv",
-			"RolesOffered": "Uloge koje vam se nude:"
+			"accept": "Prihvatiti",
+			"RolesOffered": "Uloge koje vam se nude:",
+			"decline": "Pad",
+			"ParticipantRolesOffered": "Va\u0161a uloga u ovom {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hej, vidi ovo",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "npr. 3000",
 		"KenburnsInstruction": "Postavite po\u010detak i kraj Kena Burnsa povla\u010denjem i zumiranjem."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Doma\u0107in",
+				"speaker": "Zvu\u010dnik",
+				"volunteer": "Volonter",
+				"moderator": "Moderator",
+				"guest": "Gost"
+			}
+		}
 	}
 }

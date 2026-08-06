@@ -153,15 +153,20 @@
 			"byTelegram": "Telegrama",
 			"byWhatsapp": "Whatsapp",
 			"addRoles": "Adicionar fun\u00e7\u00f5es",
-			"addPersonalRoles": "Adicionar relacionamentos pessoais"
+			"addPersonalRoles": "Adicionar relacionamentos pessoais",
+			"AddCommunityRoles": "Adicionar fun\u00e7\u00f5es \u00e0 comunidade",
+			"AddParticipantRoles": "Adicionar fun\u00e7\u00f5es neste {{streamDisplayType}}",
+			"YouWereInvited": "Voc\u00ea foi convidado"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Bem-vindo ao {{communityName}}",
 			"HasInvitedYou": "convidou voc\u00ea para:",
 			"HasInvitedYouToTheirProfile": "convidou voc\u00ea para se conectar.",
 			"prompt": "Permita que seus amigos o reconhe\u00e7am:",
-			"accept": "Aceitar convite",
-			"RolesOffered": "Cargos que est\u00e3o sendo oferecidos:"
+			"accept": "Aceitar",
+			"RolesOffered": "Cargos que est\u00e3o sendo oferecidos:",
+			"decline": "Decl\u00ednio",
+			"ParticipantRolesOffered": "Seu papel neste {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Ei, veja isso",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervalo (ms): ",
 		"IntervalPlaceholder": "Exemplo: 3000",
 		"KenburnsInstruction": "Defina o in\u00edcio e o fim da anima\u00e7\u00e3o de Ken Burns arrastando e aplicando zoom."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Hospedar",
+				"speaker": "Palestrante",
+				"volunteer": "Volunt\u00e1rio",
+				"moderator": "Moderador",
+				"guest": "Convidado"
+			}
+		}
 	}
 }

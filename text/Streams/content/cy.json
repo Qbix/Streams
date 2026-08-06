@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Ychwanegu Rolau",
-			"addPersonalRoles": "Ychwanegu Perthnasoedd Personol"
+			"addPersonalRoles": "Ychwanegu Perthnasoedd Personol",
+			"AddCommunityRoles": "Ychwanegu rolau cymunedol",
+			"AddParticipantRoles": "Ychwanegu rolau yn {{streamDisplayType}} hwn",
+			"YouWereInvited": "Cawsoch eich gwahodd"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Croeso i {{communityName}}",
 			"HasInvitedYou": "wedi eich gwahodd i:",
 			"HasInvitedYouToTheirProfile": "wedi eich gwahodd i gysylltu.",
 			"prompt": "Gadewch i ffrindiau eich adnabod:",
-			"accept": "Derbyn Gwahoddiad",
-			"RolesOffered": "R\u00f4lau sy&#39;n cael eu cynnig i chi:"
+			"accept": "Derbyn",
+			"RolesOffered": "R\u00f4lau sy&#39;n cael eu cynnig i chi:",
+			"decline": "Dirywiad",
+			"ParticipantRolesOffered": "Eich r\u00f4l chi yn {{streamDisplayType}} hwn:"
 		},
 		"email": {
 			"subject": "Hei, edrychwch ar hyn",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Cyfnod (ms): ",
 		"IntervalPlaceholder": "e.e. 3000",
 		"KenburnsInstruction": "Gosodwch ddechrau a diwedd Ken Burns trwy lusgo a chwyddo."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gwesteiwr",
+				"speaker": "Siaradwr",
+				"volunteer": "Gwirfoddolwr",
+				"moderator": "Cymedrolwr",
+				"guest": "Gwestai"
+			}
+		}
 	}
 }

@@ -153,15 +153,20 @@
 			"byTelegram": "T\u00e9l\u00e9gramme",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Ajouter des r\u00f4les",
-			"addPersonalRoles": "Ajouter des relations personnelles"
+			"addPersonalRoles": "Ajouter des relations personnelles",
+			"AddCommunityRoles": "Ajouter des r\u00f4les communautaires",
+			"AddParticipantRoles": "Ajoutez des r\u00f4les dans ce {{streamDisplayType}}",
+			"YouWereInvited": "Vous avez \u00e9t\u00e9 invit\u00e9"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Bienvenue au {{communityName}}",
 			"HasInvitedYou": "vous a invit\u00e9 \u00e0 :",
 			"HasInvitedYouToTheirProfile": "vous a invit\u00e9 \u00e0 vous connecter.",
 			"prompt": "Laissez vos amis vous reconna\u00eetre :",
-			"accept": "Accepter l&#39;invitation",
-			"RolesOffered": "R\u00f4les qui vous sont propos\u00e9s\u00a0:"
+			"accept": "Accepter",
+			"RolesOffered": "R\u00f4les qui vous sont propos\u00e9s\u00a0:",
+			"decline": "D\u00e9clin",
+			"ParticipantRolesOffered": "Votre r\u00f4le dans ce {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "H\u00e9, regarde \u00e7a",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervalle (ms) : ",
 		"IntervalPlaceholder": "par exemple 3000",
 		"KenburnsInstruction": "D\u00e9finissez le d\u00e9but et la fin de la s\u00e9quence Ken Burns en faisant glisser et en zoomant."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "H\u00f4te",
+				"speaker": "Conf\u00e9rencier",
+				"volunteer": "B\u00e9n\u00e9vole",
+				"moderator": "Mod\u00e9rateur",
+				"guest": "Invit\u00e9"
+			}
+		}
 	}
 }

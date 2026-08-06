@@ -153,15 +153,20 @@
 			"byTelegram": "Telegrama",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Gehitu rolak",
-			"addPersonalRoles": "Gehitu harreman pertsonalak"
+			"addPersonalRoles": "Gehitu harreman pertsonalak",
+			"AddCommunityRoles": "Gehitu komunitateko rolak",
+			"AddParticipantRoles": "Gehitu rolak {{streamDisplayType}} honetan",
+			"YouWereInvited": "Gonbidatu zaituzte."
 		},
 		"complete": {
 			"WelcomeToCommunity": "Ongi etorri {{communityName}}",
 			"HasInvitedYou": "honetara gonbidatu zaitu:",
 			"HasInvitedYouToTheirProfile": "konektatzera gonbidatu zaitu.",
 			"prompt": "Utzi lagunei ezagutarazten:",
-			"accept": "Onartu Gonbidapena",
-			"RolesOffered": "Eskaintzen zaizkizun rolak:"
+			"accept": "Onartu",
+			"RolesOffered": "Eskaintzen zaizkizun rolak:",
+			"decline": "Ukatu",
+			"ParticipantRolesOffered": "Zure eginkizuna {{streamDisplayType}} honetan:"
 		},
 		"email": {
 			"subject": "Aizu, begiratu hau",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Tartea (ms): ",
 		"IntervalPlaceholder": "adibidez, 3000",
 		"KenburnsInstruction": "Arrastatu eta zooma eginez, ezarri Ken Burns-en hasiera eta amaiera."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Ostatua",
+				"speaker": "Hizlaria",
+				"volunteer": "Boluntarioa",
+				"moderator": "Moderatzailea",
+				"guest": "Gonbidatua"
+			}
+		}
 	}
 }

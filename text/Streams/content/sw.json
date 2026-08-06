@@ -153,15 +153,20 @@
 			"byTelegram": "Telegramu",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Ongeza Majukumu",
-			"addPersonalRoles": "Ongeza Mahusiano ya Kibinafsi"
+			"addPersonalRoles": "Ongeza Mahusiano ya Kibinafsi",
+			"AddCommunityRoles": "Ongeza majukumu ya jumuiya",
+			"AddParticipantRoles": "Ongeza majukumu katika {{streamDisplayType}} hii",
+			"YouWereInvited": "Ulialikwa"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Karibu kwenye {{communityName}}",
 			"HasInvitedYou": "amekualika kwa:",
 			"HasInvitedYouToTheirProfile": "amekualika kuunganishwa.",
 			"prompt": "Waruhusu marafiki wakutambue:",
-			"accept": "Kubali Mwaliko",
-			"RolesOffered": "Majukumu unayopewa:"
+			"accept": "Kubali",
+			"RolesOffered": "Majukumu unayopewa:",
+			"decline": "Kukataa",
+			"ParticipantRolesOffered": "Jukumu lako katika {{streamDisplayType}} hii:"
 		},
 		"email": {
 			"subject": "Haya, angalia hii",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Muda (ms): ",
 		"IntervalPlaceholder": "mfano 3000",
 		"KenburnsInstruction": "Weka Ken Burns anza na umalizie kwa kuburuta na kukuza."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Mwenyeji",
+				"speaker": "Spika",
+				"volunteer": "Kujitolea",
+				"moderator": "Msimamizi",
+				"guest": "Mgeni"
+			}
+		}
 	}
 }

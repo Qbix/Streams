@@ -1,0 +1,221 @@
+/*
+ * Streams/participantRoles
+ *
+ * Follows the conventions already in Q.css: custom properties on :root,
+ * overridden inside a single @media (prefers-color-scheme: dark) block, rather
+ * than hardcoding two colour sets through the file. An app that forces a theme
+ * can override the variables and everything follows.
+ *
+ * Visually close to Communities/roles -- centred wrapping row, same 10px gaps,
+ * same rounded card feel -- but with an emoji where that tool puts a
+ * background-image icon. The emoji IS the distinction between the two
+ * vocabularies, so it gets room rather than being shrunk to icon size.
+ */
+
+:root {
+	--participantRole-bg: rgba(0, 0, 0, 0.04);
+	--participantRole-border: rgba(0, 0, 0, 0.14);
+	--participantRole-fg: var(--content-fg-color, black);
+	--participantRole-hover: rgba(0, 0, 0, 0.08);
+	--participantRole-selected-bg: rgba(0, 122, 214, 0.14);
+	--participantRole-selected-border: rgba(0, 122, 214, 0.85);
+	--participantRole-selected-fg: rgb(0, 86, 156);
+}
+
+.Streams_participantRoles_tool {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
+	column-gap: 10px;
+	row-gap: 10px;
+	padding: 4px 0;
+}
+
+.Streams_participantRoles_chip {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	min-width: 66px;
+	max-width: 92px;
+	padding: 10px 8px 8px;
+	border-radius: 10px;
+	cursor: pointer;
+	text-align: center;
+	background: var(--participantRole-bg);
+	border: 1px solid var(--participantRole-border);
+	color: var(--participantRole-fg);
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	transition: background 0.14s ease, border-color 0.14s ease,
+		transform 0.08s ease, box-shadow 0.14s ease;
+}
+
+.Streams_participantRoles_chip:hover { background: var(--participantRole-hover); }
+.Streams_participantRoles_chip:active { transform: scale(0.96); }
+
+/* these are operable controls, so give keyboard focus something visible */
+.Streams_participantRoles_chip:focus-visible {
+	outline: 2px solid var(--participantRole-selected-border);
+	outline-offset: 2px;
+}
+
+.Streams_participantRoles_selected {
+	background: var(--participantRole-selected-bg);
+	border-color: var(--participantRole-selected-border);
+	color: var(--participantRole-selected-fg);
+	box-shadow: 0 0 0 1px var(--participantRole-selected-border) inset;
+}
+
+.Streams_participantRoles_emoji {
+	font-size: 26px;
+	line-height: 30px;
+	/* emoji fonts vary wildly in metrics; fix the box so chips stay aligned */
+	height: 30px;
+	display: block;
+}
+
+.Streams_participantRoles_title {
+	font-size: 12px;
+	line-height: 14px;
+	word-break: break-word;
+}
+
+/* a checkmark on selection, so state doesn't rely on colour alone */
+.Streams_participantRoles_selected .Streams_participantRoles_title::after {
+	content: " \2713";
+	font-weight: 600;
+}
+
+.Streams_participantRoles_none {
+	opacity: 0.6;
+	font-size: 13px;
+	padding: 10px 0;
+	text-align: center;
+	width: 100%;
+}
+
+.Streams_participantRoles_readOnly .Streams_participantRoles_chip { cursor: default; }
+.Streams_participantRoles_readOnly .Streams_participantRoles_chip:hover {
+	background: var(--participantRole-bg);
+}
+.Streams_participantRoles_readOnly .Streams_participantRoles_chip:active {
+	transform: none;
+}
+
+/* ---- as rendered inside the invite dialog (display only) ---- */
+
+.Streams_invited_participantRoles { margin: 12px 0 4px; }
+.Streams_invited_participantRoles .Streams_invited_roles_prompt {
+	font-size: 13px;
+	opacity: 0.75;
+	margin-bottom: 6px;
+}
+.Streams_invited_participantRoles ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.Streams_invited_participantRole {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 11px;
+	border-radius: 14px;
+	font-size: 13px;
+	background: var(--participantRole-bg);
+	border: 1px solid var(--participantRole-border);
+	color: var(--participantRole-fg);
+}
+.Streams_invited_roleEmoji { font-size: 16px; line-height: 1; }
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--participantRole-bg: rgba(255, 255, 255, 0.08);
+		--participantRole-border: rgba(255, 255, 255, 0.22);
+		--participantRole-hover: rgba(255, 255, 255, 0.14);
+		--participantRole-selected-bg: rgba(90, 175, 255, 0.22);
+		--participantRole-selected-border: rgba(120, 195, 255, 0.9);
+		--participantRole-selected-fg: rgb(190, 225, 255);
+	}
+}
+
+/*
+ * Q.css already forces white text inside .Q_overlay in dark mode. Inherit
+ * rather than restate, so a chip in a dialog matches the dialog it sits in.
+ */
+.Q_overlay .Streams_participantRoles_chip,
+.Q_overlay .Streams_invited_participantRole { color: inherit; }
+
+@media (max-width: 480px) {
+	.Streams_participantRoles_chip {
+		min-width: 58px;
+		max-width: 78px;
+		padding: 8px 6px 6px;
+	}
+	.Streams_participantRoles_emoji { font-size: 22px; line-height: 26px; height: 26px; }
+}
+
+/* ---- the two invite-dialog buttons ----
+ *
+ * Q_main_button doesn't carry a colour of its own in this theme -- both
+ * buttons inherit the same dark blue Q_button gradient, so Accept and Decline
+ * were visually identical. Give the affirmative action green and the
+ * dismissive one a neutral grey, with enough contrast in both schemes.
+ */
+
+:root {
+	--invited-accept-from: #2e9e4f;
+	--invited-accept-to: #23803f;
+	--invited-accept-fg: #ffffff;
+	--invited-decline-from: #e8e8ec;
+	--invited-decline-to: #d8d8de;
+	--invited-decline-fg: #33333a;
+	--invited-decline-border: rgba(0, 0, 0, 0.18);
+}
+
+/* Communities.css styles buttons with `.Q_notTouchscreen .Q_big_prompt
+ * .Q_button`, specificity (0,3,0). An id selector (1,1,0) is the least
+ * fragile way over that without resorting to !important. */
+#Streams_complete_overlay .Streams_invited_accept,
+.Q_overlay .Streams_invited_accept {
+	background-image: linear-gradient(to right,
+		var(--invited-accept-from), var(--invited-accept-to));
+	background-color: var(--invited-accept-from);
+	color: var(--invited-accept-fg);
+	border-color: var(--invited-accept-to);
+}
+#Streams_complete_overlay .Streams_invited_decline,
+.Q_overlay .Streams_invited_decline {
+	background-image: linear-gradient(to right,
+		var(--invited-decline-from), var(--invited-decline-to));
+	background-color: var(--invited-decline-from);
+	color: var(--invited-decline-fg);
+	border-color: var(--invited-decline-border);
+}
+.Streams_login_get_started {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 12px;
+}
+/* the affirmative action reads first and heavier */
+#Streams_complete_overlay .Streams_invited_accept { font-weight: 600; }
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--invited-accept-from: #35b25b;
+		--invited-accept-to: #278f47;
+		--invited-decline-from: rgba(255, 255, 255, 0.16);
+		--invited-decline-to: rgba(255, 255, 255, 0.10);
+		--invited-decline-fg: #e8e8ee;
+		--invited-decline-border: rgba(255, 255, 255, 0.28);
+	}
+}

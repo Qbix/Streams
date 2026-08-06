@@ -153,15 +153,20 @@
 			"byTelegram": "Telegrama",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Prid\u0117ti vaidmenis",
-			"addPersonalRoles": "Prid\u0117ti asmeninius santykius"
+			"addPersonalRoles": "Prid\u0117ti asmeninius santykius",
+			"AddCommunityRoles": "Prid\u0117ti bendruomen\u0117s vaidmenis",
+			"AddParticipantRoles": "Prid\u0117ti vaidmenis \u0161iame {{streamDisplayType}}",
+			"YouWereInvited": "Buvote pakviesti"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Sveiki atvyk\u0119 \u012f {{communityName}}",
 			"HasInvitedYou": "pakviet\u0117 jus \u012f:",
 			"HasInvitedYouToTheirProfile": "pakviet\u0117 jus prisijungti.",
 			"prompt": "Leisk draugams tave atpa\u017einti:",
-			"accept": "Priimti kvietim\u0105",
-			"RolesOffered": "Jums si\u016blomos pareigos:"
+			"accept": "Priimti",
+			"RolesOffered": "Jums si\u016blomos pareigos:",
+			"decline": "Atmesti",
+			"ParticipantRolesOffered": "J\u016bs\u0173 vaidmuo \u0161iame {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Ei, patikrink tai",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervalas (ms): ",
 		"IntervalPlaceholder": "pvz., 3000",
 		"KenburnsInstruction": "Nustatykite Keno Burnso prad\u017ei\u0105 ir pabaig\u0105 vilkdami ir keisdami mastel\u012f."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "\u0160eimininkas",
+				"speaker": "Kalb\u0117tojas",
+				"volunteer": "Savanoriauti",
+				"moderator": "Moderatorius",
+				"guest": "Sve\u010dias"
+			}
+		}
 	}
 }

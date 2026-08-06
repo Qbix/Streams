@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Dodaj role",
-			"addPersonalRoles": "Dodaj relacje osobiste"
+			"addPersonalRoles": "Dodaj relacje osobiste",
+			"AddCommunityRoles": "Dodaj role spo\u0142eczno\u015bci",
+			"AddParticipantRoles": "Dodaj role w tym {{streamDisplayType}}",
+			"YouWereInvited": "Zosta\u0142e\u015b zaproszony"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Witamy w {{communityName}}",
 			"HasInvitedYou": "zaprosi\u0142 Ci\u0119 do:",
 			"HasInvitedYouToTheirProfile": "zaprosi\u0142 Ci\u0119 do po\u0142\u0105czenia.",
 			"prompt": "Pozw\u00f3l znajomym Ci\u0119 rozpozna\u0107:",
-			"accept": "Zaakceptuj zaproszenie",
-			"RolesOffered": "Oferowane Ci role:"
+			"accept": "Przyj\u0105\u0107",
+			"RolesOffered": "Oferowane Ci role:",
+			"decline": "Spadek",
+			"ParticipantRolesOffered": "Twoja rola w tym {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hej, sprawd\u017a to",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interwa\u0142 (ms): ",
 		"IntervalPlaceholder": "np. 3000",
 		"KenburnsInstruction": "Ustaw pocz\u0105tek i koniec Kena Burnsa, przeci\u0105gaj\u0105c i powi\u0119kszaj\u0105c."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gospodarz",
+				"speaker": "G\u0142o\u015bnik",
+				"volunteer": "Wolontariusz",
+				"moderator": "Moderator",
+				"guest": "Go\u015b\u0107"
+			}
+		}
 	}
 }

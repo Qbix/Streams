@@ -153,15 +153,20 @@
 			"byTelegram": "Telegrama",
 			"byWhatsapp": "Qu\u00e8 tal",
 			"addRoles": "Afegeix rols",
-			"addPersonalRoles": "Afegeix Relacions Personals"
+			"addPersonalRoles": "Afegeix Relacions Personals",
+			"AddCommunityRoles": "Afegir rols de comunitat",
+			"AddParticipantRoles": "Afegeix rols en aquest {{streamDisplayType}}",
+			"YouWereInvited": "Vas ser convidat/da"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Benvingut a {{communityName}}",
 			"HasInvitedYou": "t&#39;ha convidat a:",
 			"HasInvitedYouToTheirProfile": "t&#39;ha convidat a connectar.",
 			"prompt": "Deixa que els teus amics et reconeguin:",
-			"accept": "Accepta la invitaci\u00f3",
-			"RolesOffered": "Rols que t&#39;ofereixen:"
+			"accept": "Accepta",
+			"RolesOffered": "Rols que t&#39;ofereixen:",
+			"decline": "Rebutjar",
+			"ParticipantRolesOffered": "El teu paper en aquest {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Ei, mireu aix\u00f2",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "p. ex. 3000",
 		"KenburnsInstruction": "Defineix l&#39;inici i el final de Ken Burns arrossegant i fent zoom."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Amfitri\u00f3",
+				"speaker": "Altaveu",
+				"volunteer": "Voluntari",
+				"moderator": "Moderador",
+				"guest": "Convidat"
+			}
+		}
 	}
 }

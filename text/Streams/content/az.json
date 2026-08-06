@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Rollar\u0131 \u0259lav\u0259 edin",
-			"addPersonalRoles": "\u015e\u0259xsi m\u00fcnasib\u0259tl\u0259r \u0259lav\u0259 edin"
+			"addPersonalRoles": "\u015e\u0259xsi m\u00fcnasib\u0259tl\u0259r \u0259lav\u0259 edin",
+			"AddCommunityRoles": "\u0130cma rollar\u0131 \u0259lav\u0259 edin",
+			"AddParticipantRoles": "Bu {{streamDisplayType}} a rollar \u0259lav\u0259 edin",
+			"YouWereInvited": "Siz d\u0259v\u0259t olunmu\u015fdunuz"
 		},
 		"complete": {
 			"WelcomeToCommunity": "{{communityName}} a xo\u015f g\u0259lmisiniz",
 			"HasInvitedYou": "sizi d\u0259v\u0259t etdi:",
 			"HasInvitedYouToTheirProfile": "qo\u015fulma\u011fa d\u0259v\u0259t etdi.",
 			"prompt": "Dostlar sizi tan\u0131s\u0131n:",
-			"accept": "D\u0259v\u0259ti q\u0259bul edin",
-			"RolesOffered": "Siz\u0259 t\u0259klif olunan rollar:"
+			"accept": "Q\u0259bul et",
+			"RolesOffered": "Siz\u0259 t\u0259klif olunan rollar:",
+			"decline": "R\u0259dd et",
+			"ParticipantRolesOffered": "Bu {{streamDisplayType}} ild\u0259ki rolunuz:"
 		},
 		"email": {
 			"subject": "Hey, bunu yoxlay\u0131n",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "m\u0259s\u0259l\u0259n 3000",
 		"KenburnsInstruction": "Ken Burns-u s\u00fcr\u00fckl\u0259m\u0259k v\u0259 b\u00f6y\u00fctm\u0259kl\u0259 ba\u015flan\u011f\u0131c v\u0259 sonunu t\u0259yin edin."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Ev sahibi",
+				"speaker": "Spiker",
+				"volunteer": "K\u00f6n\u00fcll\u00fc",
+				"moderator": "Moderator",
+				"guest": "Qonaq"
+			}
+		}
 	}
 }

@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsAppen",
 			"addRoles": "Rollen toevoegen",
-			"addPersonalRoles": "Voeg persoonlijke relaties toe"
+			"addPersonalRoles": "Voeg persoonlijke relaties toe",
+			"AddCommunityRoles": "Voeg communityrollen toe",
+			"AddParticipantRoles": "Voeg rollen toe in deze {{streamDisplayType}}",
+			"YouWereInvited": "Je was uitgenodigd"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Welkom bij {{communityName}}",
 			"HasInvitedYou": "heeft u uitgenodigd voor:",
 			"HasInvitedYouToTheirProfile": "heeft je uitgenodigd om verbinding te maken.",
 			"prompt": "Laat vrienden je herkennen:",
-			"accept": "Uitnodiging accepteren",
-			"RolesOffered": "Functies die u worden aangeboden:"
+			"accept": "Accepteren",
+			"RolesOffered": "Functies die u worden aangeboden:",
+			"decline": "Afwijzen",
+			"ParticipantRolesOffered": "Jouw rol in deze {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "H\u00e9, kijk hier eens naar",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "bijv. 3000",
 		"KenburnsInstruction": "Stel het begin en einde van Ken Burns in door te slepen en te zoomen."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gastheer",
+				"speaker": "Spreker",
+				"volunteer": "Vrijwilliger",
+				"moderator": "Moderator",
+				"guest": "Gast"
+			}
+		}
 	}
 }

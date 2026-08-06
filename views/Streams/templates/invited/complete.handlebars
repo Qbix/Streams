@@ -1,71 +1,58 @@
+{{!--
+	The invite consent dialog. Its whole job is Accept or Decline.
+
+	Do NOT re-render invitingUser, the stream preview, discount or roles here:
+	Streams/templates/invited/explanation already renders all four, wrapped in
+	its own .Streams_login_explanation div, and {{{explanation}}} below is that
+	rendered HTML. Triple braces are required -- it is markup, not text.
+
+	Onboarding does not belong in this dialog either. It runs after the invite
+	is resolved, one way or the other, via Streams.onInviteResolved.
+--}}
 <div id="Streams_complete_overlay" class="Users_login_dialog">
 	<div class="Q_title_slot">
-		<h2 class="Users_dialog_title Q_dialog_title">{{interpolate invite.complete.Welcome communityName=communityName}}</h2>
+		<h2 class="Users_dialog_title Q_dialog_title">{{interpolate invite.complete.WelcomeToCommunity communityName=communityName}}</h2>
 	</div>
 	<div class="Q_dialog_slot Q_dialog_content Q_big_prompt">
-		<div class="Streams_login_explanation">
-			{{explanation}}
+		{{{explanation}}}
+		{{#if participantRoles}}
+		{{!-- a second vocabulary, not the community labels rendered inside
+		    {{{explanation}}}: these live on streams_participant and show an
+		    emoji rather than an icon, which is what tells them apart --}}
+		<div class="Streams_invited_participantRoles">
+			<div class="Streams_invited_roles_prompt">{{participantRolesPrompt}}</div>
+			<ul>
+			{{#each participantRoles}}
+				<li class="Streams_invited_participantRole" data-role="{{this.role}}">
+					<span class="Streams_invited_roleEmoji">{{this.emoji}}</span>
+					<span>{{this.title}}</span>
+				</li>
+			{{/each}}
+			</ul>
 		</div>
+		{{/if}}
 		<form method="post" action="{{action}}" data-form-type="complete">
 			<div class="Streams_login_appear"></div>
+			{{#if nameIsMissing}}
 			<table>
-				{{#if user}}
-					<tr class="Streams_complete_invitingUser">
-						<td><img src="{{icon}}/50.png" title="{{invitingUser.displayName}} icon"></td>
-						<td><div>{{invitingUser.displayName}}</div><div>{{invitingUser.text}}</div></td>
-					</tr>
-				{{/if}}
-					<tr class="Streams_complete_stream">
-						<td><img src="{{stream.fields.icon}}/50.png" title="{{stream.title}}"></td>
-						<td>
-							<div>{{stream.fields.title}}</div>
-							{{#if (call "stream.get" "timestamp")}}
-							<div class="Q_tool Q_timestamp_tool"
-								data-q-timestamp="{ &quot;time&quot;: {{call "stream.get" "timestamp"}} }">
-							</div>
-							{{/if}}
-						</td>
-					</tr>
-				{{#if nameIsMissing}}
-					<tr class="Users_register_form">
-						<td class="Streams_login_picture"><img src="{{icon}}/50.png"></td>
-						<td class="Streams_login_fullname_block">
-							<input id="Streams_login_fullname" name="fullName" type="text" class="text" />
-						</td>
-					</tr>
-				{{/if}}
-				{{#if discount.description}}
-				<tr class="Streams_complete_discount">
-					<td colspan="2">
-						<div class="Streams_invited_discount">
-							{{discount.description}}
-						</div>
+				<tr class="Users_register_form">
+					<td class="Streams_login_picture"><img src="{{icon}}/50.png" alt=""></td>
+					<td class="Streams_login_fullname_block">
+						<label for="Streams_login_fullname">{{prompt}}</label>
+						<input id="Streams_login_fullname" name="fullName" type="text" class="text" />
 					</td>
 				</tr>
-				{{/if}}
-				{{#if roles}}
-				<tr class="Streams_complete_roles">
-					<td colspan="2">
-						<div class="Streams_invited_roles">
-							<div class="Streams_invited_roles_prompt">{{rolesPrompt}}</div>
-							<ul>
-							{{#each roles}}
-								<li class="Streams_invited_role" data-label="{{this.label}}">
-									<img src="{{this.icon}}/40.png" alt="">
-									<span>{{this.title}}</span>
-								</li>
-							{{/each}}
-							</ul>
-						</div>
-					</td>
-				</tr>
-				{{/if}}
 			</table>
+			{{/if}}
 			<input type="hidden" name="token" value="{{token}}"/>
 			<input type="hidden" name="Q.Streams.acceptInvite" value="1">
+			<input type="hidden" name="Q.Streams.inviteConsent" value="{{consent}}">
 			<input type="hidden" name="Q.method" value="get"/>
 			<div class="Streams_login_get_started">
-				<button type="submit" class="Q_button Q_main_button Streams_login_start">{{button}}</button>
+				<button type="submit" class="Q_button Q_main_button Streams_invited_accept Streams_login_start">{{acceptButton}}</button>
+				{{#unless nameIsMissing}}
+				<button type="button" class="Q_button Streams_invited_decline">{{declineButton}}</button>
+				{{/unless}}
 			</div>
 		</form>
 	</div>

@@ -35,22 +35,30 @@ function Streams_after_Q_objects ()
 
 	// Someone who was already logged in when they followed the link never
 	// triggers Users::setLoggedInUser, so Streams_after_Users_setLoggedInUser
-	// never ran for them. Do its work here instead, for the types that
-	// auto-accept. The state check keeps this from redoing what that handler
-	// already did on requests where the invite logged the user in.
-	if ($user and $invite->state === 'pending'
-	and !Streams_Invite::needsExplicitConsent($invite, $stream)) {
+	// never ran for them. Do its work here instead, for the invites that
+	// qualify for auto-accept. The state check keeps this from redoing what
+	// that handler already did on requests where the invite logged them in.
+	// per-user, not the shared column: a general link stays pending for
+	// everyone who hasn't personally resolved it
+	$stateForUser = Streams_Invite::stateFor($invite, $user ? $user->id : null);
+	if ($user and $stateForUser === 'pending'
+	and Streams_Invite::shouldAutoAccept($invite, $stream, $user)) {
 		$invite->accept(array('access' => true, 'subscribe' => true));
-		if ($user->displayName(array('show' => 'flu'))) {
-			return;
-		}
+		Streams::inviteResolved($invite, $stream, $user, true);
+		return;
 	}
-	
 
 	// Everything below only runs for invites that need explicit consent.
+	// A resolved invite must not be offered again: without this, re-following
+	// a declined or expired link showed the Accept dialog a second time.
+	// Per-user -- reading the shared column here meant the first person to
+	// accept a general link stopped the dialog appearing for everybody else.
+	if ($stateForUser !== 'pending') {
+		return;
+	}
 	$showDialog = true;
 	$displayName = $user ? $user->displayName(array('show' => 'flu')) : '';
-	$p = @compact('user', 'invite', 'displayName');
+	$p = @compact('user', 'invite', 'displayName', 'stream');
 	Q::event('Streams/inviteDialog', $p, 'before', false, $showDialog);
 	if (!$showDialog) {
 		return;

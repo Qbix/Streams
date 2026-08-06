@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Dodajte vloge",
-			"addPersonalRoles": "Dodajte osebne odnose"
+			"addPersonalRoles": "Dodajte osebne odnose",
+			"AddCommunityRoles": "Dodajte vloge skupnosti",
+			"AddParticipantRoles": "Dodaj vloge v tem {{streamDisplayType}}",
+			"YouWereInvited": "Bili ste povabljeni"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Dobrodo\u0161li v {{communityName}}",
 			"HasInvitedYou": "vas je povabil na:",
 			"HasInvitedYouToTheirProfile": "vas je povabil k povezovanju.",
 			"prompt": "Naj vas prijatelji prepoznajo:",
-			"accept": "Sprejmi povabilo",
-			"RolesOffered": "Vloge, ki vam jih ponujajo:"
+			"accept": "Sprejmi",
+			"RolesOffered": "Vloge, ki vam jih ponujajo:",
+			"decline": "Zavrnitev",
+			"ParticipantRolesOffered": "Va\u0161a vloga v tem {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hej, poglej to",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "npr. 3000",
 		"KenburnsInstruction": "Za\u010detek in konec Kena Burnsa nastavite z vle\u010denjem in pove\u010davo."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gostitelj",
+				"speaker": "Govornik",
+				"volunteer": "Prostovoljec",
+				"moderator": "Moderator",
+				"guest": "Gost"
+			}
+		}
 	}
 }

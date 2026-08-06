@@ -5,12 +5,33 @@ function Streams_after_Users_setLoggedInUser($params)
 	$user = $params['user'];
 	if ($token = Q::ifset($_SESSION, 'Streams', 'inviteFollowedToken', null)) {
 		$invite = Streams_Invite::fromToken($token);
-		if ($invite) {
+		// per-user, not the shared column -- see Streams_Invite::stateFor()
+		if ($invite and Streams_Invite::stateFor($invite, $user->id) === 'pending') {
 			$stream = Streams_Stream::fetch(
 				$user->id, $invite->publisherId, $invite->streamName
 			);
 			if ($stream) {
-				if (Streams_Invite::needsExplicitConsent($invite, $stream)) {
+				if (Streams_Invite::shouldAutoAccept($invite, $stream, $user)) {
+					if ($invite->accept(array(
+						'access' => true,
+						'subscribe' => true
+					))) {
+						// accepted invite and autosubscribed. Now adopt the icon that
+						// was generated for this invite, unless they have a custom one
+						$splitId = Q_Utils::splitId($invite->invitingUserId, 3, "/");
+						$path = 'Q/uploads/Users';
+						$subpath = $splitId.'/invited/'.$token;
+						$pathToToken = APP_DIR.'/web/'.$path.'/'.$subpath;
+						Q_Utils::normalizePath($pathToToken);
+						if (file_exists($pathToToken) && !Users::isCustomIcon($user->icon)) {
+							$user->icon = Q_Html::themedUrl("$path/$subpath", array(
+								"baseUrlPlaceholder" => true
+							));
+							$user->save();
+						}
+						Streams::inviteResolved($invite, $stream, $user, true);
+					}
+				} else {
 					// Hand it back to the client instead of accepting: this one
 					// needs the user to say yes. login.js runs
 					// Q.Response.processScriptDataAndLines() on the response, so
@@ -23,23 +44,6 @@ function Streams_after_Users_setLoggedInUser($params)
 							$dialogData, 'templateName',
 							'Streams/templates/invited/complete'
 						));
-					}
-				} else if ($invite->accept(array(
-					'access' => true,
-					'subscribe' => true
-				))) {
-					// accepted invite and autosubscribed. Now adopt the icon that
-					// was generated for this invite, unless they have a custom one
-					$splitId = Q_Utils::splitId($invite->invitingUserId, 3, "/");
-					$path = 'Q/uploads/Users';
-					$subpath = $splitId.'/invited/'.$token;
-					$pathToToken = APP_DIR.'/web/'.$path.'/'.$subpath;
-					Q_Utils::normalizePath($pathToToken);
-					if (file_exists($pathToToken) && !Users::isCustomIcon($user->icon)) {
-						$user->icon = Q_Html::themedUrl("$path/$subpath", array(
-							"baseUrlPlaceholder" => true
-						));
-						$user->save();
 					}
 				}
 			}

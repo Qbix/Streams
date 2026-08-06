@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Tilf\u00f8j roller",
-			"addPersonalRoles": "Tilf\u00f8j personlige forhold"
+			"addPersonalRoles": "Tilf\u00f8j personlige forhold",
+			"AddCommunityRoles": "Tilf\u00f8j f\u00e6llesskabsroller",
+			"AddParticipantRoles": "Tilf\u00f8j roller i denne {{streamDisplayType}}",
+			"YouWereInvited": "Du blev inviteret"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Velkommen til {{communityName}}",
 			"HasInvitedYou": "har inviteret dig til:",
 			"HasInvitedYouToTheirProfile": "har inviteret dig til at oprette forbindelse.",
 			"prompt": "Lad venner genkende dig:",
-			"accept": "Accepter invitation",
-			"RolesOffered": "Roller du bliver tilbudt:"
+			"accept": "Acceptere",
+			"RolesOffered": "Roller du bliver tilbudt:",
+			"decline": "Nedgang",
+			"ParticipantRolesOffered": "Din rolle i denne {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hej, tjek det her ud",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "f.eks. 3000",
 		"KenburnsInstruction": "Indstil Ken Burns start og slut ved at tr\u00e6kke og zoome."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "V\u00e6rt",
+				"speaker": "H\u00f8jttaler",
+				"volunteer": "Frivillig",
+				"moderator": "Moderator",
+				"guest": "G\u00e6st"
+			}
+		}
 	}
 }

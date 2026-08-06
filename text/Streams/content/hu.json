@@ -153,15 +153,20 @@
 			"byTelegram": "T\u00e1virat",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Szerepek hozz\u00e1ad\u00e1sa",
-			"addPersonalRoles": "Szem\u00e9lyes kapcsolatok hozz\u00e1ad\u00e1sa"
+			"addPersonalRoles": "Szem\u00e9lyes kapcsolatok hozz\u00e1ad\u00e1sa",
+			"AddCommunityRoles": "K\u00f6z\u00f6ss\u00e9gi szerepk\u00f6r\u00f6k hozz\u00e1ad\u00e1sa",
+			"AddParticipantRoles": "Szerepk\u00f6r\u00f6k hozz\u00e1ad\u00e1sa ehhez {{streamDisplayType}} hez",
+			"YouWereInvited": "Megh\u00edvtak"
 		},
 		"complete": {
 			"WelcomeToCommunity": "\u00dcdv\u00f6z\u00f6lj\u00fck a {{communityName}} -ben",
 			"HasInvitedYou": "megh\u00edvott t\u00e9ged a k\u00f6vetkez\u0151kre:",
 			"HasInvitedYouToTheirProfile": "megh\u00edvta \u00d6nt, hogy csatlakozzon.",
 			"prompt": "Hagyd, hogy bar\u00e1taid felismerjenek:",
-			"accept": "Megh\u00edv\u00e1s elfogad\u00e1sa",
-			"RolesOffered": "Felk\u00edn\u00e1lt szerepk\u00f6r\u00f6k:"
+			"accept": "Elfogad\u00e1s",
+			"RolesOffered": "Felk\u00edn\u00e1lt szerepk\u00f6r\u00f6k:",
+			"decline": "Hanyatl\u00e1s",
+			"ParticipantRolesOffered": "Az \u00d6n szerepe ebben {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "H\u00e9, ezt n\u00e9zd meg",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Intervallum (ms): ",
 		"IntervalPlaceholder": "pl. 3000",
 		"KenburnsInstruction": "Ken Burns kezd\u00e9si \u00e9s befejez\u00e9si pontj\u00e1nak be\u00e1ll\u00edt\u00e1sa h\u00faz\u00e1ssal \u00e9s nagy\u00edt\u00e1ssal."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "H\u00e1zigazda",
+				"speaker": "Hangsz\u00f3r\u00f3",
+				"volunteer": "\u00d6nk\u00e9ntes",
+				"moderator": "Moder\u00e1tor",
+				"guest": "Vend\u00e9g"
+			}
+		}
 	}
 }

@@ -153,15 +153,20 @@
 			"byTelegram": "\u0111i\u1ec7n t\u00edn",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Th\u00eam vai tr\u00f2",
-			"addPersonalRoles": "Th\u00eam m\u1ed1i quan h\u1ec7 c\u00e1 nh\u00e2n"
+			"addPersonalRoles": "Th\u00eam m\u1ed1i quan h\u1ec7 c\u00e1 nh\u00e2n",
+			"AddCommunityRoles": "Th\u00eam vai tr\u00f2 c\u1ed9ng \u0111\u1ed3ng",
+			"AddParticipantRoles": "Th\u00eam vai tr\u00f2 v\u00e0o m\u1eabu {{streamDisplayType}} n\u00e0y.",
+			"YouWereInvited": "B\u1ea1n \u0111\u01b0\u1ee3c m\u1eddi"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Ch\u00e0o m\u1eebng \u0111\u1ebfn v\u1edbi {{communityName}}",
 			"HasInvitedYou": "\u0111\u00e3 m\u1eddi b\u1ea1n:",
 			"HasInvitedYouToTheirProfile": "\u0111\u00e3 m\u1eddi b\u1ea1n k\u1ebft n\u1ed1i.",
 			"prompt": "H\u00e3y \u0111\u1ec3 b\u1ea1n b\u00e8 nh\u1eadn ra b\u1ea1n:",
-			"accept": "Ch\u1ea5p nh\u1eadn l\u1eddi m\u1eddi",
-			"RolesOffered": "C\u00e1c v\u1ecb tr\u00ed b\u1ea1n \u0111ang \u0111\u01b0\u1ee3c \u0111\u1ec1 ngh\u1ecb:"
+			"accept": "Ch\u1ea5p nh\u1eadn",
+			"RolesOffered": "C\u00e1c v\u1ecb tr\u00ed b\u1ea1n \u0111ang \u0111\u01b0\u1ee3c \u0111\u1ec1 ngh\u1ecb:",
+			"decline": "S\u1ef1 suy s\u1ee5p",
+			"ParticipantRolesOffered": "Vai tr\u00f2 c\u1ee7a b\u1ea1n trong {{streamDisplayType}} n\u00e0y l\u00e0:"
 		},
 		"email": {
 			"subject": "N\u00e0y, xem n\u00e0y",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Kho\u1ea3ng th\u1eddi gian (ms): ",
 		"IntervalPlaceholder": "v\u00ed d\u1ee5 3000",
 		"KenburnsInstruction": "\u0110\u1eb7t Ken Burns b\u1eaft \u0111\u1ea7u v\u00e0 k\u1ebft th\u00fac b\u1eb1ng c\u00e1ch k\u00e9o v\u00e0 ph\u00f3ng to."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Ch\u1ee7 nh\u00e0",
+				"speaker": "Ng\u01b0\u1eddi ph\u00e1t ng\u00f4n",
+				"volunteer": "T\u00ecnh nguy\u1ec7n vi\u00ean",
+				"moderator": "Ng\u01b0\u1eddi \u0111i\u1ec1u ph\u1ed1i",
+				"guest": "Kh\u00e1ch m\u1eddi"
+			}
+		}
 	}
 }

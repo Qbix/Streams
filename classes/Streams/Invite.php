@@ -359,6 +359,45 @@ class Streams_Invite extends Base_Streams_Invite
 			}
 		}
 
+		// NOTE: this must run AFTER the subscribe/join block above.
+		// $stream->join() creates or replaces the participant row and
+		// overwrites its extra, so granting roles before it silently
+		// discards them.
+		// add participant roles offered in the invite
+		if ($proles = Q::ifset($extra, 'addParticipantRole', null)) {
+			if (is_string($proles)) {
+				$proles = array_map('trim', explode("\t", $proles));
+			} else if (Q::isAssociative($proles)) {
+				$proles = array_keys($proles);
+			}
+			// only grant roles declared for this stream type, and only ones the
+			// INVITER was entitled to offer -- same containment rule as the
+			// permissions grant above, checked now rather than at compose time
+			$declared = array_keys(Streams_Participant::rolesConfig($stream->type));
+			$can = Streams_Participant::can(
+				$stream->publisherId, $stream->name, $this->invitingUserId
+			);
+			$granting = array();
+			foreach ($proles as $role) {
+				if (in_array($role, $declared) and in_array($role, $can['grant'])) {
+					$granting[] = $role;
+				}
+			}
+			if ($granting) {
+				$p = new Streams_Participant(array(
+					'publisherId' => $stream->publisherId,
+					'streamName' => $stream->name,
+					'userId' => $userId
+				));
+				if (!$p->retrieve()) {
+					$p->streamType = $stream->type;
+					$p->state = 'participating';
+				}
+				$p->grantRoles($granting); // already checked above
+				$p->save(true);
+			}
+		}
+
 		/**
 		 * @event Streams/invite {after}
 		 * @param {Streams_Invite} stream
@@ -503,6 +542,16 @@ class Streams_Invite extends Base_Streams_Invite
 				$p->streamName = $modifiedFields['streamName'];
 				$p->userId = $modifiedFields['userId'];
 				$p->state = 'invited';
+				// streamType must be set: hooks on Streams_Participant read it via
+				// Db_Row::__get(), which throws on fields that were never set. Without
+				// this, creating any invite addressed to a specific userId fatals as
+				// soon as a plugin hooks that event (e.g. Calendars).
+				$stream = Streams_Stream::fetch(
+					$modifiedFields['userId'],
+					$modifiedFields['publisherId'],
+					$modifiedFields['streamName']
+				);
+				$p->streamType = $stream ? $stream->type : '';
 				$p->save(true);
 			}
 		}
@@ -560,24 +609,359 @@ class Streams_Invite extends Base_Streams_Invite
 	}
 
 	/**
-	 * Whether this invite must be accepted explicitly by the user, rather than
-	 * being auto-accepted the moment they log in. The config 
-	 * "Streams"/"types"/type/invite/dontAutoAccept can be set to true,
-	 * otherwise the invite itself can set it to true.
-	 * @method needsExplicitConsent
+	 * Whether this invite may be accepted on the user's behalf, without asking.
+	 * The default is NO. The one exception is a general invite link followed by
+	 * someone in their very first session -- better to subscribe them to
+	 * something than to nothing, and they can always unsubscribe.
+	 *
+	 * A personal link (invite->userId set) never qualifies: it auto-logs them
+	 * in, and being logged in is not the same as having agreed to join.
+	 *
+	 * @method shouldAutoAccept
 	 * @static
 	 * @param {Streams_Invite} $invite
 	 * @param {Streams_Stream} $stream
+	 * @param {Users_User} [$user]
 	 * @return {boolean}
 	 */
-	static function needsExplicitConsent($invite, $stream)
+	/**
+	 * The state of this invite AS IT APPLIES TO ONE PERSON.
+	 *
+	 * streams_invite.state is shared. For a general link (userId '') one token
+	 * is followed by many people, and accept() flips that shared column -- so
+	 * reading it directly means the first person to accept marks the link
+	 * resolved for everyone else. The per-person record is streams_invited,
+	 * keyed on (userId, token).
+	 *
+	 * expired / claimed / forwarded describe the LINK rather than a person, so
+	 * those still come from the invite row and apply to everybody.
+	 *
+	 * @method stateFor
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {string} [$userId=null] Defaults to the logged-in user.
+	 * @return {string} pending, accepted, declined, expired, claimed or forwarded
+	 */
+	static function stateFor($invite, $userId = null)
 	{
-		if ($dontAutoAccept = $invite->getExtra('dontAutoAccept')) {
+		if (in_array($invite->state, array('expired', 'claimed', 'forwarded'))) {
+			return $invite->state; // properties of the link itself
+		}
+		if ($invite->userId) {
+			return $invite->state; // personal invite: the row IS the record
+		}
+		if (!isset($userId)) {
+			$user = Users::loggedInUser(false, false);
+			$userId = $user ? $user->id : null;
+		}
+		if (!$userId) {
+			return 'pending'; // nobody yet, so nothing resolved for them
+		}
+		$invited = new Streams_Invited(array(
+			'token' => $invite->token, 'userId' => $userId
+		));
+		return $invited->retrieve() ? $invited->state : 'pending';
+	}
+
+	/**
+	 * Whether this invite may be accepted on the user's behalf, without asking.
+	 * The default is NO. The one exception is a general invite link followed by
+	 * someone in their very first session.
+	 *
+	 * @method shouldAutoAccept
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {Streams_Stream} $stream
+	 * @param {Users_User} [$user]
+	 * @return {boolean}
+	 */
+	static function shouldAutoAccept($invite, $stream, $user = null)
+	{
+		if (!$user) {
+			return false; // nobody to accept on behalf of
+		}
+		if ($invite->userId) {
+			return false; // personal link: autologin is not consent
+		}
+		if ($invite->getExtra('dontAutoAccept')) {
+			return false;
+		}
+		if (Streams_Stream::getConfigField(
+			$stream->type, array('invite', 'autoAccept'), false
+		)) {
 			return true;
 		}
-		return (bool)Streams_Stream::getConfigField(
-			$stream->type, array('invite', 'dontAutoAccept'), false
+		$max = Q_Config::get('Streams', 'invite', 'autoAccept', 'sessionCountMax', 1);
+		return (intval($user->sessionCount) <= intval($max));
+	}
+
+	/**
+	 * @method needsExplicitConsent
+	 * @static
+	 * @deprecated use the positive form, shouldAutoAccept()
+	 */
+	static function needsExplicitConsent($invite, $stream, $user = null)
+	{
+		return !self::shouldAutoAccept($invite, $stream, $user);
+	}
+
+	/**
+	 * Decline a pending invite. Unlike leaving it pending, this is durable:
+	 * the same link will not re-prompt, and Streams_before_Q_objects reports
+	 * Streams_Exception_AlreadyDeclined if it is followed again.
+	 * @method decline
+	 * @return {boolean}
+	 */
+	/**
+	 * Everyone this user invited, and what became of it.
+	 *
+	 * Lives here rather than in its own class because every method below starts
+	 * by querying streams_invite, and because "referral" already means two other
+	 * things nearby: Users_Referred is the table of *credited* referrals, and
+	 * Websites_Referral is outbound tracked-link creation. Neither is this.
+	 *
+	 * Streams_Invite records who was invited and whether they accepted.
+	 * Users_Referred records that a referral was credited, with points. They are
+	 * written at different times by different code, so they drift -- which is
+	 * what the discrepancy flag and scripts/Streams/referrals.php are for.
+	 *
+	 * Inclusion rules, per person:
+	 *  - accepted invites are always included
+	 *  - unaccepted invites only when the invite named a specific user who has
+	 *    since signed in at least once (sessionCount > 0)
+	 *  - a general invite link nobody accepted is skipped: acceptance is what
+	 *    stamps a userId onto the invite, so there is no person to show
+	 *
+	 * @method referrals
+	 * @static
+	 * @param {string} [$byUserId=null] Defaults to the logged-in user.
+	 * @param {array} [$options=array()]
+	 * @param {string} [$options.communityId] Restrict to this community.
+	 * @param {integer} [$options.limit=500]
+	 * @param {boolean} [$options.includeUnaccepted=true]
+	 * @return {array} Rows, newest invite first.
+	 */
+	static function referrals($byUserId = null, $options = array())
+	{
+		if (!isset($byUserId)) {
+			$user = Users::loggedInUser(false, false);
+			if (!$user) {
+				return array();
+			}
+			$byUserId = $user->id;
+		}
+		$limit = Q::ifset($options, 'limit', 500);
+		$includeUnaccepted = Q::ifset($options, 'includeUnaccepted', true);
+		$communityId = Q::ifset($options, 'communityId', null);
+
+		$invites = self::select()
+			->where(array('invitingUserId' => $byUserId))
+			->orderBy('insertedTime', false)
+			->limit($limit)
+			->fetchDbRows();
+		if (!$invites) {
+			return array();
+		}
+
+		// A general invite (userId '') is never stamped with an accepter --
+		// accept() leaves streams_invite.userId empty and records the person in
+		// streams_invited instead. Without this join, everyone who joined via a
+		// shared link is invisible here, which is most of them.
+		$tokens = array();
+		foreach ($invites as $invite) {
+			$tokens[] = $invite->token;
+		}
+		$acceptersByToken = array();
+		foreach (Streams_Invited::select()->where(array(
+			'token' => $tokens
+		))->fetchDbRows() as $iv) {
+			$acceptersByToken[$iv->token][] = $iv->userId;
+		}
+
+		$userIds = array();
+		foreach ($invites as $invite) {
+			if ($invite->userId) {
+				$userIds[$invite->userId] = true;
+			}
+			foreach (Q::ifset($acceptersByToken, $invite->token, array()) as $uid) {
+				$userIds[$uid] = true;
+			}
+		}
+		$userIds = array_keys($userIds);
+		$users = $userIds
+			? Users_User::select()->where(array('id' => $userIds))
+				->fetchDbRows(null, '', 'id')
+			: array();
+
+		// Batch the avatars. Calling $user->displayName() per row fires the
+		// Users/User/displayName event, which Streams answers out of
+		// streams_avatar -- one query per person unless they're fetched together.
+		$avatars = $userIds
+			? Streams_Avatar::fetch($byUserId, $userIds, 'publisherId')
+			: array();
+
+		$referred = array();
+		if ($userIds) {
+			$criteria = array(
+				'userId' => $userIds,
+				'referredByUserId' => $byUserId
+			);
+			if ($communityId) {
+				$criteria['toCommunityId'] = $communityId;
+			}
+			foreach (Users_Referred::select()->where($criteria)->fetchDbRows() as $r) {
+				$referred[$r->userId] = $r;
+			}
+		}
+
+		$rows = array();
+		$seen = array();
+		foreach ($invites as $invite) {
+			// one invite row can map to several people when it's a general link
+			$people = $invite->userId
+				? array($invite->userId)
+				: Q::ifset($acceptersByToken, $invite->token, array());
+			foreach ($people as $userId) {
+			if (isset($seen[$userId])) {
+				continue; // already have this person from a newer invite
+			}
+			// per-person: a general link's shared state says nothing about
+			// whether THIS person accepted
+			$accepted = (self::stateFor($invite, $userId) === 'accepted');
+			$u = Q::ifset($users, $userId, null);
+			$sessionCount = $u ? intval($u->sessionCount) : 0;
+			if (!$accepted and (!$includeUnaccepted or $sessionCount < 1)) {
+				continue; // never signed in: nothing meaningful to show
+			}
+			$seen[$userId] = true;
+
+			$avatar = Q::ifset($avatars, $userId, null);
+			$r = Q::ifset($referred, $userId, null);
+			$rows[] = array(
+				'userId' => $userId,
+				'displayName' => $avatar
+					? $avatar->displayName(array('short' => true))
+					: $userId,
+				'icon' => $avatar ? $avatar->iconUrl(40) : null,
+				'inviteState' => $invite->state,
+				'accepted' => $accepted,
+				'invitedTime' => Q::ifset($invite->fields, 'insertedTime', null),
+				'sessionCount' => $sessionCount,
+				'publisherId' => $invite->publisherId,
+				'streamName' => $invite->streamName,
+				'referredRow' => $r,
+				'points' => $r ? intval($r->points) : 0,
+				'qualifiedTime' => $r ? $r->qualifiedTime : null,
+				// accepted the invite, but nobody was ever credited for it
+				'discrepancy' => ($accepted and !$r)
+			);
+			}
+		}
+		return $rows;
+	}
+
+	/**
+	 * Rows where the invite was accepted but no Users_Referred row exists.
+	 * These are what scripts/Streams/referrals.php acts on.
+	 * @method referralDiscrepancies
+	 * @static
+	 * @param {string} [$byUserId=null]
+	 * @param {array} [$options=array()]
+	 * @return {array}
+	 */
+	static function referralDiscrepancies($byUserId = null, $options = array())
+	{
+		$out = array();
+		foreach (self::referrals($byUserId, $options) as $row) {
+			if ($row['discrepancy']) {
+				$out[] = $row;
+			}
+		}
+		return $out;
+	}
+
+	/**
+	 * Totals, for the header of a referrals panel.
+	 * @method referralSummary
+	 * @static
+	 * @param {array} $rows Output of referrals()
+	 * @return {array}
+	 */
+	static function referralSummary($rows)
+	{
+		$s = array(
+			'people' => count($rows), 'accepted' => 0, 'notAccepted' => 0,
+			'credited' => 0, 'points' => 0, 'discrepancies' => 0
 		);
+		foreach ($rows as $row) {
+			$row['accepted'] ? ++$s['accepted'] : ++$s['notAccepted'];
+			if ($row['referredRow']) {
+				++$s['credited'];
+				$s['points'] += $row['points'];
+			}
+			if ($row['discrepancy']) {
+				++$s['discrepancies'];
+			}
+		}
+		return $s;
+	}
+
+	/**
+	 * Which community a given invite's referral should be scoped to.
+	 *
+	 * accept() above passes $this->publisherId into handleReferral() as the
+	 * communityId. That is correct when a community publishes the stream and
+	 * wrong when a person does -- and Calendars/event streams routinely have a
+	 * person as publisher with the community in attributes.communityId. When
+	 * that happens the referral is scoped to a user id, and later
+	 * Users_Referred::referrer() lookups keyed on a community never find it.
+	 *
+	 * @method communityIdForReferral
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @return {string|null}
+	 */
+	static function communityIdForReferral($invite)
+	{
+		$stream = Streams_Stream::fetch(
+			null, $invite->publisherId, $invite->streamName
+		);
+		$c = $stream ? $stream->getAttribute('communityId', null) : null;
+		if (!$c and Users::isCommunityId($invite->publisherId)) {
+			$c = $invite->publisherId;
+		}
+		return $c;
+	}
+
+	function decline()
+	{
+		$invite = $this;
+		$userId = $this->userId ? $this->userId : Users::loggedInUserId();
+		if (self::stateFor($this, $userId) !== 'pending') {
+			return false;
+		}
+		if (Q::event("Streams/invite/decline",
+			@compact('invite', 'userId'), 'before') === false) {
+			return false;
+		}
+		// Only a personal invite is resolved by one person declining. A general
+		// link stays open -- declining is recorded against that person in
+		// streams_invited, which is what stateFor() reads.
+		if ($this->userId) {
+			$this->state = 'declined';
+			$this->save();
+		}
+		if ($userId) {
+			$invited = new Streams_Invited();
+			$invited->token = $this->token;
+			$invited->userId = $userId;
+			$invited->state = 'declined';
+			$invited->save(true);
+		}
+		unset($_SESSION['Streams']['inviteFollowedToken']);
+		Q::event("Streams/invite/decline",
+			@compact('invite', 'userId'), 'after');
+		return true;
 	}
 
 	/**
@@ -598,6 +982,94 @@ class Streams_Invite extends Base_Streams_Invite
 	 * @param {Streams_Stream} $stream
 	 * @return {array} array of array('label' => ..., 'title' => ..., 'icon' => ...)
 	 */
+	/**
+	 * Resolve a role spec to {label, title, icon} triples for display.
+	 *
+	 * Shared by community labels and participant roles so there is ONE
+	 * presentation path. The two vocabularies are independent -- community
+	 * labels come from users_label and Users/roles, participant roles from
+	 * the Streams types config -- but the fallback chain and the
+	 * icon resolution are identical, and a second copy of this would drift.
+	 *
+	 * Icons resolve the same way for both: a path string through
+	 * Users::iconUrl(). The upload half of Users_Label (writing to
+	 * Q/uploads/Users/$userId/label/...) has no participant analogue --
+	 * participant role icons are declared in config, not uploaded per owner.
+	 *
+	 * @method presentRoles
+	 * @static
+	 * @protected
+	 * @param {array|string} $spec A list of role names, or ($name => array($title, $icon))
+	 * @param {string} [$ownerId=null] If set, look up users_label rows for this owner
+	 * @param {array} [$config=null] Roles tree for title/icon fallback.
+	 *   Defaults to the Users/roles config.
+	 * @param {array} [$seen=array()] Names already emitted, passed by reference
+	 * @return {array}
+	 */
+	protected static function presentRoles(
+		$spec, $ownerId = null, $config = null, &$seen = array()
+	) {
+		if (empty($spec)) {
+			return array();
+		}
+		if (is_string($spec)) {
+			$spec = array_map('trim', explode("\t", $spec));
+		}
+		// may be a list of names, or ($name => array($title, $icon))
+		$names = Q::isAssociative($spec) ? array_keys($spec) : $spec;
+		$rows = $ownerId ? Users_Label::fetch($ownerId, $names) : array();
+
+		$roles = array();
+		foreach ($names as $name) {
+			if (isset($seen[$name])) {
+				continue;
+			}
+			$row = Q::ifset($rows, $name, null);
+
+			$title = $row ? $row->title : null;
+			if (!$title) {
+				$title = isset($config)
+					? Q::ifset($config, $name, 'title', null)
+					: Q_Config::get('Users', 'roles', $name, 'title', null);
+			}
+			if (!$title and Q::isAssociative($spec)) {
+				$title = Q::ifset($spec, $name, 0, null);
+			}
+			if (!$title) {
+				continue; // nothing presentable -- don't show a raw role name
+			}
+
+			$icon = $row ? $row->icon : null;
+			if (!$icon) {
+				$icon = isset($config)
+					? Q::ifset($config, $name, 'icon', null)
+					: Q_Config::get('Users', 'roles', $name, 'icon', null);
+			}
+			if (!$icon and Q::isAssociative($spec)) {
+				$icon = Q::ifset($spec, $name, 1, null);
+			}
+			if (!$icon) {
+				$icon = 'labels/default';
+			}
+
+			$seen[$name] = true;
+			$roles[] = array(
+				'label' => $name,
+				'title' => $title,
+				'icon' => Users::iconUrl($icon, false)
+			);
+		}
+		return $roles;
+	}
+
+	/**
+	 * Community roles (users_label) this invite offers.
+	 * @method rolesOffered
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {Streams_Stream} $stream
+	 * @return {array}
+	 */
 	static function rolesOffered($invite, $stream)
 	{
 		$inviterId = $invite->invitingUserId;
@@ -608,55 +1080,49 @@ class Streams_Invite extends Base_Streams_Invite
 			$labelSpecs[] = array($invite->getExtra('addMyLabel'), $inviterId);
 		}
 		$roles = array();
-		$seenLabels = array();
+		$seen = array();
 		foreach ($labelSpecs as $labelSpec) {
 			list($spec, $ownerId) = $labelSpec;
-			if (empty($spec)) {
-				continue;
-			}
-			if (is_string($spec)) {
-				$spec = array_map('trim', explode("\t", $spec));
-			}
-			// may be a list of labels, or ($label => array($title, $icon))
-			$labelNames = Q::isAssociative($spec) ? array_keys($spec) : $spec;
-			$rows = Users_Label::fetch($ownerId, $labelNames);
-			foreach ($labelNames as $label) {
-				if (isset($seenLabels[$label])) {
-					continue; // publisher and inviter can name the same label
-				}
-				$row = Q::ifset($rows, $label, null);
-
-				$title = $row ? $row->title : null;
-				if (!$title) {
-					$title = Q_Config::get('Users', 'roles', $label, 'title', null);
-				}
-				if (!$title and Q::isAssociative($spec)) {
-					$title = Q::ifset($spec, $label, 0, null);
-				}
-				if (!$title) {
-					continue; // nothing presentable — don't show a raw label name
-				}
-
-				$icon = $row ? $row->icon : null;
-				if (!$icon) {
-					$icon = Q_Config::get('Users', 'roles', $label, 'icon', null);
-				}
-				if (!$icon and Q::isAssociative($spec)) {
-					$icon = Q::ifset($spec, $label, 1, null);
-				}
-				if (!$icon) {
-					$icon = 'labels/default';
-				}
-
-				$seenLabels[$label] = true;
-				$roles[] = array(
-					'label' => $label,
-					'title' => $title,
-					'icon' => Users::iconUrl($icon, false)
-				);
-			}
+			$roles = array_merge(
+				$roles, self::presentRoles($spec, $ownerId, null, $seen)
+			);
 		}
 		return $roles;
+	}
+
+	/**
+	 * Participant roles (streams_participant extra.role) this invite offers.
+	 *
+	 * Only roles declared for the stream's type are offered -- an undeclared
+	 * name has no title and presentRoles() drops it, so a typo in extra
+	 * silently shows nothing rather than offering a role that grants nothing.
+	 *
+	 * @method participantRolesOffered
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {Streams_Stream} $stream
+	 * @return {array}
+	 */
+	static function participantRolesOffered($invite, $stream, $options = array())
+	{
+		$spec = $invite->getExtra('addParticipantRole');
+		if (empty($spec)) {
+			return array();
+		}
+		if (is_string($spec)) {
+			$spec = array_map('trim', explode("\t", $spec));
+		} else if (Q::isAssociative($spec)) {
+			$spec = array_keys($spec);
+		}
+		$declared = Streams_Participant::rolesConfig($stream->type);
+		$out = array();
+		foreach ($spec as $role) {
+			if (!isset($declared[$role])) {
+				continue; // undeclared: offering it would grant nothing
+			}
+			$out[] = Streams_Participant::roleDisplay($stream->type, $role, $options);
+		}
+		return $out;
 	}
 
 	/**
@@ -677,8 +1143,45 @@ class Streams_Invite extends Base_Streams_Invite
 	 * @param {Users_User} [$user] The invited user, if one is logged in yet
 	 * @return {array|null} null if there is nothing to show
 	 */
+	/**
+	 * A value the server will only ever hand to a rendered invite dialog, and
+	 * which the accept/decline handler requires.
+	 *
+	 * Without it, ANY request carrying Q.Streams.acceptInvite accepted the
+	 * invite using the victim's cookie -- including a bare cross-site GET:
+	 *
+	 *   <img src="https://app/?Q.Streams.token=X&Q.Streams.acceptInvite=1">
+	 *
+	 * which defeated the whole point of asking for consent.
+	 *
+	 * It is derived rather than stored: an HMAC over the token and the current
+	 * session id. That keeps it bound to one person's session and unforgeable
+	 * without the app secret, with no session write to persist and no ordering
+	 * dependency on when the dialog was rendered. Effectively a scoped
+	 * capability, minus a second expiry and revocation path to keep in sync --
+	 * the invite's own state machine already provides those.
+	 *
+	 * @method consentSignature
+	 * @static
+	 * @param {string} $token
+	 * @return {string}
+	 */
+	static function consentSignature($token)
+	{
+		$secret = Q_Config::get('Q', 'internal', 'secret', null);
+		if (!$secret) {
+			$secret = Q_Config::expect('Q', 'app');
+		}
+		return hash_hmac('sha256', $token . '|' . Q_Session::id(), $secret);
+	}
+
 	static function dialogData($invite, $stream, $user = null)
 	{
+		// the invited dialog is rendered client-side from a template, so its
+		// styles have to be requested here rather than by a view
+		Q_Response::addStylesheet('{{Streams}}/css/tools/participantRoles.css', 'Streams');
+
+		$consent = self::consentSignature($invite->token);
 		$text = Q_Text::get('Streams/content');
 
 		$nameIsMissing = true;
@@ -752,11 +1255,25 @@ class Streams_Invite extends Base_Streams_Invite
 			'related' => !empty($related) ? Db::exportArray($related) : array()
 		);
 
+		$params['consent'] = $consent;
 		if ($roles = self::rolesOffered($invite, $stream)) {
 			$params['roles'] = $roles;
 			$params['rolesPrompt'] = Q::ifset(
 				$text, 'invite', 'complete', 'RolesOffered',
 				"Roles you're being offered:"
+			);
+		}
+		if ($proles = self::participantRolesOffered($invite, $stream)) {
+			// kept as a separate key from 'roles': these are a different
+			// vocabulary, stored in streams_participant rather than
+			// users_label, and rendered with an emoji rather than an icon
+			$params['participantRoles'] = $proles;
+			$params['participantRolesPrompt'] = Q::interpolate(
+				Q::ifset(
+					$text, 'invite', 'complete', 'ParticipantRolesOffered',
+					"Your role in this {{streamDisplayType}}:"
+				),
+				array('streamDisplayType' => Streams_Stream::displayType($stream->type))
 			);
 		}
 

@@ -153,15 +153,20 @@
 			"byTelegram": "Telgraf",
 			"byWhatsapp": "Naber",
 			"addRoles": "Roller Ekle",
-			"addPersonalRoles": "Ki\u015fisel \u0130li\u015fkiler Ekle"
+			"addPersonalRoles": "Ki\u015fisel \u0130li\u015fkiler Ekle",
+			"AddCommunityRoles": "Topluluk rolleri ekle",
+			"AddParticipantRoles": "Bu {{streamDisplayType}} roller ekleyin",
+			"YouWereInvited": "Davet Edildiniz"
 		},
 		"complete": {
 			"WelcomeToCommunity": "{{communityName}} ho\u015f geldiniz",
 			"HasInvitedYou": "sizi \u015funa davet etti:",
 			"HasInvitedYouToTheirProfile": "sizi ba\u011flanmaya davet etti.",
 			"prompt": "Arkada\u015flar\u0131n\u0131z\u0131n sizi tan\u0131mas\u0131na izin verin:",
-			"accept": "Daveti Kabul Et",
-			"RolesOffered": "Size sunulan roller:"
+			"accept": "Kabul etmek",
+			"RolesOffered": "Size sunulan roller:",
+			"decline": "Reddetmek",
+			"ParticipantRolesOffered": "Bu {{streamDisplayType}} durumundaki rol\u00fcn\u00fcz:"
 		},
 		"email": {
 			"subject": "Hey, \u015funa bir bak",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Aral\u0131k (ms): ",
 		"IntervalPlaceholder": "\u00f6rne\u011fin 3000",
 		"KenburnsInstruction": "Ken Burns&#39;\u00fcn ba\u015flang\u0131\u00e7 ve biti\u015fini s\u00fcr\u00fckleyip yak\u0131nla\u015ft\u0131rarak ayarlay\u0131n."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Ev sahibi",
+				"speaker": "Konu\u015fmac\u0131",
+				"volunteer": "G\u00f6n\u00fcll\u00fc",
+				"moderator": "Moderat\u00f6r",
+				"guest": "Misafir"
+			}
+		}
 	}
 }

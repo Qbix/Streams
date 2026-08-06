@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram\u0103",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Ad\u0103uga\u021bi roluri",
-			"addPersonalRoles": "Ad\u0103uga\u021bi rela\u021bii personale"
+			"addPersonalRoles": "Ad\u0103uga\u021bi rela\u021bii personale",
+			"AddCommunityRoles": "Ad\u0103uga\u021bi roluri \u00een comunitate",
+			"AddParticipantRoles": "Ad\u0103uga\u021bi roluri \u00een acest {{streamDisplayType}}",
+			"YouWereInvited": "Ai fost invitat"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Bun venit la {{communityName}}",
 			"HasInvitedYou": "v-a invitat la:",
 			"HasInvitedYouToTheirProfile": "v-a invitat s\u0103 v\u0103 conecta\u021bi.",
 			"prompt": "Las\u0103 prietenii s\u0103 te recunoasc\u0103:",
-			"accept": "Accept\u0103 invita\u021bia",
-			"RolesOffered": "Roluri care \u021bi se ofer\u0103:"
+			"accept": "Accepta",
+			"RolesOffered": "Roluri care \u021bi se ofer\u0103:",
+			"decline": "Declin",
+			"ParticipantRolesOffered": "Rolul t\u0103u \u00een acest {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hei, verific\u0103 asta",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "de exemplu 3000",
 		"KenburnsInstruction": "Seta\u021bi \u00eenceputul \u0219i sf\u00e2r\u0219itul pentru Ken Burns prin glisare \u0219i zoom."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gazd\u0103",
+				"speaker": "Vorbitor",
+				"volunteer": "Voluntar",
+				"moderator": "Moderator",
+				"guest": "Oaspete"
+			}
+		}
 	}
 }

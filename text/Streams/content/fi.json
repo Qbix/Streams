@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Lis\u00e4\u00e4 Rooleja",
-			"addPersonalRoles": "Lis\u00e4\u00e4 henkil\u00f6kohtaisia suhteita"
+			"addPersonalRoles": "Lis\u00e4\u00e4 henkil\u00f6kohtaisia suhteita",
+			"AddCommunityRoles": "Lis\u00e4\u00e4 yhteis\u00f6rooleja",
+			"AddParticipantRoles": "Lis\u00e4\u00e4 rooleja t\u00e4h\u00e4n {{streamDisplayType}}",
+			"YouWereInvited": "Sinut kutsuttiin"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Tervetuloa numeroon {{communityName}}",
 			"HasInvitedYou": "on kutsunut sinut:",
 			"HasInvitedYouToTheirProfile": "on kutsunut sinut muodostamaan yhteyden.",
 			"prompt": "Anna yst\u00e4vien tunnistaa sinut:",
-			"accept": "Hyv\u00e4ksy kutsu",
-			"RolesOffered": "Sinulle tarjottavat roolit:"
+			"accept": "Hyv\u00e4ksy\u00e4",
+			"RolesOffered": "Sinulle tarjottavat roolit:",
+			"decline": "Hylk\u00e4\u00e4",
+			"ParticipantRolesOffered": "Roolisi t\u00e4ss\u00e4 {{streamDisplayType}} ss\u00e4:"
 		},
 		"email": {
 			"subject": "Hei, tarkista t\u00e4m\u00e4",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Aikav\u00e4li (ms): ",
 		"IntervalPlaceholder": "esim. 3000",
 		"KenburnsInstruction": "Aseta Ken Burnsin alku ja loppu vet\u00e4m\u00e4ll\u00e4 ja zoomaamalla."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Is\u00e4nt\u00e4",
+				"speaker": "Kaiutin",
+				"volunteer": "Vapaaehtoisty\u00f6",
+				"moderator": "Moderaattori",
+				"guest": "Vieras"
+			}
+		}
 	}
 }

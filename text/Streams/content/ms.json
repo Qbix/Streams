@@ -153,15 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Tambah Peranan",
-			"addPersonalRoles": "Tambah Perhubungan Peribadi"
+			"addPersonalRoles": "Tambah Perhubungan Peribadi",
+			"AddCommunityRoles": "Tambah peranan komuniti",
+			"AddParticipantRoles": "Tambah peranan dalam {{streamDisplayType}} ini",
+			"YouWereInvited": "Anda Dijemput"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Selamat datang ke {{communityName}}",
 			"HasInvitedYou": "telah menjemput anda untuk:",
 			"HasInvitedYouToTheirProfile": "telah menjemput anda untuk berhubung.",
 			"prompt": "Biarkan rakan mengenali anda:",
-			"accept": "Terima Jemputan",
-			"RolesOffered": "Peranan yang ditawarkan kepada anda:"
+			"accept": "Terima",
+			"RolesOffered": "Peranan yang ditawarkan kepada anda:",
+			"decline": "Tolak",
+			"ParticipantRolesOffered": "Peranan anda dalam {{streamDisplayType}} ini:"
 		},
 		"email": {
 			"subject": "Hei, semak ini",
@@ -557,5 +562,16 @@
 		"IntervalLabel": "Selang (ms): ",
 		"IntervalPlaceholder": "cth 3000",
 		"KenburnsInstruction": "Tetapkan permulaan dan tamat Ken Burns dengan menyeret dan mengezum."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Hos",
+				"speaker": "Penceramah",
+				"volunteer": "Sukarelawan",
+				"moderator": "Moderator",
+				"guest": "Tetamu"
+			}
+		}
 	}
 }
