@@ -54,6 +54,7 @@ var Streams = Q.Streams;
  *   @param {Q.Event} [options.onUpdate] Event that receives parameters "data", "entering", "exiting", "updating"
  *   @param {Q.Event} [options.onRefresh] Event that occurs when the tool is completely refreshed, the "this" is the tool.
  *      Parameters are (previews, map, entering, exiting, updating).
+ *      Also fired after a local composer creates a stream (own related messages skip refresh).
  */
 Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	var tool = this;
@@ -560,6 +561,21 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 					}
 					_placeRelatedTool(element);
 					addComposer(streamType, params);
+
+					// Own related messages skip tool.refresh(); fire onRefresh so
+					// dependents can react to locally created previews.
+					// Defer until after Streams/preview finishes onCreate (removes
+					// Streams_preview_composer) so handlers that scan children see it.
+					var previewTool = Q.Tool.from(element, 'Streams/preview');
+					var previews = [];
+					var map = {};
+					if (previewTool) {
+						previews.push(previewTool);
+						map[Streams.key(stream.fields.publisherId, stream.fields.name)] = 0;
+					}
+					setTimeout(function () {
+						state.onRefresh.handle.call(tool, previews, map, [stream], [], []);
+					}, 0);
 				}, tool);
 
 				Q.handle(state.onComposer, tool, [preview]);
@@ -756,6 +772,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	 */
 	relatedResult: function (result, onUpdate, partial) {
 		var tool = this;
+		var state = this.state;
 
 		if (tool.state.realtime && !tool.stream) {
 			// join user to category stream to allow get messages
@@ -805,8 +822,9 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 						tool.refresh();
 					} else {
 						// Own message — preview was already added (or will be)
-						// by the local onCreate handler. Just invalidate the
-						// cache so the next explicit refresh gets fresh data.
+						// by the local onCreate handler, which also fires onRefresh.
+						// Just invalidate the cache so the next explicit refresh
+						// gets fresh data.
 						Streams.related.cache.removeEach(
 							[state.publisherId, state.streamName]
 						);
