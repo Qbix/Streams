@@ -248,7 +248,8 @@
 				"invite": {
 					"dialog": {
 						"templateName": "Streams/invite"
-					}
+					},
+					"autoAccept": false
 				},
 				"restricted": {
 					"attributes": {

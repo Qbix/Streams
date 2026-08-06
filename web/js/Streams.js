@@ -4605,6 +4605,15 @@ Q.onInit.add(function _Streams_onInit() {
 	}
 
 	Users.onLogin.set(function (user) {
+		// After registration, _onComplete fires Users.onLogin with the user
+		// argument -- but when onboarding runs in between, startOnboarding
+		// stores _onComplete as its callback, and the onboarding tool fires
+		// onComplete with no arguments, so user arrives undefined here.
+		// Fall back to the already-set loggedInUser, which is assigned
+		// before _onComplete runs (line 250: Users.loggedInUser = new User(user)).
+		if (!user) {
+			user = Users.loggedInUser;
+		}
 		if (!user) { return; }
 		var params = Q.getObject("Q.plugins.Streams.invited.dialog");
 		if (!params) {
@@ -4884,7 +4893,6 @@ Q.onInit.add(function _Streams_onInit() {
 			var interval;
 			var accepted = false;
 			Q.Dialogs.push({
-				title: params.title || Q.text.Streams.invite.dialog.YouWereInvited,
 				dialog: dialog,
 				className: 'Streams_completeInvited_dialog',
 				mask: true,

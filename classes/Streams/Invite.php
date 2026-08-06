@@ -686,10 +686,10 @@ class Streams_Invite extends Base_Streams_Invite
 		if ($invite->getExtra('dontAutoAccept')) {
 			return false;
 		}
-		if (Streams_Stream::getConfigField(
+		if (!Streams_Stream::getConfigField(
 			$stream->type, array('invite', 'autoAccept'), false
 		)) {
-			return true;
+			return false;
 		}
 		$max = Q_Config::get('Streams', 'invite', 'autoAccept', 'sessionCountMax', 1);
 		return (intval($user->sessionCount) <= intval($max));
