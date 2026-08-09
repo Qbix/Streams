@@ -194,7 +194,7 @@ Q.exports(function(Users, Streams) {
 					stylesheet: '{{Streams}}/css/Streams/invite.css',
 					className: 'Streams_invite_dialog',
 					onActivate: function (dialog) {
-						if (data) {
+						if (suggestion) {
 							dialog.addClass('Streams_suggestion_ready');
 						}
 						if (hide) {
@@ -380,7 +380,7 @@ Q.exports(function(Users, Streams) {
 					stylesheet: '{{Streams}}/css/Streams/modern_invite.css',
 					className: 'Streams_invite_dialog',
 					onActivate: function (dialog) {
-						if (data) {
+						if (suggestion) {
 							dialog.addClass('Streams_suggestion_ready');
 						}
 						if (hide) {

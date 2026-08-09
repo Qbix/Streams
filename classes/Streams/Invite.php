@@ -350,7 +350,8 @@ class Streams_Invite extends Base_Streams_Invite
 				}
 			}
 		} else if (Q::ifset($options, "join", true)) {
-			$participant = $stream->join($userId, $this->publisherId, $this->streamName, array(
+			$participant = $stream->join(array(
+				'userId' => $userId,
 				'extra' => array('Streams/invitingUserId' => $this->invitingUserId),
 				'noVisit' => true
 			));

@@ -5,12 +5,18 @@ function Streams_after_Q_objects ()
 	$uri = Q_Dispatcher::uri();
 	if ($uri->module === 'Users' and $uri->action === 'unsubscribe') {
 		if (!Users::loggedInUser()) {
-			$address = Q::ifset($_REQUEST, 'e', '');
-			$authCode = Q::ifset($_REQUEST, 'authCode', '');
-			$email = new Users_Email(compact("address"));
-			if ($email->retrieve() and $email->authCode === $authCode) {
-				Users::setLoggedInUser($email->userId);
-			}
+			// Do NOT log them in. An unsubscribe link ends up in forwarded
+			// mail, screenshots, browser history and mail-client prefetches;
+			// granting a full session to whoever holds one made it a
+			// password-equivalent. Users_Unsubscribe issues a grant scoped to
+			// the single identifier the link names, which expires on its own.
+			// It also accepts every parameter spelling the codebase
+			// generates -- the reader here only understood "e", while
+			// Users/Email.php emits "emailAddress", Users/Mobile.php emits
+			// "mobileNumber" and views/Users/email/addEmail.php emits "code",
+			// so logged-out unsubscribe silently did nothing for those. And
+			// it handles mobile as well as email, which this never did.
+			Users_Unsubscribe::fromRequest();
 		}
 	}
 	$invite = Streams_Invite::$followed;

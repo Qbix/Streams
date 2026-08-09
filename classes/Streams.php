@@ -4507,6 +4507,7 @@ abstract class Streams extends Base_Streams
 			}
 			$streamNamesUpdate[] = $sn;
 			$type = ($participant->state === 'participating') ? 'visit' : 'join';
+			// NOTE: post message of type Streams/joined or Streams/visited
 			$messageType = "Streams/$type" . 'ed';
 			$prevState = $participant->state;
 			$participant->state = $state;
@@ -6527,8 +6528,6 @@ abstract class Streams extends Base_Streams
 	 * The "sig" may be missing if the Q/internal/secret config is empty.
 	 * @param {string} $userId The id of the user for whom to generate this url
 	 * @param {string} $appUrl The url to bring the user to, defaults to their profile
-	 *  Note that the return value of this function is cached, so $appUrl may be ignored
-	 *  if the cache already contains a generated invite url.
 	 * @param {string} [$streamName=null] Optional stream
 	 * @param {Streams_Invite} [&$invite=null] You can pass a variable reference here
 	 *  to be filled with the Streams_Invite object.

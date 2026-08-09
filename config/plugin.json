@@ -42,6 +42,7 @@
 			"Users/setLoggedInUser": ["Streams/after/Users_setLoggedInUser"],
 			"Users/updateUserIds": ["Streams/after/Users_updateUserIds"],
 			"Users/register": ["Streams/after/Users_register"],
+			"Streams/invite/followed": ["Streams/QRconnect/visited"],
 			"Streams/message/Streams/chat/message": ["Streams/after/Streams_message_Streams_chat_message"],
 			"Streams/message/Streams/relatedTo": ["Streams/after/Streams_message_Streams_relatedTo"],
 			"Streams/message/Streams/unrelatedTo": ["Streams/after/Streams_message_Streams_unrelatedTo"],
@@ -52,7 +53,9 @@
 			"Streams/Stream/save/Streams/greeting": ["Streams/after/Streams_Stream_save_Streams_greeting"],
 			"Streams/relateTo/Streams/question": ["Streams/after/Streams_relateTo_Streams_question"],
 			"Streams/updateAvatars": ["Streams/after/Streams_updateAvatars"],
-			"Streams/close/Streams/video": ["Streams/after/Streams_close_Streams_video"]
+			"Streams/close/Streams/video": ["Streams/after/Streams_close_Streams_video"],
+			"Streams/invite/accept": ["Streams/QRconnect/accepted"],
+			"Streams/invite/autoAccept": ["Streams/QRconnect/autoAccept"]
 		},
 		"routes@start": {
 			"Streams/participantRoles": { "module": "Streams", "action": "participantRoles" },
@@ -751,6 +754,10 @@
 				"emoji": "👤",
 				"url": "{{baseUrl}}/profile/{{publisherId}}"
 			},
+			"Streams/visits": {
+				"emoji": "👀",
+				"participating": { "replace": [] }
+			},
 			"Streams/external/post": {
 				"emoji": "🛸",
 				"defaults": {
@@ -765,6 +772,17 @@
 					"writeLevel": 10,
 					"adminLevel": 20
 				}
+			}
+		},
+		"QRconnect": {
+			"profileStreamName": "Streams/user/profile",
+			"coPresence": {
+				"autoAccept": true,
+				"streamType": "Calendars/event"
+			},
+			"visits": {
+				"enabled": true,
+				"streamName": "Streams/user/visits"
 			}
 		},
 		"categorize": {
@@ -801,6 +819,14 @@
 			"expires": 86400,
 			"subpath": "{{app}}/uploads/Streams/invitations",
 			"sort": {}
+		},
+		"QRconnect": {
+			"profileStreamName": "Streams/user/profile",
+			"visits": {
+				"enabled": true,
+				"streamName": "Streams/user/visits",
+				"throttle": 300
+			}
 		},
 		"interests": {
 			"allowClientQueries": false,

@@ -985,7 +985,11 @@ Q.Tool.define({
 	},
 	"Streams/image/coverflow": {
 		js: "{{Streams}}/js/tools/image/coverflow.js"
-	}
+	},
+	"Streams/QRconnect": {
+		js: "{{Streams}}/js/tools/QRconnect.js",
+		css: "{{Streams}}/css/tools/QRconnect.css"
+	},
 });
 
 Streams.Chat = {
