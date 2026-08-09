@@ -31,6 +31,7 @@ Q.exports(function(Users, Streams) {
 
 		var suggestion = null;
 		var data = null;
+		var hide = null;
 		var dialog = null;
 		var fields = {
 			publisherId: publisherId,
@@ -42,13 +43,37 @@ Q.exports(function(Users, Streams) {
 	
 		// detect if cordova or Contacts Picker API available.
 		var isContactsPicker = Q.info.isCordova || ('contacts' in navigator && 'ContactsManager' in window);
+
+		function _hideElements() {
+			Q.each(hide, function (i, item) {
+				if (item === 'contacts') {
+					$('.Streams_invite_select_contacts', dialog).hide();
+				}
+				if (item === 'qr') {
+					$('.Streams_invite_scan_qr', dialog).hide();
+				}
+				if (item === 'share') {
+					$('.Streams_invite_share_link', dialog).hide();
+				}
+				if (item === 'social') {
+					$('.Streams_invite_social_buttons', dialog).hide();
+				}
+				if (item === 'roles') {
+					$('.Streams_invite_label_buttons', dialog).hide();
+				}
+			});
+		}
 	
-		Q.req('Streams/invite', ['suggestion', 'data'], function (err, response) {
+		Q.req('Streams/invite', ['suggestion', 'data', 'hide'], function (err, response) {
 			var slots = response && response.slots;
 			if (slots) {
 				suggestion = slots.suggestion;
 				data = slots.data;
-				$('.Streams_invite_dialog').addClass('Streams_suggestion_ready');
+				$(dialog).addClass('Streams_suggestion_ready');
+				if (slots.hide) {
+					hide = slots.hide;
+					_hideElements();
+				}
 			}
 			if (options.sendBy) {
 				// invoke method as soon as suggestion is ready
@@ -171,6 +196,9 @@ Q.exports(function(Users, Streams) {
 					onActivate: function (dialog) {
 						if (data) {
 							dialog.addClass('Streams_suggestion_ready');
+						}
+						if (hide) {
+							_hideElements();
 						}
 	
 						var $eContacts = $(".Streams_invite_contacts", dialog);
@@ -354,6 +382,9 @@ Q.exports(function(Users, Streams) {
 					onActivate: function (dialog) {
 						if (data) {
 							dialog.addClass('Streams_suggestion_ready');
+						}
+						if (hide) {
+							_hideElements();
 						}
 	
 						// handle "choose from contacts" button
