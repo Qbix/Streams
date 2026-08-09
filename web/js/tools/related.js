@@ -237,6 +237,12 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			}
 
 			mutation.removedNodes.forEach(function(removedElement) {
+				// Reparenting inside the tool (e.g. Places/locations wrapExpandable)
+				// also fires childList removals; keep the map entry in that case.
+				if (tool.element.contains(removedElement)) {
+					return;
+				}
+
 				var publisherId = Q.getObject("options.streams_preview.publisherId", removedElement);
 				var streamName = Q.getObject("options.streams_preview.streamName", removedElement);
 				if (!publisherId || !streamName) {
@@ -819,7 +825,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 					if (!Users.loggedInUser
 						|| msg.byUserId != Users.loggedInUser.id
 						|| msg.byClientId != Q.clientId()
-						|| msg.ordinal !== tool.state.lastMessageOrdinal + 1) {
+						|| msg.ordinal !== tool.state.lastMessageOrdinal) {
 						tool.refresh();
 					} else {
 						// Own message — preview was already added (or will be)
