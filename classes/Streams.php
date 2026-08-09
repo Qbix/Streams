@@ -3133,7 +3133,7 @@ abstract class Streams extends Base_Streams
 	 * @param {array} [$options.streamsOnly] If true, returns only the streams related to/from stream, doesn't return the other data.
 	 *    Note that the streams returned by this function are only the ones published by the publisherId.
 	 * @param {array} [$options.streamFields] If specified, fetches only the fields listed here for any streams.
-	 * @param {callable} [$options.filterUsersFunction] Optional function to call to filter the relations. It should return a filtered array of relations.
+	 * @param {callable} [$options.filter] Optional function to call to filter the relations. It should return a filtered array of relations.
 	 * @param {array} [$options.dontFilterUsers] Pass true to skip filtering using Users/filter/users event
 	 * @param {array} [$options.alsoFilterOwnStreams] If filtering streams using Users/filter/users event, pass true to filter even streams published by category publisher
 	 * @param {boolean} [$options.skipAccess=false] If true, skips the access checks and just fetches the relations and related streams
@@ -3439,8 +3439,8 @@ abstract class Streams extends Base_Streams
 			return array(array(), array(), $returnMultiple ? $streams : $stream);
 		}
 
-		if (!empty($options['filterUsersFunction'])) {
-			$relations = call_user_func($options['filterUsersFunction'], $relations);
+		if (!empty($options['filter'])) {
+			$relations = call_user_func($options['filter'], $relations);
 		}
 
 		if (empty($options['dontFilterUsers'])) {
@@ -6526,7 +6526,9 @@ abstract class Streams extends Base_Streams
 	 * Streams/userInviteUrl/signature/length.
 	 * The "sig" may be missing if the Q/internal/secret config is empty.
 	 * @param {string} $userId The id of the user for whom to generate this url
-	 * @param {string} $appUrl The url to bring the user to
+	 * @param {string} $appUrl The url to bring the user to, defaults to their profile
+	 *  Note that the return value of this function is cached, so $appUrl may be ignored
+	 *  if the cache already contains a generated invite url.
 	 * @param {string} [$streamName=null] Optional stream
 	 * @param {Streams_Invite} [&$invite=null] You can pass a variable reference here
 	 *  to be filled with the Streams_Invite object.
@@ -6534,7 +6536,7 @@ abstract class Streams extends Base_Streams
 	 */
 	static function userInviteUrl(
 		$userId, 
-		$appUrl, 
+		$appUrl = null, 
 		$streamName = 'Streams/user/profile',
 		&$invite = null)
 	{
@@ -6557,7 +6559,8 @@ abstract class Streams extends Base_Streams
 			));
 		}
 		if ($stream->getAttribute('userInviteExpires', 0) < $now) {
-			$ret = $stream->invite(array('token' => true, 'appUrl' => $appUrl));
+			$options = isset($appUrl) ? compact('appUrl') : null;
+			$ret = $stream->invite(array('token' => true), $options);
 			// $invite = $ret['invite']->exportArray();
 			$userInviteUrl = $ret['invite']->url();
 			$stream->setAttribute('userInviteUrl', $userInviteUrl);
