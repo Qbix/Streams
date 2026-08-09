@@ -31,7 +31,7 @@
 		"readLevel": 10,
 		"writeLevel": 0,
 		"adminLevel": 0
-	}
+	},
 	"Streams/greeting/{{communityId}}": {
 		"type": "Streams/greeting",
 		"title": "Greeting",
