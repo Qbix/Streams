@@ -903,7 +903,9 @@
 				"Streams/chat/message": {
 					"timeout": 10
 				},
-				"Streams/invited": true
+				"Streams/invited": {
+					"evenIfNotSubscribed": true
+				}
 			}
 		},
 		"import": {

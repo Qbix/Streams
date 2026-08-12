@@ -804,9 +804,13 @@ function _connectSockets(refresh) {
 	if (!Users.loggedInUser) {
 		return false;
 	}
-	// 
-	Streams.retainWith('Streams')
-	.get(Users.loggedInUser.id, 'Streams/participating');
+	// Retain Streams/invited so invite messages reach this client even when
+	// Users.Socket.emitToUser misses. The online-invite handler listens on
+	// Streams.onMessage directly (not showNoticeIfSubscribed), so retention
+	// does not suppress the consent dialog.
+	var uid = Users.loggedInUser.id;
+	Streams.retainWith('Streams').get(uid, 'Streams/participating');
+	Streams.retainWith('Streams').get(uid, 'Streams/invited');
 	if (refresh) {
 		_debouncedRefresh();
 	}
@@ -4687,19 +4691,67 @@ Q.onInit.add(function _Streams_onInit() {
 	}
 
 	/**
-	 * Listen for messages and show them as notices
+	 * Online registered-user invites arrive as Streams/invited messages, not via
+	 * an invite link. Fetch the same dialog payload Streams_after_Q_objects would
+	 * set, then open the consent dialog (_showInvitedDialog) in place.
+	 */
+	var _onlineInviteTokensShown = {};
+	function _showOnlineInviteDialog(message) {
+		var token = message.getInstruction('token');
+		if (!token || _onlineInviteTokensShown[token]) {
+			return;
+		}
+		_onlineInviteTokensShown[token] = true;
+		Q.req('Streams/invite', ['dialog'], function (err, response) {
+			var msg = Q.firstErrorMessage(err, response && response.errors);
+			if (msg) {
+				_onlineInviteTokensShown[token] = false;
+				return console.warn('Streams.invite.dialog:', msg);
+			}
+			var params = Q.getObject(['slots', 'dialog'], response);
+			if (!params) {
+				// Already resolved, or server declined to show a dialog
+				return;
+			}
+			Q.setObject('Q.plugins.Streams.invited.dialog', params);
+			_prepareInvitedParams(params, function () {
+				_showInvitedDialog(params, function (err, accepted) {
+					Q.handle(Streams.onInviteResolved, Streams, [!!accepted, params]);
+				});
+			});
+		}, { fields: { token: token } });
+	}
+
+	/**
+	 * Listen for invite messages (always) and optionally show other notices
 	 */
 	function _notificationsToNotice () {
 		var userId = Q.Users.loggedInUserId();
-		var notificationsAsNotice = Q.getObject("Q.plugins.Streams.notifications.notices");
-
-		if (!userId || !notificationsAsNotice) {
+		if (!userId) {
 			return;
 		}
+		var notificationsAsNotice = Q.getObject("Q.plugins.Streams.notifications.notices");
 
 		Q.Streams.onMessage('', '')
 		.set(function (message) {
 			var messageType = message.type;
+
+			// skip myself messages
+			if (message.byUserId === userId) {
+				return;
+			}
+
+			// Online invite: open the consent dialog directly (same as following
+			// the invite link). Independent of notices config / stream retention.
+			if (messageType === "Streams/invited") {
+				_showOnlineInviteDialog(message);
+				return;
+			}
+
+			if (!notificationsAsNotice) {
+				return;
+			}
+
 			var messageUrl = message.getInstruction('inviteUrl') || message.getInstruction('url');
 			var noticeOptions = notificationsAsNotice[messageType];
 			var pluginName = messageType.split('/')[0];
@@ -4709,14 +4761,12 @@ Q.onInit.add(function _Streams_onInit() {
 				return;
 			}
 
-			// skip myself messages
-			if (message.byUserId === userId) {
-				return;
-			}
-
 			// skip messages older than 24 hours
+			var expired = parseInt(Q.getObject(
+				'Q.plugins.Streams.notifications.notices.expired'
+			), 10) || 86400;
 			var timeDiff = Math.abs(new Date(message.sentTime).getTime() - new Date().getTime())/1000;
-			if (timeDiff >= parseInt(Q.Streams.notifications.notices.expired)) {
+			if (timeDiff >= expired) {
 				return;
 			}
 
@@ -4733,49 +4783,6 @@ Q.onInit.add(function _Streams_onInit() {
 					evenIfNotSubscribed: noticeOptions.evenIfNotSubscribed,
 					callback: function () {
 						var stream = this;
-
-						if (stream.fields.name === 'Streams/invited') {
-							stream.fields.title = message.getInstruction('title');
-						}
-
-						// special behavior for Streams/invite
-						if (messageType === "Streams/invited") {
-							var label = message.getInstruction('label');
-							var inviteUrl = message.getInstruction('inviteUrl');
-							var template = Q.Template.compile(text, 'handlebars');
-							var html = template({
-								app: Q.info.app,
-								info: Q.info,
-								stream: stream,
-								message: message
-							});
-
-							if (label) {
-								if (typeof label === "string") {
-									label = [label];
-								}
-								// convert labels to readable
-								Q.each(Users.labels, function (labelKey) {
-									var index = label.indexOf(labelKey);
-									if (index < 0 || !this.title) {
-										return;
-									}
-									label[index] = this.title;
-								});
-								html += " as " + label.join(', ');
-							}
-
-							html += "<br>" + content.labels.JoinItNow;
-							Q.confirm(html, function (res) {
-								if (res) {
-									Q.handle(inviteUrl, null, null, {loadUsingAjax:false});
-								}
-							}, {
-								ok: content.labels.Yes,
-								cancel: content.labels.No
-							});
-							return;
-						}
 
 						Streams.Avatar.get(message.byUserId, function (err, avatar) {
 							var source = (noticeOptions.showSubject !== false ? text : '');
