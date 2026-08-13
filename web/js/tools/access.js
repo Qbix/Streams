@@ -104,7 +104,7 @@ Q.Tool.define("Streams/access", function(options) {
 		var userId = access.ofUserId;
 		var contactLabel = access.ofContactLabel;
 
-		if ((!contactLabel && !userId) || access[fieldName] < 0) {
+		if ((!contactLabel && !userId)) {
 			return;
 		}
 
