@@ -56,11 +56,11 @@ Q.exports(function() {
             uri: 'Streams/invite'
         }, Q.Streams.invite.options, options);
         var fields = Q.take(o, [
-            'appUrl', 'identifier', 
+            'appUrl', 'identifier', 'userId', 'assign',
             'platform', 'xid', 
             'label', 'addLabel', 'addMyLabel',
             'readLevel', 'writeLevel', 'adminLevel',
-            'dontAutoLogin', 'dontAutoAccept'
+            'dontAutoLogin', 'dontAutoAccept', 'alwaysSend'
         ]);
         fields.publisherId = publisherId;
         fields.streamName = streamName;
@@ -549,7 +549,13 @@ Q.exports(function() {
                         if (Q.isEmpty(r)) {
                             return;
                         }
-                        Q.take(r, ['appUrl', 'data', 'identifier', 'sendBy', 'token', 'userId'], fields);
+                        Q.take(r, ['appUrl', 'data', 'identifier', 'sendBy', 'token', 'userId', 'assign'], fields);
+                        // Registered users may already be participating (e.g. re-offered
+                        // a staff role). Without alwaysSend, PHP drops them before Node
+                        // posts Streams/invited — so the online invitee sees nothing.
+                        if (fields.userId) {
+                            fields.alwaysSend = true;
+                        }
                         if (r.sendBy) {
                             _sendBy(r, text);
                         } else {

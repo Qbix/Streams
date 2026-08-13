@@ -120,15 +120,13 @@
 Email
 ------------------------------------------------------------ */
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_email {
-	background-color: #8a5900;
-	background: -moz-linear-gradient(top, #b5750020, #8a590020);
-	background: -webkit-linear-gradient(top, #b5750020, #8a590020);
+	background: #8a5900;
 	border: 1px solid #8a5900;
 	text-shadow: 0 -1px -1px #613400;
 }
 
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_email:hover {
-	background-color: #b57500; /* fallback color */
+	background: #b57500; /* fallback color */
 	background: -moz-linear-gradient(top, #8a5900, #b57500);
 	background: -ms-linear-gradient(top, #8a5900, #b57500);
 	background: -webkit-linear-gradient(top, #8a5900, #b57500);
@@ -143,18 +141,12 @@ Text
 ------------------------------------------------------------ */
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_sms {
 	background: #227722;
-	background: -ms-linear-gradient(top, #44994420, #22772220);
-	background: -moz-linear-gradient(top, #44994420, #22772220);
-	background: -webkit-linear-gradient(top, #44994420, #22772220);
 	border: 1px solid #227722;
 	text-shadow: 0 -1px -1px #114c11;
 }
 
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_sms:hover {
-	background-color: #449944; /* fallback color */
-	background: -moz-linear-gradient(top, #22772220, #44994420);
-	background: -ms-linear-gradient(top, #22772220, #44994420);
-	background: -webkit-linear-gradient(top, #22772220, #44994420);
+	background: #449944; /* fallback color */
 }
 
 .Streams_invite_dialog .Streams_invite_button_sms .Streams_invite_social_icons {
@@ -165,16 +157,13 @@ Text
 WhatsApp
 ------------------------------------------------------------ */
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_whatsapp {
-	background-color: #2ebc1e; /* fallback color */
-	background: -moz-linear-gradient(top, #35db2320, #27a11a20);
-	background: -ms-linear-gradient(top, #35db2320, #27a11a20);
-	background: -webkit-linear-gradient(top, #35db2320, #27a11a20);
+	background: #2ebc1e; /* fallback color */
 	border: 1px solid #218d16;
 	text-shadow: 0 -1px -1px #1f2f52;
 }
 
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_whatsapp:hover {
-	background-color: #2ebc1e; /* fallback color */
+	background: #2ebc1e; /* fallback color */
 	background: -moz-linear-gradient(top, #27a11a20, #35db2320);
 	background: -ms-linear-gradient(top, #27a11a20, #35db2320);
 	background: -webkit-linear-gradient(top, #27a11a20, #35db2320);
@@ -188,16 +177,13 @@ WhatsApp
 Facebook
 ------------------------------------------------------------ */
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_facebook {
-	background-color: #2b4170; /* fallback color */
-	background: -moz-linear-gradient(top, #3b599820, #2b417020);
-	background: -ms-linear-gradient(top, #3b599820, #2b417020);
-	background: -webkit-linear-gradient(top, #3b599820, #2b417020);
+	background: #2b4170; /* fallback color */
 	border: 1px solid #2b4170;
 	text-shadow: 0 -1px -1px #1f2f52;
 }
 
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_facebook:hover {
-	background-color: #3b5998; /* fallback color */
+	background: #3b5998; /* fallback color */
 	background: -moz-linear-gradient(top, #2b417020, #3b599820);
 	background: -ms-linear-gradient(top, #2b417020, #3b599820);
 	background: -webkit-linear-gradient(top, #2b417020, #3b599820);
@@ -211,16 +197,13 @@ Facebook
 Twitter
 ------------------------------------------------------------ */
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_twitter {
-	background-color: #0081ce; /* fallback color */
-	background: -moz-linear-gradient(top, #00aced20, #0081ce20);
-	background: -ms-linear-gradient(top, #00aced20, #0081ce20);
-	background: -webkit-linear-gradient(top, #00aced20, #0081ce20);
+	background: #0081ce; /* fallback color */
 	border: 1px solid #0081ce;
 	text-shadow: 0 -1px -1px #005ea3;
 }
 
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_twitter:hover {
-	background-color: #00aced; /* fallback color */
+	background: #00aced; /* fallback color */
 	background: -moz-linear-gradient(top, #0081ce20, #00aced20);
 	background: -ms-linear-gradient(top, #0081ce20, #00aced20);
 	background: -webkit-linear-gradient(top, #0081ce20, #00aced20);
@@ -234,16 +217,13 @@ Twitter
 telegram
 ------------------------------------------------------------ */
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_telegram {
-	background-color: #26a4e3; /* fallback color */
-	background: -moz-linear-gradient(top, #2aabee20, #1e8dc020);
-	background: -ms-linear-gradient(top, #2aabee20, #1e8dc020);
-	background: -webkit-linear-gradient(top, #2aabee20, #1e8dc020);
+	background: #26a4e3; /* fallback color */
 	border: 1px solid #0081ce;
 	text-shadow: 0 -1px -1px #005ea3;
 }
 
 .Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_telegram:hover {
-	background-color: #1d8ec7; /* fallback color */
+	background: #1d8ec7; /* fallback color */
 	background: -moz-linear-gradient(top, #1e8dc020, #2aabee20);
 	background: -ms-linear-gradient(top, #1e8dc020, #2aabee20);
 	background: -webkit-linear-gradient(top, #1e8dc020, #2aabee20);
@@ -307,7 +287,7 @@ telegram
 	margin-top: 0;
 }
 .Streams_invite_label_buttons button {
-	background: -webkit-linear-gradient(top, #8d8d8d, #6c6c6c);
+	background-color: #6c6c6c;
     border-radius: var(--button-border-radius);
 	position: relative;
     color: white;
@@ -343,7 +323,6 @@ telegram
 	flex: 1;
 	font-size: 1em;
 	border: solid 1px rgba(150, 150, 150, 0.5);
-    background: none;
 }
 .Streams_invite_label_buttons .Streams_invite_button_add_rels{
 	flex: 2;
@@ -372,8 +351,43 @@ telegram
 	border-color: var(--dialog-color);
 }
 
-
 .Streams_inperson_invite .Streams_invite_select_contacts ,
 .Streams_inperson_invite .Streams_invite_share_link {
 	display: none;
+}
+
+/* ── Dark scheme (OS preference) ── */
+@media (prefers-color-scheme: dark) {
+	.Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_sms {
+		background: -ms-linear-gradient(top, #44994420, #22772220);
+		background: -moz-linear-gradient(top, #44994420, #22772220);
+		background: -webkit-linear-gradient(top, #44994420, #22772220);
+	}
+	.Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_email {
+		background: -moz-linear-gradient(top, #b5750020, #8a590020);
+		background: -webkit-linear-gradient(top, #b5750020, #8a590020);
+	}
+	.Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_telegram {
+		background: -moz-linear-gradient(top, #2aabee20, #1e8dc020);
+		background: -ms-linear-gradient(top, #2aabee20, #1e8dc020);
+		background: -webkit-linear-gradient(top, #2aabee20, #1e8dc020);
+	}
+	.Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_whatsapp {
+		background: -moz-linear-gradient(top, #35db2320, #27a11a20);
+		background: -ms-linear-gradient(top, #35db2320, #27a11a20);
+		background: -webkit-linear-gradient(top, #35db2320, #27a11a20);
+	}
+	.Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_facebook {
+		background: -moz-linear-gradient(top, #3b599820, #2b417020);
+		background: -ms-linear-gradient(top, #3b599820, #2b417020);
+		background: -webkit-linear-gradient(top, #3b599820, #2b417020);
+	}
+	.Streams_invite_dialog .Streams_invite_social_buttons .Streams_invite_button_twitter {
+		background: -moz-linear-gradient(top, #00aced20, #0081ce20);
+		background: -ms-linear-gradient(top, #00aced20, #0081ce20);
+		background: -webkit-linear-gradient(top, #00aced20, #0081ce20);
+	}	
+	.Streams_invite_label_buttons .Streams_invite_button_add-roles{
+		background-color: transparent;
+	}	
 }
