@@ -1,69 +1,60 @@
 <?php
 /**
- * Referrals panel.
+ * Referrals panel — table-based layout.
  *
- * One column, several Q/expandable groups -- no tabs, since this is a single
- * destination rather than a navigation root. The grouping is the point: the
- * two "needs attention" groups are what a person acts on, so those start
- * expanded and the settled ones start collapsed.
- *
- * What each group means, because the distinction matters:
- *  - "Credited" is the normal, correct end state.
- *  - "Accepted, but no referral recorded" means a hook didn't fire. This is
- *    what scripts/Streams/referrals.php reconciles.
- *  - "Invited, not accepted" is NOT a problem. Users_Referred is only supposed
- *    to be written on acceptance. These are shown so the linkage is visible.
+ * Three groups (Q/expandable):
+ *   Discrepancies — accepted but no referral row — needs attention
+ *   Credited      — the normal end state
+ *   Not accepted  — linkage, not a problem
  */
-
 $groups = array('discrepancy' => array(), 'credited' => array(), 'notAccepted' => array());
 foreach ($rows as $row) {
 	if ($row['discrepancy']) { $groups['discrepancy'][] = $row; }
-	else if ($row['accepted']) { $groups['credited'][] = $row; }
+	elseif ($row['accepted']) { $groups['credited'][] = $row; }
 	else { $groups['notAccepted'][] = $row; }
 }
 
-function Streams_referrals_line($row)
-{
-	$avatar = Q::tool('Users/avatar', array(
-		'userId' => $row['userId'], 'icon' => 40, 'short' => true
-	), 'r-' . $row['userId']);
-
-	$when = $row['invitedTime']
-		? Q_Html::text(date('M j, Y', strtotime($row['invitedTime'])))
-		: '';
-
-	$state = $row['accepted']
-		? '<span class="Streams_referrals_badge Streams_referrals_badge_accepted">Accepted</span>'
-		: '<span class="Streams_referrals_badge Streams_referrals_badge_'
-			. Q_Html::text($row['inviteState']) . '">'
-			. Q_Html::text(ucfirst($row['inviteState'])) . '</span>';
-
-	if ($row['referredRow']) {
-		$credit = '<span class="Streams_referrals_points">' . intval($row['points']) . ' pts</span>';
-		if (!$row['qualifiedTime']) {
-			$credit .= '<span class="Streams_referrals_pending">not yet qualified</span>';
-		}
-	} else if ($row['discrepancy']) {
-		$credit = '<span class="Streams_referrals_missing">not credited</span>';
-	} else {
-		$credit = '<span class="Streams_referrals_none">&mdash;</span>';
+if (!function_exists('Streams_referrals_table')):
+function Streams_referrals_table($rows, $showPoints = true) {
+	if (empty($rows)) return '<p style="opacity:0.5;font-size:13px">None.</p>';
+	$html = '<table class="Streams_referrals_table">';
+	$html .= '<thead><tr>'
+		. '<th class="Streams_referrals_th_name">Name</th>'
+		. '<th class="Streams_referrals_th_status">Status</th>'
+		. '<th class="Streams_referrals_th_date">Date</th>'
+		. '<th class="Streams_referrals_th_sessions">Sessions</th>';
+	if ($showPoints) {
+		$html .= '<th class="Streams_referrals_th_pts">Points</th>';
 	}
+	$html .= '</tr></thead><tbody>';
+	foreach ($rows as $r) {
+		$badge = $r['accepted']
+			? '<span class="Streams_referrals_badge Streams_referrals_accepted">Accepted</span>'
+			: '<span class="Streams_referrals_badge Streams_referrals_' . Q_Html::text($r['inviteState']) . '">'
+				. ucfirst($r['inviteState']) . '</span>';
+		$date = !empty($r['invitedTime'])
+			? date('M j, Y', strtotime($r['invitedTime'])) : '—';
+		$avatar = Q::tool('Users/avatar', array(
+			'userId' => $r['userId'], 'icon' => 40, 'short' => true
+		), 'ref-' . $r['userId']);
 
-	return '<div class="Streams_referrals_line" data-user-id="' . Q_Html::text($row['userId']) . '">'
-		. '<div class="Streams_referrals_who">' . $avatar . '</div>'
-		. '<div class="Streams_referrals_meta">' . $state
-			. '<span class="Streams_referrals_when">' . $when . '</span>'
-			. '<span class="Streams_referrals_sessions">' . intval($row['sessionCount']) . ' sessions</span>'
-		. '</div>'
-		. '<div class="Streams_referrals_credit">' . $credit . '</div>'
-		. '</div>';
+		$html .= '<tr class="Streams_referrals_row" data-user-id="' . Q_Html::text($r['userId']) . '">'
+			. '<td class="Streams_referrals_td_name">' . $avatar . '</td>'
+			. '<td class="Streams_referrals_td_status">' . $badge . '</td>'
+			. '<td class="Streams_referrals_td_date">' . $date . '</td>'
+			. '<td class="Streams_referrals_td_sessions">' . intval($r['sessionCount']) . '</td>';
+		if ($showPoints) {
+			$pts = intval($r['points']);
+			$html .= '<td class="Streams_referrals_td_pts">'
+				. ($pts > 0 ? '<strong>' . $pts . '</strong>' : '<span style="opacity:0.3">0</span>')
+				. '</td>';
+		}
+		$html .= '</tr>';
+	}
+	$html .= '</tbody></table>';
+	return $html;
 }
-
-function Streams_referrals_group($rows) {
-	$out = array();
-	foreach ($rows as $row) { $out[] = Streams_referrals_line($row); }
-	return implode("\n", $out);
-}
+endif;
 ?>
 <div class="Streams_referrals">
 
@@ -83,48 +74,37 @@ function Streams_referrals_group($rows) {
 	</div>
 
 	<?php if (empty($rows)): ?>
-		<div class="Streams_referrals_empty">
-			You haven't invited anyone yet. People you invite show up here once
-			they've signed in at least once.
-		</div>
+		<div class="Streams_referrals_empty">No referrals yet.</div>
 	<?php else: ?>
 
 		<?php if ($groups['discrepancy']): ?>
 		<?php echo Q::tool('Q/expandable', array(
-			'title' => 'Accepted, but no referral recorded',
-			'count' => count($groups['discrepancy']),
+			'title' => 'Needs Attention (' . count($groups['discrepancy']) . ')',
 			'expanded' => true,
 			'autoCollapseSiblings' => false,
-			'content' => '<div class="Streams_referrals_note">These people accepted an '
-				. 'invite from you, but nothing was credited &mdash; usually the referral '
-				. 'hook did not fire at the time.</div>'
-				. Streams_referrals_group($groups['discrepancy'])
-		), 'discrepancy') ?>
+			'content' => '<p class="Streams_referrals_note">Accepted the invite, but no referral was recorded. '
+				. 'Run the reconciliation script to fix.</p>'
+				. Streams_referrals_table($groups['discrepancy'], false)
+		), 'disc') ?>
 		<?php endif; ?>
 
 		<?php if ($groups['credited']): ?>
 		<?php echo Q::tool('Q/expandable', array(
-			'title' => 'Credited',
-			'count' => count($groups['credited']),
+			'title' => 'Credited (' . count($groups['credited']) . ')',
 			'expanded' => empty($groups['discrepancy']),
 			'autoCollapseSiblings' => false,
-			'content' => Streams_referrals_group($groups['credited'])
-		), 'credited') ?>
+			'content' => Streams_referrals_table($groups['credited'])
+		), 'cred') ?>
 		<?php endif; ?>
 
 		<?php if ($groups['notAccepted']): ?>
 		<?php echo Q::tool('Q/expandable', array(
-			'title' => 'Invited, not accepted',
-			'count' => count($groups['notAccepted']),
+			'title' => 'Invited, Not Accepted (' . count($groups['notAccepted']) . ')',
 			'expanded' => false,
 			'autoCollapseSiblings' => false,
-			'content' => '<div class="Streams_referrals_note">These people followed your '
-				. 'invite and signed in, but never accepted. No referral is recorded, '
-				. 'which is correct &mdash; they are here so the connection is visible.</div>'
-				. Streams_referrals_group($groups['notAccepted'])
-		), 'notAccepted') ?>
+			'content' => Streams_referrals_table($groups['notAccepted'], false)
+		), 'notacc') ?>
 		<?php endif; ?>
 
 	<?php endif; ?>
-
 </div>
