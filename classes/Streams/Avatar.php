@@ -441,19 +441,41 @@ class Streams_Avatar extends Base_Streams_Avatar
 			));
 		}
 
-		// Obtain the stream object to use
+		// Obtain the stream object to use, and also fetch any mutable
+		// (publisherId='', name=type+'*') in the same query.
+		$mutable = null;
 		if (isset($stream)) {
 			if (!isset($stream->content)) {
 				$stream->content = '';
 			}
+			// still need the mutable
+			$mutableRow = new Streams_Stream();
+			$mutableRow->publisherId = '';
+			$mutableRow->name = $streamName . '*';
+			if ($mutableRow->retrieve()) {
+				$mutable = $mutableRow;
+			}
 		} else {
-			// If the $stream isn't already defined, select it
-			$stream = new Streams_Stream();
-			$stream->publisherId = $publisherId;
-			$stream->name = $streamName;
-			if (!$stream->retrieve()) {
-				// Strange, this stream doesn't exist.
-				// Well, we will just silently set the content to '' then
+			// Fetch both the stream and its mutable in one query
+			$mutableName = $streamName . '*';
+			$bothRows = Streams_Stream::select()
+				->where(array(
+					'publisherId,name' => array(
+						array($publisherId, $streamName),
+						array('', $mutableName)
+					)
+				))->fetchDbRows();
+			foreach ($bothRows as $row) {
+				if ($row->publisherId === '' && $row->name === $mutableName) {
+					$mutable = $row;
+				} else {
+					$stream = $row;
+				}
+			}
+			if (!isset($stream)) {
+				$stream = new Streams_Stream();
+				$stream->publisherId = $publisherId;
+				$stream->name = $streamName;
 				$stream->content = '';
 			}
 		}
@@ -521,6 +543,59 @@ class Streams_Avatar extends Base_Streams_Avatar
 						$readLevels2[$contactUserId],
 						$readLevel
 					);
+				}
+			}
+		}
+
+		// Check inheritAccess on both the stream and the mutable (one level deep).
+		// This handles cases like Users/admins getting readLevel through a mutable
+		// that inherits from a community-published access stream, where the label
+		// resolves against the community rather than the individual publisher.
+		$inheritSources = array();
+		foreach (array($stream, $mutable) as $src) {
+			if (!$src || empty($src->inheritAccess)) {
+				continue;
+			}
+			$parsed = json_decode($src->inheritAccess, true);
+			if (!is_array($parsed)) {
+				continue;
+			}
+			foreach ($parsed as $ia) {
+				if (is_array($ia) && count($ia) >= 2) {
+					$inheritSources[] = $ia;
+				}
+			}
+		}
+		if ($inheritSources) {
+			// Batch-fetch all access rows for the inherited streams
+			$iaPairs = array();
+			foreach ($inheritSources as $ia) {
+				$iaPairs[] = array($ia[0], $ia[1]);
+			}
+			$iaAccesses = Streams_Access::select()
+				->where(array('publisherId,streamName' => $iaPairs))
+				->fetchDbRows();
+			// Group by publisher so we can resolve labels against the right owner
+			$iaByPub = array();
+			foreach ($iaAccesses as $iaAccess) {
+				if (empty($iaAccess->ofContactLabel)
+				or $iaAccess->readLevel < $content_readLevel) {
+					continue;
+				}
+				$iaByPub[$iaAccess->publisherId][] = $iaAccess->ofContactLabel;
+			}
+			// Resolve each publisher's labels against that publisher's contacts
+			foreach ($iaByPub as $iaPub => $iaLabels) {
+				$iaLabels = array_unique($iaLabels);
+				$iaContacts = Users_Contact::select('contactUserId')
+					->where(array(
+						'userId' => $iaPub,
+						'label' => $iaLabels
+					))->fetchAll(PDO::FETCH_COLUMN, 0);
+				foreach ($iaContacts as $cuid) {
+					if (!isset($showToUserIds[$cuid])) {
+						$showToUserIds[$cuid] = true;
+					}
 				}
 			}
 		}
