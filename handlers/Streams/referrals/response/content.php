@@ -19,6 +19,8 @@ function Streams_referrals_response_content()
 	Q_Response::addStylesheet('{{Streams}}/css/referrals.css', 'Streams');
 	Q_Response::setSlot('title', 'Your Referrals');
 
+	Q_Response::addScript('{{Streams}}/js/referrals-sort.js', 'Streams');
+
 	return Q::view('Streams/content/referrals.php', @compact(
 		'rows', 'summary', 'communityId', 'user'
 	));

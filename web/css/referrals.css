@@ -1,3 +1,4 @@
+/* ── Summary stats ── */
 .Streams_referrals_summary {
 	display: flex; gap: 20px; padding: 8px 0 14px; flex-wrap: wrap;
 }
@@ -5,6 +6,7 @@
 .Streams_referrals_number { display: block; font-size: 28px; font-weight: 700; }
 .Streams_referrals_label { font-size: 12px; opacity: 0.7; }
 
+/* ── Table ── */
 .Streams_referrals_table {
 	width: 100%; border-collapse: collapse; font-size: 14px;
 }
@@ -12,18 +14,22 @@
 	text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase;
 	letter-spacing: 0.04em; opacity: 0.6; padding: 6px 8px;
 	border-bottom: 2px solid rgba(128,128,128,0.2);
+	white-space: nowrap; user-select: none;
 }
+.Streams_referrals_table th[data-sort] { cursor: pointer; }
+.Streams_referrals_table th[data-sort]:hover { opacity: 0.9; }
+.Streams_sort_arrow { font-size: 10px; opacity: 0.5; }
+
 .Streams_referrals_table td {
 	padding: 8px; vertical-align: middle;
 	border-bottom: 1px solid rgba(128,128,128,0.1);
 }
-.Streams_referrals_th_pts,
-.Streams_referrals_td_pts { text-align: right; }
-.Streams_referrals_th_sessions,
-.Streams_referrals_td_sessions { text-align: center; }
-.Streams_referrals_th_status,
-.Streams_referrals_td_status { text-align: center; }
+.Streams_referrals_table td[data-label="Sessions"],
+.Streams_referrals_table td[data-label="Points"] { text-align: center; }
+.Streams_referrals_table th:nth-child(4),
+.Streams_referrals_table th:nth-child(5) { text-align: center; }
 
+/* ── Badges ── */
 .Streams_referrals_badge {
 	display: inline-block; padding: 2px 10px; border-radius: 10px;
 	font-size: 11px; font-weight: 600; color: white;
@@ -32,11 +38,33 @@
 .Streams_referrals_pending { background: #d4a017; }
 .Streams_referrals_declined { background: rgba(128,128,128,0.5); }
 
-.Streams_referrals_note {
-	font-size: 12px; opacity: 0.6; margin: 0 0 8px;
-}
+.Streams_referrals_note { font-size: 12px; opacity: 0.6; margin: 0 0 8px; }
 .Streams_referrals_empty { opacity: 0.5; font-size: 13px; padding: 12px 0; }
 
+/* ── Responsive: stack on narrow screens ── */
+@media (max-width: 600px) {
+	.Streams_referrals_table thead { display: none; }
+	.Streams_referrals_table,
+	.Streams_referrals_table tbody,
+	.Streams_referrals_table tr,
+	.Streams_referrals_table td {
+		display: block; width: 100%;
+	}
+	.Streams_referrals_row {
+		padding: 10px 0; border-bottom: 1px solid rgba(128,128,128,0.15);
+	}
+	.Streams_referrals_table td {
+		padding: 3px 8px; border-bottom: none; text-align: left;
+	}
+	.Streams_referrals_table td::before {
+		content: attr(data-label);
+		font-size: 11px; font-weight: 600; text-transform: uppercase;
+		opacity: 0.5; display: inline-block; min-width: 70px;
+	}
+	.Streams_referrals_table td[data-label="Name"]::before { display: none; }
+}
+
+/* ── Dark mode ── */
 @media (prefers-color-scheme: dark) {
 	.Streams_referrals_accepted { background: #35b25b; }
 	.Streams_referrals_pending { background: #e0b020; }

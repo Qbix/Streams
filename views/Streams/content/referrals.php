@@ -1,11 +1,6 @@
 <?php
 /**
- * Referrals panel — table-based layout.
- *
- * Three groups (Q/expandable):
- *   Discrepancies — accepted but no referral row — needs attention
- *   Credited      — the normal end state
- *   Not accepted  — linkage, not a problem
+ * Referrals panel — sortable, responsive table.
  */
 $groups = array('discrepancy' => array(), 'credited' => array(), 'notAccepted' => array());
 foreach ($rows as $row) {
@@ -15,16 +10,16 @@ foreach ($rows as $row) {
 }
 
 if (!function_exists('Streams_referrals_table')):
-function Streams_referrals_table($rows, $showPoints = true) {
+function Streams_referrals_table($rows, $showPoints = true, $tableId = '') {
 	if (empty($rows)) return '<p style="opacity:0.5;font-size:13px">None.</p>';
-	$html = '<table class="Streams_referrals_table">';
+	$html = '<table class="Streams_referrals_table"' . ($tableId ? ' id="' . $tableId . '"' : '') . '>';
 	$html .= '<thead><tr>'
-		. '<th class="Streams_referrals_th_name">Name</th>'
-		. '<th class="Streams_referrals_th_status">Status</th>'
-		. '<th class="Streams_referrals_th_date">Date</th>'
-		. '<th class="Streams_referrals_th_sessions">Sessions</th>';
+		. '<th data-sort="name">Name <span class="Streams_sort_arrow"></span></th>'
+		. '<th data-sort="status">Status <span class="Streams_sort_arrow"></span></th>'
+		. '<th data-sort="date">Date <span class="Streams_sort_arrow"></span></th>'
+		. '<th data-sort="sessions">Sessions <span class="Streams_sort_arrow"></span></th>';
 	if ($showPoints) {
-		$html .= '<th class="Streams_referrals_th_pts">Points</th>';
+		$html .= '<th data-sort="pts">Points <span class="Streams_sort_arrow"></span></th>';
 	}
 	$html .= '</tr></thead><tbody>';
 	foreach ($rows as $r) {
@@ -34,18 +29,27 @@ function Streams_referrals_table($rows, $showPoints = true) {
 				. ucfirst($r['inviteState']) . '</span>';
 		$date = !empty($r['invitedTime'])
 			? date('M j, Y', strtotime($r['invitedTime'])) : '—';
+		$dateSort = !empty($r['invitedTime'])
+			? date('Y-m-d', strtotime($r['invitedTime'])) : '';
 		$avatar = Q::tool('Users/avatar', array(
 			'userId' => $r['userId'], 'icon' => 40, 'short' => true
 		), 'ref-' . $r['userId']);
 
-		$html .= '<tr class="Streams_referrals_row" data-user-id="' . Q_Html::text($r['userId']) . '">'
-			. '<td class="Streams_referrals_td_name">' . $avatar . '</td>'
-			. '<td class="Streams_referrals_td_status">' . $badge . '</td>'
-			. '<td class="Streams_referrals_td_date">' . $date . '</td>'
-			. '<td class="Streams_referrals_td_sessions">' . intval($r['sessionCount']) . '</td>';
+		$html .= '<tr class="Streams_referrals_row"'
+			. ' data-user-id="' . Q_Html::text($r['userId']) . '"'
+			. ' data-name="' . Q_Html::text(strtolower($r['displayName'])) . '"'
+			. ' data-status="' . Q_Html::text($r['inviteState']) . '"'
+			. ' data-date="' . $dateSort . '"'
+			. ' data-sessions="' . intval($r['sessionCount']) . '"'
+			. ($showPoints ? ' data-pts="' . intval($r['points']) . '"' : '')
+			. '>'
+			. '<td data-label="Name">' . $avatar . '</td>'
+			. '<td data-label="Status">' . $badge . '</td>'
+			. '<td data-label="Date">' . $date . '</td>'
+			. '<td data-label="Sessions">' . intval($r['sessionCount']) . '</td>';
 		if ($showPoints) {
 			$pts = intval($r['points']);
-			$html .= '<td class="Streams_referrals_td_pts">'
+			$html .= '<td data-label="Points">'
 				. ($pts > 0 ? '<strong>' . $pts . '</strong>' : '<span style="opacity:0.3">0</span>')
 				. '</td>';
 		}
@@ -84,7 +88,7 @@ endif;
 			'autoCollapseSiblings' => false,
 			'content' => '<p class="Streams_referrals_note">Accepted the invite, but no referral was recorded. '
 				. 'Run the reconciliation script to fix.</p>'
-				. Streams_referrals_table($groups['discrepancy'], false)
+				. Streams_referrals_table($groups['discrepancy'], false, 'Streams_ref_disc')
 		), 'disc') ?>
 		<?php endif; ?>
 
@@ -93,7 +97,7 @@ endif;
 			'title' => 'Credited (' . count($groups['credited']) . ')',
 			'expanded' => empty($groups['discrepancy']),
 			'autoCollapseSiblings' => false,
-			'content' => Streams_referrals_table($groups['credited'])
+			'content' => Streams_referrals_table($groups['credited'], true, 'Streams_ref_cred')
 		), 'cred') ?>
 		<?php endif; ?>
 
@@ -102,9 +106,11 @@ endif;
 			'title' => 'Invited, Not Accepted (' . count($groups['notAccepted']) . ')',
 			'expanded' => false,
 			'autoCollapseSiblings' => false,
-			'content' => Streams_referrals_table($groups['notAccepted'], false)
+			'content' => Streams_referrals_table($groups['notAccepted'], false, 'Streams_ref_notacc')
 		), 'notacc') ?>
 		<?php endif; ?>
 
 	<?php endif; ?>
 </div>
+
+

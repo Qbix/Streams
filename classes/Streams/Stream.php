@@ -2049,7 +2049,9 @@ class Streams_Stream extends Base_Streams_Stream
 			}
 			$item[] = $permissions;
 		}
-		$inheritAccess = json_decode($this->inheritAccess, true);
+		$inheritAccess = isset($this->inheritAccess)
+			? json_decode($this->inheritAccess, true)
+			: null;
 		if (!$inheritAccess or !is_array($inheritAccess)) {
 			$inheritAccess = array($item);
 		} else {
