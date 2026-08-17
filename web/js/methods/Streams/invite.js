@@ -21,6 +21,7 @@ Q.exports(function() {
      * @param {String} [options.xid] xid or arary of xids to invite
      * @param {String} [options.label] label or an array of labels to invite, or tab-delimited string
      * @param {String|Array|true} [options.addLabel] label or an array of labels for adding publisher's contacts, or pass true to show a selector dialog
+     * @param {Array} [options.filter] If provided, only these community role labels are shown in the Add Roles dialog (intersected with roles the user can grant)
      * @param {String|Array|true} [options.addMyLabel] label or an array of labels for adding logged-in user's contacts, or pass true to show a selector dialog
      * @param {String} [options.readLevel] the read level to grant those who are invited
      * @param {String} [options.writeLevel] the write level to grant those who are invited
@@ -387,9 +388,20 @@ Q.exports(function() {
             return _request();
         }
         Q.Text.get('Streams/content', function (err, text) {
-            _getCanGrantRoles().then(function (response) {
+            var communityId = Q.Users.isCommunityId(publisherId)
+                ? publisherId
+                : Q.Users.currentCommunityId;
+            _getCanGrantRoles(communityId).then(function (response) {
                 var canGrantRoles = Q.getObject('slots.canGrant', response) || [];
                 var canRevokeRoles = Q.getObject('slots.canRevoke', response) || [];
+                if (Q.isArrayLike(o.filter)) {
+                    canGrantRoles = canGrantRoles.filter(function (label) {
+                        return o.filter.indexOf(label) >= 0;
+                    });
+                    canRevokeRoles = canRevokeRoles.filter(function (label) {
+                        return o.filter.indexOf(label) >= 0;
+                    });
+                }
 
                 var addLabel = o.addLabel;
                 if(!Q.isEmpty(canGrantRoles) && addLabel !== false) {
@@ -439,7 +451,7 @@ Q.exports(function() {
                     Q.Dialogs.push({
                         title: text.invite.roles.title,
                         content: Q.Tool.setUpElementHTML('div', 'Users/labels', {
-                            userId: Q.Users.communityId,
+                            userId: communityId,
                             filter: { replace: canGrantRoles }
                         }),
                         className: 'Streams_invite_labels_dialog',
@@ -566,12 +578,12 @@ Q.exports(function() {
 
             });
 
-            function _getCanGrantRoles() {
+            function _getCanGrantRoles(communityId) {
                 return new Promise(function (resolve, reject) {
                     Q.req('Users/roles', ['canGrant', 'canRevoke', 'canSee'], function (err, response) {
                         resolve(response);
                     }, {
-                        communityId: Q.Users.communityId
+                        communityId: communityId
                     });
                 });
             }
