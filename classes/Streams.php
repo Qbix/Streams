@@ -1290,8 +1290,9 @@ abstract class Streams extends Base_Streams
 		$stream->publisherId = $publisherId;
 		if (!empty($fields['name'])) {
 			$stream->name = $fields['name'];
-			if ($stream->retrieve()) {
-				throw new Q_Exception_AlreadyExists(array('source' => 'stream'));
+			if ($stream->retrieve(null, true)) {
+				self::$fetch[$asUserId][$publisherId][$stream->name] = array('*' => $stream);
+				return $stream;
 			}
 			$p = Streams::userStreamsTree();
 			if ($info = $p->get($fields['name'], array())) {
@@ -1385,7 +1386,22 @@ abstract class Streams extends Base_Streams
 		}
 
 		$stream->set('createdAsUserId', $asUserId);
-		$stream->save();
+		try {
+			$stream->save();
+		} catch (Exception $e) {
+			// Concurrent fetchOrCreate/create of a named stream can race:
+			// both SELECT empty, then the second INSERT hits PRIMARY 1062.
+			if (!empty($fields['name']) and self::isDuplicateKeyException($e)) {
+				$existing = new Streams_Stream();
+				$existing->publisherId = $publisherId;
+				$existing->name = $fields['name'];
+				if ($existing->retrieve(null, true)) {
+					self::$fetch[$asUserId][$publisherId][$existing->name] = array('*' => $existing);
+					return $existing;
+				}
+			}
+			throw $e;
+		}
 		$stream->post($asUserId, array(
 			'type' => 'Streams/created',
 			'content' => '',
@@ -1417,6 +1433,26 @@ abstract class Streams extends Base_Streams
 		self::$fetch[$asUserId][$publisherId][$stream->name] = array('*' => $stream);
 
 		return $stream;
+	}
+
+	/**
+	 * Whether an exception is a duplicate-key / already-exists conflict
+	 * from inserting a row another request created first.
+	 * @method isDuplicateKeyException
+	 * @static
+	 * @param {Exception} $e
+	 * @return {boolean}
+	 */
+	protected static function isDuplicateKeyException($e)
+	{
+		if ($e instanceof Q_Exception_AlreadyExists) {
+			return true;
+		}
+		$msg = $e instanceof Q_Exception
+			? Q::ifset($e->params(), 'msg', $e->getMessage())
+			: $e->getMessage();
+		return (strpos($msg, '1062') !== false)
+			|| (stripos($msg, 'Duplicate entry') !== false);
 	}
 
 	/**
