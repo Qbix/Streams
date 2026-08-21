@@ -58,3 +58,8 @@
 	transform: scale(0.96);
 	pointer-events: none;
 }
+
+/* Renderer / coverflow: keep preview tools for retain/realtime, hide their DOM */
+.Streams_related_tool[data-view="renderer"] > .Streams_preview_tool {
+	display: none;
+}

@@ -7,6 +7,54 @@
 var Users = Q.Users;
 var Streams = Q.Streams;
 
+function _coverflowRenderer(stream, previewTool, callback) {
+	var type = stream.fields.type || '';
+	var isVideo = (type.indexOf('video') >= 0);
+	var el = isVideo ? document.createElement('video') : document.createElement('img');
+
+	if (isVideo) {
+		el.setAttribute('playsinline', '');
+		el.setAttribute('muted', '');
+		el.setAttribute('loop', '');
+		el.setAttribute('autoplay', '');
+		var attrs = {};
+		try { attrs = JSON.parse(stream.fields.attributes || '{}'); } catch (e) {}
+		if (attrs.url) { el.src = attrs.url; }
+	}
+
+	el.setAttribute('title', stream.fields.title || '');
+	el.setAttribute('alt', stream.fields.title || '');
+
+	if (isVideo) {
+		callback(el);
+	} else {
+		previewTool.icon(el, function () {
+			callback(el);
+		});
+	}
+}
+
+function _compileHandlebarsRenderer(template) {
+	var compiled = Handlebars.compile(template);
+	return function (stream, previewTool, callback) {
+		var html = compiled({
+			publisherId: stream.fields.publisherId,
+			streamName: stream.fields.name,
+			streamType: stream.fields.type,
+			title: stream.fields.title,
+			icon: Q.Streams.iconUrl(stream.fields.icon, 200),
+			url: Q.Streams.Stream.url(
+				stream.fields.publisherId,
+				stream.fields.name,
+				stream.fields.type
+			)
+		});
+		var wrapper = document.createElement('div');
+		wrapper.innerHTML = html;
+		callback(wrapper.firstChild);
+	};
+}
+
 /**
  * Renders a bunch of Stream/preview tools for streams related to the given stream.
  * Has options for adding new related streams, as well as sorting the relations, etc.
@@ -63,9 +111,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	&& (!state.stream || Q.typeOf(state.stream) !== 'Q.Streams.Stream')) {
 		throw new Q.Error("Streams/related tool: missing publisherId or streamName");
 	}
-	if (!state.relationType) {
-		// throw new Q.Error("Streams/related tool: missing relationType");
-	}
 	if (state.sortable === true) {
 		state.sortable = Q.extend({
 			draggable: '.Streams_related_stream',
@@ -86,82 +131,12 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		this.element.classList.add("Streams_related_participant");
 	}
 
-	// ---- coverflow detection ------------------------------------------------
-	// If Q/coverflow is co-activated on the same element, switch to renderer mode.
-	// The renderer can be overridden explicitly via state.renderer; if not, the
-	// built-in coverflow renderer is used (img/video per stream, async icon load).
-	var coverflowToolName = Q.normalize('Q/coverflow'); // → 'Q_coverflow'
-	var hasCoverflow = !!(tool.element.Q
-		&& tool.element.Q.toolNames
-		&& tool.element.Q.toolNames.indexOf(coverflowToolName) >= 0);
-
-	if (hasCoverflow && !state.renderer) {
-		state.renderer = 'coverflow'; // resolved to built-in function below
-	}
-
-	// Normalise renderer option:
-	//   'coverflow'      → built-in async function (img or video, uses preview.icon())
-	//   other string     → compiled as Handlebars template (static fields only)
-	//   function         → used as-is: function(stream, previewTool, callback)
-	//   null / undefined → normal preview-tool path, no renderer used
-	if (state.renderer === 'coverflow') {
-		state.renderer = function _coverflowRenderer(stream, previewTool, callback) {
-			var type = stream.fields.type || '';
-			var isVideo = (type.indexOf('video') >= 0);
-			var el;
-
-			if (isVideo) {
-				el = document.createElement('video');
-				el.setAttribute('playsinline', '');
-				el.setAttribute('muted', '');
-				el.setAttribute('loop', '');
-				el.setAttribute('autoplay', '');
-				var attrs = {};
-				try { attrs = JSON.parse(stream.fields.attributes || '{}'); } catch(e) {}
-				if (attrs.url) { el.src = attrs.url; }
-			} else {
-				el = document.createElement('img');
-			}
-
-			el.setAttribute('title', stream.fields.title || '');
-			el.setAttribute('alt',   stream.fields.title || '');
-
-			if (!isVideo) {
-				previewTool.icon(el, function () {
-					callback(el);
-				});
-			} else {
-				callback(el);
-			}
-		};
-	} else if (typeof state.renderer === 'string') {
-		var _compiled = Handlebars.compile(state.renderer);
-		state.renderer = function _handlebarsRenderer(stream, previewTool, callback) {
-			var html = _compiled({
-				publisherId: stream.fields.publisherId,
-				streamName:  stream.fields.name,
-				streamType:  stream.fields.type,
-				title:       stream.fields.title,
-				icon:        Q.Streams.iconUrl(stream.fields.icon, 200),
-				url:         Q.Streams.Stream.url(
-					stream.fields.publisherId,
-					stream.fields.name,
-					stream.fields.type
-				)
-			});
-			var wrapper = document.createElement('div');
-			wrapper.innerHTML = html;
-			callback(wrapper.firstChild);
-		};
-	}
-	// If state.renderer is already a function, use it as-is.
+	tool._normalizeRenderer();
 
 	tool.Q.onStateChanged('relationType').set(function () {
 		if (Q.isEmpty(tool.state.result)) {
 			return;
 		}
-
-		// remove all old previews and clear cache
 		Q.handle(state.onUpdate, tool, [tool.state.result, {}, tool.state.result.relatedStreams, {}]);
 		tool.state.result = {};
 		tool.previewElements = {};
@@ -169,96 +144,33 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	}, tool);
 
 	var pipe = new Q.Pipe(['styles', 'texts'], tool.refresh.bind(tool));
-
-	// render the tool
 	Q.addStylesheet("{{Streams}}/css/tools/related.css", pipe.fill('styles'));
 	Q.Text.get('Streams/content', function (err, text) {
 		var msg = Q.firstErrorMessage(err);
 		if (msg) {
 			console.warn(msg);
 		}
-
 		tool.text = text;
 		pipe.fill('texts')();
 	});
 
-	Q.ensure('IntersectionObserver', function () {
-		tool.intersectionObserver = new IntersectionObserver(function (entries) {
-			entries.forEach(function (entry) {
-				if (entry.intersectionRatio === 0) {
-					return;
-				}
-
-				if (entry.target === tool.element) {
-					if (!state.infinitescroll || tool.infinitescrollApplied) {
-						return;
-					}
-
-					var $dummyElement = $("<div>").css("height", $(window).height() * 2).appendTo(tool.element);
-					var scrollableElement = tool.element.scrollingParent(true, "vertical", true);
-					$dummyElement.remove();
-					if (!(scrollableElement instanceof HTMLElement) || scrollableElement.tagName === "HTML") {
-						return console.warn("Streams/related: scrollingParent for infinitescroll not found");
-					}
-
-					$(scrollableElement).tool('Q/infinitescroll', {
-						onInvoke: function () {
-							var offset = $(">.Streams_preview_tool.Streams_related_stream:visible", tool.element).length;
-							var infiniteTool = this;
-
-							// skip duplicated (same offsets) requests
-							if (!isNaN(infiniteTool.state.offset) && infiniteTool.state.offset >= offset) {
-								return;
-							}
-
-							infiniteTool.setLoading(true);
-							infiniteTool.state.offset = offset;
-							tool.loadMore(offset, function () {
-								infiniteTool.setLoading(false);
-							});
-						}
-					}, null, this.prefix).activate(function () {
-						tool.infinitescrollApplied = true;
-					});
-				}
-			});
-		}, {
-			root: tool.element.parentElement
-		});
-		// detect when tool element become visible
-		tool.intersectionObserver.observe(tool.element);
-	});
-
-	// observe dom elements for mutation
-	tool.mutationObserver = new MutationObserver(function (mutations) {
-		mutations.forEach(function(mutation) {
-			if (mutation.type !== 'childList' || Q.isEmpty(mutation.removedNodes)) {
+	this.element.forEachTool('Streams/preview', function () {
+		var preview = this;
+		preview.Q.beforeRemove.set(function () {
+			var publisherId = preview.state.publisherId;
+			var streamName = preview.state.streamName;
+			if (!publisherId || !streamName) {
 				return;
 			}
+			if (Q.getObject([publisherId, streamName], tool.previewElements) === preview.element) {
+				tool._forgetPreview(publisherId, streamName);
+			}
+		}, tool);
+	}, tool);
 
-			mutation.removedNodes.forEach(function(removedElement) {
-				// Reparenting inside the tool (e.g. Places/locations wrapExpandable)
-				// also fires childList removals; keep the map entry in that case.
-				if (tool.element.contains(removedElement)) {
-					return;
-				}
-
-				var publisherId = Q.getObject("options.streams_preview.publisherId", removedElement);
-				var streamName = Q.getObject("options.streams_preview.streamName", removedElement);
-				if (!publisherId || !streamName) {
-					return;
-				}
-
-				if (Q.getObject([publisherId, streamName], tool.previewElements)) {
-					delete tool.previewElements[publisherId][streamName];
-				}
-				if (Q.isEmpty(tool.previewElements[publisherId])) {
-					delete tool.previewElements[publisherId];
-				}
-			});
-		});
-	});
-	tool.mutationObserver.observe(tool.element, {childList: true});
+	Q.onLayout(tool.element).set(function () {
+		tool._applyInfinitescroll();
+	}, tool);
 },
 
 {
@@ -319,634 +231,26 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	toolName: function (streamType) {
 		return streamType+'/preview';
 	},
-	beforeRenderPreview: new Q.Event(function (tff) {
-		var alreadyExists = false;
-		$(".Streams_preview_tool" + (tff.name ? ":not(.Streams_preview_composer)" : ""), this.element).each(function () {
-			var publisherId = this.getAttribute("data-publisherId");
-			var streamName = this.getAttribute("data-streamName");
-			var streamType = this.getAttribute("data-streamType");
-			if (publisherId === tff.publisherId && streamName === tff.name && streamType === tff.type) {
-				alreadyExists = true;
-			}
-		});
-		return !alreadyExists;
-	}, "Streams/related"),
-	onUpdate: new Q.Event(
-	function _Streams_related_onUpdate(result, entering, exiting, updating) {
-
-		var tool = this;
-		var state = tool.state;
-		var $te = $(tool.element);
-		var $container = $te;
-		var isTabs = $te.hasClass('Q_tabs_tool');
-		if (isTabs) {
-			$container = $te.find('.Q_tabs_tabs');
-		}
-
-		entering = entering || [];
-		exiting = exiting || [];
-		updating = updating || [];
-
-		var ascending = Q.getObject("ascending", state.relatedOptions) || false;
-		var duration = Q.getObject('updateOptions.duration', state) || 300;
-		tool.element.style.setProperty('--Streams_related_duration', duration + 'ms');
-
-		function _weightFor(publisherId, streamName) {
-			var w = null;
-			Q.each(result.relations, function () {
-				var direction = state.isCategory ? this.from : this.to;
-				if (direction && direction.fields
-				&& direction.fields.publisherId === publisherId
-				&& direction.fields.name === streamName) {
-					w = this.weight;
+	beforeRenderPreview: new Q.Event(function (tff, element) {
+		if (!tff.name) {
+			var found = false;
+			this._container().children('.Streams_related_composer').each(function () {
+				if (this !== element && this.getAttribute('data-streamType') === tff.type) {
+					found = true;
 					return false;
 				}
 			});
-			return w;
+			return !found;
 		}
-
-		function _applyUpdatingWeights() {
-			Q.each(updating, function () {
-				if (!this || !this.fields) {
-					return;
-				}
-				var publisherId = this.fields.publisherId;
-				var streamName = this.fields.name;
-				var element = Q.getObject([publisherId, streamName], tool.previewElements);
-				if (!element) {
-					return;
-				}
-				var weight = _weightFor(publisherId, streamName);
-				if (weight == null) {
-					return;
-				}
-				Q.setObject("options.streams_preview.related.weight", weight, element);
-				element.setAttribute('data-weight', weight);
-				var preview = Q.Tool.from(element, 'Streams/preview');
-				if (preview && preview.state.related) {
-					preview.state.related.weight = weight;
-				}
-			});
-		}
-
-		// ---- renderer / coverflow path --------------------------------------
-		// When state.renderer is a function (including the built-in coverflow
-		// renderer resolved in the constructor), preview tools are activated but
-		// kept hidden. The renderer is called per stream to produce a lightweight
-		// DOM element (img, video, or anything custom) which is passed to
-		// Q/coverflow. The full preview machinery (retain, realtime, onInvoke,
-		// access control) remains intact on the hidden elements.
-		if (typeof state.renderer === 'function') {
-			var coverflow = Q.Tool.from(tool.element, 'Q/coverflow');
-
-			// Animate exiting rendered coverflow items, then remove hidden previews
-			var exitingPending = 0;
-			Q.each(exiting, function () {
-				if (!this || !this.fields) {
-					return;
-				}
-				var publisherId = this.fields.publisherId;
-				var streamName  = this.fields.name;
-				var element = Q.getObject([publisherId, streamName], tool.previewElements);
-				if (!element) {
-					return;
-				}
-				++exitingPending;
-				var renderedEl = element._coverflowRenderedEl;
-				if (renderedEl) {
-					tool._animateRelatedExit(renderedEl, function () {
-						Q.removeElement(element, true);
-						if (!--exitingPending) {
-							_coverflowContinue();
-						}
-					});
-				} else {
-					Q.removeElement(element, true);
-					if (!--exitingPending) {
-						_coverflowContinue();
-					}
-				}
-			});
-
-			function _coverflowContinue() {
-				// Build a keyed lookup so we can skip exiting streams below
-				var exitingKeys = {};
-				Q.each(exiting, function () {
-					if (this.fields) {
-						exitingKeys[this.fields.publisherId + "\t" + this.fields.name] = true;
-					}
-				});
-
-				_applyUpdatingWeights();
-
-				// Build hidden preview elements for all entering relations
-				var enteringEntries = [];
-				Q.each(result.relations, function () {
-					var direction = state.isCategory ? this.from : this.to;
-					if (!direction) {
-						return;
-					}
-					var tff = direction.fields;
-
-					if (exitingKeys[tff.publisherId + "\t" + tff.name]) {
-						return;
-					}
-					if (Q.getObject([tff.publisherId, tff.name], tool.previewElements)) {
-						return;
-					}
-
-					var element = tool.elementForStream(
-						tff.publisherId, tff.name, tff.type,
-						this.weight,
-						state.previewOptions,
-						state.specificOptions
-					);
-
-					// Keep preview elements alive but hidden from the visible DOM
-					element.style.display = 'none';
-					tool.element.appendChild(element);
-					Q.setObject([tff.publisherId, tff.name], element, tool.previewElements);
-					enteringEntries.push({ element: element, fields: tff, weight: this.weight });
-				});
-
-				if (!enteringEntries.length && Q.isEmpty(exiting) && Q.isEmpty(updating)) {
-					return;
-				}
-
-				if (!enteringEntries.length) {
-					return tool._updateCoverflow(result, enteringEntries, exiting);
-				}
-
-				// Activate preview tools, then call the renderer for each stream
-				var elementsToActivate = enteringEntries.map(function(e) { return e.element; });
-				Q.activate(elementsToActivate, null, function () {
-					var pending = enteringEntries.length;
-					if (!pending) {
-						return tool._updateCoverflow(result, enteringEntries, exiting);
-					}
-
-					enteringEntries.forEach(function(entry) {
-						var previewTool = Q.Tool.from(entry.element, 'Streams/preview');
-						if (!previewTool) {
-							if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
-							return;
-						}
-
-						function _render(stream) {
-							state.renderer(stream, previewTool, function(renderedEl) {
-								entry.renderedEl = renderedEl;
-								// Wire fastclick on rendered element to previewTool's onInvoke
-								$(renderedEl).on(Q.Pointer.fastclick, function() {
-									Q.handle(previewTool.state.onInvoke, previewTool, []);
-								});
-								if (!--pending) {
-									Q.each(enteringEntries, function () {
-										if (this.renderedEl) {
-											this.renderedEl.setAttribute('data-streams-related', 'entering');
-										}
-									});
-									tool._updateCoverflow(result, enteringEntries, exiting);
-									Q.each(enteringEntries, function () {
-										if (this.renderedEl) {
-											tool._animateRelatedEnter(this.renderedEl);
-										}
-									});
-								}
-							});
-						}
-
-						// Use cached stream if available, otherwise fetch
-						var cached = Q.Streams.get.cache.get([entry.fields.publisherId, entry.fields.name]);
-						var stream = cached && cached.subject;
-						if (stream) {
-							_render(stream);
-						} else {
-							Q.Streams.get(entry.fields.publisherId, entry.fields.name, function(err, s) {
-								if (err || !s) {
-									if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
-									return;
-								}
-								_render(s);
-							});
-						}
-					});
-				});
-			}
-
-			if (exitingPending) {
-				return; // _coverflowContinue after exits finish
-			}
-			_coverflowContinue();
-			return; // skip the normal preview-tool path entirely
-		}
-
-		// ---- normal preview-tool path ---------------------------------------
-
-		function _placeRelatedTool (element) {
-			// If a preview was reparented under a wrapper inside this related tool,
-			// insert relative to that wrapper (direct child of $container), not the
-			// nested preview — otherwise new items land inside the wrapper.
-			function _placementAnchor(el) {
-				var container = $container[0];
-				var node = el && el.nodeType ? el : null;
-				if (!node || !container || !container.contains(node)) {
-					return null;
-				}
-				while (node.parentNode && node.parentNode !== container) {
-					node = node.parentNode;
-				}
-				return (node.parentNode === container) ? node : null;
-			}
-
-			function _placeBefore(anchor, el) {
-				var node = _placementAnchor(anchor);
-				if (node && node !== el) {
-					$(node).before(el);
-				} else {
-					$container.prepend(el);
-				}
-			}
-
-			function _placeAfter(anchor, el) {
-				var node = _placementAnchor(anchor);
-				if (node && node !== el) {
-					$(node).after(el);
-				} else {
-					$container.append(el);
-				}
-			}
-
-			// select closest larger weight
-			var closestLargerWeight = null;
-			var closestLargerElement = null;
-			var elementsAmount = 0;
-			var thisWeight = Q.getObject("options.streams_preview.related.weight", element);
-			Q.each(tool.previewElements, function () {
-				Q.each(this, function () {
-					var weight = Q.getObject("options.streams_preview.related.weight", this);
-					if (weight > thisWeight && (!closestLargerWeight || weight < closestLargerWeight)) {
-						closestLargerWeight = weight;
-						closestLargerElement = this;
-					}
-					elementsAmount++;
-				});
-			});
-
-			if (closestLargerElement) {
-				if (ascending) {
-					_placeBefore(closestLargerElement, element);
-				} else {
-					_placeAfter(closestLargerElement, element);
-				}
-			} else {
-				if (ascending) {
-					if (elementsAmount <= 1) {
-						$container.append(element);
-					} else {
-						var $last = $(".Streams_related_stream", $container).filter(function () {
-							return this !== element
-								&& $(this).closest('.Streams_related_tool')[0] === tool.element;
-						}).last();
-						if ($last.length) {
-							_placeAfter($last[0], element);
-						} else {
-							$container.append(element);
-						}
-					}
-				} else {
-					if (elementsAmount <= 1) {
-						$container.prepend(element);
-					} else {
-						var $first = $(".Streams_related_stream", $container).filter(function () {
-							return this !== element
-								&& $(this).closest('.Streams_related_tool')[0] === tool.element;
-						}).first();
-						if ($first.length) {
-							_placeBefore($first[0], element);
-						} else {
-							$container.prepend(element);
-						}
-					}
-				}
-			}
-
-			var composerPosition = state.composerPosition || (ascending ? "last" : "first");
-			// Only this related tool's own composers — not nested Streams/related
-			var $composer = $container.children('.Streams_related_composer');
-				if (composerPosition === "first") {
-					$container.prepend($composer);
-				} else if (composerPosition === "last") {
-					$container.append($composer);
-				}
-		}
-
-		function addComposer(streamType, params) {
-			// TODO: test whether the user can really create streams of this type
-			// and otherwise do not append this element
-			if (params && !Q.isPlainObject(params)) {
-				params = {};
-			}
-			params.streamType = streamType;
-
-			var tff = {
-				publisherId: params.publisherId || tool.state.publisherId,
-				name: "",
-				type: streamType,
-				previewOptions: Q.extend(state.previewOptions, { creatable: params }),
-				specificOptions: state.specificOptions
-			};
-
-			var element = tool.elementForStream(
-				tff.publisherId, tff.name, tff.type, null, tff.previewOptions, tff.specificOptions
-			).addClass('Streams_related_composer Q_contextual_inactive');
-
-			if (Q.handle(state.beforeRenderPreview, tool, [tff, element]) === false) {
-				return;
-			}
-
-			tool.element.addClass('Streams_related_hasComposers');
-
-			if (tool.tabs) {
-				element.addClass('Q_tabs_tab');
-			}
-
-			if (state.composerPosition) {
-				if (state.composerPosition === "first") {
-					$container.prepend(element);
-				} else if (state.composerPosition === "last") {
-					$container.append(element);
-				}
-			} else {
-				if (!ascending) {
-					$container.prepend(element);
-				} else {
-					$container.append(element);
-				}
-			}
-
-			Q.activate(element, function () {
-				var preview = Q.Tool.from(element, 'Streams/preview');
-				var previewState = preview.state;
-				tool.integrateWithTabs([element], true);
-				previewState.beforeCreate.set(function () {
-					$(this.element).addClass('Streams_related_loading')
-						.removeClass('Streams_related_composer');
-					previewState.beforeCreate.remove(tool);
-				}, tool);
-				previewState.onCreate.set(function (stream) {
-					element.addClass('Streams_related_stream');
-					element.setAttribute("data-streamName", stream.fields.name);
-					Q.setObject("options.streams_preview.related.weight", this.state.related.weight, element);
-					element.setAttribute('data-weight', this.state.related.weight);
-
-					var publisherId = stream.fields.publisherId;
-					var streamName = stream.fields.name;
-
-					// Register in previewElements so realtime refresh skips it
-					Q.setObject([publisherId, streamName], element, tool.previewElements);
-
-					if (Q.handle(state.beforeRenderPreview, tool, [Q.extend({}, tff, {name: streamName}), element]) === false) {
-						// Realtime refresh (or another path) already rendered this stream.
-						// Do not _placeRelatedTool — that would re-insert this element and duplicate.
-						var existing = null;
-						$(".Streams_preview_tool:not(.Streams_preview_composer)", tool.element).each(function () {
-							if (this !== element
-							&& this.getAttribute("data-publisherId") === publisherId
-							&& this.getAttribute("data-streamName") === streamName) {
-								existing = this;
-								return false;
-							}
-						});
-						if (existing) {
-							Q.setObject([publisherId, streamName], existing, tool.previewElements);
-						} else if (Q.getObject([publisherId, streamName], tool.previewElements) === element) {
-							delete tool.previewElements[publisherId][streamName];
-							if (Q.isEmpty(tool.previewElements[publisherId])) {
-								delete tool.previewElements[publisherId];
-							}
-						}
-						element.remove();
-						addComposer(streamType, params);
-						setTimeout(function () {
-							var previewTool = existing
-								? Q.Tool.from(existing, 'Streams/preview')
-								: null;
-							var previews = [];
-							var map = {};
-							if (previewTool) {
-								previews.push(previewTool);
-								map[Streams.key(publisherId, streamName)] = 0;
-							}
-							state.onRefresh.handle.call(tool, previews, map, [stream], [], []);
-						}, 0);
-						return;
-					}
-					// Leave the new stream where the composer was (first/last by
-					// design). Re-sorting by weight here pushes items under when
-					// the new relation weight is still lower than existing ones.
-					addComposer(streamType, params);
-
-					// Own related messages skip tool.refresh(); fire onRefresh so
-					// dependents can react to locally created previews.
-					// Defer until after Streams/preview finishes onCreate (removes
-					// Streams_preview_composer) so handlers that scan children see it.
-					var previewTool = Q.Tool.from(element, 'Streams/preview');
-					var previews = [];
-					var map = {};
-					if (previewTool) {
-						previews.push(previewTool);
-						map[Streams.key(publisherId, streamName)] = 0;
-					}
-					setTimeout(function () {
-						state.onRefresh.handle.call(tool, previews, map, [stream], [], []);
-					}, 0);
-				}, tool);
-
-				Q.handle(state.onComposer, tool, [preview]);
-			});
-		}
-
-		if (result.stream.testWriteLevel('relate')) {
-			Q.each(state.creatable, addComposer);
-			if (state.sortable && result.stream.testWriteLevel('edit')) {
-				if (state.realtime) {
-					alert("Streams/related: can't mix realtime and sortable options yet");
-					return;
-				}
-				var sortableOptions = Q.extend({}, state.sortable);
-				var $t = tool.$();
-				$t.plugin('Q/sortable', sortableOptions, function () {
-					$t.state('Q/sortable').onSuccess.set(function ($item, data) {
-						if (!data.direction) return;
-						var p = new Q.Pipe(['timeout', 'updated'], function () {
-							if (state.realtime) return;
-							Streams.related.cache.removeEach(
-								[state.publisherId, state.streamName]
-							);
-							// TODO: replace with animation?
-							tool.refresh();
-						});
-						var s = Q.Tool.from(data.target, 'Streams/preview').state;
-						var i = Q.Tool.from($item[0], 'Streams/preview').state;
-						var r = i.related;
-						setTimeout(
-							p.fill('timeout'),
-							this.state('Q/sortable').drop.duration
-						);
-						Streams.updateRelation(
-							r.publisherId,
-							r.streamName,
-							r.type,
-							i.publisherId,
-							i.streamName,
-							s.related.weight,
-							1,
-							p.fill('updated')
-						);
-					}, tool);
-				});
-			}
-		}
-
-		// Animate exiting previews, then remove
-		Q.each(exiting, function (i) {
-			if (!this || !this.fields) {
-				return;
-			}
-			var publisherId = this.fields.publisherId;
-			var streamName = this.fields.name;
-			var element = Q.getObject([publisherId, streamName], tool.previewElements);
-
-			if (!element) {
-				return;
-			}
-
-			// Drop map entry immediately so a following relatedTo can enter
-			// before the exit transition / MutationObserver finishes.
-			if (tool.previewElements[publisherId]) {
-				delete tool.previewElements[publisherId][streamName];
-				if (Q.isEmpty(tool.previewElements[publisherId])) {
-					delete tool.previewElements[publisherId];
-				}
-			}
-
-			tool._animateRelatedExit(element, function () {
-				Q.removeElement(element, true);
-			});
-		});
-
-		// Build a keyed lookup for exiting in the normal path too
-		var exitingKeysNormal = {};
-		Q.each(exiting, function () {
-			if (this.fields) {
-				exitingKeysNormal[this.fields.publisherId + "\t" + this.fields.name] = true;
-			}
-		});
-
-		_applyUpdatingWeights();
-		Q.each(updating, function () {
-			if (!this || !this.fields) {
-				return;
-			}
-			var element = Q.getObject([this.fields.publisherId, this.fields.name], tool.previewElements);
-			if (element) {
-				_placeRelatedTool(element);
-			}
-		});
-
-		var elements = [];
-		Q.each(result.relations, function (i) {
-			var direction = state.isCategory ? this.from : this.to;
-			if (!direction) {
-				return;
-			}
-
-			var tff = direction.fields;
-
-			// skip if stream exists in exiting
-			if (exitingKeysNormal[tff.publisherId + "\t" + tff.name]) {
-				return;
-			}
-
-			// skip if element exists
-			if (Q.getObject([tff.publisherId, tff.name], tool.previewElements)) {
-				return;
-			}
-
-			var element = tool.elementForStream(
-				tff.publisherId,
-				tff.name,
-				tff.type,
-				this.weight,
-				state.previewOptions,
-				state.specificOptions
-			);
-
-			if (Q.handle(state.beforeRenderPreview, tool, [tff, element]) === false) {
-				return;
-			}
-
-			elements.push(element);
-			$(element).addClass('Streams_related_stream');
-			Q.setObject([tff.publisherId, tff.name], element, tool.previewElements);
-
-			element.setAttribute('data-streams-related', 'entering');
-			_placeRelatedTool(element);
-			tool._animateRelatedEnter(element);
-		});
-
-		// activate the elements one by one, asynchronously
-		var previews = [];
-		var map = {};
-		if (!elements.length) {
-			if (tool.tabs) {
-				tool.tabs.refresh();
-			}
-			tool.state.onRefresh.handle.call(tool, previews, map, entering, exiting, updating);
-			return;
-		}
-		var i=0;
-		var batchSize = state.activate.batchSize.start;
-		setTimeout(function _activatePreview() {
-			var elementsToActivate = [];
-			var _done = false;
-			for (var j=0; j<batchSize; ++j) {
-				var element = elements[i++];
-				if (element) {
-					elementsToActivate.push(element);
-				} else {
-					_done = true;
-					break;
-				}
-			}
-			batchSize *= state.activate.batchSize.grow;
-			Q.activate(elementsToActivate, null, function (elem, tools, options) {
-				Q.each(tools, function () {
-					var index = previews.push(this) - 1;
-					var publisherId = Q.getObject("preview.state.publisherId", this);
-					var streamName = Q.getObject("preview.state.streamName", this);
-
-					if (!publisherId || !streamName) {
-						return;
-					}
-
-					var key = Streams.key(publisherId, streamName);
-					map[key] = index;
-				});
-				tool.integrateWithTabs(elem, true);
-				if (_done) {
-					if (tool.tabs) {
-						tool.tabs.refresh();
-					}
-					tool.state.onRefresh.handle.call(tool, previews, map, entering, exiting, updating);
-					return;
-				}
-				setTimeout(_activatePreview, 0);
-			});
-		}, 0);
-
-	}, "Streams/related"),
-	onRefresh: new Q.Event()
+		var existing = Q.getObject([tff.publisherId, tff.name], this.previewElements);
+		return !existing || existing === element;
+	}),
+	onUpdate: new Q.Event(function () {
+		this._onUpdate.apply(this, arguments);
+	}),
+	onRefresh: new Q.Event(function () {
+		this._applyInfinitescroll();
+	})
 },
 
 {
@@ -962,12 +266,9 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	refresh: function (onUpdate) {
 		var tool = this;
 		var state = tool.state;
-		var publisherId = state.publisherId || Q.getObject("stream.fields.publisherId", state);
-		var streamName = state.streamName || Q.getObject("stream.fields.name", state);
-
 		Streams.retainWith(tool).related.force(
-			publisherId,
-			streamName,
+			state.publisherId || Q.getObject("stream.fields.publisherId", state),
+			state.streamName || Q.getObject("stream.fields.name", state),
 			state.relationType,
 			state.isCategory,
 			state.relatedOptions,
@@ -975,7 +276,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				if (errorMessage) {
 					return console.warn("Streams/related refresh: " + errorMessage);
 				}
-
 				tool.relatedResult(this, onUpdate);
 			}
 		);
@@ -992,7 +292,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		var state = this.state;
 
 		if (tool.state.realtime && !tool.stream) {
-			// join user to category stream to allow get messages
 			if (Q.getObject("participant.state", result.stream) !== 'participating') {
 				result.stream.retain(tool);
 			}
@@ -1000,18 +299,15 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 
 		tool.stream = result.stream;
 
-		var entering, exiting, updating;
-		entering = exiting = updating = null;
-		function comparator(s1, s2, i, j) {
+		function comparator(s1, s2) {
 			return s1 && s2 && s1.fields && s2.fields
 				&& s1.fields.publisherId === s2.fields.publisherId
 				&& s1.fields.name === s2.fields.name;
 		}
 		var tsr = tool.state.result;
+		var entering, exiting, updating;
 		if (!Q.isEmpty(tsr)) {
-			if (!partial) {
-				exiting = Q.diff(tsr.relatedStreams, result.relatedStreams, comparator);
-			}
+			exiting = partial ? null : Q.diff(tsr.relatedStreams, result.relatedStreams, comparator);
 			entering = Q.diff(result.relatedStreams, tsr.relatedStreams, comparator);
 			updating = Q.diff(result.relatedStreams, entering, exiting, comparator);
 		} else {
@@ -1021,7 +317,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		tool.state.onUpdate.handle.apply(tool, [result, entering, exiting, updating]);
 		Q.handle(onUpdate, tool, [result, entering, exiting, updating]);
 
-		// Now that we have the stream, we can update the event listeners again
 		var dir = tool.state.isCategory ? 'To' : 'From';
 		var eventNames = ['onRelated'+dir, 'onUnrelated'+dir, 'onUpdatedRelate'+dir];
 		if (tool.state.realtime) {
@@ -1047,30 +342,21 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	loadMore: function (offset, onUpdate) {
 		var tool = this;
 		var state = tool.state;
-		var publisherId = state.publisherId || Q.getObject("stream.fields.publisherId", state);
-		var streamName = state.streamName || Q.getObject("stream.fields.name", state);
-
 		var limit = Q.getObject("relatedOptions.limit", state);
 		if (!limit) {
 			throw new Q.Error("Streams/related/loadMore: limit undefined, no sense to use loadMore, because all items loaded");
 		}
 
-		var relatedOptions = Q.extend({}, state.relatedOptions, {
-			limit: limit,
-			offset: offset
-		});
-
 		Streams.retainWith(tool).related(
-			publisherId,
-			streamName,
+			state.publisherId || Q.getObject("stream.fields.publisherId", state),
+			state.streamName || Q.getObject("stream.fields.name", state),
 			state.relationType,
 			state.isCategory,
-			relatedOptions,
+			Q.extend({}, state.relatedOptions, { limit: limit, offset: offset }),
 			function (errorMessage) {
 				if (errorMessage) {
 					return console.warn("Streams/related refresh: " + errorMessage);
 				}
-
 				tool.relatedResult(this, onUpdate, true);
 			}
 		);
@@ -1093,9 +379,8 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 
 		Streams.related.cache.removeEach([state.publisherId, state.streamName]);
 
-		var isCategory = state.isCategory;
-		var farPublisherId = isCategory ? fields.fromPublisherId : fields.toPublisherId;
-		var farStreamName = isCategory ? fields.fromStreamName : fields.toStreamName;
+		var farPublisherId = state.isCategory ? fields.fromPublisherId : fields.toPublisherId;
+		var farStreamName = state.isCategory ? fields.fromStreamName : fields.toStreamName;
 		var existingPreview = farPublisherId && farStreamName
 			? Q.getObject([farPublisherId, farStreamName], tool.previewElements)
 			: null;
@@ -1114,23 +399,10 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			return;
 		}
 
-		if (Q.isEmpty(state.result)) {
-			tool.refresh();
-			state.lastMessageOrdinal = msg.ordinal;
-			return;
-		}
-
-		if (/^Streams\/updatedRelate(To|From)$/.test(msg.type)
-		&& fields.mode === 'shift') {
-			tool.refresh();
-			state.lastMessageOrdinal = msg.ordinal;
-			return;
-		}
-
-		if (!farPublisherId || !farStreamName) {
-			tool.refresh();
-			state.lastMessageOrdinal = msg.ordinal;
-			return;
+		if (Q.isEmpty(state.result)
+		|| (/^Streams\/updatedRelate(To|From)$/.test(msg.type) && fields.mode === 'shift')
+		|| !farPublisherId || !farStreamName) {
+			return tool._refreshFromMessage(msg);
 		}
 
 		var result = state.result;
@@ -1140,122 +412,27 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		var updating = [];
 		var relationWeight = (fields.weight != null) ? fields.weight : msg.weight;
 
-		function _finish(extraResult) {
-			var r = extraResult || result;
-			state.result = r;
-			state.onUpdate.handle.apply(tool, [r, entering, exiting, updating]);
-			state.lastMessageOrdinal = msg.ordinal;
-		}
-
-		function _relationCount() {
-			var n = 0;
-			Q.each(result.relatedStreams, function () { ++n; });
-			return n;
-		}
-
-		function _removeFromResult(stream) {
-			delete result.relatedStreams[key];
-			var relations = result.relations || [];
-			for (var j = relations.length - 1; j >= 0; --j) {
-				var rel = relations[j];
-				var match = isCategory
-					? (rel.fromPublisherId === farPublisherId && rel.fromStreamName === farStreamName)
-					: (rel.toPublisherId === farPublisherId && rel.toStreamName === farStreamName);
-				if (match && rel.type === fields.type) {
-					relations.splice(j, 1);
-				}
-			}
-			if (stream) {
-				exiting.push(stream);
-			}
-		}
-
-		function _insertRelation(relation) {
-			var relations = result.relations || (result.relations = []);
-			var ascending = Q.getObject('relatedOptions.ascending', state) || false;
-			var inserted = false;
-			for (var i = 0; i < relations.length; i++) {
-				var w = parseFloat(relations[i].weight);
-				var rw = parseFloat(relation.weight);
-				if (ascending ? rw < w : rw > w) {
-					relations.splice(i, 0, relation);
-					inserted = true;
-					break;
-				}
-			}
-			if (!inserted) {
-				relations.push(relation);
-			}
-		}
-
-		function _ensureRelation(stream) {
-			var hasRelation = false;
-			Q.each(result.relations, function () {
-				var match = isCategory
-					? (this.fromPublisherId === farPublisherId && this.fromStreamName === farStreamName)
-					: (this.toPublisherId === farPublisherId && this.toStreamName === farStreamName);
-				if (match && this.type === fields.type) {
-					hasRelation = true;
-					this.weight = relationWeight;
-					if (isCategory) {
-						this.from = stream;
-						this.to = result.stream;
-					} else {
-						this.to = stream;
-						this.from = result.stream;
-					}
-					return false;
-				}
-			});
-			if (hasRelation) {
-				return;
-			}
-			var relation = {
-				type: fields.type,
-				weight: relationWeight,
-				fromPublisherId: isCategory ? farPublisherId : state.publisherId,
-				fromStreamName: isCategory ? farStreamName : state.streamName,
-				toPublisherId: isCategory ? state.publisherId : farPublisherId,
-				toStreamName: isCategory ? state.streamName : farStreamName
-			};
-			if (isCategory) {
-				relation.to = result.stream;
-				relation.from = stream;
-			} else {
-				relation.from = result.stream;
-				relation.to = stream;
-			}
-			_insertRelation(relation);
+		function _finish() {
+			tool._finishRelationPatch(result, entering, exiting, updating, msg.ordinal);
 		}
 
 		if (/^Streams\/related(To|From)$/.test(msg.type)) {
 			var limit = Q.getObject('relatedOptions.limit', state);
-			if (limit && _relationCount() >= limit && !result.relatedStreams[key]) {
-				tool.refresh();
-				state.lastMessageOrdinal = msg.ordinal;
-				return;
+			if (limit && tool._relationCount(result) >= limit && !result.relatedStreams[key]) {
+				return tool._refreshFromMessage(msg);
 			}
-			// Already in result and DOM — nothing to do
 			if (result.relatedStreams[key] && existingPreview) {
 				state.lastMessageOrdinal = msg.ordinal;
 				return;
 			}
 			// Stale previewElements after unrelated raced ahead of removeRelation
-			// or exit animation still in progress. MutationObserver clears the map
-			// asynchronously — delete synchronously so onUpdate can enter.
 			if (existingPreview && !result.relatedStreams[key]) {
 				Q.removeElement(existingPreview, true);
-				if (tool.previewElements[farPublisherId]) {
-					delete tool.previewElements[farPublisherId][farStreamName];
-					if (Q.isEmpty(tool.previewElements[farPublisherId])) {
-						delete tool.previewElements[farPublisherId];
-					}
-				}
+				tool._forgetPreview(farPublisherId, farStreamName);
 				existingPreview = null;
 			}
-			// In result but missing from DOM — still need onUpdate to enter
 			if (result.relatedStreams[key] && !existingPreview) {
-				_ensureRelation(result.relatedStreams[key]);
+				tool._ensureRelation(result, result.relatedStreams[key], farPublisherId, farStreamName, fields, relationWeight);
 				entering.push(result.relatedStreams[key]);
 				_finish();
 				return;
@@ -1266,7 +443,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 					return tool.refresh();
 				}
 				result.relatedStreams[key] = stream;
-				_ensureRelation(stream);
+				tool._ensureRelation(result, stream, farPublisherId, farStreamName, fields, relationWeight);
 				entering.push(stream);
 				_finish();
 			});
@@ -1279,7 +456,9 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				state.lastMessageOrdinal = msg.ordinal;
 				return;
 			}
-			_removeFromResult(removed);
+			delete result.relatedStreams[key];
+			tool._removeRelations(result.relations || [], farPublisherId, farStreamName, fields.type);
+			exiting.push(removed);
 			_finish();
 			return;
 		}
@@ -1287,47 +466,20 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		if (/^Streams\/updatedRelate(To|From)$/.test(msg.type)) {
 			var existing = result.relatedStreams[key];
 			if (!existing) {
-				tool.refresh();
-				state.lastMessageOrdinal = msg.ordinal;
-				return;
+				return tool._refreshFromMessage(msg);
 			}
-			var found = false;
-			Q.each(result.relations, function () {
-				var match = isCategory
-					? (this.fromPublisherId === farPublisherId && this.fromStreamName === farStreamName)
-					: (this.toPublisherId === farPublisherId && this.toStreamName === farStreamName);
-				if (match && this.type === fields.type) {
-					this.weight = relationWeight;
-					found = true;
-					return false;
-				}
-			});
-			if (!found) {
-				tool.refresh();
-				state.lastMessageOrdinal = msg.ordinal;
-				return;
+			var rel = tool._spliceRelation(result.relations, farPublisherId, farStreamName, fields.type);
+			if (!rel) {
+				return tool._refreshFromMessage(msg);
 			}
-			// Re-sort relations by weight after the update
-			var rel = null;
-			Q.each(result.relations, function (j) {
-				var match = isCategory
-					? (this.fromPublisherId === farPublisherId && this.fromStreamName === farStreamName)
-					: (this.toPublisherId === farPublisherId && this.toStreamName === farStreamName);
-				if (match && this.type === fields.type) {
-					rel = result.relations.splice(j, 1)[0];
-					return false;
-				}
-			});
-			if (rel) {
-				_insertRelation(rel);
-			}
+			rel.weight = relationWeight;
+			tool._insertRelation(result.relations, rel);
 			updating.push(existing);
 			_finish();
 			return;
 		}
 
-		tool.refresh();
-		state.lastMessageOrdinal = msg.ordinal;
+		tool._refreshFromMessage(msg);
 	},
 
 	/**
@@ -1388,51 +540,16 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	 * @param {String} streamName
 	 */
 	removeRelation: function (publisherId, streamName) {
-		var tool = this;
 		var result = this.state.result;
-
-		// In renderer mode, preview tools are hidden and may not be found by children().
-		// Try previewElements directly first.
-		var previewEl = Q.getObject([publisherId, streamName], tool.previewElements);
-		if (previewEl) {
-			var pt = Q.Tool.from(previewEl, 'Streams/preview');
-			if (pt) {
-				Q.Tool.remove(previewEl, true, true);
-				delete result.relatedStreams[publisherId + "\t" + streamName];
-				Q.each(result.relations, function (j, relation) {
-					if (relation.fromPublisherId === publisherId && relation.fromStreamName === streamName) {
-						result.relations.splice(j, 1);
-					}
-				});
-				return;
-			}
+		var previewEl = Q.getObject([publisherId, streamName], this.previewElements);
+		if (!previewEl) {
+			return;
 		}
-
-		// Normal path: search visible child preview tools
-		var previewTools = this.children("Streams/preview");
-		Q.each(previewTools, function (i, previewTool) {
-			previewTool = Q.getObject("streams_preview", previewTool);
-
-			if (!previewTool) {
-				return console.warn("Streams/related.removeRelation: Streams/preview tool not found");
-			}
-
-			if (previewTool.state.publisherId !== publisherId || previewTool.state.streamName !== streamName) {
-				return;
-			}
-
-			Q.Tool.remove(previewTool.element, true, true);
-
-			// delete from relatedStreams
-			delete result.relatedStreams[publisherId + "\t" + streamName];
-
-			// delete from relations
-			Q.each(result.relations, function (j, relation) {
-				if (relation.fromPublisherId === publisherId && relation.fromStreamName === streamName) {
-					result.relations.splice(j, 1);
-				}
-			});
-		});
+		Q.Tool.remove(previewEl, true, true);
+		if (result) {
+			delete result.relatedStreams[Streams.key(publisherId, streamName)];
+			this._removeRelations(result.relations || [], publisherId, streamName);
+		}
 	},
 	/**
 	 * You don't normally have to call this method, since it's called automatically.
@@ -1502,7 +619,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 								if (err) {
 									return console.warn(err);
 								}
-
 								tool.removeRelation(publisherId, streamName);
 							});
 						}, {title: tool.text.participating.RemoveParticipant});
@@ -1519,7 +635,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			toolOptions,
 			null, this.prefix
 		);
-		// we need these attributes to check if this preview tool already exists to avoid duplicated previews
 		e.setAttribute('data-publisherId', publisherId);
 		e.setAttribute('data-streamName', streamName);
 		e.setAttribute('data-streamType', streamType);
@@ -1536,7 +651,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	 *  The elements of the tools representing the related streams
 	 */
 	integrateWithTabs: function (elements, skipRefresh) {
-		var id, tabs, i;
 		var tool = this;
 		var state = tool.state;
 		if (typeof state.tabs === 'string') {
@@ -1557,29 +671,25 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		if (!tool.tabs) {
 			return;
 		}
-		tabs = tool.tabs;
-		var $composer = tool.$('.Streams_related_composer');
-		$composer.addClass('Q_tabs_tab');
-		Q.each(elements, function (i) {
+		var tabs = tool.tabs;
+		tool.$('.Streams_related_composer').addClass('Q_tabs_tab');
+		Q.each(elements, function () {
 			var element = this;
 			element.addClass("Q_tabs_tab");
 			var preview = Q.Tool.from(element, 'Streams/preview');
 			preview.state.onRefresh.addOnce(function () {
 				var value = state.tabs.call(tool, preview, tabs);
-				var attr = value.isUrl() ? 'href' : 'data-name';
-				element.setAttribute(attr, value);
+				element.setAttribute(value.isUrl() ? 'href' : 'data-name', value);
 				if (!tabs.$tabs.is(element)) {
 					tabs.$tabs = tabs.$tabs.add(element);
 				}
-				var onLoad = preview.state.onLoad;
-				if (onLoad) {
-					onLoad.addOnce(function () {
-						// all the related tabs have loaded, process them
+				if (preview.state.onLoad) {
+					preview.state.onLoad.addOnce(function () {
 						tabs.refresh();
 					});
 				}
 			});
-			var key2 = preview.state.onComposer.add(function () {
+			preview.state.onComposer.add(function () {
 				tabs.refresh();
 			});
 		});
@@ -1603,129 +713,88 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			return;
 		}
 
-		// Build a keyed lookup for exiting so we can skip them below.
-		// exiting is an array of stream objects from Q.diff.
-		var exitingMap = {};
-		Q.each(exiting, function () {
-			if (this.fields) {
-				exitingMap[this.fields.publisherId + "\t" + this.fields.name] = true;
-			}
-		});
-		// Walk relations in their server-defined order to preserve weight ordering
+		var exitingMap = tool._exitingKeys(exiting);
 		var allElements = [];
 		Q.each(result.relations, function () {
-			var direction = state.isCategory ? this.from : this.to;
-			if (!direction) { return; }
-			var pId = direction.fields.publisherId;
-			var sName = direction.fields.name;
-
-			if (exitingMap[pId + "\t" + sName]) { return; }
-
-			var previewEl = Q.getObject([pId, sName], tool.previewElements);
-			if (!previewEl) { return; }
-
-			// Find the rendered element: check enteringEntries first, then cached
+			var tff = tool._farFields(this);
+			if (!tff || exitingMap[Streams.key(tff.publisherId, tff.name)]) {
+				return;
+			}
+			var previewEl = Q.getObject([tff.publisherId, tff.name], tool.previewElements);
+			if (!previewEl) {
+				return;
+			}
 			var renderedEl = null;
 			for (var i = 0; i < enteringEntries.length; i++) {
-				if (enteringEntries[i].fields.publisherId === pId
-					&& enteringEntries[i].fields.name === sName) {
+				if (enteringEntries[i].fields.publisherId === tff.publisherId
+				&& enteringEntries[i].fields.name === tff.name) {
 					renderedEl = enteringEntries[i].renderedEl;
 					break;
 				}
 			}
+			renderedEl = renderedEl || previewEl._coverflowRenderedEl;
 			if (!renderedEl) {
-				renderedEl = previewEl._coverflowRenderedEl;
+				return;
 			}
-			if (!renderedEl) { return; }
-
-			// Cache rendered element on hidden preview node for future partial updates
 			previewEl._coverflowRenderedEl = renderedEl;
 			allElements.push(renderedEl);
 		});
 
 		coverflow.state.elements = allElements;
-
-		// Rebuild covers unless a sort drag is active — rebuilding innerHTML
-		// during a drag would destroy the li the user is holding.
 		if (!coverflow._covers || !coverflow._covers._sortableLifted) {
 			coverflow.refresh();
 		}
 
 		var covers = coverflow._covers;
-
-		// Apply Q/sortable to covers ul only once (first populate).
-		// Subsequent calls to _updateCoverflow rebuild the li contents via
-		// coverflow.refresh() above; sortable re-queries children dynamically
-		// on each drag, so no re-init is needed.
 		if (state.sortable && covers && !tool._coverflowSortableApplied
 		&& tool.stream && tool.stream.testWriteLevel('edit')) {
-			if (state.realtime) {
-				console.warn("Streams/related: can't mix realtime and sortable options yet");
-			} else {
-				tool._coverflowSortableApplied = true;
-				var $covers = $(covers);
-				var coverflowTool = Q.Tool.from(tool.element, 'Q/coverflow');
-				var coverflowSortableOpts = coverflowTool
-					? coverflowTool.sortableOptions()
-					: { draggable: 'li', droppable: 'li' };
-				// Q.extend would overwrite Q.Event instances (onLift, onDrop, onIndicate)
-				// from state.sortable with coverflow's versions, silently dropping any
-				// user-supplied handlers. Instead: extend only non-Event properties, then
-				// wire coverflow's event handlers via .set() after plugin() runs.
-				var coversSortableOptions = Q.extend({}, state.sortable, {
+			var coverflowSortableOpts = coverflow.sortableOptions();
+			var bound = tool._bindSortable(
+				$(covers),
+				Q.extend({}, state.sortable, {
 					draggable: coverflowSortableOpts.draggable,
 					droppable: coverflowSortableOpts.droppable
-				});
-				$covers.plugin('Q/sortable', coversSortableOptions, function () {
-					// Wire coverflow event handlers after init so they coexist with
-					// any user-supplied handlers from state.sortable.
-					// Reuse coverflowSortableOpts from above — no need to call sortableOptions() again.
-					if (coverflowTool) {
-						var coversSortableState = $covers.state('Q/sortable');
-						coversSortableState.onLift.set(coverflowSortableOpts._onLift, 'Q/coverflow');
-						coversSortableState.onDrop.set(coverflowSortableOpts._onDrop, 'Q/coverflow');
-						coversSortableState.onIndicate.set(coverflowSortableOpts._onIndicate, 'Q/coverflow');
+				}),
+				function ($item, data) {
+					var renderedEl = $item[0].querySelector('img, video');
+					var targetRenderedEl = data.target && $(data.target).find('img, video')[0];
+					if (!renderedEl || !targetRenderedEl) {
+						return null;
 					}
-					$covers.state('Q/sortable').onSuccess.set(function ($item, data) {
-						if (!data.direction) return;
-						var renderedEl = $item[0].querySelector('img, video');
-						if (!renderedEl) return;
-						var targetRenderedEl = data.target && $(data.target).find('img, video')[0];
-						if (!targetRenderedEl) return;
-						var draggedPreviewEl = null, targetPreviewEl = null;
-						Q.each(tool.previewElements, function () {
-							Q.each(this, function () {
-								if (this._coverflowRenderedEl === renderedEl) draggedPreviewEl = this;
-								if (this._coverflowRenderedEl === targetRenderedEl) targetPreviewEl = this;
-							});
+					var draggedPreviewEl = null, targetPreviewEl = null;
+					Q.each(tool.previewElements, function () {
+						Q.each(this, function () {
+							if (this._coverflowRenderedEl === renderedEl) draggedPreviewEl = this;
+							if (this._coverflowRenderedEl === targetRenderedEl) targetPreviewEl = this;
 						});
-						if (!draggedPreviewEl || !targetPreviewEl) return;
-						var iState = Q.Tool.from(draggedPreviewEl, 'Streams/preview').state;
-						var sState = Q.Tool.from(targetPreviewEl,  'Streams/preview').state;
-						if (!iState || !sState) return;
-						var r = iState.related;
-						var p = new Q.Pipe(['timeout', 'updated'], function () {
-							Streams.related.cache.removeEach(
-								[state.publisherId, state.streamName]
-							);
-							tool.refresh();
-						});
-						setTimeout(p.fill('timeout'), $covers.state('Q/sortable').drop.duration);
-						Streams.updateRelation(
-							r.publisherId, r.streamName, r.type,
-							iState.publisherId, iState.streamName,
-							sState.related.weight,
-							1,
-							p.fill('updated')
-						);
-					}, tool);
-				});
+					});
+					if (!draggedPreviewEl || !targetPreviewEl) {
+						return null;
+					}
+					var item = Q.Tool.from(draggedPreviewEl, 'Streams/preview');
+					var target = Q.Tool.from(targetPreviewEl, 'Streams/preview');
+					return (item && target) ? { item: item.state, target: target.state } : null;
+				},
+				function ($host) {
+					if (!coverflowSortableOpts._onLift) {
+						return;
+					}
+					var sortableState = $host.state('Q/sortable');
+					sortableState.onLift.set(coverflowSortableOpts._onLift, 'Q/coverflow');
+					sortableState.onDrop.set(coverflowSortableOpts._onDrop, 'Q/coverflow');
+					sortableState.onIndicate.set(coverflowSortableOpts._onIndicate, 'Q/coverflow');
+				}
+			);
+			if (bound) {
+				tool._coverflowSortableApplied = true;
 			}
 		}
 
-		// Pass actual entering/exiting to onRefresh matching normal-path signature.
-		var enteringFields = enteringEntries.map(function(e) { return e.fields; });
-		state.onRefresh.handle.call(tool, [], {}, enteringFields, exiting, []);
+		state.onRefresh.handle.call(
+			tool, [], {},
+			enteringEntries.map(function (e) { return e.fields; }),
+			exiting, []
+		);
 	},
 
 	previewElement: function (publisherId, streamName) {
@@ -1734,23 +803,740 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	previewTool: function (publisherId, streamName) {
 		return Q.getObject([publisherId, streamName, 'Q', 'tool'], this.previewElements);
 	},
+
+	/**
+	 * @method _onUpdate
+	 * @private
+	 */
+	_onUpdate: function (result, entering, exiting, updating) {
+		entering = entering || [];
+		exiting = exiting || [];
+		updating = updating || [];
+		this.element.style.setProperty(
+			'--Streams_related_duration',
+			(Q.getObject('updateOptions.duration', this.state) || 300) + 'ms'
+		);
+		if (typeof this.state.renderer === 'function') {
+			this._updateRenderer(result, entering, exiting, updating);
+		} else {
+			this._updatePreviews(result, entering, exiting, updating);
+		}
+	},
+
+	/**
+	 * Normal preview-tool path: composers, sortable, place/activate previews.
+	 * @method _updatePreviews
+	 * @private
+	 */
+	_updatePreviews: function (result, entering, exiting, updating) {
+		var tool = this;
+		var state = tool.state;
+
+		if (result.stream.testWriteLevel('relate')) {
+			Q.each(state.creatable, function (streamType, params) {
+				tool._addComposer(streamType, params);
+			});
+			if (state.sortable && result.stream.testWriteLevel('edit')) {
+				tool._bindSortable($(tool.element), Q.extend({}, state.sortable), function ($item, data) {
+					var item = Q.Tool.from($item[0], 'Streams/preview');
+					var target = Q.Tool.from(data.target, 'Streams/preview');
+					return (item && target) ? { item: item.state, target: target.state } : null;
+				});
+			}
+		}
+
+		Q.each(exiting, function () {
+			if (!this || !this.fields) {
+				return;
+			}
+			var publisherId = this.fields.publisherId;
+			var streamName = this.fields.name;
+			var element = Q.getObject([publisherId, streamName], tool.previewElements);
+			if (!element) {
+				return;
+			}
+			tool._forgetPreview(publisherId, streamName);
+			tool._animateRelatedExit(element, function () {
+				Q.removeElement(element, true);
+			});
+		});
+
+		var exitingKeys = tool._exitingKeys(exiting);
+		tool._applyUpdatingWeights(result, updating);
+		Q.each(updating, function () {
+			if (!this || !this.fields) {
+				return;
+			}
+			var element = Q.getObject([this.fields.publisherId, this.fields.name], tool.previewElements);
+			if (element) {
+				tool._placeRelatedElement(element);
+			}
+		});
+
+		var elements = [];
+		Q.each(result.relations, function () {
+			var tff = tool._farFields(this);
+			if (!tff || exitingKeys[Streams.key(tff.publisherId, tff.name)]
+			|| Q.getObject([tff.publisherId, tff.name], tool.previewElements)) {
+				return;
+			}
+			var element = tool.elementForStream(
+				tff.publisherId, tff.name, tff.type,
+				this.weight, state.previewOptions, state.specificOptions
+			);
+			if (Q.handle(state.beforeRenderPreview, tool, [tff, element]) === false) {
+				return;
+			}
+			elements.push(element);
+			$(element).addClass('Streams_related_stream');
+			tool._rememberPreview(tff.publisherId, tff.name, element);
+			element.setAttribute('data-streams-related', 'entering');
+			tool._placeRelatedElement(element);
+			tool._animateRelatedEnter(element);
+		});
+
+		tool._activatePreviews(elements, entering, exiting, updating);
+	},
+
+	/**
+	 * Renderer / coverflow path: hidden previews, lightweight rendered elements.
+	 * Skips composers (same as before).
+	 * @method _updateRenderer
+	 * @private
+	 */
+	_updateRenderer: function (result, entering, exiting, updating) {
+		var tool = this;
+		var state = tool.state;
+		var exitingPending = 0;
+
+		function _continue() {
+			var exitingKeys = tool._exitingKeys(exiting);
+			tool._applyUpdatingWeights(result, updating);
+
+			var enteringEntries = [];
+			Q.each(result.relations, function () {
+				var tff = tool._farFields(this);
+				if (!tff || exitingKeys[Streams.key(tff.publisherId, tff.name)]
+				|| Q.getObject([tff.publisherId, tff.name], tool.previewElements)) {
+					return;
+				}
+				var element = tool.elementForStream(
+					tff.publisherId, tff.name, tff.type,
+					this.weight, state.previewOptions, state.specificOptions
+				);
+				tool.element.appendChild(element);
+				tool._rememberPreview(tff.publisherId, tff.name, element);
+				enteringEntries.push({ element, fields: tff, weight: this.weight });
+			});
+
+			if (!enteringEntries.length && Q.isEmpty(exiting) && Q.isEmpty(updating)) {
+				return;
+			}
+			if (!enteringEntries.length) {
+				return tool._updateCoverflow(result, enteringEntries, exiting);
+			}
+
+			Q.activate(enteringEntries.map(function (e) { return e.element; }), null, function () {
+				var pending = enteringEntries.length;
+				if (!pending) {
+					return tool._updateCoverflow(result, enteringEntries, exiting);
+				}
+				function _maybeDone() {
+					if (--pending) {
+						return;
+					}
+					Q.each(enteringEntries, function () {
+						if (this.renderedEl) {
+							this.renderedEl.setAttribute('data-streams-related', 'entering');
+						}
+					});
+					tool._updateCoverflow(result, enteringEntries, exiting);
+					Q.each(enteringEntries, function () {
+						if (this.renderedEl) {
+							tool._animateRelatedEnter(this.renderedEl);
+						}
+					});
+				}
+				enteringEntries.forEach(function (entry) {
+					var previewTool = Q.Tool.from(entry.element, 'Streams/preview');
+					if (!previewTool) {
+						return _maybeDone();
+					}
+					function _render(stream) {
+						state.renderer(stream, previewTool, function (renderedEl) {
+							entry.renderedEl = renderedEl;
+							$(renderedEl).on(Q.Pointer.fastclick, function () {
+								Q.handle(previewTool.state.onInvoke, previewTool, []);
+							});
+							_maybeDone();
+						});
+					}
+					var cached = Q.Streams.get.cache.get([entry.fields.publisherId, entry.fields.name]);
+					var stream = cached && cached.subject;
+					if (stream) {
+						_render(stream);
+					} else {
+						Q.Streams.get(entry.fields.publisherId, entry.fields.name, function (err, s) {
+							if (err || !s) {
+								return _maybeDone();
+							}
+							_render(s);
+						});
+					}
+				});
+			});
+		}
+
+		Q.each(exiting, function () {
+			if (!this || !this.fields) {
+				return;
+			}
+			var publisherId = this.fields.publisherId;
+			var streamName = this.fields.name;
+			var element = Q.getObject([publisherId, streamName], tool.previewElements);
+			if (!element) {
+				return;
+			}
+			tool._forgetPreview(publisherId, streamName);
+			++exitingPending;
+			var renderedEl = element._coverflowRenderedEl;
+			if (renderedEl) {
+				tool._animateRelatedExit(renderedEl, function () {
+					Q.removeElement(element, true);
+					if (!--exitingPending) {
+						_continue();
+					}
+				});
+			} else {
+				Q.removeElement(element, true);
+				if (!--exitingPending) {
+					_continue();
+				}
+			}
+		});
+
+		if (!exitingPending) {
+			_continue();
+		}
+	},
+
+	_activatePreviews: function (elements, entering, exiting, updating) {
+		var tool = this;
+		var state = tool.state;
+		var previews = [];
+		var map = {};
+		if (!elements.length) {
+			if (tool.tabs) {
+				tool.tabs.refresh();
+			}
+			state.onRefresh.handle.call(tool, previews, map, entering, exiting, updating);
+			return;
+		}
+		var i = 0;
+		var batchSize = state.activate.batchSize.start;
+		setTimeout(function _activatePreview() {
+			var elementsToActivate = [];
+			var done = false;
+			for (var j = 0; j < batchSize; ++j) {
+				var element = elements[i++];
+				if (element) {
+					elementsToActivate.push(element);
+				} else {
+					done = true;
+					break;
+				}
+			}
+			batchSize *= state.activate.batchSize.grow;
+			Q.activate(elementsToActivate, null, function (elem, tools) {
+				Q.each(tools, function () {
+					var index = previews.push(this) - 1;
+					var publisherId = Q.getObject("preview.state.publisherId", this);
+					var streamName = Q.getObject("preview.state.streamName", this);
+					if (publisherId && streamName) {
+						map[Streams.key(publisherId, streamName)] = index;
+					}
+				});
+				tool.integrateWithTabs(elem, true);
+				if (done) {
+					if (tool.tabs) {
+						tool.tabs.refresh();
+					}
+					state.onRefresh.handle.call(tool, previews, map, entering, exiting, updating);
+					return;
+				}
+				setTimeout(_activatePreview, 0);
+			});
+		}, 0);
+	},
+
+	_normalizeRenderer: function () {
+		var state = this.state;
+		var names = Q.getObject(['Q', 'toolNames'], this.element) || [];
+		var hasCoverflow = names.indexOf(Q.normalize('Q/coverflow')) >= 0;
+		if (hasCoverflow && !state.renderer) {
+			state.renderer = _coverflowRenderer;
+		} else if (state.renderer === 'coverflow') {
+			state.renderer = _coverflowRenderer;
+		} else if (typeof state.renderer === 'string') {
+			state.renderer = _compileHandlebarsRenderer(state.renderer);
+		}
+		if (typeof state.renderer === 'function') {
+			this.element.setAttribute('data-view', 'renderer');
+		}
+	},
+
+	_applyInfinitescroll: function () {
+		var tool = this;
+		var state = tool.state;
+		if (!state.infinitescroll || tool.infinitescrollApplied) {
+			return;
+		}
+		var $dummyElement = $("<div>").css("height", $(window).height() * 2).appendTo(tool.element);
+		var scrollableElement = tool.element.scrollingParent(true, "vertical", true);
+		$dummyElement.remove();
+		if (!(scrollableElement instanceof HTMLElement) || scrollableElement.tagName === "HTML") {
+			return;
+		}
+		$(scrollableElement).tool('Q/infinitescroll', {
+			onInvoke: function () {
+				var offset = $(">.Streams_preview_tool.Streams_related_stream:visible", tool.element).length;
+				var infiniteTool = this;
+				if (!isNaN(infiniteTool.state.offset) && infiniteTool.state.offset >= offset) {
+					return;
+				}
+				infiniteTool.setLoading(true);
+				infiniteTool.state.offset = offset;
+				tool.loadMore(offset, function () {
+					infiniteTool.setLoading(false);
+				});
+			}
+		}, null, tool.prefix).activate(function () {
+			tool.infinitescrollApplied = true;
+		});
+	},
+
+	_container: function () {
+		var $te = $(this.element);
+		return $te.hasClass('Q_tabs_tool') ? $te.find('.Q_tabs_tabs') : $te;
+	},
+
+	_farFields: function (relation) {
+		if (!relation) {
+			return null;
+		}
+		var direction = this.state.isCategory ? relation.from : relation.to;
+		return (direction && direction.fields) ? direction.fields : null;
+	},
+
+	_rememberPreview: function (publisherId, streamName, element) {
+		Q.setObject([publisherId, streamName], element, this.previewElements);
+		return element;
+	},
+
+	_forgetPreview: function (publisherId, streamName) {
+		if (this.previewElements[publisherId]) {
+			delete this.previewElements[publisherId][streamName];
+			if (Q.isEmpty(this.previewElements[publisherId])) {
+				delete this.previewElements[publisherId];
+			}
+		}
+	},
+
+	_exitingKeys: function (exiting) {
+		var keys = {};
+		Q.each(exiting, function () {
+			if (this.fields) {
+				keys[Streams.key(this.fields.publisherId, this.fields.name)] = true;
+			}
+		});
+		return keys;
+	},
+
+	_relationMatches: function (relation, publisherId, streamName, type) {
+		if (!relation) {
+			return false;
+		}
+		var match = this.state.isCategory
+			? (relation.fromPublisherId === publisherId && relation.fromStreamName === streamName)
+			: (relation.toPublisherId === publisherId && relation.toStreamName === streamName);
+		return match && (type == null || relation.type === type);
+	},
+
+	_relationCount: function (result) {
+		var n = 0;
+		Q.each(result.relatedStreams, function () { ++n; });
+		return n;
+	},
+
+	_removeRelations: function (relations, publisherId, streamName, type) {
+		for (var j = relations.length - 1; j >= 0; --j) {
+			if (this._relationMatches(relations[j], publisherId, streamName, type)) {
+				relations.splice(j, 1);
+			}
+		}
+	},
+
+	_spliceRelation: function (relations, publisherId, streamName, type) {
+		if (!relations) {
+			return null;
+		}
+		for (var i = 0; i < relations.length; i++) {
+			if (this._relationMatches(relations[i], publisherId, streamName, type)) {
+				return relations.splice(i, 1)[0];
+			}
+		}
+		return null;
+	},
+
+	_insertRelation: function (relations, relation) {
+		var ascending = Q.getObject('relatedOptions.ascending', this.state) || false;
+		var rw = parseFloat(relation.weight);
+		for (var i = 0; i < relations.length; i++) {
+			if (ascending ? rw < parseFloat(relations[i].weight) : rw > parseFloat(relations[i].weight)) {
+				relations.splice(i, 0, relation);
+				return;
+			}
+		}
+		relations.push(relation);
+	},
+
+	_ensureRelation: function (result, stream, farPublisherId, farStreamName, fields, relationWeight) {
+		var state = this.state;
+		var relations = result.relations || (result.relations = []);
+		var existing = null;
+		for (var i = 0; i < relations.length; i++) {
+			if (this._relationMatches(relations[i], farPublisherId, farStreamName, fields.type)) {
+				existing = relations[i];
+				break;
+			}
+		}
+		if (existing) {
+			existing.weight = relationWeight;
+			if (state.isCategory) {
+				existing.from = stream;
+				existing.to = result.stream;
+			} else {
+				existing.to = stream;
+				existing.from = result.stream;
+			}
+			return;
+		}
+		var relation = {
+			type: fields.type,
+			weight: relationWeight,
+			fromPublisherId: state.isCategory ? farPublisherId : state.publisherId,
+			fromStreamName: state.isCategory ? farStreamName : state.streamName,
+			toPublisherId: state.isCategory ? state.publisherId : farPublisherId,
+			toStreamName: state.isCategory ? state.streamName : farStreamName
+		};
+		if (state.isCategory) {
+			relation.to = result.stream;
+			relation.from = stream;
+		} else {
+			relation.from = result.stream;
+			relation.to = stream;
+		}
+		this._insertRelation(relations, relation);
+	},
+
+	_refreshFromMessage: function (msg) {
+		this.refresh();
+		this.state.lastMessageOrdinal = msg.ordinal;
+	},
+
+	_finishRelationPatch: function (result, entering, exiting, updating, ordinal) {
+		this.state.result = result;
+		this.state.onUpdate.handle.apply(this, [result, entering, exiting, updating]);
+		this.state.lastMessageOrdinal = ordinal;
+	},
+
+	_weightFor: function (result, publisherId, streamName) {
+		var tool = this;
+		var w = null;
+		Q.each(result.relations, function () {
+			var tff = tool._farFields(this);
+			if (tff && tff.publisherId === publisherId && tff.name === streamName) {
+				w = this.weight;
+				return false;
+			}
+		});
+		return w;
+	},
+
+	_applyUpdatingWeights: function (result, updating) {
+		var tool = this;
+		Q.each(updating, function () {
+			if (!this || !this.fields) {
+				return;
+			}
+			var publisherId = this.fields.publisherId;
+			var streamName = this.fields.name;
+			var element = Q.getObject([publisherId, streamName], tool.previewElements);
+			if (!element) {
+				return;
+			}
+			var weight = tool._weightFor(result, publisherId, streamName);
+			if (weight == null) {
+				return;
+			}
+			Q.setObject("options.streams_preview.related.weight", weight, element);
+			element.setAttribute('data-weight', weight);
+			var preview = Q.Tool.from(element, 'Streams/preview');
+			if (preview && preview.state.related) {
+				preview.state.related.weight = weight;
+			}
+		});
+	},
+
+	_composerPosition: function () {
+		var ascending = Q.getObject("ascending", this.state.relatedOptions) || false;
+		return this.state.composerPosition || (ascending ? "last" : "first");
+	},
+
+	_repositionComposers: function () {
+		var $container = this._container();
+		var $composer = $container.children('.Streams_related_composer');
+		var pos = this._composerPosition();
+		if (pos === "first") {
+			$container.prepend($composer);
+		} else if (pos === "last") {
+			$container.append($composer);
+		}
+	},
+
+	/**
+	 * Insert a preview relative to siblings by weight. Uses the direct child of
+	 * the container as the anchor so wrapped previews (Places/locations) stay intact.
+	 * @method _placeRelatedElement
+	 * @private
+	 */
+	_placeRelatedElement: function (element) {
+		var tool = this;
+		var $container = tool._container();
+		var container = $container[0];
+		var ascending = Q.getObject("ascending", tool.state.relatedOptions) || false;
+		var thisWeight = Q.getObject("options.streams_preview.related.weight", element);
+		var closestLargerWeight = null;
+		var closestLargerElement = null;
+
+		function _placementAnchor(el) {
+			var node = el && el.nodeType ? el : null;
+			if (!node || !container || !container.contains(node)) {
+				return null;
+			}
+			while (node.parentNode && node.parentNode !== container) {
+				node = node.parentNode;
+			}
+			return (node.parentNode === container) ? node : null;
+		}
+		function _placeBefore(anchor, el) {
+			var node = _placementAnchor(anchor);
+			if (node && node !== el) {
+				$(node).before(el);
+			} else {
+				$container.prepend(el);
+			}
+		}
+		function _placeAfter(anchor, el) {
+			var node = _placementAnchor(anchor);
+			if (node && node !== el) {
+				$(node).after(el);
+			} else {
+				$container.append(el);
+			}
+		}
+
+		Q.each(tool.previewElements, function () {
+			Q.each(this, function () {
+				var weight = Q.getObject("options.streams_preview.related.weight", this);
+				if (weight > thisWeight && (!closestLargerWeight || weight < closestLargerWeight)) {
+					closestLargerWeight = weight;
+					closestLargerElement = this;
+				}
+			});
+		});
+
+		if (closestLargerElement) {
+			if (ascending) {
+				_placeBefore(closestLargerElement, element);
+			} else {
+				_placeAfter(closestLargerElement, element);
+			}
+		} else {
+			var $siblings = $(".Streams_related_stream", $container).filter(function () {
+				return this !== element
+					&& $(this).closest('.Streams_related_tool')[0] === tool.element;
+			});
+			if (ascending) {
+				$siblings.length ? _placeAfter($siblings.last()[0], element) : $container.append(element);
+			} else {
+				$siblings.length ? _placeBefore($siblings.first()[0], element) : $container.prepend(element);
+			}
+		}
+
+		tool._repositionComposers();
+	},
+
+	_addComposer: function (streamType, params) {
+		var tool = this;
+		var state = tool.state;
+		var $container = tool._container();
+		if (params && !Q.isPlainObject(params)) {
+			params = {};
+		}
+		params.streamType = streamType;
+
+		var tff = {
+			publisherId: params.publisherId || state.publisherId,
+			name: "",
+			type: streamType,
+			previewOptions: Q.extend(state.previewOptions, { creatable: params }),
+			specificOptions: state.specificOptions
+		};
+
+		var element = tool.elementForStream(
+			tff.publisherId, tff.name, tff.type, null, tff.previewOptions, tff.specificOptions
+		).addClass('Streams_related_composer Q_contextual_inactive');
+
+		if (Q.handle(state.beforeRenderPreview, tool, [tff, element]) === false) {
+			return;
+		}
+
+		tool.element.addClass('Streams_related_hasComposers');
+		if (tool.tabs) {
+			element.addClass('Q_tabs_tab');
+		}
+		if (tool._composerPosition() === "first") {
+			$container.prepend(element);
+		} else {
+			$container.append(element);
+		}
+
+		Q.activate(element, function () {
+			var preview = Q.Tool.from(element, 'Streams/preview');
+			var previewState = preview.state;
+			tool.integrateWithTabs([element], true);
+			previewState.beforeCreate.set(function () {
+				$(this.element).addClass('Streams_related_loading')
+					.removeClass('Streams_related_composer');
+				previewState.beforeCreate.remove(tool);
+			}, tool);
+			previewState.onCreate.set(function (stream) {
+				tool._onComposerCreated(stream, element, streamType, params, tff);
+			}, tool);
+			Q.handle(state.onComposer, tool, [preview]);
+		});
+	},
+
+	_onComposerCreated: function (stream, element, streamType, params, tff) {
+		var tool = this;
+		var state = tool.state;
+		var preview = Q.Tool.from(element, 'Streams/preview');
+		var publisherId = stream.fields.publisherId;
+		var streamName = stream.fields.name;
+		var weight = Q.getObject('state.related.weight', preview);
+
+		element.addClass('Streams_related_stream');
+		element.setAttribute("data-streamName", streamName);
+		Q.setObject("options.streams_preview.related.weight", weight, element);
+		element.setAttribute('data-weight', weight);
+
+		var existing = Q.getObject([publisherId, streamName], tool.previewElements);
+		var duplicate = existing && existing !== element;
+		if (!duplicate) {
+			tool._rememberPreview(publisherId, streamName, element);
+		}
+
+		if (duplicate || Q.handle(state.beforeRenderPreview, tool, [Q.extend({}, tff, {name: streamName}), element]) === false) {
+			var keep = duplicate ? existing : Q.getObject([publisherId, streamName], tool.previewElements);
+			if (keep === element) {
+				keep = null;
+				tool._forgetPreview(publisherId, streamName);
+			} else if (keep) {
+				tool._rememberPreview(publisherId, streamName, keep);
+			}
+			Q.removeElement(element, true);
+			tool._addComposer(streamType, params);
+			tool._fireComposerRefresh(stream, keep);
+			return;
+		}
+
+		tool._addComposer(streamType, params);
+		tool._fireComposerRefresh(stream, element);
+	},
+
+	_fireComposerRefresh: function (stream, element) {
+		var tool = this;
+		setTimeout(function () {
+			var previewTool = element ? Q.Tool.from(element, 'Streams/preview') : null;
+			var previews = [];
+			var map = {};
+			if (previewTool) {
+				previews.push(previewTool);
+				map[Streams.key(stream.fields.publisherId, stream.fields.name)] = 0;
+			}
+			tool.state.onRefresh.handle.call(tool, previews, map, [stream], [], []);
+		}, 0);
+	},
+
+	/**
+	 * Bind Q/sortable and, on drop, update the relation weight then refresh.
+	 * @method _bindSortable
+	 * @private
+	 * @param {jQuery} $host
+	 * @param {Object} options
+	 * @param {Function} resolvePreviewPair ($item, data) → {item, target} preview states
+	 * @param {Function} [afterInit]
+	 * @return {Boolean} false if skipped (realtime mix)
+	 */
+	_bindSortable: function ($host, options, resolvePreviewPair, afterInit) {
+		var tool = this;
+		var state = tool.state;
+		if (state.realtime) {
+			console.warn("Streams/related: can't mix realtime and sortable options yet");
+			return false;
+		}
+		$host.plugin('Q/sortable', options, function () {
+			if (afterInit) {
+				afterInit($host);
+			}
+			$host.state('Q/sortable').onSuccess.set(function ($item, data) {
+				if (!data.direction) {
+					return;
+				}
+				var pair = resolvePreviewPair($item, data);
+				if (!pair || !pair.item || !pair.target) {
+					return;
+				}
+				var r = pair.item.related;
+				var p = new Q.Pipe(['timeout', 'updated'], function () {
+					if (state.realtime) {
+						return;
+					}
+					Streams.related.cache.removeEach([state.publisherId, state.streamName]);
+					tool.refresh();
+				});
+				setTimeout(p.fill('timeout'), $host.state('Q/sortable').drop.duration);
+				Streams.updateRelation(
+					r.publisherId, r.streamName, r.type,
+					pair.item.publisherId, pair.item.streamName,
+					pair.target.related.weight,
+					1,
+					p.fill('updated')
+				);
+			}, tool);
+		});
+		return true;
+	},
+
 	Q: {
 		beforeRemove: function () {
-			// Remove sortable from the tool element (normal mode)
 			$(this.element).plugin('Q/sortable', 'remove');
-			// Remove sortable from coverflow's ul if it was applied there (renderer mode)
 			var covers = this.element.querySelector('.Q_coverflow_covers');
 			if (covers) {
 				$(covers).plugin('Q/sortable', 'remove');
 			}
 			this._coverflowSortableApplied = false;
-			this.state.onUpdate.remove("Streams/related");
-			if (this.mutationObserver) {
-				this.mutationObserver.disconnect();
-			}
-			if (this.intersectionObserver) {
-				this.intersectionObserver.disconnect();
-			}
 		}
 	}
 });
