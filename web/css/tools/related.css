@@ -36,3 +36,25 @@
 	background: url(../../../Q/img/close.png) center center no-repeat;
 	background-size: contain;
 }
+
+/* Enter / exit transitions for realtime related updates */
+.Streams_related_tool {
+	--Streams_related_duration: 300ms;
+}
+.Streams_related_tool .Streams_related_stream,
+.Streams_related_tool [data-streams-related] {
+	transition:
+		opacity var(--Streams_related_duration) ease,
+		transform var(--Streams_related_duration) ease;
+}
+.Streams_related_tool .Streams_related_stream[data-streams-related="entering"],
+.Streams_related_tool [data-streams-related="entering"] {
+	opacity: 0;
+	transform: scale(0.96);
+}
+.Streams_related_tool .Streams_related_stream[data-streams-related="exiting"],
+.Streams_related_tool [data-streams-related="exiting"] {
+	opacity: 0;
+	transform: scale(0.96);
+	pointer-events: none;
+}

@@ -285,6 +285,9 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	},
 	sortable: false,
 	previewOptions: {},
+	updateOptions: {
+		duration: 300
+	},
 	tabs: function (previewTool, tabsTool) {
 		var ps = previewTool.state;
 		if (this.state.tabsOptions.useStreamURLs) {
@@ -340,7 +343,51 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			$container = $te.find('.Q_tabs_tabs');
 		}
 
+		entering = entering || [];
+		exiting = exiting || [];
+		updating = updating || [];
+
 		var ascending = Q.getObject("ascending", state.relatedOptions) || false;
+		var duration = Q.getObject('updateOptions.duration', state) || 300;
+		tool.element.style.setProperty('--Streams_related_duration', duration + 'ms');
+
+		function _weightFor(publisherId, streamName) {
+			var w = null;
+			Q.each(result.relations, function () {
+				var direction = state.isCategory ? this.from : this.to;
+				if (direction && direction.fields
+				&& direction.fields.publisherId === publisherId
+				&& direction.fields.name === streamName) {
+					w = this.weight;
+					return false;
+				}
+			});
+			return w;
+		}
+
+		function _applyUpdatingWeights() {
+			Q.each(updating, function () {
+				if (!this || !this.fields) {
+					return;
+				}
+				var publisherId = this.fields.publisherId;
+				var streamName = this.fields.name;
+				var element = Q.getObject([publisherId, streamName], tool.previewElements);
+				if (!element) {
+					return;
+				}
+				var weight = _weightFor(publisherId, streamName);
+				if (weight == null) {
+					return;
+				}
+				Q.setObject("options.streams_preview.related.weight", weight, element);
+				element.setAttribute('data-weight', weight);
+				var preview = Q.Tool.from(element, 'Streams/preview');
+				if (preview && preview.state.related) {
+					preview.state.related.weight = weight;
+				}
+			});
+		}
 
 		// ---- renderer / coverflow path --------------------------------------
 		// When state.renderer is a function (including the built-in coverflow
@@ -352,101 +399,144 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		if (typeof state.renderer === 'function') {
 			var coverflow = Q.Tool.from(tool.element, 'Q/coverflow');
 
-			// Remove exiting items from the hidden preview map
+			// Animate exiting rendered coverflow items, then remove hidden previews
+			var exitingPending = 0;
 			Q.each(exiting, function () {
+				if (!this || !this.fields) {
+					return;
+				}
 				var publisherId = this.fields.publisherId;
 				var streamName  = this.fields.name;
 				var element = Q.getObject([publisherId, streamName], tool.previewElements);
-				if (element) {
+				if (!element) {
+					return;
+				}
+				++exitingPending;
+				var renderedEl = element._coverflowRenderedEl;
+				if (renderedEl) {
+					tool._animateRelatedExit(renderedEl, function () {
+						Q.removeElement(element, true);
+						if (!--exitingPending) {
+							_coverflowContinue();
+						}
+					});
+				} else {
 					Q.removeElement(element, true);
+					if (!--exitingPending) {
+						_coverflowContinue();
+					}
 				}
 			});
 
-			// Build a keyed lookup so we can skip exiting streams below
-			var exitingKeys = {};
-			Q.each(exiting, function () {
-				if (this.fields) {
-					exitingKeys[this.fields.publisherId + "\t" + this.fields.name] = true;
-				}
-			});
+			function _coverflowContinue() {
+				// Build a keyed lookup so we can skip exiting streams below
+				var exitingKeys = {};
+				Q.each(exiting, function () {
+					if (this.fields) {
+						exitingKeys[this.fields.publisherId + "\t" + this.fields.name] = true;
+					}
+				});
 
-			// Build hidden preview elements for all entering relations
-			var enteringEntries = [];
-			Q.each(result.relations, function () {
-				var direction = state.isCategory ? this.from : this.to;
-				if (!direction) {
-					return;
-				}
-				var tff = direction.fields;
+				_applyUpdatingWeights();
 
-				if (exitingKeys[tff.publisherId + "\t" + tff.name]) {
-					return;
-				}
-				if (Q.getObject([tff.publisherId, tff.name], tool.previewElements)) {
-					return;
-				}
+				// Build hidden preview elements for all entering relations
+				var enteringEntries = [];
+				Q.each(result.relations, function () {
+					var direction = state.isCategory ? this.from : this.to;
+					if (!direction) {
+						return;
+					}
+					var tff = direction.fields;
 
-				var element = tool.elementForStream(
-					tff.publisherId, tff.name, tff.type,
-					this.weight,
-					state.previewOptions,
-					state.specificOptions
-				);
-
-				// Keep preview elements alive but hidden from the visible DOM
-				element.style.display = 'none';
-				tool.element.appendChild(element);
-				Q.setObject([tff.publisherId, tff.name], element, tool.previewElements);
-				enteringEntries.push({ element: element, fields: tff, weight: this.weight });
-			});
-
-			if (!enteringEntries.length && Q.isEmpty(exiting)) {
-				return;
-			}
-
-			// Activate preview tools, then call the renderer for each stream
-			var elementsToActivate = enteringEntries.map(function(e) { return e.element; });
-			Q.activate(elementsToActivate, null, function () {
-				var pending = enteringEntries.length;
-				if (!pending) {
-					return tool._updateCoverflow(result, enteringEntries, exiting);
-				}
-
-				enteringEntries.forEach(function(entry) {
-					var previewTool = Q.Tool.from(entry.element, 'Streams/preview');
-					if (!previewTool) {
-						if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
+					if (exitingKeys[tff.publisherId + "\t" + tff.name]) {
+						return;
+					}
+					if (Q.getObject([tff.publisherId, tff.name], tool.previewElements)) {
 						return;
 					}
 
-					function _render(stream) {
-						state.renderer(stream, previewTool, function(renderedEl) {
-							entry.renderedEl = renderedEl;
-							// Wire fastclick on rendered element to previewTool's onInvoke
-							$(renderedEl).on(Q.Pointer.fastclick, function() {
-								Q.handle(previewTool.state.onInvoke, previewTool, []);
-							});
-							if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
-						});
-					}
+					var element = tool.elementForStream(
+						tff.publisherId, tff.name, tff.type,
+						this.weight,
+						state.previewOptions,
+						state.specificOptions
+					);
 
-					// Use cached stream if available, otherwise fetch
-					var cached = Q.Streams.get.cache.get([entry.fields.publisherId, entry.fields.name]);
-					var stream = cached && cached.subject;
-					if (stream) {
-						_render(stream);
-					} else {
-						Q.Streams.get(entry.fields.publisherId, entry.fields.name, function(err, s) {
-							if (err || !s) {
-								if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
-								return;
-							}
-							_render(s);
-						});
-					}
+					// Keep preview elements alive but hidden from the visible DOM
+					element.style.display = 'none';
+					tool.element.appendChild(element);
+					Q.setObject([tff.publisherId, tff.name], element, tool.previewElements);
+					enteringEntries.push({ element: element, fields: tff, weight: this.weight });
 				});
-			});
 
+				if (!enteringEntries.length && Q.isEmpty(exiting) && Q.isEmpty(updating)) {
+					return;
+				}
+
+				if (!enteringEntries.length) {
+					return tool._updateCoverflow(result, enteringEntries, exiting);
+				}
+
+				// Activate preview tools, then call the renderer for each stream
+				var elementsToActivate = enteringEntries.map(function(e) { return e.element; });
+				Q.activate(elementsToActivate, null, function () {
+					var pending = enteringEntries.length;
+					if (!pending) {
+						return tool._updateCoverflow(result, enteringEntries, exiting);
+					}
+
+					enteringEntries.forEach(function(entry) {
+						var previewTool = Q.Tool.from(entry.element, 'Streams/preview');
+						if (!previewTool) {
+							if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
+							return;
+						}
+
+						function _render(stream) {
+							state.renderer(stream, previewTool, function(renderedEl) {
+								entry.renderedEl = renderedEl;
+								// Wire fastclick on rendered element to previewTool's onInvoke
+								$(renderedEl).on(Q.Pointer.fastclick, function() {
+									Q.handle(previewTool.state.onInvoke, previewTool, []);
+								});
+								if (!--pending) {
+									Q.each(enteringEntries, function () {
+										if (this.renderedEl) {
+											this.renderedEl.setAttribute('data-streams-related', 'entering');
+										}
+									});
+									tool._updateCoverflow(result, enteringEntries, exiting);
+									Q.each(enteringEntries, function () {
+										if (this.renderedEl) {
+											tool._animateRelatedEnter(this.renderedEl);
+										}
+									});
+								}
+							});
+						}
+
+						// Use cached stream if available, otherwise fetch
+						var cached = Q.Streams.get.cache.get([entry.fields.publisherId, entry.fields.name]);
+						var stream = cached && cached.subject;
+						if (stream) {
+							_render(stream);
+						} else {
+							Q.Streams.get(entry.fields.publisherId, entry.fields.name, function(err, s) {
+								if (err || !s) {
+									if (!--pending) { tool._updateCoverflow(result, enteringEntries, exiting); }
+									return;
+								}
+								_render(s);
+							});
+						}
+					});
+				});
+			}
+
+			if (exitingPending) {
+				return; // _coverflowContinue after exits finish
+			}
+			_coverflowContinue();
 			return; // skip the normal preview-tool path entirely
 		}
 
@@ -718,8 +808,11 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			}
 		}
 
-		// remove exiting previews
+		// Animate exiting previews, then remove
 		Q.each(exiting, function (i) {
+			if (!this || !this.fields) {
+				return;
+			}
 			var publisherId = this.fields.publisherId;
 			var streamName = this.fields.name;
 			var element = Q.getObject([publisherId, streamName], tool.previewElements);
@@ -728,7 +821,18 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				return;
 			}
 
-			Q.removeElement(element, true);
+			// Drop map entry immediately so a following relatedTo can enter
+			// before the exit transition / MutationObserver finishes.
+			if (tool.previewElements[publisherId]) {
+				delete tool.previewElements[publisherId][streamName];
+				if (Q.isEmpty(tool.previewElements[publisherId])) {
+					delete tool.previewElements[publisherId];
+				}
+			}
+
+			tool._animateRelatedExit(element, function () {
+				Q.removeElement(element, true);
+			});
 		});
 
 		// Build a keyed lookup for exiting in the normal path too
@@ -736,6 +840,17 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		Q.each(exiting, function () {
 			if (this.fields) {
 				exitingKeysNormal[this.fields.publisherId + "\t" + this.fields.name] = true;
+			}
+		});
+
+		_applyUpdatingWeights();
+		Q.each(updating, function () {
+			if (!this || !this.fields) {
+				return;
+			}
+			var element = Q.getObject([this.fields.publisherId, this.fields.name], tool.previewElements);
+			if (element) {
+				_placeRelatedTool(element);
 			}
 		});
 
@@ -775,12 +890,21 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			$(element).addClass('Streams_related_stream');
 			Q.setObject([tff.publisherId, tff.name], element, tool.previewElements);
 
+			element.setAttribute('data-streams-related', 'entering');
 			_placeRelatedTool(element);
+			tool._animateRelatedEnter(element);
 		});
 
 		// activate the elements one by one, asynchronously
 		var previews = [];
 		var map = {};
+		if (!elements.length) {
+			if (tool.tabs) {
+				tool.tabs.refresh();
+			}
+			tool.state.onRefresh.handle.call(tool, previews, map, entering, exiting, updating);
+			return;
+		}
 		var i=0;
 		var batchSize = state.activate.batchSize.start;
 		setTimeout(function _activatePreview() {
@@ -820,7 +944,6 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 				setTimeout(_activatePreview, 0);
 			});
 		}, 0);
-		// The elements should animate to their respective positions, like in D3.
 
 	}, "Streams/related"),
 	onRefresh: new Q.Event()
@@ -904,23 +1027,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		if (tool.state.realtime) {
 			Q.each(eventNames, function (i, eventName) {
 				result.stream[eventName]().set(function (msg, fields) {
-					// TODO: REPLACE THIS WITH AN ANIMATED UPDATE BY LOOKING AT THE ARRAYS entering, exiting, updating
-					var isCategory = tool.state.isCategory;
-					if (fields.type !== tool.state.relationType) {
-						return;
-					}
-					// Skip refresh for relations we just created locally — onCreate
-					// already added the preview. Refreshing races and duplicates it.
-					if (Users.loggedInUser
-					&& msg.byUserId == Users.loggedInUser.id
-					&& msg.byClientId == Q.clientId()) {
-						Streams.related.cache.removeEach(
-							[state.publisherId, state.streamName]
-						);
-					} else {
-						tool.refresh();
-					}
-					tool.state.lastMessageOrdinal = msg.ordinal;
+					tool.applyRelationMessage(msg, fields);
 				}, tool);
 			});
 		} else {
@@ -968,6 +1075,312 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			}
 		);
 	},
+	/**
+	 * Apply a realtime related/unrelated/updatedRelate message by patching
+	 * state.result and feeding entering/exiting/updating into onUpdate.
+	 * Falls back to refresh when the message cannot describe a local diff.
+	 * @method applyRelationMessage
+	 * @param {Object} msg Streams message
+	 * @param {Object} fields Relation instructions from the message
+	 */
+	applyRelationMessage: function (msg, fields) {
+		var tool = this;
+		var state = tool.state;
+
+		if (!fields || fields.type !== state.relationType) {
+			return;
+		}
+
+		Streams.related.cache.removeEach([state.publisherId, state.streamName]);
+
+		var isCategory = state.isCategory;
+		var farPublisherId = isCategory ? fields.fromPublisherId : fields.toPublisherId;
+		var farStreamName = isCategory ? fields.fromStreamName : fields.toStreamName;
+		var existingPreview = farPublisherId && farStreamName
+			? Q.getObject([farPublisherId, farStreamName], tool.previewElements)
+			: null;
+
+		// Own-client: skip only related* when preview already exists (composer
+		// onCreate). Do NOT skip unrelated/updatedRelate — otherwise a socket
+		// message can arrive before removeRelation's HTTP callback and leave a
+		// stale previewElements entry that blocks the next relatedTo enter.
+		if (Users.loggedInUser
+		&& msg.byUserId == Users.loggedInUser.id
+		&& msg.byClientId
+		&& msg.byClientId === Q.clientId()
+		&& existingPreview
+		&& /^Streams\/related(To|From)$/.test(msg.type)) {
+			state.lastMessageOrdinal = msg.ordinal;
+			return;
+		}
+
+		if (Q.isEmpty(state.result)) {
+			tool.refresh();
+			state.lastMessageOrdinal = msg.ordinal;
+			return;
+		}
+
+		if (/^Streams\/updatedRelate(To|From)$/.test(msg.type)
+		&& fields.mode === 'shift') {
+			tool.refresh();
+			state.lastMessageOrdinal = msg.ordinal;
+			return;
+		}
+
+		if (!farPublisherId || !farStreamName) {
+			tool.refresh();
+			state.lastMessageOrdinal = msg.ordinal;
+			return;
+		}
+
+		var result = state.result;
+		var key = Streams.key(farPublisherId, farStreamName);
+		var entering = [];
+		var exiting = [];
+		var updating = [];
+		var relationWeight = (fields.weight != null) ? fields.weight : msg.weight;
+
+		function _finish(extraResult) {
+			var r = extraResult || result;
+			state.result = r;
+			state.onUpdate.handle.apply(tool, [r, entering, exiting, updating]);
+			state.lastMessageOrdinal = msg.ordinal;
+		}
+
+		function _relationCount() {
+			var n = 0;
+			Q.each(result.relatedStreams, function () { ++n; });
+			return n;
+		}
+
+		function _removeFromResult(stream) {
+			delete result.relatedStreams[key];
+			var relations = result.relations || [];
+			for (var j = relations.length - 1; j >= 0; --j) {
+				var rel = relations[j];
+				var match = isCategory
+					? (rel.fromPublisherId === farPublisherId && rel.fromStreamName === farStreamName)
+					: (rel.toPublisherId === farPublisherId && rel.toStreamName === farStreamName);
+				if (match && rel.type === fields.type) {
+					relations.splice(j, 1);
+				}
+			}
+			if (stream) {
+				exiting.push(stream);
+			}
+		}
+
+		function _insertRelation(relation) {
+			var relations = result.relations || (result.relations = []);
+			var ascending = Q.getObject('relatedOptions.ascending', state) || false;
+			var inserted = false;
+			for (var i = 0; i < relations.length; i++) {
+				var w = parseFloat(relations[i].weight);
+				var rw = parseFloat(relation.weight);
+				if (ascending ? rw < w : rw > w) {
+					relations.splice(i, 0, relation);
+					inserted = true;
+					break;
+				}
+			}
+			if (!inserted) {
+				relations.push(relation);
+			}
+		}
+
+		function _ensureRelation(stream) {
+			var hasRelation = false;
+			Q.each(result.relations, function () {
+				var match = isCategory
+					? (this.fromPublisherId === farPublisherId && this.fromStreamName === farStreamName)
+					: (this.toPublisherId === farPublisherId && this.toStreamName === farStreamName);
+				if (match && this.type === fields.type) {
+					hasRelation = true;
+					this.weight = relationWeight;
+					if (isCategory) {
+						this.from = stream;
+						this.to = result.stream;
+					} else {
+						this.to = stream;
+						this.from = result.stream;
+					}
+					return false;
+				}
+			});
+			if (hasRelation) {
+				return;
+			}
+			var relation = {
+				type: fields.type,
+				weight: relationWeight,
+				fromPublisherId: isCategory ? farPublisherId : state.publisherId,
+				fromStreamName: isCategory ? farStreamName : state.streamName,
+				toPublisherId: isCategory ? state.publisherId : farPublisherId,
+				toStreamName: isCategory ? state.streamName : farStreamName
+			};
+			if (isCategory) {
+				relation.to = result.stream;
+				relation.from = stream;
+			} else {
+				relation.from = result.stream;
+				relation.to = stream;
+			}
+			_insertRelation(relation);
+		}
+
+		if (/^Streams\/related(To|From)$/.test(msg.type)) {
+			var limit = Q.getObject('relatedOptions.limit', state);
+			if (limit && _relationCount() >= limit && !result.relatedStreams[key]) {
+				tool.refresh();
+				state.lastMessageOrdinal = msg.ordinal;
+				return;
+			}
+			// Already in result and DOM — nothing to do
+			if (result.relatedStreams[key] && existingPreview) {
+				state.lastMessageOrdinal = msg.ordinal;
+				return;
+			}
+			// Stale previewElements after unrelated raced ahead of removeRelation
+			// or exit animation still in progress. MutationObserver clears the map
+			// asynchronously — delete synchronously so onUpdate can enter.
+			if (existingPreview && !result.relatedStreams[key]) {
+				Q.removeElement(existingPreview, true);
+				if (tool.previewElements[farPublisherId]) {
+					delete tool.previewElements[farPublisherId][farStreamName];
+					if (Q.isEmpty(tool.previewElements[farPublisherId])) {
+						delete tool.previewElements[farPublisherId];
+					}
+				}
+				existingPreview = null;
+			}
+			// In result but missing from DOM — still need onUpdate to enter
+			if (result.relatedStreams[key] && !existingPreview) {
+				_ensureRelation(result.relatedStreams[key]);
+				entering.push(result.relatedStreams[key]);
+				_finish();
+				return;
+			}
+			Streams.get(farPublisherId, farStreamName, function (err) {
+				var stream = this;
+				if (err || !Streams.isStream(stream)) {
+					return tool.refresh();
+				}
+				result.relatedStreams[key] = stream;
+				_ensureRelation(stream);
+				entering.push(stream);
+				_finish();
+			});
+			return;
+		}
+
+		if (/^Streams\/unrelated(To|From)$/.test(msg.type)) {
+			var removed = result.relatedStreams[key];
+			if (!removed) {
+				state.lastMessageOrdinal = msg.ordinal;
+				return;
+			}
+			_removeFromResult(removed);
+			_finish();
+			return;
+		}
+
+		if (/^Streams\/updatedRelate(To|From)$/.test(msg.type)) {
+			var existing = result.relatedStreams[key];
+			if (!existing) {
+				tool.refresh();
+				state.lastMessageOrdinal = msg.ordinal;
+				return;
+			}
+			var found = false;
+			Q.each(result.relations, function () {
+				var match = isCategory
+					? (this.fromPublisherId === farPublisherId && this.fromStreamName === farStreamName)
+					: (this.toPublisherId === farPublisherId && this.toStreamName === farStreamName);
+				if (match && this.type === fields.type) {
+					this.weight = relationWeight;
+					found = true;
+					return false;
+				}
+			});
+			if (!found) {
+				tool.refresh();
+				state.lastMessageOrdinal = msg.ordinal;
+				return;
+			}
+			// Re-sort relations by weight after the update
+			var rel = null;
+			Q.each(result.relations, function (j) {
+				var match = isCategory
+					? (this.fromPublisherId === farPublisherId && this.fromStreamName === farStreamName)
+					: (this.toPublisherId === farPublisherId && this.toStreamName === farStreamName);
+				if (match && this.type === fields.type) {
+					rel = result.relations.splice(j, 1)[0];
+					return false;
+				}
+			});
+			if (rel) {
+				_insertRelation(rel);
+			}
+			updating.push(existing);
+			_finish();
+			return;
+		}
+
+		tool.refresh();
+		state.lastMessageOrdinal = msg.ordinal;
+	},
+
+	/**
+	 * Animate a related preview out, then invoke callback (e.g. removeElement).
+	 * @method _animateRelatedExit
+	 * @private
+	 * @param {HTMLElement} element
+	 * @param {Function} done
+	 */
+	_animateRelatedExit: function (element, done) {
+		var duration = Q.getObject('updateOptions.duration', this.state) || 300;
+		if (!element || !element.setAttribute) {
+			return Q.handle(done);
+		}
+		var finished = false;
+		function _done() {
+			if (finished) {
+				return;
+			}
+			finished = true;
+			element.removeEventListener('transitionend', _onEnd);
+			Q.handle(done);
+		}
+		function _onEnd(e) {
+			if (e.target === element) {
+				_done();
+			}
+		}
+		element.setAttribute('data-streams-related', 'exiting');
+		element.addEventListener('transitionend', _onEnd);
+		setTimeout(_done, duration + 50);
+	},
+
+	/**
+	 * Mark a newly placed preview so CSS can animate it in.
+	 * @method _animateRelatedEnter
+	 * @private
+	 * @param {HTMLElement} element
+	 */
+	_animateRelatedEnter: function (element) {
+		if (!element || !element.setAttribute) {
+			return;
+		}
+		if (element.getAttribute('data-streams-related') !== 'entering') {
+			element.setAttribute('data-streams-related', 'entering');
+		}
+		requestAnimationFrame(function () {
+			requestAnimationFrame(function () {
+				element.removeAttribute('data-streams-related');
+			});
+		});
+	},
+
 	/**
 	 * Some time need to remove relation when user doesn't participated to stream (hence doesn't get unrelatedTo message).
 	 * @method removeRelation
