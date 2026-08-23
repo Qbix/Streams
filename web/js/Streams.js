@@ -5453,6 +5453,7 @@ Streams.Transcript = {
     sendInterval: 10_000,
     latestFinalAt: null,
     finalTranscript: '',
+    buffer: [],
 
 	/**
 	 * Fires for every final utterance, just before it is sent, with the
@@ -5479,7 +5480,7 @@ Streams.Transcript = {
                 return; 
             }
         }
-
+        this.buffer = [];
 		this._active = true;
 		var o = options || {};
 
@@ -5506,9 +5507,17 @@ Streams.Transcript = {
         }, 'Streams.Transcript');
     },
 
+    updateBuffer: function (item, maxLength = 20) {
+        this.buffer.push(item);
+
+        /* if (this.buffer.length > maxLength) {
+            this.buffer.splice(0, this.buffer.length - maxLength);
+        } */
+    },
+
     procesTranscript: function (event) {
         var self = this;
-        let interimTranscript = null;
+        let interimTranscript = '';
         let finalTranscript = null;
         let confidence = null;
 
@@ -5523,6 +5532,7 @@ Streams.Transcript = {
                 if (event.results[i][0].transcript.trim() != '') interimTranscript = event.results[i][0].transcript;
             }
             confidence = event.results[i][0].confidence;
+            
         }
 
         let isFinal = finalTranscript != null;
@@ -5530,12 +5540,20 @@ Streams.Transcript = {
         if (isFinal) self.latestFinalAt = Date.now();
         let chunkToSend = finalTranscript || interimTranscript;
         if (!chunkToSend || chunkToSend.trim() == '') return;
-        self.send({
+
+        let lastBufferChunk = self.buffer[self.buffer.length - 1];
+        let chunkData = {
             isFinal: isFinal,
             transcript: finalTranscript || interimTranscript,
             confidence: confidence,
             latestFinalAt: prevFinalAt,
-        });
+            timestamp: Date.now(),
+            eventTime: event.timeStamp
+        };
+
+        //self.updateBuffer(chunkData);
+
+        self.send(chunkData);
     },
 
 	/**
@@ -5558,7 +5576,21 @@ Streams.Transcript = {
 		this.onContext.handle(context, chunk);
 		_qEmit('Streams/utterance', context);
 		return context;
-	},
+    },
+    downloadJson: function (data, filename = "data.json") {
+        const json = JSON.stringify(data, null, 2);
+        const blob = new Blob([json], { type: "application/json" });
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+
+        a.href = url;
+        a.download = filename;
+        a.click();
+
+        URL.revokeObjectURL(url);
+    },
+
 
 	/**
 	 * Toggle modes on the live session (composition / navigation / transcription).
@@ -5576,6 +5608,7 @@ Streams.Transcript = {
 	stop: function () {
 		if (!this._active) { return; }
 		this._active = false;
+        //this.downloadJson(this.buffer);
 		_qEmit('Streams/transcript/session/stop');
 		Q.Speech.Recognition.onResult.remove('Streams.Transcript');
 	}

@@ -52,6 +52,7 @@ Transcript.process = async function (session, chunk, Q, Users) {
     var entry = {
         text:    text,
         ts:      Date.now(),
+        timestamp: chunk.timestamp,
         relSec:  Session.relSec(session),
         speaker: chunk.speaker || session.userId,
         isFinal: chunk.isFinal,
@@ -60,23 +61,26 @@ Transcript.process = async function (session, chunk, Q, Users) {
     };
     
     if(session.transcriptBufferMap.has(chunk.latestFinalAt)) {
+        //console.log('Transcript: existing transcript entry')
         let entryToUpdate = session.transcriptBufferMap.get(chunk.latestFinalAt);
         if(entryToUpdate.isWakeUp && session.wakeState != 'listening') {
             //console.log('Transcript: handle ended wake')
             if(entryToUpdate.wakeUpTextLength == null) {
+            //console.log('Transcript: handle ended wake set text', entryToUpdate.text)
                 entryToUpdate.wakeUpTextLength = entryToUpdate.text ? entryToUpdate.text.length : 0;
             }
             if(entryToUpdate.isWakeUpStartEntry && entryToUpdate.isWakeUpEndEntry) {
-                //console.log('Transcript: handle ended wake 1')
+                //console.log('Transcript: handle ended wake 1', text, entryToUpdate.wakeUpTextLength)
                 entryToUpdate.text = text.slice(entryToUpdate.wakeUpTextLength);
             } else if (entryToUpdate.isWakeUpEndEntry) {
-                //console.log('Transcript: handle ended wake 2')
+                //console.log('Transcript: handle ended wake 2', text, entryToUpdate.wakeUpTextLength)
                 entryToUpdate.text = text.slice(entryToUpdate.wakeUpTextLength);
             } else if (entryToUpdate.isWakeUpStartEntry) {
-                //console.log('Transcript: handle ended wake 3')
+                //console.log('Transcript: handle ended wake 3', text, entryToUpdate.wakeUpTextLength)
                 entryToUpdate.text = text.slice(entryToUpdate.wakeUpTextLength);
             } 
         } else if (entryToUpdate.isWakeUp && session.wakeState == 'listening' && entryToUpdate.wakeUpTextLength != null) {
+            //in the case when speaker started new "wake" request in the same transcript entry as previous (he should talk wery fast for this)
             entryToUpdate.text = text.slice(entryToUpdate.wakeUpTextLength);
         } else {
             entryToUpdate.text = text;
@@ -85,6 +89,7 @@ Transcript.process = async function (session, chunk, Q, Users) {
         entry = entryToUpdate;
         if(chunk.isFinal) entryToUpdate.isFinal = true;
     } else {
+        //console.log('Transcript: new transcript entry')
         session.transcriptBufferMap.set(chunk.latestFinalAt, entry)
         session.transcriptBuffer.push(entry);
     }

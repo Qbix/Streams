@@ -96,6 +96,7 @@ Session.create = function (client, userId, data, Q) {
         transcription:    null,
         transcriptBuffer: [],
         transcriptBufferMap: new Map(),
+        transcriptInterimBuffer: [],
         transcriptFile:   null,
         _displayNames:    {},
         sessionStartMs:   Date.now(),
@@ -104,6 +105,7 @@ Session.create = function (client, userId, data, Q) {
         classifier:       new CommandsClassifier({ locale: lang.split('-')[0] }),
         // Slots filled by the AI plugin at runtime.
         pipeline:         null,
+        transcriptContext: null,  // AI.TranscriptBuffer instance — chunk window + rolling summary
         vetoQueue:        [],
         vetoTimers:       new Map()
     };
