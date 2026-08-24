@@ -233,14 +233,7 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 	},
 	beforeRenderPreview: new Q.Event(function (tff, element) {
 		if (!tff.name) {
-			var found = false;
-			this._container().children('.Streams_related_composer').each(function () {
-				if (this !== element && this.getAttribute('data-streamType') === tff.type) {
-					found = true;
-					return false;
-				}
-			});
-			return !found;
+			return !this._composerSlotTaken(tff.type, element);
 		}
 		var existing = Q.getObject([tff.publisherId, tff.name], this.previewElements);
 		return !existing || existing === element;
@@ -385,16 +378,17 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			? Q.getObject([farPublisherId, farStreamName], tool.previewElements)
 			: null;
 
-		// Own-client: skip only related* when preview already exists (composer
-		// onCreate). Do NOT skip unrelated/updatedRelate — otherwise a socket
-		// message can arrive before removeRelation's HTTP callback and leave a
-		// stale previewElements entry that blocks the next relatedTo enter.
+		// Own-client: skip related* while a composer is still creating, or when
+		// its preview is already in previewElements (onCreate). Do NOT skip
+		// unrelated/updatedRelate — otherwise a socket message can arrive
+		// before removeRelation's HTTP callback and leave a stale
+		// previewElements entry that blocks the next relatedTo enter.
 		if (Users.loggedInUser
 		&& msg.byUserId == Users.loggedInUser.id
 		&& msg.byClientId
 		&& msg.byClientId === Q.clientId()
-		&& existingPreview
-		&& /^Streams\/related(To|From)$/.test(msg.type)) {
+		&& /^Streams\/related(To|From)$/.test(msg.type)
+		&& (existingPreview || tool._hasLoadingComposer())) {
 			state.lastMessageOrdinal = msg.ordinal;
 			return;
 		}
@@ -1120,6 +1114,38 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		return $te.hasClass('Q_tabs_tool') ? $te.find('.Q_tabs_tabs') : $te;
 	},
 
+	/**
+	 * True when a composer or in-flight create already occupies this stream type's slot.
+	 * @method _composerSlotTaken
+	 * @private
+	 * @param {String} streamType
+	 * @param {HTMLElement} [exceptElement]
+	 * @return {Boolean}
+	 */
+	_composerSlotTaken: function (streamType, exceptElement) {
+		var found = false;
+		this._container()
+			.children('.Streams_related_composer, .Streams_related_loading')
+			.each(function () {
+				if (this !== exceptElement
+				&& this.getAttribute('data-streamType') === streamType) {
+					found = true;
+					return false;
+				}
+			});
+		return found;
+	},
+
+	/**
+	 * True when a composer in this tool is mid-create (before onCreate).
+	 * @method _hasLoadingComposer
+	 * @private
+	 * @return {Boolean}
+	 */
+	_hasLoadingComposer: function () {
+		return this._container().children('.Streams_related_loading').length > 0;
+	},
+
 	_farFields: function (relation) {
 		if (!relation) {
 			return null;
@@ -1417,8 +1443,9 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 			var previewState = preview.state;
 			tool.integrateWithTabs([element], true);
 			previewState.beforeCreate.set(function () {
-				$(this.element).addClass('Streams_related_loading')
-					.removeClass('Streams_related_composer');
+				// Keep Streams_related_composer so the slot stays occupied
+				// until onCreate; otherwise _updatePreviews prepends a second Add.
+				$(this.element).addClass('Streams_related_loading');
 				previewState.beforeCreate.remove(tool);
 			}, tool);
 			previewState.onCreate.set(function (stream) {
@@ -1437,18 +1464,23 @@ Q.Tool.define("Streams/related", function _Streams_related_tool (options) {
 		var weight = Q.getObject('state.related.weight', preview);
 
 		element.addClass('Streams_related_stream');
+		element.removeClass('Streams_related_composer')
+			.removeClass('Streams_related_loading');
 		element.setAttribute("data-streamName", streamName);
 		Q.setObject("options.streams_preview.related.weight", weight, element);
 		element.setAttribute('data-weight', weight);
 
 		var existing = Q.getObject([publisherId, streamName], tool.previewElements);
 		var duplicate = existing && existing !== element;
-		if (!duplicate) {
-			tool._rememberPreview(publisherId, streamName, element);
+		if (duplicate) {
+			// Prefer the creating composer (already has the title) over a
+			// socket-built extra preview that raced ahead of onCreate.
+			Q.removeElement(existing, true);
 		}
+		tool._rememberPreview(publisherId, streamName, element);
 
-		if (duplicate || Q.handle(state.beforeRenderPreview, tool, [Q.extend({}, tff, {name: streamName}), element]) === false) {
-			var keep = duplicate ? existing : Q.getObject([publisherId, streamName], tool.previewElements);
+		if (!duplicate && Q.handle(state.beforeRenderPreview, tool, [Q.extend({}, tff, {name: streamName}), element]) === false) {
+			var keep = Q.getObject([publisherId, streamName], tool.previewElements);
 			if (keep === element) {
 				keep = null;
 				tool._forgetPreview(publisherId, streamName);
