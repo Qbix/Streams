@@ -1,0 +1,253 @@
+-- Streams plugin — flattened POSTGRES DDL
+-- {{prefix}} is substituted by Qbix at install time.
+
+CREATE TABLE IF NOT EXISTS {{prefix}}access (
+    publisherId BYTEA NOT NULL,
+    streamName BYTEA NOT NULL,
+    ofUserId BYTEA NOT NULL DEFAULT '',
+    ofContactLabel BYTEA NOT NULL DEFAULT '',
+    grantedByUserId BYTEA DEFAULT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL DEFAULT NULL,
+    readLevel INTEGER NOT NULL DEFAULT '0',
+    writeLevel INTEGER NOT NULL DEFAULT '0',
+    adminLevel INTEGER NOT NULL DEFAULT '0',
+    permissions varchar(255) DEFAULT NULL,
+    PRIMARY KEY (publisherId,streamName,ofUserId,ofContactLabel)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}avatar (
+    toUserId BYTEA NOT NULL,
+    publisherId BYTEA NOT NULL DEFAULT '',
+    updatedTime timestamp NULL DEFAULT NULL,
+    username varchar(255) NOT NULL,
+    firstName varchar(255) NOT NULL DEFAULT '',
+    lastName varchar(255) NOT NULL DEFAULT '',
+    icon BYTEA NOT NULL,
+    PRIMARY KEY (toUserId,publisherId)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}category (
+    publisherId BYTEA NOT NULL DEFAULT '',
+    streamName BYTEA NOT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL DEFAULT NULL,
+    relatedTo TEXT NOT NULL,
+    PRIMARY KEY (publisherId,streamName)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}invite (
+    token BYTEA NOT NULL,
+    userId BYTEA NOT NULL,
+    publisherId BYTEA NOT NULL,
+    streamName BYTEA NOT NULL,
+    invitingUserId BYTEA NOT NULL,
+    displayName varchar(255) NOT NULL,
+    appUrl BYTEA NOT NULL,
+    readLevel INTEGER DEFAULT NULL,
+    writeLevel INTEGER DEFAULT NULL,
+    adminLevel INTEGER DEFAULT NULL,
+    state TEXT NOT NULL DEFAULT 'pending',
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    expireTime timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (token)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}invited (
+    userId BYTEA NOT NULL,
+    token BYTEA NOT NULL,
+    state TEXT NOT NULL DEFAULT 'pending',
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL DEFAULT NULL,
+    expireTime timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (userId,token)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}message (
+    publisherId BYTEA NOT NULL DEFAULT '',
+    streamName BYTEA NOT NULL,
+    ordinal INTEGER NOT NULL DEFAULT '0',
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    sentTime timestamp NULL DEFAULT NULL,
+    byUserId BYTEA NOT NULL DEFAULT '',
+    byClientId BYTEA NOT NULL DEFAULT '',
+    type BYTEA NOT NULL,
+    content varchar(1023) NOT NULL,
+    instructions varchar(4092) NOT NULL,
+    weight decimal(10,4) NOT NULL DEFAULT '1.0000',
+    PRIMARY KEY (publisherId,streamName,ordinal)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}metrics (
+    userId BYTEA NOT NULL,
+    publisherId BYTEA NOT NULL,
+    streamName BYTEA NOT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL,
+    metrics TEXT,
+    PRIMARY KEY (publisherId,streamName,userId)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}notification (
+    userId BYTEA NOT NULL DEFAULT '',
+    publisherId BYTEA NOT NULL DEFAULT '',
+    streamName BYTEA NOT NULL,
+    messageOrdinal INTEGER NOT NULL DEFAULT 0,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    type BYTEA DEFAULT NULL,
+    viewedTime timestamp NULL DEFAULT NULL,
+    readTime timestamp NULL DEFAULT NULL,
+    comment varchar(255) DEFAULT NULL,
+    PRIMARY KEY (userId, publisherId, streamName, messageOrdinal)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}participant (
+    publisherId BYTEA NOT NULL DEFAULT '',
+    streamName BYTEA NOT NULL,
+    userId BYTEA NOT NULL DEFAULT '',
+    streamType varchar(63) DEFAULT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL DEFAULT NULL,
+    state TEXT NOT NULL,
+    subscribed TEXT NOT NULL DEFAULT 'no',
+    posted TEXT NOT NULL DEFAULT 'no',
+    reason varchar(255) NOT NULL,
+    enthusiasm decimal(10,4) NOT NULL DEFAULT '0.0000',
+    reputation INTEGER NOT NULL DEFAULT '0',
+    PRIMARY KEY (publisherId,streamName,userId)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}related_from (
+    fromPublisherId BYTEA NOT NULL,
+    fromStreamName BYTEA NOT NULL,
+    type BYTEA NOT NULL DEFAULT '',
+    toPublisherId BYTEA NOT NULL,
+    toStreamName BYTEA NOT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (fromPublisherId,fromStreamName,type,toPublisherId,toStreamName)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}related_from_total (
+    fromPublisherId BYTEA NOT NULL,
+    fromStreamName BYTEA NOT NULL,
+    relationType BYTEA NOT NULL,
+    toStreamType BYTEA NOT NULL,
+    relationCount BIGINT NOT NULL DEFAULT '0',
+    PRIMARY KEY (fromPublisherId,fromStreamName,relationType,toStreamType)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}related_to (
+    toPublisherId BYTEA NOT NULL,
+    toStreamName BYTEA NOT NULL,
+    type BYTEA NOT NULL DEFAULT '',
+    fromPublisherId BYTEA NOT NULL,
+    fromStreamName BYTEA NOT NULL,
+    weight decimal(10,4) NOT NULL DEFAULT '1.0000',
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (toPublisherId,toStreamName,type,fromPublisherId,fromStreamName)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}related_to_total (
+    toPublisherId BYTEA NOT NULL,
+    toStreamName BYTEA NOT NULL,
+    relationType BYTEA NOT NULL,
+    fromStreamType BYTEA NOT NULL,
+    relationCount BIGINT NOT NULL DEFAULT '0',
+    PRIMARY KEY (toPublisherId,toStreamName,relationType,fromStreamType)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}request (
+    publisherId BYTEA NOT NULL,
+    streamName BYTEA NOT NULL,
+    userId BYTEA NOT NULL,
+    readLevel INTEGER DEFAULT NULL,
+    writeLevel INTEGER DEFAULT NULL,
+    adminLevel INTEGER DEFAULT NULL,
+    permissions varchar(255) DEFAULT NULL,
+    state TEXT NOT NULL DEFAULT 'pending',
+    actions varchar(255) DEFAULT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    expireTime timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (publisherId,streamName,userId)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}rule (
+    ofUserId BYTEA NOT NULL DEFAULT '',
+    publisherId BYTEA NOT NULL DEFAULT '',
+    streamName BYTEA NOT NULL,
+    ordinal INTEGER NOT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    readyTime timestamp NULL DEFAULT NULL,
+    filter varchar(255) NOT NULL DEFAULT '',
+    deliver varchar(255) NOT NULL,
+    relevance decimal(10,4) NOT NULL DEFAULT 1,
+    PRIMARY KEY (ofUserId,publisherId,streamName,ordinal)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}state (
+    hash varchar(255) NOT NULL DEFAULT '',
+    algorithm TEXT NOT NULL DEFAULT 'sha256',
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL DEFAULT NULL,
+    extra BYTEA DEFAULT '',
+    URI BYTEA NOT NULL DEFAULT ''
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}stream (
+    publisherId BYTEA NOT NULL DEFAULT '',
+    name BYTEA NOT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL DEFAULT NULL,
+    type varchar(63) NOT NULL,
+    title varchar(255) NOT NULL,
+    icon BYTEA NOT NULL DEFAULT 'default',
+    content varchar(1023) NOT NULL,
+    attributes varchar(1023) DEFAULT NULL,
+    readLevel INTEGER NOT NULL DEFAULT '40',
+    writeLevel INTEGER NOT NULL DEFAULT '10',
+    adminLevel INTEGER NOT NULL DEFAULT '20',
+    permissions varchar(255) DEFAULT NULL,
+    inheritAccess BYTEA DEFAULT NULL,
+    messageCount INTEGER NOT NULL DEFAULT '0',
+    participantCount INTEGER NOT NULL DEFAULT '0',
+    closedTime TIMESTAMP NULL DEFAULT NULL,
+    PRIMARY KEY (publisherId,name)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}subscription (
+    publisherId BYTEA NOT NULL DEFAULT '',
+    streamName BYTEA NOT NULL DEFAULT '',
+    ofUserId BYTEA NOT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL DEFAULT NULL,
+    untilTime timestamp NULL DEFAULT NULL,
+    filter varchar(255) NOT NULL,
+    duration INTEGER NOT NULL DEFAULT '0',
+    PRIMARY KEY (publisherId,streamName,ofUserId)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}task (
+    publisherId BYTEA NOT NULL DEFAULT '',
+    streamName BYTEA NOT NULL,
+    instructions BYTEA NULL,
+    PRIMARY KEY (publisherId, streamName)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}total (
+    publisherId BYTEA NOT NULL,
+    streamName BYTEA NOT NULL,
+    messageType BYTEA NOT NULL,
+    messageCount BIGINT NOT NULL DEFAULT '0',
+    PRIMARY KEY (publisherId,streamName,messageType)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}workspace (
+    publisherId BYTEA NOT NULL DEFAULT '',
+    name BYTEA NOT NULL,
+    parentName BYTEA NULL DEFAULT NULL,
+    insertedTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (publisherId, name)
+);
+
+-- Indexes

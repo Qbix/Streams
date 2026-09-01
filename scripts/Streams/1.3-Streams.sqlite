@@ -1,0 +1,302 @@
+-- Streams plugin — flattened SQLITE DDL
+-- {{prefix}} is substituted by Qbix at install time.
+
+CREATE TABLE {{prefix}}access (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    ofUserId TEXT DEFAULT '',
+    ofContactLabel TEXT DEFAULT '',
+    grantedByUserId TEXT DEFAULT NULL,
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL DEFAULT NULL,
+    readLevel INTEGER NOT NULL DEFAULT '0',
+    writeLevel INTEGER NOT NULL DEFAULT '0',
+    adminLevel INTEGER NOT NULL DEFAULT '0',
+    permissions TEXT DEFAULT NULL,
+    ofParticipantRole TEXT DEFAULT NULL,
+    PRIMARY KEY (publisherId,streamName,ofUserId,ofContactLabel)
+);
+
+CREATE TABLE {{prefix}}avatar (
+    toUserId TEXT DEFAULT '',
+    publisherId TEXT DEFAULT '',
+    updatedTime TEXT NULL DEFAULT NULL,
+    username TEXT DEFAULT '',
+    firstName TEXT DEFAULT '',
+    lastName TEXT DEFAULT '',
+    icon TEXT DEFAULT '',
+    gender TEXT DEFAULT '',
+    PRIMARY KEY (toUserId,publisherId)
+);
+
+CREATE TABLE {{prefix}}category (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL DEFAULT NULL,
+    relatedTo TEXT DEFAULT '',
+    PRIMARY KEY (publisherId,streamName)
+);
+
+CREATE TABLE {{prefix}}invite (
+    token TEXT DEFAULT '',
+    userId TEXT DEFAULT '',
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    invitingUserId TEXT DEFAULT '',
+    displayName TEXT DEFAULT '',
+    appUrl TEXT DEFAULT '',
+    readLevel INTEGER DEFAULT NULL,
+    writeLevel INTEGER DEFAULT NULL,
+    adminLevel INTEGER DEFAULT NULL,
+    state TEXT NOT NULL DEFAULT 'pending',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    expireTime TEXT NULL DEFAULT NULL,
+    permissions TEXT DEFAULT NULL,
+    extra TEXT DEFAULT '{}',
+    PRIMARY KEY (token)
+);
+
+CREATE TABLE {{prefix}}invited (
+    userId TEXT DEFAULT '',
+    token TEXT DEFAULT '',
+    state TEXT NOT NULL DEFAULT 'pending',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL DEFAULT NULL,
+    expireTime TEXT NULL DEFAULT NULL,
+    PRIMARY KEY (userId,token)
+);
+
+CREATE TABLE {{prefix}}message (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    ordinal INTEGER NOT NULL DEFAULT '0',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    sentTime TEXT NULL DEFAULT NULL,
+    byUserId TEXT DEFAULT '',
+    byClientId TEXT DEFAULT '',
+    type TEXT DEFAULT '',
+    content TEXT DEFAULT '',
+    instructions TEXT DEFAULT '',
+    weight REAL NOT NULL DEFAULT '1.0000',
+    PRIMARY KEY (publisherId,streamName,ordinal)
+);
+
+CREATE TABLE {{prefix}}metrics (
+    userId TEXT DEFAULT '',
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL,
+    metrics TEXT,
+    PRIMARY KEY (publisherId,streamName,userId)
+);
+
+CREATE TABLE {{prefix}}notification (
+    userId TEXT DEFAULT '',
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    messageOrdinal INTEGER NOT NULL DEFAULT 0,
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    type TEXT DEFAULT NULL,
+    viewedTime TEXT NULL DEFAULT NULL,
+    readTime TEXT NULL DEFAULT NULL,
+    comment TEXT DEFAULT NULL,
+    PRIMARY KEY (userId, publisherId, streamName, messageOrdinal)
+);
+
+CREATE TABLE {{prefix}}participant (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    userId TEXT DEFAULT '',
+    streamType TEXT DEFAULT NULL,
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL DEFAULT NULL,
+    state TEXT DEFAULT '',
+    subscribed TEXT NOT NULL DEFAULT 'no',
+    posted TEXT NOT NULL DEFAULT 'no',
+    reason TEXT DEFAULT '',
+    enthusiasm REAL NOT NULL DEFAULT '0.0000',
+    reputation INTEGER NOT NULL DEFAULT '0',
+    extra TEXT DEFAULT '{}',
+    PRIMARY KEY (publisherId,streamName,userId)
+);
+
+CREATE TABLE {{prefix}}related_from (
+    fromPublisherId TEXT DEFAULT '',
+    fromStreamName TEXT DEFAULT '',
+    type TEXT DEFAULT '',
+    toPublisherId TEXT DEFAULT '',
+    toStreamName TEXT DEFAULT '',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (fromPublisherId,fromStreamName,type,toPublisherId,toStreamName)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}related_from_total (
+    fromPublisherId TEXT DEFAULT '',
+    fromStreamName TEXT DEFAULT '',
+    relationType TEXT DEFAULT '',
+    toStreamType TEXT DEFAULT '',
+    relationCount INTEGER(20) NOT NULL DEFAULT '0',
+    PRIMARY KEY (fromPublisherId,fromStreamName,relationType,toStreamType)
+);
+
+CREATE TABLE {{prefix}}related_to (
+    toPublisherId TEXT DEFAULT '',
+    toStreamName TEXT DEFAULT '',
+    type TEXT DEFAULT '',
+    fromPublisherId TEXT DEFAULT '',
+    fromStreamName TEXT DEFAULT '',
+    weight REAL NOT NULL DEFAULT '1.0000',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    extra TEXT DEFAULT '{}',
+    PRIMARY KEY (toPublisherId,toStreamName,type,fromPublisherId,fromStreamName)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}related_to_total (
+    toPublisherId TEXT DEFAULT '',
+    toStreamName TEXT DEFAULT '',
+    relationType TEXT DEFAULT '',
+    fromStreamType TEXT DEFAULT '',
+    relationCount INTEGER(20) NOT NULL DEFAULT '0',
+    PRIMARY KEY (toPublisherId,toStreamName,relationType,fromStreamType)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}request (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    userId TEXT DEFAULT '',
+    readLevel INTEGER DEFAULT NULL,
+    writeLevel INTEGER DEFAULT NULL,
+    adminLevel INTEGER DEFAULT NULL,
+    permissions TEXT DEFAULT NULL,
+    state TEXT NOT NULL DEFAULT 'pending',
+    actions TEXT DEFAULT NULL,
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    expireTime TEXT NULL DEFAULT NULL,
+    PRIMARY KEY (publisherId,streamName,userId)
+);
+
+CREATE TABLE {{prefix}}rule (
+    ofUserId TEXT DEFAULT '',
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    ordinal INTEGER NOT NULL DEFAULT 0,
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    readyTime TEXT NULL DEFAULT NULL,
+    filter TEXT DEFAULT '',
+    deliver TEXT DEFAULT '',
+    relevance REAL NOT NULL DEFAULT 1,
+    PRIMARY KEY (ofUserId,publisherId,streamName,ordinal)
+);
+
+CREATE TABLE {{prefix}}state (
+    uri TEXT DEFAULT '',
+    hash TEXT DEFAULT '',
+    algorithm TEXT NOT NULL DEFAULT 'sha256',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL DEFAULT NULL,
+    extra TEXT DEFAULT '',
+    PRIMARY KEY (uri)
+);
+
+CREATE TABLE {{prefix}}stream (
+    publisherId TEXT DEFAULT '',
+    name TEXT DEFAULT '',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL DEFAULT NULL,
+    type TEXT DEFAULT '',
+    title TEXT DEFAULT '',
+    icon TEXT NOT NULL DEFAULT 'default',
+    content TEXT DEFAULT '',
+    attributes TEXT DEFAULT NULL,
+    readLevel INTEGER NOT NULL DEFAULT '40',
+    writeLevel INTEGER NOT NULL DEFAULT '10',
+    adminLevel INTEGER NOT NULL DEFAULT '20',
+    permissions TEXT DEFAULT NULL,
+    inheritAccess TEXT DEFAULT NULL,
+    messageCount INTEGER NOT NULL DEFAULT '0',
+    participantCount INTEGER NOT NULL DEFAULT '0',
+    closedTime TEXT NULL DEFAULT NULL,
+    invitedCount INTEGER NOT NULL DEFAULT 0,
+    arrivedCount INTEGER NOT NULL DEFAULT 0,
+    participatingCount INTEGER NOT NULL DEFAULT 0,
+    leftCount INTEGER NOT NULL DEFAULT 0,
+    arrivedRatio REAL NULL DEFAULT NULL,
+    joinedRatio REAL NULL DEFAULT NULL,
+    fork TEXT NULL DEFAULT NULL,
+    PRIMARY KEY (publisherId,name)
+);
+
+CREATE TABLE {{prefix}}subscription (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    ofUserId TEXT DEFAULT '',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL DEFAULT NULL,
+    untilTime TEXT NULL DEFAULT NULL,
+    filter TEXT DEFAULT '',
+    duration INTEGER NOT NULL DEFAULT '0',
+    PRIMARY KEY (publisherId,streamName,ofUserId)
+);
+
+CREATE TABLE IF NOT EXISTS {{prefix}}task (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    instructions BLOB NULL,
+    errors BLOB NULL,
+    PRIMARY KEY (publisherId, streamName)
+);
+
+CREATE TABLE {{prefix}}total (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    messageType TEXT DEFAULT '',
+    messageCount INTEGER(20) NOT NULL DEFAULT '0',
+    PRIMARY KEY (publisherId,streamName,messageType)
+);
+
+CREATE TABLE {{prefix}}workspace (
+    publisherId TEXT DEFAULT '',
+    name TEXT DEFAULT '',
+    parentName TEXT NULL DEFAULT NULL,
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedTime TEXT NULL DEFAULT NULL,
+    PRIMARY KEY (publisherId, name)
+);
+
+-- Indexes
+
+CREATE TABLE {{prefix}}message_total (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    messageType TEXT DEFAULT '',
+    messageCount INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (publisherId,streamName,messageType)
+);
+
+CREATE TABLE {{prefix}}sent (
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    sentTime TEXT NULL DEFAULT NULL,
+    byUserId TEXT DEFAULT '',
+    comment TEXT DEFAULT NULL,
+    instructions TEXT DEFAULT NULL,
+    chatPublisherId TEXT DEFAULT NULL,
+    chatStreamName TEXT DEFAULT NULL,
+    PRIMARY KEY (publisherId,streamName,byUserId)
+);
+
+CREATE TABLE {{prefix}}subscription_rule (
+    ofUserId TEXT DEFAULT '',
+    publisherId TEXT DEFAULT '',
+    streamName TEXT DEFAULT '',
+    ordinal INTEGER NOT NULL DEFAULT 0,
+    insertedTime TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    readyTime TEXT NULL DEFAULT NULL,
+    filter TEXT DEFAULT NULL,
+    deliver TEXT DEFAULT NULL,
+    relevance REAL NOT NULL DEFAULT '1.0000',
+    PRIMARY KEY (ofUserId,publisherId,streamName,ordinal)
+);
