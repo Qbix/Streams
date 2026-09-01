@@ -1026,6 +1026,80 @@ Users.on('disconnected', function (userId) {
  *  Provide additional query options like 'limit', 'offset', 'orderBy', 'where' etc.
  *  @see Db_Query_Mysql::options().
  */
+/**
+ * Returns the names of the Db.Row classes that extend a given stream type,
+ * as configured under Streams/types/<type>/extend (merged with the '*' default).
+ * Node mirror of the PHP Streams::getExtendClasses(). Node does not join extend
+ * tables automatically the way PHP does, so callers that need extend fields pass
+ * {withExtendClasses: true} to Streams.fetch (see below).
+ * @method getExtendClasses
+ * @static
+ * @param {String} type The stream type, e.g. "Safebox/action"
+ * @return {Array} array of class names, e.g. ["Safebox_ActionExtend"]
+ */
+Streams.getExtendClasses = function (type) {
+	var result = [];
+	['*', type].forEach(function (t) {
+		var e = Q.Config.get(['Streams', 'types', t, 'extend'], null);
+		if (!e) {
+			return;
+		}
+		if (typeof e === 'string') {
+			result.push(e);
+		} else if (Array.isArray(e)) {
+			e.forEach(function (k) { if (typeof k === 'string') { result.push(k); } });
+		} else if (Q.isPlainObject(e)) {
+			for (var k in e) { result.push(k); }
+		}
+	});
+	return result.filter(function (v, i) { return result.indexOf(v) === i; });
+};
+
+/**
+ * For each stream, loads any configured extend-table rows (keyed by
+ * publisherId + streamName) and merges their columns into stream.fields,
+ * so extend fields become first-class on the fetched stream. Missing extend
+ * rows and missing Node classes are skipped silently. Used by Streams.fetch
+ * when options.withExtendClasses is true.
+ * @method fetchExtendClasses
+ * @static
+ * @param {Array} streams array of Streams.Stream objects (with .fields)
+ * @param {Function} callback receives (err)
+ */
+Streams.fetchExtendClasses = function (streams, callback) {
+	var pending = 1, firstErr = null;
+	function done() { if (--pending === 0) { callback(firstErr); } }
+	(streams || []).forEach(function (stream) {
+		if (!stream || !stream.fields || !stream.fields.type) {
+			return;
+		}
+		Streams.getExtendClasses(stream.fields.type).forEach(function (className) {
+			var Cls;
+			try { Cls = Q.require(className.replace(/_/g, '/')); }
+			catch (e) { return; }
+			if (!Cls || typeof Cls.SELECT !== 'function') {
+				return;
+			}
+			++pending;
+			Cls.SELECT('*').where({
+				publisherId: stream.fields.publisherId,
+				streamName:  stream.fields.name
+			}).execute(function (err, rows) {
+				if (err) { firstErr = firstErr || err; return done(); }
+				if (rows && rows.length && rows[0] && rows[0].fields) {
+					var rf = rows[0].fields;
+					for (var f in rf) {
+						if (f === 'publisherId' || f === 'streamName') { continue; }
+						stream.fields[f] = rf[f];
+					}
+				}
+				done();
+			});
+		});
+	});
+	done();
+};
+
 Streams.fetch = function (asUserId, publisherId, streamName, callback, fields, options) {
 	if (!callback) return;
 	if (!publisherId || !streamName) {
@@ -1099,7 +1173,16 @@ Streams.fetch = function (asUserId, publisherId, streamName, callback, fields, o
 					return;
 				}
 			}
-			callback(null, subjects);
+			if (!options.withExtendClasses) {
+				return callback(null, subjects);
+			}
+			// opt-in: merge configured extend-table fields into the fetched streams
+			Streams.fetchExtendClasses(res, function (extendErr) {
+				if (extendErr) {
+					return callback(extendErr);
+				}
+				callback(null, subjects);
+			});
 		});
 		for (var i=0; i<res.length; i++) {
 			res[i].calculateAccess(asUserId, p.fill(res[i].fields.name));
@@ -1150,7 +1233,16 @@ Streams.fetchOne = function (asUserId, publisherId, streamName, callback, fields
 		    return callback(null, null);
 		}
 		res[0].calculateAccess(asUserId, function () {
-		    callback.call(res[0], null, res[0]);
+			if (!options || !options.withExtendClasses) {
+			    return callback.call(res[0], null, res[0]);
+			}
+			// opt-in: merge configured extend-table fields into the fetched stream
+			Streams.fetchExtendClasses([res[0]], function (extendErr) {
+				if (extendErr) {
+					return callback.call(res[0], extendErr);
+				}
+				callback.call(res[0], null, res[0]);
+			});
 		});
 	});
 };

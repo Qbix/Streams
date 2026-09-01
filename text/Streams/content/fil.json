@@ -153,14 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Magdagdag ng Mga Tungkulin",
-			"addPersonalRoles": "Magdagdag ng Mga Personal na Relasyon"
+			"addPersonalRoles": "Magdagdag ng Mga Personal na Relasyon",
+			"AddCommunityRoles": "Magdagdag ng mga tungkulin sa komunidad",
+			"AddParticipantRoles": "Magdagdag ng mga tungkulin sa {{streamDisplayType}} na ito",
+			"YouWereInvited": "Inimbitahan Ka"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Maligayang pagdating sa {{communityName}}",
 			"HasInvitedYou": "ay nag-imbita sa iyo sa:",
 			"HasInvitedYouToTheirProfile": "ay inimbitahan kang kumonekta.",
 			"prompt": "Hayaang makilala ka ng mga kaibigan:",
-			"accept": "Tanggapin ang Imbitasyon"
+			"accept": "Tanggapin",
+			"RolesOffered": "Mga tungkuling iniaalok sa iyo:",
+			"decline": "Tanggihan",
+			"ParticipantRolesOffered": "Ang iyong papel sa {{streamDisplayType}} na ito:"
 		},
 		"email": {
 			"subject": "Hoy, tingnan mo ito",
@@ -180,7 +186,10 @@
 		"chat": {
 			"prompt": "Mag-iimbita ka ng mga tao sa isang pag-uusap kung saan maaari kang makipag-ugnayan, magbahagi ng mga larawan nang magkasama, at higit pa. Bigyan ito ng pangalan:"
 		},
-		"Participants": "Mag-imbita ng mga tao"
+		"Participants": "Mag-imbita ng mga tao",
+		"inperson": {
+			"description": "Gumawa ng QR code at ipasa ito para ma-scan. Ang lahat ng mag-i-scan nito ay mananatiling konektado sa isa&#39;t isa:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +373,11 @@
 		"Streams/outgoing": {
 			"displayType": "Palabas",
 			"description": "destinasyon para sa pagtatala ng mga mensaheng ipinadala sa ibang mga gumagamit o mga panlabas na sistema"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontolohiya",
+			"description": "ontolohiya",
+			"newItem": "Magdagdag ng Ontolohiya"
 		}
 	},
 	"menu": {
@@ -548,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "hal 3000",
 		"KenburnsInstruction": "Itakda ang pagsisimula at pagtatapos ng Ken Burns sa pamamagitan ng pag-drag at pag-zoom."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Tagapag-alaga",
+				"speaker": "Tagapagsalita",
+				"volunteer": "Magboluntaryo",
+				"moderator": "Tagapamagitan",
+				"guest": "Bisita"
+			}
+		}
 	}
 }

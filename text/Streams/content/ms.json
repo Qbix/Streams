@@ -153,14 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Tambah Peranan",
-			"addPersonalRoles": "Tambah Perhubungan Peribadi"
+			"addPersonalRoles": "Tambah Perhubungan Peribadi",
+			"AddCommunityRoles": "Tambah peranan komuniti",
+			"AddParticipantRoles": "Tambah peranan dalam {{streamDisplayType}} ini",
+			"YouWereInvited": "Anda Dijemput"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Selamat datang ke {{communityName}}",
 			"HasInvitedYou": "telah menjemput anda untuk:",
 			"HasInvitedYouToTheirProfile": "telah menjemput anda untuk berhubung.",
 			"prompt": "Biarkan rakan mengenali anda:",
-			"accept": "Terima Jemputan"
+			"accept": "Terima",
+			"RolesOffered": "Peranan yang ditawarkan kepada anda:",
+			"decline": "Tolak",
+			"ParticipantRolesOffered": "Peranan anda dalam {{streamDisplayType}} ini:"
 		},
 		"email": {
 			"subject": "Hei, semak ini",
@@ -180,7 +186,10 @@
 		"chat": {
 			"prompt": "Anda akan menjemput orang ke perbualan yang membolehkan anda terus berhubung, berkongsi foto bersama dan banyak lagi. Beri nama:"
 		},
-		"Participants": "Jemput Orang"
+		"Participants": "Jemput Orang",
+		"inperson": {
+			"description": "Jana kod QR dan sebarkannya untuk diimbas. Setiap orang yang mengimbasnya akan kekal berhubung antara satu sama lain:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +373,11 @@
 		"Streams/outgoing": {
 			"displayType": "Keluar",
 			"description": "destinasi untuk merakam mesej yang dihantar kepada pengguna lain atau sistem luaran"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologi",
+			"description": "ontologi",
+			"newItem": "Tambah Ontologi"
 		}
 	},
 	"menu": {
@@ -548,5 +562,16 @@
 		"IntervalLabel": "Selang (ms): ",
 		"IntervalPlaceholder": "cth 3000",
 		"KenburnsInstruction": "Tetapkan permulaan dan tamat Ken Burns dengan menyeret dan mengezum."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Hos",
+				"speaker": "Penceramah",
+				"volunteer": "Sukarelawan",
+				"moderator": "Moderator",
+				"guest": "Tetamu"
+			}
+		}
 	}
 }

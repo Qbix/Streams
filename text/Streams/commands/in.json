@@ -1,0 +1,41 @@
+{
+	"_comment": "Teks perintah Streams. &#39;commands&#39; = label tampilan (UI); &#39;phrases&#39; = frasa yang dikenali, dikunci berdasarkan perintah. Bentuk frasa: &quot;substring&quot;, &quot;/regex/&quot;, atau templat &quot;give {{name}} access&quot; \u2014 setiap {{token}} dikompilasi menjadi tangkapan. Streams sekarang memiliki perintah kontrol akses dan penataan ulang (handler Streams/commands/streamCommand dan Streams/commands/cssUpdate); Media mengoperasikan navigasi; AI mengoperasikan generasi.",
+	"commands": {
+		"tool/cssUpdate": "Alat penataan ulang",
+		"stream/create": "Buat aliran",
+		"stream/grantAccess": "Berikan akses",
+		"stream/revokeAccess": "Cabut akses"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"ubah warnanya menjadi {{prompt}}",
+			"ubah warnanya menjadi {{prompt}}",
+			"warnai ulang {{prompt}}",
+			"ubah gaya alat {{prompt}}",
+			"buat warnanya {{prompt}}"
+		],
+		"stream/create": [
+			"buat aliran {{prompt}}",
+			"buat aliran {{prompt}}",
+			"mulai {{prompt}}",
+			"buat permainan {{prompt}}",
+			"Ayo main {{prompt}}",
+			"buatlah nomor {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"memberikan akses pos kepada {{name}}",
+			"biarkan {{name}} posting",
+			"berikan akses tulis {{name}}",
+			"izinkan {{name}} untuk memposting",
+			"tambahkan {{name}} sebagai tamu",
+			"undang {{name}} untuk memposting"
+		],
+		"stream/revokeAccess": [
+			"hapus akses {{name}}",
+			"cabut akses {{name}}",
+			"cabut akses {{name}}",
+			"hapus {{name}} dari aliran",
+			"blokir {{name}} agar tidak memposting"
+		]
+	}
+}

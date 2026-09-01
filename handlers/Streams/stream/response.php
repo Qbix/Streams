@@ -72,6 +72,9 @@ function Streams_stream_response()
 	if (!empty($_REQUEST['messages'])) {
 		$max = -1;
 		$limit = $_REQUEST['messages'];
+		if ($limit and !is_int($limit)) {
+			$limit = 10;
+		}
 		$messages = false;
 		$type = isset($_REQUEST['messageType']) ? $_REQUEST['messageType'] : null; 
 		if ($stream->testReadLevel('participants')) {

@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "T\u00e9igh ar aghaidh go dt\u00ed an ch\u00e9ad sleamhn\u00e1n eile. Scaoileann s\u00e9 Sruthanna/sleamhn\u00e1n {slideIndex: current+1}.",
+		"slide/prev": "T\u00e9igh ar ais go dt\u00ed an sleamhn\u00e1n roimhe seo. Scaoileann s\u00e9 Sruthanna/sleamhn\u00e1n {slideIndex: current-1}.",
+		"slide/first": "L\u00e9im go dt\u00ed an ch\u00e9ad sleamhn\u00e1n. Scaoileann s\u00e9 Sruthanna/sleamhn\u00e1n {slideIndex: 0}.",
+		"slide/last": "L\u00e9im go dt\u00ed an sleamhn\u00e1n deireanach. Scaoileann s\u00e9 Sruthanna/sleamhn\u00e1n {slideIndex: 9999}.",
+		"slide/navigate": "L\u00e9im go sleamhn\u00e1n de r\u00e9ir fiosr\u00fach\u00e1in \u00e1bhair. Gabhann s\u00e9 {query}.",
+		"reveal/next": "Nocht an ch\u00e9ad eilimint fhor\u00e1sach eile. Asta\u00edonn Sruthanna/nochtann {nochtadhInn\u00e9acs: reatha+1}.",
+		"video/play": "Seinn f\u00edse\u00e1n. Scaoileann s\u00e9 sruthanna/seinn {}.",
+		"video/pause": "Cuir sos ar an bhf\u00edse\u00e1n. Scaoileann s\u00e9 sruthanna/cuir sos {}.",
+		"video/seek": "Lorg go dt\u00ed am absal\u00f3ideach. Asta\u00edonn Sruthanna/lorg {pos: soicind}. Gabhann {am}.",
+		"video/seek/relative": "Cuardaigh de r\u00e9ir frith\u00e1ireamh. Asta\u00edonn Sruthanna/cuardach {pos: &#39;+/-soicind\u00ed&#39;}. Gabhann {am}.",
+		"gallery/next": "An ch\u00e9ad \u00edomh\u00e1 b-rolla eile. Scaoileann s\u00e9 sruthanna/gaileara\u00ed/ar aghaidh.",
+		"gallery/pause": "Reoigh an b-roll. Scaoileann s\u00e9 sruthanna/gaileara\u00ed/sos.",
+		"gallery/resume": "Rolla atos\u00fa. Aistr\u00edonn sruthanna/gaileara\u00ed/atos\u00fa.",
+		"gallery/remove": "Folaigh an \u00edomh\u00e1 B-rolla reatha. Scaoileann s\u00e9 Sruthanna/gaileara\u00ed/bain.",
+		"gallery/caption/remove": "Folaigh fotheideal b-roll. Scaoileann s\u00e9 Sruthanna/gaileara\u00ed/fotheideal {bain: f\u00edor}.",
+		"highlight": "Aibhsigh eilimint chairte. Aistr\u00edonn Sruthanna/aibhs\u00edonn {elementId}. Gabhann {target}.",
+		"zoom/in": "Z\u00fam\u00e1il isteach 1.5x. Asta\u00edonn Sruthanna/z\u00fam\u00e1il {sc\u00e1la: reatha*1.5}.",
+		"zoom/out": "Z\u00fam\u00e1il amach 1.5x. Asta\u00edonn Sruthanna/z\u00fam\u00e1il {sc\u00e1la: reatha/1.5}.",
+		"zoom/reset": "Athshocraigh s\u00fam\u00e1il go 1. Asta\u00edonn Sruthanna/s\u00fam\u00e1il {sc\u00e1la: 1}.",
+		"scroll/down": "Scrollaigh s\u00edos 20%. Asta\u00edonn Q/scrollaigh {top: &#39;+20%&#39;}.",
+		"scroll/up": "Scrollaigh suas 20%. Asta\u00edonn Q/scrollaigh {top: &#39;-20%&#39;}.",
+		"scroll/top": "Scrollaigh go barr. Scaoileann s\u00e9 Q/scrollaigh {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Scrollaigh go bun. Scaoileann s\u00e9 Q/scrollaigh {barr: &#39;100%&#39;}.",
+		"fullscreen": "Scoraigh l\u00e1nsc\u00e1ile\u00e1n.",
+		"image/generate": "\u00cdomh\u00e1 ginte ag LLM. Gabhann {prompt}.",
+		"tool/generate": "Giuirl\u00e9id a ghintear ag LLM. Gabhann {prompt}.",
+		"stream/create": "Cruthaigh sruth nua (ficheall, pobalbhreith, srl). Gabhann {prompt}.",
+		"stream/grantAccess": "Deonaigh rochtain scr\u00edbhneoireachta. Gabhann s\u00e9 {ainm, leibh\u00e9alscr\u00edbhneoireachta}.",
+		"stream/revokeAccess": "Cealaigh rochtain. Gabhann s\u00e9 {ainm}."
+	},
+	"slide/next": [
+		"an ch\u00e9ad sleamhn\u00e1n eile",
+		"an ch\u00e9ad ch\u00e1rta eile",
+		"dul ar aghaidh",
+		"bog ar aghaidh",
+		"dul chun cinn",
+		"ar aghaidh le do thoil",
+		"an ch\u00e9ad cheann eile",
+		"taispe\u00e1in an ch\u00e9ad cheann eile",
+		"/^an ch\u00e9ad $ eile/"
+	],
+	"slide/prev": [
+		"sleamhn\u00e1n roimhe seo",
+		"c\u00e1rta roimhe seo",
+		"t\u00e9igh ar ais",
+		"c\u00fal an ceann",
+		"sleamhn\u00e1n roimhe seo",
+		"c\u00e9im siar",
+		"/^ar ais$/"
+	],
+	"slide/first": [
+		"an ch\u00e9ad sleamhn\u00e1n",
+		"t\u00e9igh go dt\u00ed an t\u00fas",
+		"tos\u00fa ar\u00eds",
+		"\u00f3n mbarr",
+		"t\u00fas le do thoil"
+	],
+	"slide/last": [
+		"sleamhn\u00e1n deireanach",
+		"t\u00e9igh go dt\u00ed an deireadh",
+		"sleamhn\u00e1n deiridh",
+		"l\u00e9im go dt\u00ed an deireadh"
+	],
+	"slide/navigate": [
+		"t\u00e9igh go dt\u00ed {ceist}",
+		"taispe\u00e1in dom {ceist}",
+		"faigh {ceist}",
+		"l\u00e9im go {query}",
+		"nasclean\u00faint chuig {query}",
+		"tabhair m\u00e9 chuig {query}",
+		"oscail an {cheist}",
+		"taispe\u00e1in an sleamhn\u00e1n {query}",
+		"faigh an sleamhn\u00e1n {query}",
+		"t\u00e9igh go dt\u00ed an sleamhn\u00e1n {query}"
+	],
+	"reveal/next": [
+		"nocht",
+		"taispe\u00e1in n\u00edos m\u00f3",
+		"an ch\u00e9ad phointe eile",
+		"lean ar aghaidh",
+		"an ch\u00e9ad urchar eile"
+	],
+	"video/play": [
+		"s\u00fagradh",
+		"seinn f\u00edse\u00e1n",
+		"seinn an f\u00edse\u00e1n",
+		"t\u00fas a chur leis an bhf\u00edse\u00e1n",
+		"f\u00edse\u00e1n atos\u00fa",
+		"athshocair",
+		"/^imirt$/"
+	],
+	"video/pause": [
+		"sos",
+		"sos a chur ar an bhf\u00edse\u00e1n",
+		"stop an f\u00edse\u00e1n",
+		"fan ort",
+		"/^sos$/"
+	],
+	"video/seek": [
+		"t\u00e9igh go",
+		"iarraidh",
+		"l\u00e9im go",
+		"l\u00e9im go",
+		"ag luasgh\u00e9ar\u00fa ar aghaidh go",
+		"ar ais go"
+	],
+	"video/seek/relative": [
+		"t\u00e9igh ar ais {am}",
+		"ar ais {am}",
+		"athchasadh {am}",
+		"l\u00e9im siar {am}",
+		"t\u00e9igh ar aghaidh {am}",
+		"l\u00e9im ar aghaidh {am}",
+		"l\u00e9im ar aghaidh {am}",
+		"tapa ar aghaidh {am}",
+		"ar aghaidh {am}"
+	],
+	"gallery/next": [
+		"an ch\u00e9ad \u00edomh\u00e1 eile",
+		"an ch\u00e9ad ghrianghraf eile",
+		"an ch\u00e9ad phicti\u00far eile",
+		"scipe\u00e1il \u00edomh\u00e1",
+		"athraigh an c\u00falra"
+	],
+	"gallery/pause": [
+		"sos c\u00falra",
+		"c\u00falra stad",
+		"c\u00falra reoite",
+		"coinnigh an c\u00falra",
+		"sos na h\u00edomh\u00e1nna"
+	],
+	"gallery/resume": [
+		"c\u00falra atos\u00fa",
+		"lean ar aghaidh leis an gc\u00falra",
+		"tos\u00fa ar an gc\u00falra ar\u00eds",
+		"athshocair an c\u00falra"
+	],
+	"gallery/remove": [
+		"bain an \u00edomh\u00e1 seo",
+		"scipe\u00e1il an \u00edomh\u00e1 seo",
+		"folaigh an grianghraf seo",
+		"bain an \u00edomh\u00e1 reatha",
+		"bain an grianghraf seo"
+	],
+	"gallery/caption/remove": [
+		"bain an fotheideal",
+		"folaigh an fotheideal",
+		"fotheideal soil\u00e9ir",
+		"bain an fotheideal",
+		"folaigh an fotheideal"
+	],
+	"highlight": [
+		"aird a tharraingt",
+		"pointe\u00e1il chuig",
+		"taispe\u00e1in dom",
+		"b\u00e9im a chur ar",
+		"d\u00edri\u00fa ar",
+		"marc",
+		"glaoigh amach"
+	],
+	"zoom/in": [
+		"z\u00fam\u00e1il isteach",
+		"s\u00fam\u00e1il",
+		"n\u00edos m\u00f3",
+		"m\u00e9ad\u00fa",
+		"formh\u00e9adaigh",
+		"d\u00e9an n\u00edos m\u00f3 \u00e9",
+		"n\u00edos gaire"
+	],
+	"zoom/out": [
+		"s\u00fam\u00e1il amach",
+		"n\u00edos l\u00fa",
+		"crapadh",
+		"tarraingt siar",
+		"d\u00e9an n\u00edos l\u00fa \u00e9",
+		"c\u00e9im siar",
+		"radharc n\u00edos leithne"
+	],
+	"zoom/reset": [
+		"athshocraigh s\u00fam\u00e1il",
+		"athshocr\u00fa s\u00fam\u00e1la",
+		"gn\u00e1thmh\u00e9id",
+		"oiri\u00fanach don sc\u00e1ile\u00e1n",
+		"s\u00fam\u00e1il chun oiri\u00fan\u00fa"
+	],
+	"scroll/down": [
+		"scrollaigh s\u00edos",
+		"lean ort",
+		"n\u00edos m\u00f3",
+		"lean s\u00edos",
+		"leathanach s\u00edos",
+		"th\u00edos"
+	],
+	"scroll/up": [
+		"scrollaigh suas",
+		"t\u00e9igh suas",
+		"c\u00faltaca",
+		"suas",
+		"leathanach suas",
+		"thuas"
+	],
+	"scroll/top": [
+		"scrollaigh go barr",
+		"t\u00e9igh go barr",
+		"ar ais go barr",
+		"t\u00fas an leathanaigh",
+		"barr an leathanaigh"
+	],
+	"scroll/bottom": [
+		"scrollaigh go bun",
+		"t\u00e9igh go bun",
+		"deireadh an leathanaigh",
+		"bun an leathanaigh"
+	],
+	"fullscreen": [
+		"l\u00e1nsc\u00e1ile\u00e1in",
+		"l\u00e1nsc\u00e1ile\u00e1n",
+		"uasmh\u00e9adaigh",
+		"sc\u00e1ile\u00e1n a l\u00edonadh",
+		"d\u00e9an l\u00e1n \u00e9"
+	],
+	"image/generate": [
+		"\u00edomh\u00e1 de {prompt} a ghini\u00faint",
+		"cruthaigh \u00edomh\u00e1 de {prompt}",
+		"taispe\u00e1in dom {pras}",
+		"l\u00e9irshamhl\u00fa {pras}",
+		"tarraing {pras}",
+		"d\u00e9an picti\u00far de {pras}"
+	],
+	"tool/generate": [
+		"t\u00f3g {pras}",
+		"cruthaigh {pras}",
+		"t\u00f3g {pras} dom",
+		"gini\u00faint giuirl\u00e9id {prompt}",
+		"uirlis {pras} a dh\u00e9anamh",
+		"uirlis {prompt} a chruth\u00fa"
+	],
+	"stream/create": [
+		"cruthaigh sruth {prompt}",
+		"sruth {pras} a dh\u00e9anamh",
+		"t\u00fas a chur le {pras}",
+		"cruthaigh cluiche {pras}",
+		"imr\u00edmis {go pras}",
+		"socraigh {pras}"
+	],
+	"stream/grantAccess": [
+		"tabhair rochtain ar phost\u00e1il do {name}",
+		"lig do {ainm} post\u00e1il",
+		"tabhair rochtain scr\u00edbhneoireachta do {name}",
+		"lig do {ainm} post\u00e1il",
+		"cuir {ainm} leis mar aoi",
+		"tabhair cuireadh do {ainm} post\u00e1il"
+	],
+	"stream/revokeAccess": [
+		"bain rochtain {name}",
+		"rochtain {name} a ch\u00falghairm",
+		"rochtain {ainm} a bhaint",
+		"bain {ainm} den sruth",
+		"bac a chur ar {ainm} \u00f3 phost\u00e1il"
+	]
+}

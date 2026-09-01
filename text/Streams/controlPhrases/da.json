@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "G\u00e5 videre til n\u00e6ste slide. Udsender Streams/slide {slideIndex: current+1}.",
+		"slide/prev": "G\u00e5 tilbage til forrige slide. Udsender Streams/slide {slideIndex: current-1}.",
+		"slide/first": "G\u00e5 til f\u00f8rste slide. Udsender Streams/slide {slideIndex: 0}.",
+		"slide/last": "G\u00e5 til sidste slide. Udsender Streams/slide {slideIndex: 9999}.",
+		"slide/navigate": "Hop til et slide via indholdsforesp\u00f8rgsel. Indfanger {foresp\u00f8rgsel}.",
+		"reveal/next": "Afsl\u00f8r n\u00e6ste progressive element. Udsender streams/afsl\u00f8r {afsl\u00f8rIndex: current+1}.",
+		"video/play": "Afspil video. Udsender streams/afspil {}.",
+		"video/pause": "Pause video. Udsender streams/pause {}.",
+		"video/seek": "S\u00f8ger til absolut tid. Udsender str\u00f8mme/s\u00f8ger {pos: sekunder}. Indfanger {tid}.",
+		"video/seek/relative": "S\u00f8ger via offset. Udsender str\u00f8mme/s\u00f8gning {pos: &#39;+/-sekunder&#39;}. Optager {tid}.",
+		"gallery/next": "N\u00e6ste B-roll-billede. Udsender Streams/gallery/next.",
+		"gallery/pause": "Frys b-roll. Udsender streams/galleri/pause.",
+		"gallery/resume": "CV b-roll. Udsender streams/galleri/CV.",
+		"gallery/remove": "Skjul nuv\u00e6rende B-roll-billede. Sender Streams/gallery/fjern.",
+		"gallery/caption/remove": "Skjul B-roll-billedtekst. Udsender Streams/gallery/billedtekst {fjern: sand}.",
+		"highlight": "Fremh\u00e6v diagramelement. Udsender streams/fremh\u00e6ver {elementId}. Indfanger {target}.",
+		"zoom/in": "Zoom ind 1,5x. Udsender str\u00f8mme/zoom {skala: str\u00f8m*1,5}.",
+		"zoom/out": "Zoom ud 1,5x. Udsender str\u00f8mme/zoom {skala: str\u00f8m/1,5}.",
+		"zoom/reset": "Nulstil zoom til 1. Udsender str\u00f8mme/zoom {skala: 1}.",
+		"scroll/down": "Rul ned 20%. Udsender Q/rul {top: &#39;+20%&#39;}.",
+		"scroll/up": "Rul op 20%. Udsender Q/rul {top: &#39;-20%&#39;}.",
+		"scroll/top": "Rul til toppen. Udsender Q/rul {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Rul ned til bunden. Udsender Q/rul {top: &#39;100%&#39;}.",
+		"fullscreen": "Sl\u00e5 fuldsk\u00e6rm til/fra.",
+		"image/generate": "LLM-genereret billede. Optager {prompt}.",
+		"tool/generate": "LLM-genereret widget. Optager {prompt}.",
+		"stream/create": "Opret ny stream (skak, afstemning osv.). Optager {prompt}.",
+		"stream/grantAccess": "Giv skriveadgang. Indfanger {name, writeLevel}.",
+		"stream/revokeAccess": "Tilbagekald adgang. Optager {name}."
+	},
+	"slide/next": [
+		"n\u00e6ste slide",
+		"n\u00e6ste kort",
+		"g\u00e5 fremad",
+		"g\u00e5 videre",
+		"fremrykning",
+		"n\u00e6ste tak",
+		"den n\u00e6ste",
+		"vis n\u00e6ste",
+		"/^n\u00e6ste$/"
+	],
+	"slide/prev": [
+		"forrige slide",
+		"forrige kort",
+		"g\u00e5 tilbage",
+		"den bagerste",
+		"forrige slide",
+		"tr\u00e6d tilbage",
+		"/^tilbage$/"
+	],
+	"slide/first": [
+		"f\u00f8rste dias",
+		"g\u00e5 til begyndelsen",
+		"start forfra",
+		"fra toppen",
+		"begyndelsen, tak"
+	],
+	"slide/last": [
+		"sidste slide",
+		"g\u00e5 til enden",
+		"sidste dias",
+		"spring til slutningen"
+	],
+	"slide/navigate": [
+		"g\u00e5 til {foresp\u00f8rgsel}",
+		"vis mig {foresp\u00f8rgsel}",
+		"find {foresp\u00f8rgsel}",
+		"hop til {foresp\u00f8rgsel}",
+		"naviger til {foresp\u00f8rgsel}",
+		"tag mig til {foresp\u00f8rgsel}",
+		"\u00e5bn {foresp\u00f8rgslen}",
+		"vis {foresp\u00f8rgsel}-sliden",
+		"find {foresp\u00f8rgsel}-sliden",
+		"g\u00e5 til {foresp\u00f8rgsel}-sliden"
+	],
+	"reveal/next": [
+		"afsl\u00f8re",
+		"vis mere",
+		"n\u00e6ste punkt",
+		"forts\u00e6tte",
+		"n\u00e6ste punkt"
+	],
+	"video/play": [
+		"spil",
+		"afspil video",
+		"afspil videoen",
+		"start video",
+		"CV-video",
+		"genstart",
+		"/^spil$/"
+	],
+	"video/pause": [
+		"pause",
+		"s\u00e6tte videoen p\u00e5 pause",
+		"stop videoen",
+		"hold fast",
+		"/^pause$/"
+	],
+	"video/seek": [
+		"g\u00e5 til",
+		"s\u00f8ge at",
+		"hoppe til",
+		"spring til",
+		"spol frem til",
+		"spol tilbage til"
+	],
+	"video/seek/relative": [
+		"g\u00e5 tilbage {tid}",
+		"tilbage {tid}",
+		"spol tilbage {tid}",
+		"spring tilbage {tid}",
+		"g\u00e5 fremad {tid}",
+		"spring fremad {tid}",
+		"spring fremad {tid}",
+		"spol frem {tid}",
+		"fremad {tid}"
+	],
+	"gallery/next": [
+		"n\u00e6ste billede",
+		"n\u00e6ste billede",
+		"n\u00e6ste billede",
+		"spring billede over",
+		"skift baggrunden"
+	],
+	"gallery/pause": [
+		"pause baggrund",
+		"stop baggrund",
+		"frys baggrund",
+		"hold baggrunden",
+		"s\u00e6tte billederne p\u00e5 pause"
+	],
+	"gallery/resume": [
+		"CV-baggrund",
+		"forts\u00e6t baggrunden",
+		"start baggrunden igen",
+		"genstart baggrunden"
+	],
+	"gallery/remove": [
+		"fjern dette billede",
+		"spring dette billede over",
+		"skjul dette billede",
+		"fjern det aktuelle billede",
+		"fjern dette billede"
+	],
+	"gallery/caption/remove": [
+		"fjern billedtekst",
+		"skjul billedtekst",
+		"klar billedtekst",
+		"fjern billedteksten",
+		"skjul billedteksten"
+	],
+	"highlight": [
+		"fremh\u00e6v",
+		"pege p\u00e5",
+		"vis mig",
+		"understrege",
+		"fokus p\u00e5",
+		"m\u00e6rke",
+		"ringe ud"
+	],
+	"zoom/in": [
+		"zoom ind",
+		"zoom",
+		"st\u00f8rre",
+		"forst\u00f8rre",
+		"forst\u00f8rre",
+		"g\u00f8r det st\u00f8rre",
+		"t\u00e6ttere"
+	],
+	"zoom/out": [
+		"zoom ud",
+		"mindre",
+		"krympe",
+		"tr\u00e6kke sig tilbage",
+		"g\u00f8r det mindre",
+		"tr\u00e6d tilbage",
+		"bredere overblik"
+	],
+	"zoom/reset": [
+		"nulstil zoom",
+		"zoom nulstil",
+		"normal st\u00f8rrelse",
+		"tilpasses sk\u00e6rmen",
+		"zoom for at passe"
+	],
+	"scroll/down": [
+		"rul ned",
+		"forts\u00e6t",
+		"mere",
+		"forts\u00e6t ned",
+		"side ned",
+		"under"
+	],
+	"scroll/up": [
+		"rul op",
+		"g\u00e5 op",
+		"sikkerhedskopiere",
+		"opadg\u00e5ende",
+		"side op",
+		"over"
+	],
+	"scroll/top": [
+		"rul til toppen",
+		"g\u00e5 til toppen",
+		"tilbage til toppen",
+		"begyndelsen af siden",
+		"toppen af siden"
+	],
+	"scroll/bottom": [
+		"rul ned til bunden",
+		"g\u00e5 til bunden",
+		"slutningen af siden",
+		"nederst p\u00e5 siden"
+	],
+	"fullscreen": [
+		"fuldsk\u00e6rm",
+		"fuld sk\u00e6rm",
+		"maksimere",
+		"fyld sk\u00e6rm",
+		"g\u00f8r det fuldt"
+	],
+	"image/generate": [
+		"generer et billede af {prompt}",
+		"opret et billede af {prompt}",
+		"vis mig {prompt}",
+		"visualisere {prompt}",
+		"tegne {prompt}",
+		"lav et billede af {prompt}"
+	],
+	"tool/generate": [
+		"byg en {prompt}",
+		"opret en {prompt}",
+		"byg mig en {prompt}",
+		"generer en {prompt}-widget",
+		"lav et {prompt} v\u00e6rkt\u00f8j",
+		"opret et {prompt}-v\u00e6rkt\u00f8j"
+	],
+	"stream/create": [
+		"opret en {prompt} str\u00f8m",
+		"lav en {prompt} stream",
+		"start en {prompt}",
+		"opret et {prompt} spil",
+		"Lad os spille {prompt}",
+		"ops\u00e6t en {prompt}"
+	],
+	"stream/grantAccess": [
+		"giv {name} adgang til opslaget",
+		"lad {name} poste",
+		"giv {name} skriveadgang",
+		"tillad {name} at poste",
+		"tilf\u00f8j {name} som g\u00e6st",
+		"inviter {name} til at skrive et opslag"
+	],
+	"stream/revokeAccess": [
+		"fjern {name}s adgang",
+		"tilbagekald {name}s adgang",
+		"fjerne adgangen for {name}",
+		"fjern {name} fra str\u00f8mmen",
+		"bloker {name} fra at poste"
+	]
+}

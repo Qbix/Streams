@@ -9,6 +9,8 @@ Q.exports(function(Users, Streams) {
 	 *  It is passed an object with keys "suggestion", "stream", "data"
 	 * @param {object} [options] Different options
 	 * @param {string} [options.title] Custom dialog title
+     * @param {String} [options.description] Customize description of what user can do when they invite others.
+	 * @param {String} [options.className] Custom dialog CSS class
 	 * @param {string} [options.token] Use to set the invite token, if you have enough permissions
 	 * @param {String} [options.userChooser=false] If true allow to invite registered users with Streams/userChooser tool.
 	 * @param {String} [options.sendBy] Set this to immediately invoke a specific method for the invite as soon as the dialog appears (e.g., 'contactPicker', 'sms', 'email', 'copyLink', 'QR')
@@ -29,6 +31,7 @@ Q.exports(function(Users, Streams) {
 
 		var suggestion = null;
 		var data = null;
+		var hide = null;
 		var dialog = null;
 		var fields = {
 			publisherId: publisherId,
@@ -40,13 +43,37 @@ Q.exports(function(Users, Streams) {
 	
 		// detect if cordova or Contacts Picker API available.
 		var isContactsPicker = Q.info.isCordova || ('contacts' in navigator && 'ContactsManager' in window);
+
+		function _hideElements() {
+			Q.each(hide, function (i, item) {
+				if (item === 'contacts') {
+					$('.Streams_invite_select_contacts', dialog).hide();
+				}
+				if (item === 'qr') {
+					$('.Streams_invite_scan_qr', dialog).hide();
+				}
+				if (item === 'share') {
+					$('.Streams_invite_share_link', dialog).hide();
+				}
+				if (item === 'social') {
+					$('.Streams_invite_social_buttons', dialog).hide();
+				}
+				if (item === 'roles') {
+					$('.Streams_invite_label_buttons', dialog).hide();
+				}
+			});
+		}
 	
-		Q.req('Streams/invite', ['suggestion', 'data'], function (err, response) {
+		Q.req('Streams/invite', ['suggestion', 'data', 'hide'], function (err, response) {
 			var slots = response && response.slots;
 			if (slots) {
 				suggestion = slots.suggestion;
 				data = slots.data;
-				$('.Streams_invite_dialog').addClass('Streams_suggestion_ready');
+				$(dialog).addClass('Streams_suggestion_ready');
+				if (slots.hide) {
+					hide = slots.hide;
+					_hideElements();
+				}
 			}
 			if (options.sendBy) {
 				// invoke method as soon as suggestion is ready
@@ -151,6 +178,7 @@ Q.exports(function(Users, Streams) {
 			if(options.templateName == 'Streams/templates/invite/classicDialog'){
 				dialog = Q.Dialogs.push({
 					title: options.title || text.title,
+					className: options.className,
 					template: {
 						name: 'Streams/templates/invite/dialog',
 						fields: {
@@ -166,8 +194,11 @@ Q.exports(function(Users, Streams) {
 					stylesheet: '{{Streams}}/css/Streams/invite.css',
 					className: 'Streams_invite_dialog',
 					onActivate: function (dialog) {
-						if (data) {
+						if (suggestion) {
 							dialog.addClass('Streams_suggestion_ready');
+						}
+						if (hide) {
+							_hideElements();
 						}
 	
 						var $eContacts = $(".Streams_invite_contacts", dialog);
@@ -349,8 +380,11 @@ Q.exports(function(Users, Streams) {
 					stylesheet: '{{Streams}}/css/Streams/modern_invite.css',
 					className: 'Streams_invite_dialog',
 					onActivate: function (dialog) {
-						if (data) {
+						if (suggestion) {
 							dialog.addClass('Streams_suggestion_ready');
+						}
+						if (hide) {
+							_hideElements();
 						}
 	
 						// handle "choose from contacts" button

@@ -153,14 +153,20 @@
 			"byTelegram": "\u7535\u62a5",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "\u6dfb\u52a0\u89d2\u8272",
-			"addPersonalRoles": "\u6dfb\u52a0\u4e2a\u4eba\u5173\u7cfb"
+			"addPersonalRoles": "\u6dfb\u52a0\u4e2a\u4eba\u5173\u7cfb",
+			"AddCommunityRoles": "\u6dfb\u52a0\u793e\u533a\u89d2\u8272",
+			"AddParticipantRoles": "\u5728\u6b64{{streamDisplayType}}\u4e2d\u6dfb\u52a0\u89d2\u8272",
+			"YouWereInvited": "\u60a8\u5df2\u53d7\u9080"
 		},
 		"complete": {
 			"WelcomeToCommunity": "\u6b22\u8fce\u6765\u5230{{communityName}}",
 			"HasInvitedYou": "\u5df2\u9080\u8bf7\u60a8\uff1a",
 			"HasInvitedYouToTheirProfile": "\u5df2\u9080\u8bf7\u60a8\u8fde\u63a5\u3002",
 			"prompt": "\u8ba9\u670b\u53cb\u8ba4\u51fa\u4f60\uff1a",
-			"accept": "\u63a5\u53d7\u9080\u8bf7"
+			"accept": "\u63a5\u53d7",
+			"RolesOffered": "\u60a8\u76ee\u524d\u6709\u673a\u4f1a\u62c5\u4efb\u7684\u804c\u4f4d\uff1a",
+			"decline": "\u8870\u9000",
+			"ParticipantRolesOffered": "\u4f60\u5728\u8fd9\u6b21{{streamDisplayType}}\u4e2d\u7684\u89d2\u8272\uff1a"
 		},
 		"email": {
 			"subject": "\u563f\uff0c\u770b\u770b\u8fd9\u4e2a",
@@ -180,7 +186,10 @@
 		"chat": {
 			"prompt": "\u60a8\u5c06\u9080\u8bf7\u4eba\u4eec\u52a0\u5165\u5bf9\u8bdd\uff0c\u5728\u5bf9\u8bdd\u4e2d\u60a8\u53ef\u4ee5\u4fdd\u6301\u8054\u7cfb\u3001\u4e00\u8d77\u5206\u4eab\u7167\u7247\u7b49\u7b49\u3002\u4e3a\u5176\u547d\u540d\uff1a"
 		},
-		"Participants": "\u9080\u8bf7\u4eba"
+		"Participants": "\u9080\u8bf7\u4eba",
+		"inperson": {
+			"description": "\u751f\u6210\u4e00\u4e2a\u4e8c\u7ef4\u7801\u5e76\u56db\u5904\u4f20\u64ad\uff0c\u4f9b\u4eba\u626b\u63cf\u3002\u6240\u6709\u626b\u63cf\u4e8c\u7ef4\u7801\u7684\u4eba\u90fd\u4f1a\u5f7c\u6b64\u4fdd\u6301\u8054\u7cfb\uff1a"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +373,11 @@
 		"Streams/outgoing": {
 			"displayType": "\u5916\u5411",
 			"description": "\u7528\u4e8e\u8bb0\u5f55\u53d1\u9001\u7ed9\u5176\u4ed6\u7528\u6237\u6216\u5916\u90e8\u7cfb\u7edf\u7684\u6d88\u606f\u7684\u76ee\u6807\u4f4d\u7f6e"
+		},
+		"Streams/ontology": {
+			"displayType": "\u672c\u4f53\u8bba",
+			"description": "\u672c\u4f53\u8bba",
+			"newItem": "\u6dfb\u52a0\u672c\u4f53"
 		}
 	},
 	"menu": {
@@ -548,5 +562,16 @@
 		"IntervalLabel": "\u95f4\u9694\uff08\u6beb\u79d2\uff09\uff1a ",
 		"IntervalPlaceholder": "\u4f8b\u5982 3000",
 		"KenburnsInstruction": "\u901a\u8fc7\u62d6\u52a8\u548c\u7f29\u653e\u6765\u8bbe\u7f6e Ken Burns \u5f71\u7247\u7684\u5f00\u59cb\u548c\u7ed3\u675f\u65f6\u95f4\u3002"
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "\u4e3b\u6301\u4eba",
+				"speaker": "\u626c\u58f0\u5668",
+				"volunteer": "\u5fd7\u613f\u8005",
+				"moderator": "\u4e3b\u6301\u4eba",
+				"guest": "\u5ba2\u4eba"
+			}
+		}
 	}
 }

@@ -1,0 +1,264 @@
+{
+	"_locale": "hr",
+	"_intents": {
+		"slide/next": "Prije\u0111i na sljede\u0107i slajd. Emitira Streams/slide {slideIndex: current+1}.",
+		"slide/prev": "Povratak na prethodni slajd. Emitira Streams/slide {slideIndex: current-1}.",
+		"slide/first": "Sko\u010di na prvi slajd. Emitira Streams/slide {slideIndex: 0}.",
+		"slide/last": "Sko\u010di na zadnji slajd. Emitira Streams/slide {slideIndex: 9999}.",
+		"slide/navigate": "Sko\u010di na slajd upitom sadr\u017eaja. Snima {query}.",
+		"reveal/next": "Otkriva sljede\u0107i progresivni element. Emitira Streams/reveal {revealIndex: current+1}.",
+		"video/play": "Reproduciraj video. Emitira streamove/reproduciraj {}.",
+		"video/pause": "Pauziraj video. Emitira streamove/pauziraj {}.",
+		"video/seek": "Tra\u017ei prema apsolutnom vremenu. Emitira streamove/tra\u017ei {poz: sekunde}. Snima {vrijeme}.",
+		"video/seek/relative": "Tra\u017ei po pomaku. Emitira streamove/tra\u017ei {poz: &#39;+/- sekunde&#39;}. Snima {vrijeme}.",
+		"gallery/next": "Sljede\u0107a b-roll slika. Emitira Streams/gallery/next.",
+		"gallery/pause": "Zamrzavanje sporednih snimaka. Emitiranje streamova/galerije/pauze.",
+		"gallery/resume": "Nastavi b-roll. Emitira streamove/galeriju/\u017eivotopis.",
+		"gallery/remove": "Sakrij trenutnu b-roll sliku. Emitira streamove/galeriju/ukloni.",
+		"gallery/caption/remove": "Sakrij titl za b-roll. Emitira streamove/galeriju/titl {ukloni: true}.",
+		"highlight": "Ozna\u010di element grafikona. Emitira streamove/ozna\u010di {elementId}. Snima {target}.",
+		"zoom/in": "Uve\u0107aj 1,5x. Emitira streamove/zumiranje {skala: trenutno*1,5}.",
+		"zoom/out": "Smanji 1,5x. Emitira streamove/zumiranje {skala: trenutno/1,5}.",
+		"zoom/reset": "Vrati zumiranje na 1. Emitira streamove/zumiranje {skala: 1}.",
+		"scroll/down": "Pomakni se prema dolje 20%. Emitira Q/pomakni se {vrh: &#39;+20%&#39;}.",
+		"scroll/up": "Pomakni se gore 20%. Emitira Q/pomakni se {vrh: &#39;-20%&#39;}.",
+		"scroll/top": "Pomakni se na vrh. Emitira Q/pomakni se {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Pomakni se do dna. Emitira Q/pomakni se {vrh: &#39;100%&#39;}.",
+		"fullscreen": "Uklju\u010di/isklju\u010di cijeli zaslon.",
+		"image/generate": "Slika generirana LLM-om. Snima {prompt}.",
+		"tool/generate": "LLM-generirani widget. Snima {prompt}.",
+		"stream/create": "Stvori novi stream (\u0161ah, anketa itd.). Snima {prompt}.",
+		"stream/grantAccess": "Odobri pristup za pisanje. Snima {name, writeLevel}.",
+		"stream/revokeAccess": "Opozovite pristup. Snima {name}."
+	},
+	"slide/next": [
+		"sljede\u0107i slajd",
+		"sljede\u0107a karta",
+		"samo naprijed",
+		"kreni dalje",
+		"napredak",
+		"sljede\u0107i molim",
+		"sljede\u0107i",
+		"prika\u017ei sljede\u0107e",
+		"/^sljede\u0107i$/"
+	],
+	"slide/prev": [
+		"prethodni slajd",
+		"prethodna kartica",
+		"vratiti se",
+		"jedan natrag",
+		"prethodni slajd",
+		"korak unatrag",
+		"/^natrag$/"
+	],
+	"slide/first": [
+		"prvi slajd",
+		"idi na po\u010detak",
+		"po\u010deti ispo\u010detka",
+		"od vrha",
+		"po\u010detak molim"
+	],
+	"slide/last": [
+		"zadnji slajd",
+		"i\u0107i do kraja",
+		"zavr\u0161ni slajd",
+		"skok do kraja"
+	],
+	"slide/navigate": [
+		"idi na {upit}",
+		"prika\u017ei mi {upit}",
+		"prona\u0111i {upit}",
+		"skok na {upit}",
+		"idi na {query}",
+		"odvedi me na {query}",
+		"otvori {upit}",
+		"prika\u017ei slajd {query}",
+		"prona\u0111i slajd {query}",
+		"idi na slajd {query}"
+	],
+	"reveal/next": [
+		"otkriti",
+		"prika\u017ei vi\u0161e",
+		"sljede\u0107a to\u010dka",
+		"nastaviti",
+		"sljede\u0107a grafi\u010dka oznaka"
+	],
+	"video/play": [
+		"igrati",
+		"reproduciraj videozapis",
+		"reproduciraj video",
+		"pokreni video",
+		"nastaviti video",
+		"ponovno pauziranje",
+		"/^play$/"
+	],
+	"video/pause": [
+		"pauza",
+		"pauziraj video",
+		"zaustavi video",
+		"dr\u017ei se",
+		"/^pauza$/"
+	],
+	"video/seek": [
+		"i\u0107i na",
+		"nastojati",
+		"skok na",
+		"presko\u010di na",
+		"brzo naprijed do",
+		"premotavanje unatrag do"
+	],
+	"video/seek/relative": [
+		"vrati se {vrijeme}",
+		"natrag {vrijeme}",
+		"premotavanje unatrag {vrijeme}",
+		"presko\u010di unatrag {vrijeme}",
+		"idi naprijed {vrijeme}",
+		"presko\u010di unaprijed {vrijeme}",
+		"presko\u010di unaprijed {vrijeme}",
+		"brzo unaprijed {vrijeme}",
+		"naprijed {vrijeme}"
+	],
+	"gallery/next": [
+		"sljede\u0107a slika",
+		"sljede\u0107a fotografija",
+		"sljede\u0107a slika",
+		"presko\u010di sliku",
+		"promijeni pozadinu"
+	],
+	"gallery/pause": [
+		"pauziraj pozadinu",
+		"zaustavi pozadinu",
+		"zamrzavanje pozadine",
+		"zadr\u017ei pozadinu",
+		"pauziraj slike"
+	],
+	"gallery/resume": [
+		"pozadina \u017eivotopisa",
+		"nastaviti pozadinu",
+		"ponovno pokretanje pozadine",
+		"ponovno pauziranje pozadine"
+	],
+	"gallery/remove": [
+		"ukloni ovu sliku",
+		"presko\u010di ovu sliku",
+		"sakrij ovu fotografiju",
+		"ukloni trenutnu sliku",
+		"ukloni ovu fotografiju"
+	],
+	"gallery/caption/remove": [
+		"ukloni natpis",
+		"sakrij natpis",
+		"jasan titl",
+		"ukloni natpis",
+		"sakrij natpis"
+	],
+	"highlight": [
+		"istaknuti",
+		"ukazati na",
+		"poka\u017ei mi",
+		"naglasiti",
+		"usredoto\u010diti se na",
+		"ocjena",
+		"prozvati"
+	],
+	"zoom/in": [
+		"uve\u0107aj",
+		"zum",
+		"ve\u0107i",
+		"uve\u0107ati",
+		"uve\u0107ati",
+		"uve\u0107aj",
+		"bli\u017ee"
+	],
+	"zoom/out": [
+		"smanjivanje",
+		"manji",
+		"smanjiti se",
+		"povuci se",
+		"smanji ga",
+		"korak unatrag",
+		"\u0161iri pogled"
+	],
+	"zoom/reset": [
+		"poni\u0161ti zumiranje",
+		"resetiranje zumiranja",
+		"normalna veli\u010dina",
+		"prilagodi zaslonu",
+		"zumiraj da stane"
+	],
+	"scroll/down": [
+		"pomaknite se prema dolje",
+		"nastavi",
+		"vi\u0161e",
+		"nastavite prema dolje",
+		"stranica prema dolje",
+		"ispod"
+	],
+	"scroll/up": [
+		"pomakni se prema gore",
+		"i\u0107i gore",
+		"sigurnosna kopija",
+		"prema gore",
+		"stranica gore",
+		"iznad"
+	],
+	"scroll/top": [
+		"pomakni se na vrh",
+		"idi na vrh",
+		"natrag na vrh",
+		"po\u010detak stranice",
+		"vrh stranice"
+	],
+	"scroll/bottom": [
+		"pomakni se do dna",
+		"idi na dno",
+		"kraj stranice",
+		"dno stranice"
+	],
+	"fullscreen": [
+		"cijeli zaslon",
+		"cijeli zaslon",
+		"maksimizirati",
+		"ispuni ekran",
+		"napuni ga"
+	],
+	"image/generate": [
+		"generiraj sliku {prompt}",
+		"stvori sliku {prompt}",
+		"poka\u017ei mi {prompt}",
+		"vizualiziraj {prompt}",
+		"crtanje {prompt}",
+		"napravi sliku {prompt}"
+	],
+	"tool/generate": [
+		"izgradi {prompt}",
+		"stvori {prompt}",
+		"izgradi mi {prompt}",
+		"generiraj {prompt} widget",
+		"napraviti alat {prompt}",
+		"izradi alat {prompt}"
+	],
+	"stream/create": [
+		"stvori {prompt} stream",
+		"napravi {prompt} stream",
+		"zapo\u010dnite {prompt}",
+		"stvori {prompt} igru",
+		"igrajmo {prompt}",
+		"postavite {prompt}"
+	],
+	"stream/grantAccess": [
+		"dajte korisniku {name} pristup objavi",
+		"neka {name} objavi",
+		"daj {name} pristup za pisanje",
+		"dopusti {name} objavljivanje",
+		"dodaj {name} kao gosta",
+		"pozovite {name} da objavi objavu"
+	],
+	"stream/revokeAccess": [
+		"ukloni pristup za {name}",
+		"opozvati pristup za {name}",
+		"oduzeti pristup korisniku {name}",
+		"ukloni {name} iz streama",
+		"blokiraj {name} od objavljivanja"
+	]
+}

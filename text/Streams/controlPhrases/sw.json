@@ -1,0 +1,264 @@
+{
+	"_locale": "sw",
+	"_intents": {
+		"slide/next": "Songa mbele hadi kwenye slaidi inayofuata. Hutoa Mitiririko/slaidi {slaidiKielezo: cha sasa+1}.",
+		"slide/prev": "Rudi kwenye slaidi iliyotangulia. Hutoa Mitiririko/slaidi {slaidiKielezo: cha sasa-1}.",
+		"slide/first": "Ruka hadi kwenye slaidi ya kwanza. Hutoa Mitiririko/slaidi {slaidiKielezo: 0}.",
+		"slide/last": "Ruka hadi kwenye slaidi ya mwisho. Hutoa Mitiririko/slaidi {Kielezo cha slaidi: 9999}.",
+		"slide/navigate": "Ruka hadi kwenye slaidi kulingana na swali la maudhui. Hunasa {query}.",
+		"reveal/next": "Onyesha kipengele kinachofuata kinachoendelea. Hutoa Mitiririko/onyesha {onyeshaKielezo: cha sasa+1}.",
+		"video/play": "Cheza video. Hutoa Mitiririko/cheza {}.",
+		"video/pause": "Sitisha video. Hutoa Mitiririko/Sitisha {}.",
+		"video/seek": "Tafuta hadi wakati kamili. Hutoa Mitiririko/tafuta {pos: sekunde}. Hunasa {time}.",
+		"video/seek/relative": "Tafuta kwa kulinganishwa. Hutoa Mitiririko/tafuta {pos: &#39;+/-sekunde&#39;}. Hunasa {muda}.",
+		"gallery/next": "Picha inayofuata ya b-roll. Hutoa Mitiririko/nyumba ya sanaa/ijayo.",
+		"gallery/pause": "Gandisha b-roll. Hutoa Mitiririko/matunzio/sitisha.",
+		"gallery/resume": "Resume b-roll. Hutoa Mitiririko/matunzio/wasifu.",
+		"gallery/remove": "Ficha picha ya sasa ya b-roll. Hutoa Mitiririko/matunzio/ondoa.",
+		"gallery/caption/remove": "Ficha maelezo mafupi ya b-roll. Hutoa Mitiririko/nyumba ya sanaa/maelezo {remove: true}.",
+		"highlight": "Kipengele cha chati kinachoangazia. Hutoa Mitiririko/kuangazia {elementId}. Hunasa {target}.",
+		"zoom/in": "Kuza ndani kwa 1.5x. Hutoa Mitiririko/kuza {kiwango: cha sasa*1.5}.",
+		"zoom/out": "Kuza 1.5x. Hutoa Mitiririko/kuza {kiwango: cha sasa/1.5}.",
+		"zoom/reset": "Weka upya ukuzaji hadi 1. Hutoa Mitiririko/kuza {kiwango: 1}.",
+		"scroll/down": "Sogeza chini kwa 20%. Hutoa Q/scroll {juu: &#39;+20%&#39;}.",
+		"scroll/up": "Sogeza juu kwa 20%. Hutoa Q/sogeza {juu: &#39;-20%&#39;}.",
+		"scroll/top": "Sogeza hadi juu. Hutoa Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Sogeza hadi chini. Hutoa Q/scroll {juu: &#39;100%&#39;}.",
+		"fullscreen": "Badilisha skrini nzima.",
+		"image/generate": "Picha iliyotengenezwa na LLM. Inapiga picha {prompt}.",
+		"tool/generate": "Wijeti iliyotengenezwa na LLM. Inarekodi {prompt}.",
+		"stream/create": "Unda mtiririko mpya (chess, kura ya maoni, n.k.). Hunasa {prompt}.",
+		"stream/grantAccess": "Idhinishe ufikiaji wa kuandika. Inarekodi {jina, writeLevel}.",
+		"stream/revokeAccess": "Batilisha ufikiaji. Inarekodi {jina}."
+	},
+	"slide/next": [
+		"slaidi inayofuata",
+		"kadi inayofuata",
+		"endelea mbele",
+		"endelea",
+		"mapema",
+		"ijayo tafadhali",
+		"inayofuata",
+		"onyesha inayofuata",
+		"/^ijayo$/"
+	],
+	"slide/prev": [
+		"slaidi iliyotangulia",
+		"kadi ya awali",
+		"rudi nyuma",
+		"moja ya nyuma",
+		"slaidi ya awali",
+		"rudi nyuma",
+		"/^nyuma$/"
+	],
+	"slide/first": [
+		"slaidi ya kwanza",
+		"nenda mwanzo",
+		"anza upya",
+		"kutoka juu",
+		"mwanzo tafadhali"
+	],
+	"slide/last": [
+		"slaidi ya mwisho",
+		"nenda hadi mwisho",
+		"slaidi ya mwisho",
+		"ruka hadi mwisho"
+	],
+	"slide/navigate": [
+		"nenda kwenye {swali}",
+		"nionyeshe {swali}",
+		"pata {hoji}",
+		"ruka hadi {swali}",
+		"nenda kwenye {query}",
+		"nipeleke kwenye {query}",
+		"fungua {swali}",
+		"onyesha slaidi ya {query}",
+		"tafuta slaidi ya {query}",
+		"nenda kwenye slaidi ya {query}"
+	],
+	"reveal/next": [
+		"kufichua",
+		"onyesha zaidi",
+		"hatua inayofuata",
+		"endelea",
+		"kidokezo kinachofuata"
+	],
+	"video/play": [
+		"cheza",
+		"cheza video",
+		"cheza video",
+		"anza video",
+		"video ya wasifu",
+		"acha kusitisha",
+		"/^cheza$/"
+	],
+	"video/pause": [
+		"pause",
+		"sitisha video",
+		"simama video",
+		"subiri",
+		"/^pumzika$/"
+	],
+	"video/seek": [
+		"nenda kwa",
+		"tafuta",
+		"ruka hadi",
+		"ruka hadi",
+		"mbele haraka hadi",
+		"rudisha nyuma hadi"
+	],
+	"video/seek/relative": [
+		"rudi nyuma {wakati}",
+		"nyuma {wakati}",
+		"rudisha nyuma {wakati}",
+		"ruka nyuma {wakati}",
+		"songa mbele {wakati}",
+		"ruka mbele {wakati}",
+		"ruka mbele {wakati}",
+		"kusonga mbele haraka {wakati}",
+		"mbele {wakati}"
+	],
+	"gallery/next": [
+		"picha inayofuata",
+		"picha inayofuata",
+		"picha inayofuata",
+		"ruka picha",
+		"badilisha mandharinyuma"
+	],
+	"gallery/pause": [
+		"sitisha mandharinyuma",
+		"simama mandharinyuma",
+		"mandharinyuma ya kugandisha",
+		"shikilia mandharinyuma",
+		"sitisha picha"
+	],
+	"gallery/resume": [
+		"mandharinyuma ya wasifu",
+		"endelea mandharinyuma",
+		"anza mandharinyuma tena",
+		"ondoa usitishaji wa mandharinyuma"
+	],
+	"gallery/remove": [
+		"ondoa picha hii",
+		"ruka picha hii",
+		"ficha picha hii",
+		"ondoa picha ya sasa",
+		"ondoa picha hii"
+	],
+	"gallery/caption/remove": [
+		"ondoa maelezo mafupi",
+		"ficha maelezo mafupi",
+		"maelezo mafupi wazi",
+		"ondoa maelezo mafupi",
+		"ficha maelezo mafupi"
+	],
+	"highlight": [
+		"kivutio",
+		"elekeza kwenye",
+		"nionyeshe",
+		"kusisitiza",
+		"kuzingatia",
+		"alama",
+		"piga simu"
+	],
+	"zoom/in": [
+		"kukuza ndani",
+		"kukuza",
+		"kubwa zaidi",
+		"panua",
+		"kukuza",
+		"fanya iwe kubwa zaidi",
+		"karibu zaidi"
+	],
+	"zoom/out": [
+		"kukuza nje",
+		"ndogo zaidi",
+		"punguza",
+		"vuta nyuma",
+		"fanya iwe ndogo zaidi",
+		"rudi nyuma",
+		"mtazamo mpana zaidi"
+	],
+	"zoom/reset": [
+		"weka upya ukuzaji",
+		"kuweka upya zoom",
+		"ukubwa wa kawaida",
+		"inafaa kwenye skrini",
+		"kukuza ili kutoshea"
+	],
+	"scroll/down": [
+		"sogeza chini",
+		"endelea",
+		"zaidi",
+		"endelea chini",
+		"ukurasa chini",
+		"chini"
+	],
+	"scroll/up": [
+		"sogeza juu",
+		"nenda juu",
+		"nakala rudufu",
+		"juu",
+		"ukurasa juu",
+		"hapo juu"
+	],
+	"scroll/top": [
+		"sogeza hadi juu",
+		"nenda juu",
+		"kurudi juu",
+		"mwanzo wa ukurasa",
+		"juu ya ukurasa"
+	],
+	"scroll/bottom": [
+		"sogeza hadi chini",
+		"nenda chini",
+		"mwisho wa ukurasa",
+		"chini ya ukurasa"
+	],
+	"fullscreen": [
+		"skrini nzima",
+		"skrini nzima",
+		"kuongeza",
+		"skrini ya kujaza",
+		"ifanye iwe kamili"
+	],
+	"image/generate": [
+		"tengeneza picha ya {prompt}",
+		"unda picha ya {prompt}",
+		"nionyeshe {haraka}",
+		"taswira {haraka}",
+		"chora {haraka}",
+		"tengeneza picha ya {prompt}"
+	],
+	"tool/generate": [
+		"jenga {haraka}",
+		"tengeneza {haraka}",
+		"nijengee {prompt}",
+		"tengeneza wijeti ya {prompt}",
+		"tengeneza kifaa cha {prompt}",
+		"tengeneza zana ya {prompt}"
+	],
+	"stream/create": [
+		"unda mtiririko wa {prompt}",
+		"tengeneza mtiririko wa {prompt}",
+		"anza {haraka}",
+		"unda mchezo wa {prompt}",
+		"hebu tucheze {prompt}",
+		"sanidi {prompt}"
+	],
+	"stream/grantAccess": [
+		"mpe {name} idhini ya kufikia chapisho",
+		"acha {name} aandike",
+		"mpe {name} idhini ya kuandika",
+		"ruhusu {name} kuchapisha",
+		"ongeza {jina} kama mgeni",
+		"mwalike {name} kwenye chapisho"
+	],
+	"stream/revokeAccess": [
+		"ondoa ufikiaji wa {name}",
+		"ondoa ufikiaji wa {name}",
+		"ondoa ufikiaji wa {name}",
+		"ondoa {name} kutoka kwenye mkondo",
+		"zuia {name} kutoka kuchapisha"
+	]
+}

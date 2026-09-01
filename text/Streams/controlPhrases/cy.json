@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Symud ymlaen i&#39;r sleid nesaf. Yn allyrru ffrydiau/sleid {slideIndex: current+1}.",
+		"slide/prev": "Mynd yn \u00f4l i&#39;r sleid flaenorol. Yn allyrru ffrydiau/sleid {slideIndex: current-1}.",
+		"slide/first": "Neidio i&#39;r sleid gyntaf. Yn allyrru ffrydiau/sleid {slideIndex: 0}.",
+		"slide/last": "Neidio i&#39;r sleid olaf. Yn allyrru ffrydiau/sleid {slideIndex: 9999}.",
+		"slide/navigate": "Neidio i sleid yn \u00f4l ymholiad cynnwys. Yn cipio {ymholiad}.",
+		"reveal/next": "Datgelu&#39;r elfen flaengar nesaf. Allyrru Ffrydiau/datgelu {revealIndex: cyfredol+1}.",
+		"video/play": "Chwarae fideo. Yn allyrru ffrydiau/chwarae {}.",
+		"video/pause": "Oedi fideo. Allyrru ffrydiau/oedi {}.",
+		"video/seek": "Chwilio am amser absoliwt. Yn allyrru ffrydiau/ceisio {pos: eiliadau}. Yn cipio {amser}.",
+		"video/seek/relative": "Chwilio trwy wrthbwyso. Yn allyrru ffrydiau/chwilio {pos: &#39;+/-eiliadau&#39;}. Yn cipio {amser}.",
+		"gallery/next": "Delwedd B-roll nesaf. Allyriadau Streams/gallery/next.",
+		"gallery/pause": "Rhewi b-roll. Allyrru ffrydiau/gallery/saib.",
+		"gallery/resume": "Ail-gychwyn b-roll. Allyriadau Streams/oriel/ail-gychwyn.",
+		"gallery/remove": "Cuddio delwedd B-roll gyfredol. Allyrru Ffrydiau/gallery/remove.",
+		"gallery/caption/remove": "Cuddio capsiwn b-roll. Allyrru Ffrydiau/gallery/capsiwn {remove: true}.",
+		"highlight": "Amlygu elfen siart. Allyrru Ffrydiau/amlygu {elementId}. Cipio {target}.",
+		"zoom/in": "Chwyddo i mewn 1.5x. Yn allyrru ffrydiau/chwyddo {graddfa: cerrynt*1.5}.",
+		"zoom/out": "Chwyddo allan 1.5x. Yn allyrru ffrydiau/chwyddo {graddfa: cerrynt/1.5}.",
+		"zoom/reset": "Ailosod chwyddo i 1. Yn allyrru Ffrydiau/chwyddo {graddfa: 1}.",
+		"scroll/down": "Sgroliwch i lawr 20%. Yn allyrru Q/sgrolio {top: &#39;+20%&#39;}.",
+		"scroll/up": "Sgroliwch i fyny 20%. Yn allyrru Q/sgrolio {top: &#39;-20%&#39;}.",
+		"scroll/top": "Sgroliwch i&#39;r brig. Yn allyrru Q/sgrolio {brig: &#39;0%&#39;}.",
+		"scroll/bottom": "Sgroliwch i&#39;r gwaelod. Yn allyrru Q/sgrolio {top: &#39;100%&#39;}.",
+		"fullscreen": "Togglo sgrin lawn.",
+		"image/generate": "Delwedd a gynhyrchwyd gan LLM. Yn cipio {prompt}.",
+		"tool/generate": "Teclyn a gynhyrchwyd gan LLM. Yn cipio {prompt}.",
+		"stream/create": "Creu ffrwd newydd (gwyddbwyll, p\u00f4l, ac ati). Cipio {prompt}.",
+		"stream/grantAccess": "Rhoi mynediad ysgrifennu. Yn cipio {name, writeLevel}.",
+		"stream/revokeAccess": "Diddymu mynediad. Yn cipio {enw}."
+	},
+	"slide/next": [
+		"sleid nesaf",
+		"cerdyn nesaf",
+		"mynd ymlaen",
+		"symud ymlaen",
+		"ymlaen llaw",
+		"nesaf os gwelwch yn dda",
+		"yr un nesaf",
+		"dangos nesaf",
+		"/^nesaf$/"
+	],
+	"slide/prev": [
+		"sleid flaenorol",
+		"cerdyn blaenorol",
+		"mynd yn \u00f4l",
+		"un cefn",
+		"sleid flaenorol",
+		"cam yn \u00f4l",
+		"/^yn \u00f4l$/"
+	],
+	"slide/first": [
+		"sleid gyntaf",
+		"mynd i&#39;r dechrau",
+		"dechrau o\u2019r newydd",
+		"o&#39;r brig",
+		"dechrau os gwelwch yn dda"
+	],
+	"slide/last": [
+		"sleid olaf",
+		"mynd i&#39;r diwedd",
+		"sleid olaf",
+		"neidio i&#39;r diwedd"
+	],
+	"slide/navigate": [
+		"ewch i {ymholiad}",
+		"dangoswch {ymholiad} i mi",
+		"dod o hyd i {ymholiad}",
+		"neidio i {ymholiad}",
+		"llywio i {ymholiad}",
+		"ewch \u00e2 fi i {ymholiad}",
+		"agor y {ymholiad}",
+		"dangos y sleid {ymholiad}",
+		"dod o hyd i&#39;r sleid {ymholiad}",
+		"ewch i&#39;r sleid {ymholiad}"
+	],
+	"reveal/next": [
+		"datgelu",
+		"dangos mwy",
+		"pwynt nesaf",
+		"parhau",
+		"bwled nesaf"
+	],
+	"video/play": [
+		"chwarae",
+		"chwarae fideo",
+		"chwarae&#39;r fideo",
+		"dechrau fideo",
+		"fideo ailddechrau",
+		"dad-seibio",
+		"/^chwarae$/"
+	],
+	"video/pause": [
+		"oedi",
+		"oedi fideo",
+		"stopio fideo",
+		"daliwch ati",
+		"/^saib$/"
+	],
+	"video/seek": [
+		"mynd i",
+		"ceisio",
+		"neidio i",
+		"neidio i",
+		"ymlaen yn gyflym i",
+		"yn \u00f4l-chwarae i"
+	],
+	"video/seek/relative": [
+		"mynd yn \u00f4l {amser}",
+		"yn \u00f4l {amser}",
+		"dirwyn yn \u00f4l {amser}",
+		"neidio yn \u00f4l {amser}",
+		"mynd ymlaen {amser}",
+		"neidio ymlaen {amser}",
+		"hepgor ymlaen {amser}",
+		"cyflym ymlaen {amser}",
+		"ymlaen {amser}"
+	],
+	"gallery/next": [
+		"delwedd nesaf",
+		"llun nesaf",
+		"llun nesaf",
+		"hepgor delwedd",
+		"newid y cefndir"
+	],
+	"gallery/pause": [
+		"cefndir oedi",
+		"cefndir stopio",
+		"cefndir rhewi",
+		"daliwch y cefndir",
+		"oedi&#39;r delweddau"
+	],
+	"gallery/resume": [
+		"cefndir CV",
+		"parhau \u00e2&#39;r cefndir",
+		"dechrau cefndir eto",
+		"dad-seibio&#39;r cefndir"
+	],
+	"gallery/remove": [
+		"tynnu&#39;r ddelwedd hon",
+		"hepgor y ddelwedd hon",
+		"cuddio&#39;r llun hwn",
+		"tynnu&#39;r ddelwedd gyfredol",
+		"tynnu&#39;r llun hwn"
+	],
+	"gallery/caption/remove": [
+		"tynnu&#39;r capsiwn",
+		"cuddio&#39;r capsiwn",
+		"capsiwn clir",
+		"tynnu&#39;r capsiwn",
+		"cuddio&#39;r capsiwn"
+	],
+	"highlight": [
+		"uchafbwynt",
+		"pwyntio at",
+		"dangoswch i mi",
+		"pwysleisio",
+		"canolbwyntio ar",
+		"marc",
+		"galw allan"
+	],
+	"zoom/in": [
+		"chwyddo i mewn",
+		"chwyddo",
+		"mwy",
+		"chwyddo",
+		"chwyddo",
+		"ei wneud yn fwy",
+		"yn agosach"
+	],
+	"zoom/out": [
+		"chwyddo allan",
+		"llai",
+		"crebachu",
+		"tynnu&#39;n \u00f4l",
+		"gwnewch hi&#39;n llai",
+		"cam yn \u00f4l",
+		"golygfa ehangach"
+	],
+	"zoom/reset": [
+		"ailosod chwyddo",
+		"ailosod chwyddo",
+		"maint arferol",
+		"addas i&#39;r sgrin",
+		"chwyddo i ffitio"
+	],
+	"scroll/down": [
+		"sgroliwch i lawr",
+		"daliwch ati",
+		"mwy",
+		"parhau i lawr",
+		"tudalen i lawr",
+		"isod"
+	],
+	"scroll/up": [
+		"sgrolio i fyny",
+		"mynd i fyny",
+		"wrth gefn",
+		"i fyny",
+		"tudalen i fyny",
+		"uchod"
+	],
+	"scroll/top": [
+		"sgrolio i&#39;r brig",
+		"mynd i&#39;r brig",
+		"yn \u00f4l i&#39;r brig",
+		"dechrau&#39;r dudalen",
+		"brig y dudalen"
+	],
+	"scroll/bottom": [
+		"sgrolio i&#39;r gwaelod",
+		"mynd i&#39;r gwaelod",
+		"diwedd y dudalen",
+		"gwaelod y dudalen"
+	],
+	"fullscreen": [
+		"sgrin lawn",
+		"sgrin lawn",
+		"uchafswm",
+		"llenwi&#39;r sgrin",
+		"gwnewch hi&#39;n llawn"
+	],
+	"image/generate": [
+		"cynhyrchu delwedd o {prompt}",
+		"creu delwedd o {prompt}",
+		"dangoswch i mi {bryder}",
+		"delweddu {brydlon}",
+		"tynnu {bryder}",
+		"gwnewch lun o {bryder}"
+	],
+	"tool/generate": [
+		"adeiladu {bryder}",
+		"creu {bryder}",
+		"adeiladwch {bryder} i mi",
+		"cynhyrchu teclyn {prompt}",
+		"gwneud offeryn {brydlon}",
+		"creu offeryn {prompt}"
+	],
+	"stream/create": [
+		"creu ffrwd {prompt}",
+		"gwneud ffrydio {prompt}",
+		"dechrau {bryder}",
+		"creu g\u00eam {brydlon}",
+		"gadewch i ni chwarae {brydlon}",
+		"sefydlu {bryder}"
+	],
+	"stream/grantAccess": [
+		"rhoi mynediad i {name} i&#39;r post",
+		"gadael i {enw} bostio",
+		"rhoi mynediad ysgrifennu i {name}",
+		"caniat\u00e1u i {enw} bostio",
+		"ychwanegu {enw} fel gwestai",
+		"gwahodd {enw} i bostio"
+	],
+	"stream/revokeAccess": [
+		"dileu mynediad {name}",
+		"dirymu mynediad {name}",
+		"cymryd mynediad {name} i ffwrdd",
+		"tynnu {name} o&#39;r ffrwd",
+		"rhwystro {enw} rhag postio"
+	]
+}

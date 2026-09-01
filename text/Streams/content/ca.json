@@ -153,14 +153,20 @@
 			"byTelegram": "Telegrama",
 			"byWhatsapp": "Qu\u00e8 tal",
 			"addRoles": "Afegeix rols",
-			"addPersonalRoles": "Afegeix Relacions Personals"
+			"addPersonalRoles": "Afegeix Relacions Personals",
+			"AddCommunityRoles": "Afegir rols de comunitat",
+			"AddParticipantRoles": "Afegeix rols en aquest {{streamDisplayType}}",
+			"YouWereInvited": "Vas ser convidat/da"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Benvingut a {{communityName}}",
 			"HasInvitedYou": "t&#39;ha convidat a:",
 			"HasInvitedYouToTheirProfile": "t&#39;ha convidat a connectar.",
 			"prompt": "Deixa que els teus amics et reconeguin:",
-			"accept": "Accepta la invitaci\u00f3"
+			"accept": "Accepta",
+			"RolesOffered": "Rols que t&#39;ofereixen:",
+			"decline": "Rebutjar",
+			"ParticipantRolesOffered": "El teu paper en aquest {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Ei, mireu aix\u00f2",
@@ -180,7 +186,10 @@
 		"chat": {
 			"prompt": "Convidar\u00e0s gent a una conversa on podr\u00e0s mantenir-te en contacte, compartir fotos junts i molt m\u00e9s. Posa-li un nom:"
 		},
-		"Participants": "Convida gent"
+		"Participants": "Convida gent",
+		"inperson": {
+			"description": "Genera un codi QR i passa&#39;l perqu\u00e8 l&#39;escanegin. Tothom qui l&#39;escanegi es mantindr\u00e0 connectat entre si:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +373,11 @@
 		"Streams/outgoing": {
 			"displayType": "Sortint",
 			"description": "destinaci\u00f3 per enregistrar missatges enviats a altres usuaris o sistemes externs"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologia",
+			"description": "ontologia",
+			"newItem": "Afegeix ontologia"
 		}
 	},
 	"menu": {
@@ -548,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "p. ex. 3000",
 		"KenburnsInstruction": "Defineix l&#39;inici i el final de Ken Burns arrossegant i fent zoom."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Amfitri\u00f3",
+				"speaker": "Altaveu",
+				"volunteer": "Voluntari",
+				"moderator": "Moderador",
+				"guest": "Convidat"
+			}
+		}
 	}
 }

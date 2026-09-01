@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Gaan voort na die volgende skyfie. Stuur strome/skyfie {skyfie-indeks: huidige+1} uit.",
+		"slide/prev": "Gaan terug na die vorige skyfie. Stuur Streams/skyfie {slideIndex: current-1} uit.",
+		"slide/first": "Spring na eerste skyfie. Stuur strome/skyfie {slideIndex: 0} uit.",
+		"slide/last": "Spring na laaste skyfie. Stuur strome/skyfie {skyfie-indeks: 9999} uit.",
+		"slide/navigate": "Spring na &#39;n skyfie volgens inhoudsnavraag. Vang {navraag} vas.",
+		"reveal/next": "Openbaar volgende progressiewe element. Stuur strome uit/openbaar {openbaarIndeks: huidige+1}.",
+		"video/play": "Speel video. Stuur strome/speel {} uit.",
+		"video/pause": "Pouseer video. Stuur strome uit/pouseer {}.",
+		"video/seek": "Soek na absolute tyd. Stuur strome/soek {pos: sekondes} uit. Vang {tyd} vas.",
+		"video/seek/relative": "Soek volgens verstelling. Stuur strome/soek {pos: &#39;+/-sekondes&#39;} uit. Vang {tyd} vas.",
+		"gallery/next": "Volgende b-rol beeld. Stuur Streams/gallery/next uit.",
+		"gallery/pause": "Vries b-roll. Stuur strome/galery/pouse uit.",
+		"gallery/resume": "CV b-roll. Stuur strome/galery/CV uit.",
+		"gallery/remove": "Versteek huidige b-rol beeld. Stuur Streams/gallery/remove uit.",
+		"gallery/caption/remove": "Versteek b-roll-onderskrif. Stuur Streams/gallery/caption uit {verwyder: waar}.",
+		"highlight": "Merk grafiekelement. Stuur strome uit/merk {elementId} uit. Vang {target} vas.",
+		"zoom/in": "Zoem 1.5x in. Stuur strome/zoem uit {skaal: stroom*1.5}.",
+		"zoom/out": "Zoem 1.5x uit. Stuur strome/zoem {skaal: stroom/1.5} uit.",
+		"zoom/reset": "Stel zoom terug na 1. Stuur strome/zoom {skaal: 1} uit.",
+		"scroll/down": "Blaai 20% af. Stuur Q/blaai {bo: &#39;+20%&#39;} uit.",
+		"scroll/up": "Blaai 20% op. Stuur Q/blaai {top: &#39;-20%&#39;} uit.",
+		"scroll/top": "Blaai na bo. Stuur Q/blaai {bo: &#39;0%&#39;} uit.",
+		"scroll/bottom": "Blaai na onder. Stuur Q/blaai {bo: &#39;100%&#39;} uit.",
+		"fullscreen": "Wissel volskerm.",
+		"image/generate": "LLM-gegenereerde beeld. Neem {prompt} vas.",
+		"tool/generate": "LLM-gegenereerde widget. Vang {prompt} vas.",
+		"stream/create": "Skep nuwe stroom (skaak, peiling, ens.). Vang {prompt} vas.",
+		"stream/grantAccess": "Verleen skryftoegang. Vang {naam, skryfvlak} vas.",
+		"stream/revokeAccess": "Herroep toegang. Vang {naam} vas."
+	},
+	"slide/next": [
+		"volgende skyfie",
+		"volgende kaart",
+		"gaan vorentoe",
+		"beweeg aan",
+		"vooruitgang",
+		"volgende asseblief",
+		"volgende een",
+		"wys volgende",
+		"/^volgende$/"
+	],
+	"slide/prev": [
+		"vorige skyfie",
+		"vorige kaart",
+		"gaan terug",
+		"agterste een",
+		"vorige skyfie",
+		"stap terug",
+		"/^terug$/"
+	],
+	"slide/first": [
+		"eerste skyfie",
+		"gaan na die begin",
+		"begin oor",
+		"van bo af",
+		"begin asseblief"
+	],
+	"slide/last": [
+		"laaste skyfie",
+		"gaan tot die einde",
+		"laaste skyfie",
+		"spring na die einde"
+	],
+	"slide/navigate": [
+		"gaan na {navraag}",
+		"wys my {navraag}",
+		"vind {navraag}",
+		"spring na {navraag}",
+		"navigeer na {navraag}",
+		"neem my na {navraag}",
+		"maak die {navraag} oop",
+		"wys die {navraag} skyfie",
+		"vind die {navraag} skyfie",
+		"gaan na die {navraag} skyfie"
+	],
+	"reveal/next": [
+		"onthul",
+		"wys meer",
+		"volgende punt",
+		"voortgaan",
+		"volgende koe\u00ebl"
+	],
+	"video/play": [
+		"speel",
+		"speel video",
+		"speel die video",
+		"begin video",
+		"CV-video",
+		"ontpouseer",
+		"/^speel$/"
+	],
+	"video/pause": [
+		"pouse",
+		"onderbreek video",
+		"stop video",
+		"hou vas",
+		"/^pouse$/"
+	],
+	"video/seek": [
+		"gaan na",
+		"soek om",
+		"spring na",
+		"spring oor na",
+		"vinnig vorentoe na",
+		"terugspoel na"
+	],
+	"video/seek/relative": [
+		"gaan terug {tyd}",
+		"terug {tyd}",
+		"terugspoel {tyd}",
+		"spring terug {tyd}",
+		"gaan vorentoe {tyd}",
+		"spring vorentoe {tyd}",
+		"spring vorentoe {tyd}",
+		"vinnig vorentoe {tyd}",
+		"vorentoe {tyd}"
+	],
+	"gallery/next": [
+		"volgende beeld",
+		"volgende foto",
+		"volgende prent",
+		"slaan prent oor",
+		"verander die agtergrond"
+	],
+	"gallery/pause": [
+		"onderbreek agtergrond",
+		"stop agtergrond",
+		"vries agtergrond",
+		"hou die agtergrond vas",
+		"onderbreek die beelde"
+	],
+	"gallery/resume": [
+		"CV-agtergrond",
+		"gaan voort met agtergrond",
+		"begin agtergrond weer",
+		"ontpouse agtergrond"
+	],
+	"gallery/remove": [
+		"verwyder hierdie beeld",
+		"slaan hierdie beeld oor",
+		"versteek hierdie foto",
+		"verwyder huidige beeld",
+		"verwyder hierdie foto"
+	],
+	"gallery/caption/remove": [
+		"verwyder onderskrif",
+		"versteek onderskrif",
+		"duidelike onderskrif",
+		"verwyder die onderskrif",
+		"versteek die onderskrif"
+	],
+	"highlight": [
+		"hoogtepunt",
+		"wys na",
+		"wys my",
+		"beklemtoon",
+		"fokus op",
+		"merk",
+		"uitroep"
+	],
+	"zoom/in": [
+		"inzoem",
+		"zoem",
+		"groter",
+		"vergroot",
+		"vergroot",
+		"maak dit groter",
+		"nader"
+	],
+	"zoom/out": [
+		"zoem uit",
+		"kleiner",
+		"krimp",
+		"trek terug",
+		"maak dit kleiner",
+		"stap terug",
+		"wyer uitsig"
+	],
+	"zoom/reset": [
+		"herstel zoom",
+		"zoem herstel",
+		"normale grootte",
+		"pas by die skerm",
+		"zoem om te pas"
+	],
+	"scroll/down": [
+		"blaai af",
+		"gaan voort",
+		"meer",
+		"gaan voort af",
+		"bladsy af",
+		"hieronder"
+	],
+	"scroll/up": [
+		"blaai op",
+		"gaan op",
+		"rugsteun",
+		"opwaarts",
+		"bladsy op",
+		"bo"
+	],
+	"scroll/top": [
+		"blaai na bo",
+		"gaan na bo",
+		"terug na bo",
+		"begin van bladsy",
+		"bo-aan die bladsy"
+	],
+	"scroll/bottom": [
+		"blaai na onder",
+		"gaan na onder",
+		"einde van bladsy",
+		"onderkant van bladsy"
+	],
+	"fullscreen": [
+		"volskerm",
+		"volskerm",
+		"maksimeer",
+		"vul skerm",
+		"maak dit vol"
+	],
+	"image/generate": [
+		"genereer &#39;n beeld van {prompt}",
+		"skep &#39;n beeld van {prompt}",
+		"wys my {vrae}",
+		"visualiseer {prompt}",
+		"teken {prompt}",
+		"maak &#39;n prentjie van {prompt}"
+	],
+	"tool/generate": [
+		"bou &#39;n {prompt}",
+		"skep &#39;n {prompt}",
+		"bou vir my &#39;n {prompt}",
+		"genereer &#39;n {prompt}-widget",
+		"maak &#39;n {prompt} instrument",
+		"skep &#39;n {prompt}-instrument"
+	],
+	"stream/create": [
+		"skep &#39;n {prompt} stroom",
+		"maak &#39;n {prompt} stroom",
+		"begin &#39;n {prompt}",
+		"skep &#39;n {prompt} speletjie",
+		"kom ons speel {prompt}",
+		"stel &#39;n {prompt} op"
+	],
+	"stream/grantAccess": [
+		"gee {naam} toegang tot plasing",
+		"laat {naam} plaas",
+		"gee {naam} skryftoegang",
+		"laat {naam} toe om te plaas",
+		"voeg {naam} as &#39;n gas by",
+		"nooi {naam} uit om te plaas"
+	],
+	"stream/revokeAccess": [
+		"verwyder {name} se toegang",
+		"herroep {name} se toegang",
+		"neem {naam} se toegang weg",
+		"verwyder {naam} van die stroom",
+		"blokkeer {naam} van plasing"
+	]
+}

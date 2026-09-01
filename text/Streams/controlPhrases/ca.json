@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Avan\u00e7a a la diapositiva seg\u00fcent. Emet fluxos/diapositiva {slideIndex: current+1}.",
+		"slide/prev": "Torna a la diapositiva anterior. Emet fluxos/diapositiva {slideIndex: current-1}.",
+		"slide/first": "Salta a la primera diapositiva. Emet fluxos/diapositiva {slideIndex: 0}.",
+		"slide/last": "Salta a l&#39;\u00faltima diapositiva. Emet fluxos/diapositiva {slideIndex: 9999}.",
+		"slide/navigate": "Salta a una diapositiva per consulta de contingut. Captura {query}.",
+		"reveal/next": "Revela el seg\u00fcent element progressiu. Emet fluxos/revela {revealIndex: current+1}.",
+		"video/play": "Reprodueix v\u00eddeo. Emet fluxos/reproducci\u00f3 {}.",
+		"video/pause": "Pausa el v\u00eddeo. Emet fluxos/pausa {}.",
+		"video/seek": "Cerca fins a temps absolut. Emet fluxos/cerca {pos: segons}. Captura {temps}.",
+		"video/seek/relative": "Cerca per despla\u00e7ament. Emet fluxos/cerca {pos: &#39;+/-segons&#39;}. Captura {time}.",
+		"gallery/next": "Imatge b-roll seg\u00fcent. Emet Streams/galeria/seg\u00fcent.",
+		"gallery/pause": "Congela els v\u00eddeos secundaris. Emet fluxos/galeria/pausa.",
+		"gallery/resume": "Repr\u00e8n el b-roll. Emet fluxos/galeria/curr\u00edculum.",
+		"gallery/remove": "Amaga la imatge b-roll actual. Emet fluxos/galeria/elimina.",
+		"gallery/caption/remove": "Amaga els subt\u00edtols del v\u00eddeo addicional. Emet els fluxos/galeria/subt\u00edtols {remove: true}.",
+		"highlight": "Ressalta l&#39;element del gr\u00e0fic. Emet fluxos/ressalta {elementId}. Captura {target}.",
+		"zoom/in": "Amplia la imatge 1,5x. Emet fluxos/zoom {escala: actual*1,5}.",
+		"zoom/out": "Allunya 1,5x. Emet fluxos/zoom {escala: actual/1,5}.",
+		"zoom/reset": "Restableix el zoom a 1. Emet fluxos/zoom {escala: 1}.",
+		"scroll/down": "Despla\u00e7a&#39;t cap avall un 20%. Emet Q/despla\u00e7a&#39;t {top: &#39;+20%&#39;}.",
+		"scroll/up": "Despla\u00e7a&#39;t cap amunt un 20%. Emet Q/despla\u00e7a&#39;t {top: &#39;-20%&#39;}.",
+		"scroll/top": "Despla\u00e7a&#39;t a dalt. Emet Q/despla\u00e7a&#39;t a {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Despla\u00e7a&#39;t fins a baix. Emet Q/despla\u00e7a&#39;t {top: &#39;100%&#39;}.",
+		"fullscreen": "Activa/desactiva la pantalla completa.",
+		"image/generate": "Imatge generada per LLM. Captura {prompt}.",
+		"tool/generate": "Widget generat per LLM. Captura {prompt}.",
+		"stream/create": "Crea una nova transmissi\u00f3 (escacs, enquesta, etc.). Captura {prompt}.",
+		"stream/grantAccess": "Concedeix acc\u00e9s d&#39;escriptura. Captura {name, writeLevel}.",
+		"stream/revokeAccess": "Revoca l&#39;acc\u00e9s. Captura {name}."
+	},
+	"slide/next": [
+		"diapositiva seg\u00fcent",
+		"seg\u00fcent targeta",
+		"endavant",
+		"seguir endavant",
+		"avan\u00e7ar",
+		"seg\u00fcent si us plau",
+		"seg\u00fcent",
+		"mostra el seg\u00fcent",
+		"/^seg\u00fcent$/"
+	],
+	"slide/prev": [
+		"diapositiva anterior",
+		"targeta anterior",
+		"tornar enrere",
+		"darrere un",
+		"diapositiva anterior",
+		"fer un pas enrere",
+		"/^enrere$/"
+	],
+	"slide/first": [
+		"primera diapositiva",
+		"anar al principi",
+		"comen\u00e7ar de nou",
+		"des de dalt",
+		"comen\u00e7ant si us plau"
+	],
+	"slide/last": [
+		"\u00faltima diapositiva",
+		"anar fins al final",
+		"diapositiva final",
+		"saltar al final"
+	],
+	"slide/navigate": [
+		"v\u00e9s a {consulta}",
+		"mostra&#39;m {consulta}",
+		"trobar {consulta}",
+		"salta a {consulta}",
+		"navega a {query}",
+		"porta&#39;m a {query}",
+		"obre la {consulta}",
+		"mostra la diapositiva {query}",
+		"troba la diapositiva {query}",
+		"v\u00e9s a la diapositiva {query}"
+	],
+	"reveal/next": [
+		"revelar",
+		"mostra m\u00e9s",
+		"seg\u00fcent punt",
+		"continuar",
+		"seg\u00fcent vinyeta"
+	],
+	"video/play": [
+		"jugar",
+		"reproduir v\u00eddeo",
+		"reprodueix el v\u00eddeo",
+		"iniciar v\u00eddeo",
+		"v\u00eddeo del curr\u00edculum",
+		"reprendre la pausa",
+		"/^reproduir$/"
+	],
+	"video/pause": [
+		"pausa",
+		"pausar v\u00eddeo",
+		"atura el v\u00eddeo",
+		"espera",
+		"/^pausa$/"
+	],
+	"video/seek": [
+		"anar a",
+		"buscar",
+		"saltar a",
+		"saltar a",
+		"avan\u00e7a r\u00e0pidament fins a",
+		"rebobinar a"
+	],
+	"video/seek/relative": [
+		"tornar enrere {temps}",
+		"enrere {temps}",
+		"rebobinar {temps}",
+		"saltar enrere {temps}",
+		"anar endavant {temps}",
+		"saltar endavant {temps}",
+		"saltar endavant {temps}",
+		"avan\u00e7ar r\u00e0pidament {temps}",
+		"endavant {temps}"
+	],
+	"gallery/next": [
+		"seg\u00fcent imatge",
+		"seg\u00fcent foto",
+		"seg\u00fcent imatge",
+		"saltar imatge",
+		"canviar el fons"
+	],
+	"gallery/pause": [
+		"pausar el fons",
+		"atura el fons",
+		"fons congelat",
+		"mantenir el fons",
+		"pausar les imatges"
+	],
+	"gallery/resume": [
+		"fons de curr\u00edculum",
+		"continuar en segon pla",
+		"tornar a comen\u00e7ar el fons",
+		"reactiva el fons"
+	],
+	"gallery/remove": [
+		"elimina aquesta imatge",
+		"salta aquesta imatge",
+		"amaga aquesta foto",
+		"elimina la imatge actual",
+		"elimina aquesta foto"
+	],
+	"gallery/caption/remove": [
+		"suprimeix el subt\u00edtol",
+		"amaga el t\u00edtol",
+		"subt\u00edtol clar",
+		"eliminar el t\u00edtol",
+		"amaga el peu de foto"
+	],
+	"highlight": [
+		"ressaltat",
+		"apuntar a",
+		"ensenya&#39;m",
+		"emfatitzar",
+		"centrar-se en",
+		"marca",
+		"trucar"
+	],
+	"zoom/in": [
+		"ampliar",
+		"zoom",
+		"m\u00e9s gran",
+		"ampliar",
+		"amplificar",
+		"fer-ho m\u00e9s gran",
+		"m\u00e9s a prop"
+	],
+	"zoom/out": [
+		"zoom allunyar",
+		"m\u00e9s petit",
+		"encongir-se",
+		"retirar-se",
+		"fer-ho m\u00e9s petit",
+		"fer un pas enrere",
+		"visi\u00f3 m\u00e9s \u00e0mplia"
+	],
+	"zoom/reset": [
+		"restablir zoom",
+		"restabliment del zoom",
+		"mida normal",
+		"ajustar a la pantalla",
+		"zoom per ajustar"
+	],
+	"scroll/down": [
+		"despla\u00e7a&#39;t cap avall",
+		"continua",
+		"m\u00e9s",
+		"continuar cap avall",
+		"p\u00e0gina avall",
+		"a sota"
+	],
+	"scroll/up": [
+		"despla\u00e7a&#39;t cap amunt",
+		"pujar",
+		"c\u00f2pia de seguretat",
+		"cap amunt",
+		"p\u00e0gina anterior",
+		"a dalt"
+	],
+	"scroll/top": [
+		"despla\u00e7a&#39;t fins a dalt",
+		"anar a dalt",
+		"tornar a dalt",
+		"inici de p\u00e0gina",
+		"part superior de la p\u00e0gina"
+	],
+	"scroll/bottom": [
+		"despla\u00e7a&#39;t fins al final",
+		"anar al fons",
+		"final de la p\u00e0gina",
+		"part inferior de la p\u00e0gina"
+	],
+	"fullscreen": [
+		"pantalla completa",
+		"pantalla completa",
+		"maximitzar",
+		"pantalla d&#39;ompliment",
+		"fer-ho ple"
+	],
+	"image/generate": [
+		"generar una imatge de {prompt}",
+		"crear una imatge de {prompt}",
+		"mostra&#39;m {prompt}",
+		"visualitzar {prompt}",
+		"dibuixar",
+		"fer una imatge de {prompt}"
+	],
+	"tool/generate": [
+		"crear un {prompt}",
+		"crear un {prompt}",
+		"construeix-me un {prompt}",
+		"generar un widget {prompt}",
+		"crear una eina {prompt}",
+		"crear una eina {prompt}"
+	],
+	"stream/create": [
+		"crear un flux {prompt}",
+		"crear un flux {prompt}",
+		"iniciar una {instrucci\u00f3}",
+		"crear una partida {prompt}",
+		"anem a jugar {prompt}",
+		"configurar un {prompt}"
+	],
+	"stream/grantAccess": [
+		"d\u00f3na a {name} acc\u00e9s a la publicaci\u00f3",
+		"deixa que {name} publiqui",
+		"d\u00f3na a {name} acc\u00e9s d&#39;escriptura",
+		"permet que {name} publiqui",
+		"afegeix {name} com a convidat",
+		"convida {name} a publicar"
+	],
+	"stream/revokeAccess": [
+		"eliminar l&#39;acc\u00e9s de {name}",
+		"revocar l&#39;acc\u00e9s de {name}",
+		"retirar l&#39;acc\u00e9s a {name}",
+		"eliminar {name} del flux",
+		"bloqueja {name} perqu\u00e8 no publiqui"
+	]
+}

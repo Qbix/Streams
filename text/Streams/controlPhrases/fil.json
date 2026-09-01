@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Pumunta sa susunod na slide. Naglalabas ng mga Stream/slide {slideIndex: current+1}.",
+		"slide/prev": "Bumalik sa nakaraang slide. Naglalabas ng mga Stream/slide {slideIndex: current-1}.",
+		"slide/first": "Tumalon sa unang slide. Naglalabas ng mga Stream/slide {slideIndex: 0}.",
+		"slide/last": "Tumalon sa huling slide. Naglalabas ng mga Stream/slide {slideIndex: 9999}.",
+		"slide/navigate": "Tumalon sa isang slide ayon sa nilalaman na query. Kinukuha ang {query}.",
+		"reveal/next": "Ipakita ang susunod na progresibong elemento. Naglalabas ng mga Stream/reveal {revealIndex: current+1}.",
+		"video/play": "I-play ang video. Naglalabas ng mga Stream/play {}.",
+		"video/pause": "I-pause ang video. Naglalabas ng mga Stream/pause {}.",
+		"video/seek": "Maghanap hanggang sa ganap na oras. Naglalabas ng mga Stream/seek {pos: seconds}. Kumukuha ng {time}.",
+		"video/seek/relative": "Seek sa pamamagitan ng offset. Naglalabas ng mga Stream/seek {pos: &#39;+/-seconds&#39;}. Kinukuha ang {time}.",
+		"gallery/next": "Susunod na larawan ng b-roll. Naglalabas ng mga Stream/gallery/susunod.",
+		"gallery/pause": "I-freeze ang b-roll. Naglalabas ng mga Stream/gallery/pause.",
+		"gallery/resume": "Ipagpatuloy ang b-roll. Naglalabas ng mga Stream/gallery/resume.",
+		"gallery/remove": "Itago ang kasalukuyang larawan ng b-roll. Naglalabas ng mga Stream/gallery/alisin.",
+		"gallery/caption/remove": "Itago ang caption ng b-roll. Naglalabas ng mga Stream/gallery/caption {remove: true}.",
+		"highlight": "I-highlight ang elemento ng tsart. Naglalabas ng mga Stream/highlight {elementId}. Kinukuha ang {target}.",
+		"zoom/in": "Mag-zoom in nang 1.5x. Naglalabas ng mga Stream/zoom {scale: current*1.5}.",
+		"zoom/out": "Mag-zoom out ng 1.5x. Naglalabas ng mga Stream/zoom {scale: current/1.5}.",
+		"zoom/reset": "I-reset ang zoom sa 1. Naglalabas ng mga Stream/zoom {scale: 1}.",
+		"scroll/down": "Mag-scroll pababa nang 20%. Naglalabas ng Q/scroll {itaas: &#39;+20%&#39;}.",
+		"scroll/up": "Mag-scroll pataas ng 20%. Naglalabas ng Q/scroll {top: &#39;-20%&#39;}.",
+		"scroll/top": "Mag-scroll pataas. Naglalabas ng Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Mag-scroll pababa. Naglalabas ng Q/scroll {top: &#39;100%&#39;}.",
+		"fullscreen": "I-toggle ang fullscreen.",
+		"image/generate": "Larawang binuo ng LLM. Kinukuha ang {prompt}.",
+		"tool/generate": "Widget na binuo ng LLM. Kinukuha ang {prompt}.",
+		"stream/create": "Gumawa ng bagong stream (chess, poll, atbp). Kinukuha ang {prompt}.",
+		"stream/grantAccess": "Bigyan ng access sa pagsusulat. Kinukuha ang {name, writeLevel}.",
+		"stream/revokeAccess": "Bawiin ang access. Kinukuha ang {name}."
+	},
+	"slide/next": [
+		"susunod na slide",
+		"susunod na kard",
+		"sumulong",
+		"magpatuloy",
+		"pasulong",
+		"susunod po",
+		"susunod",
+		"ipakita ang susunod",
+		"/^susunod$/"
+	],
+	"slide/prev": [
+		"nakaraang slide",
+		"nakaraang kard",
+		"bumalik",
+		"likod",
+		"naunang slide",
+		"umatras",
+		"/^back$/"
+	],
+	"slide/first": [
+		"unang slide",
+		"pumunta sa simula",
+		"magsimulang muli",
+		"mula sa itaas",
+		"simula po"
+	],
+	"slide/last": [
+		"huling slide",
+		"pumunta sa dulo",
+		"huling slide",
+		"tumalon sa dulo"
+	],
+	"slide/navigate": [
+		"pumunta sa {query}",
+		"ipakita sa akin {query}",
+		"hanapin {query}",
+		"tumalon sa {query}",
+		"mag-navigate papunta sa {query}",
+		"dalhin ako sa {query}",
+		"buksan ang {query}",
+		"ipakita ang slide na {query}",
+		"hanapin ang slide na {query}",
+		"pumunta sa slide na {query}"
+	],
+	"reveal/next": [
+		"ibunyag",
+		"magpakita pa",
+		"susunod na punto",
+		"magpatuloy",
+		"susunod na bala"
+	],
+	"video/play": [
+		"maglaro",
+		"magpatugtog ng video",
+		"i-play ang video",
+		"simulan ang bidyo",
+		"bidyo ng resume",
+		"i-unpause",
+		"/^maglaro$/"
+	],
+	"video/pause": [
+		"paghinto",
+		"ihinto ang video",
+		"itigil ang bidyo",
+		"maghintay",
+		"/^pause$/"
+	],
+	"video/seek": [
+		"pumunta sa",
+		"maghanap",
+		"tumalon sa",
+		"lumaktaw sa",
+		"mabilis na pagsulong sa",
+		"i-rewind papunta sa"
+	],
+	"video/seek/relative": [
+		"bumalik {sa oras}",
+		"pabalik {oras}",
+		"i-rewind {oras}",
+		"lumaktaw pabalik {oras}",
+		"sumulong {oras}",
+		"lumaktaw pasulong {oras}",
+		"laktawan nang maaga {oras}",
+		"mabilis na pag-forward {oras}",
+		"pasulong {oras}"
+	],
+	"gallery/next": [
+		"susunod na larawan",
+		"susunod na larawan",
+		"susunod na larawan",
+		"laktawan ang larawan",
+		"baguhin ang background"
+	],
+	"gallery/pause": [
+		"background ng paghinto",
+		"ihinto ang background",
+		"background ng pagyeyelo",
+		"hawakan ang background",
+		"ihinto ang mga imahe"
+	],
+	"gallery/resume": [
+		"background ng resume",
+		"magpatuloy sa background",
+		"simulan muli ang background",
+		"i-unpause ang background"
+	],
+	"gallery/remove": [
+		"tanggalin ang larawang ito",
+		"laktawan ang larawang ito",
+		"itago ang larawang ito",
+		"tanggalin ang kasalukuyang larawan",
+		"tanggalin ang larawang ito"
+	],
+	"gallery/caption/remove": [
+		"tanggalin ang caption",
+		"itago ang caption",
+		"malinaw na caption",
+		"tanggalin ang caption",
+		"itago ang caption"
+	],
+	"highlight": [
+		"itampok",
+		"tumuro sa",
+		"ipakita mo sa akin",
+		"bigyang-diin",
+		"tumuon sa",
+		"marka",
+		"tumawag"
+	],
+	"zoom/in": [
+		"mag-zoom in",
+		"mag-zoom",
+		"mas malaki",
+		"palakihin",
+		"palakihin",
+		"palakihin ito",
+		"mas malapit"
+	],
+	"zoom/out": [
+		"mag-zoom out",
+		"mas maliit",
+		"lumiit",
+		"umatras",
+		"gawin itong mas maliit",
+		"umatras",
+		"mas malawak na pananaw"
+	],
+	"zoom/reset": [
+		"i-reset ang pag-zoom",
+		"pag-reset ng zoom",
+		"normal na laki",
+		"akma sa screen",
+		"mag-zoom para magkasya"
+	],
+	"scroll/down": [
+		"mag-scroll pababa",
+		"magpatuloy",
+		"higit pa",
+		"magpatuloy pababa",
+		"pahina pababa",
+		"sa ibaba"
+	],
+	"scroll/up": [
+		"mag-scroll pataas",
+		"umakyat",
+		"i-back up",
+		"pataas",
+		"pahina pataas",
+		"sa itaas"
+	],
+	"scroll/top": [
+		"mag-scroll pataas",
+		"pumunta sa itaas",
+		"balik sa itaas",
+		"simula ng pahina",
+		"itaas ng pahina"
+	],
+	"scroll/bottom": [
+		"mag-scroll pababa",
+		"pumunta sa ibaba",
+		"dulo ng pahina",
+		"ilalim ng pahina"
+	],
+	"fullscreen": [
+		"buong screen",
+		"buong screen",
+		"i-maximize",
+		"punan ang screen",
+		"punuin ito"
+	],
+	"image/generate": [
+		"bumuo ng imahe ng {prompt}",
+		"lumikha ng imahe ng {prompt}",
+		"ipakita sa akin {prompt}",
+		"ilarawan sa isip",
+		"gumuhit",
+		"gumawa ng larawan ng {prompt}"
+	],
+	"tool/generate": [
+		"bumuo ng isang {prompt}",
+		"lumikha ng isang {prompt}",
+		"gawan mo ako ng {prompt}",
+		"bumuo ng isang {prompt} widget",
+		"gumawa ng isang {prompt} na kagamitan",
+		"lumikha ng isang {prompt} na tool"
+	],
+	"stream/create": [
+		"lumikha ng isang {prompt} stream",
+		"gumawa ng {prompt} stream",
+		"magsimula ng {prompt}",
+		"lumikha ng larong {prompt}",
+		"maglaro tayo {prompt}",
+		"mag-set up ng {prompt}"
+	],
+	"stream/grantAccess": [
+		"bigyan si {name} ng access sa post",
+		"hayaang mag-post si {pangalan}",
+		"bigyan si {pangalan} ng access sa pagsulat",
+		"payagan si {name} na mag-post",
+		"idagdag si {name} bilang bisita",
+		"imbitahan si {name} na mag-post"
+	],
+	"stream/revokeAccess": [
+		"alisin ang access ni {name}",
+		"bawiin ang access ni {name}",
+		"alisin ang access ni {name}",
+		"alisin si {name} mula sa stream",
+		"harangan si {name} sa pag-post"
+	]
+}

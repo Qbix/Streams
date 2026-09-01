@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams-Befehlstext. \u201eBefehle\u201c = Anzeigebezeichnungen (Benutzeroberfl\u00e4che); \u201ePhrasen\u201c = erkannte Phrasen, nach Befehl sortiert. Phrasenformen: \u201eTeilzeichenkette\u201c, \u201e/regul\u00e4rer Ausdruck/\u201c oder die Vorlage \u201eZugriff f\u00fcr {{name}} geben\u201c \u2013 jeweils {{token}} werden zu einer Erfassung kompiliert. Streams verwaltet nun die Zugriffssteuerungs- und Formatierungsbefehle (Handler Streams/commands/streamCommand und Streams/commands/cssUpdate); Mediennavigation; KI-Generierung.",
+	"commands": {
+		"tool/cssUpdate": "Umgestaltungstool",
+		"stream/create": "Stream erstellen",
+		"stream/grantAccess": "Zugriff gew\u00e4hren",
+		"stream/revokeAccess": "Zugriff entziehen"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"\u00c4ndere die Farbe auf {{prompt}}",
+			"\u00c4ndere die Farben auf {{prompt}}",
+			"F\u00e4rbe es um {{prompt}}",
+			"Werkzeug {{prompt}} neu gestalten",
+			"Stelle die Farben {{prompt}} ein."
+		],
+		"stream/create": [
+			"Erstellen Sie einen {{prompt}} Stream",
+			"Erstelle einen {{prompt}} Stream",
+			"Starten Sie einen {{prompt}}",
+			"Erstelle ein {{prompt}} Spiel",
+			"Lasst uns {{prompt}} spielen",
+			"einen {{prompt}} einrichten"
+		],
+		"stream/grantAccess": [
+			"{{name}} Zugriff auf den Beitrag gew\u00e4hren",
+			"{{name}} Beitr\u00e4ge",
+			"Schreibzugriff {{name}} gew\u00e4hren",
+			"{{name}} darf posten",
+			"F\u00fcge {{name}} als Gast hinzu",
+			"lade {{name}} zum Posten ein"
+		],
+		"stream/revokeAccess": [
+			"Zugriff von {{name}} entfernen",
+			"Entziehen Sie {{name}} den Zugriff",
+			"den Zugang der Notrufnummer {{name}} entfernen",
+			"Entferne {{name}} aus dem Datenstrom.",
+			"Block {{name}} am Posten"
+		]
+	}
+}

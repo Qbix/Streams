@@ -1,0 +1,264 @@
+{
+	"_locale": "hu",
+	"_intents": {
+		"slide/next": "Tov\u00e1bb a k\u00f6vetkez\u0151 di\u00e1ra. Streameket k\u00fcld/slide {slideIndex: current+1}.",
+		"slide/prev": "Vissza az el\u0151z\u0151 di\u00e1ra. Streameket k\u00fcld/slide {slideIndex: current-1}.",
+		"slide/first": "Ugr\u00e1s az els\u0151 di\u00e1ra. Streameket k\u00fcld/slide {slideIndex: 0}.",
+		"slide/last": "Ugr\u00e1s az utols\u00f3 di\u00e1ra. Streameket k\u00fcld/slide {slideIndex: 9999}.",
+		"slide/navigate": "Ugr\u00e1s egy di\u00e1ra tartalomlek\u00e9rdez\u00e9ssel. R\u00f6gz\u00edti a {lek\u00e9rdez\u00e9st}.",
+		"reveal/next": "A k\u00f6vetkez\u0151 progressz\u00edv elem felfed\u00e9se. Streameket bocs\u00e1t ki/felfedi a {revealIndex: current+1} \u00e9rt\u00e9ket.",
+		"video/play": "Vide\u00f3 lej\u00e1tsz\u00e1sa. Streameket bocs\u00e1t ki/lej\u00e1tszik {}.",
+		"video/pause": "Vide\u00f3 sz\u00fcneteltet\u00e9se. Streamek kibocs\u00e1t\u00e1sa/sz\u00fcnet {}.",
+		"video/seek": "Abszol\u00fat id\u0151re val\u00f3 keres\u00e9s. Streameket k\u00fcld/keres\u00e9st v\u00e9gez {pos: seconds}. R\u00f6gz\u00edti az {time} \u00e9rt\u00e9ket.",
+		"video/seek/relative": "Eltol\u00e1s szerinti keres\u00e9s. Streameket bocs\u00e1t ki/keres\u00e9s {pos: &#39;+/-m\u00e1sodperc&#39;}. R\u00f6gz\u00edti az {id\u0151t}.",
+		"gallery/next": "K\u00f6vetkez\u0151 b-roll k\u00e9p. Kibocs\u00e1tja a Streameket/gal\u00e9ri\u00e1t/k\u00f6vetkez\u0151t.",
+		"gallery/pause": "B-roll kimerev\u00edt\u00e9se. Streamek/gal\u00e9ria/sz\u00fcnet k\u00fcld\u00e9se.",
+		"gallery/resume": "B-roll folytat\u00e1sa. Streamek/gal\u00e9ria/\u00f6n\u00e9letrajz kik\u00fcld\u00e9se.",
+		"gallery/remove": "Aktu\u00e1lis b-roll k\u00e9p elrejt\u00e9se. Streamek/gal\u00e9ria/elt\u00e1vol\u00edt\u00e1s k\u00fcld\u00e9se.",
+		"gallery/caption/remove": "B-roll felirat elrejt\u00e9se. Streamek/gal\u00e9ria/felirat k\u00fcld\u00e9se {remove: true}.",
+		"highlight": "Jel\u00f6lje ki a diagram elem\u00e9t. Streameket bocs\u00e1t ki/jel\u00f6lje ki a {elementId} elemet. R\u00f6gz\u00edti a {target} elemet.",
+		"zoom/in": "1,5x-es nagy\u00edt\u00e1s. Streameket bocs\u00e1t ki/nagy\u00edt {sk\u00e1la: aktu\u00e1lis*1,5}.",
+		"zoom/out": "1,5x kicsiny\u00edt\u00e9s. Streameket bocs\u00e1t ki/nagy\u00edt {sk\u00e1la: aktu\u00e1lis/1,5}.",
+		"zoom/reset": "Nagy\u00edt\u00e1s vissza\u00e1ll\u00edt\u00e1sa 1-re. Streamek/nagy\u00edt\u00e1s kibocs\u00e1t\u00e1sa {m\u00e9retar\u00e1ny: 1}.",
+		"scroll/down": "G\u00f6rgessen le 20%-kal. Q/g\u00f6rget\u00e9s kibocs\u00e1t {fel\u00fcl: &#39;+20%&#39;}.",
+		"scroll/up": "G\u00f6rget\u00e9s felfel\u00e9 20%. Q/g\u00f6rget\u00e9s kibocs\u00e1t\u00e1sa {fel\u00fcl: &#39;-20%&#39;}.",
+		"scroll/top": "G\u00f6rget\u00e9s a tetej\u00e9re. Q/scroll jelet ad ki {fel\u00fcl: &#39;0%&#39;}.",
+		"scroll/bottom": "G\u00f6rget\u00e9s az alj\u00e1ra. Q/scroll jelet ad ki {fel\u00fcl: &#39;100%&#39;}.",
+		"fullscreen": "Teljes k\u00e9perny\u0151s v\u00e1lt\u00e1s.",
+		"image/generate": "LLM \u00e1ltal gener\u00e1lt k\u00e9p. R\u00f6gz\u00edti a {prompt}-ot.",
+		"tool/generate": "LLM \u00e1ltal gener\u00e1lt widget. R\u00f6gz\u00edti a {prompt}-ot.",
+		"stream/create": "\u00daj stream l\u00e9trehoz\u00e1sa (sakk, szavaz\u00e1s stb.). R\u00f6gz\u00edti a {prompt}-ot.",
+		"stream/grantAccess": "\u00cdr\u00e1si hozz\u00e1f\u00e9r\u00e9s megad\u00e1sa. R\u00f6gz\u00edti a {name, writeLevel} \u00e9rt\u00e9keket.",
+		"stream/revokeAccess": "Hozz\u00e1f\u00e9r\u00e9s visszavon\u00e1sa. R\u00f6gz\u00edti a k\u00f6vetkez\u0151t: {name}."
+	},
+	"slide/next": [
+		"k\u00f6vetkez\u0151 dia",
+		"k\u00f6vetkez\u0151 k\u00e1rtya",
+		"menj el\u0151re",
+		"l\u00e9pj tov\u00e1bb",
+		"el\u0151leg",
+		"k\u00f6vetkez\u0151 k\u00e9rem",
+		"k\u00f6vetkez\u0151",
+		"k\u00f6vetkez\u0151 megjelen\u00edt\u00e9se",
+		"/^k\u00f6vetkez\u0151$/"
+	],
+	"slide/prev": [
+		"el\u0151z\u0151 dia",
+		"el\u0151z\u0151 k\u00e1rtya",
+		"menj vissza",
+		"h\u00e1ts\u00f3",
+		"el\u0151z\u0151 dia",
+		"l\u00e9pj h\u00e1tra",
+		"/^vissza$/"
+	],
+	"slide/first": [
+		"els\u0151 dia",
+		"menj az elej\u00e9re",
+		"\u00fajrakezd\u00e9s",
+		"fentr\u0151l",
+		"kezd\u00e9s k\u00e9rem"
+	],
+	"slide/last": [
+		"utols\u00f3 dia",
+		"menj a v\u00e9g\u00e9re",
+		"utols\u00f3 dia",
+		"ugr\u00e1s a v\u00e9g\u00e9re"
+	],
+	"slide/navigate": [
+		"menj ide: {lek\u00e9rdez\u00e9s}",
+		"mutasd meg a {lek\u00e9rdez\u00e9st}",
+		"keres\u00e9s {lek\u00e9rdez\u00e9s}",
+		"ugr\u00e1s erre: {lek\u00e9rdez\u00e9s}",
+		"navig\u00e1ci\u00f3 a k\u00f6vetkez\u0151re: {query}",
+		"ir\u00e1ny\u00edtson ide: {query}",
+		"nyissa meg a {lek\u00e9rdez\u00e9st}",
+		"mutasd a {query} di\u00e1t",
+		"keresse meg a {query} di\u00e1t",
+		"ugorj a {query} di\u00e1ra"
+	],
+	"reveal/next": [
+		"felfed",
+		"mutass t\u00f6bbet",
+		"k\u00f6vetkez\u0151 pont",
+		"folytat\u00e1s",
+		"k\u00f6vetkez\u0151 felsorol\u00e1sjel"
+	],
+	"video/play": [
+		"j\u00e1t\u00e9k",
+		"vide\u00f3 lej\u00e1tsz\u00e1sa",
+		"j\u00e1tssza le a vide\u00f3t",
+		"vide\u00f3 ind\u00edt\u00e1sa",
+		"vide\u00f3 \u00f6n\u00e9letrajz",
+		"sz\u00fcnetet folytat",
+		"/^lej\u00e1tsz\u00e1s$/"
+	],
+	"video/pause": [
+		"sz\u00fcnet",
+		"vide\u00f3 sz\u00fcneteltet\u00e9se",
+		"vide\u00f3 le\u00e1ll\u00edt\u00e1sa",
+		"v\u00e1rj",
+		"/^sz\u00fcnet$/"
+	],
+	"video/seek": [
+		"menj ide",
+		"t\u00f6rekedni",
+		"ugr\u00e1s ide",
+		"ugr\u00e1s ide:",
+		"gyorsan el\u0151re",
+		"visszateker\u00e9s"
+	],
+	"video/seek/relative": [
+		"menj vissza {id\u0151}",
+		"vissza {id\u0151}",
+		"visszateker\u00e9s {id\u0151}",
+		"visszaugr\u00e1s {id\u0151}",
+		"el\u0151re {id\u0151}",
+		"ugr\u00e1s el\u0151re {id\u0151}",
+		"ugr\u00e1s el\u0151re {id\u0151}",
+		"gyors el\u0151re {id\u0151}",
+		"el\u0151re {id\u0151}"
+	],
+	"gallery/next": [
+		"k\u00f6vetkez\u0151 k\u00e9p",
+		"k\u00f6vetkez\u0151 fot\u00f3",
+		"k\u00f6vetkez\u0151 k\u00e9p",
+		"k\u00e9p kihagy\u00e1sa",
+		"v\u00e1ltoztasd meg a h\u00e1tteret"
+	],
+	"gallery/pause": [
+		"h\u00e1tt\u00e9r sz\u00fcneteltet\u00e9se",
+		"h\u00e1tt\u00e9r le\u00e1ll\u00edt\u00e1sa",
+		"fagyasztott h\u00e1tt\u00e9r",
+		"tartsd meg a h\u00e1tteret",
+		"sz\u00fcneteltesse a k\u00e9peket"
+	],
+	"gallery/resume": [
+		"\u00f6n\u00e9letrajz h\u00e1tt\u00e9r",
+		"folytat\u00e1s h\u00e1tt\u00e9r",
+		"ind\u00edtsa \u00fajra a h\u00e1tteret",
+		"h\u00e1tt\u00e9r sz\u00fcneteltet\u00e9s\u00e9nek folytat\u00e1sa"
+	],
+	"gallery/remove": [
+		"t\u00e1vol\u00edtsa el ezt a k\u00e9pet",
+		"ugord \u00e1t ezt a k\u00e9pet",
+		"rejtsd el ezt a fot\u00f3t",
+		"jelenlegi k\u00e9p elt\u00e1vol\u00edt\u00e1sa",
+		"t\u00e1vol\u00edtsa el ezt a fot\u00f3t"
+	],
+	"gallery/caption/remove": [
+		"felirat elt\u00e1vol\u00edt\u00e1sa",
+		"felirat elrejt\u00e9se",
+		"tiszta felirat",
+		"t\u00e1vol\u00edtsd el a feliratot",
+		"felirat elrejt\u00e9se"
+	],
+	"highlight": [
+		"kiemel\u00e9s",
+		"mutatni",
+		"mutasd meg nekem",
+		"hangs\u00falyozni",
+		"\u00f6sszpontos\u00edtani",
+		"Mark",
+		"h\u00edvj fel"
+	],
+	"zoom/in": [
+		"nagy\u00edt\u00e1s",
+		"zoomol\u00e1s",
+		"nagyobb",
+		"nagy\u00edt",
+		"nagy\u00edt",
+		"nagyobb\u00edtsd fel",
+		"k\u00f6zelebb"
+	],
+	"zoom/out": [
+		"kicsiny\u00edt\u00e9s",
+		"kisebb",
+		"\u00f6sszezsugorodik",
+		"h\u00fazd vissza",
+		"kisebb\u00edtsd",
+		"l\u00e9pj h\u00e1tra",
+		"sz\u00e9lesebb l\u00e1t\u00f3k\u00f6r"
+	],
+	"zoom/reset": [
+		"zoom vissza\u00e1ll\u00edt\u00e1sa",
+		"zoom vissza\u00e1ll\u00edt\u00e1s",
+		"norm\u00e1l m\u00e9ret",
+		"k\u00e9perny\u0151h\u00f6z igaz\u00edt\u00e1s",
+		"nagy\u00edt\u00e1s a megfelel\u0151 m\u00e9rethez"
+	],
+	"scroll/down": [
+		"g\u00f6rgess lejjebb",
+		"folytasd",
+		"t\u00f6bb",
+		"folytasd lefel\u00e9",
+		"oldal lejjebb",
+		"alatt"
+	],
+	"scroll/up": [
+		"g\u00f6rgessen felfel\u00e9",
+		"felmegy",
+		"vissza\u00e1ll\u00edt\u00e1s",
+		"emelked\u0151",
+		"lapoz\u00e1s felfel\u00e9",
+		"felett"
+	],
+	"scroll/top": [
+		"g\u00f6rgess a tetej\u00e9re",
+		"menj a tetej\u00e9re",
+		"vissza a tetej\u00e9re",
+		"oldal eleje",
+		"oldal tetej\u00e9n"
+	],
+	"scroll/bottom": [
+		"g\u00f6rgess lejjebb",
+		"menj a v\u00e9g\u00e9re",
+		"oldal v\u00e9ge",
+		"az oldal alj\u00e1n"
+	],
+	"fullscreen": [
+		"teljes k\u00e9perny\u0151s",
+		"teljes k\u00e9perny\u0151",
+		"maximaliz\u00e1l",
+		"k\u00e9perny\u0151 kit\u00f6lt\u00e9se",
+		"tedd tele"
+	],
+	"image/generate": [
+		"gener\u00e1ljon egy k\u00e9pet a {prompt}-r\u00f3l",
+		"k\u00e9sz\u00edtsen egy k\u00e9pet a {prompt}-r\u00f3l",
+		"mutasd meg nekem {prompt}",
+		"vizualiz\u00e1l {prompt}",
+		"rajzoljon {prompt}",
+		"k\u00e9sz\u00edts egy k\u00e9pet a {prompt}-r\u00f3l"
+	],
+	"tool/generate": [
+		"\u00e9p\u00edts egy {prompt}-ot",
+		"hozzon l\u00e9tre egy {prompt}-ot",
+		"\u00e9p\u00edts nekem egy {promptot}",
+		"{prompt} widget l\u00e9trehoz\u00e1sa",
+		"k\u00e9sz\u00edts egy {prompt} eszk\u00f6zt",
+		"hozzon l\u00e9tre egy {prompt} eszk\u00f6zt"
+	],
+	"stream/create": [
+		"hozzon l\u00e9tre egy {prompt} streamet",
+		"k\u00e9sz\u00edts egy {prompt} streamet",
+		"ind\u00edtson el egy {prompt}-ot",
+		"hozz l\u00e9tre egy {prompt} j\u00e1t\u00e9kot",
+		"j\u00e1tsszunk {prompt}",
+		"be\u00e1ll\u00edt egy {prompt}-ot"
+	],
+	"stream/grantAccess": [
+		"hozz\u00e1f\u00e9r\u00e9st adj {name}-nek a bejegyz\u00e9shez",
+		"{name} posztoljon",
+		"\u00edr\u00e1si hozz\u00e1f\u00e9r\u00e9st adj {name}-nek",
+		"{name} bejegyz\u00e9st tehet k\u00f6zz\u00e9",
+		"{name} hozz\u00e1ad\u00e1sa vend\u00e9gk\u00e9nt",
+		"megh\u00edvni {name}-t posztolni"
+	],
+	"stream/revokeAccess": [
+		"{name} hozz\u00e1f\u00e9r\u00e9s\u00e9nek elt\u00e1vol\u00edt\u00e1sa",
+		"vonja vissza {name} hozz\u00e1f\u00e9r\u00e9s\u00e9t",
+		"elvenni {name} hozz\u00e1f\u00e9r\u00e9s\u00e9t",
+		"{name} elt\u00e1vol\u00edt\u00e1sa a streamb\u0151l",
+		"{name} letilt\u00e1sa a posztol\u00e1sr\u00f3l"
+	]
+}

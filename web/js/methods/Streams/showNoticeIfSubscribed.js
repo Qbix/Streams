@@ -24,8 +24,18 @@ Q.exports(function(priv){
                 return;
             }
 
-            var streamsSubscribeRulesFilter = JSON.parse(Q.getObject("subscriptionRules.filter", this) || null);
-            if ((Q.getObject("types", streamsSubscribeRulesFilter) || []).includes(messageType)) {
+            // filter.types lists message types the user IS subscribed to (same
+            // semantics as Streams.Subscription.test). Skip the notice when the
+            // filter is non-empty and this type is not among them.
+            var streamsSubscribeRulesFilter = null;
+            try {
+                var filterRaw = Q.getObject("subscriptionRules.filter", this);
+                streamsSubscribeRulesFilter = filterRaw
+                    ? JSON.parse(filterRaw)
+                    : null;
+            } catch (e) {}
+            var subscribedTypes = Q.getObject("types", streamsSubscribeRulesFilter) || [];
+            if (subscribedTypes.length && !subscribedTypes.includes(messageType)) {
                 return;
             }
 

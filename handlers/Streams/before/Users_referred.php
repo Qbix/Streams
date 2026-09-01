@@ -6,7 +6,7 @@ function Streams_before_Users_referred($params, &$result)
         return;
     }
     // since byUserId is not already set, use invitingUserId if this session came from invite
-    if ($token = Streams_Invite::tokenAcceptedInSession()) {
+    if ($token = Streams_Invite::tokenInSession()) {
         // this works if the session was already opened
         if ($invite = Streams_Invite::fromToken($token)) {
             $result['byUserId'] = $invite->invitingUserId; // reward referrer to this session

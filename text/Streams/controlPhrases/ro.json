@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Trece\u021bi la diapozitivul urm\u0103tor. Emite fluxuri/diapozitiv {slideIndex: current+1}.",
+		"slide/prev": "Reveni\u021bi la diapozitivul anterior. Emite fluxuri/diapozitiv {slideIndex: current-1}.",
+		"slide/first": "Sari la primul diapozitiv. Emite fluxuri/diapozitiv {slideIndex: 0}.",
+		"slide/last": "Sari la ultimul diapozitiv. Emite fluxuri/diapozitiv {slideIndex: 9999}.",
+		"slide/navigate": "Salt la un diapozitiv dup\u0103 interogarea de con\u021binut. Captureaz\u0103 {query}.",
+		"reveal/next": "Afi\u0219eaz\u0103 urm\u0103torul element progresiv. Emite fluxuri/dezv\u0103luie {revealIndex: current+1}.",
+		"video/play": "Red\u0103 videoclipul. Emite fluxuri/redare {}.",
+		"video/pause": "\u00centrerupe videoclipul. Emite fluxuri/\u00eentrerupe {}.",
+		"video/seek": "C\u0103utare la timpul absolut. Emite fluxuri/c\u0103utare {pos: secunde}. Captureaz\u0103 {time}.",
+		"video/seek/relative": "C\u0103utare prin offset. Emite fluxuri/c\u0103utare {pos: &#39;+/-seconds&#39;}. Captureaz\u0103 {time}.",
+		"gallery/next": "Urm\u0103toarea imagine B-roll. Emite fluxuri/galerie/urm\u0103toarea.",
+		"gallery/pause": "\u00cenghea\u021b\u0103 imaginea de fundal. Emite fluxuri/galerie/pauz\u0103.",
+		"gallery/resume": "Reia b-roll-ul. Emite fluxuri/galerie/CV.",
+		"gallery/remove": "Ascunde imaginea curent\u0103 \u00een format B-roll. Emite fluxuri/galerie/elimineaz\u0103.",
+		"gallery/caption/remove": "Ascunde legenda din materialul suplimentar. Emite fluxuri/galerie/legend\u0103 {remove: true}.",
+		"highlight": "Eviden\u021biaz\u0103 elementul diagramei. Emite fluxuri/eviden\u021biaz\u0103 {elementId}. Captureaz\u0103 {target}.",
+		"zoom/in": "M\u0103rire 1,5x. Emite fluxuri/zoom {scal\u0103: curent*1,5}.",
+		"zoom/out": "Mic\u0219oreaz\u0103 imaginea cu 1,5x. Emite fluxuri/zoom {scal\u0103: curent/1,5}.",
+		"zoom/reset": "Reseteaz\u0103 zoom-ul la 1. Emite fluxuri/zoom {scal\u0103: 1}.",
+		"scroll/down": "Deruleaz\u0103 \u00een jos cu 20%. Emite Q/deruleaz\u0103 {sus: &#39;+20%&#39;}.",
+		"scroll/up": "Deruleaz\u0103 \u00een sus cu 20%. Emite Q/deruleaz\u0103 {sus: &#39;-20%&#39;}.",
+		"scroll/top": "Deruleaz\u0103 \u00een sus. Emite Q/deruleaz\u0103 {sus: &#39;0%&#39;}.",
+		"scroll/bottom": "Deruleaz\u0103 p\u00e2n\u0103 jos. Emite Q/deruleaz\u0103 {sus: &#39;100%&#39;}.",
+		"fullscreen": "Comutare ecran complet.",
+		"image/generate": "Imagine generat\u0103 de LLM. Captureaz\u0103 {prompt}.",
+		"tool/generate": "Widget generat de LLM. Captureaz\u0103 {prompt}.",
+		"stream/create": "Creeaz\u0103 un flux nou (\u0219ah, sondaj etc.). Captureaz\u0103 {prompt}.",
+		"stream/grantAccess": "Acord\u0103 acces de scriere. Captureaz\u0103 {name, writeLevel}.",
+		"stream/revokeAccess": "Revoca\u021bi accesul. Captureaz\u0103 {name}."
+	},
+	"slide/next": [
+		"urm\u0103torul diapozitiv",
+		"urm\u0103toarea carte",
+		"merge mai departe",
+		"mergi mai departe",
+		"avans",
+		"urm\u0103torul te rog",
+		"urm\u0103torul",
+		"arat\u0103 urm\u0103torul",
+		"/^urm\u0103torul$/"
+	],
+	"slide/prev": [
+		"diapozitivul anterior",
+		"cartea anterioar\u0103",
+		"\u00eentoarce-te",
+		"spate",
+		"diapozitivul anterior",
+		"pas \u00eenapoi",
+		"/^\u00eenapoi$/"
+	],
+	"slide/first": [
+		"primul diapozitiv",
+		"mergi la \u00eenceput",
+		"o ia de la cap\u0103t",
+		"de sus",
+		"\u00eenceput, v\u0103 rog"
+	],
+	"slide/last": [
+		"ultimul diapozitiv",
+		"mergi p\u00e2n\u0103 la cap\u0103t",
+		"diapozitivul final",
+		"sari la sf\u00e2r\u0219it"
+	],
+	"slide/navigate": [
+		"acceseaz\u0103 {query}",
+		"arat\u0103-mi {interogare}",
+		"g\u0103si\u021bi {interogare}",
+		"salt la {interogare}",
+		"naviga\u021bi la {query}",
+		"Du-m\u0103 la {query}",
+		"deschide\u021bi {interogarea}",
+		"afi\u0219a\u021bi diapozitivul {query}",
+		"g\u0103si\u021bi diapozitivul {query}",
+		"accesa\u021bi diapozitivul {query}"
+	],
+	"reveal/next": [
+		"dezv\u0103lui",
+		"arat\u0103 mai mult",
+		"urm\u0103torul punct",
+		"continua",
+		"urm\u0103torul punct"
+	],
+	"video/play": [
+		"juca",
+		"redare video",
+		"red\u0103 videoclipul",
+		"\u00eencepe videoclipul",
+		"CV video",
+		"reluare",
+		"/^play$/"
+	],
+	"video/pause": [
+		"pauz\u0103",
+		"pauz\u0103 video",
+		"opri\u021bi videoclipul",
+		"stai",
+		"/^pauz\u0103$/"
+	],
+	"video/seek": [
+		"mergi la",
+		"s\u0103 caute s\u0103",
+		"s\u0103ri la",
+		"sari la",
+		"\u00eenainte rapid p\u00e2n\u0103 la",
+		"derulare \u00eenapoi la"
+	],
+	"video/seek/relative": [
+		"\u00eentoarce-te \u00eenapoi {timp}",
+		"\u00eenapoi {timp}",
+		"derulare \u00eenapoi {timp}",
+		"s\u0103ri \u00eenapoi {timp}",
+		"merge \u00eenainte {timp}",
+		"s\u0103ri \u00eenainte {timp}",
+		"s\u0103ri \u00eenainte {timp}",
+		"\u00eenainte rapid {timp}",
+		"\u00eenainte {timp}"
+	],
+	"gallery/next": [
+		"urm\u0103toarea imagine",
+		"urm\u0103toarea fotografie",
+		"urm\u0103toarea imagine",
+		"s\u0103ri peste imagine",
+		"schimb\u0103 fundalul"
+	],
+	"gallery/pause": [
+		"pauz\u0103 fundal",
+		"oprire fundal",
+		"fundal \u00eenghe\u021bat",
+		"\u021bine fundalul",
+		"\u00eentrerupe\u021bi imaginile"
+	],
+	"gallery/resume": [
+		"fundalul CV-ului",
+		"continuare fundal",
+		"porne\u0219te din nou fundalul",
+		"reluare fundal"
+	],
+	"gallery/remove": [
+		"elimina\u021bi aceast\u0103 imagine",
+		"s\u0103ri peste aceast\u0103 imagine",
+		"ascunde aceast\u0103 fotografie",
+		"elimina\u021bi imaginea curent\u0103",
+		"elimin\u0103 aceast\u0103 fotografie"
+	],
+	"gallery/caption/remove": [
+		"elimina\u021bi legenda",
+		"ascunde legenda",
+		"legend\u0103 clar\u0103",
+		"elimina\u021bi legenda",
+		"ascunde legenda"
+	],
+	"highlight": [
+		"eviden\u021biere",
+		"indic\u0103 spre",
+		"ar\u0103ta\u0163i-mi",
+		"sublinia",
+		"se concentreze pe",
+		"marca",
+		"Strig\u0103"
+	],
+	"zoom/in": [
+		"m\u0103rire",
+		"zoom",
+		"mai mare",
+		"m\u0103ri",
+		"amplifica",
+		"f\u0103-o mai mare",
+		"mai aproape"
+	],
+	"zoom/out": [
+		"mic\u0219orare",
+		"mai mic",
+		"mic\u0219ora",
+		"retragere",
+		"f\u0103-l mai mic",
+		"pas \u00eenapoi",
+		"perspectiv\u0103 mai larg\u0103"
+	],
+	"zoom/reset": [
+		"resetare zoom",
+		"resetare zoom",
+		"dimensiune normal\u0103",
+		"potrivire la ecran",
+		"m\u0103rire pentru a se potrivi"
+	],
+	"scroll/down": [
+		"deruleaz\u0103 \u00een jos",
+		"continu\u0103",
+		"Mai mult",
+		"continu\u0103 \u00een jos",
+		"pagin\u0103 \u00een jos",
+		"de mai jos"
+	],
+	"scroll/up": [
+		"deruleaz\u0103 \u00een sus",
+		"urc\u0103",
+		"copie de rezerv\u0103",
+		"\u00een sus",
+		"pagin\u0103 \u00een sus",
+		"mai sus"
+	],
+	"scroll/top": [
+		"deruleaz\u0103 \u00een sus",
+		"merge\u021bi la \u00eenceput",
+		"\u00eenapoi la \u00eenceput",
+		"\u00eenceputul paginii",
+		"partea de sus a paginii"
+	],
+	"scroll/bottom": [
+		"derula\u021bi p\u00e2n\u0103 jos",
+		"merge\u021bi la sf\u00e2r\u0219it",
+		"sf\u00e2r\u0219itul paginii",
+		"partea de jos a paginii"
+	],
+	"fullscreen": [
+		"ecran complet",
+		"ecran complet",
+		"maximiza",
+		"ecran complet",
+		"f\u0103-o plin\u0103"
+	],
+	"image/generate": [
+		"genereaz\u0103 o imagine a lui {prompt}",
+		"creeaz\u0103 o imagine a lui {prompt}",
+		"arat\u0103-mi {solicit\u0103}",
+		"vizualizare {subiect}",
+		"a desena {solicitare}",
+		"face o imagine a {prompt}"
+	],
+	"tool/generate": [
+		"construie\u0219te un {prompt}",
+		"crea\u021bi un {prompt}",
+		"construie\u0219te-mi un {prompt}",
+		"genereaz\u0103 un widget {prompt}",
+		"crea\u021bi un instrument {prompt}",
+		"crea\u021bi un instrument {prompt}"
+	],
+	"stream/create": [
+		"creeaz\u0103 un flux {prompt}",
+		"creeaz\u0103 un flux {prompt}",
+		"porni\u021bi o {prompt}",
+		"creeaz\u0103 un joc {prompt}",
+		"hai s\u0103 juc\u0103m",
+		"configura\u021bi o {solicitare}"
+	],
+	"stream/grantAccess": [
+		"acord\u0103 acces la postare lui {name}",
+		"permite\u021bi {name} s\u0103 posteze",
+		"acord\u0103 acces de scriere {name}",
+		"permite\u021bi {name} s\u0103 posteze",
+		"adaug\u0103 {name} ca invitat",
+		"invit\u0103 {name} s\u0103 posteze"
+	],
+	"stream/revokeAccess": [
+		"elimina\u021bi accesul lui {name}",
+		"revoca\u021bi accesul lui {name}",
+		"ia-i lui {name} accesul",
+		"elimin\u0103 {name} din flux",
+		"blocheaz\u0103 {name} din postare"
+	]
+}

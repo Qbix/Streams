@@ -1,0 +1,41 @@
+{
+	"_comment": "Text p\u0159\u00edkazu streamu. &#39;commands&#39; = popisky zobrazen\u00ed (UI); &#39;phrases&#39; = rozpoznan\u00e9 fr\u00e1ze, kl\u00ed\u010dovan\u00e9 p\u0159\u00edkazem. Tvary fr\u00e1z\u00ed: &quot;substring&quot;, &quot;/regex/&quot; nebo \u0161ablonovan\u00e9 &quot;give {{name}} access&quot; \u2013 ka\u017ed\u00fdch {{token}} se zkompiluje do zachycen\u00ed. Streamy nyn\u00ed vlastn\u00ed p\u0159\u00edkazy pro \u0159\u00edzen\u00ed p\u0159\u00edstupu a zm\u011bnu stylu (obslu\u017en\u00e9 rutiny Streams/commands/streamCommand a Streams/commands/cssUpdate); navigaci v m\u00e9di\u00edch; generov\u00e1n\u00ed pomoc\u00ed um\u011bl\u00e9 inteligence.",
+	"commands": {
+		"tool/cssUpdate": "N\u00e1stroj pro zm\u011bnu stylu",
+		"stream/create": "Vytvo\u0159it stream",
+		"stream/grantAccess": "Ud\u011blit p\u0159\u00edstup",
+		"stream/revokeAccess": "Zru\u0161it p\u0159\u00edstup"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"zm\u011bnit barvu na {{prompt}}",
+			"zm\u011bnit barvy na {{prompt}}",
+			"p\u0159ebarvit to {{prompt}}",
+			"p\u0159epracovat n\u00e1stroj {{prompt}}",
+			"ud\u011blej barvy {{prompt}}"
+		],
+		"stream/create": [
+			"vytvo\u0159it stream {{prompt}}",
+			"vytvo\u0159it stream {{prompt}}",
+			"za\u010dn\u011bte s {{prompt}}",
+			"vytvo\u0159it hru {{prompt}}",
+			"Poj\u010fme si zahr\u00e1t {{prompt}}",
+			"nastavit {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"ud\u011blit {{name}} p\u0159\u00edstup k p\u0159\u00edsp\u011bvku",
+			"nechte {{name}} p\u0159\u00edsp\u011bvk\u016f",
+			"ud\u011blit {{name}} p\u0159\u00edstup pro z\u00e1pis",
+			"povolit {{name}} publikovat",
+			"p\u0159idat {{name}} jako hosta",
+			"pozvat {{name}} k p\u0159\u00edsp\u011bvku"
+		],
+		"stream/revokeAccess": [
+			"odebrat p\u0159\u00edstup u\u017eivatele {{name}}",
+			"zru\u0161it p\u0159\u00edstup u\u017eivatele {{name}}",
+			"odebrat p\u0159\u00edstup u\u017eivateli {{name}}",
+			"odebrat {{name}} ze streamu",
+			"zablokovat {{name}} z odesl\u00e1n\u00ed"
+		]
+	}
+}

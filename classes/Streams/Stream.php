@@ -274,8 +274,11 @@ class Streams_Stream extends Base_Streams_Stream
 		$begin = Streams_Stream::begin();
 		$commit = Streams_Stream::commit();
 		$criteria = compact('publisherId', 'name');
-		$begin->execute(null, $begin->shard(null, $criteria));
-		$stream = Streams_Stream::fetch($asUserId, $publisherId, $name, '*', $options, $results);
+		$shard = $begin->shard(null, $criteria);
+		$begin->execute(null, $shard);
+		$fetchOptions = $options;
+		$fetchOptions['refetch'] = true;
+		$stream = Streams_Stream::fetch($asUserId, $publisherId, $name, '*', $fetchOptions, $results);
 		$results['created'] = false;
 		if ($stream) {
 			$commit->execute(null, $commit->shard(null, $criteria));
@@ -284,16 +287,28 @@ class Streams_Stream extends Base_Streams_Stream
 		$fields = Q::ifset($options, 'fields', array());
 		$fields['name'] = $name;
 		$relateResult = null;
-		$stream = Streams::create($asUserId, 
-			$publisherId, 
-			Q::ifset($options, 'type', Q::ifset($options, 'fields', 'type', null)),
-			$fields, 
-			array(
-				'relate' => Q::ifset($options, 'relate', null),
-				'skipAccess' => Q::ifset($options, 'skipAccess', false),
-				'result' => &$relateResult
-			)
-		);
+		try {
+			$stream = Streams::create($asUserId, 
+				$publisherId, 
+				Q::ifset($options, 'type', Q::ifset($options, 'fields', 'type', null)),
+				$fields, 
+				array(
+					'relate' => Q::ifset($options, 'relate', null),
+					'skipAccess' => Q::ifset($options, 'skipAccess', false),
+					'result' => &$relateResult
+				)
+			);
+		} catch (Exception $e) {
+			try {
+				Streams_Stream::rollback()->execute(null, $shard);
+			} catch (Exception $ignore) {}
+			$fetchOptions['refetch'] = true;
+			$stream = Streams_Stream::fetch($asUserId, $publisherId, $name, '*', $fetchOptions, $results);
+			if ($stream) {
+				return $stream;
+			}
+			throw $e;
+		}
 		if (!$stream) {
 			$commit->execute(null, $commit->shard(null, $criteria));
 			return null;
@@ -310,7 +325,7 @@ class Streams_Stream extends Base_Streams_Stream
 			$so['userId'] = $asUserId;
 			$results['participant'] = $stream->subscribe($so);
 		}
-		$results['created'] = true;
+		$results['created'] = (bool) $stream->get('createdAsUserId');
 		return $stream;
 	}
 	
@@ -891,14 +906,7 @@ class Streams_Stream extends Base_Streams_Stream
 				// unless we're already handling saving a user
 				$user = Users_User::fetch($this->publisherId, true);
 				$user->$publicField = $modifiedFields[$field];
-				try {
-					// attempt to save user with the username
-					$user->save(false, false, true);
-				} catch (Users_Exception_UsernameExists $e) {
-					// fallback to a null username, but still save the user')
-					$user->username = null;
-					$user->save(false, false, true);
-				}
+				$user->save(false, false, true);
 			} catch (Exception $e) {
 				Streams::$beingSaved[$publicField] = array();
 				throw $e;
@@ -2056,7 +2064,9 @@ class Streams_Stream extends Base_Streams_Stream
 			}
 			$item[] = $permissions;
 		}
-		$inheritAccess = json_decode($this->inheritAccess, true);
+		$inheritAccess = isset($this->inheritAccess)
+			? json_decode($this->inheritAccess, true)
+			: null;
 		if (!$inheritAccess or !is_array($inheritAccess)) {
 			$inheritAccess = array($item);
 		} else {
@@ -2261,7 +2271,6 @@ class Streams_Stream extends Base_Streams_Stream
 	 */
 	function close($asUserId = null, $options = array())
 	{
-		$asUserId = isset($options['asUserId']) ? $options['asUserId'] : null;
 		return Streams::close($asUserId, $this->publisherId, $this->name, $options);
 	}
 	

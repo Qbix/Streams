@@ -8,7 +8,7 @@ Q.exports(function() {
      * @param {String} streamName The name of the stream you are inviting to
      * @param {Object} [options] More options that are passed to the API, which can include:
      * @param {String|Array} [options.identifier] An email address or mobile number to invite. Might not belong to an existing user yet. Can also be an array of identifiers.
-     * @param {String|Array} [options.description] Description of what user can do when they invite others.
+     * @param {String} [options.description] Customize description of what user can do when they invite others.
      * @param {boolean} [options.token=false] Pass true here to generate an invite
      *	which you can then send to anyone however you like. When they show up with the token
      *	and presents it via "Q.Streams.token" querystring parameter, the Streams plugin
@@ -21,6 +21,7 @@ Q.exports(function() {
      * @param {String} [options.xid] xid or arary of xids to invite
      * @param {String} [options.label] label or an array of labels to invite, or tab-delimited string
      * @param {String|Array|true} [options.addLabel] label or an array of labels for adding publisher's contacts, or pass true to show a selector dialog
+     * @param {Array} [options.filter] If provided, only these community role labels are shown in the Add Roles dialog (intersected with roles the user can grant)
      * @param {String|Array|true} [options.addMyLabel] label or an array of labels for adding logged-in user's contacts, or pass true to show a selector dialog
      * @param {String} [options.readLevel] the read level to grant those who are invited
      * @param {String} [options.writeLevel] the write level to grant those who are invited
@@ -31,6 +32,7 @@ Q.exports(function() {
      * @param {Boolean} [options.dontAutoAccept=false] Tell Streams not to try to have recipient user auto-accept invite
      * @param {String} [options.uri] If you need to hit a custom "Module/action" endpoint
      * @param {String} [options.title] Custom dialog title.
+     * @param {String} [options.className] Custom dialog CSS class
      * @param {String} [options.userChooser=false] If true allow to invite registered users with Streams/userChooser tool.
      * @param {Function} callback Called with (err, result) .
      *   In this way you can obtain the invite token, email addresses, etc.
@@ -55,11 +57,11 @@ Q.exports(function() {
             uri: 'Streams/invite'
         }, Q.Streams.invite.options, options);
         var fields = Q.take(o, [
-            'appUrl', 'identifier', 
+            'appUrl', 'identifier', 'userId', 'assign',
             'platform', 'xid', 
             'label', 'addLabel', 'addMyLabel',
             'readLevel', 'writeLevel', 'adminLevel',
-            'dontAutoLogin', 'dontAutoAccept'
+            'dontAutoLogin', 'dontAutoAccept', 'alwaysSend'
         ]);
         fields.publisherId = publisherId;
         fields.streamName = streamName;
@@ -386,9 +388,20 @@ Q.exports(function() {
             return _request();
         }
         Q.Text.get('Streams/content', function (err, text) {
-            _getCanGrantRoles().then(function (response) {
+            var communityId = Q.Users.isCommunityId(publisherId)
+                ? publisherId
+                : Q.Users.currentCommunityId;
+            _getCanGrantRoles(communityId).then(function (response) {
                 var canGrantRoles = Q.getObject('slots.canGrant', response) || [];
                 var canRevokeRoles = Q.getObject('slots.canRevoke', response) || [];
+                if (Q.isArrayLike(o.filter)) {
+                    canGrantRoles = canGrantRoles.filter(function (label) {
+                        return o.filter.indexOf(label) >= 0;
+                    });
+                    canRevokeRoles = canRevokeRoles.filter(function (label) {
+                        return o.filter.indexOf(label) >= 0;
+                    });
+                }
 
                 var addLabel = o.addLabel;
                 if(!Q.isEmpty(canGrantRoles) && addLabel !== false) {
@@ -438,8 +451,8 @@ Q.exports(function() {
                     Q.Dialogs.push({
                         title: text.invite.roles.title,
                         content: Q.Tool.setUpElementHTML('div', 'Users/labels', {
-                            userId: Q.Users.communityId,
-                            filter: canGrantRoles
+                            userId: communityId,
+                            filter: { replace: canGrantRoles }
                         }),
                         className: 'Streams_invite_labels_dialog',
                         apply: true,
@@ -533,7 +546,7 @@ Q.exports(function() {
                     var dialogOptions = Q.take(o, [
                         'title', 'description', 'identifierTypes', 'userChooser',
                         'appUrl', 'showGrantRolesButton', 'showGrantRelationshipsButton',
-                        'addLabel', 'addMyLabel', 'hide'
+                        'addLabel', 'addMyLabel', 'hide', 'className'
                     ]);
                     dialogOptions.showGrantRolesDialog = function() {
                         _showGrantRolesDialog(_showInviteDialog);
@@ -548,7 +561,13 @@ Q.exports(function() {
                         if (Q.isEmpty(r)) {
                             return;
                         }
-                        Q.take(r, ['appUrl', 'data', 'identifier', 'sendBy', 'token', 'userId'], fields);
+                        Q.take(r, ['appUrl', 'data', 'identifier', 'sendBy', 'token', 'userId', 'assign'], fields);
+                        // Registered users may already be participating (e.g. re-offered
+                        // a staff role). Without alwaysSend, PHP drops them before Node
+                        // posts Streams/invited — so the online invitee sees nothing.
+                        if (fields.userId) {
+                            fields.alwaysSend = true;
+                        }
                         if (r.sendBy) {
                             _sendBy(r, text);
                         } else {
@@ -559,12 +578,12 @@ Q.exports(function() {
 
             });
 
-            function _getCanGrantRoles() {
+            function _getCanGrantRoles(communityId) {
                 return new Promise(function (resolve, reject) {
                     Q.req('Users/roles', ['canGrant', 'canRevoke', 'canSee'], function (err, response) {
                         resolve(response);
                     }, {
-                        communityId: Q.Users.communityId
+                        communityId: communityId
                     });
                 });
             }

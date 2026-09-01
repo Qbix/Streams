@@ -19,7 +19,16 @@
 		"type": "Streams/user/profile",
 		"title": "User Profile",
 		"icon": "Streams/profile",
-		"readLevel": 40,
+		"readLevel": 25,
+		"writeLevel": 18,
+		"adminLevel": 0
+	},
+	"Streams/user/visits": {
+		"type": "Streams/visits",
+		"title": "Visits",
+		"icon": "default",
+		"content": "",
+		"readLevel": 10,
 		"writeLevel": 0,
 		"adminLevel": 0
 	},
@@ -36,7 +45,7 @@
 		"readLevel": 0,
 		"writeLevel": 20,
 		"adminLevel": 0,
-		"subscribe": {
+		"subscriptions": {
 			"filter": {
 				"types": ["Streams/invited"],
 				"notifications": 0
@@ -55,7 +64,7 @@
 		"readLevel": 0,
 		"writeLevel": 20,
 		"adminLevel": 0,
-		"subscribe": {
+		"subscriptions": {
 			"filter": {
 				"types": ["Streams/mention"],
 				"notifications": 0
@@ -154,6 +163,14 @@
 	"Streams/user/mobileNumber": {
 		"type": "Streams/text/mobileNumber",
 		"title": "Mobile Number",
+		"icon": "",
+		"readLevel": 0,
+		"writeLevel": 0,
+		"adminLevel": 0
+	},
+	"Streams/user/phoneNumber": {
+		"type": "Streams/text/phoneNumber",
+		"title": "Phone Number",
 		"icon": "",
 		"readLevel": 0,
 		"writeLevel": 0,

@@ -1,0 +1,41 @@
+{
+	"_comment": "Striimien komentoteksti. &#39;komennot&#39; = n\u00e4ytt\u00f6tunnisteet (UI); &#39;lauseet&#39; = tunnistetut lausekkeet, jotka komennot avaavat. Lausekkeet: &quot;substring&quot;, &quot;/regex/&quot; tai mallipohjainen &quot;anna {{name}} access&quot; \u2014 jokainen {{token}} k\u00e4\u00e4nnet\u00e4\u00e4n kaappaukseksi. Striimeill\u00e4 on nyt k\u00e4ytt\u00f6oikeus- ja uudelleenmuotoilukomennot (k\u00e4sittelij\u00e4t Streams/commands/streamCommand ja Streams/commands/cssUpdate); Media sis\u00e4lt\u00e4\u00e4 navigoinnin; teko\u00e4ly tarjoaa generoinnin.",
+	"commands": {
+		"tool/cssUpdate": "Muotoiluty\u00f6kalu",
+		"stream/create": "Luo striimi",
+		"stream/grantAccess": "My\u00f6nn\u00e4 k\u00e4ytt\u00f6oikeus",
+		"stream/revokeAccess": "Peruuta k\u00e4ytt\u00f6oikeus"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"vaihda v\u00e4riksi {{prompt}}",
+			"vaihda v\u00e4rit arvoon {{prompt}}",
+			"v\u00e4rit\u00e4 se uudelleen {{prompt}}",
+			"muotoile ty\u00f6kalu uudelleen {{prompt}}",
+			"tee v\u00e4rit {{prompt}}"
+		],
+		"stream/create": [
+			"luo {{prompt}} stream",
+			"tee {{prompt}} striimi",
+			"aloita {{prompt}}",
+			"luo {{prompt}} -peli",
+			"Pelataanpa {{prompt}}",
+			"perustaa {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"anna {{name}} p\u00e4\u00e4sy viestiin",
+			"anna {{name}} l\u00e4hett\u00e4\u00e4",
+			"anna {{name}} kirjoitusoikeudet",
+			"anna {{name}} l\u00e4hett\u00e4\u00e4 viesti",
+			"lis\u00e4\u00e4 {{name}} vieraaksi",
+			"kutsu {{name}} l\u00e4hett\u00e4m\u00e4\u00e4n viesti"
+		],
+		"stream/revokeAccess": [
+			"poista {{name}} :n k\u00e4ytt\u00f6oikeudet",
+			"peruuta {{name}} :n k\u00e4ytt\u00f6oikeudet",
+			"vie {{name}} :n p\u00e4\u00e4syn",
+			"poista {{name}} striimist\u00e4",
+			"lohko {{name}} l\u00e4hett\u00e4misest\u00e4"
+		]
+	}
+}

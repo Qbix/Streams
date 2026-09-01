@@ -1,0 +1,41 @@
+{
+	"_comment": "Test tal-kmand tal-istreams. &#39;commands&#39; = display labels (UI); &#39;phrases&#39; = fra\u017cijiet rikonoxxuti, imda\u0127\u0127la bil-kmand. Forom ta&#39; fra\u017cijiet: &quot;substring&quot;, &quot;/regex/&quot;, jew templated &quot;give {{name}} access&quot; \u2014 kull {{token}} jikkompila g\u0127al capture. L-istreams issa jippossjedi l-kmandi tal-kontroll tal-a\u010b\u010bess u tar-restyle (handlers Streams/commands/streamCommand u Streams/commands/cssUpdate); Navigazzjoni tal-vapuri tal-midja; \u0120enerazzjoni tal-vapuri tal-AI.",
+	"commands": {
+		"tool/cssUpdate": "G\u0127odda ta&#39; tibdil tal-istil",
+		"stream/create": "O\u0127loq nixxieg\u0127a",
+		"stream/grantAccess": "Ag\u0127ti a\u010b\u010bess",
+		"stream/revokeAccess": "Irrevoka l-a\u010b\u010bess"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"ibdel il-kulur g\u0127al {{prompt}}",
+			"ibdel il-kuluri g\u0127al {{prompt}}",
+			"er\u0121a&#39; kkulurih {{prompt}}",
+			"biddel l-istil tal-g\u0127odda {{prompt}}",
+			"ag\u0127mel il-kuluri {{prompt}}"
+		],
+		"stream/create": [
+			"o\u0127loq nixxieg\u0127a {{prompt}}",
+			"ag\u0127mel nixxieg\u0127a ta&#39; {{prompt}}",
+			"ibda {{prompt}}",
+			"o\u0127loq log\u0127ba {{prompt}}",
+			"ejja nilag\u0127bu {{prompt}}",
+			"waqqaf {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"ag\u0127ti a\u010b\u010bess {{name}} g\u0127all-post",
+			"\u0127alli {{name}} post",
+			"ag\u0127ti a\u010b\u010bess g\u0127all-kitba {{name}}",
+			"\u0127alli lil {{name}} jippubblika",
+			"\u017cid {{name}} b\u0127ala mistieden",
+			"stieden {{name}} biex jippubblika"
+		],
+		"stream/revokeAccess": [
+			"ne\u0127\u0127i l-a\u010b\u010bess ta&#39; {{name}}",
+			"irrevoka l-a\u010b\u010bess ta&#39; {{name}}",
+			"ne\u0127\u0127i l-a\u010b\u010bess ta&#39; {{name}}",
+			"ne\u0127\u0127i {{name}} mill-istreaming",
+			"imblokka {{name}} milli tibg\u0127at"
+		]
+	}
+}

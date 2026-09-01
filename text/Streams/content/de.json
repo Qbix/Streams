@@ -153,14 +153,20 @@
 			"byTelegram": "Telegramm",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Rollen hinzuf\u00fcgen",
-			"addPersonalRoles": "Pers\u00f6nliche Beziehungen hinzuf\u00fcgen"
+			"addPersonalRoles": "Pers\u00f6nliche Beziehungen hinzuf\u00fcgen",
+			"AddCommunityRoles": "Community-Rollen hinzuf\u00fcgen",
+			"AddParticipantRoles": "F\u00fcgen Sie Rollen in dieser {{streamDisplayType}} hinzu",
+			"YouWereInvited": "Sie wurden eingeladen"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Willkommen bei {{communityName}}",
 			"HasInvitedYou": "hat Sie eingeladen:",
 			"HasInvitedYouToTheirProfile": "hat Sie eingeladen, sich zu verbinden.",
 			"prompt": "Lassen Sie sich von Freunden erkennen:",
-			"accept": "Einladung annehmen"
+			"accept": "Akzeptieren",
+			"RolesOffered": "Ihnen angebotene Rollen:",
+			"decline": "Abfall",
+			"ParticipantRolesOffered": "Ihre Rolle bei diesem {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hey, sieh dir das an",
@@ -180,7 +186,10 @@
 		"chat": {
 			"prompt": "Sie laden Leute zu einem Gespr\u00e4ch ein, bei dem Sie in Kontakt bleiben, gemeinsam Fotos austauschen und vieles mehr k\u00f6nnen. Geben Sie dem Gespr\u00e4ch einen Namen:"
 		},
-		"Participants": "Menschen einladen"
+		"Participants": "Menschen einladen",
+		"inperson": {
+			"description": "Erstelle einen QR-Code und gib ihn weiter, damit er gescannt wird. Jeder, der ihn scannt, bleibt mit den anderen in Verbindung:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +373,11 @@
 		"Streams/outgoing": {
 			"displayType": "Ausgehend",
 			"description": "Ziel f\u00fcr die Aufzeichnung von Nachrichten, die an andere Benutzer oder externe Systeme gesendet werden"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologie",
+			"description": "Ontologie",
+			"newItem": "Ontologie hinzuf\u00fcgen"
 		}
 	},
 	"menu": {
@@ -548,5 +562,16 @@
 		"IntervalLabel": "Intervall (ms): ",
 		"IntervalPlaceholder": "z. B. 3000",
 		"KenburnsInstruction": "Start- und Endpunkt der Ken-Burns-Aufnahme k\u00f6nnen durch Ziehen und Zoomen festgelegt werden."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gastgeber",
+				"speaker": "Lautsprecher",
+				"volunteer": "Freiwilliger",
+				"moderator": "Moderator",
+				"guest": "Gast"
+			}
+		}
 	}
 }

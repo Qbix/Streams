@@ -80,16 +80,10 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 		state.reflectIconChanges = !String(state.icon).isUrl();
 	}
 	if (state.reflectIconChanges) {
-		Streams.Stream.onFieldChanged(state.userId, 'Streams/user/icon', 'icon')
-		.set(function (fields, field) {
-			var $img = tool.$('.Users_avatar_icon');
-			var iconSize = state.icon || $img.width();
-			$img.attr('src', 
-				Q.url(Streams.iconUrl(fields.icon, iconSize, 'png'), null, {
-					cacheBust: state.cacheBustOnUpdate
-				})
-			);
-		}, this);
+		Streams.Stream.onFieldChanged(state.userId, 'Streams/user/icon', 'icon').set(function (fields, field) {
+			Streams.Avatar.get.forget(state.userId);
+			tool.refresh();
+		}, tool);
 	}
 	if (!state.editable || state.editable.indexOf('name') < 0) {
 		Q.each(["firstName", "lastName", "username", "gender"], function (i, val) {
@@ -293,8 +287,7 @@ Q.Tool.define("Users/avatar", function Users_avatar_tool(options) {
 								stream.refresh(function () {
 									state.onUpdate.handle.call(tool, this);
 								}, {
-									unlessSocket: true,
-									changed: { icon: true }
+									unlessSocket: true
 								});
 							}},
 							cacheBust: state.cacheBust

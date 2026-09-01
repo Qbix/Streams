@@ -1,0 +1,264 @@
+{
+	"_locale": "fi",
+	"_intents": {
+		"slide/next": "Siirry seuraavaan diaan. L\u00e4hett\u00e4\u00e4 striimit/slide {slideIndex: current+1}.",
+		"slide/prev": "Palaa edelliseen diaan. L\u00e4hett\u00e4\u00e4 striimit/slide {slideIndex: current-1}.",
+		"slide/first": "Siirry ensimm\u00e4iseen diaan. L\u00e4hett\u00e4\u00e4 striimej\u00e4/dia {slideIndex: 0}.",
+		"slide/last": "Hypp\u00e4\u00e4 viimeiseen diaan. L\u00e4hett\u00e4\u00e4 striimej\u00e4/dia {slideIndex: 9999}.",
+		"slide/navigate": "Siirry diaan sis\u00e4lt\u00f6kyselyn perusteella. Tallentaa {kyselyn}.",
+		"reveal/next": "Paljastaa seuraavan progressiivisen elementin. L\u00e4hett\u00e4\u00e4 striimit/paljastaa {revealIndex: current+1}.",
+		"video/play": "Toista video. L\u00e4hett\u00e4\u00e4 striimej\u00e4/toista {}.",
+		"video/pause": "Keskeyt\u00e4 video. L\u00e4hett\u00e4\u00e4 striimej\u00e4/keskeyt\u00e4 {}.",
+		"video/seek": "Hakee absoluuttiseen aikaan. L\u00e4hett\u00e4\u00e4 striimi\u00e4/hakua {pos: seconds}. Kaappaa {time}.",
+		"video/seek/relative": "Haku offsetin mukaan. L\u00e4hett\u00e4\u00e4 striimej\u00e4/haku {pos: &#39;+/-seconds&#39;}. Tallentaa {ajan}.",
+		"gallery/next": "Seuraava b-roll-kuva. L\u00e4hett\u00e4\u00e4 Striimit/galleria/seuraava.",
+		"gallery/pause": "J\u00e4\u00e4dytt\u00e4\u00e4 b-rollin. L\u00e4hett\u00e4\u00e4 striimej\u00e4/galleriaa/taukoa.",
+		"gallery/resume": "Jatka b-rollia. L\u00e4hett\u00e4\u00e4 striimej\u00e4/galleriaa/ansioluetteloa.",
+		"gallery/remove": "Piilota nykyinen b-roll-kuva. L\u00e4hett\u00e4\u00e4 striimej\u00e4/galleriaa/poista.",
+		"gallery/caption/remove": "Piilota b-rollin kuvateksti. L\u00e4hett\u00e4\u00e4 striimej\u00e4/galleriaa/kuvateksti\u00e4 {remove: true}.",
+		"highlight": "Korosta kaavioelementti. L\u00e4hett\u00e4\u00e4 striimej\u00e4/korosta {elementId}. Kaappaa {target}.",
+		"zoom/in": "Zoomaa 1,5x. L\u00e4hett\u00e4\u00e4 striimej\u00e4/zoomaa {skaala: nykyinen * 1,5}.",
+		"zoom/out": "Zoomaa 1,5x ulos. L\u00e4hett\u00e4\u00e4 striimej\u00e4/zoomaa {skaala: nykyinen/1,5}.",
+		"zoom/reset": "Palauta zoomaus arvoon 1. L\u00e4hett\u00e4\u00e4 striimej\u00e4/zoomausta {skaala: 1}.",
+		"scroll/down": "Vierit\u00e4 alas 20 %. L\u00e4hett\u00e4\u00e4 Q/scroll {top: &#39;+20 %&#39;}.",
+		"scroll/up": "Vierit\u00e4 yl\u00f6s 20%. L\u00e4hett\u00e4\u00e4 Q/scroll-komennon {ylh\u00e4\u00e4ll\u00e4: &#39;-20%&#39;}.",
+		"scroll/top": "Vierit\u00e4 yl\u00f6s. L\u00e4hett\u00e4\u00e4 Q/scroll-komennon {ylh\u00e4\u00e4ll\u00e4: &#39;0%&#39;}.",
+		"scroll/bottom": "Vierit\u00e4 alas. L\u00e4hett\u00e4\u00e4 Q/scroll-komennon {ylh\u00e4\u00e4ll\u00e4: &#39;100%&#39;}.",
+		"fullscreen": "Vaihda koko n\u00e4yt\u00f6n tilaan.",
+		"image/generate": "LLM:n luoma kuva. Kaappaa {kehotteen}.",
+		"tool/generate": "LLM:n luoma widget. Kaappaa {kehotteen}.",
+		"stream/create": "Luo uusi l\u00e4hetys (shakki, \u00e4\u00e4nestys jne.). Kaappaa {kehotteen}.",
+		"stream/grantAccess": "My\u00f6nn\u00e4 kirjoitusoikeudet. Tallentaa {name, writeLevel}.",
+		"stream/revokeAccess": "Peruuta k\u00e4ytt\u00f6oikeus. Kaappaa k\u00e4ytt\u00e4j\u00e4n {name}."
+	},
+	"slide/next": [
+		"seuraava dia",
+		"seuraava kortti",
+		"mene eteenp\u00e4in",
+		"jatka eteenp\u00e4in",
+		"ennakko",
+		"seuraavaksi kiitos",
+		"seuraava",
+		"n\u00e4yt\u00e4 seuraavaksi",
+		"/^seuraava$/"
+	],
+	"slide/prev": [
+		"edellinen dia",
+		"edellinen kortti",
+		"mene takaisin",
+		"takaosa",
+		"edellinen dia",
+		"astu taaksep\u00e4in",
+		"/^takaisin$/"
+	],
+	"slide/first": [
+		"ensimm\u00e4inen dia",
+		"mene alkuun",
+		"aloittaa alusta",
+		"ylh\u00e4\u00e4lt\u00e4",
+		"alku kiitos"
+	],
+	"slide/last": [
+		"viimeinen dia",
+		"mene loppuun asti",
+		"viimeinen dia",
+		"hypp\u00e4\u00e4 loppuun"
+	],
+	"slide/navigate": [
+		"siirry kohtaan {kysely}",
+		"n\u00e4yt\u00e4 minulle {kysely}",
+		"etsi {kysely}",
+		"hypp\u00e4\u00e4 kyselyyn {kysely}",
+		"siirry kohtaan {kysely}",
+		"vie minut kyselyyn {kysely}",
+		"avaa {kysely}",
+		"n\u00e4yt\u00e4 {query}-dia",
+		"etsi {query}-dia",
+		"siirry {query}-diaan"
+	],
+	"reveal/next": [
+		"paljastaa",
+		"n\u00e4yt\u00e4 lis\u00e4\u00e4",
+		"seuraava piste",
+		"jatkaa",
+		"seuraava luettelomerkki"
+	],
+	"video/play": [
+		"pelata",
+		"toista video",
+		"toista video",
+		"aloita video",
+		"ansioluettelovideo",
+		"jatkaa taukoa",
+		"/^leiki$/"
+	],
+	"video/pause": [
+		"tauko",
+		"keskeyt\u00e4 video",
+		"pys\u00e4yt\u00e4 video",
+		"odota",
+		"/^tauko$/"
+	],
+	"video/seek": [
+		"mene",
+		"pyrki\u00e4",
+		"hypp\u00e4\u00e4 kohtaan",
+		"siirry kohtaan",
+		"nopeasti eteenp\u00e4in",
+		"kelaa taaksep\u00e4in"
+	],
+	"video/seek/relative": [
+		"palaa {aika}",
+		"takaisin {aika}",
+		"kelaa {aikaa} taaksep\u00e4in",
+		"hypp\u00e4\u00e4 taaksep\u00e4in {aika}",
+		"mene eteenp\u00e4in {aika}",
+		"hypp\u00e4\u00e4 eteenp\u00e4in {aika}",
+		"hypp\u00e4\u00e4 eteenp\u00e4in {aika}",
+		"pikakelaus eteenp\u00e4in {aika}",
+		"eteenp\u00e4in {aika}"
+	],
+	"gallery/next": [
+		"seuraava kuva",
+		"seuraava kuva",
+		"seuraava kuva",
+		"ohita kuva",
+		"vaihda tausta"
+	],
+	"gallery/pause": [
+		"tauko tausta",
+		"pys\u00e4yt\u00e4 tausta",
+		"j\u00e4\u00e4dytt\u00e4\u00e4 taustan",
+		"pid\u00e4 taustaa",
+		"keskeyt\u00e4 kuvat"
+	],
+	"gallery/resume": [
+		"ansioluettelon tausta",
+		"jatka taustaa",
+		"k\u00e4ynnist\u00e4 tausta uudelleen",
+		"taustan keskeytyksen jatkaminen"
+	],
+	"gallery/remove": [
+		"poista t\u00e4m\u00e4 kuva",
+		"ohita t\u00e4m\u00e4 kuva",
+		"piilota t\u00e4m\u00e4 kuva",
+		"poista nykyinen kuva",
+		"poista t\u00e4m\u00e4 kuva"
+	],
+	"gallery/caption/remove": [
+		"poista kuvateksti",
+		"piilota kuvateksti",
+		"selke\u00e4 kuvateksti",
+		"poista kuvateksti",
+		"piilota kuvateksti"
+	],
+	"highlight": [
+		"kohokohta",
+		"osoita",
+		"n\u00e4yt\u00e4 minulle",
+		"korostaa",
+		"keskitty\u00e4",
+		"merkki",
+		"huutaa"
+	],
+	"zoom/in": [
+		"zoomaa sis\u00e4\u00e4n",
+		"zoomaus",
+		"suurempi",
+		"suurentaa",
+		"suurentaa",
+		"tee siit\u00e4 suurempi",
+		"l\u00e4hemp\u00e4n\u00e4"
+	],
+	"zoom/out": [
+		"zoomaa ulos",
+		"pienempi",
+		"kutistua",
+		"ved\u00e4 takaisin",
+		"tee siit\u00e4 pienempi",
+		"astu taaksep\u00e4in",
+		"laajempi n\u00e4kym\u00e4"
+	],
+	"zoom/reset": [
+		"nollaa zoomaus",
+		"zoomin nollaus",
+		"normaali koko",
+		"sovita n\u00e4ytt\u00f6\u00f6n",
+		"zoomaa sopivaksi"
+	],
+	"scroll/down": [
+		"vierit\u00e4 alas",
+		"jatka",
+		"lis\u00e4\u00e4",
+		"jatka alas",
+		"sivu alas",
+		"alla"
+	],
+	"scroll/up": [
+		"vierit\u00e4 yl\u00f6s",
+		"mene yl\u00f6s",
+		"takaisin",
+		"yl\u00f6sp\u00e4in",
+		"sivu yl\u00f6s",
+		"edell\u00e4"
+	],
+	"scroll/top": [
+		"vierit\u00e4 yl\u00f6s",
+		"mene alkuun",
+		"takaisin alkuun",
+		"sivun alku",
+		"sivun yl\u00e4reunassa"
+	],
+	"scroll/bottom": [
+		"vierit\u00e4 alas",
+		"mene loppuun",
+		"sivun loppu",
+		"sivun alareunassa"
+	],
+	"fullscreen": [
+		"koko n\u00e4ytt\u00f6",
+		"koko n\u00e4ytt\u00f6",
+		"maksimoida",
+		"t\u00e4yt\u00e4 n\u00e4ytt\u00f6",
+		"tee siit\u00e4 t\u00e4ysi"
+	],
+	"image/generate": [
+		"luo kuva {kehotteesta}",
+		"luo kuva {kehotteesta}",
+		"n\u00e4yt\u00e4 minulle {kehote}",
+		"visualisoi {kehote}",
+		"piirr\u00e4 {kehote}",
+		"ota kuva {kehotteesta}"
+	],
+	"tool/generate": [
+		"rakenna {kehote}",
+		"luo {kehote}",
+		"rakenna minulle {kehote}",
+		"luo {kehotteen}-widget",
+		"tee {kehote}-ty\u00f6kalu",
+		"luo {kehote}-ty\u00f6kalu"
+	],
+	"stream/create": [
+		"luo {kehotteen} striimi",
+		"tee {kehote}-striimi",
+		"aloita {kehote}",
+		"luo {kehotteen} peli",
+		"leikit\u00e4\u00e4n {kehote}",
+		"aseta {kehote}"
+	],
+	"stream/grantAccess": [
+		"anna {name} k\u00e4ytt\u00f6oikeus viestiin",
+		"anna {name} julkaista",
+		"anna {name} kirjoitusoikeudet",
+		"salli {name}:n julkaista",
+		"lis\u00e4\u00e4 {name} vieraaksi",
+		"kutsu {name} julkaisemaan"
+	],
+	"stream/revokeAccess": [
+		"poista k\u00e4ytt\u00e4j\u00e4n {name} k\u00e4ytt\u00f6oikeudet",
+		"peruuta k\u00e4ytt\u00e4j\u00e4n {name} k\u00e4ytt\u00f6oikeus",
+		"ottaa pois {name}:n p\u00e4\u00e4syoikeudet",
+		"poista {name} striimist\u00e4",
+		"est\u00e4\u00e4 {name} julkaisemasta"
+	]
+}

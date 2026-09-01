@@ -1,0 +1,125 @@
+/* ═══════════════════════════════════════════════════
+   Streams/markdown tool
+   ═══════════════════════════════════════════════════ */
+
+/* ── View mode ── */
+.Streams_markdown_view {
+    font-size: 15px;
+    line-height: 1.65;
+}
+.Streams_markdown_view h1 { font-size: 24px; font-weight: 700; margin: 0 0 12px; }
+.Streams_markdown_view h2 { font-size: 20px; font-weight: 600; margin: 16px 0 8px; }
+.Streams_markdown_view h3 { font-size: 17px; font-weight: 600; margin: 16px 0 6px; }
+.Streams_markdown_view p { margin: 0 0 10px; }
+.Streams_markdown_view p:last-child { margin-bottom: 0; }
+.Streams_markdown_view a { color: var(--theme-brand, #4a90e2); text-decoration: none; }
+.Streams_markdown_view a:hover { text-decoration: underline; }
+.Streams_markdown_view img { max-width: 100%; height: auto; border-radius: 6px; }
+.Streams_markdown_view ul, .Streams_markdown_view ol {
+    padding-left: 24px; margin: 0 0 10px;
+}
+.Streams_markdown_view blockquote {
+    margin: 0 0 10px;
+    padding: 8px 16px;
+    border-left: 3px solid rgba(128,128,128,0.3);
+    opacity: 0.8;
+}
+.Streams_markdown_view code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+    padding: 2px 6px;
+    background: rgba(128,128,128,0.1);
+    border-radius: 4px;
+}
+.Streams_markdown_view pre {
+    margin: 0 0 10px;
+    padding: 12px 16px;
+    background: rgba(128,128,128,0.08);
+    border-radius: 8px;
+    overflow-x: auto;
+}
+.Streams_markdown_view pre code {
+    padding: 0;
+    background: none;
+}
+
+/* ── Editor ── */
+.Streams_markdown_editor {
+    border: 1px solid rgba(128,128,128,0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ── Toolbar ── */
+.Streams_markdown_toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 6px 8px;
+    background: rgba(128,128,128,0.06);
+    border-bottom: 1px solid rgba(128,128,128,0.15);
+}
+.Streams_markdown_btn {
+    padding: 4px 8px;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.6;
+    transition: background 0.1s, opacity 0.1s;
+    min-width: 28px;
+    text-align: center;
+}
+.Streams_markdown_btn:hover {
+    background: rgba(128,128,128,0.12);
+    opacity: 1;
+}
+
+/* ── Panes ── */
+.Streams_markdown_panes {
+    display: flex;
+}
+.Streams_markdown_split {
+    /* side-by-side on desktop */
+}
+.Streams_markdown_split .Streams_markdown_textarea {
+    flex: 1;
+    border-right: 1px solid rgba(128,128,128,0.15);
+}
+.Streams_markdown_split .Streams_markdown_preview {
+    flex: 1;
+    padding: 12px 16px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.Streams_markdown_textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    resize: vertical;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    background: transparent;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+/* Mobile: stack panes vertically */
+@media (max-width: 640px) {
+    .Streams_markdown_split {
+        flex-direction: column;
+    }
+    .Streams_markdown_split .Streams_markdown_textarea {
+        border-right: none;
+        border-bottom: 1px solid rgba(128,128,128,0.15);
+    }
+    .Streams_markdown_split .Streams_markdown_preview {
+        max-height: 200px;
+    }
+}

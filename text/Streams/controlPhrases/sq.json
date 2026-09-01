@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Kaloni te diapozitivi tjet\u00ebr. Emeton rrjedha/diapozitiv {slideIndex: current+1}.",
+		"slide/prev": "Kthehu te diapozitivi i m\u00ebparsh\u00ebm. Emeton rrjedha/diapozitiv {slideIndex: current-1}.",
+		"slide/first": "Kaloni te diapozitivi i par\u00eb. Emeton rrjedha/diapozitiv {slideIndex: 0}.",
+		"slide/last": "Kaloni te diapozitivi i fundit. Emeton rrjedha/diapozitiv {slideIndex: 9999}.",
+		"slide/navigate": "Kaloni n\u00eb nj\u00eb diapozitiv sipas pyetjes s\u00eb p\u00ebrmbajtjes. Kap {query}.",
+		"reveal/next": "Zbulo elementin tjet\u00ebr progresiv. Emeton rrjedha/zbulo {revealIndex: current+1}.",
+		"video/play": "Luaj videon. Emeton transmetime/luaj {}.",
+		"video/pause": "Nd\u00ebrprit videon. Emeton transmetime/nd\u00ebrprit {}.",
+		"video/seek": "K\u00ebrko n\u00eb koh\u00ebn absolute. Emeton rrjedha/k\u00ebrko {pozicioni: sekonda}. Kap {koh\u00ebn}.",
+		"video/seek/relative": "K\u00ebrko me zhvendosje. Emeton rrjedha/k\u00ebrko {pozicioni: &#39;+/-sekonda&#39;}. Kap {koh\u00ebn}.",
+		"gallery/next": "Imazhi tjet\u00ebr i rrotull\u00ebs b. Emeton rrjedha/galeria/tjet\u00ebr.",
+		"gallery/pause": "Ngrir albumin b. Emeton transmetime/galeri/pauz\u00eb.",
+		"gallery/resume": "Reklamim b-roll. Emeton rrjedha/galeri/rezyme.",
+		"gallery/remove": "Fshih imazhin aktual t\u00eb albumit b. Emeton transmetime/galeri/hiq.",
+		"gallery/caption/remove": "Fshih mbishkrimin e filmit b. Emeton Streams/gallery/caption {remove: true}.",
+		"highlight": "Thekso elementin e grafikut. Emeton rrjedha/thekso {elementId}. Kap {target}.",
+		"zoom/in": "Zmadho 1.5x. Emeton rrjedha/zmadhim {shkalla: aktuale*1.5}.",
+		"zoom/out": "Zvog\u00eblo 1.5x. Emeton rrjedha/zmadhim {shkalla: aktuale/1.5}.",
+		"zoom/reset": "Rivendos zmadhimin n\u00eb 1. Emets Streams/zoom {shkalla: 1}.",
+		"scroll/down": "L\u00ebviz posht\u00eb 20%. Emeton Q/l\u00ebviz {lart: &#39;+20%&#39;}.",
+		"scroll/up": "L\u00ebviz lart 20%. Emeton Q/l\u00ebviz {lart: &#39;-20%&#39;}.",
+		"scroll/top": "L\u00ebviz lart. Emeton Q/l\u00ebviz {lart: &#39;0%&#39;}.",
+		"scroll/bottom": "L\u00ebviz posht\u00eb. L\u00ebshon Q/l\u00ebviz {lart: &#39;100%&#39;}.",
+		"fullscreen": "Aktivizo/\u00e7aktivizo ekranin e plot\u00eb.",
+		"image/generate": "Imazh i gjeneruar nga LLM. Kap {prompt}.",
+		"tool/generate": "Widget i gjeneruar nga LLM. Kap {prompt}.",
+		"stream/create": "Krijo transmetim t\u00eb ri (shah, sondazh, etj.). Kap {prompt}.",
+		"stream/grantAccess": "Jep t\u00eb drejt\u00ebn e shkrimit. Regjistron {name, writeLevel}.",
+		"stream/revokeAccess": "Anulo aksesin. Kap {name}."
+	},
+	"slide/next": [
+		"diapozitivi tjet\u00ebr",
+		"karta tjet\u00ebr",
+		"shko p\u00ebrpara",
+		"vazhdo p\u00ebrpara",
+		"avancoj",
+		"tjet\u00ebr t\u00eb lutem",
+		"tjetri",
+		"shfaq m\u00eb pas",
+		"/^tjet\u00ebr$/"
+	],
+	"slide/prev": [
+		"diapozitivi i m\u00ebparsh\u00ebm",
+		"kart\u00eb e m\u00ebparshme",
+		"kthehu prapa",
+		"nj\u00eb i pasm\u00eb",
+		"rr\u00ebshqitje paraprake",
+		"hap prapa",
+		"/^mbrapa$/"
+	],
+	"slide/first": [
+		"rr\u00ebshqitja e par\u00eb",
+		"shko n\u00eb fillim",
+		"fillo nga e para",
+		"nga lart",
+		"fillimi ju lutem"
+	],
+	"slide/last": [
+		"diapozitiva e fundit",
+		"shko deri n\u00eb fund",
+		"rr\u00ebshqitja e fundit",
+		"k\u00ebrce n\u00eb fund"
+	],
+	"slide/navigate": [
+		"shko te {pyetje}",
+		"m\u00eb trego {pyetje}",
+		"gjej {pyetje}",
+		"kalo te {pyetje}",
+		"lundro te {query}",
+		"m\u00eb \u00e7o te {query}",
+		"hap {pyetjen}",
+		"shfaq diapozitivin {query}",
+		"gjej diapozitivin {query}",
+		"shko te diapozitivi {query}"
+	],
+	"reveal/next": [
+		"zbuloj",
+		"trego m\u00eb shum\u00eb",
+		"pika tjet\u00ebr",
+		"vazhdoj",
+		"plumbi tjet\u00ebr"
+	],
+	"video/play": [
+		"luaj",
+		"luaj video",
+		"luaj videon",
+		"fillo videon",
+		"rifillo videon",
+		"rifillo pauz\u00ebn",
+		"/^luaj$/"
+	],
+	"video/pause": [
+		"pauz\u00eb",
+		"ndalo videon",
+		"ndalo videon",
+		"prit pak",
+		"/^pauz\u00eb$/"
+	],
+	"video/seek": [
+		"shko te",
+		"k\u00ebrkoj t\u00eb",
+		"hidhem te",
+		"kalo te",
+		"shpejt p\u00ebrpara p\u00ebr t\u00eb",
+		"kthehu prapa te"
+	],
+	"video/seek/relative": [
+		"kthehu prapa {koh\u00eb}",
+		"prapa {koh\u00eb}",
+		"kthehu prapa {koh\u00eb}",
+		"kalo prapa {koh\u00eb}",
+		"shko p\u00ebrpara {koh\u00eb}",
+		"kalo p\u00ebrpara {koh\u00eb}",
+		"kalo p\u00ebrpara {koh\u00eb}",
+		"shpejt p\u00ebrpara {koh\u00eb}",
+		"p\u00ebrpara {koh\u00eb}"
+	],
+	"gallery/next": [
+		"imazhi tjet\u00ebr",
+		"fotoja tjet\u00ebr",
+		"fotografia tjet\u00ebr",
+		"anashkaloni imazhin",
+		"ndrysho sfondin"
+	],
+	"gallery/pause": [
+		"sfond pauz\u00eb",
+		"ndalo sfondin",
+		"ngrirje e sfondit",
+		"mbaj sfondin",
+		"ndalo imazhet"
+	],
+	"gallery/resume": [
+		"sfondi i rezymeve",
+		"vazhdo sfondin",
+		"rifillo sfondin",
+		"rifillo pauz\u00ebn e sfondit"
+	],
+	"gallery/remove": [
+		"hiqe k\u00ebt\u00eb imazh",
+		"anashkaloni k\u00ebt\u00eb imazh",
+		"fshih k\u00ebt\u00eb foto",
+		"hiq imazhin aktual",
+		"hiqe k\u00ebt\u00eb foto"
+	],
+	"gallery/caption/remove": [
+		"hiq mbishkrimin",
+		"fshih mbishkrimin",
+		"mbishkrim i qart\u00eb",
+		"hiq mbishkrimin",
+		"fshih mbishkrimin"
+	],
+	"highlight": [
+		"theksoj",
+		"tregoj",
+		"m\u00eb trego",
+		"theksoj",
+		"p\u00ebrqendrohu n\u00eb",
+		"shenj\u00eb",
+		"thirr"
+	],
+	"zoom/in": [
+		"zmadho",
+		"zmadhim",
+		"m\u00eb i madh",
+		"zmadho",
+		"zmadho",
+		"b\u00ebje m\u00eb t\u00eb madh",
+		"m\u00eb af\u00ebr"
+	],
+	"zoom/out": [
+		"zmadho",
+		"m\u00eb i vog\u00ebl",
+		"tkurrem",
+		"t\u00ebrhiqu prapa",
+		"b\u00ebje m\u00eb t\u00eb vog\u00ebl",
+		"hap prapa",
+		"pamje m\u00eb e gjer\u00eb"
+	],
+	"zoom/reset": [
+		"rivendos zmadhimin",
+		"rivendosja e zmadhimit",
+		"madh\u00ebsi normale",
+		"p\u00ebrshtatet me ekranin",
+		"zmadho p\u00ebr t\u00eb p\u00ebrshtatur"
+	],
+	"scroll/down": [
+		"l\u00ebviz posht\u00eb",
+		"vazhdo",
+		"m\u00eb shum\u00eb",
+		"vazhdo posht\u00eb",
+		"faqe posht\u00eb",
+		"posht\u00eb"
+	],
+	"scroll/up": [
+		"l\u00ebviz lart",
+		"ngjitu lart",
+		"rezerv\u00eb",
+		"lart",
+		"faqe lart",
+		"sip\u00ebr"
+	],
+	"scroll/top": [
+		"l\u00ebviz n\u00eb krye",
+		"shko n\u00eb krye",
+		"kthehu n\u00eb krye",
+		"fillimi i faqes",
+		"n\u00eb krye t\u00eb faqes"
+	],
+	"scroll/bottom": [
+		"l\u00ebviz deri n\u00eb fund",
+		"shko n\u00eb fund",
+		"fundi i faqes",
+		"fundi i faqes"
+	],
+	"fullscreen": [
+		"ekran i plot\u00eb",
+		"ekran i plot\u00eb",
+		"maksimizoj",
+		"mbush ekranin",
+		"b\u00ebje t\u00eb plot\u00eb"
+	],
+	"image/generate": [
+		"gjenero nj\u00eb imazh t\u00eb {prompt}",
+		"krijo nj\u00eb imazh t\u00eb {prompt}",
+		"m\u00eb trego {k\u00ebrkes\u00eb}",
+		"vizualizo {prompt}",
+		"vizato {nxis}",
+		"b\u00ebj nj\u00eb fotografi t\u00eb {prompt}"
+	],
+	"tool/generate": [
+		"nd\u00ebrto nj\u00eb {prompt}",
+		"krijo nj\u00eb {prompt}",
+		"m\u00eb nd\u00ebrto nj\u00eb {prompt}",
+		"gjenero nj\u00eb widget {prompt}",
+		"b\u00ebj nj\u00eb mjet {prompt}",
+		"krijoni nj\u00eb mjet {prompt}"
+	],
+	"stream/create": [
+		"krijo nj\u00eb transmetim {prompt}",
+		"b\u00ebj nj\u00eb transmetim {prompt}",
+		"nis nj\u00eb {prompt}",
+		"krijo nj\u00eb loj\u00eb {prompt}",
+		"le t\u00eb luajm\u00eb {prompt}",
+		"konfiguro nj\u00eb {prompt}"
+	],
+	"stream/grantAccess": [
+		"jep {name} qasje n\u00eb postim",
+		"le t\u00eb postoj\u00eb {name}",
+		"jep {name} t\u00eb drejt\u00ebn e shkrimit",
+		"lejo {name} t\u00eb postoj\u00eb",
+		"shto {name} si mysafir",
+		"ftojeni {name} t\u00eb postoj\u00eb"
+	],
+	"stream/revokeAccess": [
+		"hiq qasjen e {name}",
+		"anulo qasjen e {name}",
+		"hiq qasjen e {name}",
+		"hiq {name} nga transmetimi",
+		"blloko {name} nga postimi"
+	]
+}

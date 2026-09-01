@@ -1,0 +1,41 @@
+{
+	"_comment": "Teks arahan Strim. &#39;arahan&#39; = label paparan (UI); &#39;frasa&#39; = frasa yang dikenali, dikunci oleh arahan. Bentuk frasa: &quot;subrentetan&quot;, &quot;/regex/&quot;, atau ditemplatkan &quot;berikan akses {{name}} &quot; \u2014 setiap {{token}} dikompilasi untuk tangkapan. Strim kini memiliki arahan kawalan akses dan gaya semula (pengendali Strim/arahan/streamArahan dan Strim/arahan/cssKemas Kini); Navigasi penghantaran media; Penjanaan penghantaran AI.",
+	"commands": {
+		"tool/cssUpdate": "Alat penggayaan semula",
+		"stream/create": "Cipta strim",
+		"stream/grantAccess": "Berikan akses",
+		"stream/revokeAccess": "Batalkan akses"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"tukar warna kepada {{prompt}}",
+			"tukar warna kepada {{prompt}}",
+			"warnakan semula {{prompt}}",
+			"gayakan semula alat {{prompt}}",
+			"buat warna {{prompt}}"
+		],
+		"stream/create": [
+			"cipta strim {{prompt}}",
+			"buat strim {{prompt}}",
+			"mulakan {{prompt}}",
+			"cipta permainan {{prompt}}",
+			"jom main {{prompt}}",
+			"menubuhkan {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"berikan {{name}} akses kepada pos",
+			"biarkan {{name}} pos",
+			"berikan akses tulis {{name}}",
+			"benarkan {{name}} untuk menyiarkan",
+			"tambah {{name}} sebagai tetamu",
+			"jemput {{name}} untuk menyiarkan"
+		],
+		"stream/revokeAccess": [
+			"alih keluar akses {{name}}",
+			"batalkan akses {{name}}",
+			"tarik balik akses {{name}}",
+			"keluarkan {{name}} daripada strim",
+			"sekat {{name}} daripada menyiarkan"
+		]
+	}
+}

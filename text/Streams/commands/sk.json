@@ -1,0 +1,41 @@
+{
+	"_comment": "Text pr\u00edkazu Streams. \u201ecommands\u201c = zobrazen\u00e9 popisky (UI); \u201ephrases\u201c = rozpoznan\u00e9 fr\u00e1zy, k\u013e\u00fa\u010dovan\u00e9 pr\u00edkazom. Tvary fr\u00e1z: \u201esubstring\u201c, \u201e/regex/\u201c alebo \u0161abl\u00f3na \u201egive {{name}} access\u201c \u2013 ka\u017ed\u00fdch {{token}} sa skompiluje do zachyt\u00e1vania. Streams teraz vlastn\u00ed pr\u00edkazy na riadenie pr\u00edstupu a zmenu \u0161t\u00fdlu (obslu\u017en\u00e9 rutiny Streams/commands/streamCommand a Streams/commands/cssUpdate); navig\u00e1ciu v m\u00e9di\u00e1ch; generovanie pomocou umelej inteligencie.",
+	"commands": {
+		"tool/cssUpdate": "N\u00e1stroj na zmenu \u0161t\u00fdlu",
+		"stream/create": "Vytvori\u0165 stream",
+		"stream/grantAccess": "Udeli\u0165 pr\u00edstup",
+		"stream/revokeAccess": "Zru\u0161i\u0165 pr\u00edstup"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"zme\u0148te farbu na {{prompt}}",
+			"zme\u0148te farby na {{prompt}}",
+			"prefarbi to {{prompt}}",
+			"prepracova\u0165 n\u00e1stroj {{prompt}}",
+			"vytvorte farby {{prompt}}"
+		],
+		"stream/create": [
+			"vytvori\u0165 stream {{prompt}}",
+			"vytvor stream {{prompt}}",
+			"za\u010dnite s {{prompt}}",
+			"vytvori\u0165 hru {{prompt}}",
+			"po\u010fme hra\u0165 {{prompt}}",
+			"nastavi\u0165 {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"udeli\u0165 {{name}} pr\u00edstup k pr\u00edspevkom",
+			"nech {{name}} pr\u00edspevok",
+			"udeli\u0165 pr\u00edstup k z\u00e1pisu pre {{name}}",
+			"povoli\u0165 {{name}} uverejni\u0165 pr\u00edspevok",
+			"prida\u0165 {{name}} ako hos\u0165a",
+			"pozva\u0165 {{name}} na uverejnenie pr\u00edspevku"
+		],
+		"stream/revokeAccess": [
+			"odstr\u00e1ni\u0165 pr\u00edstup pou\u017e\u00edvate\u013ea {{name}}",
+			"zru\u0161i\u0165 pr\u00edstup pou\u017e\u00edvate\u013ea {{name}}",
+			"odobra\u0165 pr\u00edstup osobe {{name}}",
+			"odstr\u00e1ni\u0165 {{name}} zo streamu",
+			"zablokova\u0165 {{name}} z odosielania"
+		]
+	}
+}

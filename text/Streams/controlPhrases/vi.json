@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Chuy\u1ec3n sang slide ti\u1ebfp theo. Ph\u00e1t ra c\u00e1c lu\u1ed3ng/slide {slideIndex: current+1}.",
+		"slide/prev": "Quay l\u1ea1i trang chi\u1ebfu tr\u01b0\u1edbc. Ph\u00e1t ra c\u00e1c lu\u1ed3ng/trang chi\u1ebfu {slideIndex: current-1}.",
+		"slide/first": "Chuy\u1ec3n \u0111\u1ebfn trang chi\u1ebfu \u0111\u1ea7u ti\u00ean. Ph\u00e1t ra c\u00e1c lu\u1ed3ng/trang chi\u1ebfu {slideIndex: 0}.",
+		"slide/last": "Chuy\u1ec3n \u0111\u1ebfn slide cu\u1ed1i c\u00f9ng. Ph\u00e1t ra c\u00e1c lu\u1ed3ng/slide {slideIndex: 9999}.",
+		"slide/navigate": "Chuy\u1ec3n \u0111\u1ebfn trang tr\u00ecnh b\u00e0y theo truy v\u1ea5n n\u1ed9i dung. B\u1eaft gi\u1eef {truy v\u1ea5n}.",
+		"reveal/next": "Hi\u1ec3n th\u1ecb ph\u1ea7n t\u1eed ti\u1ebfn tr\u00ecnh ti\u1ebfp theo. Ph\u00e1t ra c\u00e1c lu\u1ed3ng/hi\u1ec3n th\u1ecb {revealIndex: current+1}.",
+		"video/play": "Ph\u00e1t video. Ph\u00e1t c\u00e1c lu\u1ed3ng/ph\u00e1t {}.",
+		"video/pause": "T\u1ea1m d\u1eebng video. Ph\u00e1t ra c\u00e1c lu\u1ed3ng/t\u1ea1m d\u1eebng {}.",
+		"video/seek": "T\u00ecm \u0111\u1ebfn th\u1eddi gian tuy\u1ec7t \u0111\u1ed1i. Ph\u00e1t ra lu\u1ed3ng/t\u00ecm ki\u1ebfm {pos: gi\u00e2y}. Thu th\u1eadp {th\u1eddi gian}.",
+		"video/seek/relative": "T\u00ecm ki\u1ebfm theo \u0111\u1ed9 l\u1ec7ch. Ph\u00e1t ra lu\u1ed3ng/t\u00ecm ki\u1ebfm {pos: &#39;+/-gi\u00e2y&#39;}. Ghi l\u1ea1i {th\u1eddi gian}.",
+		"gallery/next": "\u1ea2nh b-roll ti\u1ebfp theo. Ph\u00e1t ra Streams/gallery/next.",
+		"gallery/pause": "D\u1eebng c\u1ea3nh quay ph\u1ee5. Ph\u00e1t lu\u1ed3ng/th\u01b0 vi\u1ec7n/t\u1ea1m d\u1eebng.",
+		"gallery/resume": "Ti\u1ebfp t\u1ee5c ph\u00e1t c\u1ea3nh quay ph\u1ee5. Ph\u00e1t lu\u1ed3ng/th\u01b0 vi\u1ec7n/ti\u1ebfp t\u1ee5c.",
+		"gallery/remove": "\u1ea8n h\u00ecnh \u1ea3nh b-roll hi\u1ec7n t\u1ea1i. Ph\u00e1t ra lu\u1ed3ng/th\u01b0 vi\u1ec7n/x\u00f3a.",
+		"gallery/caption/remove": "\u1ea8n ch\u00fa th\u00edch b-roll. Ph\u00e1t ra Streams/gallery/caption {remove: true}.",
+		"highlight": "L\u00e0m n\u1ed5i b\u1eadt ph\u1ea7n t\u1eed bi\u1ec3u \u0111\u1ed3. Ph\u00e1t ra lu\u1ed3ng/l\u00e0m n\u1ed5i b\u1eadt {elementId}. Thu th\u1eadp {target}.",
+		"zoom/in": "Ph\u00f3ng to 1,5 l\u1ea7n. Ph\u00e1t ra c\u00e1c lu\u1ed3ng/ph\u00f3ng to {t\u1ef7 l\u1ec7: hi\u1ec7n t\u1ea1i*1,5}.",
+		"zoom/out": "Thu nh\u1ecf 1,5 l\u1ea7n. Ph\u00e1t ra c\u00e1c lu\u1ed3ng/thu ph\u00f3ng {t\u1ef7 l\u1ec7: hi\u1ec7n t\u1ea1i/1,5}.",
+		"zoom/reset": "\u0110\u1eb7t l\u1ea1i \u0111\u1ed9 ph\u00f3ng \u0111\u1ea1i v\u1ec1 1. Ph\u00e1t ra lu\u1ed3ng/\u0111\u1ed9 ph\u00f3ng \u0111\u1ea1i {scale: 1}.",
+		"scroll/down": "Cu\u1ed9n xu\u1ed1ng 20%. Ph\u00e1t ra Q/cu\u1ed9n {tr\u00ean c\u00f9ng: &#39;+20%&#39;}.",
+		"scroll/up": "Cu\u1ed9n l\u00ean 20%. Ph\u00e1t ra Q/cu\u1ed9n {top: &#39;-20%&#39;}.",
+		"scroll/top": "Cu\u1ed9n l\u00ean \u0111\u1ea7u trang. Ph\u00e1t ra Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Cu\u1ed9n xu\u1ed1ng cu\u1ed1i trang. Ph\u00e1t ra Q/scroll {top: &#39;100%&#39;}.",
+		"fullscreen": "B\u1eadt/t\u1eaft ch\u1ebf \u0111\u1ed9 to\u00e0n m\u00e0n h\u00ecnh.",
+		"image/generate": "H\u00ecnh \u1ea3nh do LLM t\u1ea1o ra. Ghi l\u1ea1i {prompt}.",
+		"tool/generate": "Ti\u1ec7n \u00edch do LLM t\u1ea1o ra. Ghi l\u1ea1i {l\u1eddi nh\u1eafc}.",
+		"stream/create": "T\u1ea1o lu\u1ed3ng m\u1edbi (c\u1edd vua, th\u0103m d\u00f2 \u00fd ki\u1ebfn, v.v.). B\u1eaft gi\u1eef {l\u1eddi nh\u1eafc}.",
+		"stream/grantAccess": "C\u1ea5p quy\u1ec1n ghi. Thu th\u1eadp {name, writeLevel}.",
+		"stream/revokeAccess": "Thu h\u1ed3i quy\u1ec1n truy c\u1eadp. B\u1eaft gi\u1eef {name}."
+	},
+	"slide/next": [
+		"slide ti\u1ebfp theo",
+		"th\u1ebb ti\u1ebfp theo",
+		"ti\u1ebfn v\u1ec1 ph\u00eda tr\u01b0\u1edbc",
+		"ti\u1ebfp t\u1ee5c",
+		"n\u00e2ng cao",
+		"ti\u1ebfp theo",
+		"ti\u1ebfp theo",
+		"hi\u1ec3n th\u1ecb ti\u1ebfp theo",
+		"/^next$/"
+	],
+	"slide/prev": [
+		"trang tr\u01b0\u1edbc",
+		"th\u1ebb tr\u01b0\u1edbc",
+		"quay l\u1ea1i",
+		"tr\u1edf l\u1ea1i m\u1ed9t",
+		"slide tr\u01b0\u1edbc",
+		"l\u00f9i l\u1ea1i",
+		"/^back$/"
+	],
+	"slide/first": [
+		"slide \u0111\u1ea7u ti\u00ean",
+		"quay l\u1ea1i \u0111\u1ea7u trang",
+		"b\u1eaft \u0111\u1ea7u l\u1ea1i",
+		"t\u1eeb tr\u00ean xu\u1ed1ng",
+		"b\u1eaft \u0111\u1ea7u nh\u00e9"
+	],
+	"slide/last": [
+		"slide cu\u1ed1i c\u00f9ng",
+		"\u0111i \u0111\u1ebfn cu\u1ed1i",
+		"slide cu\u1ed1i c\u00f9ng",
+		"nh\u1ea3y \u0111\u1ebfn cu\u1ed1i"
+	],
+	"slide/navigate": [
+		"truy v\u1ea5n {query}",
+		"Hi\u1ec3n th\u1ecb cho t\u00f4i {truy v\u1ea5n}",
+		"t\u00ecm {truy v\u1ea5n}",
+		"chuy\u1ec3n \u0111\u1ebfn {truy v\u1ea5n}",
+		"\u0111i\u1ec1u h\u01b0\u1edbng \u0111\u1ebfn {truy v\u1ea5n}",
+		"\u0110\u01b0a t\u00f4i \u0111\u1ebfn {truy v\u1ea5n}",
+		"m\u1edf {truy v\u1ea5n}",
+		"hi\u1ec3n th\u1ecb trang chi\u1ebfu {query}",
+		"t\u00ecm trang chi\u1ebfu {query}",
+		"chuy\u1ec3n \u0111\u1ebfn trang chi\u1ebfu {query}"
+	],
+	"reveal/next": [
+		"ti\u1ebft l\u1ed9",
+		"hi\u1ec3n th\u1ecb th\u00eam",
+		"\u0111i\u1ec3m ti\u1ebfp theo",
+		"Ti\u1ebfp t\u1ee5c",
+		"g\u1ea1ch \u0111\u1ea7u d\u00f2ng ti\u1ebfp theo"
+	],
+	"video/play": [
+		"ch\u01a1i",
+		"ph\u00e1t video",
+		"ph\u00e1t video",
+		"b\u1eaft \u0111\u1ea7u video",
+		"video s\u01a1 y\u1ebfu l\u00fd l\u1ecbch",
+		"b\u1ecf t\u1ea1m d\u1eebng",
+		"/^ch\u01a1i$/"
+	],
+	"video/pause": [
+		"t\u1ea1m d\u1eebng",
+		"t\u1ea1m d\u1eebng video",
+		"d\u1eebng video",
+		"gi\u1eef l\u1ea5y",
+		"/^t\u1ea1m d\u1eebng$/"
+	],
+	"video/seek": [
+		"\u0111i \u0111\u1ebfn",
+		"t\u00ecm ki\u1ebfm",
+		"nh\u1ea3y \u0111\u1ebfn",
+		"b\u1ecf qua",
+		"tua nhanh \u0111\u1ebfn",
+		"tua l\u1ea1i"
+	],
+	"video/seek/relative": [
+		"quay ng\u01b0\u1ee3c th\u1eddi gian {th\u1eddi gian}",
+		"quay l\u1ea1i {th\u1eddi gian}",
+		"tua l\u1ea1i {th\u1eddi gian}",
+		"quay ng\u01b0\u1ee3c th\u1eddi gian {time}",
+		"ti\u1ebfn v\u1ec1 ph\u00eda tr\u01b0\u1edbc {th\u1eddi gian}",
+		"tua nhanh {th\u1eddi gian}",
+		"tua nhanh {th\u1eddi gian}",
+		"tua nhanh {th\u1eddi gian}",
+		"ti\u1ebfn v\u1ec1 ph\u00eda tr\u01b0\u1edbc {th\u1eddi gian}"
+	],
+	"gallery/next": [
+		"h\u00ecnh \u1ea3nh ti\u1ebfp theo",
+		"\u1ea3nh ti\u1ebfp theo",
+		"h\u00ecnh \u1ea3nh ti\u1ebfp theo",
+		"b\u1ecf qua h\u00ecnh \u1ea3nh",
+		"thay \u0111\u1ed5i h\u00ecnh n\u1ec1n"
+	],
+	"gallery/pause": [
+		"t\u1ea1m d\u1eebng n\u1ec1n",
+		"d\u1eebng n\u1ec1n",
+		"\u0111\u00f3ng b\u0103ng n\u1ec1n",
+		"gi\u1eef nguy\u00ean b\u1ed1i c\u1ea3nh",
+		"t\u1ea1m d\u1eebng h\u00ecnh \u1ea3nh"
+	],
+	"gallery/resume": [
+		"l\u00fd l\u1ecbch",
+		"ti\u1ebfp t\u1ee5c ph\u1ea7n n\u1ec1n",
+		"kh\u1edfi \u0111\u1ed9ng l\u1ea1i n\u1ec1n",
+		"b\u1ecf t\u1ea1m d\u1eebng n\u1ec1n"
+	],
+	"gallery/remove": [
+		"x\u00f3a h\u00ecnh \u1ea3nh n\u00e0y",
+		"b\u1ecf qua h\u00ecnh \u1ea3nh n\u00e0y",
+		"\u1ea9n \u1ea3nh n\u00e0y",
+		"x\u00f3a \u1ea3nh hi\u1ec7n t\u1ea1i",
+		"x\u00f3a \u1ea3nh n\u00e0y"
+	],
+	"gallery/caption/remove": [
+		"x\u00f3a ch\u00fa th\u00edch",
+		"\u1ea9n ch\u00fa th\u00edch",
+		"ch\u00fa th\u00edch r\u00f5 r\u00e0ng",
+		"x\u00f3a ch\u00fa th\u00edch",
+		"\u1ea9n ch\u00fa th\u00edch"
+	],
+	"highlight": [
+		"\u0111i\u1ec3m n\u1ed5i b\u1eadt",
+		"ch\u1ec9 v\u00e0o",
+		"cho t\u00f4i xem",
+		"nh\u1ea5n m\u1ea1nh",
+		"t\u1eadp trung v\u00e0o",
+		"\u0111\u00e1nh d\u1ea5u",
+		"k\u00eau g\u1ecdi"
+	],
+	"zoom/in": [
+		"ph\u00f3ng to",
+		"ph\u00f3ng",
+		"l\u1edbn h\u01a1n",
+		"ph\u00f3ng to",
+		"ph\u00f3ng to",
+		"l\u00e0m cho n\u00f3 l\u1edbn h\u01a1n",
+		"g\u1ea7n h\u01a1n"
+	],
+	"zoom/out": [
+		"thu nh\u1ecf",
+		"nh\u1ecf h\u01a1n",
+		"thu nh\u1ecf",
+		"l\u00f9i l\u1ea1i",
+		"l\u00e0m cho n\u00f3 nh\u1ecf h\u01a1n",
+		"l\u00f9i l\u1ea1i",
+		"t\u1ea7m nh\u00ecn r\u1ed9ng h\u01a1n"
+	],
+	"zoom/reset": [
+		"\u0111\u1eb7t l\u1ea1i thu ph\u00f3ng",
+		"\u0111\u1eb7t l\u1ea1i thu ph\u00f3ng",
+		"k\u00edch th\u01b0\u1edbc b\u00ecnh th\u01b0\u1eddng",
+		"v\u1eeba v\u1edbi m\u00e0n h\u00ecnh",
+		"ph\u00f3ng to cho v\u1eeba"
+	],
+	"scroll/down": [
+		"cu\u1ed9n xu\u1ed1ng",
+		"ti\u1ebfp t\u1ee5c",
+		"h\u01a1n",
+		"ti\u1ebfp t\u1ee5c \u0111i xu\u1ed1ng",
+		"trang xu\u1ed1ng",
+		"d\u01b0\u1edbi"
+	],
+	"scroll/up": [
+		"cu\u1ed9n l\u00ean",
+		"\u0111i l\u00ean",
+		"h\u1ed7 tr\u1ee3",
+		"h\u01b0\u1edbng l\u00ean tr\u00ean",
+		"trang l\u00ean",
+		"b\u00ean tr\u00ean"
+	],
+	"scroll/top": [
+		"cu\u1ed9n l\u00ean \u0111\u1ea7u trang",
+		"quay l\u1ea1i \u0111\u1ea7u trang",
+		"tr\u1edf l\u1ea1i \u0111\u1ea7u trang",
+		"\u0111\u1ea7u trang",
+		"\u0111\u1ea7u trang"
+	],
+	"scroll/bottom": [
+		"cu\u1ed9n xu\u1ed1ng cu\u1ed1i trang",
+		"xu\u1ed1ng d\u01b0\u1edbi c\u00f9ng",
+		"h\u1ebft trang",
+		"cu\u1ed1i trang"
+	],
+	"fullscreen": [
+		"to\u00e0n m\u00e0n h\u00ecnh",
+		"to\u00e0n m\u00e0n h\u00ecnh",
+		"t\u1ed1i \u0111a h\u00f3a",
+		"l\u1ea5p \u0111\u1ea7y m\u00e0n h\u00ecnh",
+		"l\u00e0m cho n\u00f3 \u0111\u1ea7y"
+	],
+	"image/generate": [
+		"T\u1ea1o \u1ea3nh c\u1ee7a {prompt}",
+		"t\u1ea1o \u1ea3nh c\u1ee7a {prompt}",
+		"Hi\u1ec3n th\u1ecb cho t\u00f4i {l\u1eddi nh\u1eafc}",
+		"h\u00ecnh dung {l\u1eddi nh\u1eafc}",
+		"v\u1ebd {l\u1eddi nh\u1eafc}",
+		"V\u1ebd tranh theo ch\u1ee7 \u0111\u1ec1 {prompt}"
+	],
+	"tool/generate": [
+		"x\u00e2y d\u1ef1ng m\u1ed9t {l\u1eddi nh\u1eafc}",
+		"t\u1ea1o m\u1ed9t {l\u1eddi nh\u1eafc}",
+		"H\u00e3y t\u1ea1o cho t\u00f4i m\u1ed9t {l\u1eddi nh\u1eafc}",
+		"t\u1ea1o ti\u1ec7n \u00edch {prompt}",
+		"t\u1ea1o m\u1ed9t c\u00f4ng c\u1ee5 {prompt}",
+		"t\u1ea1o c\u00f4ng c\u1ee5 {prompt}"
+	],
+	"stream/create": [
+		"t\u1ea1o m\u1ed9t lu\u1ed3ng {prompt}",
+		"t\u1ea1o m\u1ed9t lu\u1ed3ng {l\u1eddi nh\u1eafc}",
+		"b\u1eaft \u0111\u1ea7u m\u1ed9t {l\u1eddi nh\u1eafc}",
+		"t\u1ea1o tr\u00f2 ch\u01a1i {prompt}",
+		"H\u00e3y c\u00f9ng ch\u01a1i {l\u1eddi nh\u1eafc}",
+		"thi\u1ebft l\u1eadp m\u1ed9t {l\u1eddi nh\u1eafc}"
+	],
+	"stream/grantAccess": [
+		"C\u1ea5p quy\u1ec1n cho {name} \u0111\u1ec3 \u0111\u0103ng b\u00e0i",
+		"cho ph\u00e9p {name} \u0111\u0103ng",
+		"C\u1ea5p quy\u1ec1n ghi cho {name}",
+		"cho ph\u00e9p {t\u00ean} \u0111\u0103ng b\u00e0i",
+		"Th\u00eam {name} l\u00e0m kh\u00e1ch",
+		"M\u1eddi {t\u00ean} \u0111\u0103ng b\u00e0i"
+	],
+	"stream/revokeAccess": [
+		"x\u00f3a quy\u1ec1n truy c\u1eadp c\u1ee7a {name}",
+		"thu h\u1ed3i quy\u1ec1n truy c\u1eadp c\u1ee7a {name}",
+		"t\u01b0\u1edbc quy\u1ec1n truy c\u1eadp c\u1ee7a {name}",
+		"x\u00f3a {name} kh\u1ecfi lu\u1ed3ng",
+		"Ch\u1eb7n {t\u00ean} kh\u1ecfi vi\u1ec7c \u0111\u0103ng b\u00e0i"
+	]
+}

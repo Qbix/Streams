@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams komut metni. &#39;komutlar&#39; = g\u00f6r\u00fcnt\u00fcleme etiketleri (UI); &#39;ifadeler&#39; = komutla anahtarlanm\u0131\u015f, tan\u0131nan ifadeler. \u0130fade bi\u00e7imleri: &quot;alt dize&quot;, &quot;/regex/&quot; veya \u015fablonlu &quot; {{name}} eri\u015fim ver&quot; \u2014 her {{token}} bir yakalamaya derlenir. Streams art\u0131k eri\u015fim kontrol\u00fc ve yeniden bi\u00e7imlendirme komutlar\u0131n\u0131n (i\u015fleyiciler Streams/commands/streamCommand ve Streams/commands/cssUpdate) sahibidir; Media navigasyonu, AI ise \u00fcretimi sa\u011flar.",
+	"commands": {
+		"tool/cssUpdate": "Yeniden \u015fekillendirme arac\u0131",
+		"stream/create": "Ak\u0131\u015f olu\u015ftur",
+		"stream/grantAccess": "Eri\u015fim izni ver",
+		"stream/revokeAccess": "Eri\u015fimi iptal et"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"rengi {{prompt}} olarak de\u011fi\u015ftirin",
+			"Renkleri {{prompt}} olarak de\u011fi\u015ftirin.",
+			"{{prompt}} yeniden renklendirin",
+			"{{prompt}} aleti yeniden tasarlay\u0131n",
+			"renkleri {{prompt}} yap"
+		],
+		"stream/create": [
+			"{{prompt}} ak\u0131\u015f\u0131 olu\u015fturun",
+			"{{prompt}} ak\u0131\u015f\u0131 olu\u015fturun",
+			"{{prompt}} ba\u015flat\u0131n",
+			"{{prompt}} oyunu olu\u015ftur",
+			"{{prompt}} oynayal\u0131m",
+			"{{prompt}} kurun"
+		],
+		"stream/grantAccess": [
+			"{{name}} g\u00f6nderiye eri\u015fim izni verin",
+			"{{name}} g\u00f6nderiye izin ver",
+			"{{name}} yazma eri\u015fimi verin",
+			"{{name}} payla\u015f\u0131m yapmas\u0131na izin ver",
+			"{{name}} misafir olarak ekleyin",
+			"{{name}} payla\u015f\u0131m yapmaya davet et"
+		],
+		"stream/revokeAccess": [
+			"{{name}} eri\u015fimini kald\u0131r",
+			"{{name}} eri\u015fimini iptal et",
+			"{{name}} eri\u015fimini elinden al",
+			"Ak\u0131\u015ftan {{name}} kald\u0131r",
+			"{{name}} numaral\u0131 g\u00f6nderiyi engelle"
+		]
+	}
+}

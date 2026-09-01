@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams-opdragteks. &#39;commands&#39; = vertoon etikette (UI); &#39;phrases&#39; = herkende frases, ingevoer deur opdrag. Frasevorme: &quot;substring&quot;, &quot;/regex/&quot;, of gesjabloon &quot;give {{name}} access&quot; \u2014 elke {{token}} kompileer na &#39;n opname. Streams besit nou die toegangsbeheer- en herstileringsopdragte (hanteerders Streams/commands/streamCommand en Streams/commands/cssUpdate); Media-skepe navigasie; KI-skepe generering.",
+	"commands": {
+		"tool/cssUpdate": "Herstyl-instrument",
+		"stream/create": "Skep stroom",
+		"stream/grantAccess": "Toegang verleen",
+		"stream/revokeAccess": "Herroep toegang"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"verander die kleur na {{prompt}}",
+			"verander die kleure na {{prompt}}",
+			"kleur dit oor {{prompt}}",
+			"herstileer die gereedskap {{prompt}}",
+			"maak die kleure {{prompt}}"
+		],
+		"stream/create": [
+			"skep &#39;n {{prompt}} stroom",
+			"maak &#39;n {{prompt}} stroom",
+			"begin &#39;n {{prompt}}",
+			"skep &#39;n {{prompt}} -speletjie",
+			"Kom ons speel {{prompt}}",
+			"stel &#39;n {{prompt}} op"
+		],
+		"stream/grantAccess": [
+			"gee {{name}} toegang tot pos",
+			"laat {{name}} plaas",
+			"gee {{name}} skryftoegang",
+			"laat {{name}} om te plaas",
+			"voeg {{name}} as &#39;n gas by",
+			"nooi {{name}} uit om te plaas"
+		],
+		"stream/revokeAccess": [
+			"verwyder {{name}} se toegang",
+			"herroep {{name}} se toegang",
+			"neem {{name}} se toegang weg",
+			"verwyder {{name}} uit die stroom",
+			"blokkeer {{name}} van plasing"
+		]
+	}
+}

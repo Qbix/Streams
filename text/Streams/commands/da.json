@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams-kommandotekst. &#39;commands&#39; = display labels (UI); &#39;phrases&#39; = genkendte fraser, indtastet af kommando. Fraseformer: &quot;substring&quot;, &quot;/regex/&quot; eller skabelonbaseret &quot;give {{name}} access&quot; \u2014 hver {{token}} kompileres til en capture. Streams ejer nu kommandoerne for adgangskontrol og omstiling (handlers Streams/commands/streamCommand og Streams/commands/cssUpdate); Medieafsender navigation; generering af AI-afsendere.",
+	"commands": {
+		"tool/cssUpdate": "V\u00e6rkt\u00f8j til omformning",
+		"stream/create": "Opret str\u00f8m",
+		"stream/grantAccess": "Giv adgang",
+		"stream/revokeAccess": "Tilbagekald adgang"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"skift farven til {{prompt}}",
+			"skift farverne til {{prompt}}",
+			"omfarv det {{prompt}}",
+			"Genstyl v\u00e6rkt\u00f8jet {{prompt}}",
+			"lav farverne {{prompt}}"
+		],
+		"stream/create": [
+			"opret en {{prompt}} str\u00f8m",
+			"lav en {{prompt}} stream",
+			"start en {{prompt}}",
+			"opret et {{prompt}} -spil",
+			"lad os spille {{prompt}}",
+			"ops\u00e6t en {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"Giv {{name}} adgang til post",
+			"lad {{name}} poste",
+			"giv {{name}} skriveadgang",
+			"tillad {{name}} at poste",
+			"tilf\u00f8j {{name}} som g\u00e6st",
+			"inviter {{name}} til at skrive et opslag"
+		],
+		"stream/revokeAccess": [
+			"fjern {{name}} &#39;s adgang",
+			"tilbagekald {{name}} &#39;s adgang",
+			"tag {{name}} &#39;s adgang v\u00e6k",
+			"fjern {{name}} fra str\u00f8mmen",
+			"bloker {{name}} fra bogf\u00f8ring"
+		]
+	}
+}

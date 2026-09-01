@@ -8,16 +8,29 @@
         {{/if}}
         {{#if showStreamPreview}}
             <tr class="Streams_complete_stream">
-                <td><img src="{{stream.fields.icon}}/50.jpg" title="{{stream.fields.title}}"></td>
+                <td><img src="{{streamIcon}}/50.jpg" title="{{stream.fields.title}}"></td>
                 <td><div>{{stream.fields.title}}</div></td>
             </tr>
         {{/if}}
     </table>
-    {{#if discount}}
+    {{#if discount.description}}
     <div class="Streams_complete_discount">
         <div class="Streams_invited_discount">
             {{discount.description}}
         </div>
+    </div>
+    {{/if}}
+    {{#if roles}}
+    <div class="Streams_invited_roles">
+        <div class="Streams_invited_roles_prompt">{{rolesPrompt}}</div>
+        <ul>
+        {{#each roles}}
+            <li class="Streams_invited_role" data-label="{{this.label}}">
+                <img src="{{this.icon}}/40.png" alt="">
+                <span>{{this.title}}</span>
+            </li>
+        {{/each}}
+        </ul>
     </div>
     {{/if}}
 </div>

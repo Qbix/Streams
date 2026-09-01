@@ -30,5 +30,26 @@ function Streams_invite_response_suggestion()
 	
 	Q_Response::setSlot('stream', $stream->exportArray());
 	Q_Response::setSlot('data', $data);
+
+	$params = array_merge($data, compact('stream', 'suggestion'));
+	/**
+	 * This event can be used by plugins to set more slots.
+	 * In particular, the "hide" slot can be filled with an array
+	 * naming what invite options to hide,
+	 * e.g. "contacts", "qr", "share", "social", "roles"
+	 * @event {after} Streams/invite/response/suggestion
+	 * @param {string} url
+	 * @param {string} suggestion
+	 * @param {array} invite
+	 * @param {Streams_Stream} stream
+	 * @return {string}
+	 *  Optional. If set, override method return
+	 */
+	Q::event('Streams/invite/response/suggestion', $params, 'after');
+
+	if (Q_Response::getSlot('hide') === null) {
+		Q_Response::setSlot('hide', array());
+	}
+
 	return $suggestion;
 }

@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Liigu j\u00e4rgmisele slaidile. Edastab vooge/slide {slideIndex: current+1}.",
+		"slide/prev": "Mine tagasi eelmisele slaidile. Edastab vooge/slide {slideIndex: current-1}.",
+		"slide/first": "H\u00fcppa esimesele slaidile. Edastab vooge/slide {slideIndex: 0}.",
+		"slide/last": "H\u00fcppa viimasele slaidile. Edastab vooge/slide {slideIndex: 9999}.",
+		"slide/navigate": "H\u00fcppa slaidile sisup\u00e4ringu abil. J\u00e4\u00e4dvustab {query}.",
+		"reveal/next": "N\u00e4ita j\u00e4rgmist progressiivset elementi. Edastab vooge/paljastab {revealIndex: current+1}.",
+		"video/play": "Esita videot. Edastab vooge/esitab {}.",
+		"video/pause": "Peata video. Edastab vooge/peata {}.",
+		"video/seek": "Otsib absoluutse ajani. Edastab vooge/otsib {pos: sekundid}. J\u00e4\u00e4dvustab {aja}.",
+		"video/seek/relative": "Otsi nihke j\u00e4rgi. Edastab vooge/otsib {pos: &#39;+/-sekundit&#39;}. J\u00e4\u00e4dvustab {aega}.",
+		"gallery/next": "J\u00e4rgmine b-rolli pilt. Edastab vooge/galerii/j\u00e4rgmine.",
+		"gallery/pause": "J\u00e4\u00e4dvusta b-roll. Edasta vooge/galeriid/pausi.",
+		"gallery/resume": "J\u00e4tka b-rolli. Edastab vooge/galeriid/j\u00e4tka.",
+		"gallery/remove": "Peida praegune b-rolli pilt. Edastab vooge/galeriid/eemalda.",
+		"gallery/caption/remove": "Peida b-rolli pealdis. Edastab vooge/galeriid/pealdist {remove: true}.",
+		"highlight": "T\u00f5sta diagrammi element esile. Kiirgab vooge/t\u00f5sta esile {elementId}. J\u00e4\u00e4dvustab {target}.",
+		"zoom/in": "Suumi sisse 1,5x. Edastab vooge/suumi {skaala: praegune*1,5}.",
+		"zoom/out": "Suumi 1,5x v\u00e4lja. Kiirgab vooge/suumi {skaala: praegune/1,5}.",
+		"zoom/reset": "L\u00e4htesta suum v\u00e4\u00e4rtusele 1. Kiirgab vooge/suumi {skaala: 1}.",
+		"scroll/down": "Kerib alla 20%. Kiirgab Q/scroll {top: &#39;+20%&#39;}.",
+		"scroll/up": "Kerib 20% \u00fcles. Kiidab Q/scroll {top: &#39;-20%&#39;}.",
+		"scroll/top": "Kerib \u00fcles. Kiirgab Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Kerib alla. Kiirgab Q/scroll {\u00fclemine: &#39;100%&#39;}.",
+		"fullscreen": "T\u00e4isekraani sisse/v\u00e4lja l\u00fclitamine.",
+		"image/generate": "LLM-i loodud pilt. J\u00e4\u00e4dvustab {prompt}.",
+		"tool/generate": "LLM-i loodud vidin. J\u00e4\u00e4dvustab {viiba}.",
+		"stream/create": "Loo uus striim (male, k\u00fcsitlus jne). J\u00e4\u00e4dvustab {prompt}.",
+		"stream/grantAccess": "Anna kirjutamis\u00f5igus. J\u00e4\u00e4dvustab {name, writeLevel}.",
+		"stream/revokeAccess": "Juurdep\u00e4\u00e4su t\u00fchistamine. J\u00e4\u00e4dvustab kasutaja {name}."
+	},
+	"slide/next": [
+		"j\u00e4rgmine slaid",
+		"j\u00e4rgmine kaart",
+		"mine edasi",
+		"edasi liikuma",
+		"edasiminek",
+		"j\u00e4rgmine palun",
+		"j\u00e4rgmine",
+		"n\u00e4ita j\u00e4rgmist",
+		"/^j\u00e4rgmine$/"
+	],
+	"slide/prev": [
+		"eelmine slaid",
+		"eelmine kaart",
+		"mine tagasi",
+		"tagumine",
+		"eelmine slaid",
+		"astu tagasi",
+		"/^tagasi$/"
+	],
+	"slide/first": [
+		"esimene slaid",
+		"mine algusesse",
+		"alusta uuesti",
+		"\u00fclevalt",
+		"algus palun"
+	],
+	"slide/last": [
+		"viimane slaid",
+		"mine l\u00f5puni",
+		"viimane slaid",
+		"h\u00fcppa l\u00f5ppu"
+	],
+	"slide/navigate": [
+		"mine {p\u00e4ringusse}",
+		"n\u00e4ita mulle {p\u00e4ringut}",
+		"leia {p\u00e4ring}",
+		"h\u00fcppa p\u00e4ringule {p\u00e4ring}",
+		"navigeeri p\u00e4ringule {p\u00e4ring}",
+		"suuna mind {p\u00e4ringu juurde}",
+		"ava {p\u00e4ring}",
+		"n\u00e4ita slaidi {query}",
+		"leia slaid {query}",
+		"mine slaidile {query}"
+	],
+	"reveal/next": [
+		"paljastama",
+		"n\u00e4ita rohkem",
+		"j\u00e4rgmine punkt",
+		"j\u00e4tka",
+		"j\u00e4rgmine t\u00e4pploend"
+	],
+	"video/play": [
+		"m\u00e4ng",
+		"esita videot",
+		"esita videot",
+		"alusta videot",
+		"video j\u00e4tkamine",
+		"pausi j\u00e4tkama",
+		"/^m\u00e4ng$/"
+	],
+	"video/pause": [
+		"paus",
+		"video peatamine",
+		"peata video",
+		"oota",
+		"/^paus$/"
+	],
+	"video/seek": [
+		"mine",
+		"p\u00fc\u00fcdma",
+		"h\u00fcpata",
+		"J\u00e4ta vahele",
+		"kerige edasi",
+		"tagasikerimine"
+	],
+	"video/seek/relative": [
+		"mine tagasi {aeg}",
+		"tagasi {aeg}",
+		"tagasikerimine {aeg}",
+		"h\u00fcppa tagasi {aeg}",
+		"edasi minema {aeg}",
+		"h\u00fcppa edasi {aeg}",
+		"vahelej\u00e4tmine {aeg}",
+		"kerige edasi {aeg}",
+		"edasi {aeg}"
+	],
+	"gallery/next": [
+		"j\u00e4rgmine pilt",
+		"j\u00e4rgmine foto",
+		"j\u00e4rgmine pilt",
+		"J\u00e4ta pilt vahele",
+		"muuda tausta"
+	],
+	"gallery/pause": [
+		"peata taust",
+		"peata taust",
+		"k\u00fclmutada tausta",
+		"hoidke tausta",
+		"peata pildid"
+	],
+	"gallery/resume": [
+		"CV taust",
+		"j\u00e4tka tausta",
+		"alusta tausta uuesti",
+		"tausta peatamise j\u00e4tkamine"
+	],
+	"gallery/remove": [
+		"eemalda see pilt",
+		"J\u00e4ta see pilt vahele",
+		"peida see foto",
+		"eemalda praegune pilt",
+		"eemalda see foto"
+	],
+	"gallery/caption/remove": [
+		"eemalda pealdis",
+		"peida pealdis",
+		"selge pealdis",
+		"eemalda pealdis",
+		"peida pealdis"
+	],
+	"highlight": [
+		"esilet\u00f5stmine",
+		"osuta",
+		"n\u00e4ita mulle",
+		"r\u00f5hutama",
+		"keskenduma",
+		"m\u00e4rk",
+		"h\u00fc\u00fca v\u00e4lja"
+	],
+	"zoom/in": [
+		"suumi sisse",
+		"suum",
+		"suurem",
+		"suurendama",
+		"suurendama",
+		"tee see suuremaks",
+		"l\u00e4hemale"
+	],
+	"zoom/out": [
+		"suumi v\u00e4lja",
+		"v\u00e4iksem",
+		"kahanema",
+		"t\u00f5mba tagasi",
+		"tee see v\u00e4iksemaks",
+		"astu tagasi",
+		"laiem vaade"
+	],
+	"zoom/reset": [
+		"l\u00e4htesta suum",
+		"suumi l\u00e4htestamine",
+		"normaalne suurus",
+		"ekraanile sobitamine",
+		"suumi sobitamiseks"
+	],
+	"scroll/down": [
+		"kerige alla",
+		"j\u00e4tka",
+		"rohkem",
+		"j\u00e4tka allapoole",
+		"lehek\u00fclg alla",
+		"allpool"
+	],
+	"scroll/up": [
+		"kerige \u00fcles",
+		"mine \u00fcles",
+		"varundamine",
+		"\u00fclespoole",
+		"lehek\u00fclg \u00fcles",
+		"\u00fclalpool"
+	],
+	"scroll/top": [
+		"kerige \u00fcles",
+		"mine \u00fcles",
+		"tagasi \u00fcles",
+		"lehe algus",
+		"lehe \u00fclaosas"
+	],
+	"scroll/bottom": [
+		"kerige alla",
+		"mine alla",
+		"lehe l\u00f5pp",
+		"lehe allosas"
+	],
+	"fullscreen": [
+		"t\u00e4isekraan",
+		"t\u00e4isekraan",
+		"maksimeerida",
+		"t\u00e4ida ekraan",
+		"tee see t\u00e4is"
+	],
+	"image/generate": [
+		"genereeri {prompt} pilt",
+		"loo {prompt} pilt",
+		"n\u00e4ita mulle {viiba}",
+		"visualiseeri {viiba}",
+		"joonista {prompt}",
+		"tee pilt {prompt&#39;ist}"
+	],
+	"tool/generate": [
+		"loo {vihje}",
+		"loo {viiba}",
+		"ehita mulle {vihje}",
+		"genereeri {prompt} vidin",
+		"loo {prompt} t\u00f6\u00f6riist",
+		"loo {prompt} t\u00f6\u00f6riist"
+	],
+	"stream/create": [
+		"loo {prompt} voog",
+		"loo {prompt} voog",
+		"alusta {viiba}",
+		"loo {prompt} m\u00e4ng",
+		"m\u00e4ngime {prompt}",
+		"seadista {viiba}"
+	],
+	"stream/grantAccess": [
+		"anna {name} postitusele ligip\u00e4\u00e4s",
+		"lase {name} postitada",
+		"anna {name}-le kirjutamis\u00f5igus",
+		"luba kasutajal {name} postitada",
+		"lisa {name} k\u00fclalisena",
+		"kutsu {name} postitama"
+	],
+	"stream/revokeAccess": [
+		"eemalda kasutaja {name} juurdep\u00e4\u00e4s",
+		"t\u00fchista kasutaja {name} juurdep\u00e4\u00e4s",
+		"v\u00f5ta kasutajalt {name} juurdep\u00e4\u00e4s \u00e4ra",
+		"eemalda {name} voogudest",
+		"blokeeri {name} postitamine"
+	]
+}

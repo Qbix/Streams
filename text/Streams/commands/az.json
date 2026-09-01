@@ -1,0 +1,41 @@
+{
+	"_comment": "Streams \u0259mr m\u0259tni. &#39;commands&#39; = ekran etiketl\u0259ri (UI); &#39;phrases&#39; = \u0259mrl\u0259 a\u00e7arlanm\u0131\u015f tan\u0131nm\u0131\u015f ifad\u0259l\u0259r. \u0130fad\u0259 formalar\u0131: &quot;substring&quot;, &quot;/regex/&quot; v\u0259 ya \u015fablonla\u015fd\u0131r\u0131lm\u0131\u015f &quot;give {{name}} access&quot; \u2014 h\u0259r {{token}} kompilyasiya bir \u0259l\u0259 ke\u00e7irm\u0259 \u00fc\u00e7\u00fcn. Streams art\u0131q giri\u015f n\u0259zar\u0259ti v\u0259 yenid\u0259n still\u0259\u015fdirm\u0259 \u0259mrl\u0259rin\u0259 (Streams/commands/streamCommand v\u0259 Streams/commands/cssUpdate emal\u00e7\u0131lar\u0131) sahibdir; Media g\u0259mil\u0259rinin naviqasiyas\u0131; S\u00fcni intellekt g\u0259mil\u0259rinin generasiyas\u0131.",
+	"commands": {
+		"tool/cssUpdate": "Yenid\u0259n t\u0259rtib etm\u0259 al\u0259ti",
+		"stream/create": "Yay\u0131m yarad\u0131n",
+		"stream/grantAccess": "Giri\u015f icaz\u0259si verin",
+		"stream/revokeAccess": "Giri\u015fi l\u0259\u011fv edin"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"r\u0259ngi {{prompt}} a d\u0259yi\u015fdirin",
+			"r\u0259ngl\u0259ri {{prompt}} a d\u0259yi\u015fdirin",
+			"{{prompt}} r\u0259ngini d\u0259yi\u015fin",
+			"{{prompt}} al\u0259tini yenid\u0259n dizayn edin",
+			"r\u0259ngl\u0259ri {{prompt}} edin"
+		],
+		"stream/create": [
+			"{{prompt}} ax\u0131n\u0131 yarad\u0131n",
+			"{{prompt}} ax\u0131n\u0131 yarad\u0131n",
+			"{{prompt}} dan ba\u015flay\u0131n",
+			"{{prompt}} oyunu yarad\u0131n",
+			"G\u0259lin {{prompt}} oynayaq",
+			"{{prompt}} t\u0259yin edin"
+		],
+		"stream/grantAccess": [
+			"{{name}} payla\u015f\u0131ma giri\u015f imkan\u0131 verin",
+			"{{name}} yaz\u0131 g\u00f6nd\u0259r\u0259k",
+			"{{name}} yazma icaz\u0259si verin",
+			"{{name}} payla\u015f\u0131m\u0131na icaz\u0259 verin",
+			"qonaq olaraq {{name}} \u0259lav\u0259 edin",
+			"{{name}} payla\u015f\u0131m etm\u0259y\u0259 d\u0259v\u0259t edin"
+		],
+		"stream/revokeAccess": [
+			"{{name}} giri\u015fini silin",
+			"{{name}} giri\u015fini l\u0259\u011fv et",
+			"{{name}} giri\u015fini \u0259lind\u0259n al",
+			"{{name}} ax\u0131ndan \u00e7\u0131xar\u0131n",
+			"{{name}} un payla\u015f\u0131m\u0131n\u0131 bloklay\u0131n"
+		]
+	}
+}

@@ -153,14 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Dodajte vloge",
-			"addPersonalRoles": "Dodajte osebne odnose"
+			"addPersonalRoles": "Dodajte osebne odnose",
+			"AddCommunityRoles": "Dodajte vloge skupnosti",
+			"AddParticipantRoles": "Dodaj vloge v tem {{streamDisplayType}}",
+			"YouWereInvited": "Bili ste povabljeni"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Dobrodo\u0161li v {{communityName}}",
 			"HasInvitedYou": "vas je povabil na:",
 			"HasInvitedYouToTheirProfile": "vas je povabil k povezovanju.",
 			"prompt": "Naj vas prijatelji prepoznajo:",
-			"accept": "Sprejmi povabilo"
+			"accept": "Sprejmi",
+			"RolesOffered": "Vloge, ki vam jih ponujajo:",
+			"decline": "Zavrnitev",
+			"ParticipantRolesOffered": "Va\u0161a vloga v tem {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "Hej, poglej to",
@@ -180,7 +186,10 @@
 		"chat": {
 			"prompt": "Ljudi boste povabili k pogovoru, kjer boste lahko ostali v stiku, delili skupne fotografije in drugo. Daj mu ime:"
 		},
-		"Participants": "Povabi ljudi"
+		"Participants": "Povabi ljudi",
+		"inperson": {
+			"description": "Ustvarite QR kodo in jo posredujte naprej, da jo skenirajo. Vsi, ki jo skenirajo, bodo ostali povezani med seboj:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +373,11 @@
 		"Streams/outgoing": {
 			"displayType": "Odhodni",
 			"description": "cilj za snemanje sporo\u010dil, poslanih drugim uporabnikom ali zunanjim sistemom"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologija",
+			"description": "ontologija",
+			"newItem": "Dodaj ontologijo"
 		}
 	},
 	"menu": {
@@ -548,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "npr. 3000",
 		"KenburnsInstruction": "Za\u010detek in konec Kena Burnsa nastavite z vle\u010denjem in pove\u010davo."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gostitelj",
+				"speaker": "Govornik",
+				"volunteer": "Prostovoljec",
+				"moderator": "Moderator",
+				"guest": "Gost"
+			}
+		}
 	}
 }

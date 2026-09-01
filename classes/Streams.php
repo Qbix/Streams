@@ -1188,7 +1188,17 @@ abstract class Streams extends Base_Streams
 					$relatedTo->type = $relate['type'];
 					$relatedTo->fromPublisherId = $template->publisherId;
 					$relatedTo->fromStreamName = $template->name;
-					if ($retrieved = $relatedTo->retrieve()) {
+					$retrieved = Streams_RelatedTo::select()
+						->where(array(
+							'toPublisherId' => array($to_template->publisherId, $to_stream->publisherId),
+							'toStreamName' => array($to_template->name, $to_stream->name),
+							'type' => $relate['type'],
+							'fromPublisherId' => $template->publisherId,
+							'fromStreamName' => $template->name
+						))
+						->limit(1)
+						->fetchDbRow();
+					if ($retrieved) {
 						$authorized = $template;
 					}
 				}
@@ -1250,7 +1260,10 @@ abstract class Streams extends Base_Streams
 		if (!isset($fields)) {
 			$fields = array();
 		}
-		$relate = isset($options['relate']) ? $options['relate'] : null;
+		$relate = Q::ifset($options, 'relate', null);
+		if (!empty($relate) && empty($relate['publisherId'])) {
+			$relate['publisherId'] = $publisherId;
+		}
 		$skipAccess = Q::ifset($options, 'skipAccess', false);
 		$private = Q::ifset($options, 'private', false);
 		$accessProfileName = Q::ifset($options, 'accessProfileName', null);
@@ -1277,8 +1290,9 @@ abstract class Streams extends Base_Streams
 		$stream->publisherId = $publisherId;
 		if (!empty($fields['name'])) {
 			$stream->name = $fields['name'];
-			if ($stream->retrieve()) {
-				throw new Q_Exception_AlreadyExists(array('source' => 'stream'));
+			if ($stream->retrieve(null, true)) {
+				self::$fetch[$asUserId][$publisherId][$stream->name] = array('*' => $stream);
+				return $stream;
 			}
 			$p = Streams::userStreamsTree();
 			if ($info = $p->get($fields['name'], array())) {
@@ -1372,7 +1386,22 @@ abstract class Streams extends Base_Streams
 		}
 
 		$stream->set('createdAsUserId', $asUserId);
-		$stream->save();
+		try {
+			$stream->save();
+		} catch (Exception $e) {
+			// Concurrent fetchOrCreate/create of a named stream can race:
+			// both SELECT empty, then the second INSERT hits PRIMARY 1062.
+			if (!empty($fields['name']) and self::isDuplicateKeyException($e)) {
+				$existing = new Streams_Stream();
+				$existing->publisherId = $publisherId;
+				$existing->name = $fields['name'];
+				if ($existing->retrieve(null, true)) {
+					self::$fetch[$asUserId][$publisherId][$existing->name] = array('*' => $existing);
+					return $existing;
+				}
+			}
+			throw $e;
+		}
 		$stream->post($asUserId, array(
 			'type' => 'Streams/created',
 			'content' => '',
@@ -1404,6 +1433,26 @@ abstract class Streams extends Base_Streams
 		self::$fetch[$asUserId][$publisherId][$stream->name] = array('*' => $stream);
 
 		return $stream;
+	}
+
+	/**
+	 * Whether an exception is a duplicate-key / already-exists conflict
+	 * from inserting a row another request created first.
+	 * @method isDuplicateKeyException
+	 * @static
+	 * @param {Exception} $e
+	 * @return {boolean}
+	 */
+	protected static function isDuplicateKeyException($e)
+	{
+		if ($e instanceof Q_Exception_AlreadyExists) {
+			return true;
+		}
+		$msg = $e instanceof Q_Exception
+			? Q::ifset($e->params(), 'msg', $e->getMessage())
+			: $e->getMessage();
+		return (strpos($msg, '1062') !== false)
+			|| (stripos($msg, 'Duplicate entry') !== false);
 	}
 
 	/**
@@ -3120,7 +3169,7 @@ abstract class Streams extends Base_Streams
 	 * @param {array} [$options.streamsOnly] If true, returns only the streams related to/from stream, doesn't return the other data.
 	 *    Note that the streams returned by this function are only the ones published by the publisherId.
 	 * @param {array} [$options.streamFields] If specified, fetches only the fields listed here for any streams.
-	 * @param {callable} [$options.filterUsersFunction] Optional function to call to filter the relations. It should return a filtered array of relations.
+	 * @param {callable} [$options.filter] Optional function to call to filter the relations. It should return a filtered array of relations.
 	 * @param {array} [$options.dontFilterUsers] Pass true to skip filtering using Users/filter/users event
 	 * @param {array} [$options.alsoFilterOwnStreams] If filtering streams using Users/filter/users event, pass true to filter even streams published by category publisher
 	 * @param {boolean} [$options.skipAccess=false] If true, skips the access checks and just fetches the relations and related streams
@@ -3426,8 +3475,8 @@ abstract class Streams extends Base_Streams
 			return array(array(), array(), $returnMultiple ? $streams : $stream);
 		}
 
-		if (!empty($options['filterUsersFunction'])) {
-			$relations = call_user_func($options['filterUsersFunction'], $relations);
+		if (!empty($options['filter'])) {
+			$relations = call_user_func($options['filter'], $relations);
 		}
 
 		if (empty($options['dontFilterUsers'])) {
@@ -4494,6 +4543,7 @@ abstract class Streams extends Base_Streams
 			}
 			$streamNamesUpdate[] = $sn;
 			$type = ($participant->state === 'participating') ? 'visit' : 'join';
+			// NOTE: post message of type Streams/joined or Streams/visited
 			$messageType = "Streams/$type" . 'ed';
 			$prevState = $participant->state;
 			$participant->state = $state;
@@ -5363,7 +5413,7 @@ abstract class Streams extends Base_Streams
 			}
 			$statuses1 = array();
 			$identifier_ids = Users_User::idsFromIdentifiers(
-				$identifiers, $statuses1, $identifierTypes1
+				$identifiers, false, $statuses1, $identifierTypes1
 			);
 			$raw_userIds = array_merge($raw_userIds, $identifier_ids);
 			$statuses = array_merge($statuses, $statuses1);
@@ -5476,7 +5526,7 @@ abstract class Streams extends Base_Streams
 		$asUserId2 = empty($options['skipAccess']) ? $asUserId : false;
 
 		if ($addLabel = Q::ifset($options, 'addLabel', null)) {
-			if (is_string($label)) {
+			if (is_string($addLabel)) {
 				$addLabel = explode("\t", $addLabel);
 			}
 			Users_Label::addLabel($addLabel, $publisherId, null, null, $asUserId2);
@@ -5680,6 +5730,24 @@ abstract class Streams extends Base_Streams
 		}
 		return $invites;
 	}
+
+	/**
+	 * Called once an invite has been resolved one way or the other.
+	 * This is the seam where an app decides what flow comes next (e.g.
+	 * onboarding), independent of the accept/decline outcome.
+	 * @method inviteResolved
+	 * @static
+	 * @param {Streams_Invite} $invite
+	 * @param {Streams_Stream} $stream
+	 * @param {Users_User} $user
+	 * @param {boolean} $accepted
+	 */
+	static function inviteResolved($invite, $stream, $user, $accepted)
+	{
+		Q::event('Streams/invite/resolved',
+			@compact('invite', 'stream', 'user', 'accepted'), 'after');
+	}
+
 	
 	/**
 	 * This is for any user to request access to a stream (rather than being invited).
@@ -6250,6 +6318,68 @@ abstract class Streams extends Base_Streams
 		}
 		return $result[$type] = $classes;
 	}
+
+	/**
+	 * Save a relation between two stream templates,
+	 * authorizing creation of $fromType streams
+	 * related to $toType category streams.
+	 * @method saveTemplateRelation
+	 * @static
+	 * @param {string} $toStreamName Template type ("Websites/page/") or specific stream name
+	 * @param {string} $relationType The relation type (e.g. "Websites/sections")
+	 * @param {string} $fromType The child stream type (e.g. "Websites/section")
+	 * @param {string} [$publisherId='']
+	 * @param {array|boolean} [$options=array()] Pass true for array('directions' => array('to', 'from'))
+	 *   @param {array} [$options.directions=array("to")] Which rows to save: "to", "from", or both
+	 *   @param {string|array} [$options.extra=null] Extra info on the RelatedTo row
+	 *   @param {float} [$options.weight=null] Weight on the RelatedTo row
+	 * @return {array} The saved Streams_RelatedTo and/or Streams_RelatedFrom rows
+	 */
+	static function saveTemplateRelation(
+		$toStreamName,
+		$relationType,
+		$fromType,
+		$publisherId = '',
+		$options = array())
+	{
+		if ($options === true) {
+			$options = array('directions' => array('to', 'from'));
+		}
+		$directions = Q::ifset($options, 'directions', array('to'));
+		$extra = Q::ifset($options, 'extra', null);
+		$weight = Q::ifset($options, 'weight', null);
+		if (is_string($extra)) {
+			$extra = array('extra' => $extra);
+		}
+		$fromStreamName = $fromType . '/';
+		$results = array();
+		foreach ($directions as $dir) {
+			if ($dir === 'to') {
+				$rt = new Streams_RelatedTo();
+				$rt->toPublisherId = $publisherId;
+				$rt->toStreamName = $toStreamName;
+				$rt->type = $relationType;
+				$rt->fromPublisherId = $publisherId;
+				$rt->fromStreamName = $fromStreamName;
+				$rt->retrieve();
+				if (isset($weight)) $rt->weight = $weight;
+				if (isset($extra)) $rt->extra = is_array($extra) ? Q::json_encode($extra) : $extra;
+				$rt->save(true);
+				$results['to'] = $rt;
+			} else if ($dir === 'from') {
+				$rf = new Streams_RelatedFrom();
+				$rf->fromPublisherId = $publisherId;
+				$rf->fromStreamName = $fromStreamName;
+				$rf->type = $relationType;
+				$rf->toPublisherId = $publisherId;
+				$rf->toStreamName = $toStreamName;
+				$rf->retrieve();
+				$rf->save(true);
+				$results['from'] = $rf;
+			}
+		}
+		return $results;
+	}
 	
 	/**
 	 * Use this function to save a template for a specific stream type and publisher.
@@ -6433,7 +6563,7 @@ abstract class Streams extends Base_Streams
 	 * Streams/userInviteUrl/signature/length.
 	 * The "sig" may be missing if the Q/internal/secret config is empty.
 	 * @param {string} $userId The id of the user for whom to generate this url
-	 * @param {string} $appUrl The url to bring the user to
+	 * @param {string} $appUrl The url to bring the user to, defaults to their profile
 	 * @param {string} [$streamName=null] Optional stream
 	 * @param {Streams_Invite} [&$invite=null] You can pass a variable reference here
 	 *  to be filled with the Streams_Invite object.
@@ -6441,7 +6571,7 @@ abstract class Streams extends Base_Streams
 	 */
 	static function userInviteUrl(
 		$userId, 
-		$appUrl, 
+		$appUrl = null, 
 		$streamName = 'Streams/user/profile',
 		&$invite = null)
 	{
@@ -6464,7 +6594,8 @@ abstract class Streams extends Base_Streams
 			));
 		}
 		if ($stream->getAttribute('userInviteExpires', 0) < $now) {
-			$ret = $stream->invite(array('token' => true, 'appUrl' => $appUrl));
+			$options = isset($appUrl) ? compact('appUrl') : null;
+			$ret = $stream->invite(array('token' => true), $options);
 			// $invite = $ret['invite']->exportArray();
 			$userInviteUrl = $ret['invite']->url();
 			$stream->setAttribute('userInviteUrl', $userInviteUrl);
@@ -7035,7 +7166,8 @@ abstract class Streams extends Base_Streams
 	}
 
 	/**
-	 * Remove streams from the system, including all related rows.
+	 * Remove streams from the system, including all related rows
+	 * and their upload directories under Q/uploads/Streams.
 	 * @method remove
 	 * @static
 	 * @param {string} $publisherId
@@ -7087,6 +7219,10 @@ abstract class Streams extends Base_Streams
 		Streams_Stream::delete()
 			->where(array('publisherId' => $publisherId, 'name' => $streamNames))
 			->execute();
+
+		foreach ($streamNames as $streamName) {
+			Q_Utils::rmdir(self::uploadsDirectory($publisherId, $streamName));
+		}
 		
 		/**
 		 * @event Streams/remove {after}

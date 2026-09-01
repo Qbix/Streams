@@ -1,0 +1,264 @@
+{
+	"_locale": "sv",
+	"_intents": {
+		"slide/next": "G\u00e5 vidare till n\u00e4sta bild. S\u00e4nder ut str\u00f6mmar/bild {slideIndex: current+1}.",
+		"slide/prev": "G\u00e5 tillbaka till f\u00f6reg\u00e5ende bild. S\u00e4nder ut str\u00f6mmar/bild {slideIndex: current-1}.",
+		"slide/first": "Hoppa till f\u00f6rsta bilden. S\u00e4nder ut str\u00f6mmar/bild {slideIndex: 0}.",
+		"slide/last": "Hoppa till sista bilden. S\u00e4nder ut str\u00f6mmar/bild {slideIndex: 9999}.",
+		"slide/navigate": "Hoppa till en bild via inneh\u00e5llsfr\u00e5ga. Samlar in {query}.",
+		"reveal/next": "Visa n\u00e4sta progressiva element. S\u00e4nder ut str\u00f6mmar/visa {revealIndex: current+1}.",
+		"video/play": "Spela upp video. Skickar str\u00f6mmar/spela upp {}.",
+		"video/pause": "Pausa video. S\u00e4nder str\u00f6mmar/pausa {}.",
+		"video/seek": "S\u00f6ker till absolut tid. S\u00e4nder ut str\u00f6mmar/s\u00f6ker {pos: sekunder}. F\u00e5ngar {tid}.",
+		"video/seek/relative": "S\u00f6k via offset. S\u00e4nder ut str\u00f6mmar/s\u00f6kning {pos: &#39;+/- sekunder&#39;}. Tar emot {tid}.",
+		"gallery/next": "N\u00e4sta B-roll-bild. S\u00e4nder ut Streams/gallery/next.",
+		"gallery/pause": "Frys b-roll. S\u00e4nder ut str\u00f6mmar/galleri/paus.",
+		"gallery/resume": "CV-b-roll. S\u00e4nder ut str\u00f6mmar/galleri/CV.",
+		"gallery/remove": "D\u00f6lj aktuell B-roll-bild. S\u00e4nder Streams/gallery/remove.",
+		"gallery/caption/remove": "D\u00f6lj B-roll-textning. S\u00e4nder ut Streams/gallery/caption {remove: true}.",
+		"highlight": "Markera diagramelement. Skickar ut str\u00f6mmar/markerar {elementId}. Target-bilder.",
+		"zoom/in": "Zooma in 1,5x. S\u00e4nder ut str\u00f6mmar/zoom {skala: str\u00f6m*1,5}.",
+		"zoom/out": "Zooma ut 1,5x. S\u00e4nder ut str\u00f6mmar/zoom {skala: str\u00f6m/1,5}.",
+		"zoom/reset": "\u00c5terst\u00e4ll zoom till 1. S\u00e4nder ut str\u00f6mmar/zoom {skala: 1}.",
+		"scroll/down": "Scrolla ned 20%. Avger Q/scroll {top: &#39;+20%&#39;}.",
+		"scroll/up": "Scrolla upp 20%. Avger Q/scroll {top: &#39;-20%&#39;}.",
+		"scroll/top": "Scrolla till toppen. Avger Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Scrolla till botten. Avger Q/scroll {\u00f6verst: &#39;100%&#39;}.",
+		"fullscreen": "V\u00e4xla helsk\u00e4rm.",
+		"image/generate": "LLM-genererad bild. Tar {prompt}.",
+		"tool/generate": "LLM-genererad widget. Inspelar {prompt}.",
+		"stream/create": "Skapa ny stream (schack, omr\u00f6stning, etc.). F\u00e5ngar {prompt}.",
+		"stream/grantAccess": "Bevilja skriv\u00e5tkomst. Lagrar {namn, skrivniv\u00e5}.",
+		"stream/revokeAccess": "\u00c5terkalla \u00e5tkomst. Insamlar {namn}."
+	},
+	"slide/next": [
+		"n\u00e4sta bild",
+		"n\u00e4sta kort",
+		"g\u00e5 fram\u00e5t",
+		"g\u00e5 vidare",
+		"f\u00f6rskott",
+		"n\u00e4sta tack",
+		"n\u00e4sta",
+		"visa n\u00e4sta",
+		"/^n\u00e4sta$/"
+	],
+	"slide/prev": [
+		"f\u00f6reg\u00e5ende bild",
+		"f\u00f6reg\u00e5ende kort",
+		"g\u00e5 tillbaka",
+		"bakre",
+		"f\u00f6reg\u00e5ende bild",
+		"ta ett steg tillbaka",
+		"/^tillbaka$/"
+	],
+	"slide/first": [
+		"f\u00f6rsta bilden",
+		"g\u00e5 till b\u00f6rjan",
+		"b\u00f6rja om fr\u00e5n b\u00f6rjan",
+		"fr\u00e5n toppen",
+		"b\u00f6rjan tack"
+	],
+	"slide/last": [
+		"sista bilden",
+		"g\u00e5 till slutet",
+		"sista bilden",
+		"hoppa till slutet"
+	],
+	"slide/navigate": [
+		"g\u00e5 till {fr\u00e5ga}",
+		"visa mig {fr\u00e5ga}",
+		"hitta {fr\u00e5ga}",
+		"hoppa till {fr\u00e5ga}",
+		"navigera till {fr\u00e5ga}",
+		"ta mig till {fr\u00e5ga}",
+		"\u00f6ppna {fr\u00e5gan}",
+		"visa bilden {query}",
+		"hitta bilden {query}",
+		"g\u00e5 till bilden {query}"
+	],
+	"reveal/next": [
+		"avsl\u00f6ja",
+		"visa mer",
+		"n\u00e4sta punkt",
+		"forts\u00e4tta",
+		"n\u00e4sta punkt"
+	],
+	"video/play": [
+		"spela",
+		"spela upp video",
+		"spela upp videon",
+		"starta video",
+		"CV-video",
+		"\u00e5teruppta pausen",
+		"/^spela$/"
+	],
+	"video/pause": [
+		"paus",
+		"pausa videon",
+		"stoppa videon",
+		"h\u00e5lla fast",
+		"/^paus$/"
+	],
+	"video/seek": [
+		"g\u00e5 till",
+		"s\u00f6ka att",
+		"hoppa till",
+		"hoppa till",
+		"snabbspola fram till",
+		"spola tillbaka till"
+	],
+	"video/seek/relative": [
+		"g\u00e5 tillbaka {tid}",
+		"tillbaka {tid}",
+		"spola tillbaka {tid}",
+		"hoppa tillbaka {tid}",
+		"g\u00e5 fram\u00e5t {tid}",
+		"hoppa fram\u00e5t {tid}",
+		"hoppa fram\u00e5t {tid}",
+		"snabbspola fram\u00e5t {tid}",
+		"fram\u00e5t {tid}"
+	],
+	"gallery/next": [
+		"n\u00e4sta bild",
+		"n\u00e4sta foto",
+		"n\u00e4sta bild",
+		"hoppa \u00f6ver bilden",
+		"\u00e4ndra bakgrunden"
+	],
+	"gallery/pause": [
+		"pausa bakgrunden",
+		"stoppa bakgrunden",
+		"frysbakgrund",
+		"h\u00e5ll bakgrunden",
+		"pausa bilderna"
+	],
+	"gallery/resume": [
+		"CV-bakgrund",
+		"forts\u00e4tt bakgrunden",
+		"b\u00f6rja bakgrunden igen",
+		"\u00e5teruppta bakgrunden"
+	],
+	"gallery/remove": [
+		"ta bort den h\u00e4r bilden",
+		"hoppa \u00f6ver den h\u00e4r bilden",
+		"d\u00f6lj det h\u00e4r fotot",
+		"ta bort aktuell bild",
+		"ta bort det h\u00e4r fotot"
+	],
+	"gallery/caption/remove": [
+		"ta bort bildtexten",
+		"d\u00f6lj bildtexten",
+		"tydlig bildtext",
+		"ta bort bildtexten",
+		"d\u00f6lj bildtexten"
+	],
+	"highlight": [
+		"markera",
+		"peka p\u00e5",
+		"visa mig",
+		"betona",
+		"fokusera p\u00e5",
+		"m\u00e4rke",
+		"ropa"
+	],
+	"zoom/in": [
+		"zooma in",
+		"zoom",
+		"st\u00f6rre",
+		"f\u00f6rstora",
+		"f\u00f6rstora",
+		"g\u00f6ra den st\u00f6rre",
+		"n\u00e4rmare"
+	],
+	"zoom/out": [
+		"zooma ut",
+		"mindre",
+		"krympa",
+		"dra sig tillbaka",
+		"g\u00f6ra den mindre",
+		"ta ett steg tillbaka",
+		"bredare vy"
+	],
+	"zoom/reset": [
+		"\u00e5terst\u00e4ll zoomen",
+		"zoom\u00e5terst\u00e4llning",
+		"normal storlek",
+		"anpassa till sk\u00e4rmen",
+		"zooma f\u00f6r att passa"
+	],
+	"scroll/down": [
+		"skrolla ner",
+		"forts\u00e4tta",
+		"mer",
+		"forts\u00e4tt ner",
+		"sida ner",
+		"nedan"
+	],
+	"scroll/up": [
+		"skrolla upp\u00e5t",
+		"g\u00e5 upp",
+		"backa upp",
+		"upp\u00e5t",
+		"sida upp",
+		"ovan"
+	],
+	"scroll/top": [
+		"skrolla till toppen",
+		"g\u00e5 till toppen",
+		"tillbaka till toppen",
+		"b\u00f6rjan av sidan",
+		"\u00f6verst p\u00e5 sidan"
+	],
+	"scroll/bottom": [
+		"skrolla till botten",
+		"g\u00e5 till botten",
+		"slutet av sidan",
+		"l\u00e4ngst ner p\u00e5 sidan"
+	],
+	"fullscreen": [
+		"helsk\u00e4rm",
+		"helsk\u00e4rm",
+		"maximera",
+		"fyll sk\u00e4rm",
+		"g\u00f6r det fullt"
+	],
+	"image/generate": [
+		"generera en bild av {prompt}",
+		"skapa en bild av {prompt}",
+		"visa mig {fr\u00e5ga}",
+		"visualisera {uppmaning}",
+		"rita {uppmaning}",
+		"g\u00f6r en bild av {uppmana}"
+	],
+	"tool/generate": [
+		"bygga en {fr\u00e5ga}",
+		"skapa en {fr\u00e5ga}",
+		"bygg en {fr\u00e5ga} \u00e5t mig",
+		"generera en {prompt}-widget",
+		"skapa ett {prompt} verktyg",
+		"skapa ett {prompt}-verktyg"
+	],
+	"stream/create": [
+		"skapa en {prompt}-str\u00f6m",
+		"skapa en {prompt} stream",
+		"starta en {fr\u00e5ga}",
+		"skapa ett {prompt}-spel",
+		"l\u00e5t oss spela {uppmaning}",
+		"konfigurera en {prompt}"
+	],
+	"stream/grantAccess": [
+		"ge {name} \u00e5tkomst till inl\u00e4gget",
+		"l\u00e5t {name} posta",
+		"ge {name} skriv\u00e5tkomst",
+		"till\u00e5t {name} att posta",
+		"l\u00e4gg till {name} som g\u00e4st",
+		"bjud in {namn} att posta"
+	],
+	"stream/revokeAccess": [
+		"ta bort \u00e5tkomst f\u00f6r {name}",
+		"\u00e5terkalla {name}s \u00e5tkomst",
+		"ta bort {name}s \u00e5tkomst",
+		"ta bort {name} fr\u00e5n str\u00f6mmen",
+		"blockera {name} fr\u00e5n att posta"
+	]
+}

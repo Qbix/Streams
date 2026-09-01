@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Pase a la siguiente diapositiva. Emite flujos/diapositiva {slideIndex: current+1}.",
+		"slide/prev": "Volver a la diapositiva anterior. Emite flujos/diapositiva {slideIndex: current-1}.",
+		"slide/first": "Saltar a la primera diapositiva. Emite Streams/slide {slideIndex: 0}.",
+		"slide/last": "Saltar a la \u00faltima diapositiva. Emite Streams/slide {slideIndex: 9999}.",
+		"slide/navigate": "Saltar a una diapositiva por consulta de contenido. Captura {consulta}.",
+		"reveal/next": "Revela el siguiente elemento progresivo. Emite Streams/reveal {revealIndex: current+1}.",
+		"video/play": "Reproducir v\u00eddeo. Emite Streams/play {}.",
+		"video/pause": "Pausar v\u00eddeo. Emite Streams/pause {}.",
+		"video/seek": "Buscar en el tiempo absoluto. Emite Streams/seek {pos: segundos}. Captura {tiempo}.",
+		"video/seek/relative": "B\u00fasqueda por desplazamiento. Emite flujos/b\u00fasqueda {pos: &#39;+/-segundos&#39;}. Captura {tiempo}.",
+		"gallery/next": "Siguiente imagen de archivo. Emite Streams/gallery/next.",
+		"gallery/pause": "Congelar material de archivo. Emite secuencias/galer\u00eda/pausa.",
+		"gallery/resume": "Reanudar el material de archivo. Emite Streams/galer\u00eda/resumen.",
+		"gallery/remove": "Ocultar la imagen de archivo actual. Emite Streams/gallery/remove.",
+		"gallery/caption/remove": "Ocultar subt\u00edtulos de las tomas de apoyo. Emite Streams/gallery/caption {remove: true}.",
+		"highlight": "Resaltar elemento del gr\u00e1fico. Emite Streams/highlight {elementId}. Captura {target}.",
+		"zoom/in": "Zoom de 1,5x. Emite flujos/zoom {escala: actual*1,5}.",
+		"zoom/out": "Aleja el zoom 1,5x. Emite flujos/zoom {escala: actual/1,5}.",
+		"zoom/reset": "Restablecer el zoom a 1. Emite Streams/zoom {scale: 1}.",
+		"scroll/down": "Despl\u00e1zate hacia abajo un 20%. Emite Q/scroll {top: &#39;+20%&#39;}.",
+		"scroll/up": "Despl\u00e1zate hacia arriba un 20%. Emite Q/scroll {top: &#39;-20%&#39;}.",
+		"scroll/top": "Despl\u00e1zate hacia arriba. Emite Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Despl\u00e1zate hacia abajo. Emite Q/scroll {top: &#39;100%&#39;}.",
+		"fullscreen": "Activar/desactivar pantalla completa.",
+		"image/generate": "Imagen generada por LLM. Captura {prompt}.",
+		"tool/generate": "Widget generado por LLM. Captura {prompt}.",
+		"stream/create": "Crea una nueva transmisi\u00f3n (ajedrez, encuesta, etc.). Captura {prompt}.",
+		"stream/grantAccess": "Otorgar acceso de escritura. Captura {nombre, nivel de escritura}.",
+		"stream/revokeAccess": "Revocar acceso. Captura {nombre}."
+	},
+	"slide/next": [
+		"siguiente diapositiva",
+		"siguiente tarjeta",
+		"avanzar",
+		"siga adelante",
+		"avance",
+		"Siguiente, por favor",
+		"el siguiente",
+		"mostrar siguiente",
+		"/^next$/"
+	],
+	"slide/prev": [
+		"Diapositiva anterior",
+		"tarjeta anterior",
+		"volver",
+		"uno atr\u00e1s",
+		"diapositiva anterior",
+		"paso atr\u00e1s",
+		"/^atr\u00e1s$/"
+	],
+	"slide/first": [
+		"primera diapositiva",
+		"ir al principio",
+		"volver a empezar",
+		"desde arriba",
+		"comienzo por favor"
+	],
+	"slide/last": [
+		"\u00faltima diapositiva",
+		"ir al final",
+		"diapositiva final",
+		"saltar al final"
+	],
+	"slide/navigate": [
+		"ir a {consulta}",
+		"Mu\u00e9strame {consulta}",
+		"encontrar {consulta}",
+		"saltar a {consulta}",
+		"navegar a {consulta}",
+		"ll\u00e9vame a {consulta}",
+		"abrir la {consulta}",
+		"mostrar la diapositiva {query}",
+		"encontrar la diapositiva {query}",
+		"Ir a la diapositiva {query}"
+	],
+	"reveal/next": [
+		"revelar",
+		"mostrar m\u00e1s",
+		"siguiente punto",
+		"continuar",
+		"siguiente vi\u00f1eta"
+	],
+	"video/play": [
+		"jugar",
+		"reproducir video",
+		"reproducir el video",
+		"iniciar video",
+		"V\u00eddeo de resumen",
+		"reanudar",
+		"/^play$/"
+	],
+	"video/pause": [
+		"pausa",
+		"pausar el v\u00eddeo",
+		"detener el v\u00eddeo",
+		"esperar",
+		"/^pausa$/"
+	],
+	"video/seek": [
+		"ir a",
+		"buscar",
+		"saltar a",
+		"saltar a",
+		"avance r\u00e1pido a",
+		"retroceder a"
+	],
+	"video/seek/relative": [
+		"volver atr\u00e1s {tiempo}",
+		"atr\u00e1s {tiempo}",
+		"rebobinar {tiempo}",
+		"retroceder {tiempo}",
+		"avanzar {tiempo}",
+		"Saltar hacia adelante {tiempo}",
+		"Saltar adelante {tiempo}",
+		"avance r\u00e1pido {tiempo}",
+		"adelante {tiempo}"
+	],
+	"gallery/next": [
+		"siguiente imagen",
+		"siguiente foto",
+		"siguiente imagen",
+		"omitir imagen",
+		"cambiar el fondo"
+	],
+	"gallery/pause": [
+		"pausar fondo",
+		"detener el fondo",
+		"fondo de congelaci\u00f3n",
+		"mantener el fondo",
+		"pausar las im\u00e1genes"
+	],
+	"gallery/resume": [
+		"Antecedentes del curr\u00edculum",
+		"Continuar trasfondo",
+		"volver a iniciar el segundo plano",
+		"reanudar el segundo plano"
+	],
+	"gallery/remove": [
+		"eliminar esta imagen",
+		"omitir esta imagen",
+		"ocultar esta foto",
+		"eliminar la imagen actual",
+		"eliminar esta foto"
+	],
+	"gallery/caption/remove": [
+		"eliminar leyenda",
+		"ocultar leyenda",
+		"leyenda clara",
+		"eliminar el pie de foto",
+		"ocultar el pie de foto"
+	],
+	"highlight": [
+		"destacar",
+		"se\u00f1alar a",
+		"mu\u00e9strame",
+		"enfatizar",
+		"concentrarse en",
+		"marca",
+		"gritar"
+	],
+	"zoom/in": [
+		"dar un golpe de zoom",
+		"zoom",
+		"m\u00e1s grande",
+		"agrandar",
+		"aumentar",
+		"hacerlo m\u00e1s grande",
+		"\u00edntimamente"
+	],
+	"zoom/out": [
+		"alejar la imagen",
+		"menor",
+		"encoger",
+		"echar para atr\u00e1s",
+		"hacerlo m\u00e1s peque\u00f1o",
+		"paso atr\u00e1s",
+		"visi\u00f3n m\u00e1s amplia"
+	],
+	"zoom/reset": [
+		"restablecer zoom",
+		"restablecer zoom",
+		"tama\u00f1o normal",
+		"ajustar a la pantalla",
+		"Ampliar para ajustar"
+	],
+	"scroll/down": [
+		"Despl\u00e1zate hacia abajo",
+		"sigue adelante",
+		"m\u00e1s",
+		"continuar hacia abajo",
+		"p\u00e1gina abajo",
+		"abajo"
+	],
+	"scroll/up": [
+		"despl\u00e1zate hacia arriba",
+		"subir",
+		"respaldo",
+		"hacia arriba",
+		"p\u00e1gina arriba",
+		"arriba"
+	],
+	"scroll/top": [
+		"Despl\u00e1cese hacia arriba",
+		"Ir al inicio",
+		"volver arriba",
+		"comienzo de p\u00e1gina",
+		"parte superior de la p\u00e1gina"
+	],
+	"scroll/bottom": [
+		"Despl\u00e1cese hacia abajo",
+		"ir al final",
+		"fin de p\u00e1gina",
+		"parte inferior de la p\u00e1gina"
+	],
+	"fullscreen": [
+		"pantalla completa",
+		"pantalla completa",
+		"maximizar",
+		"pantalla completa",
+		"llenarlo"
+	],
+	"image/generate": [
+		"generar una imagen de {prompt}",
+		"crear una imagen de {prompt}",
+		"Mu\u00e9strame {prompt}",
+		"visualizar {prompt}",
+		"dibujar {prompt}",
+		"hacer una imagen de {prompt}"
+	],
+	"tool/generate": [
+		"construir un {prompt}",
+		"crear un {prompt}",
+		"Construye un {prompt}",
+		"generar un widget {prompt}",
+		"crear una herramienta {prompt}",
+		"crear una herramienta {prompt}"
+	],
+	"stream/create": [
+		"crear un flujo {prompt}",
+		"crear un flujo {prompt}",
+		"iniciar un {prompt}",
+		"crear un juego {prompt}",
+		"Juguemos {prompt}",
+		"configurar un {prompt}"
+	],
+	"stream/grantAccess": [
+		"otorgar a {name} acceso a la publicaci\u00f3n",
+		"dejar que {nombre} publique",
+		"otorgar acceso de escritura a {name}",
+		"permitir que {name} publique",
+		"agregar {name} como invitado",
+		"Invitar a {name} a publicar"
+	],
+	"stream/revokeAccess": [
+		"eliminar el acceso de {name}",
+		"revocar el acceso de {nombre}",
+		"quitarle el acceso a {name}",
+		"eliminar {name} del flujo",
+		"Bloquear a {name} para que no publique"
+	]
+}

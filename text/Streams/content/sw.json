@@ -153,14 +153,20 @@
 			"byTelegram": "Telegramu",
 			"byWhatsapp": "WhatsApp",
 			"addRoles": "Ongeza Majukumu",
-			"addPersonalRoles": "Ongeza Mahusiano ya Kibinafsi"
+			"addPersonalRoles": "Ongeza Mahusiano ya Kibinafsi",
+			"AddCommunityRoles": "Ongeza majukumu ya jumuiya",
+			"AddParticipantRoles": "Ongeza majukumu katika {{streamDisplayType}} hii",
+			"YouWereInvited": "Ulialikwa"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Karibu kwenye {{communityName}}",
 			"HasInvitedYou": "amekualika kwa:",
 			"HasInvitedYouToTheirProfile": "amekualika kuunganishwa.",
 			"prompt": "Waruhusu marafiki wakutambue:",
-			"accept": "Kubali Mwaliko"
+			"accept": "Kubali",
+			"RolesOffered": "Majukumu unayopewa:",
+			"decline": "Kukataa",
+			"ParticipantRolesOffered": "Jukumu lako katika {{streamDisplayType}} hii:"
 		},
 		"email": {
 			"subject": "Haya, angalia hii",
@@ -180,7 +186,10 @@
 		"chat": {
 			"prompt": "Utakuwa ukialika watu kwenye mazungumzo ambapo unaweza kuwasiliana, kushiriki picha pamoja, na zaidi. Ipe jina:"
 		},
-		"Participants": "Alika Watu"
+		"Participants": "Alika Watu",
+		"inperson": {
+			"description": "Tengeneza msimbo wa QR na uupitishe, ili uchanganuliwe. Kila mtu anayeuchanganua atabaki ameunganishwa na mwenzake:"
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +373,11 @@
 		"Streams/outgoing": {
 			"displayType": "Anayemaliza muda wake",
 			"description": "mahali pa kurekodi ujumbe uliotumwa kwa watumiaji wengine au mifumo ya nje"
+		},
+		"Streams/ontology": {
+			"displayType": "Ontolojia",
+			"description": "ontolojia",
+			"newItem": "Ongeza Ontolojia"
 		}
 	},
 	"menu": {
@@ -548,5 +562,16 @@
 		"IntervalLabel": "Muda (ms): ",
 		"IntervalPlaceholder": "mfano 3000",
 		"KenburnsInstruction": "Weka Ken Burns anza na umalizie kwa kuburuta na kukuza."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Mwenyeji",
+				"speaker": "Spika",
+				"volunteer": "Kujitolea",
+				"moderator": "Msimamizi",
+				"guest": "Mgeni"
+			}
+		}
 	}
 }

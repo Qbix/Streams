@@ -156,14 +156,20 @@
 			"chooseFromRegistered": "Choose from registered users",
 			"inviteViaEmailOrSms": "Invite via email or SMS",
 			"addRoles": "Add Roles",
-			"addPersonalRoles": "Add Personal Relationships"
+			"addPersonalRoles": "Add Personal Relationships",
+			"AddCommunityRoles": "Add community roles",
+			"AddParticipantRoles": "Add roles in this {{streamDisplayType}}",
+			"YouWereInvited": "You Were Invited"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Welcome to {{communityName}}",
 			"HasInvitedYou": "has invited you to:",
 			"HasInvitedYouToTheirProfile": "has invited you to connect.",
+			"RolesOffered": "Roles you're being offered:",
 			"prompt": "Let friends recognize you:",
-			"accept": "Accept Invite"
+			"accept": "Accept",
+			"decline": "Decline",
+			"ParticipantRolesOffered": "Your role in this {{streamDisplayType}}:"
 		},
 		"email": {
 			"subject": "Hey, check this out",
@@ -182,6 +188,9 @@
 		},
 		"chat": {
 			"prompt": "You'll be inviting people to a conversation where you can stay in touch, share photos together, and more. Give it a name:"
+		},
+		"inperson": {
+			"description": "Generate a QR code and pass it around, to be scanned. Everyone who scans it will stay connected with each other:"
 		}
 	},
 	"messages": {
@@ -552,5 +561,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "e.g. 3000",
 		"KenburnsInstruction": "Set Ken Burns start and end by dragging and zooming."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Host",
+				"speaker": "Speaker",
+				"volunteer": "Volunteer",
+				"moderator": "Moderator",
+				"guest": "Guest"
+			}
+		}
 	}
 }

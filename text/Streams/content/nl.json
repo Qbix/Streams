@@ -153,14 +153,20 @@
 			"byTelegram": "Telegram",
 			"byWhatsapp": "WhatsAppen",
 			"addRoles": "Rollen toevoegen",
-			"addPersonalRoles": "Voeg persoonlijke relaties toe"
+			"addPersonalRoles": "Voeg persoonlijke relaties toe",
+			"AddCommunityRoles": "Voeg communityrollen toe",
+			"AddParticipantRoles": "Voeg rollen toe in deze {{streamDisplayType}}",
+			"YouWereInvited": "Je was uitgenodigd"
 		},
 		"complete": {
 			"WelcomeToCommunity": "Welkom bij {{communityName}}",
 			"HasInvitedYou": "heeft u uitgenodigd voor:",
 			"HasInvitedYouToTheirProfile": "heeft je uitgenodigd om verbinding te maken.",
 			"prompt": "Laat vrienden je herkennen:",
-			"accept": "Uitnodiging accepteren"
+			"accept": "Accepteren",
+			"RolesOffered": "Functies die u worden aangeboden:",
+			"decline": "Afwijzen",
+			"ParticipantRolesOffered": "Jouw rol in deze {{streamDisplayType}} :"
 		},
 		"email": {
 			"subject": "H\u00e9, kijk hier eens naar",
@@ -180,7 +186,10 @@
 		"chat": {
 			"prompt": "Je nodigt mensen uit voor een gesprek waarin je contact kunt houden, samen foto&#39;s kunt delen en meer. Geef het een naam:"
 		},
-		"Participants": "Mensen uitnodigen"
+		"Participants": "Mensen uitnodigen",
+		"inperson": {
+			"description": "Genereer een QR-code en deel deze uit, zodat iedereen hem kan scannen. Iedereen die de code scant, blijft met elkaar in contact."
+		}
 	},
 	"messages": {
 		"html": {
@@ -364,6 +373,11 @@
 		"Streams/outgoing": {
 			"displayType": "Uitgaand",
 			"description": "Bestemming voor het opslaan van berichten die naar andere gebruikers of externe systemen worden verzonden."
+		},
+		"Streams/ontology": {
+			"displayType": "Ontologie",
+			"description": "ontologie",
+			"newItem": "Ontologie toevoegen"
 		}
 	},
 	"menu": {
@@ -548,5 +562,16 @@
 		"IntervalLabel": "Interval (ms): ",
 		"IntervalPlaceholder": "bijv. 3000",
 		"KenburnsInstruction": "Stel het begin en einde van Ken Burns in door te slepen en te zoomen."
+	},
+	"participant": {
+		"roles": {
+			"*": {
+				"host": "Gastheer",
+				"speaker": "Spreker",
+				"volunteer": "Vrijwilliger",
+				"moderator": "Moderator",
+				"guest": "Gast"
+			}
+		}
 	}
 }

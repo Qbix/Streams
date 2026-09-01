@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "N\u00f6vb\u0259ti slayda ke\u00e7in. Ax\u0131nlar/slide {slideIndex: current+1} g\u00f6nd\u0259rir.",
+		"slide/prev": "\u018fvv\u0259lki slayda qay\u0131d\u0131n. Ax\u0131nlar/slide {slideIndex: current-1} g\u00f6nd\u0259rir.",
+		"slide/first": "\u0130lk slayda ke\u00e7in. Ax\u0131nlar/slide {slideIndex: 0} g\u00f6nd\u0259rir.",
+		"slide/last": "Sonuncu slayda ke\u00e7in. Ax\u0131nlar/slide {slideIndex: 9999} g\u00f6nd\u0259rir.",
+		"slide/navigate": "M\u0259zmun sor\u011fusuna g\u00f6r\u0259 slayda ke\u00e7in. {query}-i \u0259l\u0259 ke\u00e7irir.",
+		"reveal/next": "N\u00f6vb\u0259ti proqressiv elementi g\u00f6st\u0259rir. Ax\u0131nlar/a\u015fkarlama {revealIndex: current+1} g\u00f6nd\u0259rir.",
+		"video/play": "Videonu oxudun. Ax\u0131nlar yay\u0131mlay\u0131r/oxut {}.",
+		"video/pause": "Videonu dayand\u0131r\u0131n. Ax\u0131nlar yay\u0131mlay\u0131r/pauza verir {}.",
+		"video/seek": "M\u00fctl\u0259q zamana do\u011fru axtar\u0131n. Ax\u0131nlar/axtar\u0131\u015f {pos: saniy\u0259} yay\u0131r. {vaxt}-\u0131 \u0259l\u0259 ke\u00e7irir.",
+		"video/seek/relative": "Ofsetl\u0259 axtar\u0131n. Ax\u0131nlar/axtar\u0131\u015f {pos: &#39;+/-saniy\u0259&#39;} yay\u0131mlay\u0131r. {vaxt} \u00e7\u0259kir.",
+		"gallery/next": "N\u00f6vb\u0259ti b-roll \u015f\u0259kli. Yay\u0131mlar/qalereya/n\u00f6vb\u0259ti.",
+		"gallery/pause": "B-rollu dondurun. Yay\u0131mlar/qalereya/fasil\u0259.",
+		"gallery/resume": "B-roll-u davam etdirin. Yay\u0131mlar/qalereya/CV yay\u0131mlay\u0131r.",
+		"gallery/remove": "Cari b-roll \u015f\u0259klini gizl\u0259t. Yay\u0131mlanan ax\u0131nlar/qalereya/sil.",
+		"gallery/caption/remove": "B-roll ba\u015fl\u0131\u011f\u0131n\u0131 gizl\u0259t. Yay\u0131mlar/qalereya/ba\u015fl\u0131q {remove: true}.",
+		"highlight": "Diaqram elementini vur\u011fulay\u0131r. {elementId} ax\u0131nlar\u0131n\u0131 yay\u0131mlay\u0131r/vur\u011fulay\u0131r. {target}-i tutur.",
+		"zoom/in": "1.5x b\u00f6y\u00fct. Ax\u0131nlar/b\u00f6y\u00fctm\u0259 {miqyas: cari*1.5} yay\u0131r.",
+		"zoom/out": "1.5x ki\u00e7ildin. Ax\u0131nlar/zoom {miqyas: cari/1.5} yay\u0131r.",
+		"zoom/reset": "Yax\u0131nla\u015fd\u0131rman\u0131 1-\u0259 s\u0131f\u0131rlay\u0131n. Ax\u0131nlar/yay\u0131m {miqyas: 1} yay\u0131r.",
+		"scroll/down": "20% a\u015fa\u011f\u0131 diyirl\u0259yin. Q/scroll {top: &#39;+20%&#39;} bildiri\u015fi g\u00f6nd\u0259rir.",
+		"scroll/up": "Yuxar\u0131 s\u00fcr\u00fc\u015fd\u00fcr\u00fcn 20%. Q/scroll {top: &#39;-20%&#39;} siqnal\u0131 verir.",
+		"scroll/top": "Yuxar\u0131 diyirl\u0259yin. Q/scroll {top: &#39;0%&#39;} \u0259mrini verir.",
+		"scroll/bottom": "A\u015fa\u011f\u0131 diyirl\u0259yin. Q/scroll {top: &#39;100%&#39;} bildiri\u015fi g\u00f6nd\u0259rir.",
+		"fullscreen": "Tam ekran rejimini a\u00e7/ba\u011fla.",
+		"image/generate": "LLM t\u0259r\u0259find\u0259n yarad\u0131lan \u015f\u0259kil. {Sual}-\u0131 \u00e7\u0259kir.",
+		"tool/generate": "LLM t\u0259r\u0259find\u0259n yarad\u0131lan vidjet. {prompt}-i \u0259l\u0259 ke\u00e7irir.",
+		"stream/create": "Yeni yay\u0131m yarad\u0131n (\u015fahmat, sor\u011fu v\u0259 s.). Tutmalar {istinad}.",
+		"stream/grantAccess": "Yazma icaz\u0259si verin. {name, writeLevel} g\u00f6r\u00fcnt\u00fcl\u0259rini \u0259l\u0259 ke\u00e7irir.",
+		"stream/revokeAccess": "Giri\u015fi l\u0259\u011fv edin. {name}-i \u0259l\u0259 ke\u00e7irir."
+	},
+	"slide/next": [
+		"n\u00f6vb\u0259ti slayd",
+		"n\u00f6vb\u0259ti kart",
+		"ir\u0259li getm\u0259k",
+		"ir\u0259lil\u0259",
+		"ir\u0259lil\u0259m\u0259k",
+		"n\u00f6vb\u0259ti xahi\u015f edir\u0259m",
+		"n\u00f6vb\u0259ti",
+		"n\u00f6vb\u0259ti g\u00f6st\u0259r",
+		"/^n\u00f6vb\u0259ti$/"
+	],
+	"slide/prev": [
+		"\u0259vv\u0259lki slayd",
+		"\u0259vv\u0259lki kart",
+		"geri qay\u0131t",
+		"arxa bir",
+		"\u0259vv\u0259lki slayd",
+		"geri \u00e7\u0259kilm\u0259k",
+		"/^geri$/"
+	],
+	"slide/first": [
+		"ilk slayd",
+		"\u0259vv\u0259lin\u0259 ke\u00e7",
+		"yenid\u0259n ba\u015flamaq",
+		"yuxar\u0131dan",
+		"xahi\u015f edir\u0259m ba\u015flay\u0131r"
+	],
+	"slide/last": [
+		"son slayd",
+		"sonuna q\u0259d\u0259r get",
+		"son slayd",
+		"sonuna ke\u00e7in"
+	],
+	"slide/navigate": [
+		"{query} s\u0259hif\u0259sin\u0259 ke\u00e7in",
+		"m\u0259n\u0259 g\u00f6st\u0259r {query}",
+		"{sor\u011fu} tap\u0131n",
+		"{sor\u011fu}-a ke\u00e7in",
+		"{query} s\u0259hif\u0259sin\u0259 ke\u00e7in",
+		"M\u0259ni {query}-\u0259 apar\u0131n",
+		"{sor\u011fu} a\u00e7\u0131n",
+		"{query} slayd\u0131n\u0131 g\u00f6st\u0259r",
+		"{query} slayd\u0131n\u0131 tap\u0131n",
+		"{query} slayd\u0131na ke\u00e7in"
+	],
+	"reveal/next": [
+		"a\u015fkar etm\u0259k",
+		"daha \u00e7ox g\u00f6st\u0259r",
+		"n\u00f6vb\u0259ti n\u00f6qt\u0259",
+		"davam et",
+		"n\u00f6vb\u0259ti g\u00fcll\u0259"
+	],
+	"video/play": [
+		"oyun",
+		"videonu oxut",
+		"videonu oxudun",
+		"videoya ba\u015flay\u0131n",
+		"CV videosu",
+		"fasil\u0259ni a\u00e7",
+		"/^oynamaq$/"
+	],
+	"video/pause": [
+		"fasil\u0259",
+		"videonu dayand\u0131r\u0131n",
+		"videonu dayand\u0131r\u0131n",
+		"g\u00f6zl\u0259",
+		"/^pauza$/"
+	],
+	"video/seek": [
+		"getm\u0259k",
+		"axtarmaq",
+		"tullanmaq",
+		"ke\u00e7in",
+		"s\u00fcr\u0259tl\u0259 ir\u0259li",
+		"geriy\u0259"
+	],
+	"video/seek/relative": [
+		"geri qay\u0131t {vaxt}",
+		"geri {vaxt}",
+		"geri sarma {vaxt}",
+		"geri qay\u0131t {time}",
+		"ir\u0259li getm\u0259k {vaxt}",
+		"ir\u0259li atla {vaxt}",
+		"ir\u0259li ke\u00e7m\u0259k {vaxt}",
+		"s\u00fcr\u0259tli ir\u0259li {vaxt}",
+		"ir\u0259li {vaxt}"
+	],
+	"gallery/next": [
+		"n\u00f6vb\u0259ti \u015f\u0259kil",
+		"n\u00f6vb\u0259ti foto",
+		"n\u00f6vb\u0259ti \u015f\u0259kil",
+		"\u015f\u0259kli atlay\u0131n",
+		"fonu d\u0259yi\u015fdirin"
+	],
+	"gallery/pause": [
+		"fonu dayand\u0131r\u0131n",
+		"fonu dayand\u0131r\u0131n",
+		"fonu dondurun",
+		"arxa plan\u0131 saxlay\u0131n",
+		"\u015f\u0259kill\u0259ri dayand\u0131r\u0131n"
+	],
+	"gallery/resume": [
+		"CV-nin arxa plan\u0131",
+		"arxa plana davam edin",
+		"arxa fonu yenid\u0259n ba\u015flad\u0131n",
+		"fonu dayand\u0131r\u0131n"
+	],
+	"gallery/remove": [
+		"bu \u015f\u0259kli silin",
+		"bu \u015f\u0259kli atlay\u0131n",
+		"bu \u015f\u0259kli gizl\u0259t",
+		"cari \u015f\u0259kli silin",
+		"bu \u015f\u0259kli silin"
+	],
+	"gallery/caption/remove": [
+		"ba\u015fl\u0131\u011f\u0131 silin",
+		"Ba\u015fl\u0131\u011f\u0131 gizl\u0259t",
+		"ayd\u0131n ba\u015fl\u0131q",
+		"ba\u015fl\u0131\u011f\u0131 silin",
+		"ba\u015fl\u0131\u011f\u0131 gizl\u0259t"
+	],
+	"highlight": [
+		"vur\u011fulamaq",
+		"i\u015far\u0259 edin",
+		"m\u0259n\u0259 g\u00f6st\u0259r",
+		"vur\u011fulamaq",
+		"diqq\u0259t yetirin",
+		"i\u015far\u0259",
+		"\u00e7a\u011f\u0131rmaq"
+	],
+	"zoom/in": [
+		"yax\u0131nla\u015fd\u0131rma",
+		"zum",
+		"daha b\u00f6y\u00fck",
+		"b\u00f6y\u00fctm\u0259k",
+		"b\u00f6y\u00fctm\u0259k",
+		"daha b\u00f6y\u00fck edin",
+		"daha yax\u0131n"
+	],
+	"zoom/out": [
+		"uzaqla\u015fd\u0131r",
+		"daha ki\u00e7ik",
+		"ki\u00e7ilm\u0259k",
+		"geri \u00e7\u0259kilm\u0259k",
+		"onu daha ki\u00e7ik edin",
+		"geri \u00e7\u0259kilm\u0259k",
+		"daha geni\u015f g\u00f6r\u00fcn\u00fc\u015f"
+	],
+	"zoom/reset": [
+		"b\u00f6y\u00fctm\u0259ni s\u0131f\u0131rlay\u0131n",
+		"b\u00f6y\u00fctm\u0259 s\u0131f\u0131rlamas\u0131",
+		"normal \u00f6l\u00e7\u00fc",
+		"ekrana uy\u011fun",
+		"uy\u011funla\u015fd\u0131rmaq \u00fc\u00e7\u00fcn b\u00f6y\u00fct"
+	],
+	"scroll/down": [
+		"a\u015fa\u011f\u0131 diyirl\u0259yin",
+		"davam et",
+		"daha \u00e7ox",
+		"a\u015fa\u011f\u0131ya davam edin",
+		"s\u0259hif\u0259 a\u015fa\u011f\u0131",
+		"a\u015fa\u011f\u0131da"
+	],
+	"scroll/up": [
+		"yuxar\u0131 s\u00fcr\u00fc\u015fd\u00fcr\u00fcn",
+		"yuxar\u0131 qalxmaq",
+		"ehtiyat n\u00fcsx\u0259sini \u00e7\u0131xar\u0131n",
+		"yuxar\u0131ya",
+		"s\u0259hif\u0259 yuxar\u0131",
+		"yuxar\u0131da"
+	],
+	"scroll/top": [
+		"yuxar\u0131 s\u00fcr\u00fc\u015fd\u00fcr\u00fcn",
+		"yuxar\u0131ya ke\u00e7in",
+		"yuxar\u0131 qay\u0131t",
+		"s\u0259hif\u0259nin \u0259vv\u0259li",
+		"s\u0259hif\u0259nin yuxar\u0131 hiss\u0259si"
+	],
+	"scroll/bottom": [
+		"a\u015fa\u011f\u0131 s\u00fcr\u00fc\u015fd\u00fcr\u00fcn",
+		"\u0259n a\u015fa\u011f\u0131ya ke\u00e7in",
+		"s\u0259hif\u0259nin sonu",
+		"s\u0259hif\u0259nin alt hiss\u0259si"
+	],
+	"fullscreen": [
+		"tam ekran",
+		"tam ekran",
+		"maksimum d\u0259r\u0259c\u0259d\u0259 art\u0131rmaq",
+		"ekran\u0131 doldurun",
+		"dolu et"
+	],
+	"image/generate": [
+		"{prompt} \u015f\u0259klini yarad\u0131n",
+		"{prompt} \u015f\u0259klini yarad\u0131n",
+		"m\u0259n\u0259 g\u00f6st\u0259r {prompt}",
+		"vizualla\u015fd\u0131rma {prompt}",
+		"\u00e7\u0259km\u0259k {istinad}",
+		"{prompt}-\u0131n \u015f\u0259klini \u00e7\u0259kin"
+	],
+	"tool/generate": [
+		"{istinad} yarad\u0131n",
+		"{istinad} yarad\u0131n",
+		"M\u0259n\u0259 bir {prompt} yarad\u0131n",
+		"{prompt} vidjeti yarad\u0131n",
+		"{prompt} al\u0259ti haz\u0131rlay\u0131n",
+		"{prompt} al\u0259ti yarad\u0131n"
+	],
+	"stream/create": [
+		"{prompt} ax\u0131n\u0131 yarad\u0131n",
+		"{prompt} ax\u0131n\u0131 yarad\u0131n",
+		"{prompt} ba\u015flay\u0131n",
+		"{prompt} oyunu yarad\u0131n",
+		"G\u0259lin {prompt} oynayaq",
+		"{prompt} qurun"
+	],
+	"stream/grantAccess": [
+		"{name}-\u0259 payla\u015f\u0131ma giri\u015f verin",
+		"{name}-in payla\u015f\u0131m\u0131na icaz\u0259 verin",
+		"{name}-\u0259 yazma icaz\u0259si verin",
+		"{name}-in payla\u015f\u0131m\u0131na icaz\u0259 verin",
+		"qonaq kimi {name} \u0259lav\u0259 edin",
+		"{name}-i payla\u015f\u0131m etm\u0259y\u0259 d\u0259v\u0259t edin"
+	],
+	"stream/revokeAccess": [
+		"{name}-nin giri\u015fini silin",
+		"{name}-nin giri\u015fini l\u0259\u011fv et",
+		"{name}-nin giri\u015fini \u0259lind\u0259n almaq",
+		"{name}-i yay\u0131mdan silin",
+		"{name}-in payla\u015f\u0131m etm\u0259sin\u0259 mane olun"
+	]
+}

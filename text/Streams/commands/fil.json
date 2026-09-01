@@ -1,0 +1,41 @@
+{
+	"_comment": "Teksto ng utos ng mga stream. &#39;commands&#39; = display labels (UI); &#39;phrases&#39; = mga kinikilalang parirala, na naka-key ayon sa utos. Mga anyo ng parirala: &quot;substring&quot;, &quot;/regex/&quot;, o naka-template na &quot;give {{name}} access&quot; \u2014 bawat {{token}} ay kino-compile para sa isang capture. Ang mga stream na ngayon ang may-ari ng mga access-control at restyle na utos (mga handler na Streams/commands/streamCommand at Streams/commands/cssUpdate); Pag-navigate sa mga barko ng media; Pagbuo ng mga barko ng AI.",
+	"commands": {
+		"tool/cssUpdate": "Kagamitan sa pagbabago ng estilo",
+		"stream/create": "Gumawa ng stream",
+		"stream/grantAccess": "Magbigay ng access",
+		"stream/revokeAccess": "Bawiin ang access"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"baguhin ang kulay sa {{prompt}}",
+			"palitan ang mga kulay sa {{prompt}}",
+			"kulayan muli ito {{prompt}}",
+			"baguhin ang istilo ng kagamitan {{prompt}}",
+			"gawin ang mga kulay {{prompt}}"
+		],
+		"stream/create": [
+			"lumikha ng {{prompt}} stream",
+			"gumawa ng {{prompt}} stream",
+			"magsimula ng {{prompt}}",
+			"lumikha ng larong {{prompt}}",
+			"Tara maglaro tayo {{prompt}}",
+			"magtayo ng {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"bigyan {{name}} ng access sa post",
+			"hayaan {{name}} na mag-post",
+			"bigyan {{name}} ng access sa pagsulat",
+			"hayaan {{name}} na mag-post",
+			"idagdag ang {{name}} bilang bisita",
+			"imbitahan {{name}} na mag-post"
+		],
+		"stream/revokeAccess": [
+			"tanggalin ang access ng {{name}}",
+			"bawiin ang access ng {{name}}",
+			"alisin ang access sa {{name}}",
+			"tanggalin {{name}} mula sa stream",
+			"harangan ang {{name}} mula sa pag-post"
+		]
+	}
+}

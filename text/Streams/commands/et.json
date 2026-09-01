@@ -1,0 +1,41 @@
+{
+	"_comment": "Voo k\u00e4skude tekst. &#39;k\u00e4sud&#39; = kuvamissildid (UI); &#39;fraasid&#39; = tuvastatud fraasid, k\u00e4suga v\u00f5tmestatud. Fraasivormid: &quot;substring&quot;, &quot;/regex/&quot; v\u00f5i mall &quot;anna {{name}} juurdep\u00e4\u00e4s&quot; \u2014 iga {{token}} kompileeritakse j\u00e4\u00e4dvustuseks. Voogudele kuuluvad n\u00fc\u00fcd juurdep\u00e4\u00e4sukontrolli ja \u00fcmberkujundamise k\u00e4sud (k\u00e4itlejad Streams/commands/streamCommand ja Streams/commands/cssUpdate); Meedia pakub navigeerimist; tehisintellekt pakub genereerimist.",
+	"commands": {
+		"tool/cssUpdate": "Soengu taastamise t\u00f6\u00f6riist",
+		"stream/create": "Loo otse\u00fclekanne",
+		"stream/grantAccess": "Juurdep\u00e4\u00e4su andmine",
+		"stream/revokeAccess": "Juurdep\u00e4\u00e4su t\u00fchistamine"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"muuda v\u00e4rv {{prompt}}",
+			"muuda v\u00e4rvid {{prompt}}",
+			"v\u00e4rvi see \u00fcmber {{prompt}}",
+			"t\u00f6\u00f6riista \u00fcmberkujundamine {{prompt}}",
+			"tee v\u00e4rvid {{prompt}}"
+		],
+		"stream/create": [
+			"loo {{prompt}} voog",
+			"tee {{prompt}} voog",
+			"alusta {{prompt}}",
+			"loo {{prompt}} m\u00e4ng",
+			"M\u00e4ngime {{prompt}}",
+			"seadistama {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"anna {{name}} juurdep\u00e4\u00e4s postitusele",
+			"laske {{name}} postitada",
+			"anna {{name}} le kirjutamis\u00f5igus",
+			"luba {{name}} l postitada",
+			"lisa {{name}} k\u00fclalisena",
+			"kutsu {{name}} postitama"
+		],
+		"stream/revokeAccess": [
+			"eemalda {{name}} juurdep\u00e4\u00e4s",
+			"t\u00fchista {{name}} juurdep\u00e4\u00e4s",
+			"v\u00f5ta {{name}} -lt ligip\u00e4\u00e4s \u00e4ra",
+			"eemalda voost {{name}}",
+			"plokk {{name}} postitamisest"
+		]
+	}
+}

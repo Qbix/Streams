@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Passer \u00e0 la diapositive suivante. \u00c9met des flux/diapositive {slideIndex: current+1}.",
+		"slide/prev": "Retour \u00e0 la diapositive pr\u00e9c\u00e9dente. \u00c9met des flux/diapositive {slideIndex: current-1}.",
+		"slide/first": "Passer \u00e0 la premi\u00e8re diapositive. \u00c9met des flux/diapositive {slideIndex: 0}.",
+		"slide/last": "Passer \u00e0 la derni\u00e8re diapositive. \u00c9met des flux/diapositive {slideIndex: 9999}.",
+		"slide/navigate": "Acc\u00e9der \u00e0 une diapositive par requ\u00eate de contenu. Capture {query}.",
+		"reveal/next": "Afficher l&#39;\u00e9l\u00e9ment progressif suivant. \u00c9met des flux/afficher {revealIndex: current+1}.",
+		"video/play": "Lire la vid\u00e9o. \u00c9met des flux/lecture {}.",
+		"video/pause": "Mettre la vid\u00e9o en pause. \u00c9met des flux/pause {}.",
+		"video/seek": "Recherche l&#39;instant absolu. \u00c9met des flux /seek {pos: secondes}. Capture {temps}.",
+		"video/seek/relative": "Recherche par d\u00e9calage. \u00c9met des flux /seek {pos: &#39;+/-secondes&#39;}. Capture {time}.",
+		"gallery/next": "Image d&#39;illustration suivante. \u00c9met des flux/galerie/suivant.",
+		"gallery/pause": "Geler les images d&#39;illustration. \u00c9met des flux/galerie/pause.",
+		"gallery/resume": "Reprise de s\u00e9quences d&#39;illustration. Diffusion en direct/galerie/CV.",
+		"gallery/remove": "Masquer l&#39;image d&#39;illustration actuelle. \u00c9met des flux/galerie/supprimer.",
+		"gallery/caption/remove": "Masquer la l\u00e9gende des images d&#39;illustration. \u00c9met des flux/galerie/l\u00e9gende {supprimer\u00a0: vrai}.",
+		"highlight": "\u00c9l\u00e9ment de graphique surlign\u00e9. \u00c9met des flux/surlignage {elementId}. Capture {target}.",
+		"zoom/in": "Zoom avant 1,5x. \u00c9met des flux/zoom {\u00e9chelle\u00a0: actuelle*1,5}.",
+		"zoom/out": "D\u00e9zoomer 1,5x. \u00c9met des flux/zoom {\u00e9chelle\u00a0: actuelle/1,5}.",
+		"zoom/reset": "R\u00e9initialiser le zoom \u00e0 1. \u00c9met des flux/zoom {\u00e9chelle\u00a0: 1}.",
+		"scroll/down": "D\u00e9filez vers le bas de 20 %. \u00c9met Q/d\u00e9filement {top: &#39;+20%&#39;}.",
+		"scroll/up": "D\u00e9filez vers le haut de 20 %. \u00c9met Q/d\u00e9filement {top: &#39;-20%&#39;}.",
+		"scroll/top": "D\u00e9filez vers le haut. \u00c9met Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "D\u00e9filez jusqu&#39;en bas. \u00c9met Q/scroll {top: &#39;100%&#39;}.",
+		"fullscreen": "Basculer vers le plein \u00e9cran.",
+		"image/generate": "Image g\u00e9n\u00e9r\u00e9e par LLM. Capture {prompt}.",
+		"tool/generate": "Widget g\u00e9n\u00e9r\u00e9 par LLM. Capture {prompt}.",
+		"stream/create": "Cr\u00e9er un nouveau flux (\u00e9checs, sondage, etc.). Capture {prompt}.",
+		"stream/grantAccess": "Accorder l&#39;acc\u00e8s en \u00e9criture. Capture {nom, niveau d&#39;\u00e9criture}.",
+		"stream/revokeAccess": "R\u00e9voquer l&#39;acc\u00e8s. Capture {name}."
+	},
+	"slide/next": [
+		"diapositive suivante",
+		"carte suivante",
+		"aller de l&#39;avant",
+		"passez",
+		"avance",
+		"Suivant, s&#39;il vous pla\u00eet",
+		"le suivant",
+		"Afficher ensuite",
+		"/^suivant$/"
+	],
+	"slide/prev": [
+		"diapositive pr\u00e9c\u00e9dente",
+		"carte pr\u00e9c\u00e9dente",
+		"retour",
+		"arri\u00e8re",
+		"diapositive pr\u00e9c\u00e9dente",
+		"reculer",
+		"/^retour$/"
+	],
+	"slide/first": [
+		"premi\u00e8re diapositive",
+		"Retour au d\u00e9but",
+		"recommencer",
+		"du haut",
+		"d\u00e9but s&#39;il vous pla\u00eet"
+	],
+	"slide/last": [
+		"derni\u00e8re diapositive",
+		"aller jusqu&#39;au bout",
+		"derni\u00e8re diapositive",
+		"Passer \u00e0 la fin"
+	],
+	"slide/navigate": [
+		"aller \u00e0 {query}",
+		"afficher {requ\u00eate}",
+		"trouver {requ\u00eate}",
+		"passer \u00e0 {query}",
+		"naviguer vers {query}",
+		"Emmenez-moi \u00e0 {query}",
+		"ouvrir la {requ\u00eate}",
+		"afficher la diapositive {query}",
+		"trouver la diapositive {query}",
+		"passer \u00e0 la diapositive {query}"
+	],
+	"reveal/next": [
+		"r\u00e9v\u00e9ler",
+		"Afficher plus",
+		"point suivant",
+		"continuer",
+		"balle suivante"
+	],
+	"video/play": [
+		"jouer",
+		"lire la vid\u00e9o",
+		"lire la vid\u00e9o",
+		"d\u00e9marrer la vid\u00e9o",
+		"CV vid\u00e9o",
+		"relancer",
+		"/^play$/"
+	],
+	"video/pause": [
+		"pause",
+		"mettre la vid\u00e9o en pause",
+		"arr\u00eater la vid\u00e9o",
+		"attendez",
+		"/^pause$/"
+	],
+	"video/seek": [
+		"aller \u00e0",
+		"chercher \u00e0",
+		"passer \u00e0",
+		"passer \u00e0",
+		"avance rapide \u00e0",
+		"rembobiner \u00e0"
+	],
+	"video/seek/relative": [
+		"revenir en arri\u00e8re {temps}",
+		"retour {temps}",
+		"rembobiner {temps}",
+		"revenir en arri\u00e8re {temps}",
+		"avancer {temps}",
+		"passer \u00e0 l&#39;\u00e9tape suivante {temps}",
+		"passer \u00e0 l&#39;\u00e9tape suivante {temps}",
+		"avance rapide {temps}",
+		"avancer {temps}"
+	],
+	"gallery/next": [
+		"image suivante",
+		"photo suivante",
+		"image suivante",
+		"passer l&#39;image",
+		"changer l&#39;arri\u00e8re-plan"
+	],
+	"gallery/pause": [
+		"pause arri\u00e8re-plan",
+		"arr\u00eater l&#39;arri\u00e8re-plan",
+		"fond gel\u00e9",
+		"maintenir l&#39;arri\u00e8re-plan",
+		"mettre en pause les images"
+	],
+	"gallery/resume": [
+		"CV historique",
+		"continuer l&#39;arri\u00e8re-plan",
+		"red\u00e9marrer l&#39;arri\u00e8re-plan",
+		"relancer l&#39;arri\u00e8re-plan"
+	],
+	"gallery/remove": [
+		"supprimer cette image",
+		"ignorer cette image",
+		"masquer cette photo",
+		"supprimer l&#39;image actuelle",
+		"supprimer cette photo"
+	],
+	"gallery/caption/remove": [
+		"supprimer la l\u00e9gende",
+		"masquer la l\u00e9gende",
+		"l\u00e9gende claire",
+		"supprimer la l\u00e9gende",
+		"masquer la l\u00e9gende"
+	],
+	"highlight": [
+		"souligner",
+		"indiquer",
+		"montre-moi",
+		"souligner",
+		"se concentrer sur",
+		"marque",
+		"appeler"
+	],
+	"zoom/in": [
+		"zoomer",
+		"zoom",
+		"plus gros",
+		"agrandir",
+		"amplifier",
+		"agrandir",
+		"plus pr\u00e8s"
+	],
+	"zoom/out": [
+		"d\u00e9zoomer",
+		"plus petit",
+		"r\u00e9tr\u00e9cir",
+		"se retirer",
+		"r\u00e9duire la taille",
+		"reculer",
+		"vue plus large"
+	],
+	"zoom/reset": [
+		"R\u00e9initialiser le zoom",
+		"R\u00e9initialisation du zoom",
+		"taille normale",
+		"adapter \u00e0 l&#39;\u00e9cran",
+		"zoomer pour ajuster"
+	],
+	"scroll/down": [
+		"D\u00e9filez vers le bas",
+		"continue",
+		"plus",
+		"continuez vers le bas",
+		"page vers le bas",
+		"ci-dessous"
+	],
+	"scroll/up": [
+		"D\u00e9filez vers le haut",
+		"monter",
+		"sauvegarde",
+		"vers le haut",
+		"page pr\u00e9c\u00e9dente",
+		"au-dessus de"
+	],
+	"scroll/top": [
+		"Remonter en haut",
+		"Retour en haut",
+		"Retour en haut de page",
+		"d\u00e9but de page",
+		"haut de page"
+	],
+	"scroll/bottom": [
+		"D\u00e9filez vers le bas",
+		"aller en bas",
+		"fin de page",
+		"bas de page"
+	],
+	"fullscreen": [
+		"plein \u00e9cran",
+		"plein \u00e9cran",
+		"maximiser",
+		"\u00e9cran plein",
+		"remplissez-le"
+	],
+	"image/generate": [
+		"g\u00e9n\u00e9rer une image de {prompt}",
+		"cr\u00e9er une image de {prompt}",
+		"montrez-moi {prompt}",
+		"visualiser {invite}",
+		"dessiner {invite}",
+		"faire une image de {prompt}"
+	],
+	"tool/generate": [
+		"cr\u00e9er une {prompt}",
+		"cr\u00e9er une {invite}",
+		"construisez-moi un {prompt}",
+		"g\u00e9n\u00e9rer un widget {prompt}",
+		"cr\u00e9er un outil {prompt}",
+		"cr\u00e9er un outil {prompt}"
+	],
+	"stream/create": [
+		"cr\u00e9er un flux {prompt}",
+		"cr\u00e9er un flux {prompt}",
+		"d\u00e9marrer une {prompt}",
+		"cr\u00e9er un jeu {prompt}",
+		"Jouons \u00e0 {prompt}",
+		"configurer une {invite}"
+	],
+	"stream/grantAccess": [
+		"donner \u00e0 {name} l&#39;acc\u00e8s \u00e0 la publication",
+		"laisser {nom} poster",
+		"accorder \u00e0 {name} l&#39;acc\u00e8s en \u00e9criture",
+		"autoriser {name} \u00e0 publier",
+		"ajouter {name} comme invit\u00e9",
+		"inviter {name} \u00e0 publier"
+	],
+	"stream/revokeAccess": [
+		"supprimer l&#39;acc\u00e8s de {name}",
+		"r\u00e9voquer l&#39;acc\u00e8s de {name}",
+		"retirer l&#39;acc\u00e8s de {name}",
+		"supprimer {name} du flux",
+		"bloquer la publication de {name}"
+	]
+}

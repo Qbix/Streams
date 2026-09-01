@@ -1,0 +1,41 @@
+{
+	"_comment": "Skipanatexti fyrir Streams. &#39;commands&#39; = s\u00fdna merki (UI); &#39;phrases&#39; = \u00feekktar setningar, ra\u00f0a\u00f0ar me\u00f0 skipun. Or\u00f0asamsetningarform: &quot;substring&quot;, &quot;/regex/&quot;, e\u00f0a sni\u00f0m\u00e1t &quot;give {{name}} access&quot; \u2014 hver {{token}} \u00fe\u00fdtur saman \u00ed myndat\u00f6ku. Streams \u00e1 n\u00fa a\u00f0gangsst\u00fdringu og endurst\u00edlsskipanir (me\u00f0h\u00f6ndlarar Streams/commands/streamCommand og Streams/commands/cssUpdate); lei\u00f0s\u00f6gn um mi\u00f0la; myndun gervigreindar.",
+	"commands": {
+		"tool/cssUpdate": "Endurst\u00edlunart\u00f3l",
+		"stream/create": "B\u00faa til straum",
+		"stream/grantAccess": "Veita a\u00f0gang",
+		"stream/revokeAccess": "Afturkalla a\u00f0gang"
+	},
+	"phrases": {
+		"tool/cssUpdate": [
+			"breyta litnum \u00ed {{prompt}}",
+			"breyta litunum \u00ed {{prompt}}",
+			"lita\u00f0u \u00fea\u00f0 upp \u00e1 n\u00fdtt {{prompt}}",
+			"endurhanna\u00f0u t\u00f3li\u00f0 {{prompt}}",
+			"b\u00faa til litina {{prompt}}"
+		],
+		"stream/create": [
+			"b\u00faa til {{prompt}} straum",
+			"b\u00faa til {{prompt}} streymi",
+			"byrja\u00f0u {{prompt}}",
+			"b\u00faa til {{prompt}} leik",
+			"vi\u00f0 skulum spila {{prompt}}",
+			"setja upp {{prompt}}"
+		],
+		"stream/grantAccess": [
+			"Gef\u00f0u {{name}} a\u00f0gang a\u00f0 p\u00f3sti",
+			"l\u00e1ttu {{name}} senda",
+			"veita {{name}} skrifa\u00f0gang",
+			"Leyfa {{name}} a\u00f0 senda inn",
+			"b\u00e6ta vi\u00f0 {{name}} sem gesti",
+			"bj\u00f3\u00f0a {{name}} a\u00f0 senda inn f\u00e6rslu"
+		],
+		"stream/revokeAccess": [
+			"fjarl\u00e6gja a\u00f0gang {{name}}",
+			"afturkalla a\u00f0gang {{name}}",
+			"Taka a\u00f0gang {{name}}",
+			"fjarl\u00e6gja {{name}} \u00far straumnum",
+			"blokka {{name}} fr\u00e1 b\u00f3kun"
+		]
+	}
+}

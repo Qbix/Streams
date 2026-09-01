@@ -1,0 +1,264 @@
+{
+	"_locale": "en",
+	"_intents": {
+		"slide/next": "Ga naar de volgende dia. Verstuurt streams/dia {slideIndex: current+1}.",
+		"slide/prev": "Ga terug naar de vorige dia. Verstuurt streams/dia {slideIndex: current-1}.",
+		"slide/first": "Spring naar de eerste dia. Verstuurt streams/dia {slideIndex: 0}.",
+		"slide/last": "Spring naar de laatste dia. Verstuurt streams/dia {slideIndex: 9999}.",
+		"slide/navigate": "Spring naar een dia op basis van een inhoudsquery. Legt {query} vast.",
+		"reveal/next": "Toon het volgende progressieve element. Zendt Streams/reveal uit {revealIndex: current+1}.",
+		"video/play": "Video afspelen. Zendt streams/afspelen {} uit.",
+		"video/pause": "Pauzeer de video. Zendt Streams/pause {} uit.",
+		"video/seek": "Zoek naar absolute tijd. Zendt streams uit/zoek {pos: seconden}. Legt vast {tijd}.",
+		"video/seek/relative": "Zoeken op offset. Zendt streams uit/zoek {pos: &#39;+/-seconden&#39;}. Legt vast {tijd}.",
+		"gallery/next": "Volgende b-roll afbeelding. Emits Streams/gallery/next.",
+		"gallery/pause": "B-roll bevriezen. Zendt streams/galerij/pauze uit.",
+		"gallery/resume": "Hervat b-roll. Zendt streams/galerij/hervatten uit.",
+		"gallery/remove": "Verberg de huidige b-roll afbeelding. Emits Streams/gallery/remove.",
+		"gallery/caption/remove": "Verberg de bijschriften van de b-roll. Emits Streams/gallery/caption {remove: true}.",
+		"highlight": "Markeer een element in de grafiek. Zendt streams/highlight {elementId} uit. Legt {target} vast.",
+		"zoom/in": "Zoom 1,5x in. Zendt streams uit/zoom {schaal: huidig*1,5}.",
+		"zoom/out": "Zoom 1,5x uit. Zendt streams uit/zoom {schaal: huidig/1,5}.",
+		"zoom/reset": "Zoom terugzetten naar 1. Zendt streams/zoom uit {schaal: 1}.",
+		"scroll/down": "Scroll 20% naar beneden. Geeft Q/scroll {top: &#39;+20%&#39;}.",
+		"scroll/up": "Scroll 20% omhoog. Geeft Q/scroll {top: &#39;-20%&#39;}.",
+		"scroll/top": "Scrol naar boven. Geeft Q/scroll {top: &#39;0%&#39;}.",
+		"scroll/bottom": "Scroll naar beneden. Geeft Q/scroll {top: &#39;100%&#39;}.",
+		"fullscreen": "Schakel de volledige schermweergave in/uit.",
+		"image/generate": "Door LLM gegenereerde afbeelding. Legt {prompt} vast.",
+		"tool/generate": "Widget gegenereerd door LLM. Legt {prompt} vast.",
+		"stream/create": "Maak een nieuwe stream aan (schaken, peiling, enz.). Legt {prompt} vast.",
+		"stream/grantAccess": "Schrijftoegang verlenen. Legt {naam, schrijfniveau} vast.",
+		"stream/revokeAccess": "Toegang intrekken. Legt {naam} vast."
+	},
+	"slide/next": [
+		"volgende dia",
+		"volgende kaart",
+		"verder gaan",
+		"verdergaan",
+		"voorschot",
+		"Volgende alstublieft",
+		"volgende",
+		"toon volgende",
+		"/^next$/"
+	],
+	"slide/prev": [
+		"vorige dia",
+		"vorige kaart",
+		"terug",
+		"achterste",
+		"vorige dia",
+		"stap terug",
+		"/^back$/"
+	],
+	"slide/first": [
+		"eerste dia",
+		"Ga naar het begin",
+		"opnieuw beginnen",
+		"van boven",
+		"begin alstublieft"
+	],
+	"slide/last": [
+		"laatste dia",
+		"ga naar het einde",
+		"laatste dia",
+		"spring naar einde"
+	],
+	"slide/navigate": [
+		"ga naar {query}",
+		"toon me {query}",
+		"zoek {query}",
+		"spring naar {query}",
+		"navigeer naar {query}",
+		"breng me naar {query}",
+		"open de {query}",
+		"toon de {query} dia",
+		"zoek de {query} dia",
+		"ga naar de {query} dia"
+	],
+	"reveal/next": [
+		"onthullen",
+		"meer weergeven",
+		"volgend punt",
+		"doorgaan",
+		"volgende punt"
+	],
+	"video/play": [
+		"toneelstuk",
+		"video afspelen",
+		"speel de video",
+		"video starten",
+		"cv-video",
+		"pauze opheffen",
+		"/^play$/"
+	],
+	"video/pause": [
+		"pauze",
+		"pauzeer video",
+		"stop video",
+		"wacht even",
+		"/^pauze$/"
+	],
+	"video/seek": [
+		"ga naar",
+		"streven naar",
+		"spring naar",
+		"overslaan naar",
+		"snel vooruitspoelen naar",
+		"terugspoelen naar"
+	],
+	"video/seek/relative": [
+		"ga terug {tijd}",
+		"terug {tijd}",
+		"terugspoelen {tijd}",
+		"terugspringen {tijd}",
+		"ga vooruit {tijd}",
+		"spring vooruit {tijd}",
+		"spring vooruit {tijd}",
+		"snel vooruitspoelen {tijd}",
+		"vooruit {tijd}"
+	],
+	"gallery/next": [
+		"volgende afbeelding",
+		"volgende foto",
+		"volgende afbeelding",
+		"afbeelding overslaan",
+		"verander de achtergrond"
+	],
+	"gallery/pause": [
+		"pauze achtergrond",
+		"stop achtergrond",
+		"bevroren achtergrond",
+		"houd de achtergrond vast",
+		"pauzeer de beelden"
+	],
+	"gallery/resume": [
+		"cv-achtergrond",
+		"achtergrond verder",
+		"Start de achtergrond opnieuw",
+		"de achtergrond pauzeren"
+	],
+	"gallery/remove": [
+		"verwijder deze afbeelding",
+		"sla deze afbeelding over",
+		"verberg deze foto",
+		"huidige afbeelding verwijderen",
+		"verwijder deze foto"
+	],
+	"gallery/caption/remove": [
+		"bijschrift verwijderen",
+		"verberg onderschrift",
+		"duidelijke ondertiteling",
+		"verwijder het onderschrift",
+		"verberg het onderschrift"
+	],
+	"highlight": [
+		"markeren",
+		"wijzen naar",
+		"laat het me zien",
+		"benadrukken",
+		"focus op",
+		"markering",
+		"roepen"
+	],
+	"zoom/in": [
+		"inzoomen",
+		"zoom",
+		"groter",
+		"vergroten",
+		"vergroten",
+		"maak het groter",
+		"dichterbij"
+	],
+	"zoom/out": [
+		"uitzoomen",
+		"kleiner",
+		"krimpen",
+		"terugtrekken",
+		"maak het kleiner",
+		"stap terug",
+		"breder perspectief"
+	],
+	"zoom/reset": [
+		"Zoom opnieuw instellen",
+		"zoom reset",
+		"normale maat",
+		"schermvullend",
+		"zoom in om te passen"
+	],
+	"scroll/down": [
+		"scroll naar beneden",
+		"ga door",
+		"meer",
+		"ga verder naar beneden",
+		"pagina omlaag",
+		"onderstaand"
+	],
+	"scroll/up": [
+		"scroll omhoog",
+		"omhoog gaan",
+		"back-up",
+		"omhoog",
+		"pagina omhoog",
+		"boven"
+	],
+	"scroll/top": [
+		"naar boven scrollen",
+		"Ga naar boven",
+		"terug naar boven",
+		"begin van de pagina",
+		"bovenaan de pagina"
+	],
+	"scroll/bottom": [
+		"naar beneden scrollen",
+		"naar beneden",
+		"einde van de pagina",
+		"onderaan de pagina"
+	],
+	"fullscreen": [
+		"volledig scherm",
+		"volledig scherm",
+		"maximaliseren",
+		"scherm vullen",
+		"maak het vol"
+	],
+	"image/generate": [
+		"genereer een afbeelding van {prompt}",
+		"maak een afbeelding van {prompt}",
+		"laat me {prompt} zien",
+		"visualiseer {prompt}",
+		"teken {prompt}",
+		"Maak een afbeelding van {prompt}"
+	],
+	"tool/generate": [
+		"een {prompt} bouwen",
+		"maak een {prompt}",
+		"maak een {prompt} voor mij",
+		"genereer een {prompt} widget",
+		"maak een {prompt} tool",
+		"maak een {prompt} tool"
+	],
+	"stream/create": [
+		"maak een {prompt}-stream",
+		"maak een {prompt} stream",
+		"start een {prompt}",
+		"maak een {prompt} spel",
+		"Laten we {prompt} spelen",
+		"een {prompt} instellen"
+	],
+	"stream/grantAccess": [
+		"Geef {naam} toegang tot het bericht",
+		"laat {naam} een bericht plaatsen",
+		"Geef {naam} schrijftoegang",
+		"{naam} toestaan om te posten",
+		"Voeg {naam} toe als gast",
+		"nodig {naam} uit om te posten"
+	],
+	"stream/revokeAccess": [
+		"verwijder de toegang van {naam}",
+		"trek de toegang van {naam} in",
+		"ontneem {naam} toegang",
+		"verwijder {naam} uit de stream",
+		"Blokkeer {naam} om berichten te plaatsen"
+	]
+}
