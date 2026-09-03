@@ -3303,7 +3303,20 @@ class Streams_Stream extends Base_Streams_Stream
 			try {
 				$sizes = Q_Image::getSizes($this->type, $maxStretch);
 			} catch (Exception $e) {
-				$sizes = Q_Image::getSizes('Streams/image', $maxStretch);
+				// Fall back to the size set that actually WROTE these files.
+				// Q_Image::getSizes() throws for any stream type with no
+				// Q/images/<type> entry of its own -- "Streams/chat" among them --
+				// so this branch is the common case, not the exception.
+				//
+				// It used to fall back to "Streams/image", whose sizes end in
+				// "1000x" (=> "1000x.jpg"). But stream icons are written by
+				// Streams::importIcon(), whose $save default is "Streams/icon",
+				// whose sizes end in "1000" (=> "1000.jpg"). Reader and writer
+				// were reading two different config keys, one character apart, so
+				// every conversation permalink advertised an og:image/twitter:image
+				// that 404ed while the real 1000.jpg sat next to it on disk
+				// (ro#388). Fall back to the writer's own default instead.
+				$sizes = Q_Image::getSizes('Streams/icon', $maxStretch);
 			}
 			$iconFile = end($sizes);
 		}
