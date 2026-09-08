@@ -217,7 +217,21 @@ The plugin ships with a rich set of built-in types, each with its own default ac
 
 **Identity types:** `Streams/user/profile`, `Streams/access`, `Streams/template`, `Streams/incoming` / `Streams/outgoing` (message channels).
 
+**Consent types:** `Streams/agreement` (a versioned document people sign — see below).
+
 Each type can declare `ephemerals` (which ephemeral payload types it accepts for real-time broadcast), `messages` (which message types can be posted, with descriptions and autosubscribe behavior), `defaults` (initial field values), `syncRelations` (whether relation changes propagate), and `extend` (PHP class mixins for custom behavior).
+
+### Agreements
+
+`Streams/agreement` records what someone agreed to, and when. The distinction it turns on is that **the document and the act of signing are separate objects**: one agreement, many signers, and the document must not change while signatures accumulate against it.
+
+So the agreement is a stream and a signature is a participant row plus an append-only message. The participant answers "is this person signed right now" and is mutable; the message is the record of the act and is never edited. A revocation is a *later* message, not a change to the first one.
+
+Streams are named `Streams/agreement/{slug}/{version}`. A new version is a new stream, with `supersedes` pointing back at the previous one. A before-save hook refuses edits to an agreement that already has signatures.
+
+The stored hash is of **canonical text**, not rendered HTML: `Streams_Agreement::canonicalText()` strips tags, decodes entities, NFC-normalizes and collapses whitespace before `sha256`. Hashing the markup would change the hash when a CSS class is renamed or a minifier runs, so two people who agreed to identical terms would end up with different hashes and a cosmetic edit would be indistinguishable from a substantive one.
+
+`sign()` compares the hash the signer was *shown* against the stream's own, so a stale page cannot produce a signature against text the person never read. Each signature stores the userId, version, hash, algorithm, the language the document was displayed in, the affirmative act and its exact label, IP, user agent and timestamp.
 
 ## Database Schema
 

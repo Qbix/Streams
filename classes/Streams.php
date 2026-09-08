@@ -3537,22 +3537,45 @@ abstract class Streams extends Base_Streams
 			$asUserId, $publisherId, $names, $fields, $fetchOptions
 		);
 
-		// Build facet map: per related stream, collect types and per-type weights (if present)
-		$facetMap = array();
-		foreach ($relations as $r) {
-			$name = $r->$FSN;
-			if (!isset($facetMap[$name])) {
-				$facetMap[$name] = array(
-					'types'   => array(),
-					'weights' => array()
-				);
+		// Drop related streams the user cannot even see, and their relations.
+		//
+		// Only reachable when the streams have already been fetched — the
+		// relationsOnly path returns above, so nothing is fetched merely to
+		// test it and this costs no extra query. That is the whole reason it
+		// can be on by default.
+		//
+		// 'see' is the threshold because below it there is nothing to render:
+		// no icon, no title, so a preview tool activates into an empty box and
+		// the stream name goes into the page source for no benefit. At 'see'
+		// or above a listing entry is meaningful, even if the content is not
+		// readable.
+		//
+		// Returning fewer rows than exist is not a new liberty here: the
+		// Users/filter/users event above already removes relations.
+		// One option: the level a related stream must reach to be returned.
+		// 'see' by default, because below it there is no icon and no title,
+		// so a listing entry has nothing to render. Pass false or null to
+		// return everything the relations point at.
+		// array_key_exists rather than Q::ifset: ifset treats an explicit null
+		// as absent and would hand back the 'see' default, so false disabled
+		// the filter and null did not. Both are falsy; both should disable.
+		$level = array_key_exists('requireReadLevel', $options)
+			? $options['requireReadLevel']
+			: 'see';
+		if ($level) {
+			foreach ($relatedStreams as $k => $rs) {
+				if ($rs and $rs->testReadLevel($level)) {
+					continue;
+				}
+				unset($relatedStreams[$k]);
+				foreach ($relations as $rk => $r) {
+					if ($r->$FSN === $k) {
+						unset($relations[$rk]);
+					}
+				}
 			}
-			$facetMap[$name]['types'][] = $r->type;
-
-			// weight may be null when $isCategory === false
-			if (isset($r->weight)) {
-				$facetMap[$name]['weights'][$r->type] = $r->weight;
-			}
+			// Callers that index by position would trip over the gaps.
+			$relations = array_values($relations);
 		}
 
 		foreach ($relatedStreams as $name => $s) {
@@ -3853,6 +3876,13 @@ abstract class Streams extends Base_Streams
 	 * @param {string} $streamName The name of the stream
 	 * @param {string} $relationType The type of the relation
 	 * @param {array} [$options=array()]
+	 * @param {string|boolean} [$options.requireReadLevel='see'] Related streams
+	 *   the user cannot read at this level are dropped, along with the
+	 *   relations pointing at them. 'see' by default, because below that a
+	 *   stream has no icon and no title, so a listing entry has nothing to
+	 *   render. Raise it to 'content' when the caller needs more than a name.
+	 *   Pass false to return everything. Ignored under relationsOnly, where
+	 *   nothing is fetched to test.
 	 * @param {boolean} [$options.postMessage=true] Whether to post messages Streams/relation/available, Streams/relation/unavailable
 	 * @param {boolean} [$options.throwIfUnavailable=false] If true and relation unavailbale, throws exception
 	 * @param {boolean} [$options.singleRelation=false] If true, check that user already related stream to category. If yes throws exception.
