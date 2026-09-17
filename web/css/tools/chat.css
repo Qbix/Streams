@@ -175,7 +175,7 @@
 .Streams_chat_addons .Q_listing_wrapper .Streams_chat_addon.Q_selected {
 	overflow: hidden;
 	cursor: pointer;
-	padding: 2px;
+	padding: 0 10px;
 }
 .Streams_chat_addons .Q_listing_wrapper .Streams_chat_addon:last-child,
 .Streams_chat_addons .Q_listing_wrapper .Streams_chat_addon.Q_selected:last-child {
