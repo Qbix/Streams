@@ -502,13 +502,20 @@ Q.Tool.define("Streams/interests", function (options) {
 						pipe.fill('my')({});
 					}
 
-					if (anotherUser) {
+					// Another user's interests need a session on the server now,
+					// and this tool turns every error into an alert() -- so a
+					// logged-out visitor to a profile page would get a modal
+					// where the section used to fill in. Don't ask; fill the
+					// pipe empty so the tool still renders.
+					if (anotherUser && Users.loggedInUser) {
 						Interests.forUser(state.userId, state.communityId, function (err, interests) {
 							if (err) {
 								return alert(Q.firstErrorMessage(err));
 							}
 							pipe.fill('anotherUser')(interests);
 						});
+					} else if (anotherUser) {
+						pipe.fill('anotherUser')({});
 					}
 				});
 			});

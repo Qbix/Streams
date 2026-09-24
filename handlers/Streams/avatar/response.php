@@ -9,8 +9,18 @@ function Streams_avatar_response()
 	$asUserId = $user ? $user->id : "";
 
 	if (isset($prefix)) {
+		// Prefix search enumerates the user base -- $limit avatars at a time,
+		// each with first name, last name and username -- so it needs a
+		// session. The old condition did the opposite: `$prefix or !$asUserId`
+		// routed a logged-OUT caller into fetchByPrefix() even with an empty
+		// prefix, which returns the directory itself. Its in-tree callers
+		// (Streams/userChooser, the invite dialogs) all require a session
+		// already.
+		if (!$asUserId) {
+			throw new Users_Exception_NotLoggedIn();
+		}
 		$options = @compact('limit', 'public', 'communities', 'platform');
-		if ($prefix or !$asUserId) {
+		if ($prefix) {
 			$avatars = Streams_Avatar::fetchByPrefix(
 				$asUserId, 
 				$prefix, 
