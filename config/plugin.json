@@ -329,6 +329,7 @@
 						"subject": ["Streams/content", ["notifications", "Streams/access"]]
 					},
 					"Streams/chat/message": {
+						"post": true,
 						"description": "A chat message was posted",
 						"subject": ["Streams/content", ["notifications", "Streams/chat/message"]],
 						"autosubscribe": true
