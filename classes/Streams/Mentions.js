@@ -33,7 +33,11 @@ Q.on('init', function () {
 			}
 
 			Streams_Avatar.fetch(byUserId, userId, function (err, avatar) {
-				if (err) {
+				// Streams_Avatar.fetch calls back (null, null) when there is no
+				// avatar row for this pair (deleted user, crafted id): leave the
+				// mention as written rather than throw inside a DB callback,
+				// where an uncaught TypeError takes down the Node process.
+				if (err || !avatar) {
 					return pipe.fill(string)();
 				}
 
