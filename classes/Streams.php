@@ -7352,7 +7352,9 @@ abstract class Streams extends Base_Streams
 	 * @static
 	 * @param {string} $publisherId
 	 * @param {string} $streamName
-	 * @param {string} $imageURL - URL or path to image
+	 * @param {string|array} $sources - URL of an image (fetched through Q_Fetch:
+	 *   http/https, public targets only), or path to a local image file, which
+	 *   must never come from request input; or an array of these keyed by size
 	 * @param {string} [$save] - name of config under Q/image/sizes
 	 * @param {array} [$options=array]
 	 * @param {boolean} [$options.skipAccess=false]
@@ -7368,15 +7370,30 @@ abstract class Streams extends Base_Streams
 		$sources = array_reverse($sources, true); // biggest first
 
 		foreach ($sources as $basename => $imageURL) {
-			if (!Q_Valid::url($imageURL) && !file_exists($imageURL)) {
+			if (!is_string($imageURL) || $imageURL === '') {
 				continue;
 			}
+			// A URL (often a member's or a third party's) is fetched only
+			// through Q_Fetch: http/https, public targets, re-checked on
+			// every redirect (ro#1034). Anything with a scheme is a URL, so
+			// file://, php:// and other stream wrappers are never opened.
+			// A path is read as a file: only server code passes paths (such
+			// as Websites_Fetch::toTempFile() results), never request input.
+			$data = null;
+			if (preg_match('#^[a-z][a-z0-9+.-]*:#i', $imageURL)) {
+				try {
+					$response = Q_Fetch::get($imageURL, array('maxBytes' => 5242880));
+					if ($response['status'] === 200 && !$response['truncated']) {
+						$data = $response['body'];
+					}
+				} catch (Exception $e) {
+					Q::log("Streams::importIcon: " . $e->getMessage());
+				}
+			} else if (is_file($imageURL)) {
+				$data = file_get_contents($imageURL);
+			}
 
-			$data = Q_Valid::url($imageURL)
-				? Q_Utils::get($imageURL, null, true)
-				: file_get_contents($imageURL);
-
-			if (!imagecreatefromstring($data)) {
+			if (!$data || !@imagecreatefromstring($data)) {
 				continue;
 			}
 
