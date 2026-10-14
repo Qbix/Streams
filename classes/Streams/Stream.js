@@ -455,7 +455,7 @@ Sp.notifyParticipants = function (event, messageOrEphemeral, dontNotifyObservers
 	// messageOrEphemeral.stream = stream;
 
 	this.getParticipants({ skipAccess: true }, function (err, participants) {
-		var userIds = Object.keys(participants) || [];
+		var userIds = participants && Object.keys(participants) || [];
 		for (var i = 0; i < userIds.length; i++) {
 			var userId = userIds[i];
 			var participant = participants[userId];
@@ -1644,6 +1644,9 @@ Sp.getParticipants = function (options, callback) {
 
 	q.execute(function (err, rows) {
 		if (err) {
+			try {
+				Q.log(err, 'db');
+			} catch (e) {}
 			return callback && callback(err);
 		}
 
