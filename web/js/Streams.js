@@ -1643,8 +1643,14 @@ Streams.Metrics = function (params) {
 			return;
 		}
 
-		// check faces
-		if (!that.face) {
+		// check faces — only enforced when useFaces was actually requested;
+		// that.face is never set at all otherwise (only the useFaces block
+		// below ever assigns it), so this used to unconditionally block
+		// every caller that didn't opt into face tracking — which is every
+		// current caller (Q/video.js, Safecloud/video.js) — meaning
+		// predefined never got populated and the periodic POST below never
+		// had anything to send, regardless of how long playback ran.
+		if (that.useFaces && !that.face) {
 			return;
 		}
 
