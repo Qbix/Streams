@@ -827,6 +827,13 @@ function _connectSockets(refresh) {
 					return;
 				}
 				priv._connectedNodes[url] = qs;
+				// PeerMesh: attach WebRTC mesh if available
+				if (typeof Q.PeerMesh !== 'undefined') {
+					Q.PeerMesh.forNodeUrl(url).attach(qs, {
+						interceptEphemeral: ['Streams/ephemeral'],
+						accelerateDurable:  ['Streams/post']
+					});
+				}
 			});
 			priv._connectedNodes[n[i]] = true;
 		}

@@ -68,6 +68,7 @@
 			"Streams/cloudConvertWebhook": {"module": "Streams", "action": "cloudConvertWebhook"},
 			"Streams/discourse-sso": {"module": "Streams", "action": "sso-discourse"},
 			"Q/plugins/Streams/invite/:token": {"module": "Streams", "action": "invite"},
+			"embed/:publisherId/:streamName[]": {"module": "Streams", "action": "embed"},
 			"Q/plugins/Streams/:action": {"module": "Streams"},
 			"Users/:userId.vcf": { "module": "Streams", "action": "vcard" }
 		},

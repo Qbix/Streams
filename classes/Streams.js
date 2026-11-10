@@ -529,6 +529,12 @@ Streams.listen = function (options, servers) {
 		client.on('Streams/transcript/session/stop', _clientHandlers.transcriptStop);
 		client.on('Streams/utterance', _clientHandlers.utterance);
 		client.on('disconnect', _clientHandlers.disconnect);
+
+		// PeerMesh: register signaling handlers for WebRTC peer discovery
+		try {
+			var PeerMesh = require('./Streams/PeerMesh');
+			PeerMesh.register(client);
+		} catch (e) { /* PeerMesh not available */ }
 	});
 	return Streams.listen.result = {
 		internal: server,
