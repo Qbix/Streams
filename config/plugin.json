@@ -925,6 +925,9 @@
 				},
 				"Streams/invited": {
 					"evenIfNotSubscribed": true
+				},
+				"Streams/relatedTo": {
+					"timeout": 10
 				}
 			}
 		},
