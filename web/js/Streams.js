@@ -4811,9 +4811,24 @@ Q.onInit.add(function _Streams_onInit() {
 									avatar: avatar,
 									message: message
 								});
-								Q.Notices.add(Q.extend(noticeOptions, {
+								var noticeUrl = messageUrl || stream.url();
+								Q.Notices.add(Q.extend({}, noticeOptions, {
 									content: html,
-									handler: messageUrl || stream.url()
+									// Q.handle(url) alone would use its AJAX-based
+									// SPA transition (Q.loadUrl), which re-requests
+									// scripts already on the page under a newer
+									// cache-bust query string -- Q.addScript's own
+									// dedup check strips the querystring and should
+									// skip those, but in practice, navigating from
+									// here (outside any Q/columns column) to a
+									// stream-type page the current page didn't
+									// come from gets that transition stuck partway
+									// (confirmed live: Q.Page.beingProcessed never
+									// resets, so the click silently does nothing).
+									// A real page load sidesteps that path entirely.
+									handler: function () {
+										Q.handle(noticeUrl, {loadUsingAjax: false});
+									}
 								}));
 							} catch (e) {
 								console.warn(e);

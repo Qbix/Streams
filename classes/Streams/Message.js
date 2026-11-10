@@ -289,14 +289,23 @@ Streams_Message.prototype.deliver = function(stream, toUserId, deliver, avatar, 
 
 	var p = new Q.Pipe();
 	if (fetchAvatar) {
-		Streams.Avatar.fetch(toUserId, toUserId, p.fill('avatar'));	
+		Streams.Avatar.fetch(toUserId, toUserId, p.fill('avatar'));
+		// the message author's avatar (as seen by the recipient, so any
+		// nickname the recipient has set for them is respected), for
+		// subject/body templates that want to name who did the thing
+		// (e.g. "{{{call 'fromAvatar.displayName'}}} uploaded a new
+		// video") rather than just the stream/category titles already
+		// in fields.
+		Streams.Avatar.fetch(toUserId, message.fields.byUserId, p.fill('fromAvatar'));
 	} else {
 		p.fill('avatar')(null, null);
+		p.fill('fromAvatar')(null, null);
 	}
 	Users.fetch(toUserId, p.fill('user'));
-	p.add(['user', 'avatar'], 1, function (params, subjects) {
+	p.add(['user', 'avatar', 'fromAvatar'], 1, function (params, subjects) {
 		fields.toUser = params.user[1];
 		fields.toAvatar = params.avatar[1];
+		fields.fromAvatar = params.fromAvatar[1];
 		var to = Q.Config.get(
 			['Streams', 'rules', 'deliver', deliver.to],
 			['devices', 'email', 'mobile']
