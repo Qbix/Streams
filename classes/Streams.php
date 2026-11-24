@@ -2198,13 +2198,18 @@ abstract class Streams extends Base_Streams
 		// and cannot read another user's private firstName/lastName).
 		$streamAsUserId = empty($asUserId) ? false : $asUserId;
 		$displayName = array();
+		// fetchOne() returns a stream the viewer may not read, content and all;
+		// only testReadLevel() applies its readLevel. Without it this fallback
+		// showed a last name at readLevel 15 to anyone, logged out included.
 		try {
-			if ($fnStream = Streams::fetchOne($streamAsUserId, $userId, "Streams/user/firstName")) {
+			if ($fnStream = Streams::fetchOne($streamAsUserId, $userId, "Streams/user/firstName")
+			and $fnStream->testReadLevel('content')) {
 				$displayName['firstName'] = $fnStream->content;
 			}
 		} catch (Exception $e) {}
 		try {
-			if ($lnStream = Streams::fetchOne($streamAsUserId, $userId, "Streams/user/lastName")) {
+			if ($lnStream = Streams::fetchOne($streamAsUserId, $userId, "Streams/user/lastName")
+			and $lnStream->testReadLevel('content')) {
 				$displayName['lastName'] = $lnStream->content;
 			}
 		} catch (Exception $e) {}
