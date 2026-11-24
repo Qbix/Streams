@@ -3201,6 +3201,7 @@ abstract class Streams extends Base_Streams
 			$isCategory = true;
 		}
 		$skipTypes = Q::ifset($options, 'skipTypes', array());
+		$skipNames = Q::ifset($options, 'skipNames', array());
 
 		$workspaces = Streams_Workspace::fromRequest($options);
 		$workspacePublisherIds = Streams_Workspace::stackedPublisherIds($publisherId, $workspaces);
@@ -3221,6 +3222,10 @@ abstract class Streams extends Base_Streams
 				}
 				if (!$row->testReadLevel('participants')) {
 					$skipTypes[$n][] = 'Streams/participating';
+					$skipNames[$n] = array_merge(
+						Q::ifset($skipNames, $n, array()), 
+						Streams_Stream::getConfigField($row->type, 'participating', array())
+					);
 				}
 				$streams[$n] = $row;
 			}
@@ -3463,7 +3468,8 @@ abstract class Streams extends Base_Streams
 					continue;
 				}
 			}
-			if (!empty($skipTypes[$v->$col2]) && in_array($v->type, $skipTypes[$v->$col2])) {
+			if ((!empty($skipTypes[$v->$col2]) && in_array($v->type, $skipTypes[$v->$col2]))
+			or (!empty($skipNames[$v->$col2]) && in_array($v->$col, $skipNames[$v->$col2]))) {
 				unset($relations[$k]);
 			}
 		}
