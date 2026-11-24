@@ -2170,7 +2170,7 @@ abstract class Streams extends Base_Streams
 		if ($userId instanceof Users_User) {
 			$userId = $userId->id;
 		}
-		if (!empty($options['asUserId'])) {
+		if (isset($options['asUserId'])) {
 			$asUserId = $options['asUserId'];
 		} else if (!empty($options['fullAccess'])) {
 			$asUserId = $userId;
