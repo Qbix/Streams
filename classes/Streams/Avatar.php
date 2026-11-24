@@ -684,10 +684,19 @@ class Streams_Avatar extends Base_Streams_Avatar
 		Streams_Avatar::insertManyAndExecute($rows_that_show, array('onDuplicateKeyUpdate' => $updates_that_show));
 		Streams_Avatar::insertManyAndExecute($rows_that_hide, array('onDuplicateKeyUpdate' => $updates_that_hide));
 
-		Q::event('Streams/updateAvatars', 'after', compact(
+		/**
+		 * @event Streams/updateAvatars {after}
+		 * @param {array} rows_that_show arrays of avatar fields, not Streams_Avatar objects
+		 * @param {array} rows_that_hide arrays of avatar fields, not Streams_Avatar objects
+		 * @param {array} updates_that_show
+		 * @param {array} updates_that_hide
+		 * @param {array} showToUserIds
+		 * @param {boolean} updateToPublicValue
+		 */
+		Q::event('Streams/updateAvatars', compact(
 			'rows_that_show', 'rows_that_hide', 'updates_that_show', 'updates_that_hide',
 			'showToUserIds', 'updateToPublicValue'
-		));
+		), 'after');
 	}
 
 	/**
