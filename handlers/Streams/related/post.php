@@ -51,6 +51,26 @@ function Streams_related_post($params) {
 		);
 	}
 
+	// Streams::relate() checks the caller's access to the category only; the
+	// related stream is fetched above without regard to it. From a client,
+	// relate only a stream the caller can see, and make it inherit the
+	// category's access only if the caller owns it -- the level
+	// Streams/stream PUT requires to set inheritAccess directly. Otherwise
+	// anyone who can create a category could relate someone else's private
+	// stream to it with inheritAccess and read it.
+	foreach ($streams as $stream) {
+		if (!$stream) {
+			throw new Q_Exception_MissingRow(
+				array('table' => 'stream', 'criteria' => 'with those fields'),
+				array('fromPublisherId', 'from_name')
+			);
+		}
+		if (!$stream->testReadLevel('see')
+		or ($inheritAccess and !$stream->testAdminLevel('own'))) {
+			throw new Users_Exception_NotAuthorized();
+		}
+	}
+
 	$weight = time();
 	foreach ($categories as $category) {
 		foreach ($streams as $stream) {

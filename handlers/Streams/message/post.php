@@ -54,7 +54,16 @@ function Streams_message_post () {
 		throw new Streams_Exception_NoSuchStream();
 	}
 	$stream = reset($streams);
-	if (!Streams_Stream::getConfigField($stream->type, "messages", $type, false)) {
+	// A client may post only the message types the stream type marks
+	// "post": true (Streams/types/*/messages is merged under the type's own
+	// map, so a type can also say "post": false). This used to be
+	// getConfigField($stream->type, "messages", $type, false), which passed
+	// $type as the *default* and tested the whole messages map, so every
+	// message type passed -- platform ones such as Streams/announcement or
+	// Streams/relatedTo included, and "post" was never read.
+	$declared = Streams_Stream::getConfigField($stream->type, array("messages", $type), null);
+	if (!is_array($declared) or !isset($declared['post'])
+	or !filter_var($declared['post'], FILTER_VALIDATE_BOOLEAN)) {
 		throw new Q_Exception("This app doesn't support directly posting messages of type '$type' for streams of type '{$stream->type}'");
 	}
 	
